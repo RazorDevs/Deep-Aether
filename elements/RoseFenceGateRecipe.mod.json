@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:aether:skyroot_stick"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "TAG:aether:skyroot_stick"
+      },
+      {
+        "value": "TAG:aether:skyroot_stick"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "TAG:aether:skyroot_stick"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:RoseFenceGate"
+    },
+    "name": "rose_fence_gate_recipe",
+    "namespace": "mod"
+  }
+}

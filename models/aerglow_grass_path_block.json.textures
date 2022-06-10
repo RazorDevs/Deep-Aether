@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "aerglow_grass_path_texture"
+      },
+      "name": "default"
+    }
+  }
+}

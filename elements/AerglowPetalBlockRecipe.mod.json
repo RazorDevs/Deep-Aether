@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:AerglowPetal"
+      },
+      {
+        "value": "CUSTOM:AerglowPetal"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:AerglowPetal"
+      },
+      {
+        "value": "CUSTOM:AerglowPetal"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:AerglowPetalBlock"
+    },
+    "name": "aerglow_petal_block_recipe",
+    "namespace": "mod"
+  }
+}

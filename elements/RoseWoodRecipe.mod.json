@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 3,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:RoseLog"
+      },
+      {
+        "value": "CUSTOM:RoseLog"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:RoseLog"
+      },
+      {
+        "value": "CUSTOM:RoseLog"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:RoseWood"
+    },
+    "name": "rose_wood_recipe",
+    "namespace": "mod"
+  }
+}

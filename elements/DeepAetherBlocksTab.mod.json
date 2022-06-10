@@ -1,0 +1,11 @@
+{
+  "_fv": 28,
+  "_type": "tab",
+  "definition": {
+    "name": "Deep in the Aether - Blocks",
+    "icon": {
+      "value": "CUSTOM:AerglowGrassBlock"
+    },
+    "showSearch": false
+  }
+}

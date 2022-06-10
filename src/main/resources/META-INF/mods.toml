@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="deep_aether"
+version="0.1.0"
+displayName="Deep Aether"
+credits="Add-on to the Aether mod. Textures by 345boneshoss. Created with MCreator by Pylo, mod by Aethyus."
+displayURL="https://discord.gg/EpRDgt33jy"
+authors="Team Razor: 345boneshoss, Aethyus, AwesomeGames, Egg, EnderCristy, darksonic300, TunefulTurntip, and the other members."
+description='''
+An addon to the Aether mod, created by the Team Razor!
+'''
+
+[[dependencies.deep_aether]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2]"
+    ordering="NONE"
+    side="BOTH"
+
+
+[[dependencies.deep_aether]]
+    modId="aether"
+    mandatory=true
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+
+

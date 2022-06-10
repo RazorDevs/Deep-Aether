@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    " 3",
+    " 5"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:skyjade"
+    },
+    "1": {
+      "item": "deep_aether:skyjade"
+    },
+    "3": {
+      "item": "minecraft:stick"
+    },
+    "5": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "deep_aether:skyjade_tools_hoe",
+    "count": 1
+  }
+}

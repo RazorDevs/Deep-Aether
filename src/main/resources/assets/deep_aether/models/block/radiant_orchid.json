@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "deep_aether:blocks/aerglow_flower",
+    "particle": "deep_aether:blocks/aerglow_flower"
+  }
+}

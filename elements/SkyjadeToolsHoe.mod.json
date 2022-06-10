@@ -1,0 +1,31 @@
+{
+  "_fv": 28,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "skyjade_hoe",
+    "customModelName": "Normal",
+    "name": "Skyjade Hoe",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:DeepAetherItemsTab"
+    },
+    "toolType": "Hoe",
+    "harvestLevel": 2,
+    "efficiency": 12.0,
+    "attackSpeed": 1.0,
+    "enchantability": 22,
+    "damageVsEntity": 2.0,
+    "usageCount": 100,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:Skyjade"
+      }
+    ],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}

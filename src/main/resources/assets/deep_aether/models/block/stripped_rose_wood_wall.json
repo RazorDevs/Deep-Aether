@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "deep_aether:blocks/stripped_rosewood_log",
+    "particle": "deep_aether:blocks/stripped_rosewood_log"
+  }
+}

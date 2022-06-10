@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:Skyjade"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      },
+      {
+        "value": "CUSTOM:RosePlanks"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "Blocks.JUKEBOX"
+    },
+    "name": "jukebox_by_skyjade",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "deep_aether:blocks/stripped_rosewood_log",
+    "particle": "deep_aether:blocks/stripped_rosewood_log"
+  }
+}

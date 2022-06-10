@@ -1,0 +1,710 @@
+{
+  "mod_elements": [
+    {
+      "name": "RoseWood",
+      "type": "block",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood"
+    },
+    {
+      "name": "RoseLog",
+      "type": "block",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_log"
+    },
+    {
+      "name": "RosePlanks",
+      "type": "block",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_planks"
+    },
+    {
+      "name": "RoseLeaves",
+      "type": "block",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_leaves"
+    },
+    {
+      "name": "RoseStairs",
+      "type": "block",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_stairs"
+    },
+    {
+      "name": "RoseSlab",
+      "type": "block",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_slab"
+    },
+    {
+      "name": "RoseFence",
+      "type": "block",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_fence"
+    },
+    {
+      "name": "RoseFenceGate",
+      "type": "block",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_fence_gate"
+    },
+    {
+      "name": "RosePressurePlate",
+      "type": "block",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_pressure_plate"
+    },
+    {
+      "name": "RoseButton",
+      "type": "block",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_button"
+    },
+    {
+      "name": "RoseItemsTag",
+      "type": "tag",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_items_tag"
+    },
+    {
+      "name": "RoseWoodRecipe",
+      "type": "recipe",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood_recipe"
+    },
+    {
+      "name": "RosePlanksRecipe",
+      "type": "recipe",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_planks_recipe"
+    },
+    {
+      "name": "RoseStairsRecipe",
+      "type": "recipe",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_stairs_recipe"
+    },
+    {
+      "name": "RoseSlabRecipe",
+      "type": "recipe",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_slab_recipe"
+    },
+    {
+      "name": "RoseFenceRecipe",
+      "type": "recipe",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_fence_recipe"
+    },
+    {
+      "name": "RoseFenceGateRecipe",
+      "type": "recipe",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_fence_gate_recipe"
+    },
+    {
+      "name": "RosePressurePlateRecipe",
+      "type": "recipe",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_pressure_plate_recipe"
+    },
+    {
+      "name": "RoseButtonRecipe",
+      "type": "recipe",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_button_recipe"
+    },
+    {
+      "name": "RoseStickRecipe",
+      "type": "recipe",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_stick_recipe"
+    },
+    {
+      "name": "DeepAetherBlocksTab",
+      "type": "tab",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deep_aether_blocks_tab"
+    },
+    {
+      "name": "RoseWoodPlanksRecipe",
+      "type": "recipe",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood_planks_recipe"
+    },
+    {
+      "name": "FloweringRoseLeaves",
+      "type": "block",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flowering_rose_leaves"
+    },
+    {
+      "name": "RoseWoodDoor",
+      "type": "block",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood_door"
+    },
+    {
+      "name": "RoseWoodTrapdoor",
+      "type": "block",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood_trapdoor"
+    },
+    {
+      "name": "SkyjadeOre",
+      "type": "block",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_ore"
+    },
+    {
+      "name": "AerglowGrassBlock",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_grass_block"
+    },
+    {
+      "name": "AerglowPetal",
+      "type": "item",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_petal"
+    },
+    {
+      "name": "RoseLeavesLootTable",
+      "type": "loottable",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_leaves_loot_table"
+    },
+    {
+      "name": "Skyjade",
+      "type": "item",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade"
+    },
+    {
+      "name": "SkyjadeToolsPickaxe",
+      "type": "tool",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_pickaxe"
+    },
+    {
+      "name": "SkyjadeToolsAxe",
+      "type": "tool",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_axe"
+    },
+    {
+      "name": "SkyjadeToolsSword",
+      "type": "tool",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_sword"
+    },
+    {
+      "name": "SkyjadeToolsShovel",
+      "type": "tool",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_shovel"
+    },
+    {
+      "name": "SkyjadeToolsHoe",
+      "type": "tool",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_hoe"
+    },
+    {
+      "name": "SkyjadeToolsPickaxeRecipe",
+      "type": "recipe",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_pickaxe_recipe"
+    },
+    {
+      "name": "SkyjadeToolsAxeRecipe",
+      "type": "recipe",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_axe_recipe"
+    },
+    {
+      "name": "SkyjadeToolsSwordRecipe",
+      "type": "recipe",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_sword_recipe"
+    },
+    {
+      "name": "SkyjadeToolsShovelRecipe",
+      "type": "recipe",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_shovel_recipe"
+    },
+    {
+      "name": "SkyjadeToolsHoeRecipe",
+      "type": "recipe",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_tools_hoe_recipe"
+    },
+    {
+      "name": "DeepAetherItemsTab",
+      "type": "tab",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "deep_aether_items_tab"
+    },
+    {
+      "name": "AerglowPetalBlock",
+      "type": "block",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_petal_block"
+    },
+    {
+      "name": "AerglowPetalBlockRecipe",
+      "type": "recipe",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_petal_block_recipe"
+    },
+    {
+      "name": "AerglowPetalsByBlock",
+      "type": "recipe",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_petals_by_block"
+    },
+    {
+      "name": "RadiantOrchid",
+      "type": "plant",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiant_orchid"
+    },
+    {
+      "name": "RadiantOrchidLootTable",
+      "type": "loottable",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiant_orchid_loot_table"
+    },
+    {
+      "name": "FloweringRoseLeavesLootTable",
+      "type": "loottable",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flowering_rose_leaves_loot_table"
+    },
+    {
+      "name": "AerglowGrassPath",
+      "type": "block",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_grass_path"
+    },
+    {
+      "name": "AerglowGrassBlockOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aerglow_grass_block_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StrippedRoseWoodLog",
+      "type": "block",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_rose_wood_log"
+    },
+    {
+      "name": "StrippedRoseWood",
+      "type": "block",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_rose_wood"
+    },
+    {
+      "name": "StrippedRoseWoodLogOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 56,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_rose_wood_log_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StrippedRoseWoodOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_rose_wood_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Stripped1Planks",
+      "type": "recipe",
+      "sortid": 58,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_1_planks"
+    },
+    {
+      "name": "Stripped2Planks",
+      "type": "recipe",
+      "sortid": 59,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_2_planks"
+    },
+    {
+      "name": "RoseWoodWall",
+      "type": "block",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood_wall"
+    },
+    {
+      "name": "StrippedRoseWoodWall",
+      "type": "block",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_rose_wood_wall"
+    },
+    {
+      "name": "StrippedRoseWoodWallRecipe",
+      "type": "recipe",
+      "sortid": 60,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_rose_wood_wall_recipe"
+    },
+    {
+      "name": "RoseWoodWallRecipe",
+      "type": "recipe",
+      "sortid": 61,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rose_wood_wall_recipe"
+    },
+    {
+      "name": "ChestBySkyjade",
+      "type": "recipe",
+      "sortid": 62,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chest_by_skyjade"
+    },
+    {
+      "name": "JukeboxBySkyjade",
+      "type": "recipe",
+      "sortid": 63,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jukebox_by_skyjade"
+    },
+    {
+      "name": "CraftingTableBySkyjade",
+      "type": "recipe",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_table_by_skyjade"
+    },
+    {
+      "name": "SkyjadeArmor",
+      "type": "armor",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_armor",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "SkyjadeHelmetRecipe",
+      "type": "recipe",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_helmet_recipe"
+    },
+    {
+      "name": "SkyjadeLeggingsRecipe",
+      "type": "recipe",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_leggings_recipe"
+    },
+    {
+      "name": "SkyjadeChestplateRecipe",
+      "type": "recipe",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_chestplate_recipe"
+    },
+    {
+      "name": "SkyjadeBootsRecipe",
+      "type": "recipe",
+      "sortid": 68,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_boots_recipe"
+    },
+    {
+      "name": "SkyjadeBlock",
+      "type": "block",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_block"
+    },
+    {
+      "name": "SkyjadeBlockRecipe",
+      "type": "recipe",
+      "sortid": 69,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_block_recipe"
+    },
+    {
+      "name": "SkyjadesByBlock",
+      "type": "recipe",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjades_by_block"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "item.deep_aether.skyjade_armor_chestplate": "Skyjade Chestplate",
+      "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
+      "block.deep_aether.rose_wood_wall": "Roseroot Wall",
+      "block.deep_aether.aerglow_grass_block": "Aerglow Grass Block",
+      "item.deep_aether.skyjade_armor_helmet": "Skyjade Helmet",
+      "block.deep_aether.rose_leaves": "Roseroot Leaves",
+      "block.deep_aether.rose_fence": "Roseroot Fence",
+      "block.deep_aether.rose_fence_gate": "Roseroot Fence Gate",
+      "itemGroup.tabdeep_aether_blocks_tab": "Deep in the Aether - Blocks",
+      "item.deep_aether.skyjade": "Skyjade Gemstone",
+      "item.deep_aether.aerglow_petal": "Aerglow Petal",
+      "block.deep_aether.aerglow_petal_block": "Aerglow Petal Block",
+      "block.deep_aether.rose_button": "Roseroot Button",
+      "block.deep_aether.rose_planks": "Roseroot Planks",
+      "block.deep_aether.rose_stairs": "Roseroot Stairs",
+      "item.deep_aether.skyjade_tools_axe": "Skyjade Axe",
+      "block.deep_aether.rose_slab": "Roseroot Slab",
+      "block.deep_aether.rose_wood_door": "Roseroot Door",
+      "block.deep_aether.stripped_rose_wood_log": "Stripped Roseroot Log",
+      "block.deep_aether.skyjade_block": "Skyjade Block",
+      "item.deep_aether.skyjade_tools_pickaxe": "Skyjade Pickaxe",
+      "block.deep_aether.rose_log": "Roseroot Log",
+      "item.deep_aether.skyjade_armor_boots": "Skyjade Boots",
+      "item.deep_aether.skyjade_tools_hoe": "Skyjade Hoe",
+      "item.deep_aether.skyjade_armor_leggings": "Skyjade Leggings",
+      "item.deep_aether.skyjade_tools_sword": "Skyjade Sword",
+      "block.deep_aether.rose_wood_trapdoor": "Roseroot Trapdoor",
+      "block.deep_aether.flowering_rose_leaves": "Flowering Roseroot Leaves",
+      "block.deep_aether.radiant_orchid": "Radiant Orchid",
+      "block.deep_aether.stripped_rose_wood": "Stripped Roseroot Wood",
+      "block.deep_aether.rose_pressure_plate": "Roseroot Pressure Plate",
+      "itemGroup.tabdeep_aether_items_tab": "Deep Aether - Items",
+      "block.deep_aether.skyjade_ore": "Skyjade Ore",
+      "block.deep_aether.stripped_rose_wood_wall": "Stripped Roseroot Wall",
+      "item.deep_aether.skyjade_tools_shovel": "Skyjade Shovel",
+      "block.deep_aether.rose_wood": "Roseroot Wood"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "deep_aether",
+    "modName": "Deep Aether",
+    "version": "0.1.0",
+    "description": "An addon to the Aether mod, created by the Team Razor!",
+    "author": "Team Razor: 345boneshoss, Aethyus, AwesomeGames, Egg, EnderCristy, darksonic300, TunefulTurntip, and the other members.",
+    "websiteURL": "https://discord.gg/EpRDgt33jy",
+    "license": "All Rights Reserved",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [
+      "aether"
+    ],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.18.2",
+    "credits": "Add-on to the Aether mod. Textures by 345boneshoss. Created with MCreator by Pylo, mod by Aethyus.",
+    "modElementsPackage": "teamrazor.deepaether",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200120510
+}

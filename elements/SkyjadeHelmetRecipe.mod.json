@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Skyjade"
+      },
+      {
+        "value": "CUSTOM:Skyjade"
+      },
+      {
+        "value": "CUSTOM:Skyjade"
+      },
+      {
+        "value": "CUSTOM:Skyjade"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Skyjade"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:SkyjadeArmor.helmet"
+    },
+    "name": "skyjade_helmet_recipe",
+    "namespace": "mod"
+  }
+}

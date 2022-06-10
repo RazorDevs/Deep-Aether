@@ -1,0 +1,11 @@
+{
+  "_fv": 28,
+  "_type": "tab",
+  "definition": {
+    "name": "Deep Aether - Items",
+    "icon": {
+      "value": "CUSTOM:SkyjadeToolsSword"
+    },
+    "showSearch": false
+  }
+}

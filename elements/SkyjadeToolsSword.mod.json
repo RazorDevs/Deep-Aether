@@ -1,0 +1,31 @@
+{
+  "_fv": 28,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "skyjade_sword",
+    "customModelName": "Normal",
+    "name": "Skyjade Sword",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:DeepAetherItemsTab"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 2,
+    "efficiency": 12.0,
+    "attackSpeed": 1.0,
+    "enchantability": 22,
+    "damageVsEntity": 6.0,
+    "usageCount": 100,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "CUSTOM:Skyjade"
+      }
+    ],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
+  }
+}
