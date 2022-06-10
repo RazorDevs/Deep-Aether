@@ -18,3 +18,4 @@ The Deep Aether mod introduces:
 You'll need of course:
  - Forge
  - The Aether Mod
+ - Curios
