@@ -1,0 +1,17 @@
+{
+  "_fv": 28,
+  "_type": "musicdisc",
+  "definition": {
+    "texture": "music_disc_nabooru",
+    "name": "Music Disc",
+    "description": "Emile van Krieken - Nabooru",
+    "creativeTab": {
+      "value": "CUSTOM:DeepAetherItemsTab"
+    },
+    "music": {
+      "value": "CUSTOM:music_disc_nabooru"
+    },
+    "specialInfo": [],
+    "hasGlow": false
+  }
+}

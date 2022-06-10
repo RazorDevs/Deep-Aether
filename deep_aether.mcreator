@@ -637,10 +637,43 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "skyjades_by_block"
+    },
+    {
+      "name": "MusicDiscNabooru",
+      "type": "musicdisc",
+      "sortid": 71,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "music_disc_nabooru"
+    },
+    {
+      "name": "MusicDiscAMorningWish",
+      "type": "musicdisc",
+      "sortid": 72,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "music_disc_a_morning_wish"
     }
   ],
   "variable_elements": [],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "music_disc_a_morning_wish",
+      "files": [
+        "emile-van-krieken-a-morning-wish"
+      ],
+      "category": "record",
+      "subtitle": ""
+    },
+    {
+      "name": "music_disc_nabooru",
+      "files": [
+        "emile-van-krieken-nabooru"
+      ],
+      "category": "record",
+      "subtitle": ""
+    }
+  ],
   "language_map": {
     "en_us": {
       "item.deep_aether.skyjade_armor_chestplate": "Skyjade Chestplate",
@@ -651,11 +684,15 @@
       "block.deep_aether.rose_leaves": "Roseroot Leaves",
       "block.deep_aether.rose_fence": "Roseroot Fence",
       "block.deep_aether.rose_fence_gate": "Roseroot Fence Gate",
-      "itemGroup.tabdeep_aether_blocks_tab": "Deep in the Aether - Blocks",
+      "itemGroup.tabdeep_aether_blocks_tab": "Deep Aether - Blocks",
+      "item.deep_aether.music_disc_nabooru": "Music Disc",
       "item.deep_aether.skyjade": "Skyjade Gemstone",
       "item.deep_aether.aerglow_petal": "Aerglow Petal",
       "block.deep_aether.aerglow_petal_block": "Aerglow Petal Block",
+      "item.deep_aether.music_disc_nabooru.desc": "Emile van Krieken - Nabooru",
+      "item.deep_aether.music_disc_a_morning_wish.desc": "Emile van Krieken - A Morning Wish",
       "block.deep_aether.rose_button": "Roseroot Button",
+      "item.deep_aether.music_disc_a_morning_wish": "Music Disc",
       "block.deep_aether.rose_planks": "Roseroot Planks",
       "block.deep_aether.rose_stairs": "Roseroot Stairs",
       "item.deep_aether.skyjade_tools_axe": "Skyjade Axe",
@@ -666,6 +703,7 @@
       "item.deep_aether.skyjade_tools_pickaxe": "Skyjade Pickaxe",
       "block.deep_aether.rose_log": "Roseroot Log",
       "item.deep_aether.skyjade_armor_boots": "Skyjade Boots",
+      "subtitles.music_disc_nabooru": "",
       "item.deep_aether.skyjade_tools_hoe": "Skyjade Hoe",
       "item.deep_aether.skyjade_armor_leggings": "Skyjade Leggings",
       "item.deep_aether.skyjade_tools_sword": "Skyjade Sword",
@@ -675,6 +713,7 @@
       "block.deep_aether.stripped_rose_wood": "Stripped Roseroot Wood",
       "block.deep_aether.rose_pressure_plate": "Roseroot Pressure Plate",
       "itemGroup.tabdeep_aether_items_tab": "Deep Aether - Items",
+      "subtitles.music_disc_a_morning_wish": "",
       "block.deep_aether.skyjade_ore": "Skyjade Ore",
       "block.deep_aether.stripped_rose_wood_wall": "Stripped Roseroot Wall",
       "item.deep_aether.skyjade_tools_shovel": "Skyjade Shovel",
@@ -688,7 +727,7 @@
   "workspaceSettings": {
     "modid": "deep_aether",
     "modName": "Deep Aether",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "An addon to the Aether mod, created by the Team Razor!",
     "author": "Team Razor: 345boneshoss, Aethyus, AwesomeGames, Egg, EnderCristy, darksonic300, TunefulTurntip, and the other members.",
     "websiteURL": "https://discord.gg/EpRDgt33jy",
@@ -702,7 +741,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.18.2",
-    "credits": "Add-on to the Aether mod. Textures by 345boneshoss. Created with MCreator by Pylo, mod by Aethyus.",
+    "credits": "Add-on to the Aether mod. Textures by 345boneshoss. Created with MCreator by Pylo, mod by the Team Razor.  ",
     "modElementsPackage": "teamrazor.deepaether",
     "lockBaseModFiles": false
   },

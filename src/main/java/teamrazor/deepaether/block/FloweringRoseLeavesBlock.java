@@ -26,7 +26,7 @@ import java.util.Collections;
 
 public class FloweringRoseLeavesBlock extends Block {
 	public FloweringRoseLeavesBlock() {
-		super(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).lightLevel(s -> 7).noOcclusion()
+		super(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).lightLevel(s -> 6).noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false));
 	}
 

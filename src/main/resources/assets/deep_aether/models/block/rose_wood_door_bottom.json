@@ -1,7 +1,7 @@
 {
   "parent": "block/door_bottom",
   "textures": {
-    "bottom": "deep_aether:blocks/rosewood_door_bottom",
-    "top": "deep_aether:blocks/rosewood_door_top"
+    "bottom": "deep_aether:blocks/roseroot_door_bottom",
+    "top": "deep_aether:blocks/roseroot_door_top"
   }
 }

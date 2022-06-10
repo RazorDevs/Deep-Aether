@@ -11,6 +11,8 @@ import teamrazor.deepaether.item.SkyjadeToolsHoeItem;
 import teamrazor.deepaether.item.SkyjadeToolsAxeItem;
 import teamrazor.deepaether.item.SkyjadeItem;
 import teamrazor.deepaether.item.SkyjadeArmorItem;
+import teamrazor.deepaether.item.MusicDiscNabooruItem;
+import teamrazor.deepaether.item.MusicDiscAMorningWishItem;
 import teamrazor.deepaether.item.AerglowPetalItem;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -73,6 +75,9 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = REGISTRY.register("skyjade_armor_leggings",
 			() -> new SkyjadeArmorItem.Leggings());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = REGISTRY.register("skyjade_armor_boots", () -> new SkyjadeArmorItem.Boots());
+	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = REGISTRY.register("music_disc_nabooru", () -> new MusicDiscNabooruItem());
+	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = REGISTRY.register("music_disc_a_morning_wish",
+			() -> new MusicDiscAMorningWishItem());
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
