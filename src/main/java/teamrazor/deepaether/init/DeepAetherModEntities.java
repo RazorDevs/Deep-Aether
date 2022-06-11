@@ -4,6 +4,7 @@
  */
 package teamrazor.deepaether.init;
 
+import teamrazor.deepaether.entity.AetherFishEntity;
 import teamrazor.deepaether.DeepAetherMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -23,7 +24,8 @@ public class DeepAetherModEntities {
 	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITIES, DeepAetherMod.MODID);
 	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
 			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(AetherFishEntity::new)
+
 					.sized(0.6f, 1.8f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {

@@ -1,50 +1,50 @@
 
 package teamrazor.deepaether.entity;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
+
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.control.MoveControl;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
+import net.minecraft.world.entity.ai.goal.FollowFlockLeaderGoal;
+import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Cod;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.nbt.Tag;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.network.PlayMessages;
-import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.init.DeepAetherModEntities;
 
-import javax.annotation.Nullable;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.network.PlayMessages;
+import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.common.ForgeMod;
+
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
+import net.minecraft.world.entity.ai.goal.PanicGoal;
+import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.util.Mth;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.core.BlockPos;
+
 import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class AetherFishEntity extends Cod {
-
 	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("warm_ocean"));
-
-	public AetherFishEntity(EntityType<? extends Cod> p_28276_, Level p_28277_) {
-		super(p_28276_, p_28277_);
-	}
 
 	@SubscribeEvent
 	public static void addLivingEntityToBiomes(BiomeLoadingEvent event) {
@@ -53,39 +53,35 @@ public class AetherFishEntity extends Cod {
 					.add(new MobSpawnSettings.SpawnerData(DeepAetherModEntities.AETHER_FISH.get(), 10, 2, 4));
 	}
 
+	public AetherFishEntity(PlayMessages.SpawnEntity packet, Level world) {
+		this(DeepAetherModEntities.AETHER_FISH.get(), world);
+	}
 
-	/*public AerglowFishEntity(EntityType<AerglowFishEntity> type, Level world) {
+	public AetherFishEntity(EntityType<AetherFishEntity> type, Level world) {
 		super(type, world);
 		xpReward = 1;
 		setNoAi(false);
-
 		this.setPathfindingMalus(BlockPathTypes.WATER, 0);
 		this.moveControl = new MoveControl(this) {
 			@Override
 			public void tick() {
 				if (AetherFishEntity.this.isInWater())
 					AetherFishEntity.this.setDeltaMovement(AetherFishEntity.this.getDeltaMovement().add(0, 0.005, 0));
-
 				if (this.operation == MoveControl.Operation.MOVE_TO && !AetherFishEntity.this.getNavigation().isDone()) {
 					double dx = this.wantedX - AetherFishEntity.this.getX();
 					double dy = this.wantedY - AetherFishEntity.this.getY();
 					double dz = this.wantedZ - AetherFishEntity.this.getZ();
-
 					float f = (float) (Mth.atan2(dz, dx) * (double) (180 / Math.PI)) - 90;
 					float f1 = (float) (this.speedModifier * AetherFishEntity.this.getAttribute(Attributes.MOVEMENT_SPEED).getValue());
-
 					AetherFishEntity.this.setYRot(this.rotlerp(AetherFishEntity.this.getYRot(), f, 10));
 					AetherFishEntity.this.yBodyRot = AetherFishEntity.this.getYRot();
 					AetherFishEntity.this.yHeadRot = AetherFishEntity.this.getYRot();
-
 					if (AetherFishEntity.this.isInWater()) {
 						AetherFishEntity.this.setSpeed((float) AetherFishEntity.this.getAttribute(Attributes.MOVEMENT_SPEED).getValue());
-
 						float f2 = -(float) (Mth.atan2(dy, (float) Math.sqrt(dx * dx + dz * dz)) * (180 / Math.PI));
 						f2 = Mth.clamp(Mth.wrapDegrees(f2), -85, 85);
 						AetherFishEntity.this.setXRot(this.rotlerp(AetherFishEntity.this.getXRot(), f2, 5));
 						float f3 = Mth.cos(AetherFishEntity.this.getXRot() * (float) (Math.PI / 180.0));
-
 						AetherFishEntity.this.setZza(f3 * f1);
 						AetherFishEntity.this.setYya((float) (f1 * dy));
 					} else {
@@ -98,9 +94,9 @@ public class AetherFishEntity extends Cod {
 				}
 			}
 		};
-	}*/
+	}
 
-	/*@Override
+	@Override
 	public Packet<?> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
@@ -113,7 +109,9 @@ public class AetherFishEntity extends Cod {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-
+		this.goalSelector.addGoal(0, new PanicGoal(this, 1.25D));
+		this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Player.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
+		this.goalSelector.addGoal(5, new FollowFlockLeaderGoal(this));
 	}
 
 	@Override
@@ -138,7 +136,7 @@ public class AetherFishEntity extends Cod {
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundEvents.COD_HURT;
+		return SoundEvents.COD_DEATH;
 	}
 
 	@Override
@@ -149,11 +147,6 @@ public class AetherFishEntity extends Cod {
 	}
 
 	@Override
-	public boolean canBreatheUnderwater() {
-		return true;
-	}
-
-	@Override
 	public boolean checkSpawnObstruction(LevelReader world) {
 		return world.isUnobstructed(this);
 	}
@@ -161,13 +154,22 @@ public class AetherFishEntity extends Cod {
 	@Override
 	public boolean isPushedByFluid() {
 		return false;
-	}*/
+	}
 
 	public static void init() {
 		SpawnPlacements.register(DeepAetherModEntities.AETHER_FISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos,
 						random) -> (world.getBlockState(pos).is(Blocks.WATER) && world.getBlockState(pos.above()).is(Blocks.WATER)));
-
 	}
 
+	public static AttributeSupplier.Builder createAttributes() {
+		AttributeSupplier.Builder builder = Mob.createMobAttributes();
+		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
+		builder = builder.add(Attributes.MAX_HEALTH, 3);
+		builder = builder.add(Attributes.ARMOR, 0);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
+		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 0.3);
+		return builder;
+	}
 }
+
