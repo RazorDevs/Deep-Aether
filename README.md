@@ -11,6 +11,8 @@ The Deep Aether mod introduces:
   - New Skyjade Ore
   - New Skyjade Tools
   - New Aerglow Grove Biome
+  - New Music Discs
+  - New Structures
   - And more...
 
 # Requirements
