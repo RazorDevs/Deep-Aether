@@ -1,18 +1,50 @@
 
 package teamrazor.deepaether.entity;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
+import net.minecraft.world.entity.animal.Cod;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.nbt.Tag;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.network.PlayMessages;
+import net.minecraftforge.registries.ForgeRegistries;
+import teamrazor.deepaether.init.DeepAetherModEntities;
 
 import javax.annotation.Nullable;
+import java.util.Set;
 
 @Mod.EventBusSubscriber
-public class AetherFishEntity extends PathfinderMob {
+public class AetherFishEntity extends Cod {
 
 	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("warm_ocean"));
+
+	public AetherFishEntity(EntityType<? extends Cod> p_28276_, Level p_28277_) {
+		super(p_28276_, p_28277_);
+	}
 
 	@SubscribeEvent
 	public static void addLivingEntityToBiomes(BiomeLoadingEvent event) {
@@ -21,11 +53,8 @@ public class AetherFishEntity extends PathfinderMob {
 					.add(new MobSpawnSettings.SpawnerData(DeepAetherModEntities.AETHER_FISH.get(), 10, 2, 4));
 	}
 
-	public AetherFishEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(DeepAetherModEntities.AETHER_FISH.get(), world);
-	}
 
-	public AetherFishEntity(EntityType<AetherFishEntity> type, Level world) {
+	/*public AerglowFishEntity(EntityType<AerglowFishEntity> type, Level world) {
 		super(type, world);
 		xpReward = 1;
 		setNoAi(false);
@@ -69,9 +98,9 @@ public class AetherFishEntity extends PathfinderMob {
 				}
 			}
 		};
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public Packet<?> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
@@ -85,10 +114,6 @@ public class AetherFishEntity extends PathfinderMob {
 	protected void registerGoals() {
 		super.registerGoals();
 
-		this.goalSelector.addGoal(1, new PanicGoal(this, 1.2));
-		this.goalSelector.addGoal(2, new RandomSwimmingGoal(this, 1, 40));
-		this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Player.class, (float) 6, 1, 1.2));
-
 	}
 
 	@Override
@@ -98,7 +123,7 @@ public class AetherFishEntity extends PathfinderMob {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cod.ambient"));
+		return SoundEvents.COD_AMBIENT;
 	}
 
 	@Override
@@ -108,12 +133,12 @@ public class AetherFishEntity extends PathfinderMob {
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cod.hurt"));
+		return SoundEvents.COD_HURT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cod.hurt"));
+		return SoundEvents.COD_HURT;
 	}
 
 	@Override
@@ -136,25 +161,13 @@ public class AetherFishEntity extends PathfinderMob {
 	@Override
 	public boolean isPushedByFluid() {
 		return false;
-	}
+	}*/
 
 	public static void init() {
 		SpawnPlacements.register(DeepAetherModEntities.AETHER_FISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos,
 						random) -> (world.getBlockState(pos).is(Blocks.WATER) && world.getBlockState(pos.above()).is(Blocks.WATER)));
 
-	}
-
-	public static AttributeSupplier.Builder createAttributes() {
-		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
-		builder = builder.add(Attributes.MAX_HEALTH, 3);
-		builder = builder.add(Attributes.ARMOR, 0);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
-
-		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 0.3);
-
-		return builder;
 	}
 
 }

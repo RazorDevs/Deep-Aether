@@ -4,7 +4,6 @@
  */
 package teamrazor.deepaether.init;
 
-import teamrazor.deepaether.entity.AerglowFishEntity;
 import teamrazor.deepaether.DeepAetherMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -22,9 +21,10 @@ import net.minecraft.world.entity.Entity;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAetherModEntities {
 	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITIES, DeepAetherMod.MODID);
-	public static final RegistryObject<EntityType<AerglowFishEntity>> AETHER_FISH = register("aerglow_fish",
-			EntityType.Builder.<AerglowFishEntity>of(AerglowFishEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3)
+	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
+			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(AetherFishEntity::new)
+
 					.sized(0.6f, 1.8f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
@@ -34,12 +34,12 @@ public class DeepAetherModEntities {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			AerglowFishEntity.init();
+			AetherFishEntity.init();
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(AETHER_FISH.get(), AerglowFishEntity.createAttributes().build());
+		event.put(AETHER_FISH.get(), AetherFishEntity.createAttributes().build());
 	}
 }
