@@ -661,6 +661,30 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "aether_fish"
+    },
+    {
+      "name": "AllSticks",
+      "type": "tag",
+      "sortid": 75,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "all_sticks"
+    },
+    {
+      "name": "SkyjadeOreBlasting",
+      "type": "recipe",
+      "sortid": 73,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_ore_blasting"
+    },
+    {
+      "name": "SkyjadeOreSmelting",
+      "type": "recipe",
+      "sortid": 74,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "skyjade_ore_smelting"
     }
   ],
   "variable_elements": [],

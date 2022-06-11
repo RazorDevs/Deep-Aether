@@ -6,22 +6,22 @@
   ],
   "key": {
     "0": {
-      "tag": "aether:skyroot_stick"
+      "tag": "all_sticks"
     },
     "1": {
       "item": "deep_aether:rose_planks"
     },
     "2": {
-      "tag": "aether:skyroot_stick"
+      "tag": "all_sticks"
     },
     "3": {
-      "tag": "aether:skyroot_stick"
+      "tag": "all_sticks"
     },
     "4": {
       "item": "deep_aether:rose_planks"
     },
     "5": {
-      "tag": "aether:skyroot_stick"
+      "tag": "all_sticks"
     }
   },
   "result": {

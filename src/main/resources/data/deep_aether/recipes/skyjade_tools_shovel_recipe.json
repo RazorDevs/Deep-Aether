@@ -10,10 +10,10 @@
       "item": "deep_aether:skyjade"
     },
     "1": {
-      "item": "minecraft:stick"
+      "tag": "all_sticks"
     },
     "2": {
-      "item": "minecraft:stick"
+      "tag": "all_sticks"
     }
   },
   "result": {

@@ -76,6 +76,9 @@ public class DeepAetherModBlocks {
 			AerglowPetalBlockBlock.registerRenderLayer();
 			RoseWoodWallBlock.registerRenderLayer();
 			StrippedRoseWoodWallBlock.registerRenderLayer();
+			RoseFenceBlock.registerRenderLayer();
+			RoseWoodDoorBlock.registerRenderLayer();
+			RoseWoodTrapdoorBlock.registerRenderLayer();
 			RoseLeavesBlock.registerRenderLayer();
 			FloweringRoseLeavesBlock.registerRenderLayer();
 			RadiantOrchidBlock.registerRenderLayer();
