@@ -4,7 +4,7 @@
  */
 package teamrazor.deepaether.init;
 
-import teamrazor.deepaether.client.renderer.AetherFishRenderer;
+import teamrazor.deepaether.client.renderer.AerglowFishRenderer;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,6 +15,6 @@ import net.minecraftforge.api.distmarker.Dist;
 public class DeepAetherModEntityRenderers {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(DeepAetherModEntities.AETHER_FISH.get(), AetherFishRenderer::new);
+		event.registerEntityRenderer(DeepAetherModEntities.AETHER_FISH.get(), AerglowFishRenderer::new);
 	}
 }
