@@ -38,7 +38,7 @@
       }
     ],
     "recipeReturnStack": {
-      "value": "Items.STICK"
+      "value": "CUSTOM:AerglowPetal"
     },
     "name": "rose_stick_recipe",
     "namespace": "mod"

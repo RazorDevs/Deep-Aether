@@ -22,7 +22,7 @@ public class SkyjadeToolsSwordItem extends SwordItem {
 			}
 
 			public float getAttackDamageBonus() {
-				return 4f;
+				return 1.9999999999999996f;
 			}
 
 			public int getLevel() {
