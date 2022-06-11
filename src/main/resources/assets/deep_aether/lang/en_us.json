@@ -1,5 +1,6 @@
 {
   "item.deep_aether.skyjade_armor_chestplate": "Skyjade Chestplate",
+  "item.deep_aether.aether_fish_spawn_egg": "Aether Fish Spawn Egg",
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "block.deep_aether.rose_wood_wall": "Roseroot Wall",
   "block.deep_aether.aerglow_grass_block": "Aerglow Grass Block",
@@ -21,6 +22,7 @@
   "item.deep_aether.skyjade_tools_axe": "Skyjade Axe",
   "block.deep_aether.rose_slab": "Roseroot Slab",
   "block.deep_aether.rose_wood_door": "Roseroot Door",
+  "entity.deep_aether.aether_fish": "Aether Fish",
   "block.deep_aether.stripped_rose_wood_log": "Stripped Roseroot Log",
   "block.deep_aether.skyjade_block": "Skyjade Block",
   "item.deep_aether.skyjade_tools_pickaxe": "Skyjade Pickaxe",

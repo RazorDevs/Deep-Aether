@@ -19,6 +19,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
@@ -78,6 +79,8 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = REGISTRY.register("music_disc_nabooru", () -> new MusicDiscNabooruItem());
 	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = REGISTRY.register("music_disc_a_morning_wish",
 			() -> new MusicDiscAMorningWishItem());
+	public static final RegistryObject<Item> AETHER_FISH = REGISTRY.register("aether_fish_spawn_egg",
+			() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, -1, -1, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

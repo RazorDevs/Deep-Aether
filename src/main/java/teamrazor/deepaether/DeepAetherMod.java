@@ -15,6 +15,7 @@ package teamrazor.deepaether;
 
 import teamrazor.deepaether.init.DeepAetherModTabs;
 import teamrazor.deepaether.init.DeepAetherModItems;
+import teamrazor.deepaether.init.DeepAetherModEntities;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import org.apache.logging.log4j.Logger;
@@ -48,6 +49,7 @@ public class DeepAetherMod {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModBlocks.REGISTRY.register(bus);
 		DeepAetherModItems.REGISTRY.register(bus);
+		DeepAetherModEntities.REGISTRY.register(bus);
 
 	}
 
