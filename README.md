@@ -1,4 +1,4 @@
-# Deep-Aether
+# Deep Aether
 ![](https://media.discordapp.net/attachments/983858839269036053/985145208985485312/unknown.png?width=886&height=498))
 # What is this about?
 
