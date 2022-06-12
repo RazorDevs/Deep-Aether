@@ -25,9 +25,16 @@ import java.util.List;
 import java.util.Collections;
 
 public class FloweringRoseLeavesBlock extends Block {
+
 	public FloweringRoseLeavesBlock() {
-		super(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).lightLevel(s -> 6).noOcclusion()
-				.isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.of(Material.LEAVES)
+				.sound(SoundType.GRASS)
+				.strength(0.2f)
+				.noOcclusion()
+				.isRedstoneConductor((bs, br, bp) -> false)
+				.lightLevel((p_50872_) -> {
+					return 15;
+				}));
 	}
 
 	@Override
