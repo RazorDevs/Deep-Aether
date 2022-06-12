@@ -33,7 +33,7 @@ public class FloweringRoseLeavesBlock extends Block {
 				.noOcclusion()
 				.isRedstoneConductor((bs, br, bp) -> false)
 				.lightLevel((p_50872_) -> {
-					return 15;
+					return 6;
 				}));
 	}
 
