@@ -7,7 +7,9 @@ import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.client.model.Modelcustom_model;
 import teamrazor.deepaether.entity.AerglowFishEntity;
 
-public class AerglowFishRenderer extends MobRenderer<AerglowFishEntity, Modelcustom_model<AerglowFishEntity>> {
+import java.lang.reflect.Type;
+/*
+public class AerglowFishRenderer extends MobRenderer<AerglowFishEntity, Modelcustom_model<Type>> {
 
 	public AerglowFishRenderer(EntityRendererProvider.Context context) {
 		super(context, new Modelcustom_model(context.bakeLayer(Modelcustom_model.LAYER_LOCATION)), 0.5f);
@@ -20,3 +22,4 @@ public class AerglowFishRenderer extends MobRenderer<AerglowFishEntity, Modelcus
 	}
 
 }
+*/

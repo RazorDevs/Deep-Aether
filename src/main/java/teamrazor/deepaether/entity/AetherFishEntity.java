@@ -182,6 +182,14 @@ public class AetherFishEntity extends Cod {
 		return builder;
 	}
 
+	public int getMaxSpawnClusterSize() {
+		return this.getMaxSchoolSize();
+	}
+
+	public int getMaxSchoolSize() {
+		return super.getMaxSpawnClusterSize();
+	}
+
 	protected boolean canRandomSwim() {
 		return !this.isFollower();
 	}
