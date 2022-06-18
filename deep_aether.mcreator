@@ -743,17 +743,9 @@
       "registry_name": "yag_fence"
     },
     {
-      "name": "YagFenceGate",
-      "type": "block",
-      "sortid": 83,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "yag_fence_gate"
-    },
-    {
       "name": "YagPressurePlate",
       "type": "block",
-      "sortid": 84,
+      "sortid": 83,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_pressure_plate"
@@ -761,7 +753,7 @@
     {
       "name": "YagButton",
       "type": "block",
-      "sortid": 85,
+      "sortid": 84,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_button"
@@ -769,23 +761,15 @@
     {
       "name": "YagItemsTag",
       "type": "tag",
-      "sortid": 86,
+      "sortid": 85,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_items_tag"
     },
     {
-      "name": "YagStairsRecipe",
-      "type": "recipe",
-      "sortid": 89,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "yag_stairs_recipe"
-    },
-    {
       "name": "YagWoodRecipe",
       "type": "recipe",
-      "sortid": 90,
+      "sortid": 86,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_wood_recipe"
@@ -793,23 +777,39 @@
     {
       "name": "YagPlanksRecipe",
       "type": "recipe",
-      "sortid": 91,
+      "sortid": 87,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_planks_recipe"
     },
     {
+      "name": "YagStairsRecipe",
+      "type": "recipe",
+      "sortid": 88,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yag_stairs_recipe"
+    },
+    {
       "name": "YagSlabRecipe",
       "type": "recipe",
-      "sortid": 92,
+      "sortid": 89,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_slab_recipe"
     },
     {
+      "name": "YagFenceGate",
+      "type": "block",
+      "sortid": 90,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yag_fence_gate"
+    },
+    {
       "name": "YagFenceRecipe",
       "type": "recipe",
-      "sortid": 93,
+      "sortid": 91,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_fence_recipe"
@@ -817,7 +817,7 @@
     {
       "name": "YagFenceGateRecipe",
       "type": "recipe",
-      "sortid": 94,
+      "sortid": 92,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_fence_gate_recipe"
@@ -825,7 +825,7 @@
     {
       "name": "YagPressurePlateRecipe",
       "type": "recipe",
-      "sortid": 95,
+      "sortid": 93,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_pressure_plate_recipe"
@@ -833,7 +833,7 @@
     {
       "name": "YagButtonRecipe",
       "type": "recipe",
-      "sortid": 96,
+      "sortid": 94,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_button_recipe"
@@ -841,7 +841,7 @@
     {
       "name": "YagStickRecipe",
       "type": "recipe",
-      "sortid": 97,
+      "sortid": 95,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_stick_recipe"
@@ -849,7 +849,7 @@
     {
       "name": "YagWoodPlanksRecipe",
       "type": "recipe",
-      "sortid": 98,
+      "sortid": 96,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_wood_planks_recipe"
@@ -857,7 +857,7 @@
     {
       "name": "YagDoor",
       "type": "block",
-      "sortid": 99,
+      "sortid": 97,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_door"
@@ -865,34 +865,82 @@
     {
       "name": "YagTrapdoor",
       "type": "block",
-      "sortid": 100,
+      "sortid": 98,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_trapdoor"
     },
     {
-      "name": "StrippedYagLog",
+      "name": "VirulentGrassBlock",
       "type": "block",
-      "sortid": 101,
+      "sortid": 99,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_yag_log"
+      "registry_name": "virulent_grass_block"
+    },
+    {
+      "name": "VirulentGrassPath",
+      "type": "block",
+      "sortid": 100,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "virulent_grass_path"
     },
     {
       "name": "StrippedYagWood",
       "type": "block",
-      "sortid": 102,
+      "sortid": 101,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_yag_wood"
     },
     {
-      "name": "StrippedYagBlockOnBlockRightClicked",
+      "name": "StrippedYagLog",
+      "type": "block",
+      "sortid": 102,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_yag_log"
+    },
+    {
+      "name": "VirulentGrassBlockOnBlockRightClicked",
       "type": "procedure",
       "sortid": 103,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_yag_block_on_block_right_clicked",
+      "registry_name": "virulent_grass_block_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StrippedYagLogOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 104,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_yag_log_on_block_right_clicked",
       "metadata": {
         "dependencies": [
           {
@@ -921,7 +969,7 @@
     {
       "name": "StrippedYagWoodOnBlockRightClicked",
       "type": "procedure",
-      "sortid": 104,
+      "sortid": 105,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_yag_wood_on_block_right_clicked",
@@ -953,7 +1001,7 @@
     {
       "name": "Stripped3Planks",
       "type": "recipe",
-      "sortid": 105,
+      "sortid": 106,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_3_planks"
@@ -961,47 +1009,47 @@
     {
       "name": "Stripped4Planks",
       "type": "recipe",
-      "sortid": 106,
+      "sortid": 107,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_4_planks"
     },
     {
-      "name": "YagWall",
-      "type": "block",
-      "sortid": 107,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "yag_wall"
-    },
-    {
-      "name": "StrippedYagWall",
+      "name": "YagWoodWall",
       "type": "block",
       "sortid": 108,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_yag_wall"
+      "registry_name": "yag_wood_wall"
     },
     {
-      "name": "StrippedYagWallRecipe",
-      "type": "recipe",
+      "name": "StrippedYagWoodWall",
+      "type": "block",
       "sortid": 109,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_yag_wall_recipe"
+      "registry_name": "stripped_yag_wood_wall"
     },
     {
-      "name": "YagWallRecipe",
+      "name": "StrippedYagWoodWallRecipe",
       "type": "recipe",
       "sortid": 110,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "yag_wall_recipe"
+      "registry_name": "stripped_yag_wood_wall_recipe"
+    },
+    {
+      "name": "YagWoodWallRecipe",
+      "type": "recipe",
+      "sortid": 111,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "yag_wood_wall_recipe"
     },
     {
       "name": "YagToChest",
       "type": "recipe",
-      "sortid": 111,
+      "sortid": 112,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_to_chest"
@@ -1009,7 +1057,7 @@
     {
       "name": "YagToJukebox",
       "type": "recipe",
-      "sortid": 112,
+      "sortid": 113,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_to_jukebox"
@@ -1017,15 +1065,111 @@
     {
       "name": "YagToCraftingTable",
       "type": "recipe",
-      "sortid": 113,
+      "sortid": 114,
       "compiles": true,
       "locked_code": false,
       "registry_name": "yag_to_crafting_table"
     },
     {
+      "name": "AetherMud",
+      "type": "block",
+      "sortid": 115,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud"
+    },
+    {
+      "name": "PackedAetherMud",
+      "type": "block",
+      "sortid": 116,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "packed_aether_mud"
+    },
+    {
+      "name": "AetherMudBricks",
+      "type": "block",
+      "sortid": 117,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_bricks"
+    },
+    {
+      "name": "PackedAetherMudRecipe",
+      "type": "recipe",
+      "sortid": 118,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "packed_aether_mud_recipe"
+    },
+    {
+      "name": "AetherMudBricksRecipe",
+      "type": "recipe",
+      "sortid": 119,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_bricks_recipe"
+    },
+    {
+      "name": "AetherMudBrickSlab",
+      "type": "block",
+      "sortid": 120,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_brick_slab"
+    },
+    {
+      "name": "AetherMudBrickStairs",
+      "type": "block",
+      "sortid": 121,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_brick_stairs"
+    },
+    {
+      "name": "AetherMudBrickWall",
+      "type": "block",
+      "sortid": 122,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_brick_wall"
+    },
+    {
+      "name": "AetherMudBrickStairsRecipe",
+      "type": "recipe",
+      "sortid": 123,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_brick_stairs_recipe"
+    },
+    {
+      "name": "AetherMudBrickWallRecipe",
+      "type": "recipe",
+      "sortid": 124,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_brick_wall_recipe"
+    },
+    {
+      "name": "AetherMudBrickSlabRecipe",
+      "type": "recipe",
+      "sortid": 125,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "aether_mud_brick_slab_recipe"
+    },
+    {
+      "name": "VirulentQuicksand",
+      "type": "block",
+      "sortid": 126,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "virulent_quicksand"
+    },
+    {
       "name": "CrudeWood",
       "type": "block",
-      "sortid": 114,
+      "sortid": 127,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_wood"
@@ -1033,7 +1177,7 @@
     {
       "name": "CrudeLog",
       "type": "block",
-      "sortid": 115,
+      "sortid": 128,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_log"
@@ -1041,7 +1185,7 @@
     {
       "name": "CrudePlanks",
       "type": "block",
-      "sortid": 116,
+      "sortid": 129,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_planks"
@@ -1049,7 +1193,7 @@
     {
       "name": "CrudeLeaves",
       "type": "block",
-      "sortid": 117,
+      "sortid": 130,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_leaves"
@@ -1057,7 +1201,7 @@
     {
       "name": "CrudeStairs",
       "type": "block",
-      "sortid": 118,
+      "sortid": 131,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_stairs"
@@ -1065,7 +1209,7 @@
     {
       "name": "CrudeSlab",
       "type": "block",
-      "sortid": 119,
+      "sortid": 132,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_slab"
@@ -1073,23 +1217,15 @@
     {
       "name": "CrudeFence",
       "type": "block",
-      "sortid": 120,
+      "sortid": 133,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_fence"
     },
     {
-      "name": "CrudeFenceGate",
-      "type": "block",
-      "sortid": 121,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "crude_fence_gate"
-    },
-    {
       "name": "CrudePressurePlate",
       "type": "block",
-      "sortid": 122,
+      "sortid": 134,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_pressure_plate"
@@ -1097,7 +1233,7 @@
     {
       "name": "CrudeButton",
       "type": "block",
-      "sortid": 123,
+      "sortid": 135,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_button"
@@ -1105,23 +1241,15 @@
     {
       "name": "CrudeItemsTag",
       "type": "tag",
-      "sortid": 124,
+      "sortid": 136,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_items_tag"
     },
     {
-      "name": "CrudeStairsRecipe",
-      "type": "recipe",
-      "sortid": 125,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "crude_stairs_recipe"
-    },
-    {
       "name": "CrudeWoodRecipe",
       "type": "recipe",
-      "sortid": 126,
+      "sortid": 137,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_wood_recipe"
@@ -1129,15 +1257,71 @@
     {
       "name": "CrudePlanksRecipe",
       "type": "recipe",
-      "sortid": 127,
+      "sortid": 138,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_planks_recipe"
     },
     {
+      "name": "CrudeStairsRecipe",
+      "type": "recipe",
+      "sortid": 139,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_stairs_recipe"
+    },
+    {
+      "name": "CrudeSlabRecipe",
+      "type": "recipe",
+      "sortid": 140,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_slab_recipe"
+    },
+    {
+      "name": "CrudeFenceGate",
+      "type": "block",
+      "sortid": 141,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_fence_gate"
+    },
+    {
+      "name": "CrudeFenceRecipe",
+      "type": "recipe",
+      "sortid": 142,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_fence_recipe"
+    },
+    {
+      "name": "CrudeFenceGateRecipe",
+      "type": "recipe",
+      "sortid": 143,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_fence_gate_recipe"
+    },
+    {
+      "name": "CrudePressurePlateRecipe",
+      "type": "recipe",
+      "sortid": 144,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_pressure_plate_recipe"
+    },
+    {
+      "name": "CrudeButtonRecipe",
+      "type": "recipe",
+      "sortid": 145,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crude_button_recipe"
+    },
+    {
       "name": "CrudeStickRecipe",
       "type": "recipe",
-      "sortid": 128,
+      "sortid": 146,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_stick_recipe"
@@ -1145,7 +1329,7 @@
     {
       "name": "CrudeWoodPlanksRecipe",
       "type": "recipe",
-      "sortid": 129,
+      "sortid": 147,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_wood_planks_recipe"
@@ -1153,7 +1337,7 @@
     {
       "name": "CrudeDoor",
       "type": "block",
-      "sortid": 130,
+      "sortid": 148,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_door"
@@ -1161,34 +1345,34 @@
     {
       "name": "CrudeTrapdoor",
       "type": "block",
-      "sortid": 131,
+      "sortid": 149,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_trapdoor"
     },
     {
-      "name": "StrippedCrudeLog",
-      "type": "block",
-      "sortid": 132,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "stripped_crude_log"
-    },
-    {
       "name": "StrippedCrudeWood",
       "type": "block",
-      "sortid": 133,
+      "sortid": 150,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_crude_wood"
     },
     {
-      "name": "StrippedCrudeBlockOnBlockRightClicked",
-      "type": "procedure",
-      "sortid": 134,
+      "name": "StrippedCrudeLog",
+      "type": "block",
+      "sortid": 151,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_crude_block_on_block_right_clicked",
+      "registry_name": "stripped_crude_log"
+    },
+    {
+      "name": "StrippedCrudeLogOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 152,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stripped_crude_log_on_block_right_clicked",
       "metadata": {
         "dependencies": [
           {
@@ -1217,7 +1401,7 @@
     {
       "name": "StrippedCrudeWoodOnBlockRightClicked",
       "type": "procedure",
-      "sortid": 135,
+      "sortid": 153,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_crude_wood_on_block_right_clicked",
@@ -1249,7 +1433,7 @@
     {
       "name": "Stripped5Planks",
       "type": "recipe",
-      "sortid": 136,
+      "sortid": 154,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_5_planks"
@@ -1257,47 +1441,47 @@
     {
       "name": "Stripped6Planks",
       "type": "recipe",
-      "sortid": 137,
+      "sortid": 155,
       "compiles": true,
       "locked_code": false,
       "registry_name": "stripped_6_planks"
     },
     {
-      "name": "CrudeWall",
+      "name": "CrudeWoodWall",
       "type": "block",
-      "sortid": 138,
+      "sortid": 156,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "crude_wall"
+      "registry_name": "crude_wood_wall"
     },
     {
-      "name": "StrippedCrudeWall",
+      "name": "StrippedCrudeWoodWall",
       "type": "block",
-      "sortid": 139,
+      "sortid": 157,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_crude_wall"
+      "registry_name": "stripped_crude_wood_wall"
     },
     {
-      "name": "StrippedCrudeWallRecipe",
+      "name": "StrippedCrudeWoodWallRecipe",
       "type": "recipe",
-      "sortid": 140,
+      "sortid": 158,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "stripped_crude_wall_recipe"
+      "registry_name": "stripped_crude_wood_wall_recipe"
     },
     {
-      "name": "CrudeWallRecipe",
+      "name": "CrudeWoodWallRecipe",
       "type": "recipe",
-      "sortid": 141,
+      "sortid": 159,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "crude_wall_recipe"
+      "registry_name": "crude_wood_wall_recipe"
     },
     {
       "name": "CrudeToChest",
       "type": "recipe",
-      "sortid": 142,
+      "sortid": 160,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_to_chest"
@@ -1305,114 +1489,18 @@
     {
       "name": "CrudeToJukebox",
       "type": "recipe",
-      "sortid": 143,
+      "sortid": 161,
       "compiles": true,
       "locked_code": false,
       "registry_name": "crude_to_jukebox"
     },
     {
-      "name": "CrudeToCraftingTable",
+      "name": "CrudeToCraftingRecipe",
       "type": "recipe",
-      "sortid": 144,
+      "sortid": 162,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "crude_to_crafting_table"
-    },
-    {
-      "name": "VirulentGrassBlock",
-      "type": "block",
-      "sortid": 145,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "virulent_grass_block"
-    },
-    {
-      "name": "VirulentGrassPath",
-      "type": "block",
-      "sortid": 146,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "virulent_grass_path"
-    },
-    {
-      "name": "VirulentGrassBlockOnBlockRightClicked",
-      "type": "procedure",
-      "sortid": 147,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "virulent_grass_block_on_block_right_clicked",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "AetherMud",
-      "type": "block",
-      "sortid": 148,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "aether_mud"
-    },
-    {
-      "name": "VirulentQuicksand",
-      "type": "block",
-      "sortid": 149,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "virulent_quicksand"
-    },
-    {
-      "name": "PackedAetherMud",
-      "type": "block",
-      "sortid": 150,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "packed_aether_mud"
-    },
-    {
-      "name": "PackedAetherMudBricks",
-      "type": "block",
-      "sortid": 151,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "packed_aether_mud_bricks"
-    },
-    {
-      "name": "PackedAetherMudSmelt",
-      "type": "recipe",
-      "sortid": 152,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "packed_aether_mud_smelt"
-    },
-    {
-      "name": "PackedAetherMudBricksRecipe",
-      "type": "recipe",
-      "sortid": 153,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "packed_aether_mud_bricks_recipe"
+      "registry_name": "crude_to_crafting_recipe"
     }
   ],
   "variable_elements": [],
@@ -1437,9 +1525,10 @@
   "language_map": {
     "en_us": {
       "item.deep_aether.skyjade_armor_chestplate": "Skyjade Chestplate",
-      "item.deep_aether.aether_fish_spawn_egg": "Aether Fish Spawn Egg",
       "block.deep_aether.stripped_crude_wood": "Stripped Cruderoot Wood",
+      "item.deep_aether.aether_fish_spawn_egg": "Aether Fish Spawn Egg",
       "block.deep_aether.yag_door": "Yagroot Door",
+      "block.deep_aether.aether_mud_brick_stairs": "Aether Mud Brick Stairs",
       "block.deep_aether.crude_trapdoor": "Cruderoot Trapdoor",
       "block.deep_aether.yag_wood": "Yagroot Wood",
       "block.deep_aether.stripped_yag_wood": "Stripped Yagroot Wood",
@@ -1457,10 +1546,11 @@
       "block.deep_aether.crude_door": "Cruderoot Door",
       "block.deep_aether.yag_fence": "Yagroot Fence",
       "block.deep_aether.yag_fence_gate": "Yagroot Fence Gate",
+      "block.deep_aether.aether_mud_brick_slab": "Aether Mud Brick Slab",
       "block.deep_aether.rose_slab": "Roseroot Slab",
       "entity.deep_aether.aether_fish": "Aether Fish",
       "block.deep_aether.stripped_yag_log": "Stripped Yagroot Log",
-      "block.deep_aether.yag_wall": "Yagroot Wall",
+      "block.deep_aether.stripped_crude_wood_wall": "Stripped Cruderoot Wall",
       "block.deep_aether.aether_mud": "Aether Mud",
       "block.deep_aether.stripped_crude_log": "Stripped Cruderoot Log",
       "block.deep_aether.skyjade_block": "Skyjade Block",
@@ -1469,6 +1559,7 @@
       "item.deep_aether.skyjade_armor_boots": "Skyjade Boots",
       "item.deep_aether.skyjade_tools_hoe": "Skyjade Hoe",
       "block.deep_aether.virulent_grass_path": "Virulent Grass Path",
+      "block.deep_aether.crude_wood_wall": "Cruderoot Wall",
       "block.deep_aether.rose_wood_trapdoor": "Roseroot Trapdoor",
       "block.deep_aether.radiant_orchid": "Radiant Orchid",
       "subtitles.music_disc_a_morning_wish": "",
@@ -1484,6 +1575,7 @@
       "block.deep_aether.rose_leaves": "Roseroot Leaves",
       "item.deep_aether.music_disc_nabooru": "Music Disc",
       "item.deep_aether.aerglow_petal": "Aerglow Petal",
+      "block.deep_aether.aether_mud_brick_wall": "Aether Mud Brick Wall",
       "block.deep_aether.aerglow_petal_block": "Aerglow Petal Block",
       "item.deep_aether.music_disc_a_morning_wish": "Music Disc",
       "block.deep_aether.rose_planks": "Roseroot Planks",
@@ -1494,30 +1586,29 @@
       "block.deep_aether.virulent_grass_block": "Virulent Grass Block",
       "block.deep_aether.rose_wood_door": "Roseroot Door",
       "block.deep_aether.yag_planks": "Yagroot Planks",
-      "block.deep_aether.stripped_crude_wall": "Stripped Cruderoot Wall",
-      "block.deep_aether.stripped_yag_wall": "Stripped Yagroot Wall",
       "block.deep_aether.stripped_rose_wood_log": "Stripped Roseroot Log",
       "block.deep_aether.yag_leaves": "Yagroot Leaves",
       "block.deep_aether.crude_planks": "Cruderoot Planks",
       "block.deep_aether.crude_slab": "Cruderoot Slab",
+      "block.deep_aether.stripped_yag_wood_wall": "Stripped Yagroot Wall",
       "block.deep_aether.crude_log": "Cruderoot Log",
       "block.deep_aether.crude_button": "Cruderoot Button",
       "block.deep_aether.rose_log": "Roseroot Log",
       "subtitles.music_disc_nabooru": "",
-      "block.deep_aether.packed_aether_mud_bricks": "Packed Aether Mud Bricks",
       "item.deep_aether.skyjade_armor_leggings": "Skyjade Leggings",
       "item.deep_aether.skyjade_tools_sword": "Skyjade Sword",
       "block.deep_aether.crude_pressure_plate": "Cruderoot Pressure Plate",
       "block.deep_aether.yag_log": "Yagroot Log",
+      "block.deep_aether.yag_wood_wall": "Yagroot Wall",
       "block.deep_aether.flowering_rose_leaves": "Flowering Roseroot Leaves",
       "block.deep_aether.stripped_rose_wood": "Stripped Roseroot Wood",
       "block.deep_aether.rose_pressure_plate": "Roseroot Pressure Plate",
       "itemGroup.tabdeep_aether_items_tab": "Deep Aether - Items",
       "block.deep_aether.yag_button": "Yagroot Button",
-      "block.deep_aether.crude_wall": "Cruderoot Wall",
+      "block.deep_aether.aether_mud_bricks": "Aether Mud Bricks",
       "block.deep_aether.yag_stairs": "Yagroot Stairs",
-      "block.deep_aether.crude_leaves": "Cruderoot Leaves",
-      "block.deep_aether.packed_aether_mud": "Packed Aether Mud"
+      "block.deep_aether.packed_aether_mud": "Packed Aether Mud",
+      "block.deep_aether.crude_leaves": "Cruderoot Leaves"
     }
   },
   "foldersRoot": {

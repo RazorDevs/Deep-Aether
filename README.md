@@ -10,7 +10,7 @@ It aims to add lots of new features to give players a chance to venture deeper i
 The Deep Aether mod introduces:
   - New Skyjade Ore
   - New Skyjade Tools
-  - New Aerglow Grove and Virulent Forest Biomes
+  - New Aerglow Grove Biome
   - New Music Discs
   - New Structures
   - And more...
