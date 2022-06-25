@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "deep_aether:rose_wood"
+    }
+  ],
+  "result": {
+    "item": "deep_aether:rose_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:stripped_rose_wood"
+    }
+  },
+  "result": {
+    "item": "deep_aether:rose_planks",
+    "count": 4
+  }
+}
