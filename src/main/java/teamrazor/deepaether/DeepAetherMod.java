@@ -1,24 +1,15 @@
-/*
- *    MCreator note:
- *
- *    If you lock base mod element files, you can edit this file and it won't get overwritten.
- *    If you change your modid or package, you need to apply these changes to this file MANUALLY.
- *
- *    Settings in @Mod annotation WON'T be changed in case of the base mod element
- *    files lock too, so you need to set them manually here in such case.
- *
- *    If you do not lock base mod element files in Workspace settings, this file
- *    will be REGENERATED on each build.
- *
- */
 package teamrazor.deepaether;
 
-import teamrazor.deepaether.init.DeepAetherModTabs;
-import teamrazor.deepaether.init.DeepAetherModItems;
-import teamrazor.deepaether.init.DeepAetherModEntities;
-import teamrazor.deepaether.init.DeepAetherModBlocks;
+import com.mojang.logging.LogUtils;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import org.slf4j.Logger;
+import teamrazor.deepaether.init.*;
 
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -34,10 +25,12 @@ import net.minecraft.network.FriendlyByteBuf;
 import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 @Mod("deep_aether")
 public class DeepAetherMod {
-	public static final Logger LOGGER = LogManager.getLogger(DeepAetherMod.class);
+	private static final Logger LOGGER = LogUtils.getLogger();
+
 	public static final String MODID = "deep_aether";
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
@@ -46,11 +39,43 @@ public class DeepAetherMod {
 
 	public DeepAetherMod() {
 		DeepAetherModTabs.load();
+		// Register the setup method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+		// Register the enqueueIMC method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+		// Register the processIMC method for modloading
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+		// Register ourselves for server and other game events we are interested in
+		MinecraftForge.EVENT_BUS.register(this);
 		DeepAetherModBlocks.REGISTRY.register(bus);
 		DeepAetherModItems.REGISTRY.register(bus);
 		DeepAetherModEntities.REGISTRY.register(bus);
+		DeepAetherModBiomes.REGISTRY.register(bus);
 
+	}
+
+	private void setup(final FMLCommonSetupEvent event)
+	{
+		// some preinit code
+		LOGGER.info("HELLO FROM PREINIT");
+		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+	}
+
+	private void enqueueIMC(final InterModEnqueueEvent event)
+	{
+		// Some example code to dispatch IMC to another mod
+		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+	}
+
+	private void processIMC(final InterModProcessEvent event)
+	{
+		// Some example code to receive and process InterModComms from other mods
+		LOGGER.info("Got IMC {}", event.getIMCStream().
+				map(m->m.messageSupplier().get()).
+				collect(Collectors.toList()));
 	}
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,

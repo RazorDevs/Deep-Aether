@@ -44,17 +44,12 @@ public class AetherFishEntity extends Cod {
 		super(type, world);
 	}
 
-	@Override
-	protected void registerGoals() {
-		super.registerGoals();
-	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		AttributeSupplier.Builder builder = Mob.createMobAttributes();
-		builder = builder.add(Attributes.MOVEMENT_SPEED, 1);
-		builder = builder.add(Attributes.MAX_HEALTH, 3);
-		builder = builder.add(ForgeMod.SWIM_SPEED.get(), 1.2);
-		return builder;
+		return Mob.createMobAttributes()
+				.add(Attributes.MOVEMENT_SPEED, 1)
+				.add(Attributes.MAX_HEALTH, 3)
+				.add(ForgeMod.SWIM_SPEED.get(), 1.2);
 	}
 
 	public static void init() {
