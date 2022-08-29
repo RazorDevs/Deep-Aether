@@ -33,6 +33,23 @@ public class DeepAetherModItems {
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> AERGLOW_GRASS_PATH = block(DeepAetherModBlocks.AERGLOW_GRASS_PATH,
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_ASETERITE = block(DeepAetherModBlocks.POLISHED_ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_ASETERITE_BRICKS = block(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> GREOTITE = block(DeepAetherModBlocks.GREOTITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> POLISHED_GREOTITE = block(DeepAetherModBlocks.POLISHED_GREOTITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_GREOTITE_BRICKS = block(DeepAetherModBlocks.POLISHED_GREOTITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> JARINITE = block(DeepAetherModBlocks.JARINITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_JARINITE = block(DeepAetherModBlocks.POLISHED_JARINITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_JARINITE_BRICKS = block(DeepAetherModBlocks.POLISHED_JARINITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> DARKERITE = block(DeepAetherModBlocks.DARKERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_DARKERITE = block(DeepAetherModBlocks.POLISHED_DARKERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_DARKERITE_BRICKS = block(DeepAetherModBlocks.POLISHED_DARKERITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> CLORITE = block(DeepAetherModBlocks.CLORITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_CLORITE = block(DeepAetherModBlocks.POLISHED_CLORITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_CLORITE_BRICKS = block(DeepAetherModBlocks.POLISHED_CLORITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> SKYJADE_ORE = block(DeepAetherModBlocks.SKYJADE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> SKYJADE_BLOCK = block(DeepAetherModBlocks.SKYJADE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> AERGLOW_PETAL_BLOCK = block(DeepAetherModBlocks.AERGLOW_PETAL_BLOCK,
@@ -54,6 +71,7 @@ public class DeepAetherModItems {
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_PRESSURE_PLATE = block(DeepAetherModBlocks.ROSE_PRESSURE_PLATE,
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ASETERITE = block(DeepAetherModBlocks.ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_BUTTON = block(DeepAetherModBlocks.ROSE_BUTTON, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_WOOD_DOOR = doubleBlock(DeepAetherModBlocks.ROSE_WOOD_DOOR,
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -63,6 +81,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> FLOWERING_ROSE_LEAVES = block(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES,
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> RADIANT_ORCHID = block(DeepAetherModBlocks.RADIANT_ORCHID, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ROSEWOOD_SAPLING = block(DeepAetherModBlocks.ROSEWOOD_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> AERGLOW_PETAL = REGISTRY.register("aerglow_petal", () -> new AerglowPetalItem());
 	public static final RegistryObject<Item> SKYJADE = REGISTRY.register("skyjade", () -> new SkyjadeItem());
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_tools_sword", () -> new SkyjadeToolsSwordItem());

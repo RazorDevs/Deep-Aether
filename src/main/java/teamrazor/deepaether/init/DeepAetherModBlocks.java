@@ -4,29 +4,7 @@
  */
 package teamrazor.deepaether.init;
 
-import teamrazor.deepaether.block.StrippedRoseWoodWallBlock;
-import teamrazor.deepaether.block.StrippedRoseWoodLogBlock;
-import teamrazor.deepaether.block.StrippedRoseWoodBlock;
-import teamrazor.deepaether.block.SkyjadeOreBlock;
-import teamrazor.deepaether.block.SkyjadeBlockBlock;
-import teamrazor.deepaether.block.RoseWoodWallBlock;
-import teamrazor.deepaether.block.RoseWoodTrapdoorBlock;
-import teamrazor.deepaether.block.RoseWoodDoorBlock;
-import teamrazor.deepaether.block.RoseWoodBlock;
-import teamrazor.deepaether.block.RoseStairsBlock;
-import teamrazor.deepaether.block.RoseSlabBlock;
-import teamrazor.deepaether.block.RosePressurePlateBlock;
-import teamrazor.deepaether.block.RosePlanksBlock;
-import teamrazor.deepaether.block.RoseLogBlock;
-import teamrazor.deepaether.block.RoseLeavesBlock;
-import teamrazor.deepaether.block.RoseFenceGateBlock;
-import teamrazor.deepaether.block.RoseFenceBlock;
-import teamrazor.deepaether.block.RoseButtonBlock;
-import teamrazor.deepaether.block.RadiantOrchidBlock;
-import teamrazor.deepaether.block.FloweringRoseLeavesBlock;
-import teamrazor.deepaether.block.AerglowPetalBlockBlock;
-import teamrazor.deepaether.block.AerglowGrassPathBlock;
-import teamrazor.deepaether.block.AerglowGrassBlockBlock;
+import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.DeepAetherMod;
 
 import net.minecraftforge.registries.RegistryObject;
@@ -36,7 +14,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.level.block.Block;
 
 public class DeepAetherModBlocks {
@@ -68,6 +45,31 @@ public class DeepAetherModBlocks {
 			() -> new FloweringRoseLeavesBlock());
 	public static final RegistryObject<Block> RADIANT_ORCHID = REGISTRY.register("radiant_orchid", () -> new RadiantOrchidBlock());
 
+	public static final RegistryObject<Block> ROSEWOOD_SAPLING = REGISTRY.register("rosewood_sapling", () -> new RoseWoodSapling());
+
+	public static final RegistryObject<Block> ASETERITE = REGISTRY.register("aseterite", () -> new Aseterite());
+
+	public static final RegistryObject<Block> POLISHED_ASETERITE = REGISTRY.register("polished_aseterite", () -> new Polished_Aseterite());
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS = REGISTRY.register("polished_aseterite_bricks", () -> new Polished_Aseterite_Bricks());
+	public static final RegistryObject<Block> CLORITE = REGISTRY.register("clorite", () -> new Clorite());
+	public static final RegistryObject<Block> POLISHED_CLORITE = REGISTRY.register("polished_clorite", () -> new Polished_Clorite());
+	public static final RegistryObject<Block> POLISHED_CLORITE_BRICKS = REGISTRY.register("polished_clorite_bricks", () -> new Polished_Clorite_Bricks());
+
+	public static final RegistryObject<Block> DARKERITE = REGISTRY.register("darkerite", () -> new Darkerite());
+	public static final RegistryObject<Block> POLISHED_DARKERITE = REGISTRY.register("polished_darkerite", () -> new Polished_Darkerite());
+	public static final RegistryObject<Block> POLISHED_DARKERITE_BRICKS = REGISTRY.register("polished_darkerite_bricks", () -> new Polished_Darkerite_Bricks());
+	public static final RegistryObject<Block> POLISHED_ASETERITE_STAIR = REGISTRY.register("polished_aseterite_stair", () -> new Polished_Aseterite_Stair());
+
+	public static final RegistryObject<Block> GREOTITE = REGISTRY.register("greotite", () -> new Greotite());
+
+	public static final RegistryObject<Block> POLISHED_GREOTITE = REGISTRY.register("polished_greotite", () -> new Polished_Greotite());
+	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS = REGISTRY.register("polished_greotite_bricks", () -> new Polished_Greotite_Bricks());
+
+	public static final RegistryObject<Block> JARINITE = REGISTRY.register("jarinite", () -> new Jarinite());
+	public static final RegistryObject<Block> POLISHED_JARINITE = REGISTRY.register("polished_jarinite", () -> new Polished_Jarinite());
+	public static final RegistryObject<Block> POLISHED_JARINITE_BRICKS = REGISTRY.register("polished_jarinite_bricks", () -> new Polished_Jarinite_Bricks());
+
+
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {
 		@SubscribeEvent
@@ -82,6 +84,7 @@ public class DeepAetherModBlocks {
 			RoseLeavesBlock.registerRenderLayer();
 			FloweringRoseLeavesBlock.registerRenderLayer();
 			RadiantOrchidBlock.registerRenderLayer();
+			RoseWoodSapling.registerRenderLayer();
 		}
 	}
 }

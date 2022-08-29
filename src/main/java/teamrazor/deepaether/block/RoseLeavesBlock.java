@@ -1,6 +1,8 @@
 
 package teamrazor.deepaether.block;
 
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -17,10 +19,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
-public class RoseLeavesBlock extends Block {
+public class RoseLeavesBlock extends LeavesBlock {
 	public RoseLeavesBlock() {
-		super(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion()
-				.isRedstoneConductor((bs, br, bp) -> false));
+		super(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES));/*of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion()
+				.isRedstoneConductor((bs, br, bp) -> false));*/
 	}
 
 	@Override
@@ -29,8 +31,12 @@ public class RoseLeavesBlock extends Block {
 	}
 
 	@Override
-	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+	public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
 		return 30;
+	}
+	@Override
+	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+		return 60;
 	}
 
 	@OnlyIn(Dist.CLIENT)
