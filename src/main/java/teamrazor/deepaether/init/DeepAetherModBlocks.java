@@ -70,6 +70,10 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> JARINITE = REGISTRY.register("jarinite", () -> new Jarinite());
 	public static final RegistryObject<Block> POLISHED_JARINITE = REGISTRY.register("polished_jarinite", () -> new Polished_Jarinite());
 	public static final RegistryObject<Block> POLISHED_JARINITE_BRICKS = REGISTRY.register("polished_jarinite_bricks", () -> new Polished_Jarinite_Bricks());
+	public static final RegistryObject<Block> YALLESITE = REGISTRY.register("yallesite", () -> new Yallesite());
+	public static final RegistryObject<Block> POLISHED_YALLESITE = REGISTRY.register("polished_yallesite", () -> new Polished_Yallesite());
+	public static final RegistryObject<Block> POLISHED_YALLESITE_BRICKS = REGISTRY.register("polished_yallesite_bricks", () -> new Polished_Yallesite_Bricks());
+
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {
