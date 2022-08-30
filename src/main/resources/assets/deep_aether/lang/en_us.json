@@ -1,6 +1,7 @@
 {
   "item.deep_aether.skyjade_armor_chestplate": "Skyjade Chestplate",
   "item.deep_aether.aether_fish_spawn_egg": "Aether Fish Spawn Egg",
+  "item.deep_aether.quail_spawn_egg": "Quail Spawn Egg",
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "block.deep_aether.rose_wood_wall": "Roseroot Wall",
   "block.deep_aether.aerglow_grass_block": "Aerglow Grass Block",
@@ -43,6 +44,7 @@
   "block.deep_aether.skyjade_ore": "Skyjade Ore",
   "block.deep_aether.stripped_rose_wood_wall": "Stripped Roseroot Wall",
   "item.deep_aether.skyjade_tools_shovel": "Skyjade Shovel",
+  "item.deep_aether.poison_bucket": "Poison Bucket",
   "block.deep_aether.aseterite": "Aseterite",
   "block.deep_aether.polished_aseterite": "Polished Aseterite",
   "block.deep_aether.polished_aseterite_bricks": "Polished Aseterite Bricks",
