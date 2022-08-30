@@ -10,7 +10,7 @@ import net.minecraft.world.item.Item;
 
 public class AerglowPetalItem extends Item {
 	public AerglowPetalItem() {
-		super(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(64).rarity(Rarity.COMMON));
 	}
 
 	@Override

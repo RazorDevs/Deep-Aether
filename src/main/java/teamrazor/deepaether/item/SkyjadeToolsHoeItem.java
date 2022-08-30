@@ -36,6 +36,6 @@ public class SkyjadeToolsHoeItem extends HoeItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get()));
 			}
-		}, 0, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+		}, 0, -3f, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
 	}
 }

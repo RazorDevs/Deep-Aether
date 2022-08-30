@@ -36,6 +36,6 @@ public class SkyjadeToolsShovelItem extends ShovelItem {
 			public Ingredient getRepairIngredient() {
 				return Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get()));
 			}
-		}, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+		}, 1, -3f, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
 	}
 }

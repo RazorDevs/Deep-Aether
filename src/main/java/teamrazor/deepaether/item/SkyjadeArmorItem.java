@@ -17,7 +17,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
 
 public abstract class SkyjadeArmorItem extends ArmorItem {
-	public SkyjadeArmorItem(EquipmentSlot slot, Item.Properties properties) {
+	public SkyjadeArmorItem(EquipmentSlot slot, Properties properties) {
 		super(new ArmorMaterial() {
 			@Override
 			public int getDurabilityForSlot(EquipmentSlot slot) {
@@ -63,7 +63,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Helmet extends SkyjadeArmorItem {
 		public Helmet() {
-			super(EquipmentSlot.HEAD, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.HEAD, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
 		}
 
 		@Override
@@ -74,7 +74,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Chestplate extends SkyjadeArmorItem {
 		public Chestplate() {
-			super(EquipmentSlot.CHEST, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.CHEST, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
 		}
 
 		@Override
@@ -85,7 +85,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Leggings extends SkyjadeArmorItem {
 		public Leggings() {
-			super(EquipmentSlot.LEGS, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.LEGS, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
 		}
 
 		@Override
@@ -96,7 +96,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Boots extends SkyjadeArmorItem {
 		public Boots() {
-			super(EquipmentSlot.FEET, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.FEET, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
 		}
 
 		@Override

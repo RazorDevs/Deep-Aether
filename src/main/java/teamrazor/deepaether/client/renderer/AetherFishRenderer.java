@@ -1,9 +1,7 @@
-
 package teamrazor.deepaether.client.renderer;
 
 import teamrazor.deepaether.entity.AetherFishEntity;
 import teamrazor.deepaether.client.model.Modelcustom_model;
-
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

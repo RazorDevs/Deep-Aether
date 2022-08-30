@@ -1,6 +1,5 @@
 package teamrazor.deepaether.client.model;
 
-import net.minecraft.world.entity.Entity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -11,16 +10,11 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.EntityModel;
-
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.datafixers.types.Type;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.AetherFishEntity;
 
-// Made with Blockbench 4.2.4
-// Exported for Minecraft version 1.17 - 1.18 with Mojang mappings
-// Paste this class into your mod and generate all required imports
 	public class Modelcustom_model<Type extends AetherFishEntity> extends EntityModel<Type> {
 		// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 		public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, "aerglow_fish"), "main");

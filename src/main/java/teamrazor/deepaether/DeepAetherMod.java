@@ -1,17 +1,19 @@
 package teamrazor.deepaether;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.Item;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import org.slf4j.Logger;
 import teamrazor.deepaether.init.*;
-
-import org.apache.logging.log4j.LogManager;
 
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.network.NetworkRegistry;
@@ -47,6 +49,8 @@ public class DeepAetherMod {
 		// Register the processIMC method for modloading
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		// Register ourselves for server and other game events we are interested in
@@ -55,7 +59,11 @@ public class DeepAetherMod {
 		DeepAetherModItems.REGISTRY.register(bus);
 		DeepAetherModEntities.REGISTRY.register(bus);
 		DeepAetherModBiomes.REGISTRY.register(bus);
+		DeepAetherModFluids.REGISTRY.register(bus);
 
+	}
+
+	private void clientSetup(final FMLClientSetupEvent event) {
 	}
 
 	private void setup(final FMLCommonSetupEvent event)
@@ -63,6 +71,7 @@ public class DeepAetherMod {
 		// some preinit code
 		LOGGER.info("HELLO FROM PREINIT");
 		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event)
@@ -77,6 +86,12 @@ public class DeepAetherMod {
 		LOGGER.info("Got IMC {}", event.getIMCStream().
 				map(m->m.messageSupplier().get()).
 				collect(Collectors.toList()));
+	}
+
+	@SubscribeEvent
+	public void registerBucket(RegistryEvent.Register<Item> event) {
+		//event.getRegistry().register(DeepAetherModItems.SKYROOT_POISON_BUCKET.get());
+		LOGGER.info("BUCKET SHOULD BE OVERWRITTEN.");
 	}
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,
