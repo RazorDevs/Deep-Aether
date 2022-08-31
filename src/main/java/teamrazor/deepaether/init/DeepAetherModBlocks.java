@@ -60,8 +60,15 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> DARKERITE = REGISTRY.register("darkerite", () -> new Darkerite());
 	public static final RegistryObject<Block> POLISHED_DARKERITE = REGISTRY.register("polished_darkerite", () -> new Polished_Darkerite());
 	public static final RegistryObject<Block> POLISHED_DARKERITE_BRICKS = REGISTRY.register("polished_darkerite_bricks", () -> new Polished_Darkerite_Bricks());
-	public static final RegistryObject<Block> POLISHED_ASETERITE_STAIR = REGISTRY.register("polished_aseterite_stair", () -> new Polished_Aseterite_Stair());
+	public static final RegistryObject<Block> POLISHED_ASETERITE_STAIRS = REGISTRY.register("polished_aseterite_stairs", () -> new Polished_Aseterite_Stairs());
+	public static final RegistryObject<Block> ASETERITE_STAIRS = REGISTRY.register("aseterite_stairs", () -> new Aseterite_Stairs());
+	public static final RegistryObject<Block> ASETERITE_SLAB = REGISTRY.register("aseterite_slab", () -> new Aseterite_Slab());
+	public static final RegistryObject<Block> POLISHED_ASETERITE_SLAB = REGISTRY.register("polished_aseterite_slab", () -> new Polished_Aseterite_Slab());
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_STAIRS = REGISTRY.register("polished_aseterite_bricks_stairs", () -> new Polished_Aseterite_Bricks_Stairs());
+	public static final RegistryObject<Block> ASETERITE_WALL = REGISTRY.register("aseterite_wall", () -> new Aseterite_Wall());
+	public static final RegistryObject<Block> ASETERITE_PILLAR = REGISTRY.register("aseterite_pillar", () -> new Aseterite_Pillar());
 
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_SLAB = REGISTRY.register("polished_aseterite_bricks_slab", () -> new Polished_Aseterite_Bricks_Slab());
 	public static final RegistryObject<Block> GREOTITE = REGISTRY.register("greotite", () -> new Greotite());
 
 	public static final RegistryObject<Block> POLISHED_GREOTITE = REGISTRY.register("polished_greotite", () -> new Polished_Greotite());
@@ -82,6 +89,7 @@ public class DeepAetherModBlocks {
 			AerglowGrassPathBlock.registerRenderLayer();
 			AerglowPetalBlockBlock.registerRenderLayer();
 			RoseWoodWallBlock.registerRenderLayer();
+
 			StrippedRoseWoodWallBlock.registerRenderLayer();
 			RoseFenceBlock.registerRenderLayer();
 			RoseWoodDoorBlock.registerRenderLayer();

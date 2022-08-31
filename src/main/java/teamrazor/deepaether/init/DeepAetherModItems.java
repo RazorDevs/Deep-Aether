@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.Block;
 public class DeepAetherModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
 
+	public static final RegistryObject<Item> ROSE_SLAB = block(DeepAetherModBlocks.ROSE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> AERGLOW_GRASS_BLOCK = block(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK,
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -55,7 +56,15 @@ public class DeepAetherModItems {
 
 	public static final RegistryObject<Item> ROSE_STAIRS = block(DeepAetherModBlocks.ROSE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
-	public static final RegistryObject<Item> ROSE_SLAB = block(DeepAetherModBlocks.ROSE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ASETERITE_STAIRS = block(DeepAetherModBlocks.ASETERITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_ASETERITE_STAIRS = block(DeepAetherModBlocks.POLISHED_ASETERITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_ASETERITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> ASETERITE_SLAB = block(DeepAetherModBlocks.ASETERITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_ASETERITE_SLAB = block(DeepAetherModBlocks.POLISHED_ASETERITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_ASETERITE_BRICKS_SLAB = block(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ASETERITE_WALL = block(DeepAetherModBlocks.ASETERITE_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 
 	public static final RegistryObject<Item> ROSE_FENCE = block(DeepAetherModBlocks.ROSE_FENCE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -64,6 +73,13 @@ public class DeepAetherModItems {
 
 	public static final RegistryObject<Item> ROSE_PRESSURE_PLATE = block(DeepAetherModBlocks.ROSE_PRESSURE_PLATE,
 			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YALLESITE = block(DeepAetherModBlocks.YALLESITE,
+			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_YALLESITE = block(DeepAetherModBlocks.POLISHED_YALLESITE,
+			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS,
+			DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 
 	public static final RegistryObject<Item> ROSE_BUTTON = block(DeepAetherModBlocks.ROSE_BUTTON, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -117,7 +133,7 @@ public class DeepAetherModItems {
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = REGISTRY.register("poison_bucket",
 			() -> new BucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-
+	public static final RegistryObject<Item> ASETERITE = block(DeepAetherModBlocks.ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_ASETERITE = block(DeepAetherModBlocks.POLISHED_ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_ASETERITE_BRICKS = block(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> GREOTITE = block(DeepAetherModBlocks.GREOTITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -144,8 +160,8 @@ public class DeepAetherModItems {
 		return REGISTRY.register(block.getId().getPath(), () -> new DoubleHighBlockItem(block.get(), new Item.Properties().tab(tab)));
 	}
 
-	/*public static final DeferredRegister<Item> AETHER = DeferredRegister.create(ForgeRegistries.ITEMS, "aether");
+	public static final DeferredRegister<Item> AETHER = DeferredRegister.create(ForgeRegistries.ITEMS, "aether");
 
-	public static final RegistryObject<Item> SKYROOT_POISON_BUCKET = AETHER.register("skyroot_poison_bucket", () -> new SkyrootBucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().craftRemainder(AetherItems.SKYROOT_POISON_BUCKET.get()).stacksTo(1).tab(AetherItemGroups.AETHER_MISC)));*/
+	public static final RegistryObject<Item> SKYROOT_POISON_BUCKET = AETHER.register("skyroot_poison_bucket", () -> new SkyrootBucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().craftRemainder(AetherItems.SKYROOT_POISON_BUCKET.get()).stacksTo(1).tab(AetherItemGroups.AETHER_MISC)));
 
 }
