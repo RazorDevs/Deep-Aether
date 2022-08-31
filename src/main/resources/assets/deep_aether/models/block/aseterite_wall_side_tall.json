@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/template_wall_side_tall",
+  "parent": "block/template_wall_side_tall",
   "textures": {
-    "wall": "deep_aether:block/aseterite"
+    "wall": "deep_aether:blocks/aseterite",
+    "particle": "deep_aether:blocks/aseterite"
   }
 }

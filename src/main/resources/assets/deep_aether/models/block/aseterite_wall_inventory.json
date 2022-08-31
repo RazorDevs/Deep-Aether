@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/wall_inventory",
+  "parent": "block/wall_inventory",
   "textures": {
-    "wall": "deep_aether:block/aseterite"
+    "wall": "deep_aether:blocks/aseterite",
+    "particle": "deep_aether:blocks/aseterite"
   }
 }

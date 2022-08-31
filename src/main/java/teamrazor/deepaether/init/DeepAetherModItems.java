@@ -151,6 +151,44 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> CLORITE = block(DeepAetherModBlocks.CLORITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_CLORITE = block(DeepAetherModBlocks.POLISHED_CLORITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_CLORITE_BRICKS = block(DeepAetherModBlocks.POLISHED_CLORITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> GREOTITE_SLAB = block(DeepAetherModBlocks.GREOTITE_SLAB,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_GREOTITE_SLAB = block(DeepAetherModBlocks.POLISHED_GREOTITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_GREOTITE_BRICKS_SLAB = block(DeepAetherModBlocks.POLISHED_GREOTITE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> GREOTITE_STAIRS = block(DeepAetherModBlocks.GREOTITE_STAIRS,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_GREOTITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_GREOTITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_GREOTITE_STAIRS = block(DeepAetherModBlocks.POLISHED_GREOTITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> GREOTITE_WALL = block(DeepAetherModBlocks.GREOTITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> DARKERITE_SLAB = block(DeepAetherModBlocks.DARKERITE_SLAB,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_DARKERITE_SLAB = block(DeepAetherModBlocks.POLISHED_DARKERITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_DARKERITE_BRICKS_SLAB = block(DeepAetherModBlocks.POLISHED_DARKERITE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> DARKERITE_STAIRS = block(DeepAetherModBlocks.DARKERITE_STAIRS,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_DARKERITE_STAIRS = block(DeepAetherModBlocks.POLISHED_DARKERITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_DARKERITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_DARKERITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> DARKERITE_WALL = block(DeepAetherModBlocks.DARKERITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> JARINITE_SLAB = block(DeepAetherModBlocks.JARINITE_SLAB,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_JARINITE_SLAB = block(DeepAetherModBlocks.POLISHED_JARINITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_JARINITE_BRICKS_SLAB = block(DeepAetherModBlocks.POLISHED_JARINITE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> JARINITE_STAIRS = block(DeepAetherModBlocks.JARINITE_STAIRS,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_JARINITE_STAIRS = block(DeepAetherModBlocks.POLISHED_JARINITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_JARINITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_JARINITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> JARINITE_WALL = block(DeepAetherModBlocks.JARINITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> CLORITE_SLAB = block(DeepAetherModBlocks.CLORITE_SLAB,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_CLORITE_SLAB = block(DeepAetherModBlocks.POLISHED_CLORITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_CLORITE_BRICKS_SLAB = block(DeepAetherModBlocks.POLISHED_CLORITE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> CLORITE_STAIRS = block(DeepAetherModBlocks.CLORITE_STAIRS,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_CLORITE_STAIRS = block(DeepAetherModBlocks.POLISHED_CLORITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_CLORITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_CLORITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> CLORITE_WALL = block(DeepAetherModBlocks.CLORITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YALLESITE_SLAB = block(DeepAetherModBlocks.YALLESITE_SLAB,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_YALLESITE_SLAB = block(DeepAetherModBlocks.POLISHED_YALLESITE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS_SLAB = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YALLESITE_STAIRS = block(DeepAetherModBlocks.YALLESITE_STAIRS,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_YALLESITE_STAIRS = block(DeepAetherModBlocks.POLISHED_YALLESITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+
+
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

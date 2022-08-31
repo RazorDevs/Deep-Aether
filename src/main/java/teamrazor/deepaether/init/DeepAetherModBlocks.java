@@ -22,6 +22,62 @@ import net.minecraftforge.api.distmarker.Dist;
 
 public class DeepAetherModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAetherMod.MODID);
+	public static final RegistryObject<Block> GREOTITE_SLAB = REGISTRY.register("greotite_slab", () -> new GreotiteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_GREOTITE_SLAB = REGISTRY.register("polished_greotite_slab",
+			() -> new PolishedGreotiteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS_SLAB = REGISTRY.register("polished_greotite_bricks_slab",
+			() -> new PolishedGreotiteBricksSlabBlock());
+	public static final RegistryObject<Block> GREOTITE_STAIRS = REGISTRY.register("greotite_stairs", () -> new GreotiteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS_STAIRS = REGISTRY.register("polished_greotite_bricks_stairs",
+			() -> new PolishedGreotiteBricksStairsBlock());
+	public static final RegistryObject<Block> POLISHED_GREOTITE_STAIRS = REGISTRY.register("polished_greotite_stairs",
+			() -> new PolishedGreotiteStairsBlock());
+	public static final RegistryObject<Block> GREOTITE_WALL = REGISTRY.register("greotite_wall", () -> new GreotiteWallBlock());
+	public static final RegistryObject<Block> DARKERITE_SLAB = REGISTRY.register("darkerite_slab", () -> new DarkeriteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_DARKERITE_SLAB = REGISTRY.register("polished_darkerite_slab",
+			() -> new PolishedDarkeriteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_DARKERITE_BRICKS_SLAB = REGISTRY.register("polished_darkerite_bricks_slab",
+			() -> new PolishedDarkeriteBricksSlabBlock());
+	public static final RegistryObject<Block> DARKERITE_STAIRS = REGISTRY.register("darkerite_stairs", () -> new DarkeriteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_DARKERITE_STAIRS = REGISTRY.register("polished_darkerite_stairs",
+			() -> new PolishedDarkeriteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_DARKERITE_BRICKS_STAIRS = REGISTRY.register("polished_darkerite_bricks_stairs",
+			() -> new PolishedDarkeriteBricksStairsBlock());
+	public static final RegistryObject<Block> DARKERITE_WALL = REGISTRY.register("darkerite_wall", () -> new DarkeriteWallBlock());
+	public static final RegistryObject<Block> ASETERITE_WALL = REGISTRY.register("aseterite_wall", () -> new AseteriteWallBlock());
+	public static final RegistryObject<Block> JARINITE_SLAB = REGISTRY.register("jarinite_slab", () -> new JariniteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_JARINITE_SLAB = REGISTRY.register("polished_jarinite_slab",
+			() -> new PolishedJariniteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_JARINITE_BRICKS_SLAB = REGISTRY.register("polished_jarinite_bricks_slab",
+			() -> new PolishedJariniteBricksSlabBlock());
+	public static final RegistryObject<Block> JARINITE_STAIRS = REGISTRY.register("jarinite_stairs", () -> new JariniteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_JARINITE_STAIRS = REGISTRY.register("polished_jarinite_stairs",
+			() -> new PolishedJariniteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_JARINITE_BRICKS_STAIRS = REGISTRY.register("polished_jarinite_bricks_stairs",
+			() -> new PolishedJariniteBricksStairsBlock());
+	public static final RegistryObject<Block> JARINITE_WALL = REGISTRY.register("jarinite_wall", () -> new JariniteWallBlock());
+	public static final RegistryObject<Block> CLORITE_SLAB = REGISTRY.register("clorite_slab", () -> new CloriteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_CLORITE_SLAB = REGISTRY.register("polished_clorite_slab",
+			() -> new PolishedCloriteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_CLORITE_BRICKS_SLAB = REGISTRY.register("polished_clorite_bricks_slab",
+			() -> new PolishedCloriteBricksSlabBlock());
+	public static final RegistryObject<Block> CLORITE_STAIRS = REGISTRY.register("clorite_stairs", () -> new CloriteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_CLORITE_STAIRS = REGISTRY.register("polished_clorite_stairs",
+			() -> new PolishedCloriteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_CLORITE_BRICKS_STAIRS = REGISTRY.register("polished_clorite_bricks_stairs",
+			() -> new PolishedCloriteBricksStairsBlock());
+	public static final RegistryObject<Block> CLORITE_WALL = REGISTRY.register("clorite_wall", () -> new CloriteWallBlock());
+	public static final RegistryObject<Block> YALLESITE_SLAB = REGISTRY.register("yallesite_slab", () -> new YallesiteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_YALLESITE_SLAB = REGISTRY.register("polished_yallesite_slab",
+			() -> new PolishedYallesiteSlabBlock());
+	public static final RegistryObject<Block> POLISHED_YALLESITE_BRICKS_SLAB = REGISTRY.register("polished_yallesite_bricks_slab",
+			() -> new PolishedYallesiteBricksSlabBlock());
+	public static final RegistryObject<Block> YALLESITE_STAIRS = REGISTRY.register("yallesite_stairs", () -> new YallesiteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_YALLESITE_STAIRS = REGISTRY.register("polished_yallesite_stairs",
+			() -> new PolishedYallesiteStairsBlock());
+	public static final RegistryObject<Block> POLISHED_YALLESITE_BRICKS_STAIRS = REGISTRY.register("polished_yallesite_bricks_stairs",
+			() -> new PolishedYallesiteBricksStairsBlock());
+
 
 	public static final RegistryObject<Block> AERGLOW_GRASS_BLOCK = REGISTRY.register("aerglow_grass_block", () -> new AerglowGrassBlockBlock());
 	public static final RegistryObject<Block> AERGLOW_GRASS_PATH = REGISTRY.register("aerglow_grass_path", () -> new AerglowGrassPathBlock());
@@ -65,7 +121,7 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> ASETERITE_SLAB = REGISTRY.register("aseterite_slab", () -> new Aseterite_Slab());
 	public static final RegistryObject<Block> POLISHED_ASETERITE_SLAB = REGISTRY.register("polished_aseterite_slab", () -> new Polished_Aseterite_Slab());
 	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_STAIRS = REGISTRY.register("polished_aseterite_bricks_stairs", () -> new Polished_Aseterite_Bricks_Stairs());
-	public static final RegistryObject<Block> ASETERITE_WALL = REGISTRY.register("aseterite_wall", () -> new Aseterite_Wall());
+
 	public static final RegistryObject<Block> ASETERITE_PILLAR = REGISTRY.register("aseterite_pillar", () -> new Aseterite_Pillar());
 
 	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_SLAB = REGISTRY.register("polished_aseterite_bricks_slab", () -> new Polished_Aseterite_Bricks_Slab());
@@ -98,6 +154,13 @@ public class DeepAetherModBlocks {
 			FloweringRoseLeavesBlock.registerRenderLayer();
 			RadiantOrchidBlock.registerRenderLayer();
 			RoseWoodSapling.registerRenderLayer();
+			GreotiteWallBlock.registerRenderLayer();
+			DarkeriteWallBlock.registerRenderLayer();
+			AseteriteWallBlock.registerRenderLayer();
+			JariniteWallBlock.registerRenderLayer();
+			CloriteWallBlock.registerRenderLayer();
+			CloriteWallBlock.registerRenderLayer();
+
 		}
 	}
 }

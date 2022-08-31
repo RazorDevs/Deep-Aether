@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_post",
+  "textures": {
+    "wall": "deep_aether:blocks/clorite",
+    "particle": "deep_aether:blocks/clorite"
+  }
+}

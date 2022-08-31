@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "deep_aether:blocks/polished_darkerite",
+    "top": "deep_aether:blocks/polished_darkerite",
+    "side": "deep_aether:blocks/polished_darkerite"
+  }
+}

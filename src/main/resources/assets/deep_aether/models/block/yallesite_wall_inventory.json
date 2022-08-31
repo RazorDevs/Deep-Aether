@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "deep_aether:blocks/yallesite",
+    "particle": "deep_aether:blocks/yallesite"
+  }
+}
