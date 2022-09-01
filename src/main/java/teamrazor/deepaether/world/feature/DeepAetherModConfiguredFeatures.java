@@ -2,6 +2,7 @@ package teamrazor.deepaether.world.feature;
 
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraftforge.eventbus.api.IEventBus;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -40,4 +41,5 @@ public class DeepAetherModConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ASETERITE = FeatureUtils.register("aseterite",
             Feature.ORE, new OreConfiguration(AETHER_ASETERITE_STONE, 50));
+
 }

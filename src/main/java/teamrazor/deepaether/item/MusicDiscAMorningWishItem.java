@@ -1,4 +1,4 @@
-
+/*
 package teamrazor.deepaether.item;
 
 import teamrazor.deepaether.init.DeepAetherModTabs;
@@ -15,3 +15,4 @@ public class MusicDiscAMorningWishItem extends RecordItem {
 				new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).rarity(Rarity.RARE));
 	}
 }
+*/

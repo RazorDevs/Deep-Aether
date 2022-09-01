@@ -1,0 +1,11 @@
+
+{
+  "type": "deep_aether:entities",
+  "biomes": "minecraft:plains",
+  "entity": {
+    "type": "deep_aether:quail",
+    "weight": 80,
+    "minCount": 2,
+    "maxCount": 4
+  }
+}

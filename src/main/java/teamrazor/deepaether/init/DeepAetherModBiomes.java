@@ -1,4 +1,4 @@
-
+/*
 package teamrazor.deepaether.init;
 
 import com.gildedgames.aether.Aether;
@@ -33,3 +33,4 @@ public class DeepAetherModBiomes extends AetherBiomes {
     }
 
 }
+*/

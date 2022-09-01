@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -24,6 +24,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
+import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
+import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -53,6 +55,8 @@ public class DeepAetherMod {
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+
+
 		// Register ourselves for server and other game events we are interested in
 		MinecraftForge.EVENT_BUS.register(this);
 		DeepAetherModBlocks.REGISTRY.register(bus);
@@ -60,6 +64,10 @@ public class DeepAetherMod {
 		DeepAetherModEntities.REGISTRY.register(bus);
 		DeepAetherModBiomes.REGISTRY.register(bus);
 		DeepAetherModFluids.REGISTRY.register(bus);
+		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		DeepAetherModPlacedFeatures.register(eventBus);
+		DeepAetherModBiomeModifiers.register(eventBus);
+
 
 	}
 
@@ -70,7 +78,7 @@ public class DeepAetherMod {
 	{
 		// some preinit code
 		LOGGER.info("HELLO FROM PREINIT");
-		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getName());
 
 	}
 
@@ -87,12 +95,12 @@ public class DeepAetherMod {
 				map(m->m.messageSupplier().get()).
 				collect(Collectors.toList()));
 	}
-
-	@SubscribeEvent
+//don't know how to fix
+/*	@SubscribeEvent
 	public void registerBucket(RegistryEvent.Register<Item> event) {
 		//event.getRegistry().register(DeepAetherModItems.SKYROOT_POISON_BUCKET.get());
 		LOGGER.info("BUCKET SHOULD BE OVERWRITTEN.");
-	}
+	}*/
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,
 			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {

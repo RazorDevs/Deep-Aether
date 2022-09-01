@@ -1,9 +1,10 @@
-package teamrazor.deepaether.world;
+/*package teamrazor.deepaether.world;
 
-import com.gildedgames.aether.common.registry.AetherBlocks;
-import com.gildedgames.aether.common.registry.worldgen.AetherFeatures;
-import com.gildedgames.aether.common.world.builders.AetherBiomeBuilders;
-import com.gildedgames.aether.common.world.builders.AetherFeatureBuilders;
+
+import com.gildedgames.aether.block.AetherBlocks;
+import com.gildedgames.aether.data.resources.builders.AetherBiomeBuilders;
+import com.gildedgames.aether.data.resources.builders.AetherFeatureBuilders;
+import com.gildedgames.aether.world.feature.AetherFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
@@ -36,3 +37,4 @@ public class DeepAetherModBiomeBuilders extends AetherBiomeBuilders {
     }
 
 }
+*/

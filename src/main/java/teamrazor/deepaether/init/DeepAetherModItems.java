@@ -5,9 +5,10 @@
 package teamrazor.deepaether.init;
 
 import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.common.item.miscellaneous.bucket.SkyrootBucketItem;
-import com.gildedgames.aether.common.registry.AetherItemGroups;
-import com.gildedgames.aether.common.registry.AetherItems;
+import com.gildedgames.aether.Aether;
+import com.gildedgames.aether.item.AetherItemGroups;
+import com.gildedgames.aether.item.AetherItems;
+import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
 import teamrazor.deepaether.item.*;

@@ -13,7 +13,7 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
@@ -23,7 +23,7 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class QuailEntity extends Chicken {
-    private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("aether:skyroot_grove"),
+/*    private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("aether:skyroot_grove"),
             new ResourceLocation("aether:skyroot_forest"), new ResourceLocation("aether:skyroot_thicket"),
             new ResourceLocation("aether:golden_forest"));
 
@@ -32,7 +32,7 @@ public class QuailEntity extends Chicken {
         if (SPAWN_BIOMES.contains(event.getName()))
             event.getSpawns().getSpawner(MobCategory.CREATURE)
                     .add(new MobSpawnSettings.SpawnerData(DeepAetherModEntities.QUAIL.get(), 10, 2, 4));
-    }
+    }*/
 
     public QuailEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(DeepAetherModEntities.QUAIL.get(), world);

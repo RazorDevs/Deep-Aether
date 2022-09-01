@@ -1,11 +1,11 @@
 package teamrazor.deepaether.init;
 
-import com.gildedgames.aether.common.registry.AetherItems;
+/*
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.*;
-import net.minecraftforge.fluids.FluidAttributes;
+
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -39,5 +39,6 @@ public class DeepAetherModFluids {
     public static final RegistryObject<LiquidBlock> POISON_BLOCK = DeepAetherModBlocks.REGISTRY.register("poison", () -> new PoisonBlock(() -> DeepAetherModFluids.POISON_FLUID.get(), BlockBehaviour.Properties.of(Material.LAVA)
             .noCollission()
             .strength(100f)
-            .noDrops()));
+            .noLootTable()));
 }
+*/

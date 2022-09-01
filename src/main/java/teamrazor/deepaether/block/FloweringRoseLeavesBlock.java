@@ -54,9 +54,4 @@ public class FloweringRoseLeavesBlock extends Block {
 			return dropsOriginal;
 		return Collections.singletonList(new ItemStack(this, 1));
 	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get(), renderType -> renderType == RenderType.cutout());
-	}
 }

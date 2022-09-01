@@ -1,8 +1,8 @@
 
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.common.block.natural.AetherGrassBlock;
-import com.gildedgames.aether.common.registry.AetherBlocks;
+import com.gildedgames.aether.block.natural.AetherGrassBlock;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;

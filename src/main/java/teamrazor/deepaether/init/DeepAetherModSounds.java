@@ -1,7 +1,5 @@
-
 /*
- *    MCreator note: This file will be REGENERATED on each build.
- */
+
 package teamrazor.deepaether.init;
 
 import net.minecraftforge.fml.common.Mod;
@@ -30,3 +28,4 @@ public class DeepAetherModSounds {
 			event.getRegistry().register(sound.getValue().setRegistryName(sound.getKey()));
 	}
 }
+*/

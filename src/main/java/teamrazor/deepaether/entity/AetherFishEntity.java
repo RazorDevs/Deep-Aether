@@ -15,7 +15,7 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
@@ -25,7 +25,7 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class AetherFishEntity extends Cod {
-	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("aether:skyroot_grove"),
+/*	private static final Set<ResourceLocation> SPAWN_BIOMES = Set.of(new ResourceLocation("aether:skyroot_grove"),
 			new ResourceLocation("aether:skyroot_forest"), new ResourceLocation("aether:skyroot_thicket"),
 			new ResourceLocation("aether:golden_forest"));
 
@@ -34,7 +34,7 @@ public class AetherFishEntity extends Cod {
 		if (SPAWN_BIOMES.contains(event.getName()))
 			event.getSpawns().getSpawner(MobCategory.WATER_CREATURE)
 					.add(new MobSpawnSettings.SpawnerData(DeepAetherModEntities.AETHER_FISH.get(), 10, 2, 4));
-	}
+	}*/
 
 	public AetherFishEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(DeepAetherModEntities.AETHER_FISH.get(), world);

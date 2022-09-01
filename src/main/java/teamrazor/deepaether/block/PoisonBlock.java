@@ -1,7 +1,7 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.common.effect.InebriationEffect;
-import com.gildedgames.aether.common.registry.AetherEffects;
+
+import com.gildedgames.aether.effect.AetherEffects;
 import com.mojang.blaze3d.shaders.Effect;
 import net.minecraft.client.renderer.EffectInstance;
 import net.minecraft.core.BlockPos;

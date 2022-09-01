@@ -4,7 +4,7 @@
  */
 package teamrazor.deepaether.init;
 
-import com.gildedgames.aether.common.block.natural.AetherLogBlock;
+
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;

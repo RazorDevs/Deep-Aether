@@ -1,6 +1,9 @@
 
 package teamrazor.deepaether.block;
 
+import com.gildedgames.aether.block.AetherBlocks;
+import net.minecraft.world.level.block.DirtPathBlock;
+import net.minecraft.world.level.material.MaterialColor;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -24,39 +27,9 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import java.util.List;
 import java.util.Collections;
 
-public class AerglowGrassPathBlock extends Block {
+public class AerglowGrassPathBlock extends DirtPathBlock {
 	public AerglowGrassPathBlock() {
-		super(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRAVEL).strength(1f, 10f).noOcclusion()
-				.isRedstoneConductor((bs, br, bp) -> false));
-	}
-
-	@Override
-	public boolean propagatesSkylightDown(BlockState state, BlockGetter reader, BlockPos pos) {
-		return true;
-	}
-
-	@Override
-	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return 0;
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		Vec3 offset = state.getOffset(world, pos);
-		return box(0, 0, 0, 16, 15, 16).move(offset.x, offset.y, offset.z);
-	}
-
-	@Override
-	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-		if (!dropsOriginal.isEmpty())
-			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(this, 1));
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.AERGLOW_GRASS_PATH.get(), renderType -> renderType == RenderType.cutoutMipped());
+		super(Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRAVEL));
 	}
 
 }
