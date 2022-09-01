@@ -69,15 +69,11 @@ public class DeepAetherMod {
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		// some preinit code
-		LOGGER.info("HELLO FROM PREINIT");
-		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event)
 	{
 		// Some example code to dispatch IMC to another mod
-		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
 	}
 
 	private void processIMC(final InterModProcessEvent event)
@@ -86,17 +82,5 @@ public class DeepAetherMod {
 		LOGGER.info("Got IMC {}", event.getIMCStream().
 				map(m->m.messageSupplier().get()).
 				collect(Collectors.toList()));
-	}
-
-	@SubscribeEvent
-	public void registerBucket(RegistryEvent.Register<Item> event) {
-		//event.getRegistry().register(DeepAetherModItems.SKYROOT_POISON_BUCKET.get());
-		LOGGER.info("BUCKET SHOULD BE OVERWRITTEN.");
-	}
-
-	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,
-			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
-		PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
-		messageID++;
 	}
 }
