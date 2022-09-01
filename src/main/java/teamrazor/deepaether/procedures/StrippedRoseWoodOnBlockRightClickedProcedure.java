@@ -1,5 +1,5 @@
 package teamrazor.deepaether.procedures;
-
+/*
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import net.minecraft.world.level.block.state.properties.Property;
@@ -61,3 +61,4 @@ public class StrippedRoseWoodOnBlockRightClickedProcedure {
 		}
 	}
 }
+*/

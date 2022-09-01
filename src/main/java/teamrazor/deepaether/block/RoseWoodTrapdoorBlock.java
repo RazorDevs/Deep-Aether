@@ -49,9 +49,4 @@ public class RoseWoodTrapdoorBlock extends TrapDoorBlock {
 			return dropsOriginal;
 		return Collections.singletonList(new ItemStack(this, 1));
 	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.ROSE_WOOD_TRAPDOOR.get(), renderType -> renderType == RenderType.cutout());
-	}
 }

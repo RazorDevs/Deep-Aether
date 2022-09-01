@@ -61,9 +61,9 @@ public class DeepAetherMod {
 		MinecraftForge.EVENT_BUS.register(this);
 		DeepAetherModBlocks.REGISTRY.register(bus);
 		DeepAetherModItems.REGISTRY.register(bus);
-		DeepAetherModEntities.REGISTRY.register(bus);
-		DeepAetherModBiomes.REGISTRY.register(bus);
-		DeepAetherModFluids.REGISTRY.register(bus);
+		//DeepAetherModEntities.REGISTRY.register(bus);
+		//DeepAetherModBiomes.REGISTRY.register(bus);
+		//DeepAetherModFluids.REGISTRY.register(bus);
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
 		DeepAetherModBiomeModifiers.register(eventBus);

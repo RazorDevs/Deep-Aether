@@ -1,5 +1,6 @@
 {
   "parent": "block/template_wall_side_tall",
+  "render_type": "cutout",
   "textures": {
     "wall": "deep_aether:blocks/rosewood_log",
     "particle": "deep_aether:blocks/rosewood_log"

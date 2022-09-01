@@ -1,7 +1,5 @@
-
 /*
- *    MCreator note: This file will be REGENERATED on each build.
- */
+
 package teamrazor.deepaether.init;
 
 import teamrazor.deepaether.entity.AetherFishEntity;
@@ -52,3 +50,4 @@ public class DeepAetherModEntities {
 		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
 	}
 }
+*/

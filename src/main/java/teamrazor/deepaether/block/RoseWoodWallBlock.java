@@ -1,7 +1,6 @@
 
 package teamrazor.deepaether.block;
 
-import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,25 +22,6 @@ import java.util.Collections;
 
 public class RoseWoodWallBlock extends WallBlock {
 	public RoseWoodWallBlock() {
-		super(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion()
-				.isRedstoneConductor((bs, br, bp) -> false));
-	}
-
-	@Override
-	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return 0;
-	}
-
-	@Override
-	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-		if (!dropsOriginal.isEmpty())
-			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(this, 1));
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.ROSE_WOOD_WALL.get(), renderType -> renderType == RenderType.cutout());
+		super(BlockBehaviour.Properties.of(Material.WOOD));
 	}
 }

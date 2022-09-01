@@ -1,5 +1,5 @@
 package teamrazor.deepaether.client.model;
-
+/*
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -56,3 +56,4 @@ public class QuailModel<Type extends QuailEntity> extends EntityModel<Type> {
         this.bone.render(poseStack, buffer, packedLight, packedOverlay);
     }
 }
+*/

@@ -1,6 +1,8 @@
 
 package teamrazor.deepaether.block;
 
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -18,6 +20,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraftforge.common.ToolAction;
+import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import java.util.List;
 import java.util.Collections;
@@ -76,5 +80,12 @@ public class RoseLogBlock extends Block {
 		if (!dropsOriginal.isEmpty())
 			return dropsOriginal;
 		return Collections.singletonList(new ItemStack(this, 1));
+	}
+	@Override
+	public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+		if (context.getItemInHand().getItem() instanceof AxeItem) {
+			return DeepAetherModBlocks.STRIPPED_ROSE_WOOD_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+		}
+		return super.getToolModifiedState(state, context, toolAction, simulate);
 	}
 }

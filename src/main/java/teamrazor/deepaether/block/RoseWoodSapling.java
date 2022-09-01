@@ -18,9 +18,4 @@ public class RoseWoodSapling extends SaplingBlock{
     public RoseWoodSapling() {
         super((new RosewoodTreeGrower()), Properties.copy(Blocks.OAK_SAPLING));
     }
-
-    @OnlyIn(Dist.CLIENT)
-    public static void registerRenderLayer() {
-        ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.ROSEWOOD_SAPLING.get(), renderType -> renderType == RenderType.cutout());
-    }
 }

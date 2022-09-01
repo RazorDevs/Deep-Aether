@@ -55,9 +55,4 @@ public class RadiantOrchidBlock extends FlowerBlock {
 		BlockState groundState = worldIn.getBlockState(blockpos);
 		return this.mayPlaceOn(groundState, worldIn, blockpos);
 	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.RADIANT_ORCHID.get(), renderType -> renderType == RenderType.cutout());
-	}
 }

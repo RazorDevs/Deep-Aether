@@ -1,5 +1,5 @@
 package teamrazor.deepaether.block;
-
+/*
 
 import com.gildedgames.aether.effect.AetherEffects;
 import com.mojang.blaze3d.shaders.Effect;
@@ -53,3 +53,4 @@ public class PoisonBlock extends LiquidBlock {
         }
     }
 }
+*/

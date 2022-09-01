@@ -45,9 +45,4 @@ public class RoseFenceBlock extends FenceBlock {
 			return dropsOriginal;
 		return Collections.singletonList(new ItemStack(this, 1));
 	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.ROSE_FENCE.get(), renderType -> renderType == RenderType.cutout());
-	}
 }

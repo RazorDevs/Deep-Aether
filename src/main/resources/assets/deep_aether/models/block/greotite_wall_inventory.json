@@ -1,5 +1,6 @@
 {
   "parent": "block/wall_inventory",
+  "render_type": "cutout",
   "textures": {
     "wall": "deep_aether:blocks/greotite",
     "particle": "deep_aether:blocks/greotite"

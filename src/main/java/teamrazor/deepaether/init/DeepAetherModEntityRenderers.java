@@ -1,7 +1,5 @@
-
 /*
- *    MCreator note: This file will be REGENERATED on each build.
- */
+
 package teamrazor.deepaether.init;
 
 import teamrazor.deepaether.client.renderer.AetherFishRenderer;
@@ -20,3 +18,4 @@ public class DeepAetherModEntityRenderers {
 		event.registerEntityRenderer(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
 	}
 }
+*/

@@ -1,5 +1,7 @@
 package teamrazor.deepaether.procedures;
-
+/*
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import net.minecraft.world.level.block.state.properties.Property;
@@ -24,7 +26,57 @@ public class AerglowGrassBlockOnBlockRightClickedProcedure {
 				&& DeepAetherModBlocks.AERGLOW_GRASS_BLOCK.get() == (world.getBlockState(new BlockPos(x, y, z))).getBlock()) {
 			{
 				ItemStack _ist = (entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY);
-				if (_ist.hurt(1, new Random(), null)) {
+				if (_ist.hurt(1, new RandomSource() {
+					@Override
+					public RandomSource fork() {
+						return null;
+					}
+
+					@Override
+					public PositionalRandomFactory forkPositional() {
+						return null;
+					}
+
+					@Override
+					public void setSeed(long p_216342_) {
+
+					}
+
+					@Override
+					public int nextInt() {
+						return 0;
+					}
+
+					@Override
+					public int nextInt(int p_216331_) {
+						return 0;
+					}
+
+					@Override
+					public long nextLong() {
+						return 0;
+					}
+
+					@Override
+					public boolean nextBoolean() {
+						return false;
+					}
+
+					@Override
+					public float nextFloat() {
+						return 0;
+					}
+
+					@Override
+					public double nextDouble() {
+						return 0;
+					}
+
+					@Override
+					public double nextGaussian() {
+						return 0;
+					}
+				}, null)) {
 					_ist.shrink(1);
 					_ist.setDamageValue(0);
 				}
@@ -61,3 +113,4 @@ public class AerglowGrassBlockOnBlockRightClickedProcedure {
 		}
 	}
 }
+*/

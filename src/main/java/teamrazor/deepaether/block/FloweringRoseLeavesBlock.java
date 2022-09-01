@@ -1,6 +1,8 @@
 
 package teamrazor.deepaether.block;
 
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import org.checkerframework.checker.units.qual.s;
@@ -24,34 +26,22 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import java.util.List;
 import java.util.Collections;
 
-public class FloweringRoseLeavesBlock extends Block {
+public class FloweringRoseLeavesBlock extends LeavesBlock {
 
 	public FloweringRoseLeavesBlock() {
-		super(BlockBehaviour.Properties.of(Material.LEAVES)
-				.sound(SoundType.GRASS)
-				.strength(0.2f)
-				.noOcclusion()
-				.isRedstoneConductor((bs, br, bp) -> false)
-				.lightLevel((p_50872_) -> {
-					return 6;
-				}));
+		super(BlockBehaviour.Properties.copy(Blocks.FLOWERING_AZALEA_LEAVES));
 	}
-
 	@Override
 	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
 		return 1;
 	}
 
 	@Override
-	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+	public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
 		return 30;
 	}
-
 	@Override
-	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-		if (!dropsOriginal.isEmpty())
-			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(this, 1));
+	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+		return 60;
 	}
 }

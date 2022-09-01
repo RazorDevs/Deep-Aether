@@ -1,7 +1,6 @@
 
 package teamrazor.deepaether.block;
 
-import teamrazor.deepaether.procedures.StrippedRoseWoodOnBlockRightClickedProcedure;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -51,7 +50,6 @@ public class StrippedRoseWoodBlock extends Block {
 		double hitZ = hit.getLocation().z;
 		Direction direction = hit.getDirection();
 
-		StrippedRoseWoodOnBlockRightClickedProcedure.execute(world, x, y, z, entity);
 		return InteractionResult.SUCCESS;
 	}
 }

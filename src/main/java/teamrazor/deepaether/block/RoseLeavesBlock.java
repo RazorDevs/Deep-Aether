@@ -21,8 +21,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 public class RoseLeavesBlock extends LeavesBlock {
 	public RoseLeavesBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES));/*of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion()
-				.isRedstoneConductor((bs, br, bp) -> false));*/
+		super(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES));
 	}
 
 	@Override
@@ -37,10 +36,5 @@ public class RoseLeavesBlock extends LeavesBlock {
 	@Override
 	public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
 		return 60;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(DeepAetherModBlocks.ROSE_LEAVES.get(), renderType -> renderType == RenderType.cutout());
 	}
 }

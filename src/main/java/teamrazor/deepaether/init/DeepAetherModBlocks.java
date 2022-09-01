@@ -5,6 +5,7 @@
 package teamrazor.deepaether.init;
 
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -142,25 +143,6 @@ public class DeepAetherModBlocks {
 	public static class ClientSideHandler {
 		@SubscribeEvent
 		public static void clientSetup(FMLClientSetupEvent event) {
-			AerglowGrassPathBlock.registerRenderLayer();
-			AerglowPetalBlockBlock.registerRenderLayer();
-			RoseWoodWallBlock.registerRenderLayer();
-
-			StrippedRoseWoodWallBlock.registerRenderLayer();
-			RoseFenceBlock.registerRenderLayer();
-			RoseWoodDoorBlock.registerRenderLayer();
-			RoseWoodTrapdoorBlock.registerRenderLayer();
-			RoseLeavesBlock.registerRenderLayer();
-			FloweringRoseLeavesBlock.registerRenderLayer();
-			RadiantOrchidBlock.registerRenderLayer();
-			RoseWoodSapling.registerRenderLayer();
-			GreotiteWallBlock.registerRenderLayer();
-			DarkeriteWallBlock.registerRenderLayer();
-			AseteriteWallBlock.registerRenderLayer();
-			JariniteWallBlock.registerRenderLayer();
-			CloriteWallBlock.registerRenderLayer();
-			CloriteWallBlock.registerRenderLayer();
-
 		}
 	}
 }
