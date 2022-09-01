@@ -187,7 +187,10 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> POLISHED_YALLESITE_STAIRS = block(DeepAetherModBlocks.POLISHED_YALLESITE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS_STAIRS = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
-
+	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = REGISTRY.register("adibium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> AGATE_GEMSTONE = REGISTRY.register("agate_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_GEMSTONE = REGISTRY.register("cloudium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> ORATIE_INGOT = REGISTRY.register("oratie_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
