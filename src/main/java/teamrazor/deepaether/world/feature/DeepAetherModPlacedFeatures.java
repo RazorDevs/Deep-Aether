@@ -28,7 +28,7 @@ public class DeepAetherModPlacedFeatures {
                         PlacementUtils.countExtra(3, 0.1f, 2))));
         public static final RegistryObject<PlacedFeature> ASETERITE_PLACED = PLACED_FEATURES.register("aseterite_placed",  () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
                 DeepAetherModConfiguredFeatures.ASETERITE, DeepAetherModOrePlacement.commonOrePlacement(80, // VeinsPerChunk
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(200)))));
         public static void register(IEventBus eventBus) {
                 PLACED_FEATURES.register(eventBus);
 
