@@ -1,5 +1,5 @@
 {
   "type": "deep_aether:ores",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#aether:is_aether",
   "feature": "deep_aether:aseterite_placed"
 }

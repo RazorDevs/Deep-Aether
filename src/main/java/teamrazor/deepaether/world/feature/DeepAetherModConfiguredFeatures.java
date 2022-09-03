@@ -1,8 +1,8 @@
 package teamrazor.deepaether.world.feature;
 
-import net.minecraft.data.worldgen.features.OreFeatures;
+import com.gildedgames.aether.AetherTags;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -36,10 +36,12 @@ public class DeepAetherModConfiguredFeatures {
             FeatureUtils.register("rosewood_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(ROSEWOOD_CHECKED,
                             0.5F)), ROSEWOOD_CHECKED));
-    public static final List<OreConfiguration.TargetBlockState> AETHER_ASETERITE_STONE = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, DeepAetherModBlocks.ASETERITE.get().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> ASETERITE_ORE = List.of(
+            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.ASETERITE.get().defaultBlockState()));
+
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ASETERITE = FeatureUtils.register("aseterite",
-            Feature.ORE, new OreConfiguration(AETHER_ASETERITE_STONE, 50));
+            Feature.ORE, new OreConfiguration(ASETERITE_ORE, 34));
+
 
 }
