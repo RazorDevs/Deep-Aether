@@ -1,18 +1,26 @@
 package teamrazor.deepaether;
 
+import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.mojang.logging.LogUtils;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+import teamrazor.deepaether.fluids.BaseFluidType;
+import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
 
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -25,6 +33,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
+import teamrazor.deepaether.world.Gen.DeepAetherModBiomeTagData;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 
 import java.util.function.Supplier;
@@ -53,6 +62,9 @@ public class DeepAetherMod {
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
+
+
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 
@@ -63,7 +75,8 @@ public class DeepAetherMod {
 		DeepAetherModItems.REGISTRY.register(bus);
 		//DeepAetherModEntities.REGISTRY.register(bus);
 		//DeepAetherModBiomes.REGISTRY.register(bus);
-		//DeepAetherModFluids.REGISTRY.register(bus);
+		DeepAetherModFluids.register(bus);
+		DeepAetherModFluidTypes.register(bus);
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
 		DeepAetherModBiomeModifiers.register(eventBus);
@@ -82,6 +95,15 @@ public class DeepAetherMod {
 
 	}
 
+	public void dataSetup(GatherDataEvent event) {
+		DataGenerator generator = event.getGenerator();
+		ExistingFileHelper helper = event.getExistingFileHelper();
+
+		generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(generator, helper));
+		generator.addProvider(event.includeServer(), AetherDataGenerators.create(generator, helper, DeepAetherModBiomes.REGISTRY, ForgeRegistries.Keys.BIOMES));
+		generator.addProvider(event.includeServer(), AetherDataGenerators.levelStem(generator, helper));
+	}
+
 	private void enqueueIMC(final InterModEnqueueEvent event)
 	{
 		// Some example code to dispatch IMC to another mod
@@ -95,12 +117,6 @@ public class DeepAetherMod {
 				map(m->m.messageSupplier().get()).
 				collect(Collectors.toList()));
 	}
-//don't know how to fix
-/*	@SubscribeEvent
-	public void registerBucket(RegistryEvent.Register<Item> event) {
-		//event.getRegistry().register(DeepAetherModItems.SKYROOT_POISON_BUCKET.get());
-		LOGGER.info("BUCKET SHOULD BE OVERWRITTEN.");
-	}*/
 
 	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,
 			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
