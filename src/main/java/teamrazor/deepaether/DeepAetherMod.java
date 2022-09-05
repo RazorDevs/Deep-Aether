@@ -1,6 +1,6 @@
 package teamrazor.deepaether;
 
-import com.gildedgames.aether.data.generators.AetherDataGenerators;
+//import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.mojang.logging.LogUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
@@ -33,7 +33,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
-import teamrazor.deepaether.world.Gen.DeepAetherModBiomeTagData;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 
 import java.util.function.Supplier;
@@ -73,7 +72,7 @@ public class DeepAetherMod {
 		MinecraftForge.EVENT_BUS.register(this);
 		DeepAetherModBlocks.REGISTRY.register(bus);
 		DeepAetherModItems.REGISTRY.register(bus);
-		//DeepAetherModEntities.REGISTRY.register(bus);
+		DeepAetherModEntities.REGISTRY.register(bus);
 		//DeepAetherModBiomes.REGISTRY.register(bus);
 		DeepAetherModFluids.register(bus);
 		DeepAetherModFluidTypes.register(bus);
@@ -99,9 +98,9 @@ public class DeepAetherMod {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper helper = event.getExistingFileHelper();
 
-		generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(generator, helper));
+		/*generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(generator, helper));
 		generator.addProvider(event.includeServer(), AetherDataGenerators.create(generator, helper, DeepAetherModBiomes.REGISTRY, ForgeRegistries.Keys.BIOMES));
-		generator.addProvider(event.includeServer(), AetherDataGenerators.levelStem(generator, helper));
+		generator.addProvider(event.includeServer(), AetherDataGenerators.levelStem(generator, helper));*/
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event)

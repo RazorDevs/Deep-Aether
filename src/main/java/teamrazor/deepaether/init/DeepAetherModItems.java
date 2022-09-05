@@ -5,6 +5,7 @@
 package teamrazor.deepaether.init;
 
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -119,14 +120,16 @@ public class DeepAetherModItems {
 
 	//public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = REGISTRY.register("music_disc_a_morning_wish", () -> new MusicDiscAMorningWishItem());
 
-	//public static final RegistryObject<Item> AETHER_FISH = REGISTRY.register("aether_fish_spawn_egg",
-	//		() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 33323, 42424, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-//
-	//public static final RegistryObject<Item> QUAIL = REGISTRY.register("quail_spawn_egg",
-	//		() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,24314, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> AETHER_FISH = REGISTRY.register("aether_fish_spawn_egg",
+		() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 33323, 42424, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 
-	//public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = REGISTRY.register("poison_bucket",
-	//		() -> new BucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> QUAIL = REGISTRY.register("quail_spawn_egg",
+			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,24314, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+
+	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = REGISTRY.register("poison_bucket",
+			() -> new BucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+
+
 	public static final RegistryObject<Item> ASETERITE = block(DeepAetherModBlocks.ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_ASETERITE = block(DeepAetherModBlocks.POLISHED_ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_ASETERITE_BRICKS = block(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

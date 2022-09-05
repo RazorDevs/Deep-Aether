@@ -1,8 +1,9 @@
 package teamrazor.deepaether.init;
-
+/*
 import com.gildedgames.aether.Aether;
 import com.gildedgames.aether.common.registry.worldgen.AetherBiomes;
 import com.gildedgames.aether.common.world.builders.AetherBiomeBuilders;
+import com.gildedgames.aether.data.resources.AetherBiomes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -31,4 +32,4 @@ public class DeepAetherModBiomes extends AetherBiomes {
         public static  final ResourceKey<Biome> AERGLOW_GROVE = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, "aerglow_grove"));
     }
 
-}
+}*/
