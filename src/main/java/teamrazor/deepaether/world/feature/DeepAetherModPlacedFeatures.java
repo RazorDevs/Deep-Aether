@@ -27,8 +27,17 @@ public class DeepAetherModPlacedFeatures {
                 DeepAetherModConfiguredFeatures.ROSEWOOD_SPAWN, VegetationPlacements.treePlacement(
                         PlacementUtils.countExtra(3, 0.1f, 2))));
         public static final RegistryObject<PlacedFeature> ASETERITE_PLACED = PLACED_FEATURES.register("aseterite_placed",  () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
-                DeepAetherModConfiguredFeatures.ASETERITE, DeepAetherModOrePlacement.commonOrePlacement(80, // VeinsPerChunk
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(2)))));
+                DeepAetherModConfiguredFeatures.ASETERITE, DeepAetherModOrePlacement.commonOrePlacement(1, // VeinsPerChunk
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(200)))));
+        public static final RegistryObject<PlacedFeature> JARINITE_PLACED = PLACED_FEATURES.register("jarinite_placed",  () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
+                DeepAetherModConfiguredFeatures.JARINITE, DeepAetherModOrePlacement.commonOrePlacement(1, // VeinsPerChunk
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(200)))));
+        public static final RegistryObject<PlacedFeature> GREOTITE_PLACED = PLACED_FEATURES.register("greotite_placed",  () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
+                DeepAetherModConfiguredFeatures.GREOTITE, DeepAetherModOrePlacement.commonOrePlacement(1, // VeinsPerChunk
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(200)))));
+        public static final RegistryObject<PlacedFeature> SKYJADE_ORE_PLACED = PLACED_FEATURES.register("skyjade_ore_placed",  () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
+                DeepAetherModConfiguredFeatures.SKYJADE_ORE, DeepAetherModOrePlacement.commonOrePlacement(1, // VeinsPerChunk
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-50), VerticalAnchor.aboveBottom(200)))));
 
 
         public static void register(IEventBus eventBus) {

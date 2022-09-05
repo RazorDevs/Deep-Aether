@@ -4,20 +4,13 @@
  */
 package teamrazor.deepaether.init;
 
-import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.item.AetherItemGroups;
-import com.gildedgames.aether.item.AetherItems;
-import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.material.Fluids;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 
 import net.minecraft.world.level.block.Block;
 
@@ -41,6 +34,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> ROSE_WOOD = block(DeepAetherModBlocks.ROSE_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	public static final RegistryObject<Item> ROSE_LOG = block(DeepAetherModBlocks.ROSE_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ROSEWOOD_SAPLING = block(DeepAetherModBlocks.ROSEWOOD_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	public static final RegistryObject<Item> ROSE_WOOD_WALL = block(DeepAetherModBlocks.ROSE_WOOD_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 

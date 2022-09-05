@@ -5,13 +5,13 @@
 package teamrazor.deepaether.init;
 
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.DeepAetherMod;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.core.Direction;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -204,14 +204,11 @@ public class DeepAetherModBlocks {
 
 	public static final RegistryObject<Block> RADIANT_ORCHID = REGISTRY.register("radiant_orchid", () -> new RadiantOrchidBlock());
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = REGISTRY.register("rosewood_sapling", () -> new RoseWoodSapling());
-
-
-
-
 	public static final RegistryObject<LiquidBlock> POISON_BLOCK = DeepAetherModBlocks.REGISTRY.register("poison", () -> new PoisonBlock(DeepAetherModFluids.POISON_FLUID, BlockBehaviour.Properties.of(Material.LAVA)
 			.noCollission()
 			.strength(100f)
 			.noLootTable()));
+
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {

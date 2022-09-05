@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.feature;
 
 import com.gildedgames.aether.AetherTags;
+import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
@@ -36,12 +37,26 @@ public class DeepAetherModConfiguredFeatures {
             FeatureUtils.register("rosewood_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(ROSEWOOD_CHECKED,
                             0.5F)), ROSEWOOD_CHECKED));
+
     public static final List<OreConfiguration.TargetBlockState> ASETERITE_ORE = List.of(
             OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.ASETERITE.get().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> JARINITE_ORE = List.of(
+            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.JARINITE.get().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> GREOTITE_ORE = List.of(
+            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.GREOTITE.get().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> SKYJADE_ORES = List.of(
+            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.SKYJADE_ORE.get().defaultBlockState()));
+
 
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ASETERITE = FeatureUtils.register("aseterite",
-            Feature.ORE, new OreConfiguration(ASETERITE_ORE, 34));
+            Feature.ORE, new OreConfiguration(ASETERITE_ORE, 64));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JARINITE = FeatureUtils.register("jarinite",
+            Feature.ORE, new OreConfiguration(JARINITE_ORE, 64));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> GREOTITE = FeatureUtils.register("greotite",
+            Feature.ORE, new OreConfiguration(GREOTITE_ORE, 64));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> SKYJADE_ORE = FeatureUtils.register("greotite",
+            Feature.ORE, new OreConfiguration(SKYJADE_ORES, 64));
 
 
 }

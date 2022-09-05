@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "deep_aether:rose_wood",
+    "deep_aether:stripped_rose_wood",
+    "deep_aether:stripped_rose_log",
     "deep_aether:rose_log",
     "deep_aether:rose_planks",
     "deep_aether:rose_wood_door",
