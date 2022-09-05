@@ -1,5 +1,5 @@
 package teamrazor.deepaether.entity;
-/*
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -27,13 +27,6 @@ public class QuailEntity extends Chicken {
             new ResourceLocation("aether:skyroot_forest"), new ResourceLocation("aether:skyroot_thicket"),
             new ResourceLocation("aether:golden_forest"));
 
-    @SubscribeEvent
-    public static void addLivingEntityToBiomes(BiomeLoadingEvent event) {
-        if (SPAWN_BIOMES.contains(event.getName()))
-            event.getSpawns().getSpawner(MobCategory.CREATURE)
-                    .add(new MobSpawnSettings.SpawnerData(DeepAetherModEntities.QUAIL.get(), 10, 2, 4));
-    }
-
     public QuailEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(DeepAetherModEntities.QUAIL.get(), world);
     }
@@ -56,4 +49,3 @@ public class QuailEntity extends Chicken {
     }
 
 }
-*/

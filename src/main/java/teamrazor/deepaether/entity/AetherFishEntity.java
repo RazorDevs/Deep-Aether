@@ -1,7 +1,5 @@
-
 package teamrazor.deepaether.entity;
 
-/*
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -29,13 +27,6 @@ public class AetherFishEntity extends Cod {
 			new ResourceLocation("aether:skyroot_forest"), new ResourceLocation("aether:skyroot_thicket"),
 			new ResourceLocation("aether:golden_forest"));
 
-	@SubscribeEvent
-	public static void addLivingEntityToBiomes(BiomeLoadingEvent event) {
-		if (SPAWN_BIOMES.contains(event.getName()))
-			event.getSpawns().getSpawner(MobCategory.WATER_CREATURE)
-					.add(new MobSpawnSettings.SpawnerData(DeepAetherModEntities.AETHER_FISH.get(), 10, 2, 4));
-	}
-
 	public AetherFishEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(DeepAetherModEntities.AETHER_FISH.get(), world);
 	}
@@ -59,4 +50,3 @@ public class AetherFishEntity extends Cod {
 	}
 
 }
-*/

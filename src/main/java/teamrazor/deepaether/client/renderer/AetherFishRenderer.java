@@ -1,5 +1,5 @@
 package teamrazor.deepaether.client.renderer;
-/*
+
 import teamrazor.deepaether.entity.AetherFishEntity;
 import teamrazor.deepaether.client.model.Modelcustom_model;
 import net.minecraft.resources.ResourceLocation;
@@ -16,4 +16,3 @@ public class AetherFishRenderer extends MobRenderer<AetherFishEntity, Modelcusto
 		return new ResourceLocation("deep_aether:textures/aertherfish.png");
 	}
 }
-*/

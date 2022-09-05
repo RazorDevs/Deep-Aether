@@ -1,5 +1,5 @@
 package teamrazor.deepaether.client.model;
-/*
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -60,5 +60,3 @@ import teamrazor.deepaether.entity.AetherFishEntity;
 				this.bone.render(poseStack, buffer, packedLight, packedOverlay);
 			}
 		}
-
- */
