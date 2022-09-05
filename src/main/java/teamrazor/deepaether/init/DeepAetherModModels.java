@@ -1,5 +1,3 @@
-/*
-
 package teamrazor.deepaether.init;
 
 import teamrazor.deepaether.client.model.Modelcustom_model;
@@ -18,4 +16,3 @@ public class DeepAetherModModels {
 		event.registerLayerDefinition(QuailModel.LAYER_LOCATION, QuailModel::createBodyLayer);
 	}
 }
-*/

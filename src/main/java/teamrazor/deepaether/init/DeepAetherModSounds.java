@@ -1,10 +1,7 @@
-/*
-
 package teamrazor.deepaether.init;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
@@ -22,10 +19,9 @@ public class DeepAetherModSounds {
 				new SoundEvent(new ResourceLocation("deep_aether", "music_disc_nabooru")));
 	}
 
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 		for (Map.Entry<ResourceLocation, SoundEvent> sound : REGISTRY.entrySet())
 			event.getRegistry().register(sound.getValue().setRegistryName(sound.getKey()));
-	}
+	}*/
 }
-*/

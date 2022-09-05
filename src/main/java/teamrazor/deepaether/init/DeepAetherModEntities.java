@@ -1,5 +1,3 @@
-/*
-
 package teamrazor.deepaether.init;
 
 import teamrazor.deepaether.entity.AetherFishEntity;
@@ -20,7 +18,7 @@ import teamrazor.deepaether.entity.QuailEntity;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAetherModEntities {
-	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITIES, DeepAetherMod.MODID);
+	public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, DeepAetherMod.MODID);
 
 	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
 			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true)
@@ -50,4 +48,3 @@ public class DeepAetherModEntities {
 		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
 	}
 }
-*/
