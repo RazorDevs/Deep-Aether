@@ -33,7 +33,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
-import teamrazor.deepaether.world.Gen.DeepAetherModBiomeTagData;
+//import teamrazor.deepaether.world.Gen.DeepAetherModBiomeTagData;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 
 import java.util.function.Supplier;
@@ -62,7 +62,7 @@ public class DeepAetherMod {
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
+		//FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
 
 
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -94,7 +94,7 @@ public class DeepAetherMod {
 		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getName());
 
 	}
-
+/*
 	public void dataSetup(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper helper = event.getExistingFileHelper();
@@ -103,6 +103,8 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), AetherDataGenerators.create(generator, helper, DeepAetherModBiomes.REGISTRY, ForgeRegistries.Keys.BIOMES));
 		generator.addProvider(event.includeServer(), AetherDataGenerators.levelStem(generator, helper));
 	}
+
+ */
 
 	private void enqueueIMC(final InterModEnqueueEvent event)
 	{
