@@ -23,7 +23,7 @@ public class DeepAetherModTabs {
 
 			@OnlyIn(Dist.CLIENT)
 			public boolean hasSearchBar() {
-				return true;
+				return false;
 			}
 		};
 		TAB_DEEP_AETHER_ITEMS_TAB = new CreativeModeTab("tabdeep_aether_items_tab") {

@@ -105,5 +105,9 @@
   "block.deep_aether.polished_aseterite_bricks_stairs": "Aseterite Bricks Stairs",
   "block.deep_aether.yallesite": "Yallesite",
   "block.deep_aether.polished_yallesite": "Polished Yallesite",
-  "block.deep_aether.polished_yallesite_bricks": "Yallesite Bricks"
+  "block.deep_aether.polished_yallesite_bricks": "Yallesite Bricks",
+  "item.deep_aether.agate_gemstone": "Agate Gemstone",
+  "item.deep_aether.adibium_gemstone": "Adibium Gemstone",
+  "item.deep_aether.cloudium_debris": "Cloudium Debris",
+  "item.deep_aether.oratie_ingot": "Oratie Ingot"
 }

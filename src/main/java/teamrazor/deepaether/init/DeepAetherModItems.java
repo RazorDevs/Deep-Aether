@@ -135,10 +135,10 @@ public class DeepAetherModItems {
 
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = REGISTRY.register("skyjade", () -> new SkyjadeItem());
-	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = REGISTRY.register("adibium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> AGATE_GEMSTONE = REGISTRY.register("agate_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> CLOUDIUM_GEMSTONE = REGISTRY.register("cloudium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> ORATIE_INGOT = REGISTRY.register("oratie_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = REGISTRY.register("adibium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> AGATE_GEMSTONE = REGISTRY.register("agate_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_DEBRIS = REGISTRY.register("cloudium_debris", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> ORATIE_INGOT = REGISTRY.register("oratie_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
 	// MISC
 	public static final RegistryObject<Item> AETHER_FISH = REGISTRY.register("aether_fish_spawn_egg",
