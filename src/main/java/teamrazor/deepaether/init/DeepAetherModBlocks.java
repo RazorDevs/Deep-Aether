@@ -55,6 +55,22 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> SKYJADE_ORE = REGISTRY.register("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = REGISTRY.register("skyjade_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
 
+	public static final RegistryObject<Block> AGATE_ORE = REGISTRY.register("agate_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	public static final RegistryObject<Block> HIGHSTONE_AGATE_ORE = REGISTRY.register("highstone_agate_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	public static final RegistryObject<Block> AGATE_BLOCK = REGISTRY.register("agate_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+
+	public static final RegistryObject<Block> ADIBIUM_ORE = REGISTRY.register("adibium_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	public static final RegistryObject<Block> HIGHSTONE_ADIBIUM_ORE = REGISTRY.register("highstone_adibium_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	public static final RegistryObject<Block> ADIBIUM_BLOCK = REGISTRY.register("adibium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+
+	public static final RegistryObject<Block> CLOUDIUM_DEBRIS = REGISTRY.register("cloudium_debris", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(10f, 10f)));
+	public static final RegistryObject<Block> CLOUDIUM_BLOCK = REGISTRY.register("cloudium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(10f, 10f)));
+
+	public static final RegistryObject<Block> ORATIE_ORE = REGISTRY.register("oratie_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	public static final RegistryObject<Block> HIGHSTONE_ORATIE_ORE = REGISTRY.register("highstone_oratie_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	public static final RegistryObject<Block> RAW_ORATIE_BLOCK= REGISTRY.register("raw_oratie_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+	public static final RegistryObject<Block> ORATIE_BLOCK = REGISTRY.register("oratie_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+
 	public static final RegistryObject<Block> ASETERITE = REGISTRY.register("aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 	public static final RegistryObject<Block> POLISHED_ASETERITE = REGISTRY.register("polished_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
 	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS = REGISTRY.register("polished_aseterite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));

@@ -108,6 +108,19 @@
   "block.deep_aether.polished_yallesite_bricks": "Yallesite Bricks",
   "item.deep_aether.agate_gemstone": "Agate Gemstone",
   "item.deep_aether.adibium_gemstone": "Adibium Gemstone",
-  "item.deep_aether.cloudium_debris": "Cloudium Debris",
-  "item.deep_aether.oratie_ingot": "Oratie Ingot"
+  "item.deep_aether.cloudium_scrap": "Cloudium Scrap",
+  "item.deep_aether.raw_oratie": "Raw Oratie",
+  "item.deep_aether.oratie_ingot": "Oratie Ingot",
+  "block.deep_aether.adibium_ore": "Adibium Ore",
+  "block.deep_aether.highstone_adibium_ore": "Highstone Adibium Ore",
+  "block.deep_aether.adibium_block": "Block of Adibium",
+  "block.deep_aether.agate_ore": "Agate Ore",
+  "block.deep_aether.highstone_agate_ore": "Highstone Agate Ore",
+  "block.deep_aether.agate_block": "Block of Agate",
+  "block.deep_aether.oratie_ore": "Oratie Ore",
+  "block.deep_aether.highstone_oratie_ore": "Highstone Oratie Ore",
+  "block.deep_aether.raw_oratie_block": "Block of Raw Oratie",
+  "block.deep_aether.oratie_block": "Block of Oratie",
+  "block.deep_aether.cloudium_debris": "Divine Debris",
+  "block.deep_aether.cloudium_block": "Block of Cloudium"
 }

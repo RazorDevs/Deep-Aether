@@ -49,6 +49,22 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> SKYJADE_ORE = block(DeepAetherModBlocks.SKYJADE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> SKYJADE_BLOCK = block(DeepAetherModBlocks.SKYJADE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Item> AGATE_ORE = block(DeepAetherModBlocks.AGATE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> HIGHSTONE_AGATE_ORE = block(DeepAetherModBlocks.HIGHSTONE_AGATE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> AGATE_BLOCK = block(DeepAetherModBlocks.AGATE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> ADIBIUM_ORE = block(DeepAetherModBlocks.ADIBIUM_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> HIGHSTONE_ADIBIUM_ORE = block(DeepAetherModBlocks.HIGHSTONE_ADIBIUM_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ADIBIUM_BLOCK = block(DeepAetherModBlocks.ADIBIUM_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> CLOUDIUM_DEBRIS = block(DeepAetherModBlocks.CLOUDIUM_DEBRIS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> CLOUDIUM_BLOCK = block(DeepAetherModBlocks.CLOUDIUM_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	public static final RegistryObject<Item> ORATIE_ORE = block(DeepAetherModBlocks.ORATIE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> HIGHSTONE_ORATIE_ORE = block(DeepAetherModBlocks.HIGHSTONE_ORATIE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> RAW_ORATIE_BLOCK = block(DeepAetherModBlocks.RAW_ORATIE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ORATIE_BLOCK = block(DeepAetherModBlocks.ORATIE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 	public static final RegistryObject<Item> ASETERITE = block(DeepAetherModBlocks.ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_ASETERITE = block(DeepAetherModBlocks.POLISHED_ASETERITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_ASETERITE_BRICKS = block(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -137,7 +153,8 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> SKYJADE = REGISTRY.register("skyjade", () -> new SkyjadeItem());
 	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = REGISTRY.register("adibium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> AGATE_GEMSTONE = REGISTRY.register("agate_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> CLOUDIUM_DEBRIS = REGISTRY.register("cloudium_debris", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_SCRAP = REGISTRY.register("cloudium_scrap", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> RAW_ORATIE = REGISTRY.register("raw_oratie", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> ORATIE_INGOT = REGISTRY.register("oratie_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
 	// MISC
