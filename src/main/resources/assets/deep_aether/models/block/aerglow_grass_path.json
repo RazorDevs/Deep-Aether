@@ -1,6 +1,5 @@
 {
   "parent": "deep_aether:custom/aerglow_grass_path_block",
-  "render_type": "cutoutMipped",
   "textures": {
     "all": "deep_aether:blocks/aether_dirt",
     "particle": "deep_aether:blocks/aether_dirt",
