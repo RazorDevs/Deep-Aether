@@ -7,6 +7,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.treedecorators.BeehiveDecorator;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DeepAetherTags {
@@ -27,7 +28,6 @@ public class DeepAetherTags {
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
         }
-
     }
 
     public static class Biomes {

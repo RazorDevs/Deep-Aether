@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlac
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
 
 import java.util.List;
 
@@ -37,6 +38,8 @@ public class DeepAetherModConfiguredFeatures {
             FeatureUtils.register("rosewood_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(ROSEWOOD_CHECKED,
                             0.5F)), ROSEWOOD_CHECKED));
+
+
 
     public static final List<OreConfiguration.TargetBlockState> ASETERITE_ORE = List.of(
             OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.ASETERITE.get().defaultBlockState()));
