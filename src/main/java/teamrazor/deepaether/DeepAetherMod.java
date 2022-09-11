@@ -37,6 +37,8 @@ import teamrazor.deepaether.tags.DeepAetherItemTagData;
 import teamrazor.deepaether.tags.DeepAetherTags;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
+import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.decorators.FoliageDecoratorType;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -79,6 +81,8 @@ public class DeepAetherMod {
 		//DeepAetherModBiomes.REGISTRY.register(bus);
 		DeepAetherModFluids.register(bus);
 		DeepAetherModFluidTypes.register(bus);
+		FoliageDecoratorType.REGISTRY.register(bus);
+		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
 		DeepAetherModBiomeModifiers.register(eventBus);
