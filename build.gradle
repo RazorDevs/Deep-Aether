@@ -165,8 +165,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation files('build\\libs\\aether-1.19.2-0.0.1.jar')
-    implementation files('build\\libs\\curios-forge-1.19.2-5.1.1.0.jar')
+    compileOnly files('build\\libs\\aether-1.19.2-0.0.1.jar')
+    // implementation files('build\\libs\\curios-forge-1.19.2-5.1.1.0.jar')
 }
 
 /* Example for how to get properties into the manifest for reading at runtime.

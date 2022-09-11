@@ -139,11 +139,11 @@ public class DeepAetherModItems {
 
 
 	// EQUIPMENT
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_tools_sword", () -> new SkyjadeToolsSwordItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_tools_pickaxe", () -> new SkyjadeToolsPickaxeItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_tools_axe", () -> new SkyjadeToolsAxeItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_tools_shovel", () -> new SkyjadeToolsShovelItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_tools_hoe", () -> new SkyjadeToolsHoeItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new SkyjadeToolsAxeItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new SkyjadeToolsShovelItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = REGISTRY.register("skyjade_armor_helmet", () -> new SkyjadeArmorItem.Helmet());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = REGISTRY.register("skyjade_armor_chestplate", () -> new SkyjadeArmorItem.Chestplate());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = REGISTRY.register("skyjade_armor_leggings", () -> new SkyjadeArmorItem.Leggings());
