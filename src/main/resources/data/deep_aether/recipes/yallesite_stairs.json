@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "deep_aether:polished_clorite_bricks"
+      "item": "deep_aether:yallesite"
     }
   },
   "pattern": [
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "deep_aether:polished_clorite_bricks_stairs"
+    "item": "deep_aether:yallesite_stairs"
   }
 }

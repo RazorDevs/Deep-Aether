@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "deep_aether:polished_clorite_bricks"
+      "item": "deep_aether:polished_jarinite_bricks"
     }
   },
   "pattern": [
@@ -10,6 +10,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "deep_aether:polished_clorite_bricks_slab"
+    "item": "deep_aether:polished_jarinite_bricks_slab"
   }
 }

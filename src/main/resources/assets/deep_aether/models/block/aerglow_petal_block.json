@@ -1,6 +1,5 @@
 {
   "parent": "block/cube_all",
-  "render_type": "cutoutMipped",
   "textures": {
     "all": "deep_aether:blocks/aerglow_petal_block",
     "particle": "deep_aether:blocks/aerglow_petal_block"

@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 2,
   "ingredient": {
-    "item": "deep_aether:clorite"
+    "item": "deep_aether:jarinite"
   },
-  "result": "deep_aether:clorite_slab"
+  "result": "deep_aether:jarinite_slab"
 }
