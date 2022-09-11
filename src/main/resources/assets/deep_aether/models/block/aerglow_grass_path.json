@@ -1,8 +1,10 @@
+
 {
-  "parent": "deep_aether:custom/aerglow_grass_path_block",
+  "parent": "minecraft:block/dirt_path",
   "textures": {
-    "all": "deep_aether:blocks/aether_dirt",
+    "bottom": "deep_aether:blocks/aether_dirt",
     "particle": "deep_aether:blocks/aether_dirt",
-    "0": "deep_aether:blocks/aerglow_grass_path"
+    "side": "deep_aether:blocks/aerglow_grove_aether_grass_path_side",
+    "top": "deep_aether:blocks/aerglow_grove_aether_grass_path_top"
   }
 }
