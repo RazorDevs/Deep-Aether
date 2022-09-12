@@ -42,6 +42,24 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> ROSE_WOOD_TRAPDOOR = block(DeepAetherModBlocks.ROSE_WOOD_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSEWOOD_SAPLING = block(DeepAetherModBlocks.ROSEWOOD_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Item> YAGROOT_WOOD = block(DeepAetherModBlocks.YAGROOT_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_LOG = block(DeepAetherModBlocks.YAGROOT_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_LEAVES = block(DeepAetherModBlocks.YAGROOT_LEAVES, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_PLANKS = block(DeepAetherModBlocks.YAGROOT_PLANKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> STRIPPED_YAGROOT_WOOD = block(DeepAetherModBlocks.STRIPPED_YAGROOT_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> STRIPPED_YAGROOT_LOG = block(DeepAetherModBlocks.STRIPPED_YAGROOT_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_WALL = block(DeepAetherModBlocks.YAGROOT_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> STRIPPED_YAGROOT_WALL = block(DeepAetherModBlocks.STRIPPED_YAGROOT_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_SLAB = block(DeepAetherModBlocks.YAGROOT_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_STAIRS = block(DeepAetherModBlocks.YAGROOT_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_FENCE = block(DeepAetherModBlocks.YAGROOT_FENCE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_FENCE_GATE = block(DeepAetherModBlocks.YAGROOT_FENCE_GATE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_PRESSURE_PLATE = block(DeepAetherModBlocks.YAGROOT_PRESSURE_PLATE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_BUTTON = block(DeepAetherModBlocks.YAGROOT_BUTTON, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_DOOR = doubleBlock(DeepAetherModBlocks.YAGROOT_DOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_TRAPDOOR = block(DeepAetherModBlocks.YAGROOT_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_SAPLING = block(DeepAetherModBlocks.YAGROOT_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 	// ORES
 	public static final RegistryObject<Item> SKYJADE_ORE = block(DeepAetherModBlocks.SKYJADE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> SKYJADE_BLOCK = block(DeepAetherModBlocks.SKYJADE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

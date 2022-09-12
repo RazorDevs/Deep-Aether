@@ -6,12 +6,13 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
-public class DeepAetherModLogBlock extends AetherLogBlock {
+public class DeepAetherModLogBlock extends RotatedPillarBlock {
     public DeepAetherModLogBlock(Properties properties) {
         super(properties);
     }
@@ -40,6 +41,12 @@ public class DeepAetherModLogBlock extends AetherLogBlock {
             }
             if(state.is(DeepAetherModBlocks.ROSE_WOOD.get())) {
                 return DeepAetherModBlocks.STRIPPED_ROSE_WOOD_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if(state.is(DeepAetherModBlocks.YAGROOT_LOG.get())) {
+                return DeepAetherModBlocks.STRIPPED_YAGROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if(state.is(DeepAetherModBlocks.YAGROOT_WOOD.get())) {
+                return DeepAetherModBlocks.STRIPPED_YAGROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }
 
