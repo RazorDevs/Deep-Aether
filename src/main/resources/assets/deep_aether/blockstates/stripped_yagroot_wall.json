@@ -5,7 +5,7 @@
         "up": "true"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall_post"
+        "model": "deep_aether:block/stripped_yagroot_wall_post"
       }
     },
     {
@@ -13,7 +13,7 @@
         "north": "low"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall",
+        "model": "deep_aether:block/stripped_yagroot_wall",
         "uvlock": true
       }
     },
@@ -22,7 +22,7 @@
         "east": "low"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall",
+        "model": "deep_aether:block/stripped_yagroot_wall",
         "y": 90,
         "uvlock": true
       }
@@ -32,7 +32,7 @@
         "south": "low"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall",
+        "model": "deep_aether:block/stripped_yagroot_wall",
         "y": 180,
         "uvlock": true
       }
@@ -42,7 +42,7 @@
         "west": "low"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall",
+        "model": "deep_aether:block/stripped_yagroot_wall",
         "y": 270,
         "uvlock": true
       }
@@ -52,7 +52,7 @@
         "north": "tall"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall_side_tall",
+        "model": "deep_aether:block/stripped_yagroot_wall_side_tall",
         "uvlock": true
       }
     },
@@ -61,7 +61,7 @@
         "east": "tall"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall_side_tall",
+        "model": "deep_aether:block/stripped_yagroot_wall_side_tall",
         "y": 90,
         "uvlock": true
       }
@@ -71,7 +71,7 @@
         "south": "tall"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall_side_tall",
+        "model": "deep_aether:block/stripped_yagroot_wall_side_tall",
         "y": 180,
         "uvlock": true
       }
@@ -81,7 +81,7 @@
         "west": "tall"
       },
       "apply": {
-        "model": "deep_aether:block/stripped_yagroot_wood_wall_side_tall",
+        "model": "deep_aether:block/stripped_yagroot_wall_side_tall",
         "y": 270,
         "uvlock": true
       }
