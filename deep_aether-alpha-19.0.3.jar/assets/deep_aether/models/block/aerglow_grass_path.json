@@ -1,0 +1,10 @@
+
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "bottom": "deep_aether:blocks/aether_dirt",
+    "particle": "deep_aether:blocks/aether_dirt",
+    "side": "deep_aether:blocks/aerglow_grove_aether_grass_path_side",
+    "top": "deep_aether:blocks/aerglow_grove_aether_grass_path_top"
+  }
+}

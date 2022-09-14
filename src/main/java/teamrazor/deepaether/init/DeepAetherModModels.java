@@ -13,6 +13,5 @@ public class DeepAetherModModels {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(Modelcustom_model.LAYER_LOCATION, Modelcustom_model::createBodyLayer);
-		event.registerLayerDefinition(QuailModel.LAYER_LOCATION, QuailModel::createBodyLayer);
 	}
 }

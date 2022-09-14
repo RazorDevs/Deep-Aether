@@ -3,6 +3,7 @@ package teamrazor.deepaether;
 //import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -20,6 +21,10 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
+import teamrazor.deepaether.client.model.Modelcustom_model;
+import teamrazor.deepaether.client.renderer.AetherFishRenderer;
+import teamrazor.deepaether.client.renderer.QuailRenderer;
 import teamrazor.deepaether.fluids.BaseFluidType;
 import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -75,6 +80,7 @@ public class DeepAetherMod {
 
 		// Register ourselves for server and other game events we are interested in
 		MinecraftForge.EVENT_BUS.register(this);
+		GeckoLib.initialize();
 		DeepAetherModBlocks.REGISTRY.register(bus);
 		DeepAetherModItems.REGISTRY.register(bus);
 		DeepAetherModEntities.REGISTRY.register(bus);
@@ -124,9 +130,11 @@ public class DeepAetherMod {
 				collect(Collectors.toList()));
 	}
 
-	public static <T> void addNetworkMessage(Class<T> messageType, BiConsumer<T, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, T> decoder,
-			BiConsumer<T, Supplier<NetworkEvent.Context>> messageConsumer) {
-		PACKET_HANDLER.registerMessage(messageID, messageType, encoder, decoder, messageConsumer);
-		messageID++;
+	@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class ClientModEvents {
+		@SubscribeEvent
+		public static void onClientSetup(FMLClientSetupEvent event) {
+			EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
+		}
 	}
 }

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "deep_aether:aseterite",
+    "deep_aether:polished_aseterite",
+    "deep_aether:polished_aseterite_bricks",
+    "deep_aether:aseterite_stairs",
+    "deep_aether:polished_aseterite_stairs",
+    "deep_aether:polished_aseterite_bricks_stairs",
+    "deep_aether:aseterite_slab",
+    "deep_aether:polished_aseterite_slab",
+    "deep_aether:polished_aseterite_bricks_slab",
+    "deep_aether:aseterite_wall"
+  ]
+}

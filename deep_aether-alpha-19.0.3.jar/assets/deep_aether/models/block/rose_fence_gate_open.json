@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_fence_gate_open",
+  "render_type": "cutout",
+  "textures": {
+    "texture": "deep_aether:blocks/rosewood_planks"
+  }
+}

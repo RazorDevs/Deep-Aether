@@ -1,18 +1,38 @@
 package teamrazor.deepaether.client.renderer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.QuailModel;
 import teamrazor.deepaether.entity.QuailEntity;
 
-public class QuailRenderer extends MobRenderer<QuailEntity, QuailModel<QuailEntity>> {
-        public QuailRenderer(EntityRendererProvider.Context context) {
-            super(context, new QuailModel(context.bakeLayer(QuailModel.LAYER_LOCATION)), 0.3f);
-        }
+import javax.annotation.Nullable;
 
-        @Override
-        public ResourceLocation getTextureLocation(QuailEntity entity) {
-            return new ResourceLocation("deep_aether:textures/quail.png");
-        }
+public class QuailRenderer extends GeoEntityRenderer<QuailEntity> {
+
+    public QuailRenderer(EntityRendererProvider.Context renderManager) {
+        super(renderManager, new QuailModel());
+        this.shadowRadius = 0.3f;
     }
+
+    @Override
+    public ResourceLocation getTextureLocation(QuailEntity instance) {
+        return new ResourceLocation(DeepAetherMod.MODID, "textures/entities/quail.png");
+    }
+
+    @Override
+    public RenderType getRenderType(QuailEntity animatable, float partialTicks, PoseStack stack,
+                                    @Nullable MultiBufferSource renderTypeBuffer,
+                                    @Nullable VertexConsumer vertexBuilder, int packedLightIn,
+                                    ResourceLocation textureLocation) {
+        stack.scale(1.4f, 1.4f, 1.4f);
+        return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
+    }
+}

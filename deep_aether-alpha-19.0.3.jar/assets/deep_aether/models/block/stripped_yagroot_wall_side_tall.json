@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "deep_aether:blocks/stripped_yagroot_log",
+    "particle": "deep_aether:blocks/stripped_yagroot_log"
+  }
+}

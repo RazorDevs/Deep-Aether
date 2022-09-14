@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:skyjade"
+    },
+    "1": {
+      "item": "deep_aether:skyjade"
+    },
+    "2": {
+      "item": "deep_aether:skyjade"
+    },
+    "3": {
+      "item": "deep_aether:skyjade"
+    },
+    "4": {
+      "item": "deep_aether:skyjade"
+    },
+    "5": {
+      "item": "deep_aether:skyjade"
+    },
+    "6": {
+      "item": "deep_aether:skyjade"
+    },
+    "7": {
+      "item": "deep_aether:skyjade"
+    },
+    "8": {
+      "item": "deep_aether:skyjade"
+    }
+  },
+  "result": {
+    "item": "deep_aether:skyjade_block",
+    "count": 1
+  }
+}

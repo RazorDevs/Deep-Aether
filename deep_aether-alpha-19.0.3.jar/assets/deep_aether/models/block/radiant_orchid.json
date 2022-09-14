@@ -1,0 +1,8 @@
+{
+  "parent": "block/cross",
+  "render_type": "cutout",
+  "textures": {
+    "cross": "deep_aether:blocks/aerglow_flower",
+    "particle": "deep_aether:blocks/aerglow_flower"
+  }
+}

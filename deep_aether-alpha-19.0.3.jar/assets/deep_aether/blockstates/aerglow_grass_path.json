@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "aether:block/aerglow_grass_path"
+      },
+      {
+        "model": "aether:block/aerglow_grass_path",
+        "y": 90
+      },
+      {
+        "model": "aether:block/aerglow_grass_path",
+        "y": 180
+      },
+      {
+        "model": "aether:block/aerglow_grass_path",
+        "y": 270
+      }
+    ]
+  }
+}

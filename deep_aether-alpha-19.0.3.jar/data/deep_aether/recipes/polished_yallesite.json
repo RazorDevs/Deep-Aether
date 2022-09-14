@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "deep_aether:yallesite"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+
+  ],
+  "result": {
+    "count": 4,
+    "item": "deep_aether:polished_yallesite"
+  }
+}
