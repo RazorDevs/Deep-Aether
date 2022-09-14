@@ -10,8 +10,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.DeepAetherMod;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.core.Direction;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,34 +18,33 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.api.distmarker.Dist;
-import teamrazor.deepaether.block.custom.DeepAetherModLogBlock;
+import teamrazor.deepaether.block.DeepAetherModLogBlock;
 import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
 
 public class DeepAetherModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAetherMod.MODID);
 
 	// GRASS - randomTicks() is needed for grass growth.
-	public static final RegistryObject<Block> AERGLOW_GRASS_BLOCK = REGISTRY.register("aerglow_grass_block", () -> new Block(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRAVEL).strength(1f, 10f)
-			.randomTicks()));
-	public static final RegistryObject<Block> AERGLOW_GRASS_PATH = REGISTRY.register("aerglow_grass_path", () -> new DirtPathBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRAVEL)));
+	//public static final RegistryObject<Block> AERGLOW_GRASS_BLOCK = REGISTRY.register("aerglow_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRAVEL).strength(1f, 10f).randomTicks()));
+	//public static final RegistryObject<Block> AERGLOW_GRASS_PATH = REGISTRY.register("aerglow_grass_path", () -> new DirtPathBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRAVEL)));
 
 	// WOOD
 	public static final RegistryObject<Block> ROSE_WOOD = REGISTRY.register("rose_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> ROSE_LOG = REGISTRY.register("rose_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> ROSE_WOOD_WALL = REGISTRY.register("rose_wood_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> ROSE_WALL = REGISTRY.register("rose_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> STRIPPED_ROSE_WOOD = REGISTRY.register("stripped_rose_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> STRIPPED_ROSE_WOOD_LOG = REGISTRY.register("stripped_rose_wood_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> STRIPPED_ROSE_WOOD_WALL = REGISTRY.register("stripped_rose_wood_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> STRIPPED_ROSE_LOG = REGISTRY.register("stripped_rose_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> STRIPPED_ROSE_WALL = REGISTRY.register("stripped_rose_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> ROSE_PLANKS = REGISTRY.register("rose_planks", () -> new Block (BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
 	public static final RegistryObject<Block> ROSE_STAIRS = REGISTRY.register("rose_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.ROSE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> ROSE_SLAB = REGISTRY.register("rose_slab", () -> new RoseSlabBlock());
+	public static final RegistryObject<Block> ROSE_SLAB = REGISTRY.register("rose_slab", () -> new DeepAetherSlabBlock());
 	public static final RegistryObject<Block> ROSE_FENCE = REGISTRY.register("rose_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
 	public static final RegistryObject<Block> ROSE_FENCE_GATE = REGISTRY.register("rose_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> ROSE_PRESSURE_PLATE = REGISTRY.register("rose_pressure_plate", () -> new RosePressurePlateBlock());
+	public static final RegistryObject<Block> ROSE_PRESSURE_PLATE = REGISTRY.register("rose_pressure_plate", () -> new DeepAetherPressurePlateBlock());
 	public static final RegistryObject<Block> ROSE_BUTTON = REGISTRY.register("rose_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_BUTTON)));
-	public static final RegistryObject<Block> ROSE_WOOD_DOOR = REGISTRY.register("rose_wood_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR)));
-	public static final RegistryObject<Block> ROSE_WOOD_TRAPDOOR = REGISTRY.register("rose_wood_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)));
-	public static final RegistryObject<Block> ROSE_LEAVES = REGISTRY.register("rose_leaves", () -> new RoseLeavesBlock());
+	public static final RegistryObject<Block> ROSE_DOOR = REGISTRY.register("rose_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR)));
+	public static final RegistryObject<Block> ROSE_TRAPDOOR = REGISTRY.register("rose_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)));
+	public static final RegistryObject<Block> ROSE_LEAVES = REGISTRY.register("rose_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> FLOWERING_ROSE_LEAVES = REGISTRY.register("flowering_rose_leaves", () -> new FloweringRoseLeavesBlock());
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = REGISTRY.register("rosewood_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
@@ -59,14 +56,14 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> STRIPPED_YAGROOT_WALL = REGISTRY.register("stripped_yagroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> YAGROOT_PLANKS = REGISTRY.register("yagroot_planks", () -> new Block (BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
 	public static final RegistryObject<Block> YAGROOT_STAIRS = REGISTRY.register("yagroot_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.ROSE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> YAGROOT_SLAB = REGISTRY.register("yagroot_slab", () -> new RoseSlabBlock());
+	public static final RegistryObject<Block> YAGROOT_SLAB = REGISTRY.register("yagroot_slab", () -> new DeepAetherSlabBlock());
 	public static final RegistryObject<Block> YAGROOT_FENCE = REGISTRY.register("yagroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
 	public static final RegistryObject<Block> YAGROOT_FENCE_GATE = REGISTRY.register("yagroot_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> YAGROOT_PRESSURE_PLATE = REGISTRY.register("yagroot_pressure_plate", () -> new RosePressurePlateBlock());
+	public static final RegistryObject<Block> YAGROOT_PRESSURE_PLATE = REGISTRY.register("yagroot_pressure_plate", () -> new DeepAetherPressurePlateBlock());
 	public static final RegistryObject<Block> YAGROOT_BUTTON = REGISTRY.register("yagroot_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_BUTTON)));
 	public static final RegistryObject<Block> YAGROOT_DOOR = REGISTRY.register("yagroot_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR)));
 	public static final RegistryObject<Block> YAGROOT_TRAPDOOR = REGISTRY.register("yagroot_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)));
-	public static final RegistryObject<Block> YAGROOT_LEAVES = REGISTRY.register("yagroot_leaves", () -> new RoseLeavesBlock());
+	public static final RegistryObject<Block> YAGROOT_LEAVES = REGISTRY.register("yagroot_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> YAGROOT_SAPLING = REGISTRY.register("yagroot_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 	// ORES

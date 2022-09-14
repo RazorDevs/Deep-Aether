@@ -1,6 +1,7 @@
 
 package teamrazor.deepaether.block;
 
+import com.gildedgames.aether.block.AetherBlocks;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import net.minecraft.world.level.material.Material;
@@ -37,7 +38,7 @@ public class RadiantOrchidBlock extends FlowerBlock {
 
 	@Override
 	public boolean mayPlaceOn(BlockState groundState, BlockGetter worldIn, BlockPos pos) {
-		return groundState.is(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK.get())
+		return groundState.is(AetherBlocks.AETHER_GRASS_BLOCK.get())
 
 		;
 	}

@@ -19,8 +19,8 @@ public class DeepAetherModItems {
 
 
 	// GRASS
-	public static final RegistryObject<Item> AERGLOW_GRASS_BLOCK = block(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Item> AERGLOW_GRASS_PATH = block(DeepAetherModBlocks.AERGLOW_GRASS_PATH, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	//public static final RegistryObject<Item> AERGLOW_GRASS_BLOCK = block(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	//public static final RegistryObject<Item> AERGLOW_GRASS_PATH = block(DeepAetherModBlocks.AERGLOW_GRASS_PATH, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	// WOOD
 	public static final RegistryObject<Item> ROSE_WOOD = block(DeepAetherModBlocks.ROSE_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -29,17 +29,17 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> FLOWERING_ROSE_LEAVES = block(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_PLANKS = block(DeepAetherModBlocks.ROSE_PLANKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> STRIPPED_ROSE_WOOD = block(DeepAetherModBlocks.STRIPPED_ROSE_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Item> STRIPPED_ROSE_WOOD_LOG = block(DeepAetherModBlocks.STRIPPED_ROSE_WOOD_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Item> ROSE_WOOD_WALL = block(DeepAetherModBlocks.ROSE_WOOD_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Item> STRIPPED_ROSE_WOOD_WALL = block(DeepAetherModBlocks.STRIPPED_ROSE_WOOD_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> STRIPPED_ROSE_LOG = block(DeepAetherModBlocks.STRIPPED_ROSE_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ROSE_WALL = block(DeepAetherModBlocks.ROSE_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> STRIPPED_ROSE_WALL = block(DeepAetherModBlocks.STRIPPED_ROSE_WALL, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_SLAB = block(DeepAetherModBlocks.ROSE_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_STAIRS = block(DeepAetherModBlocks.ROSE_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_FENCE = block(DeepAetherModBlocks.ROSE_FENCE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_FENCE_GATE = block(DeepAetherModBlocks.ROSE_FENCE_GATE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_PRESSURE_PLATE = block(DeepAetherModBlocks.ROSE_PRESSURE_PLATE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_BUTTON = block(DeepAetherModBlocks.ROSE_BUTTON, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Item> ROSE_WOOD_DOOR = doubleBlock(DeepAetherModBlocks.ROSE_WOOD_DOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Item> ROSE_WOOD_TRAPDOOR = block(DeepAetherModBlocks.ROSE_WOOD_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ROSE_DOOR = doubleBlock(DeepAetherModBlocks.ROSE_DOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ROSE_TRAPDOOR = block(DeepAetherModBlocks.ROSE_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSEWOOD_SAPLING = block(DeepAetherModBlocks.ROSEWOOD_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	public static final RegistryObject<Item> YAGROOT_WOOD = block(DeepAetherModBlocks.YAGROOT_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

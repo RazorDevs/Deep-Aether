@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_top_rh",
-  "render_type": "cutout",
-  "textures": {
-    "bottom": "deep_aether:blocks/roseroot_door_bottom",
-    "top": "deep_aether:blocks/roseroot_door_top"
-  }
-}

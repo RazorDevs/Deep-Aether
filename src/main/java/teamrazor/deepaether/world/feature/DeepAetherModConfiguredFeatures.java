@@ -48,7 +48,7 @@ public class DeepAetherModConfiguredFeatures {
     public static final Holder<PlacedFeature> ROSEWOOD_CHECKED = PlacementUtils.register("rosewood_checked", ROSEWOOD_TREE,
             PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()));
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>>    ROSEWOOD_SPAWN =
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ROSEWOOD_SPAWN =
             FeatureUtils.register("rosewood_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(ROSEWOOD_CHECKED,
                             0.5F)), ROSEWOOD_CHECKED));

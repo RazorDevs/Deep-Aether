@@ -18,7 +18,7 @@ public class DeepAetherModTabs {
 		TAB_DEEP_AETHER_BLOCKS_TAB = new CreativeModeTab("tabdeep_aether_blocks_tab") {
 			@Override
 			public ItemStack makeIcon() {
-				return new ItemStack(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK.get());
+				return new ItemStack(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get());
 			}
 
 			@OnlyIn(Dist.CLIENT)

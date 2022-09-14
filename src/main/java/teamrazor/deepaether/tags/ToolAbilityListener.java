@@ -16,11 +16,9 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import com.gildedgames.aether.event.hooks.AbilityHooks;
 
 @Mod.EventBusSubscriber
 public class ToolAbilityListener {
-
     @SubscribeEvent
     public static void doSkyjadeAbility(PlayerEvent.BreakSpeed event) {
         Player player = event.getEntity();
@@ -28,6 +26,17 @@ public class ToolAbilityListener {
         ItemStack itemStack = player.getMainHandItem();
         Level level = player.getLevel();
         event.setNewSpeed(SkyjadeTool.decreaseSpeed(itemStack, event.getNewSpeed()));
-        event.setNewSpeed(AbilityHooks.ToolHooks.reduceToolEffectiveness(level, blockState, itemStack, event.getNewSpeed()));
+        event.setNewSpeed(AbilityHooks.ToolHooks.increaseToolEffectiveness(level, blockState, itemStack, event.getNewSpeed()));
+    }
+    @SubscribeEvent
+    public static void setupToolModifications(BlockEvent.BlockToolModificationEvent event) {
+        LevelAccessor levelAccessor = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockState oldState = event.getState();
+        ToolAction toolAction = event.getToolAction();
+        BlockState newState = AbilityHooks.ToolHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
+        if (newState != oldState && !event.isSimulated()) {
+            event.setFinalState(newState);
+        }
     }
 }

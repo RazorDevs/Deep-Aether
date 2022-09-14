@@ -40,6 +40,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
+import teamrazor.deepaether.init.DeepAetherModBlocks;
 
 import java.util.List;
 import java.util.Map;
@@ -51,7 +52,24 @@ public class AbilityHooks {
     public static class ArmorHooks {
     }
 
+
     public static class ToolHooks {
+        public static final Map<Block, Block> STRIPPABLES = (new ImmutableMap.Builder<Block, Block>())
+                .put(DeepAetherModBlocks.ROSE_LOG.get(), DeepAetherModBlocks.STRIPPED_ROSE_LOG.get())
+                .put(DeepAetherModBlocks.ROSE_WOOD.get(), DeepAetherModBlocks.STRIPPED_ROSE_WOOD.get())
+                .put(DeepAetherModBlocks.YAGROOT_LOG.get(), DeepAetherModBlocks.STRIPPED_YAGROOT_LOG.get())
+                .put(DeepAetherModBlocks.YAGROOT_WOOD.get(), DeepAetherModBlocks.STRIPPED_YAGROOT_WOOD.get())
+                .build();
+
+        public static BlockState setupToolActions(LevelAccessor accessor, BlockPos pos, BlockState old, ToolAction action) {
+            Block oldBlock = old.getBlock();
+            if (action == ToolActions.AXE_STRIP) {
+                if (STRIPPABLES.containsKey(oldBlock)) {
+                    return STRIPPABLES.get(oldBlock).withPropertiesOf(old);
+                }
+            }
+            return old;
+        }
 
         public static float increaseToolEffectiveness(Level level, BlockState state, ItemStack stack, float amount) {
             if (AetherConfig.COMMON.tools_debuff.get()) {

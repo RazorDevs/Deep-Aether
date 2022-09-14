@@ -49,7 +49,7 @@ public class FlowerDecorator extends TreeDecorator {
         if (!(randomsource.nextFloat() >= this.probability)) {
             List<BlockPos> list = p_226019_.leaves();
             List<BlockPos> list1 = p_226019_.logs();
-            int i = !list.isEmpty() ? Math.max(list.get(0).getY() - 1, list1.get(0).getY() + 1) : Math.min(list1.get(0).getY() + 1 + randomsource.nextInt(3), list1.get(list1.size() - 1).getY());
+            int i = !list.isEmpty() ? Math.max(list.get(0).getY() - 1, list1.get(0).getY() + randomsource.nextInt(3)) : Math.min(list1.get(0).getY() + 1 + randomsource.nextInt(3), list1.get(list1.size() - 1).getY());
             List<BlockPos> list2 = list1.stream().filter((p_202300_) -> {
                 return p_202300_.getY() == i;
             }).flatMap((p_202305_) -> {
