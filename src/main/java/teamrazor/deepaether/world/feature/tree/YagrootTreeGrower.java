@@ -11,6 +11,6 @@ public class YagrootTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_204307_, boolean p_204308_) {
-        return DeepAetherModConfiguredFeatures.ROSEWOOD_TREE;
+        return DeepAetherModConfiguredFeatures.YAGROOT_TREE;
     }
 }

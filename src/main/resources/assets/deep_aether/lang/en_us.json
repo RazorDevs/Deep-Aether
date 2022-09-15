@@ -49,6 +49,29 @@
   "block.deep_aether.polished_aseterite": "Polished Aseterite",
   "block.deep_aether.polished_aseterite_bricks": "Aseterite Bricks",
   "block.deep_aether.rose_wood": "Roseroot Wood",
+  "block.deep_aether.yagroot_log": "Yagroot Log",
+  "block.deep_aether.yagroot_wood": "Yagroot Wood",
+  "block.deep_aether.stripped_yagroot_log": "Stripped Yagroot Log",
+  "block.deep_aether.stripped_yagroot_wood": "Stripped Yagroot wood",
+  "block.deep_aether.yagroot_slab": "Yagroot Slab",
+  "block.deep_aether.yagroot_stairs": "Yagroot Stairs",
+  "block.deep_aether.yagroot_fence": "Yagroot Fence",
+  "block.deep_aether.yagroot_fence_gate": "Yagroot Fence Gate",
+  "block.deep_aether.yagroot_wall": "Yagroot Wall",
+  "block.deep_aether.stripped_yagroot_wall": "Stripped Yagroot Wall",
+  "block.deep_aether.yagroot_door": "Yagroot Door",
+  "block.deep_aether.yagroot_trapdoor": "Yagroot Trapdoor",
+
+
+
+
+
+
+
+
+
+
+
   "block.deep_aether.polished_clorite": "Polished Clorite",
   "block.deep_aether.clorite": "Clorite",
   "block.deep_aether.polished_clorite_bricks": "Clorite Bricks",

@@ -20,13 +20,14 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import teamrazor.deepaether.block.DeepAetherModLogBlock;
 import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
+import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
 
 public class DeepAetherModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAetherMod.MODID);
 
 	// GRASS - randomTicks() is needed for grass growth.
-	//public static final RegistryObject<Block> AERGLOW_GRASS_BLOCK = REGISTRY.register("aerglow_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRAVEL).strength(1f, 10f).randomTicks()));
-	//public static final RegistryObject<Block> AERGLOW_GRASS_PATH = REGISTRY.register("aerglow_grass_path", () -> new DirtPathBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRAVEL)));
+	public static final RegistryObject<Block> AERGLOW_GRASS_BLOCK = REGISTRY.register("aerglow_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRAVEL).strength(1f, 10f).randomTicks()));
+	public static final RegistryObject<Block> AERGLOW_GRASS_PATH = REGISTRY.register("aerglow_grass_path", () -> new DirtPathBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRAVEL)));
 
 	// WOOD
 	public static final RegistryObject<Block> ROSE_WOOD = REGISTRY.register("rose_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
@@ -64,8 +65,9 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_DOOR = REGISTRY.register("yagroot_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR)));
 	public static final RegistryObject<Block> YAGROOT_TRAPDOOR = REGISTRY.register("yagroot_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)));
 	public static final RegistryObject<Block> YAGROOT_LEAVES = REGISTRY.register("yagroot_leaves", () -> new DeepAetherLeavesBlock());
-	public static final RegistryObject<Block> YAGROOT_SAPLING = REGISTRY.register("yagroot_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
-
+	public static final RegistryObject<Block> YAGROOT_SAPLING = REGISTRY.register("yagroot_sapling", () -> new SaplingBlock( new YagrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+	public static final RegistryObject<Block> YAGROOT_ROOTS = REGISTRY.register("yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)));
+	public static final RegistryObject<Block> YAGROOT_VINE = REGISTRY.register("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = REGISTRY.register("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = REGISTRY.register("skyjade_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
@@ -179,6 +181,9 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> RADIANT_ORCHID = REGISTRY.register("radiant_orchid", () -> new RadiantOrchidBlock());
 
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = REGISTRY.register("aerglow_petal_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
+	public static final RegistryObject<Block> AETHER_MOSS_CARPET = REGISTRY.register("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
+	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = REGISTRY.register("aether_moss_block", () -> new DeepAetherMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
+
 
 	public static final RegistryObject<LiquidBlock> POISON_BLOCK = DeepAetherModBlocks.REGISTRY.register("poison", () -> new PoisonBlock(DeepAetherModFluids.POISON_FLUID, BlockBehaviour.Properties.of(Material.LAVA)
 			.noCollission()

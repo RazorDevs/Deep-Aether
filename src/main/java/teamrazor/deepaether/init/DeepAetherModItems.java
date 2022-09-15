@@ -22,6 +22,9 @@ public class DeepAetherModItems {
 	//public static final RegistryObject<Item> AERGLOW_GRASS_BLOCK = block(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	//public static final RegistryObject<Item> AERGLOW_GRASS_PATH = block(DeepAetherModBlocks.AERGLOW_GRASS_PATH, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Item> AETHER_MOSS_BLOCK = block(DeepAetherModBlocks.AETHER_MOSS_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> AETHER_MOSS_CARPET = block(DeepAetherModBlocks.AETHER_MOSS_CARPET, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 	// WOOD
 	public static final RegistryObject<Item> ROSE_WOOD = block(DeepAetherModBlocks.ROSE_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_LOG = block(DeepAetherModBlocks.ROSE_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -59,6 +62,8 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> YAGROOT_DOOR = doubleBlock(DeepAetherModBlocks.YAGROOT_DOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_TRAPDOOR = block(DeepAetherModBlocks.YAGROOT_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_SAPLING = block(DeepAetherModBlocks.YAGROOT_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_ROOTS = block(DeepAetherModBlocks.YAGROOT_ROOTS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_VINE = block(DeepAetherModBlocks.YAGROOT_VINE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	// ORES
 	public static final RegistryObject<Item> SKYJADE_ORE = block(DeepAetherModBlocks.SKYJADE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
