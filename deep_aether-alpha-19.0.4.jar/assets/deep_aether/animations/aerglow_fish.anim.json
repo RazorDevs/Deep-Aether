@@ -1,0 +1,61 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.aerglow_fish.swim": {
+			"loop": true,
+			"animation_length": 0.54545,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.1364": {
+							"vector": [0, 5, 0]
+						},
+						"0.2727": {
+							"vector": [0, 0, 0]
+						},
+						"0.4091": {
+							"vector": [0, -5, 0]
+						},
+						"0.5455": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.1364": {
+							"vector": [0, -15, 0]
+						},
+						"0.2727": {
+							"vector": [0, 0, 0]
+						},
+						"0.4091": {
+							"vector": [0, 15, 0]
+						},
+						"0.5455": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				}
+			}
+		}
+	}
+}

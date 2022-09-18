@@ -77,6 +77,7 @@ public class QuailEntity extends Chicken implements IAnimatable {
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.idle", true));
         return PlayState.CONTINUE;
     }
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",

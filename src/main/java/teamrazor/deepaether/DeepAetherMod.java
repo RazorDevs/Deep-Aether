@@ -22,7 +22,6 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
-import teamrazor.deepaether.client.model.Modelcustom_model;
 import teamrazor.deepaether.client.renderer.AetherFishRenderer;
 import teamrazor.deepaether.client.renderer.QuailRenderer;
 import teamrazor.deepaether.fluids.BaseFluidType;
@@ -42,8 +41,8 @@ import teamrazor.deepaether.tags.DeepAetherItemTagData;
 import teamrazor.deepaether.tags.DeepAetherTags;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
+import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.decorators.FoliageDecoratorType;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -87,7 +86,7 @@ public class DeepAetherMod {
 		//DeepAetherModBiomes.REGISTRY.register(bus);
 		DeepAetherModFluids.register(bus);
 		DeepAetherModFluidTypes.register(bus);
-		FoliageDecoratorType.REGISTRY.register(bus);
+		DeepAetherDecoratorType.REGISTRY.register(bus);
 		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
@@ -135,6 +134,7 @@ public class DeepAetherMod {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
 			EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
+			EntityRenderers.register(DeepAetherModEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		}
 	}
 }

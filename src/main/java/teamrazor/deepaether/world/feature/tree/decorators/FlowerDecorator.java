@@ -41,7 +41,7 @@ public class FlowerDecorator extends TreeDecorator {
     }
 
     protected TreeDecoratorType<?> type() {
-        return FoliageDecoratorType.FLOWERS.get();
+        return DeepAetherDecoratorType.FLOWERS.get();
     }
 
     public void place(Context p_226019_) {
