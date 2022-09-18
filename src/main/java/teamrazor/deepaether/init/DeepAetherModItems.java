@@ -23,6 +23,12 @@ public class DeepAetherModItems {
 	//public static final RegistryObject<Item> AERGLOW_GRASS_BLOCK = block(DeepAetherModBlocks.AERGLOW_GRASS_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	//public static final RegistryObject<Item> AERGLOW_GRASS_PATH = block(DeepAetherModBlocks.AERGLOW_GRASS_PATH, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Item> AETHER_MUD = block(DeepAetherModBlocks.AETHER_MUD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> PACKED_AETHER_MUD = block(DeepAetherModBlocks.PACKED_AETHER_MUD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> AETHER_MUD_BRICKS = block(DeepAetherModBlocks.AETHER_MUD_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> AETHER_MUD_BRICKS_SLAB = block(DeepAetherModBlocks.AETHER_MUD_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> AETHER_MUD_BRICKS_STAIRS = block(DeepAetherModBlocks.AETHER_MUD_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 	public static final RegistryObject<Item> AETHER_MOSS_BLOCK = block(DeepAetherModBlocks.AETHER_MOSS_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> AETHER_MOSS_CARPET = block(DeepAetherModBlocks.AETHER_MOSS_CARPET, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -64,6 +70,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> YAGROOT_TRAPDOOR = block(DeepAetherModBlocks.YAGROOT_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_SAPLING = block(DeepAetherModBlocks.YAGROOT_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_ROOTS = block(DeepAetherModBlocks.YAGROOT_ROOTS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> MUDDY_YAGROOT_ROOTS = block(DeepAetherModBlocks.MUDDY_YAGROOT_ROOTS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_VINE = block(DeepAetherModBlocks.YAGROOT_VINE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	// ORES

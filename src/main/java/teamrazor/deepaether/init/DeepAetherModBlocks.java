@@ -67,6 +67,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_LEAVES = REGISTRY.register("yagroot_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> YAGROOT_SAPLING = REGISTRY.register("yagroot_sapling", () -> new SaplingBlock( new YagrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> YAGROOT_ROOTS = REGISTRY.register("yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)));
+	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = REGISTRY.register("muddy_yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUDDY_MANGROVE_ROOTS)));
+
 	public static final RegistryObject<Block> YAGROOT_VINE = REGISTRY.register("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = REGISTRY.register("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
@@ -183,7 +185,14 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = REGISTRY.register("aerglow_petal_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = REGISTRY.register("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
 	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = REGISTRY.register("aether_moss_block", () -> new DeepAetherMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
+	//MUD
+	public static final RegistryObject<Block> AETHER_MUD = REGISTRY.register("aether_mud", () -> new MudBlock(BlockBehaviour.Properties.copy(Blocks.MUD)));
+	public static final RegistryObject<Block> PACKED_AETHER_MUD = REGISTRY.register("packed_aether_mud", () -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_MUD)));
 
+	public static final RegistryObject<Block> AETHER_MUD_BRICKS = REGISTRY.register("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS)));
+	public static final RegistryObject<Block> AETHER_MUD_BRICKS_SLAB = REGISTRY.register("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICK_SLAB)));
+	public static final RegistryObject<Block> AETHER_MUD_BRICKS_STAIRS = REGISTRY.register("aether_mud_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.AETHER_MUD_BRICKS.get().defaultBlockState(),
+			BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.MUD_BRICKS).strength(5f).requiresCorrectToolForDrops()));
 
 	public static final RegistryObject<LiquidBlock> POISON_BLOCK = DeepAetherModBlocks.REGISTRY.register("poison", () -> new PoisonBlock(DeepAetherModFluids.POISON_FLUID, BlockBehaviour.Properties.of(Material.LAVA)
 			.noCollission()

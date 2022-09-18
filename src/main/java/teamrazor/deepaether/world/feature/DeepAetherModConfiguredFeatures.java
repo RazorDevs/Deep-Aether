@@ -70,8 +70,7 @@ public class DeepAetherModConfiguredFeatures {
                         UniformInt.of(0, 1), Registry.BLOCK.getOrCreateTag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)), BlockStateProvider.simple(DeepAetherModBlocks.YAGROOT_LEAVES.get()), new RandomSpreadFoliagePlacer(ConstantInt.of(3),
                         ConstantInt.of(0), ConstantInt.of(2), 70), Optional.of(new MangroveRootPlacer(UniformInt.of(1, 3), BlockStateProvider.simple(DeepAetherModBlocks.YAGROOT_ROOTS.get()),
                         Optional.of(new AboveRootPlacement(BlockStateProvider.simple(DeepAetherModBlocks.AETHER_MOSS_CARPET.get()), 0.5F)), new MangroveRootPlacement(Registry.BLOCK.getOrCreateTag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder,
-                        Blocks.MUD, Blocks.MUDDY_MANGROVE_ROOTS), BlockStateProvider.simple(Blocks.MUDDY_MANGROVE_ROOTS), 8, 15, 0.2F))), new TwoLayersFeatureSize(2, 0, 2))).decorators(List.of(new LeaveVineDecorator(0.125F)))
-                        .ignoreVines().build());
+                        Blocks.MUD, Blocks.MUDDY_MANGROVE_ROOTS), BlockStateProvider.simple(Blocks.MUDDY_MANGROVE_ROOTS), 8, 15, 0.2F))), new TwoLayersFeatureSize(2, 0, 2))).build());
 
     public static final Holder<PlacedFeature> YAGROOT_CHECKED = PlacementUtils.register("yagroot_checked", YAGROOT_TREE,
             PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.YAGROOT_SAPLING.get()));
@@ -82,7 +81,7 @@ public class DeepAetherModConfiguredFeatures {
                             0.5F)), YAGROOT_CHECKED));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> AETHER_MOSS_VEGETATION = FeatureUtils.register("aether_moss_vegetation", Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModBlocks.AETHER_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
-    public static final Holder<ConfiguredFeature<VegetationPatchConfiguration, ?>> AETHER_MOSS_PATCH_BONEMEAL = FeatureUtils.register("aether_moss_patch_bonemeal", Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(MOSS_VEGETATION), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
+    public static final Holder<ConfiguredFeature<VegetationPatchConfiguration, ?>> AETHER_MOSS_PATCH_BONEMEAL = FeatureUtils.register("aether_moss_patch_bonemeal", Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(AETHER_MOSS_VEGETATION), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 
 
 
