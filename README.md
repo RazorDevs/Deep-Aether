@@ -21,7 +21,8 @@ You'll need of course:
  - Forge
  - The Aether Mod
  - Curios
-
+ - GeckoLib
+ 
 # Credits
 
 The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy.
