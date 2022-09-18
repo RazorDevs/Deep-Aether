@@ -83,6 +83,7 @@ public class DeepAetherMod {
 		DeepAetherModBlocks.REGISTRY.register(bus);
 		DeepAetherModItems.REGISTRY.register(bus);
 		DeepAetherModEntities.REGISTRY.register(bus);
+		DeepAetherModSounds.REGISTRY.register(bus);
 		//DeepAetherModBiomes.REGISTRY.register(bus);
 		DeepAetherModFluids.register(bus);
 		DeepAetherModFluidTypes.register(bus);

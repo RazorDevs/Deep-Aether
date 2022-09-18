@@ -1,5 +1,6 @@
 package teamrazor.deepaether.init;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import teamrazor.deepaether.item.*;
@@ -183,8 +184,10 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> QUAIL = REGISTRY.register("quail_spawn_egg",
 			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,32114, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 
-	//public static final RegistryObject<Item> MUSIC_DISC_NABOORU = REGISTRY.register("music_disc_nabooru", () -> new MusicDiscNabooruItem());
-	//public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = REGISTRY.register("music_disc_a_morning_wish", () -> new MusicDiscAMorningWishItem());
+	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = REGISTRY.register("music_disc_nabooru", () -> new RecordItem(0, DeepAetherModSounds.NABOORU.get(),
+			new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).rarity(Rarity.RARE), 100));
+	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = REGISTRY.register("music_disc_a_morning_wish", () -> new RecordItem(0, DeepAetherModSounds.A_MORNING_WISH.get(),
+			new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).rarity(Rarity.RARE), 100));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = REGISTRY.register("poison_bucket",
 			() -> new BucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
