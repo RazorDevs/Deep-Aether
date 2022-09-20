@@ -185,10 +185,12 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = REGISTRY.register("aerglow_petal_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = REGISTRY.register("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
 	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = REGISTRY.register("aether_moss_block", () -> new DeepAetherMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
+
+	public static final RegistryObject<Block> VIRULENT_QUICKSAND = REGISTRY.register("virulent_quicksand", () -> new VirulentQuicksandBlock(BlockBehaviour.Properties.copy(Blocks.SAND)));
+
 	//MUD
 	public static final RegistryObject<Block> AETHER_MUD = REGISTRY.register("aether_mud", () -> new MudBlock(BlockBehaviour.Properties.copy(Blocks.MUD)));
 	public static final RegistryObject<Block> PACKED_AETHER_MUD = REGISTRY.register("packed_aether_mud", () -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_MUD)));
-
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS = REGISTRY.register("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_SLAB = REGISTRY.register("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICK_SLAB)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_STAIRS = REGISTRY.register("aether_mud_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.AETHER_MUD_BRICKS.get().defaultBlockState(),

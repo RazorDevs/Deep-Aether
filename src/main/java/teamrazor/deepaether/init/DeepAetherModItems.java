@@ -1,7 +1,9 @@
 package teamrazor.deepaether.init;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.PowderSnowBlock;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
@@ -197,9 +199,15 @@ public class DeepAetherModItems {
 			new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).rarity(Rarity.RARE), 100));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = REGISTRY.register("poison_bucket",
-			() -> new BucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+			() -> new BucketItem(DeepAetherModFluids.POISON_FLUID, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+
+	public static final RegistryObject<Item> VIRULENT_QUICKSAND_BUCKET = REGISTRY.register("virulent_quicksand_bucket",
+			() -> new SolidBucketItem(DeepAetherModBlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = REGISTRY.register("skyroot_virulent_quicksand_bucket",
+			() -> new SolidBucketItem(DeepAetherModBlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
 	public static final RegistryObject<Item> AERGLOW_PETAL = REGISTRY.register("aerglow_petal", () -> new AerglowPetalItem());
+
 
 
 
