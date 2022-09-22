@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "deep_aether:rose_log"
+    "deep_aether:rose_log",
+    "deep_aether:cruderoot_log",
+    "deep_aether:yagroot_log"
   ]
 }
