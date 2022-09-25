@@ -17,6 +17,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.Block;
 import teamrazor.deepaether.item.DeepAetherArmorMaterial;
 import teamrazor.deepaether.item.abilities.CloudiumAbility;
+import teamrazor.deepaether.item.accessory.CloudiumRing;
 import teamrazor.deepaether.item.accessory.DeepAetherGlovesItem;
 
 public class DeepAetherModItems {
@@ -209,6 +210,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> CLOUDIUM_LEGGING = REGISTRY.register("cloudium_leggings", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.LEGS, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_BOOTS = REGISTRY.register("cloudium_boots", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.FEET, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_GLOVES = REGISTRY.register("cloudium_gloves", () -> new DeepAetherGlovesItem(2.0, "cloudium_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_RING = REGISTRY.register("cloudium_ring", () -> new CloudiumRing(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = REGISTRY.register("skyjade", () -> new SkyjadeItem());
