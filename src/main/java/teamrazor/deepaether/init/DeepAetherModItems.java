@@ -2,6 +2,10 @@ package teamrazor.deepaether.init;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.PowderSnowBlock;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -187,10 +191,16 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> RAW_ORATIE = REGISTRY.register("raw_oratie", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> ORATIE_INGOT = REGISTRY.register("oratie_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
+	// FOOD
+	public static final RegistryObject<Item> RAW_QUAIL = REGISTRY.register("raw_quail", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.CHICKEN)));
+	public static final RegistryObject<Item> COOKED_QUAIL = REGISTRY.register("cooked_quail", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.COOKED_CHICKEN)));
+	public static final RegistryObject<Item> RAW_AERGLOW_FISH = REGISTRY.register("raw_aerglow_fish", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.COD)));
+	public static final RegistryObject<Item> COOKED_AERGLOW_FISH = REGISTRY.register("cooked_aerglow_fish", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.COOKED_COD)));
+
 	// MISC
-	public static final RegistryObject<Item> AETHER_FISH = REGISTRY.register("aether_fish_spawn_egg",
+	public static final RegistryObject<Item> AERGLOW_FISH_EGG = REGISTRY.register("aether_fish_spawn_egg",
 			() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 33323, 42424, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> QUAIL = REGISTRY.register("quail_spawn_egg",
+	public static final RegistryObject<Item> QUAIL_EGG = REGISTRY.register("quail_spawn_egg",
 			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,32114, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = REGISTRY.register("music_disc_nabooru", () -> new RecordItem(0, DeepAetherModSounds.NABOORU.get(),

@@ -1,12 +1,14 @@
 package teamrazor.deepaether;
 
 //import com.gildedgames.aether.data.generators.AetherDataGenerators;
+import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -37,8 +39,11 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
+import teamrazor.deepaether.tags.DeepAetherBiomeTagData;
 import teamrazor.deepaether.tags.DeepAetherItemTagData;
 import teamrazor.deepaether.tags.DeepAetherTags;
+import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
+import teamrazor.deepaether.world.DeepAetherModDataGenerators;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
@@ -92,8 +97,6 @@ public class DeepAetherMod {
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
 		DeepAetherModBiomeModifiers.register(eventBus);
-
-
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event) {
@@ -114,6 +117,8 @@ public class DeepAetherMod {
 		AetherBlockTagData blockTags = new AetherBlockTagData(generator, helper);
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DeepAetherItemTagData(generator, blockTags, helper));
+		// generator.addProvider(event.includeServer(), new DeepAetherBiomeTagData(generator, helper));
+		//generator.addProvider(event.includeServer(), DeepAetherModDataGenerators.levelStem(generator, helper));
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event)

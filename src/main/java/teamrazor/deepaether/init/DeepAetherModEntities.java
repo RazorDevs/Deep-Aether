@@ -28,7 +28,7 @@ public class DeepAetherModEntities {
 	public static final RegistryObject<EntityType<QuailEntity>> QUAIL = register("quail",
 			EntityType.Builder.<QuailEntity>of(QuailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
-					.sized(0.5f, 0.3f));
+					.sized(0.3f, 0.5f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> entityTypeBuilder.build(registryname));
