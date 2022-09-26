@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "3": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "4": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "6": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "7": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "8": {
+      "item": "deep_aether:yagroot_planks"
+    }
+  },
+  "result": {
+    "item": "deep_aether:yagroot_stairs",
+    "count": 4
+  }
+}

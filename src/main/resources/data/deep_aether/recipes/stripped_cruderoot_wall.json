@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:stripped_cruderoot_log"
+    },
+    "1": {
+      "item": "deep_aether:stripped_cruderoot_log"
+    },
+    "2": {
+      "item": "deep_aether:stripped_cruderoot_log"
+    },
+    "3": {
+      "item": "deep_aether:stripped_cruderoot_log"
+    },
+    "4": {
+      "item": "deep_aether:stripped_cruderoot_log"
+    },
+    "5": {
+      "item": "deep_aether:stripped_cruderoot_log"
+    }
+  },
+  "result": {
+    "item": "deep_aether:stripped_cruderoot_wall",
+    "count": 6
+  }
+}

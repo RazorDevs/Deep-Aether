@@ -32,7 +32,7 @@ public class DeepAetherModLogBlock extends RotatedPillarBlock {
         return 5;
     }
 
-    /*@Nullable
+    @Nullable
     @Override
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         if(context.getItemInHand().getItem() instanceof AxeItem) {
@@ -48,8 +48,14 @@ public class DeepAetherModLogBlock extends RotatedPillarBlock {
             if(state.is(DeepAetherModBlocks.YAGROOT_WOOD.get())) {
                 return DeepAetherModBlocks.STRIPPED_YAGROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
+            if(state.is(DeepAetherModBlocks.CRUDEROOT_LOG.get())) {
+                return DeepAetherModBlocks.STRIPPED_CRUDEROOT_LOG.get().defaultBlockState();
+            }
+            if(state.is(DeepAetherModBlocks.CRUDEROOT_WOOD.get())) {
+                return DeepAetherModBlocks.CRUDEROOT_WOOD.get().defaultBlockState();
+            }
         }
 
         return super.getToolModifiedState(state, context, toolAction, simulate);
-    }*/
+    }
 }

@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import teamrazor.deepaether.block.DeepAetherModLogBlock;
+import teamrazor.deepaether.world.feature.tree.CruderootTreeGrower;
 import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
 import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
 
@@ -68,6 +69,24 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_SAPLING = REGISTRY.register("yagroot_sapling", () -> new SaplingBlock( new YagrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> YAGROOT_ROOTS = REGISTRY.register("yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)));
 	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = REGISTRY.register("muddy_yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUDDY_MANGROVE_ROOTS)));
+
+	public static final RegistryObject<Block> CRUDEROOT_WOOD = REGISTRY.register("cruderoot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> CRUDEROOT_LOG = REGISTRY.register("cruderoot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> CRUDEROOT_WALL = REGISTRY.register("cruderoot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_WOOD = REGISTRY.register("stripped_cruderoot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_LOG = REGISTRY.register("stripped_cruderoot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_WALL = REGISTRY.register("stripped_cruderoot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> CRUDEROOT_PLANKS = REGISTRY.register("cruderoot_planks", () -> new Block (BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> CRUDEROOT_STAIRS = REGISTRY.register("cruderoot_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.CRUDEROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> CRUDEROOT_SLAB = REGISTRY.register("cruderoot_slab", () -> new DeepAetherSlabBlock());
+	public static final RegistryObject<Block> CRUDEROOT_FENCE = REGISTRY.register("cruderoot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> CRUDEROOT_FENCE_GATE = REGISTRY.register("cruderoot_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> CRUDEROOT_PRESSURE_PLATE = REGISTRY.register("cruderoot_pressure_plate", () -> new DeepAetherPressurePlateBlock());
+	public static final RegistryObject<Block> CRUDEROOT_BUTTON = REGISTRY.register("cruderoot_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_BUTTON)));
+	public static final RegistryObject<Block> CRUDEROOT_DOOR = REGISTRY.register("cruderoot_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR)));
+	public static final RegistryObject<Block> CRUDEROOT_TRAPDOOR = REGISTRY.register("cruderoot_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)));
+	public static final RegistryObject<Block> CRUDEROOT_LEAVES = REGISTRY.register("cruderoot_leaves", () -> new DeepAetherLeavesBlock());
+	public static final RegistryObject<Block> CRUDEROOT_SAPLING = REGISTRY.register("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 	public static final RegistryObject<Block> YAGROOT_VINE = REGISTRY.register("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 	// ORES
