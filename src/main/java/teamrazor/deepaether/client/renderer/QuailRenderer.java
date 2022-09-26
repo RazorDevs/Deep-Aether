@@ -32,7 +32,11 @@ public class QuailRenderer extends GeoEntityRenderer<QuailEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(1.2f, 1.2f, 1.2f);
+        if (animatable.isBaby()){
+            stack.scale(0.7f, 0.7f, 0.7f);
+        }else{
+            stack.scale(1.2f, 1.2f, 1.2f);
+        }
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }

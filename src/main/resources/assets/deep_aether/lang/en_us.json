@@ -154,6 +154,16 @@
   "block.deep_aether.yagroot_leaves": "Yagroot Leaves",
   "block.deep_aether.yagroot_pressure_plate": "Yagroot Pressure Plate",
   "block.deep_aether.yagroot_button": "Yagroot Button",
+  "item.deep_aether.agate_gemstone": "Agate Gemstone",
+  "item.deep_aether.adibium_gemstone": "Adibium Gemstone",
+  "item.deep_aether.cloudium_scrap": "Cloudium Scrap",
+  "item.deep_aether.raw_oratie": "Raw Oratie",
+  "item.deep_aether.oratie_ingot": "Oratie Ingot",
+  "item.deep_aether.raw_quail": "Raw Quail",
+  "item.deep_aether.cooked_quail": "Cooked Quail",
+  "item.deep_aether.raw_aerglow_fish": "Raw Aerglow Fish",
+  "item.deep_aether.cooked_aerglow_fish": "Cooked Aerglow Fish",
+  "block.deep_aether.yagroot_button": "Yagroot Button",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
   "block.deep_aether.lavender": "Lavender"
 
