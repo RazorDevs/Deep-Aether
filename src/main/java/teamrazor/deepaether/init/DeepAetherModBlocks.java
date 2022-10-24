@@ -197,6 +197,8 @@ public class DeepAetherModBlocks {
 			BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> DARKERITE_WALL = REGISTRY.register("darkerite_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE)
 			.strength(5f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> HOLYSTONE_BRICKS = REGISTRY.register("holystone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+
 
 	// MISC
 	public static final RegistryObject<Block> RADIANT_ORCHID = REGISTRY.register("radiant_orchid", () -> new RadiantOrchidBlock());

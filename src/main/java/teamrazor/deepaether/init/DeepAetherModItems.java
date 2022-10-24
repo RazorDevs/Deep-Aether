@@ -188,6 +188,8 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> POLISHED_YALLESITE = block(DeepAetherModBlocks.POLISHED_YALLESITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Item> HOLYSTONE_BRICKS = block(DeepAetherModBlocks.HOLYSTONE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_PETAL_BLOCK = block(DeepAetherModBlocks.AERGLOW_PETAL_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> RADIANT_ORCHID = block(DeepAetherModBlocks.RADIANT_ORCHID, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
