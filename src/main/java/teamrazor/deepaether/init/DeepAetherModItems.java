@@ -193,6 +193,7 @@ public class DeepAetherModItems {
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_PETAL_BLOCK = block(DeepAetherModBlocks.AERGLOW_PETAL_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> RADIANT_ORCHID = block(DeepAetherModBlocks.RADIANT_ORCHID, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> LAVENDER = block(DeepAetherModBlocks.LAVENDER, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 
 	// Standalone Items ------------------------------------------------------------------------------------

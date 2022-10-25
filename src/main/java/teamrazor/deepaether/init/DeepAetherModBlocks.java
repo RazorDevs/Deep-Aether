@@ -202,7 +202,9 @@ public class DeepAetherModBlocks {
 
 	// MISC
 	public static final RegistryObject<Block> RADIANT_ORCHID = REGISTRY.register("radiant_orchid", () -> new RadiantOrchidBlock());
+	public static final RegistryObject<Block> LAVENDER = REGISTRY.register("lavender", () -> new FlowerBlock(BlockBehaviour.Properties.copy(Blocks.FLOWERS)));
 
+	
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = REGISTRY.register("aerglow_petal_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = REGISTRY.register("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
 	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = REGISTRY.register("aether_moss_block", () -> new DeepAetherMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
