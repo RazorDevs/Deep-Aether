@@ -208,5 +208,7 @@
   "item.deep_aether.cooked_aerglow_fish": "Cooked Aerglow Fish",
   "block.deep_aether.yagroot_button": "Yagroot Button",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
-  "block.deep_aether.lavender": "Lavender"
+  "block.deep_aether.lavender": "Lavender",
+  "entity.deep_aether.chest_boat": "Boat With Chest"
+
 }
