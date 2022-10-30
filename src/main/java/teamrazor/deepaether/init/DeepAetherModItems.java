@@ -206,10 +206,10 @@ public class DeepAetherModItems {
 
 	// EQUIPMENT
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new SkyjadeToolsAxeItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new SkyjadeToolsShovelItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new PickaxeItem(DeepAetherModTiers.SKYJADE, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new AxeItem(DeepAetherModTiers.SKYJADE, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new ShovelItem(DeepAetherModTiers.SKYJADE, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_hoe", () -> new HoeItem(DeepAetherModTiers.SKYJADE, 0, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = REGISTRY.register("skyjade_armor_helmet", () -> new SkyjadeArmorItem.Helmet());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = REGISTRY.register("skyjade_armor_chestplate", () -> new SkyjadeArmorItem.Chestplate());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = REGISTRY.register("skyjade_armor_leggings", () -> new SkyjadeArmorItem.Leggings());
@@ -254,11 +254,11 @@ public class DeepAetherModItems {
 
 	public static final RegistryObject<Item> VIRULENT_QUICKSAND_BUCKET = REGISTRY.register("virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DeepAetherModBlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+
 	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = REGISTRY.register("skyroot_virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DeepAetherModBlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
 	public static final RegistryObject<Item> AERGLOW_PETAL = REGISTRY.register("aerglow_petal", () -> new AerglowPetalItem());
-
 
 
 

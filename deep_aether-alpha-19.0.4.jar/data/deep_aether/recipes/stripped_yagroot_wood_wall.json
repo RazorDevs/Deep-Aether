@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:stripped_yagroot_wood"
+    },
+    "1": {
+      "item": "deep_aether:stripped_yagroot_wood"
+    },
+    "2": {
+      "item": "deep_aether:stripped_yagroot_wood"
+    },
+    "3": {
+      "item": "deep_aether:stripped_yagroot_wood"
+    },
+    "4": {
+      "item": "deep_aether:stripped_yagroot_wood"
+    },
+    "5": {
+      "item": "deep_aether:stripped_yagroot_wood"
+    }
+  },
+  "result": {
+    "item": "deep_aether:stripped_yagroot_wall",
+    "count": 6
+  }
+}

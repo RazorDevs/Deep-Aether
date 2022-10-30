@@ -9,8 +9,9 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import teamrazor.deepaether.tags.SkyjadeTool;
 
-public class SkyjadeToolsShovelItem extends ShovelItem {
+public class SkyjadeToolsShovelItem extends ShovelItem implements SkyjadeTool {
 	public SkyjadeToolsShovelItem() {
 		super(new Tier() {
 			public int getUses() {

@@ -5,6 +5,7 @@
 package teamrazor.deepaether.init;
 
 
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -202,7 +203,7 @@ public class DeepAetherModBlocks {
 
 	// MISC
 	public static final RegistryObject<Block> RADIANT_ORCHID = REGISTRY.register("radiant_orchid", () -> new RadiantOrchidBlock());
-	public static final RegistryObject<Block> LAVENDER = REGISTRY.register("lavender", () -> new FlowerBlock(BlockBehaviour.Properties.copy(Blocks.FLOWERS)));
+	public static final RegistryObject<Block> LAVENDER = REGISTRY.register("lavender", () ->  new FlowerBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
 	
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = REGISTRY.register("aerglow_petal_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));

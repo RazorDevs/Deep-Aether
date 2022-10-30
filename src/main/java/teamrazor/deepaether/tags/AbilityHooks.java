@@ -71,6 +71,13 @@ public class AbilityHooks {
             return old;
         }
 
+        public static float handleSkyjadeToolAbility(ItemStack stack, float speed) {
+            if (stack.getItem() instanceof SkyjadeTool skyjadeTool) {
+                return skyjadeTool.decreaseSpeed(stack, speed);
+            }
+            return speed;
+        }
+
         public static float increaseToolEffectiveness(Level level, BlockState state, ItemStack stack, float amount) {
             if (AetherConfig.COMMON.tools_debuff.get()) {
                 if (level.dimension() == AetherDimensions.AETHER_LEVEL) {

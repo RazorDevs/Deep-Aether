@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:cruderoot_planks"
+    },
+    "1": {
+      "item": "deep_aether:cruderoot_planks"
+    },
+    "2": {
+      "item": "deep_aether:cruderoot_planks"
+    }
+  },
+  "result": {
+    "item": "deep_aether:cruderoot_slab",
+    "count": 6
+  }
+}

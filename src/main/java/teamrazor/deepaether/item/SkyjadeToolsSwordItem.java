@@ -1,41 +1,22 @@
 
 package teamrazor.deepaether.item;
 
+import com.google.common.collect.Multimap;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import teamrazor.deepaether.init.DeepAetherModTabs;
-import teamrazor.deepaether.init.DeepAetherModItems;
-
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Item;
+import teamrazor.deepaether.init.DeepAetherModTiers;
+import teamrazor.deepaether.tags.SkyjadeWeapon;
 
-public class SkyjadeToolsSwordItem extends SwordItem {
+public class SkyjadeToolsSwordItem extends SwordItem implements SkyjadeWeapon {
 	public SkyjadeToolsSwordItem() {
-		super(new Tier() {
-			public int getUses() {
-				return 100;
-			}
-
-			public float getSpeed() {
-				return 12f;
-			}
-
-			public float getAttackDamageBonus() {
-				return 1.9999999999999996f;
-			}
-
-			public int getLevel() {
-				return 2;
-			}
-
-			public int getEnchantmentValue() {
-				return 22;
-			}
-
-			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get()));
-			}
-		}, 3, -3f, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+		super(DeepAetherModTiers.SKYJADE, 3, -3f, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+	}
+	@Override
+	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
+		return this.increaseDamage(super.getAttributeModifiers(slot, stack), stack, slot);
 	}
 }

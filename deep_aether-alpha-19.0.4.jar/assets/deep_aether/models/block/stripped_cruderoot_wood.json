@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "deep_aether:blocks/stripped_cruderoot_log",
+    "particle": "deep_aether:blocks/stripped_cruderoot_log"
+  }
+}

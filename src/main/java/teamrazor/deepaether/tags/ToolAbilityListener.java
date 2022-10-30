@@ -20,14 +20,15 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class ToolAbilityListener {
     @SubscribeEvent
-    public static void doSkyjadeAbility(PlayerEvent.BreakSpeed event) {
-        Player player = event.getEntity();
+    public static void modifyBreakSpeed(PlayerEvent.BreakSpeed event) {
         BlockState blockState = event.getState();
+        Player player = event.getEntity();
         ItemStack itemStack = player.getMainHandItem();
-        Level level = player.getLevel();
-        event.setNewSpeed(SkyjadeTool.decreaseSpeed(itemStack, event.getNewSpeed()));
-        event.setNewSpeed(AbilityHooks.ToolHooks.increaseToolEffectiveness(level, blockState, itemStack, event.getNewSpeed()));
+        if (!event.isCanceled()) {
+            event.setNewSpeed(AbilityHooks.ToolHooks.handleSkyjadeToolAbility(itemStack, event.getNewSpeed()));
+        }
     }
+
     @SubscribeEvent
     public static void setupToolModifications(BlockEvent.BlockToolModificationEvent event) {
         LevelAccessor levelAccessor = event.getLevel();
