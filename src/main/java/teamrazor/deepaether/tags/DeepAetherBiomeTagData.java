@@ -1,5 +1,5 @@
 package teamrazor.deepaether.tags;
-
+/*
 import com.gildedgames.aether.AetherTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -21,4 +21,4 @@ public class DeepAetherBiomeTagData extends BiomeTagsProvider {
                 DeepAetherModBiomes.VIRULENT_FOREST.get()
         );
     }
-}
+}*/

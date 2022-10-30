@@ -7,6 +7,7 @@ package teamrazor.deepaether.init;
 
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.DeepAetherMod;
@@ -19,6 +20,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import teamrazor.deepaether.block.DeepAetherModLogBlock;
+
+import teamrazor.deepaether.blockentity.DeepAetherModStandingSignBlock;
+import teamrazor.deepaether.blockentity.DeepAetherModWallSignBlock;
+import teamrazor.deepaether.blockentity.DeepAetherModWoodTypes;
 import teamrazor.deepaether.world.feature.tree.CruderootTreeGrower;
 import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
 import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
@@ -49,6 +54,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> ROSE_LEAVES = REGISTRY.register("rose_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> FLOWERING_ROSE_LEAVES = REGISTRY.register("flowering_rose_leaves", () -> new FloweringRoseLeavesBlock());
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = REGISTRY.register("rosewood_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+	public static final RegistryObject<Block> ROSE_WALL_SIGN = REGISTRY.register("rose_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.ROSE));
+	public static final RegistryObject<Block> ROSE_SIGN = REGISTRY.register("rose_sign", () -> new DeepAetherModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.ROSE));
 
 	public static final RegistryObject<Block> YAGROOT_WOOD = REGISTRY.register("yagroot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> YAGROOT_LOG = REGISTRY.register("yagroot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
@@ -70,6 +77,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_ROOTS = REGISTRY.register("yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)));
 	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = REGISTRY.register("muddy_yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUDDY_MANGROVE_ROOTS)));
 
+	public static final RegistryObject<Block> YAGROOT_WALL_SIGN = REGISTRY.register("yagroot_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.YAGROOT));
+	public static final RegistryObject<Block> YAGROOT_SIGN = REGISTRY.register("yagroot_sign", () -> new DeepAetherModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.YAGROOT));
 	public static final RegistryObject<Block> CRUDEROOT_WOOD = REGISTRY.register("cruderoot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> CRUDEROOT_LOG = REGISTRY.register("cruderoot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL = REGISTRY.register("cruderoot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -87,7 +96,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> CRUDEROOT_TRAPDOOR = REGISTRY.register("cruderoot_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)));
 	public static final RegistryObject<Block> CRUDEROOT_LEAVES = REGISTRY.register("cruderoot_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> CRUDEROOT_SAPLING = REGISTRY.register("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
-
+	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = REGISTRY.register("cruderoot_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.CRUDEROOT));
+	public static final RegistryObject<Block> CRUDEROOT_SIGN = REGISTRY.register("cruderoot_sign", () -> new DeepAetherModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> YAGROOT_VINE = REGISTRY.register("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = REGISTRY.register("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
@@ -161,12 +171,10 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YALLESITE_SLAB = REGISTRY.register("yallesite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 	public static final RegistryObject<Block> POLISHED_YALLESITE_SLAB = REGISTRY.register("polished_yallesite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
 	public static final RegistryObject<Block> POLISHED_YALLESITE_BRICKS_SLAB = REGISTRY.register("polished_yallesite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
-	public static final RegistryObject<Block> YALLESITE_STAIRS = REGISTRY.register("yallesite_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.YALLESITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE)
-			.sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> POLISHED_YALLESITE_STAIRS = REGISTRY.register("polished_yallesite_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_YALLESITE.get().defaultBlockState(),
-			BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> POLISHED_YALLESITE_BRICKS_STAIRS = REGISTRY.register("polished_yallesite_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_YALLESITE.get().defaultBlockState(),
-			BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> YALLESITE_STAIRS = REGISTRY.register("yallesite_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.YALLESITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> POLISHED_YALLESITE_STAIRS = REGISTRY.register("polished_yallesite_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_YALLESITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> POLISHED_YALLESITE_BRICKS_STAIRS = REGISTRY.register("polished_yallesite_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_YALLESITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> YALLESITE_WALL = REGISTRY.register("yallesite_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()));
 
 	public static final RegistryObject<Block> CLORITE = REGISTRY.register("clorite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 	public static final RegistryObject<Block> POLISHED_CLORITE = REGISTRY.register("polished_clorite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));

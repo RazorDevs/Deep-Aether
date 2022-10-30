@@ -1,5 +1,5 @@
 package teamrazor.deepaether.world;
-
+/*
 
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.client.AetherSoundEvents;
@@ -110,4 +110,4 @@ public class DeepAetherModBiomeBuilders {
                 .build();
     }
 
-}
+}*/

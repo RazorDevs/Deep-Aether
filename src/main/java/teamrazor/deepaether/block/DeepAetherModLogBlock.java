@@ -12,7 +12,7 @@ import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
 
-public class DeepAetherModLogBlock extends RotatedPillarBlock {
+public class DeepAetherModLogBlock extends AetherLogBlock {
     public DeepAetherModLogBlock(Properties properties) {
         super(properties);
     }

@@ -1,5 +1,7 @@
 package teamrazor.deepaether.init;
 
+import net.minecraft.resources.ResourceLocation;
+import org.apache.http.client.entity.EntityBuilder;
 import teamrazor.deepaether.entity.AetherFishEntity;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -14,6 +16,9 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
+
+import teamrazor.deepaether.entity.DeepAetherModBoat;
+import teamrazor.deepaether.entity.DeepAetherModChestBoat;
 import teamrazor.deepaether.entity.QuailEntity;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -29,6 +34,11 @@ public class DeepAetherModEntities {
 			EntityType.Builder.<QuailEntity>of(QuailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
 					.sized(0.3f, 0.5f));
+
+
+	public static final RegistryObject<EntityType<DeepAetherModBoat>> BOAT = REGISTRY.register("boat", () -> EntityType.Builder.<DeepAetherModBoat>of(DeepAetherModBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(new ResourceLocation(DeepAetherMod.MODID, "boat").toString()));
+
+	public static final RegistryObject<EntityType<DeepAetherModChestBoat>> CHEST_BOAT = REGISTRY.register("chest_boat", () -> EntityType.Builder.<DeepAetherModChestBoat>of(DeepAetherModChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(new ResourceLocation(DeepAetherMod.MODID, "chest_boat").toString()));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> entityTypeBuilder.build(registryname));

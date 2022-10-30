@@ -7,12 +7,16 @@ import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
+import teamrazor.deepaether.entity.DeepAetherModBoat;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
+import com.mojang.datafixers.util.Pair;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -63,6 +67,10 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> ROSE_DOOR = doubleBlock(DeepAetherModBlocks.ROSE_DOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_TRAPDOOR = block(DeepAetherModBlocks.ROSE_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSEWOOD_SAPLING = block(DeepAetherModBlocks.ROSEWOOD_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> ROSE_SIGN = REGISTRY.register("rose_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB), DeepAetherModBlocks.ROSE_SIGN.get(), DeepAetherModBlocks.ROSE_WALL_SIGN.get()));
+	public static final RegistryObject<Item> ROSE_BOAT = REGISTRY.register("rose_boat.json", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> ROSE_CHEST_BOAT = REGISTRY.register("rose_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1)));
+
 
 	public static final RegistryObject<Item> YAGROOT_WOOD = block(DeepAetherModBlocks.YAGROOT_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_LOG = block(DeepAetherModBlocks.YAGROOT_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -84,6 +92,9 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> YAGROOT_ROOTS = block(DeepAetherModBlocks.YAGROOT_ROOTS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> MUDDY_YAGROOT_ROOTS = block(DeepAetherModBlocks.MUDDY_YAGROOT_ROOTS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YAGROOT_VINE = block(DeepAetherModBlocks.YAGROOT_VINE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YAGROOT_SIGN = REGISTRY.register("yagroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB), DeepAetherModBlocks.YAGROOT_SIGN.get(), DeepAetherModBlocks.YAGROOT_WALL_SIGN.get()));
+	public static final RegistryObject<Item> YAGROOT_BOAT = REGISTRY.register("yagroot_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.YAGROOT, new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> YAGROOT_CHEST_BOAT = REGISTRY.register("yagroot_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.YAGROOT, new Item.Properties().stacksTo(1)));
 
 	public static final RegistryObject<Item> CRUDEROOT_WOOD = block(DeepAetherModBlocks.CRUDEROOT_WOOD, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> CRUDEROOT_LOG = block(DeepAetherModBlocks.CRUDEROOT_LOG, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -102,7 +113,9 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> CRUDEROOT_DOOR = doubleBlock(DeepAetherModBlocks.CRUDEROOT_DOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> CRUDEROOT_TRAPDOOR = block(DeepAetherModBlocks.CRUDEROOT_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> CRUDEROOT_SAPLING = block(DeepAetherModBlocks.CRUDEROOT_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-
+	public static final RegistryObject<Item> CRUDEROOT_SIGN = REGISTRY.register("cruderoot_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB), DeepAetherModBlocks.CRUDEROOT_SIGN.get(), DeepAetherModBlocks.CRUDEROOT_WALL_SIGN.get()));
+	public static final RegistryObject<Item> CRUDEROOT_BOAT = REGISTRY.register("cruderoot_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.CRUDEROOT, new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = REGISTRY.register("cruderoot_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.CRUDEROOT, new Item.Properties().stacksTo(1)));
 	// ORES
 	public static final RegistryObject<Item> SKYJADE_ORE = block(DeepAetherModBlocks.SKYJADE_ORE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> SKYJADE_BLOCK = block(DeepAetherModBlocks.SKYJADE_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -187,6 +200,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> YALLESITE = block(DeepAetherModBlocks.YALLESITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_YALLESITE = block(DeepAetherModBlocks.POLISHED_YALLESITE, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> YALLESITE_WALL = block(DeepAetherModBlocks.YALLESITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_PETAL_BLOCK = block(DeepAetherModBlocks.AERGLOW_PETAL_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -197,24 +211,24 @@ public class DeepAetherModItems {
 
 
 	// EQUIPMENT
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new SkyjadeToolsAxeItem());
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new SkyjadeToolsShovelItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_sword", () -> new SwordItem(Tiers.NETHERITE, 3, -2.4F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new PickaxeItem(Tiers.NETHERITE, 1, -2.8F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new AxeItem(Tiers.NETHERITE, 5.0F, -3.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new ShovelItem(Tiers.NETHERITE, 1.5F, -3.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = REGISTRY.register("skyjade_armor_helmet", () -> new SkyjadeArmorItem.Helmet());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = REGISTRY.register("skyjade_armor_chestplate", () -> new SkyjadeArmorItem.Chestplate());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = REGISTRY.register("skyjade_armor_leggings", () -> new SkyjadeArmorItem.Leggings());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = REGISTRY.register("skyjade_armor_boots", () -> new SkyjadeArmorItem.Boots());
 	public static final RegistryObject<Item> SKYJADE_GLOVES = REGISTRY.register("skyjade_gloves", () -> new DeepAetherGlovesItem(1.5, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_RING = REGISTRY.register("skyjade_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_RING = REGISTRY.register("skyjade_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 
 	public static final RegistryObject<Item> CLOUDIUM_HELMET = REGISTRY.register("cloudium_helmet", () -> new CloudiumAbility(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.HEAD, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_CHESTPLATE = REGISTRY.register("cloudium_chestplate", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.CHEST, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_LEGGING = REGISTRY.register("cloudium_leggings", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.LEGS, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_BOOTS = REGISTRY.register("cloudium_boots", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.FEET, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_GLOVES = REGISTRY.register("cloudium_gloves", () -> new DeepAetherGlovesItem(2.0, "cloudium_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> CLOUDIUM_RING = REGISTRY.register("cloudium_ring", () -> new CloudiumRing(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_RING = REGISTRY.register("cloudium_ring", () -> new CloudiumRing(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = REGISTRY.register("skyjade", () -> new SkyjadeItem());
@@ -229,6 +243,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> COOKED_QUAIL = REGISTRY.register("cooked_quail", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.COOKED_CHICKEN)));
 	public static final RegistryObject<Item> RAW_AERGLOW_FISH = REGISTRY.register("raw_aerglow_fish", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.COD)));
 	public static final RegistryObject<Item> COOKED_AERGLOW_FISH = REGISTRY.register("cooked_aerglow_fish", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).food(Foods.COOKED_COD)));
+
 
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_FISH_EGG = REGISTRY.register("aether_fish_spawn_egg",

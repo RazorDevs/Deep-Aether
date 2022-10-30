@@ -1,5 +1,5 @@
 package teamrazor.deepaether.world;
-
+/*
 import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.gildedgames.aether.data.resources.AetherDimensions;
 import com.gildedgames.aether.data.resources.AetherNoiseGeneratorSettings;
@@ -56,4 +56,4 @@ public class DeepAetherModDataGenerators extends AetherDataGenerators {
         return new JsonCodecProvider<>(generator, helper, DeepAetherMod.MODID, registryOps, PackType.SERVER_DATA, registryFolder, LevelStem.CODEC, map);
     }
 
-}
+}*/

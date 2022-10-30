@@ -29,7 +29,7 @@ public class CloudiumRing extends AccessoryItem {
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
         if (!livingEntity.isOnGround()) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1, 2));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 5, 2));
         }
     }
 }

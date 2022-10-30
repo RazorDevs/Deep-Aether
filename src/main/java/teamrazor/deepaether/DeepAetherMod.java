@@ -1,57 +1,44 @@
 package teamrazor.deepaether;
 
 //import com.gildedgames.aether.data.generators.AetherDataGenerators;
-import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.Item;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 import teamrazor.deepaether.client.renderer.AetherFishRenderer;
 import teamrazor.deepaether.client.renderer.QuailRenderer;
-import teamrazor.deepaether.fluids.BaseFluidType;
 import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
 
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.FriendlyByteBuf;
-import teamrazor.deepaether.tags.DeepAetherBiomeTagData;
+//import teamrazor.deepaether.tags.DeepAetherBiomeTagData;
 import teamrazor.deepaether.tags.DeepAetherItemTagData;
-import teamrazor.deepaether.tags.DeepAetherTags;
-import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
-import teamrazor.deepaether.world.DeepAetherModDataGenerators;
+//import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
+//import teamrazor.deepaether.world.DeepAetherModDataGenerators;
 import teamrazor.deepaether.world.Gen.DeepAetherModBiomeModifiers;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
 
-import java.util.function.Supplier;
-import java.util.function.Function;
-import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 @Mod("deep_aether")
@@ -73,8 +60,6 @@ public class DeepAetherMod {
 		// Register the processIMC method for modloading
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
 
 
@@ -94,20 +79,22 @@ public class DeepAetherMod {
 		DeepAetherModFluidTypes.register(bus);
 		DeepAetherDecoratorType.REGISTRY.register(bus);
 		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
+		DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
 		DeepAetherModBiomeModifiers.register(eventBus);
+
+
+
 	}
 
-	private void clientSetup(final FMLClientSetupEvent event) {
-	}
+
 
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		// some preinit code
 		LOGGER.info("HELLO FROM PREINIT");
 		LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getName());
-
 	}
 
 	public void dataSetup(GatherDataEvent event) {

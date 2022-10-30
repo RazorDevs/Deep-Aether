@@ -11,7 +11,7 @@ public class DeepAetherGlovesItem extends GlovesItem {
     public DeepAetherGlovesItem(double punchDamage, String glovesName, Supplier<SoundEvent> glovesSound, Properties properties)
     {
         super(punchDamage, glovesName, glovesSound, properties);
-        this.setRenderTexture(DeepAetherMod.MODID, glovesName);
+        this.setRenderTexture("deep_aether", glovesName);
     }
 }
 
