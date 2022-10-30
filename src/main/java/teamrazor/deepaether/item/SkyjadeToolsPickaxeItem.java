@@ -9,8 +9,9 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
+import teamrazor.deepaether.tags.SkyjadeTool;
 
-public class SkyjadeToolsPickaxeItem extends PickaxeItem {
+public class SkyjadeToolsPickaxeItem extends PickaxeItem implements SkyjadeTool {
 	public SkyjadeToolsPickaxeItem() {
 		super(new Tier() {
 			public int getUses() {

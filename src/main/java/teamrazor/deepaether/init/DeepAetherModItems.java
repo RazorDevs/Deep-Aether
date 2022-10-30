@@ -5,23 +5,15 @@ import net.minecraft.sounds.SoundEvents;
 import com.gildedgames.aether.client.AetherSoundEvents;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import teamrazor.deepaether.entity.DeepAetherModBoat;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
-import com.mojang.datafixers.util.Pair;
-
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-
 import net.minecraft.world.level.block.Block;
 import teamrazor.deepaether.item.DeepAetherArmorMaterial;
 import teamrazor.deepaether.item.abilities.CloudiumAbility;
@@ -202,20 +194,24 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> POLISHED_YALLESITE_BRICKS = block(DeepAetherModBlocks.POLISHED_YALLESITE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> YALLESITE_WALL = block(DeepAetherModBlocks.YALLESITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Item> HOLYSTONE_BRICKS = block(DeepAetherModBlocks.HOLYSTONE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_PETAL_BLOCK = block(DeepAetherModBlocks.AERGLOW_PETAL_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> RADIANT_ORCHID = block(DeepAetherModBlocks.RADIANT_ORCHID, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> LAVENDER = block(DeepAetherModBlocks.LAVENDER, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 
 	// Standalone Items ------------------------------------------------------------------------------------
 
 
 	// EQUIPMENT
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_sword", () -> new SwordItem(Tiers.NETHERITE, 3, -2.4F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new PickaxeItem(Tiers.NETHERITE, 1, -2.8F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new AxeItem(Tiers.NETHERITE, 5.0F, -3.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new ShovelItem(Tiers.NETHERITE, 1.5F, -3.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = REGISTRY.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = REGISTRY.register("skyjade_pickaxe", () -> new PickaxeItem(DeepAetherModTiers.SKYJADE, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = REGISTRY.register("skyjade_axe", () -> new AxeItem(DeepAetherModTiers.SKYJADE, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = REGISTRY.register("skyjade_shovel", () -> new ShovelItem(DeepAetherModTiers.SKYJADE, 1, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = REGISTRY.register("skyjade_hoe", () -> new HoeItem(DeepAetherModTiers.SKYJADE, 0, -3f, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+
 	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = REGISTRY.register("skyjade_armor_helmet", () -> new SkyjadeArmorItem.Helmet());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = REGISTRY.register("skyjade_armor_chestplate", () -> new SkyjadeArmorItem.Chestplate());
 	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = REGISTRY.register("skyjade_armor_leggings", () -> new SkyjadeArmorItem.Leggings());
@@ -261,11 +257,11 @@ public class DeepAetherModItems {
 
 	public static final RegistryObject<Item> VIRULENT_QUICKSAND_BUCKET = REGISTRY.register("virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DeepAetherModBlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+
 	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = REGISTRY.register("skyroot_virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DeepAetherModBlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
 	public static final RegistryObject<Item> AERGLOW_PETAL = REGISTRY.register("aerglow_petal", () -> new AerglowPetalItem());
-
 
 
 

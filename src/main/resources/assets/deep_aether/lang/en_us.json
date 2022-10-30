@@ -161,6 +161,7 @@
   "block.deep_aether.highstone_oratie_ore": "Highstone Oratie Ore",
   "block.deep_aether.raw_oratie_block": "Block of Raw Oratie",
   "block.deep_aether.oratie_block": "Block of Oratie",
+
   "block.deep_aether.cruderoot_log": "Yagroot Log",
   "block.deep_aether.cruderoot_wood": "Yagroot Wood",
   "block.deep_aether.stripped_cruderoot_log": "Stripped Yagroot Log",
@@ -187,5 +188,25 @@
   "item.deep_aether.cruderoot_chest_boat": "Cruderoot Chest Boat",
 
 
-  "lore.item.deep_aether.skyjade": "A sharp gem that can be constructed to tools even more powerful than diamond, however it’s very fragile and shatters when the durability goes down and becomes slower."
+  "lore.item.deep_aether.skyjade": "A sharp gem that can be constructed to tools even more powerful than diamond, however it’s very fragile and shatters when the durability goes down and becomes slower.",
+
+  "block.deep_aether.cloudium_debris": "Divine Debris",
+  "block.deep_aether.cloudium_block": "Block of Cloudium",
+  "block.deep_aether.yagroot_sapling": "Yagroot Sapling",
+  "block.deep_aether.yagroot_planks": "Yagroot Planks",
+  "block.deep_aether.yagroot_leaves": "Yagroot Leaves",
+  "block.deep_aether.yagroot_pressure_plate": "Yagroot Pressure Plate",
+  "block.deep_aether.yagroot_button": "Yagroot Button",
+  "item.deep_aether.agate_gemstone": "Agate Gemstone",
+  "item.deep_aether.adibium_gemstone": "Adibium Gemstone",
+  "item.deep_aether.cloudium_scrap": "Cloudium Scrap",
+  "item.deep_aether.raw_oratie": "Raw Oratie",
+  "item.deep_aether.oratie_ingot": "Oratie Ingot",
+  "item.deep_aether.raw_quail": "Raw Quail",
+  "item.deep_aether.cooked_quail": "Cooked Quail",
+  "item.deep_aether.raw_aerglow_fish": "Raw Aerglow Fish",
+  "item.deep_aether.cooked_aerglow_fish": "Cooked Aerglow Fish",
+  "block.deep_aether.yagroot_button": "Yagroot Button",
+  "block.deep_aether.holystone_bricks": "Holystone Bricks",
+  "block.deep_aether.lavender": "Lavender"
 }

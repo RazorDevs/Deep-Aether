@@ -9,8 +9,9 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.AxeItem;
+import teamrazor.deepaether.tags.SkyjadeTool;
 
-public class SkyjadeToolsAxeItem extends AxeItem {
+public class SkyjadeToolsAxeItem extends AxeItem implements SkyjadeTool {
 	public SkyjadeToolsAxeItem() {
 		super(new Tier() {
 			public int getUses() {

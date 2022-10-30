@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "deep_aether:yagroot_log"
+    }
+  ],
+  "result": {
+    "item": "deep_aether:yagroot_planks",
+    "count": 4
+  }
+}

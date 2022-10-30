@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_post",
+  "textures": {
+    "wall": "deep_aether:blocks/stripped_cruderoot_log",
+    "particle": "deep_aether:blocks/stripped_cruderoot_log"
+  }
+}

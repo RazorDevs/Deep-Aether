@@ -9,8 +9,9 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.HoeItem;
+import teamrazor.deepaether.tags.SkyjadeTool;
 
-public class SkyjadeToolsHoeItem extends HoeItem {
+public class SkyjadeToolsHoeItem extends HoeItem implements SkyjadeTool {
 	public SkyjadeToolsHoeItem() {
 		super(new Tier() {
 			public int getUses() {

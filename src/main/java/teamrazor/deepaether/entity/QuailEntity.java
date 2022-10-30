@@ -1,10 +1,8 @@
 package teamrazor.deepaether.entity;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -51,21 +49,17 @@ public class QuailEntity extends Chicken implements IAnimatable {
                 .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
-    /*protected void registerGoals() {
-        this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.4D));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, FOOD_ITEMS, false));
-        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
-    }*/
+    // EVENTUAL GOALS HERE
 
     public static void init() {
         SpawnPlacements.register(DeepAetherModEntities.QUAIL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, world, reason, pos,
                  random) -> (world.getBlockState(pos.above()).is(Blocks.AIR)));
+    }
+
+    @Override
+    public Chicken getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
+        return DeepAetherModEntities.QUAIL.get().create(serverLevel);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {

@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "A": {
+        "item": "deep_aether:lavender"
+      },
+      "B": {
+        "item": "deep_aether:aether_mud"
+      }
+    },
+    "pattern": [
+      "AB"
+    ],
+    "result": {
+      "count": 1,
+      "item": "deep_aether:packed_aether_mud"
+    }
+  }
