@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +23,8 @@ import java.util.Map;
 public class DeepAetherModBiomes {
     public static final DeferredRegister REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, DeepAetherMod.MODID);
 
-    public static final RegistryObject<Biome> AERGLOW_GROVE = REGISTRY.register("aerglow_grove",() -> DeepAetherModBiomeBuilders.aerglowGroveBiome());
-    public static final RegistryObject<Biome> VIRULENT_FOREST = REGISTRY.register("virulent_forest", () -> DeepAetherModBiomeBuilders.virulentForestBiome());
+    //public static final RegistryObject<Biome> AERGLOW_GROVE = REGISTRY.register("aerglow_grove",() -> DeepAetherModBiomeBuilders.aerglowGroveBiome());
+    //public static final RegistryObject<Biome> VIRULENT_FOREST = REGISTRY.register("virulent_forest", () -> DeepAetherModBiomeBuilders.virulentForestBiome());
 
     /*public static ResourceKey<Biome> register(String name, Biome biome) {
         ResourceLocation location = new ResourceLocation(DeepAetherMod.MODID, name);

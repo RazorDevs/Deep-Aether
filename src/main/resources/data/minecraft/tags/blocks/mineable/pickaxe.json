@@ -71,9 +71,8 @@
     "deep_aether:adibium_ore",
     "deep_aether:highstone_adibium_ore",
     "deep_aether:adibium_block",
-    "deep_aether:oratite_ore",
-    "deep_aether:highstone_ore",
-    "deep_aether:oratite_block",
-    "deep_aether:raw_oratite_block"
+    "deep_aether:holystone_bricks",
+    "deep_aether:holystone_bricks_slab",
+    "deep_aether:holystone_bricks_stairs"
   ]
 }

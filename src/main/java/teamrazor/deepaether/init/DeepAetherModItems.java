@@ -60,7 +60,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> ROSE_TRAPDOOR = block(DeepAetherModBlocks.ROSE_TRAPDOOR, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSEWOOD_SAPLING = block(DeepAetherModBlocks.ROSEWOOD_SAPLING, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Item> ROSE_SIGN = REGISTRY.register("rose_sign", () -> new SignItem(new Item.Properties().stacksTo(16).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB), DeepAetherModBlocks.ROSE_SIGN.get(), DeepAetherModBlocks.ROSE_WALL_SIGN.get()));
-	public static final RegistryObject<Item> ROSE_BOAT = REGISTRY.register("rose_boat.json", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> ROSE_BOAT = REGISTRY.register("rose_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	public static final RegistryObject<Item> ROSE_CHEST_BOAT = REGISTRY.register("rose_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 
 
@@ -195,6 +195,8 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> YALLESITE_WALL = block(DeepAetherModBlocks.YALLESITE_WALL,DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	public static final RegistryObject<Item> HOLYSTONE_BRICKS = block(DeepAetherModBlocks.HOLYSTONE_BRICKS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> HOLYSTONE_BRICKS_SLAB = block(DeepAetherModBlocks.HOLYSTONE_BRICKS_SLAB, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Item> HOLYSTONE_BRICKS_STAIRS = block(DeepAetherModBlocks.HOLYSTONE_BRICKS_STAIRS, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_PETAL_BLOCK = block(DeepAetherModBlocks.AERGLOW_PETAL_BLOCK, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

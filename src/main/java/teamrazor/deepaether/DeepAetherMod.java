@@ -122,12 +122,5 @@ public class DeepAetherMod {
 				collect(Collectors.toList()));
 	}
 
-	@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-	public static class ClientModEvents {
-		@SubscribeEvent
-		public static void onClientSetup(FMLClientSetupEvent event) {
-			EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
-			EntityRenderers.register(DeepAetherModEntities.AETHER_FISH.get(), AetherFishRenderer::new);
-		}
-	}
+
 }

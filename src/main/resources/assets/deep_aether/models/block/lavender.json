@@ -2,7 +2,7 @@
     "parent": "block/cross",
     "render_type": "cutout",
     "textures": {
-      "cross": "deep_aether:blocks/lavender",
-      "particle": "deep_aether:blocks/lavender"
+      "cross": "deep_aether:placeholder",
+      "particle": "deep_aether:placeholder"
     }
   }

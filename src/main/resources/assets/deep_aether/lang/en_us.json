@@ -209,6 +209,7 @@
   "block.deep_aether.yagroot_button": "Yagroot Button",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
   "block.deep_aether.lavender": "Lavender",
-  "entity.deep_aether.chest_boat": "Boat With Chest"
-
+  "entity.deep_aether.chest_boat": "Boat With Chest",
+  "block.deep_aether.holystone_bricks_slab": "Holystone Bricks Slab",
+  "block.deep_aether.holystone_bricks_stairs": "Holystone Bricks Stairs"
 }

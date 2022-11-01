@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "deep_aether:items/rose_chest_boat"
+    "layer0": "deep_aether:items/roseroot_chest_boat"
   }
 }
