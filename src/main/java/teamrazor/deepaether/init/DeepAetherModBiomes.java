@@ -23,6 +23,7 @@ import java.util.Map;
 public class DeepAetherModBiomes {
     public static final DeferredRegister REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, DeepAetherMod.MODID);
 
+
     //public static final RegistryObject<Biome> AERGLOW_GROVE = REGISTRY.register("aerglow_grove",() -> DeepAetherModBiomeBuilders.aerglowGroveBiome());
     //public static final RegistryObject<Biome> VIRULENT_FOREST = REGISTRY.register("virulent_forest", () -> DeepAetherModBiomeBuilders.virulentForestBiome());
 
