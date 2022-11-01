@@ -70,6 +70,7 @@
   "block.deep_aether.yagroot_door": "Yagroot Door",
   "block.deep_aether.yagroot_trapdoor": "Yagroot Trapdoor",
   "block.deep_aether.yagroot_roots": "Yagroot Roots",
+  "block.deep_aether.muddy_yagroot_roots": "Muddy Yagroot Roots",
   "block.deep_aether.yagroot_vine": "Yagroot Vine",
   "block.deep_aether.yagroot_sapling": "Yagroot Sapling",
   "block.deep_aether.yagroot_planks": "Yagroot Planks",
@@ -149,6 +150,7 @@
   "item.deep_aether.cloudium_chestplate": "Cloudium Chestplate",
   "item.deep_aether.cloudium_helmet": "Cloudium Helmet",
   "item.deep_aether.cloudium_ring": "Cloudium Ring",
+  "item.deep_aether.cloudium_gloves": "Cloudium Gloves",
   "item.deep_aether.raw_oratie": "Raw Oratie",
   "item.deep_aether.oratie_ingot": "Oratie Ingot",
   "block.deep_aether.adibium_ore": "Adibium Ore",
@@ -209,6 +211,8 @@
   "block.deep_aether.yagroot_button": "Yagroot Button",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
   "block.deep_aether.lavender": "Lavender",
-  "entity.deep_aether.chest_boat": "Boat With Chest"
+  "entity.deep_aether.chest_boat": "Boat With Chest",
 
+  "block.deep_aether.aether_moss_block": "Aether Moss Block",
+  "block.deep_aether.aether_moss_carpet": "Aether Moss Carpet"
 }

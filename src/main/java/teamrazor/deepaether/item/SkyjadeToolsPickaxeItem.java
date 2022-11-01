@@ -12,31 +12,7 @@ import net.minecraft.world.item.Item;
 import teamrazor.deepaether.tags.SkyjadeTool;
 
 public class SkyjadeToolsPickaxeItem extends PickaxeItem implements SkyjadeTool {
-	public SkyjadeToolsPickaxeItem() {
-		super(new Tier() {
-			public int getUses() {
-				return 100;
-			}
-
-			public float getSpeed() {
-				return 12f;
-			}
-
-			public float getAttackDamageBonus() {
-				return 0f;
-			}
-
-			public int getLevel() {
-				return 2;
-			}
-
-			public int getEnchantmentValue() {
-				return 14;
-			}
-
-			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get()));
-			}
-		}, 1, -3f, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+	public SkyjadeToolsPickaxeItem(Tier tier, int i, float v, Properties properties) {
+		super(tier, i, v, properties);
 	}
 }

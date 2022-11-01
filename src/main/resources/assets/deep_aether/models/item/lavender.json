@@ -1,3 +1,6 @@
 {
-    "parent": "deep_aether:block/lavender"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "deep_aether:placeholder"
   }
+}
