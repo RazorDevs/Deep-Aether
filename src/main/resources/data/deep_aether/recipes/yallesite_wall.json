@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "deep_aether:darkerite"
+      "item": "deep_aether:yallesite"
     }
   },
   "pattern": [
@@ -11,6 +11,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "deep_aether:darkerite_wall"
+    "item": "deep_aether:yallesite_wall"
   }
 }

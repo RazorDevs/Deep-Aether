@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "deep_aether:agate_gemstone"
+    }
+  },
+  "result": {
+    "item": "deep_aether:agate_block",
+    "count": 1
+  }
+}
