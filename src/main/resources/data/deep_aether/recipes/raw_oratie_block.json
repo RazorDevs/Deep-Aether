@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "deep_aether:raw_oratie"
+    }
+  },
+  "result": {
+    "item": "deep_aether:raw_oratie_block",
+    "count": 1
+  }
+}
