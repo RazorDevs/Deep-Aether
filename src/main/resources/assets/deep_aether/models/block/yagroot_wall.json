@@ -2,7 +2,7 @@
   "parent": "block/template_wall_side",
   "render_type": "cutout",
   "textures": {
-    "wall": "deep_aether:blocks/yagroot_log",
-    "particle": "deep_aether:blocks/yagroot_log"
+    "wall": "deep_aether:block/yagroot_log",
+    "particle": "deep_aether:block/yagroot_log"
   }
 }

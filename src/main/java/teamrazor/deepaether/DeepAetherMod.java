@@ -3,6 +3,7 @@ package teamrazor.deepaether;
 //import com.gildedgames.aether.data.generators.AetherDataGenerators;
 import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
+import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Blocks;
@@ -46,6 +47,8 @@ public class DeepAetherMod {
 	private static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
+	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
+
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
@@ -69,9 +72,10 @@ public class DeepAetherMod {
 
 		// Register ourselves for server and other game events we are interested in
 		MinecraftForge.EVENT_BUS.register(this);
+		REGISTRY_HELPER.register(bus);
 		GeckoLib.initialize();
-		DeepAetherModBlocks.REGISTRY.register(bus);
-		DeepAetherModItems.REGISTRY.register(bus);
+		//DeepAetherModBlocks.REGISTRY.register(bus);
+		//DeepAetherModItems.REGISTRY.register(bus);
 		DeepAetherModEntities.REGISTRY.register(bus);
 		DeepAetherModSounds.REGISTRY.register(bus);
 		//DeepAetherModBiomes.REGISTRY.register(bus);
@@ -79,7 +83,7 @@ public class DeepAetherMod {
 		DeepAetherModFluidTypes.register(bus);
 		DeepAetherDecoratorType.REGISTRY.register(bus);
 		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
-		DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
+		//DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		DeepAetherModPlacedFeatures.register(eventBus);
 		DeepAetherModBiomeModifiers.register(eventBus);

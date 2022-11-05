@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/greotite"
+    "all": "deep_aether:block/greotite"
   }
 }

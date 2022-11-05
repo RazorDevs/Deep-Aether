@@ -2,7 +2,7 @@
   "parent": "block/door_bottom_left",
   "render_type": "cutout",
   "textures": {
-    "bottom": "deep_aether:blocks/cruderoot_door_bottom",
-    "top": "deep_aether:blocks/cruderoot_door_top"
+    "bottom": "deep_aether:block/cruderoot_door_bottom",
+    "top": "deep_aether:block/cruderoot_door_top"
   }
 }

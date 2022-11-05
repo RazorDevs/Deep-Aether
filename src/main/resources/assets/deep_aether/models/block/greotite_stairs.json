@@ -1,8 +1,8 @@
 {
   "parent": "block/stairs",
   "textures": {
-    "bottom": "deep_aether:blocks/greotite",
-    "top": "deep_aether:blocks/greotite",
-    "side": "deep_aether:blocks/greotite"
+    "bottom": "deep_aether:block/greotite",
+    "top": "deep_aether:block/greotite",
+    "side": "deep_aether:block/greotite"
   }
 }

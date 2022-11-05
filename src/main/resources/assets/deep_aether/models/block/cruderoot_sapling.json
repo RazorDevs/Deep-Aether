@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "deep_aether:blocks/cruderoot_sapling"
+    "cross": "deep_aether:block/cruderoot_sapling"
   }
 }

@@ -1,7 +1,6 @@
 {
   "parent": "block/cube_all",
-  "render_type": "cutout",
   "textures": {
-    "all": "deep_aether:blocks/aether_mud"
+    "all": "deep_aether:block/aether_mud"
   }
 }

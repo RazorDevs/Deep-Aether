@@ -1,7 +1,7 @@
 {
   "parent": "block/block",
   "textures": {
-    "texture": "deep_aether:blocks/virulent_quicksand",
+    "texture": "deep_aether:block/virulent_quicksand",
     "particle": "#texture"
   },
   "elements": [

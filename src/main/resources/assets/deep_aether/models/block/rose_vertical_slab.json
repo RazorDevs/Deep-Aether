@@ -1,0 +1,8 @@
+{
+  "parent": "blueprint:block/vertical_slab",
+  "textures": {
+    "side": "deep_aether:block/rosewood_planks",
+    "bottom": "deep_aether:block/rosewood_planks",
+    "top": "deep_aether:block/rosewood_planks"
+  }
+}

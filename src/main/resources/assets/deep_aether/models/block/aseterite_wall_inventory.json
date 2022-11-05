@@ -2,7 +2,7 @@
   "parent": "block/wall_inventory",
   "render_type": "cutout",
   "textures": {
-    "wall": "deep_aether:blocks/aseterite",
-    "particle": "deep_aether:blocks/aseterite"
+    "wall": "deep_aether:block/aseterite",
+    "particle": "deep_aether:block/aseterite"
   }
 }

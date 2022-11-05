@@ -15,7 +15,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.blockentity.DeepAetherModWoodTypes;
+
 import teamrazor.deepaether.client.renderer.AetherFishRenderer;
 import teamrazor.deepaether.client.renderer.DeepAetherModBoatRenderer;
 import teamrazor.deepaether.client.renderer.QuailRenderer;
@@ -25,7 +25,7 @@ import teamrazor.deepaether.init.DeepAetherModEntities;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class DeepAetherModEventClientBusEvents {
-    @SubscribeEvent
+/*    @SubscribeEvent
     public static void init(final FMLClientSetupEvent event) {
 
 
@@ -34,10 +34,10 @@ public class DeepAetherModEventClientBusEvents {
             Sheets.addWoodType(DeepAetherModWoodTypes.ROSE);
             Sheets.addWoodType(DeepAetherModWoodTypes.CRUDEROOT);
         });
-    }
+    }*/
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(DeepAetherModBlockEntityTypes.SIGN.get(), SignRenderer::new);
+        //event.registerBlockEntityRenderer(DeepAetherModBlockEntityTypes.SIGN.get(), SignRenderer::new);
         event.registerEntityRenderer(DeepAetherModEntities.BOAT.get(), (context) -> new DeepAetherModBoatRenderer(context, false));
         event.registerEntityRenderer(DeepAetherModEntities.CHEST_BOAT.get(), (context) -> new DeepAetherModBoatRenderer(context, true));
         EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);

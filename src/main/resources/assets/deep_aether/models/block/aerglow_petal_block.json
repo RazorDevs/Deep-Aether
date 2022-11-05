@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/aerglow_petal_block",
-    "particle": "deep_aether:blocks/aerglow_petal_block"
+    "all": "deep_aether:block/aerglow_petal_block",
+    "particle": "deep_aether:block/aerglow_petal_block"
   }
 }

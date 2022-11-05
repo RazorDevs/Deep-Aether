@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/clorite"
+    "all": "deep_aether:block/clorite"
   }
 }

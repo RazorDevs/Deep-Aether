@@ -1,5 +1,5 @@
 package teamrazor.deepaether.blockentity;
-
+/*
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -15,3 +15,4 @@ public class DeepAetherModWallSignBlock extends WallSignBlock {
         return new DeepAetherModSignBlockEntity(pos, state);
     }
 }
+*/

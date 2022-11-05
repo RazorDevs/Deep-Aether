@@ -2,7 +2,7 @@
   "parent": "block/template_orientable_trapdoor_bottom",
   "render_type": "cutout",
   "textures": {
-    "texture": "deep_aether:blocks/rosewood_trapdoor",
-    "particle": "deep_aether:blocks/rosewood_trapdoor"
+    "texture": "deep_aether:block/rosewood_trapdoor",
+    "particle": "deep_aether:block/rosewood_trapdoor"
   }
 }

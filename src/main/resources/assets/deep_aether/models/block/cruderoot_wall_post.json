@@ -2,7 +2,7 @@
   "parent": "block/template_wall_post",
   "render_type": "cutout",
   "textures": {
-    "wall": "deep_aether:blocks/cruderoot_log",
-    "particle": "deep_aether:blocks/cruderoot_log"
+    "wall": "deep_aether:block/cruderoot_log",
+    "particle": "deep_aether:block/cruderoot_log"
   }
 }

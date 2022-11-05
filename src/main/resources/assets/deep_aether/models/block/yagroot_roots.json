@@ -2,8 +2,8 @@
   "parent": "block/block",
   "render_type": "cutout",
   "textures": {
-    "side": "deep_aether:blocks/yagroot_roots_side",
-    "top": "deep_aether:blocks/yagroot_roots_top",
+    "side": "deep_aether:block/yagroot_roots_side",
+    "top": "deep_aether:block/yagroot_roots_top",
     "particle": "#side"
   },
   "elements": [

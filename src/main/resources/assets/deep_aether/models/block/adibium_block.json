@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/adibium_block"
+    "all": "deep_aether:block/adibium_block"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/rosewood_log",
-    "particle": "deep_aether:blocks/rosewood_log"
+    "all": "deep_aether:block/rosewood_log",
+    "particle": "deep_aether:block/rosewood_log"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/carpet",
   "render_type": "cutout",
   "textures": {
-    "wool": "deep_aether:blocks/aether_moss_block"
+    "wool": "deep_aether:block/aether_moss_block"
   }
 }

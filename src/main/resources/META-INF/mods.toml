@@ -65,4 +65,11 @@ versionRange="[0,)"
 ordering="NONE"
 side="BOTH"
 
+[[dependencies.deep_aether]]
+modId = "blueprint"
+mandatory = true
+versionRange = "[1.19.2-6.1.0,)"
+ordering = "BEFORE"
+side = "BOTH"
+
 

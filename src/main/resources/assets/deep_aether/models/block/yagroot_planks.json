@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/yagroot_planks",
-    "particle": "deep_aether:blocks/yagroot_planks"
+    "all": "deep_aether:block/yagroot_planks",
+    "particle": "deep_aether:block/yagroot_planks"
   }
 }

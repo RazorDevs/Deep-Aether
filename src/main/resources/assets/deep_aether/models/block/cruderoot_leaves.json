@@ -2,7 +2,7 @@
   "parent": "block/cube_all",
   "render_type": "cutout",
   "textures": {
-    "all": "deep_aether:blocks/cruderoot_leaves",
-    "particle": "deep_aether:blocks/cruderoot_leaves"
+    "all": "deep_aether:block/cruderoot_leaves",
+    "particle": "deep_aether:block/cruderoot_leaves"
   }
 }

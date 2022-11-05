@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/stripped_yagroot_log",
-    "particle": "deep_aether:blocks/stripped_yagroot_log"
+    "all": "deep_aether:block/stripped_yagroot_log",
+    "particle": "deep_aether:block/stripped_yagroot_log"
   }
 }

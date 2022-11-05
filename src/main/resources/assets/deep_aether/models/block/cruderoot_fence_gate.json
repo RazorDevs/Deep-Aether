@@ -2,6 +2,6 @@
   "parent": "block/template_fence_gate",
   "render_type": "cutout",
   "textures": {
-    "texture": "deep_aether:blocks/cruderoot_planks"
+    "texture": "deep_aether:block/cruderoot_planks"
   }
 }

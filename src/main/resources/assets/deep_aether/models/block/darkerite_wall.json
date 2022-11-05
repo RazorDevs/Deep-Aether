@@ -2,7 +2,7 @@
   "parent": "block/template_wall_side",
   "render_type": "cutout",
   "textures": {
-    "wall": "deep_aether:blocks/darkerite",
-    "particle": "deep_aether:blocks/darkerite"
+    "wall": "deep_aether:block/darkerite",
+    "particle": "deep_aether:block/darkerite"
   }
 }

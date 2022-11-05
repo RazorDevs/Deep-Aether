@@ -2,8 +2,8 @@
     "ambientocclusion": false,
     "render_type": "cutout",
     "textures": {
-        "particle": "deep_aether:blocks/yagroot_vine",
-        "vine": "deep_aether:blocks/yagroot_vine"
+        "particle": "deep_aether:block/yagroot_vine",
+        "vine": "deep_aether:block/yagroot_vine"
     },
     "elements": [
         {   "from": [ 0, 0, 0.8 ],

@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-      "all": "deep_aether:blocks/polished_yallesite_bricks"
+      "all": "deep_aether:block/polished_yallesite_bricks"
     }
   }

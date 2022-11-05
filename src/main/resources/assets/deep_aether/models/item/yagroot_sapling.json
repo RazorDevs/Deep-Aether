@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "deep_aether:blocks/yagroot_sapling"
+    "layer0": "deep_aether:block/yagroot_sapling"
   }
 }

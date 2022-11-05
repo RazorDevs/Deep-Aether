@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "deep_aether:blocks/skyjade_ore",
-    "particle": "deep_aether:blocks/skyjade_ore"
+    "all": "deep_aether:block/skyjade_ore",
+    "particle": "deep_aether:block/skyjade_ore"
   }
 }
