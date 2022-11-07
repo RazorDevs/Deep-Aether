@@ -6,14 +6,19 @@ package teamrazor.deepaether.init;
 
 
 import com.mojang.datafixers.util.Pair;
+import com.teamabnormals.blueprint.common.block.BookshelfBlock;
 import com.teamabnormals.blueprint.common.block.HedgeBlock;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock;
+import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
+import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintStandingSignBlock;
 import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
+import com.teamabnormals.blueprint.common.block.wood.WoodPostBlock;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
@@ -222,12 +227,42 @@ public class DeepAetherModBlocks {
 			.noCollission()
 			.strength(100f)
 			.noLootTable()));
+
+
 	//QUARK SUPPORT
 
+	//POSTS
+	public static final RegistryObject<Block> ROSE_POST = HELPER.createCompatFuelBlock("quark", "rose_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> STRIPPED_ROSE_POST = HELPER.createCompatFuelBlock("quark", "stripped_rose_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> YAGROOT_POST = HELPER.createCompatFuelBlock("quark", "yagroot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> STRIPPED_YAGROOT_POST = HELPER.createCompatFuelBlock("quark", "stripped_yagroot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_POST = HELPER.createCompatFuelBlock("quark", "cruderoot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_POST = HELPER.createCompatFuelBlock("quark", "stripped_cruderoot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	//SHELVES
+	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> YAGROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "yagroot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "cruderoot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	//CARPETS
+	/*public static final RegistryObject<Block> ROSE_CARPET = HELPER.createCompatFuelBlock("quark", "rose_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LEAVES.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> YAGROOT_CARPET = HELPER.createCompatFuelBlock("quark", "yagroot_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LEAVES.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_CARPET = HELPER.createCompatFuelBlock("quark", "cruderoot_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LEAVES.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+*/
 	//HEDGES
+	public static final RegistryObject<Block> ROSE_HEDGE = HELPER.createCompatFuelBlock("quark", "rose_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> YAGROOT_HEDGE = HELPER.createCompatFuelBlock("quark", "yagroot_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.YAGROOT_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_HEDGE = HELPER.createCompatFuelBlock("quark", "cruderoot_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.CRUDEROOT_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> ROSE_HEDGE = HELPER.createCompatFuelBlock("quark", "rose_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	//CHESTS
+	/*public static final RegistryObject<Block> ROSE_CHEST = HELPER.createCompatFuelBlock("quark", "rose_chest",() -> new BlueprintChestBlock("rosewood", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> YAGROOT_CHEST = HELPER.createCompatFuelBlock("quark", "yagroot_chest",() -> new BlueprintChestBlock("yagroot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_CHEST = HELPER.createCompatFuelBlock("quark", "cruderoot_chest", () -> new BlueprintChestBlock("cruderoot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+*/
+	//TRAPPED CHESTS
+	public static final RegistryObject<Block> ROSE_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "rose_trapped_chest",() -> new BlueprintTrappedChestBlock("rosewood", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> YAGROOT_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "yagroot_trapped_chest",() -> new BlueprintTrappedChestBlock("yagroot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "cruderoot_trapped_chest", () -> new BlueprintTrappedChestBlock("cruderoot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	//VERTICAL PLANKS
 	public static final RegistryObject<Block> VERTICAL_YAGROOT_PLANKS = HELPER.createCompatFuelBlock("quark", "vertical_yagroot_planks",() -> new Block(BlockBehaviour.Properties.copy(DeepAetherModBlocks.YAGROOT_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

@@ -1,0 +1,6 @@
+{
+  "parent": "quark:block/post",
+  "textures": {
+    "texture": "deep_aether:block/rosewood_log"
+  }
+}

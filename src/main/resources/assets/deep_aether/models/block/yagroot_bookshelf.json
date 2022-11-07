@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "deep_aether:block/yagroot_planks",
+    "side": "deep_aether:placeholder"
+  }
+}

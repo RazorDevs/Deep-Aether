@@ -82,7 +82,7 @@ public class AbilityHooks {
             if (AetherConfig.COMMON.tools_debuff.get()) {
                 if (level.dimension() == AetherDimensions.AETHER_LEVEL) {
                     if (!stack.isEmpty()
-                            && !stack.is(AetherTags.Items.EFFECTIVE_IN_AETHER)
+                            && !stack.is(AetherTags.Items.TREATED_AS_AETHER_ITEM)
                             && stack.isCorrectToolForDrops(state)) {
                         amount = (float) Math.pow(amount, -0.2);
                     }
