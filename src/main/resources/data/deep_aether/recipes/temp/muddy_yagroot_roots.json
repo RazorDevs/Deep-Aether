@@ -9,8 +9,7 @@
     }
   },
   "pattern": [
-    "A#",
-    ""
+    "A#"
   ],
   "result": {
     "count": 1,

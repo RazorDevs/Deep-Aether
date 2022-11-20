@@ -301,6 +301,10 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> HOLYSTONE_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "holystone_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.HOLYSTONE_BRICKS.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "aether_mud_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.AETHER_MUD_BRICKS.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	//LADDERS
+	public static final RegistryObject<Block> YAGROOT_LADDER = HELPER.createCompatBlock("quark", "yagroot_ladder",() -> new LadderBlock(BlockBehaviour.Properties.copy(Blocks.LADDER)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_LADDER = HELPER.createCompatBlock("quark", "rose_ladder",() -> new LadderBlock(BlockBehaviour.Properties.copy(Blocks.LADDER)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_LADDER = HELPER.createCompatBlock("quark", "cruderoot_ladder",() -> new LadderBlock(BlockBehaviour.Properties.copy(Blocks.LADDER)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 /*	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {

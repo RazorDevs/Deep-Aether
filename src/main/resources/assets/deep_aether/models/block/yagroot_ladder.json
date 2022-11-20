@@ -1,0 +1,8 @@
+{
+  "parent": "block/ladder",
+  "render_type": "cutout",
+  "textures": {
+    "particle": "deep_aether:block/yagroot_ladder",
+    "texture": "deep_aether:block/yagroot_ladder"
+  }
+}

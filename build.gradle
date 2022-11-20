@@ -2,10 +2,17 @@ buildscript {
     repositories {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
+        maven {
+            name 'Gradle'
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'io.github.0ffz', name: 'gpr-for-gradle', version: '1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
@@ -14,6 +21,8 @@ plugins {
     id 'maven-publish'
 }
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'io.github.0ffz.github-packages'
+apply plugin: 'org.spongepowered.mixin'
 
 
 version = 'beta-19.0.5'
@@ -48,19 +57,10 @@ minecraft {
         client {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
-            // The markers can be added/remove as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
-
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
@@ -76,7 +76,9 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
-
+            property 'forge.logging.markers', 'REGISTRIES'
+            property "mixin.env.remapRefMap", "true"
+            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
@@ -121,7 +123,9 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
-
+            property 'forge.logging.markers', 'REGISTRIES'
+            property "mixin.env.remapRefMap", "true"
+            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'deep_aether', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
@@ -138,16 +142,24 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     maven {
         url = "https://maven.jaackson.me"
     }
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    flatDir {
-         dir 'libs'
+    maven {
+        url = "https://maven.theillusivec4.top/"
     }
+    flatDir {
+        dir 'libs'
+    }
+    maven githubPackage.invoke("Gilded-Games/The-Aether")
 }
 
 dependencies {
@@ -155,19 +167,16 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
 
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.3'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.1.52'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
     implementation fg.deobf("com.teamabnormals:blueprint:1.19.2-6.1.0")
-
-
-
-    // Real mod deobf dependency examples - these get remapped to your current mappings
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
-    // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
-
-    compileOnly files('build\\libs\\aether-1.19.2-0.1.0.jar')
-    implementation files('build\\libs\\curios-forge-1.19.2-5.1.1.0.jar')
+    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.19.2-2.0.1.128')
+    compileOnly "com.gildedgames.aether:aether:1.19.2-0.1.0"
+    runtimeOnly fg.deobf("com.gildedgames.aether:aether:1.19.2-0.1.0")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0:api")
+    runtimeOnly fg.deobf("curse.maven:quark-243121:3961436")
+    runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3857246")
 
 }
 

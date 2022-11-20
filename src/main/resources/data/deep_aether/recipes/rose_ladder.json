@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "minecraft:stick"
+    },
+      "B": {
+        "item": "deep_aether:rose_planks"
+      }
+  },
+  "pattern": [
+    "A A",
+    "ABA",
+    "A A"
+  ],
+  "result": {
+    "count": 3,
+    "item": "deep_aether:rose_ladder"
+  }
+}
