@@ -156,6 +156,16 @@ repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
     }
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
     flatDir {
         dir 'libs'
     }
@@ -177,6 +187,9 @@ dependencies {
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0:api")
     runtimeOnly fg.deobf("curse.maven:quark-243121:3961436")
     runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3857246")
+    //compileOnly(fg.deobf("mezz.jei:jei-1.19-common-api:11.4.0"))
+    //compileOnly(fg.deobf("mezz.jei:jei-1.19-forge-api:11.4.0"))
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19.2-forge:11.4.0.286")
 
 }
 

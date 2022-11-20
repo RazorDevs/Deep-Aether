@@ -248,10 +248,9 @@
   "block.deep_aether.aether_mud_bricks_vertical_slab": "Aether Mud Bricks Vertical Slab",
   "block.deep_aether.rose_ladder": "Roseroot Ladder",
   "block.deep_aether.cruderoot_ladder": "Cruderoot Ladder",
-  "block.deep_aether.yagroot_ladder": "Yagroot Ladder"
-
-
-
-
-
+  "block.deep_aether.yagroot_ladder": "Yagroot Ladder",
+  "block.deep_aether.aether_dirt_bricks": "Aether Dirt Bricks",
+  "block.deep_aether.rose_leaf_carpet": "Roseroot Leaf Carpet",
+  "block.deep_aether.yagroot_leaf_carpet": "Yagroot Leaf Carpet",
+  "block.deep_aether.cruderoot_leaf_carpet": "Cruderoot Leaf Carpet"
 }

@@ -306,10 +306,12 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> ROSE_LADDER = HELPER.createCompatBlock("quark", "rose_ladder",() -> new LadderBlock(BlockBehaviour.Properties.copy(Blocks.LADDER)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_LADDER = HELPER.createCompatBlock("quark", "cruderoot_ladder",() -> new LadderBlock(BlockBehaviour.Properties.copy(Blocks.LADDER)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
-/*	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-	public static class ClientSideHandler {
-		@SubscribeEvent
-		public static void clientSetup(FMLClientSetupEvent event) {
-		}
-	}*/
+	//LEAF CARPET
+	public static final RegistryObject<Block> YAGROOT_LEAF_CARPET = HELPER.createCompatBlock("quark", "yagroot_leaf_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_LEAF_CARPET = HELPER.createCompatBlock("quark", "rose_leaf_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_LEAF_CARPET = HELPER.createCompatBlock("quark", "cruderoot_leaf_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	//MISC
+	public static final RegistryObject<Block> AETHER_DIRT_BRICKS = HELPER.createCompatBlock("quark", "aether_dirt_bricks",() -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 }
