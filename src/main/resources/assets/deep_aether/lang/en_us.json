@@ -254,5 +254,7 @@
   "block.deep_aether.yagroot_leaf_carpet": "Yagroot Leaf Carpet",
   "block.deep_aether.cruderoot_leaf_carpet": "Cruderoot Leaf Carpet",
   "block.deep_aether.aether_dirt_bricks_slab": "Aether Dirt Bricks Slab",
-  "block.deep_aether.aether_dirt_bricks_stairs": "Aether Dirt Bricks Stairs"
+  "block.deep_aether.aether_dirt_bricks_stairs": "Aether Dirt Bricks Stairs",
+  "block.deep_aether.aether_dirt_bricks_vertical_slab": "Aether Dirt Bricks Vertical Slab",
+  "block.deep_aether.aether_dirt_bricks_wall": "Aether Dirt Bricks Wall"
 }

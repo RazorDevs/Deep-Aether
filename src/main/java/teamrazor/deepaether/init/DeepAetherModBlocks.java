@@ -16,23 +16,15 @@ import com.teamabnormals.blueprint.common.block.sign.BlueprintWallSignBlock;
 import com.teamabnormals.blueprint.common.block.wood.WoodPostBlock;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.DeepAetherMod;
 
 import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.api.distmarker.Dist;
 import teamrazor.deepaether.block.DeepAetherModLogBlock;
 import teamrazor.deepaether.world.feature.tree.CruderootTreeGrower;
 import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
@@ -135,14 +127,11 @@ public class DeepAetherModBlocks {
 
 	public static final RegistryObject<Block> ASETERITE = HELPER.createBlock("aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> POLISHED_ASETERITE = HELPER.createBlock("polished_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS = HELPER.createBlock("polished_aseterite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> POLISHED_ASETERITE_STAIRS = HELPER.createBlock("polished_aseterite_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> ASETERITE_STAIRS = HELPER.createBlock("aseterite_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> ASETERITE_SLAB = HELPER.createBlock("aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> POLISHED_ASETERITE_SLAB = HELPER.createBlock("polished_aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_STAIRS = HELPER.createBlock("polished_aseterite_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_SLAB = HELPER.createBlock("polished_aseterite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	//public static final RegistryObject<Block> ASETERITE_PILLAR = HELPER.createBlock()("aseterite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
 	public static final RegistryObject<Block> ASETERITE_WALL = HELPER.createBlock("aseterite_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	public static final RegistryObject<Block> GREOTITE = HELPER.createBlock("greotite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -205,7 +194,7 @@ public class DeepAetherModBlocks {
 
 
 
-	// MISC
+	//MISC
 	public static final RegistryObject<Block> RADIANT_ORCHID = HELPER.createBlock("radiant_orchid", () -> new RadiantOrchidBlock(), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> LAVENDER = HELPER.createBlock("lavender", () ->  new FlowerBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -244,23 +233,18 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "yagroot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "cruderoot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
-	//CARPETS
-	/*public static final RegistryObject<Block> ROSE_CARPET = HELPER.createCompatFuelBlock("quark", "rose_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LEAVES.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> YAGROOT_CARPET = HELPER.createCompatFuelBlock("quark", "yagroot_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LEAVES.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> CRUDEROOT_CARPET = HELPER.createCompatFuelBlock("quark", "cruderoot_carpet",() -> new CarpetBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LEAVES.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-*/
 	//HEDGES
 	public static final RegistryObject<Block> ROSE_HEDGE = HELPER.createCompatFuelBlock("quark", "rose_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> YAGROOT_HEDGE = HELPER.createCompatFuelBlock("quark", "yagroot_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.YAGROOT_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_HEDGE = HELPER.createCompatFuelBlock("quark", "cruderoot_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.CRUDEROOT_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	//CHESTS
-	/*public static final RegistryObject<Block> ROSE_CHEST = HELPER.createCompatFuelBlock("quark", "rose_chest",() -> new BlueprintChestBlock("rosewood", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_CHEST = HELPER.createCompatFuelBlock("quark", "rose_chest",() -> new BlueprintChestBlock("rose", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> YAGROOT_CHEST = HELPER.createCompatFuelBlock("quark", "yagroot_chest",() -> new BlueprintChestBlock("yagroot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_CHEST = HELPER.createCompatFuelBlock("quark", "cruderoot_chest", () -> new BlueprintChestBlock("cruderoot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-*/
+
 	//TRAPPED CHESTS
-	public static final RegistryObject<Block> ROSE_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "rose_trapped_chest",() -> new BlueprintTrappedChestBlock("rosewood", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "rose_trapped_chest",() -> new BlueprintTrappedChestBlock("rose", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> YAGROOT_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "yagroot_trapped_chest",() -> new BlueprintTrappedChestBlock("yagroot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_TRAPPED_CHEST = HELPER.createCompatFuelBlock("quark", "cruderoot_trapped_chest", () -> new BlueprintTrappedChestBlock("cruderoot", BlockBehaviour.Properties.copy(Blocks.CHEST)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -276,7 +260,7 @@ public class DeepAetherModBlocks {
 
 	public static final RegistryObject<Block> ASETERITE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "aseterite_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ASETERITE.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> POLISHED_ASETERITE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "polished_aseterite_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.POLISHED_ASETERITE.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "polished_aseterite_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
 
 	public static final RegistryObject<Block> JARINITE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "jarinite_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.JARINITE.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> POLISHED_JARINITE_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "polished_jarinite_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.POLISHED_JARINITE.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -313,7 +297,20 @@ public class DeepAetherModBlocks {
 
 	//DIRT BRICKS
 	public static final RegistryObject<Block> AETHER_DIRT_BRICKS = HELPER.createCompatBlock("quark", "aether_dirt_bricks",() -> new Block(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_SLAB = HELPER.createCompatBlock("quark", "aether_dirt_bricks_slab",() -> new Block(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_STAIRS = HELPER.createCompatBlock("quark", "aether_dirt_bricks_stairs",() -> new Block(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_SLAB = HELPER.createCompatBlock("quark", "aether_dirt_bricks_slab",() -> new SlabBlock(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_STAIRS = HELPER.createCompatBlock("quark", "aether_dirt_bricks_stairs",() -> new StairBlock(DeepAetherModBlocks.AETHER_DIRT_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
+	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_WALL = HELPER.createCompatBlock("quark", "aether_dirt_bricks_wall",() -> new WallBlock(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "aether_dirt_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+
+	//STONE TYPES
+
+	//ASETERITE
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS = HELPER.createCompatBlock("quark","polished_aseterite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_STAIRS = HELPER.createCompatBlock("quark","polished_aseterite_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5f).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_SLAB = HELPER.createCompatBlock("quark","polished_aseterite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ASETERITE_BRICKS_WALL = HELPER.createCompatBlock("quark", "aseterite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE_WALL)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CHISELED_ASETERITE_BRICKS = HELPER.createCompatBlock("quark","chiseled_aseterite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ASETERITE_PILLAR = HELPER.createCompatBlock("quark","aseterite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> POLISHED_ASETERITE_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "polished_aseterite_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.POLISHED_ASETERITE_BRICKS.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 }
