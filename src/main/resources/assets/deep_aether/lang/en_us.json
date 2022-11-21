@@ -55,7 +55,7 @@
   "block.deep_aether.virulent_quicksand": "Virulent Quicksand",
   "block.deep_aether.aseterite": "Aseterite",
   "block.deep_aether.polished_aseterite": "Polished Aseterite",
-  "block.deep_aether.polished_aseterite_bricks": "Aseterite Bricks",
+  "block.deep_aether.polished_aseterite_bricks": "Polished Aseterite Bricks",
   "block.deep_aether.rose_wood": "Roseroot Wood",
   "block.deep_aether.yagroot_log": "Yagroot Log",
   "block.deep_aether.yagroot_wood": "Yagroot Wood",
@@ -133,10 +133,10 @@
   "block.deep_aether.polished_yallesite_bricks_slab": "Yallesite Bricks Slab",
   "block.deep_aether.aseterite_slab": "Aseterite Slab",
   "block.deep_aether.polished_aseterite_slab": "Polished Aseterite Slab",
-  "block.deep_aether.polished_aseterite_bricks_slab": "Aseterite Bricks Slab",
+  "block.deep_aether.polished_aseterite_bricks_slab": "Polished Aseterite Bricks Slab",
   "block.deep_aether.aseterite_stairs": "Aseterite Stairs",
   "block.deep_aether.polished_aseterite_stairs": "Polished Aseterite Stairs",
-  "block.deep_aether.polished_aseterite_bricks_stairs": "Aseterite Bricks Stairs",
+  "block.deep_aether.polished_aseterite_bricks_stairs": "Polished Aseterite Bricks Stairs",
   "block.deep_aether.yallesite": "Yallesite",
   "block.deep_aether.polished_yallesite": "Polished Yallesite",
   "block.deep_aether.polished_yallesite_bricks": "Yallesite Bricks",
@@ -256,5 +256,18 @@
   "block.deep_aether.aether_dirt_bricks_slab": "Aether Dirt Bricks Slab",
   "block.deep_aether.aether_dirt_bricks_stairs": "Aether Dirt Bricks Stairs",
   "block.deep_aether.aether_dirt_bricks_vertical_slab": "Aether Dirt Bricks Vertical Slab",
-  "block.deep_aether.aether_dirt_bricks_wall": "Aether Dirt Bricks Wall"
+  "block.deep_aether.aether_dirt_bricks_wall": "Aether Dirt Bricks Wall",
+  "block.deep_aether.aseterite_pillar": "Aseterite Pillar",
+  "block.deep_aether.chiseled_aseterite_bricks": "Chiseled Aseterite Bricks",
+  "block.deep_aether.aseterite_bricks_wall": "Aseterite Bricks Wall",
+  "block.deep_aether.clorite_pillar": "Clorite Pillar",
+  "block.deep_aether.chiseled_clorite_bricks": "Chiseled Clorite Bricks",
+  "block.deep_aether.clorite_bricks_wall": "Clorite Bricks Wall",
+  "block.deep_aether.aseterite_bricks": "Aseterite Bricks",
+  "block.deep_aether.aseterite_bricks_slab": "Aseterite Bricks Slab",
+  "block.deep_aether.aseterite_bricks Stairs": "Aseterite Bricks Stairs",
+  "block.deep_aether.aseterite_bricks_wall": "Aseterite Bricks Wall"
+
+
+
 }

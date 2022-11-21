@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side_tall",
+  "textures": {
+    "wall": "deep_aether:block/aseterite_bricks",
+    "particle": "deep_aether:block/aseterite_bricks"
+  }
+}
