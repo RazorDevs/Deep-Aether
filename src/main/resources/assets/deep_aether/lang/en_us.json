@@ -266,8 +266,8 @@
   "block.deep_aether.aseterite_bricks": "Aseterite Bricks",
   "block.deep_aether.aseterite_bricks_slab": "Aseterite Bricks Slab",
   "block.deep_aether.aseterite_bricks Stairs": "Aseterite Bricks Stairs",
-  "block.deep_aether.aseterite_bricks_wall": "Aseterite Bricks Wall"
-
-
-
+  "block.deep_aether.aseterite_bricks_wall": "Aseterite Bricks Wall",
+  "block.deep_aether.darkerite_pillar": "Darkerite Pillar",
+  "block.deep_aether.chiseled_darkerite_bricks": "Chiseled Darkerite Bricks",
+  "block.deep_aether.darkerite_bricks_wall": "Darkerite Bricks Wall"
 }

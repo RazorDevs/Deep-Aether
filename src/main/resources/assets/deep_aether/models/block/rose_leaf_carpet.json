@@ -2,6 +2,6 @@
   "parent": "blueprint:block/leaf_carpet",
   "render_type": "cutout",
   "textures": {
-    "all": "deep_aether:block/roseroot_leaves"
+    "all": "deep_aether:block/rosewood_leaves"
   }
 }

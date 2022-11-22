@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "deep_aether:block/greotite_bricks",
+    "top": "deep_aether:block/greotite_bricks",
+    "side": "deep_aether:block/greotite_bricks"
+  }
+}
