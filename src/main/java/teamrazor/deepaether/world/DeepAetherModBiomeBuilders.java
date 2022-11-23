@@ -1,5 +1,5 @@
 package teamrazor.deepaether.world;
-/*
+
 
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.client.AetherSoundEvents;
@@ -12,102 +12,84 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.sounds.Music;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.init.DeepAetherModBiomes;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class DeepAetherModBiomeBuilders {
 
-    public static BiomeSource buildDeepAetherBiomeSource(Registry<Biome> registry) {
-        final Climate.Parameter FULL_RANGE = Climate.Parameter.span(-1.0F, 1.0F);
-        return new MultiNoiseBiomeSource((new Climate.ParameterList<>(List.of(
-                Pair.of(new Climate.ParameterPoint(FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, Climate.Parameter.span(-2.0F, -0.7F), 0),
-                        Holder.Reference.createStandAlone(registry, DeepAetherModBiomes.AERGLOW_GROVE.getKey())),
-                Pair.of(new Climate.ParameterPoint(FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, Climate.Parameter.span(-2.0F, -0.7F), 0),
-                        Holder.Reference.createStandAlone(registry, DeepAetherModBiomes.VIRULENT_FOREST.getKey()))
-        ))));
+    @Nullable
+    private static final Music NORMAL_MUSIC = null;
+
+    protected static int calculateSkyColor(float color)
+    {
+        float $$1 = color / 3.0F;
+        $$1 = Mth.clamp($$1, -1.0F, 1.0F);
+        return Mth.hsvToRgb(0.62222224F - $$1 * 0.05F, 0.5F + $$1 * 0.1F, 1.0F);
     }
 
-    public static Biome aerglowGroveBiome() {
-        return makeDefaultBiome(new BiomeGenerationSettings.Builder()
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.SKYROOT_GROVE_TREES_PLACEMENT)));
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, @Nullable Music music)
+    {
+        return biome(precipitation, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, music);
     }
 
-    public static Biome virulentForestBiome() {
-        return makeDefaultBiome(new BiomeGenerationSettings.Builder()
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.SKYROOT_GROVE_TREES_PLACEMENT)));
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, @Nullable Music music)
+    {
+        return (new Biome.BiomeBuilder()).precipitation(precipitation).temperature(temperature).downfall(downfall).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(waterColor).waterFogColor(waterFogColor).fogColor(12638463).skyColor(calculateSkyColor(temperature)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnBuilder.build()).generationSettings(biomeBuilder.build()).build();
     }
 
-    public static Biome makeDefaultBiome(BiomeGenerationSettings.Builder builder) {
-        return fullDefinition(
-                Biome.Precipitation.NONE,
-                0.8F,
-                0.0F,
-                new BiomeSpecialEffects.Builder()
-                        .fogColor(0x93_93_bc)
-                        .skyColor(0xc0_c0_ff)
-                        .waterColor(0x3f_76_e4)
-                        .waterFogColor(0x05_05_33)
-                        .grassColorOverride(0xb1_ff_cb)
-                        .foliageColorOverride(0xb1_ff_cb)
-                        .grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
-                        .backgroundMusic(new Music(AetherSoundEvents.MUSIC_AETHER.get(), 12000, 24000, true))
-                        .build(),
-                new MobSpawnSettings.Builder()
-                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.WHIRLWIND.get(), 9, 2, 2))
-                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.EVIL_WHIRLWIND.get(), 1, 2, 2))
-                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.COCKATRICE.get(), 100, 4, 4))
-                        .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.ZEPHYR.get(), 50, 1, 1))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.BLUE_SWET.get(), 15, 3, 4))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.GOLDEN_SWET.get(), 15, 3, 4))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AECHOR_PLANT.get(), 29, 1, 1))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.PHYG.get(), 12, 4, 4))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERBUNNY.get(), 11, 3, 3))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.SHEEPUFF.get(), 10, 4, 4))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.MOA.get(), 10, 3, 3))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.FLYING_COW.get(), 10, 4, 4))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERWHALE.get(), 2, 1, 1))
-                        .build(),
-                builder
-                        .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.WATER_LAKE_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.ORE_AMBROSIUM_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.ORE_ZANITE_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.ORE_GRAVITITE_COMMON_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.ORE_GRAVITITE_DENSE_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.WATER_SPRING_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.GRASS_PATCH_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.FLOWER_PATCH_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT))
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.dataHolder(AetherPlacedFeatures.PINK_AERCLOUD_PLACEMENT))
-                        .build(),
-                Biome.TemperatureModifier.NONE
-        );
+    private static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder)
+    {
+        BiomeDefaultFeatures.addDefaultCarversAndLakes(builder);
+        BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
+        BiomeDefaultFeatures.addDefaultMonsterRoom(builder);
+        BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
+        BiomeDefaultFeatures.addDefaultSprings(builder);
+        BiomeDefaultFeatures.addSurfaceFreezing(builder);
     }
 
-    public static Biome fullDefinition(Biome.Precipitation precipitation, float temperature, float downfall, BiomeSpecialEffects effects, MobSpawnSettings spawnSettings, BiomeGenerationSettings generationSettings, Biome.TemperatureModifier temperatureModifier) {
-        return new Biome.BiomeBuilder()
-                .precipitation(precipitation)
-                .temperature(temperature)
-                .downfall(downfall)
-                .specialEffects(effects)
-                .mobSpawnSettings(spawnSettings)
-                .generationSettings(generationSettings)
-                .temperatureAdjustment(temperatureModifier)
-                .build();
+    public static Biome aerglowGroveBiome()
+    {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.desertSpawns(spawnBuilder);
+
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultFlowers(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultGrass(biomeBuilder);
+        BiomeDefaultFeatures.addDesertVegetation(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
+        BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
+        return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
-}*/
+    public static Biome virulentForestBiome()
+    {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.GOAT, 5, 1, 3));
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addFrozenSprings(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
+        BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
+        return biome(Biome.Precipitation.SNOW, -0.7F, 0.9F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+    }
+}

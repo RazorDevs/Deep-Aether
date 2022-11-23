@@ -13,23 +13,36 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
+import org.checkerframework.checker.units.qual.A;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
 
 
 import java.util.HashMap;
 import java.util.Map;
-/*
+import java.util.function.Supplier;
 
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAetherModBiomes {
     public static final DeferredRegister REGISTRY = DeferredRegister.create(ForgeRegistries.BIOMES, DeepAetherMod.MODID);
 
 
-    //public static final RegistryObject<Biome> AERGLOW_GROVE = REGISTRY.register("aerglow_grove",() -> DeepAetherModBiomeBuilders.aerglowGroveBiome());
-    //public static final RegistryObject<Biome> VIRULENT_FOREST = REGISTRY.register("virulent_forest", () -> DeepAetherModBiomeBuilders.virulentForestBiome());
+    public static final ResourceKey<Biome> AERGLOW_GROVE = registerKey("aerglow_grove");
+    public static final ResourceKey<Biome> VIRULENT_FOREST = registerKey("virulent_forest");
 
-    public static ResourceKey<Biome> register(String name, Biome biome) {
-        ResourceLocation location = new ResourceLocation(DeepAetherMod.MODID, name);
-        REGISTRY.putIfAbsent(location, biome);
-        return ResourceKey.create(Registry.BIOME_REGISTRY, location);
+    private static ResourceKey<Biome> registerKey(String name)
+    {
+        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
     }
-}*/
+
+    public static void registerBiomes()
+    {
+        registerObj(AERGLOW_GROVE, DeepAetherModBiomeBuilders::aerglowGroveBiome);
+        registerObj(VIRULENT_FOREST, DeepAetherModBiomeBuilders::virulentForestBiome);
+    }
+
+    public static RegistryObject<Biome> registerObj(ResourceKey<Biome> key, Supplier<Biome> biomeSupplier)
+    {
+        return REGISTRY.register(key.location().getPath(), biomeSupplier);
+    }
+}
