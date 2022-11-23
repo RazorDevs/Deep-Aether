@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "tag": "deep_aether:all_sticks"
+    },
+    "1": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "2": {
+      "tag": "deep_aether:all_sticks"
+    },
+    "3": {
+      "tag": "deep_aether:all_sticks"
+    },
+    "4": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "5": {
+      "tag": "deep_aether:all_sticks"
+    }
+  },
+  "result": {
+    "item": "deep_aether:yagroot_fence_gate",
+    "count": 1
+  }
+}

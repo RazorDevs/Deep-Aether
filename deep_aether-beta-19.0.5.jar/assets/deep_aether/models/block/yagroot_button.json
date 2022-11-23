@@ -1,0 +1,6 @@
+{
+  "parent": "block/button",
+  "textures": {
+    "texture": "deep_aether:block/yagroot_planks"
+  }
+}

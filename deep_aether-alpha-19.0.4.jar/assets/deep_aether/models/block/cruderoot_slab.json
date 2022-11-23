@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "deep_aether:blocks/cruderoot_planks",
-    "top": "deep_aether:blocks/cruderoot_planks",
-    "side": "deep_aether:blocks/cruderoot_planks"
-  }
-}

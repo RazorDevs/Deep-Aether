@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "deep_aether:yagroot_boat"
+    },
+    "B": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "AB"
+  ],
+  "result": {
+    "count": 1,
+    "item": "deep_aether:yagroot_chest_boat"
+  }
+}

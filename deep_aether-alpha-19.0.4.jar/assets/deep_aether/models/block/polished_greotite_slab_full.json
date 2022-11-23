@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "deep_aether:blocks/polished_greotite",
-    "top": "deep_aether:blocks/polished_greotite",
-    "side": "deep_aether:blocks/polished_greotite"
-  }
-}

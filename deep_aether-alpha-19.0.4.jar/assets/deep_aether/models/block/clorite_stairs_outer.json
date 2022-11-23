@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "deep_aether:blocks/clorite",
-    "top": "deep_aether:blocks/clorite",
-    "side": "deep_aether:blocks/clorite"
-  }
-}

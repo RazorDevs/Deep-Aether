@@ -1,0 +1,7 @@
+{
+  "parent": "blueprint:block/hedge_side",
+  "render_type": "cutout",
+  "textures": {
+    "leaf": "deep_aether:block/rosewood_leaves"
+  }
+}

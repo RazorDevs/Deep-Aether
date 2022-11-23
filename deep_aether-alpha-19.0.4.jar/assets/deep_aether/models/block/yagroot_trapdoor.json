@@ -1,8 +1,0 @@
-{
-  "parent": "block/template_orientable_trapdoor_bottom",
-  "render_type": "cutout",
-  "textures": {
-    "texture": "deep_aether:blocks/yagroot_trapdoor",
-    "particle": "deep_aether:blocks/yagroot_trapdoor"
-  }
-}

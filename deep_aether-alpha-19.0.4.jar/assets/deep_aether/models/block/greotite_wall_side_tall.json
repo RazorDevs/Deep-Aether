@@ -1,8 +1,0 @@
-{
-  "parent": "block/template_wall_side_tall",
-  "render_type": "cutout",
-  "textures": {
-    "wall": "deep_aether:blocks/greotite",
-    "particle": "deep_aether:blocks/greotite"
-  }
-}

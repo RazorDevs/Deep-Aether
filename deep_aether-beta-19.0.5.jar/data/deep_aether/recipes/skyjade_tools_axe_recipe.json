@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23",
+    " 5"
+  ],
+  "key": {
+    "0": {
+      "item": "deep_aether:skyjade"
+    },
+    "1": {
+      "item": "deep_aether:skyjade"
+    },
+    "2": {
+      "item": "deep_aether:skyjade"
+    },
+    "3": {
+      "tag": "deep_aether:all_sticks"
+    },
+    "5": {
+      "tag": "deep_aether:all_sticks"
+    }
+  },
+  "result": {
+    "item": "deep_aether:skyjade_axe",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "blueprint:block/hedge_extend",
+  "render_type": "cutout",
+  "textures": {
+    "leaf": "deep_aether:block/yagroot_leaves"
+  }
+}

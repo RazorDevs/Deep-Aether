@@ -1,0 +1,7 @@
+{
+  "parent": "quark:block/leaf_carpet",
+  "render_type": "cutout",
+  "textures": {
+    "all": "deep_aether:block/rose_leaves"
+  }
+}

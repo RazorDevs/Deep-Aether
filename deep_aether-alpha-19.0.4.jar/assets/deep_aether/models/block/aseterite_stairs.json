@@ -1,8 +1,0 @@
-{
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "deep_aether:blocks/aseterite",
-    "top": "deep_aether:blocks/aseterite",
-    "side": "deep_aether:blocks/aseterite"
-  }
-}

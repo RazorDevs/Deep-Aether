@@ -1,8 +1,0 @@
-{
-  "parent": "block/template_wall_post",
-  "render_type": "cutout",
-  "textures": {
-    "wall": "deep_aether:blocks/clorite",
-    "particle": "deep_aether:blocks/clorite"
-  }
-}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "deep_aether:block/rosewood_log_top",
+    "up": "deep_aether:block/rosewood_log_top",
+    "north": "deep_aether:block/rosewood_log",
+    "east": "deep_aether:block/rosewood_log",
+    "south": "deep_aether:block/rosewood_log",
+    "west": "deep_aether:block/rosewood_log",
+    "particle": "deep_aether:block/rosewood_log_top"
+  }
+}

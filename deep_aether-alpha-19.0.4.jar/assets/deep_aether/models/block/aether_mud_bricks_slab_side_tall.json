@@ -1,7 +1,0 @@
-{
-  "parent": "block/template_wall_side_tall",
-  "textures": {
-    "wall": "deep_aether:blocks/aether_mud_bricks",
-    "particle": "deep_aether:blocks/aether_mud_bricks"
-  }
-}

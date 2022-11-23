@@ -8,6 +8,7 @@ package teamrazor.deepaether.init;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.common.block.BookshelfBlock;
 import com.teamabnormals.blueprint.common.block.HedgeBlock;
+import com.teamabnormals.blueprint.common.block.LeafCarpetBlock;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
@@ -214,7 +215,7 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_POST = HELPER.createCompatFuelBlock("quark", "stripped_cruderoot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	//SHELVES
-	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> YAGROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "yagroot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "cruderoot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 

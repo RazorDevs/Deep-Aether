@@ -78,17 +78,5 @@ public class AbilityHooks {
             return speed;
         }
 
-        public static float increaseToolEffectiveness(Level level, BlockState state, ItemStack stack, float amount) {
-            if (AetherConfig.COMMON.tools_debuff.get()) {
-                if (level.dimension() == AetherDimensions.AETHER_LEVEL) {
-                    if (!stack.isEmpty()
-                            && !stack.is(AetherTags.Items.TREATED_AS_AETHER_ITEM)
-                            && stack.isCorrectToolForDrops(state)) {
-                        amount = (float) Math.pow(amount, -0.2);
-                    }
-                }
-            }
-            return amount;
-        }
     }
 }

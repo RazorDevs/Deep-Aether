@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "deep_aether:block/stripped_cruderoot_log",
+    "particle": "deep_aether:block/stripped_cruderoot_log"
+  }
+}
