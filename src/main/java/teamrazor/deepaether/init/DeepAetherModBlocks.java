@@ -8,7 +8,6 @@ package teamrazor.deepaether.init;
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.common.block.BookshelfBlock;
 import com.teamabnormals.blueprint.common.block.HedgeBlock;
-import com.teamabnormals.blueprint.common.block.LeafCarpetBlock;
 import com.teamabnormals.blueprint.common.block.VerticalSlabBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintChestBlock;
 import com.teamabnormals.blueprint.common.block.chest.BlueprintTrappedChestBlock;
@@ -215,7 +214,7 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_POST = HELPER.createCompatFuelBlock("quark", "stripped_cruderoot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	//SHELVES
-	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> YAGROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "yagroot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "cruderoot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
@@ -272,7 +271,7 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> AETHER_DIRT_BRICKS = HELPER.createCompatBlock("quark", "aether_dirt_bricks",() -> new Block(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_SLAB = HELPER.createCompatBlock("quark", "aether_dirt_bricks_slab",() -> new SlabBlock(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_STAIRS = HELPER.createCompatBlock("quark", "aether_dirt_bricks_stairs",() -> new StairBlock(DeepAetherModBlocks.AETHER_DIRT_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.DIRT).strength(0.5F).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-
+	
 	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_WALL = HELPER.createCompatBlock("quark", "aether_dirt_bricks_wall",() -> new WallBlock(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> AETHER_DIRT_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "aether_dirt_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.of(Material.DIRT).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
