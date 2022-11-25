@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "deep_aether:polished_aseterite"
+      "item": "deep_aether:polished_aseterite_slab"
     }
   },
   "pattern": [

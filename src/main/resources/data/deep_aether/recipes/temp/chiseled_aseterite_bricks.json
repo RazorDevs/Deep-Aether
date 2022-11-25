@@ -1,18 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
   "key": {
     "#": {
       "item": "deep_aether:aseterite_bricks_slab"
     }
   },
-  "pattern": [
-    "#",
-    "#",
-    "#"
-
-  ],
   "result": {
-    "count": 3,
-    "item": "deep_aether:aseterite_bricks_vertical_slab"
+    "item": "deep_aether:chiseled_aseterite_bricks",
+    "count": 1
   }
 }
