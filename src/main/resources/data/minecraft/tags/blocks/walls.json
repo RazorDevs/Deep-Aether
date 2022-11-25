@@ -13,6 +13,17 @@
     "deep_aether:darkerite_wall",
     "deep_aether:jarinite_wall",
     "deep_aether:yallesite_wall",
-    "deep_aether:polished_yallesite_bricks_wall"
+    "deep_aether:aseterite_bricks_wall",
+    "deep_aether:clorite_bricks_wall",
+    "deep_aether:greotite_bricks_wall",
+    "deep_aether:darkerite_bricks_wall",
+    "deep_aether:jarinite_bricks_wall",
+    "deep_aether:yallesite_bricks_wall",
+    "deep_aether:polished_aseterite_bricks_wall",
+    "deep_aether:polished_clorite_bricks_wall",
+    "deep_aether:polished_greotite_bricks_wall",
+    "deep_aether:polished_darkerite_bricks_wall",
+    "deep_aether:polished_jarinite_bricks_wall",
+    "deep_aether:polished_yallesite_bricks_wall",
   ]
 }

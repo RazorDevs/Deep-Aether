@@ -46,6 +46,24 @@
     "deep_aether:cruderoot_button",
     "deep_aether:cruderoot_pressure_plate",
     "deep_aether:cruderoot_fence",
-    "deep_aether:cruderoot_sapling"
+    "deep_aether:cruderoot_sapling",
+    "deep_aether:rose_bookshelf",
+    "deep_aether:cruderoot_bookshelf",
+    "deep_aether:yagroot_bookshelf",
+    "deep_aether:rose_ladder",
+    "deep_aether:cruderoot_ladder",
+    "deep_aether:yagroot_ladder",
+    "deep_aether:rose_hedge",
+    "deep_aether:cruderoot_hedge",
+    "deep_aether:yagroot_hedge",
+    "deep_aether:rose_pole",
+    "deep_aether:cruderoot_pole",
+    "deep_aether:yagroot_pole",
+    "deep_aether:stripped_rose_pole",
+    "deep_aether:stripped_cruderoot_pole",
+    "deep_aether:stripped_yagroot_pole",
+    "deep_aether:rose_vetical_slab",
+    "deep_aether:cruderoot_vertical_slab",
+    "deep_aether:yagroot_vertical_slab"
   ]
 }

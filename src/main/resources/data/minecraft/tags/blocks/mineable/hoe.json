@@ -7,7 +7,9 @@
     "deep_aether:cruderoot_leaves",
     "deep_aether:aether_moss_block",
     "deep_aether:aether_moss_carpet",
-    "deep_aether:aerglow_petal_block"
-
+    "deep_aether:aerglow_petal_block",
+    "deep_aether:yagroot_leaf_carpet",
+    "deep_aether:rose_leaf_carpet",
+    "deep_aether:cruderoot_leaf_carpet"
   ]
 }
