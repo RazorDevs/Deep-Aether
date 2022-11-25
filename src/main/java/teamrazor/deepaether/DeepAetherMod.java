@@ -30,8 +30,8 @@ import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.tags.DeepAetherItemTagData;
 //import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
 //import teamrazor.deepaether.world.DeepAetherModDataGenerators;
-import teamrazor.deepaether.world.DeepAetherModSurfaceRuleData;
-import teamrazor.deepaether.world.Gen.DeepAetherModRegion;
+
+
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
@@ -82,8 +82,8 @@ public class DeepAetherMod {
 		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
 		DeepAetherModPlacedFeatures.register(bus);
 
-		DeepAetherModBiomes.REGISTRY.register(bus);
-		DeepAetherModBiomes.registerBiomes();
+		//DeepAetherModBiomes.REGISTRY.register(bus);
+		//DeepAetherModBiomes.registerBiomes();
 
 	}
 
@@ -94,10 +94,10 @@ public class DeepAetherMod {
 		event.enqueueWork(() ->
 		{
 			// Given we only add two biomes, we should keep our weight relatively low.
-			Regions.register(new DeepAetherModRegion(new ResourceLocation(MODID, "overworld"), 2));
+			//Regions.register(new DeepAetherModRegion(new ResourceLocation(MODID, "overworld"), 2));
 
 			// Register our surface rules
-			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, DeepAetherModSurfaceRuleData.makeRules());
+			//SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, DeepAetherModSurfaceRuleData.makeRules());
 		});
 	}
 

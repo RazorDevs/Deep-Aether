@@ -181,9 +181,10 @@ public class DeepAetherModBlocks {
 
 	//MISC
 	public static final RegistryObject<Block> RADIANT_ORCHID = HELPER.createBlock("radiant_orchid", () -> new RadiantOrchidBlock(), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> LAVENDER = HELPER.createBlock("lavender", () ->  new FlowerBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> AERLAVENDER = HELPER.createBlock("aerlavender", () ->  new LavenderBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> TALL_AERLAVENDER = HELPER.createBlock("tall_aerlavender", () ->  new FlowerBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
-	
+
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = HELPER.createBlock("aerglow_petal_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = HELPER.createBlock("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = HELPER.createBlock("aether_moss_block", () -> new DeepAetherMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -201,6 +202,7 @@ public class DeepAetherModBlocks {
 			.noCollission()
 			.strength(100f)
 			.noLootTable()));
+
 
 
 	//QUARK SUPPORT

@@ -90,6 +90,6 @@ public class DeepAetherModBiomeBuilders {
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
-        return biome(Biome.Precipitation.SNOW, -0.7F, 0.9F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        return biome(Biome.Precipitation.NONE, -0.7F, 0.9F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 }

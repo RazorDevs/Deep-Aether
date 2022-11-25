@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.Gen;
 
 import com.gildedgames.aether.data.resources.AetherBiomes;
+import com.gildedgames.aether.data.resources.AetherDimensions;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -15,12 +16,12 @@ import static terrablender.api.ParameterUtils.*;
 
 import java.util.List;
 import java.util.function.Consumer;
-
+/*
 
 public class DeepAetherModRegion extends Region {
     public DeepAetherModRegion(ResourceLocation name, int weight)
     {
-        super(name, RegionType.OVERWORLD, weight);
+        super(name, RegionType.valueOf("the_aether"), weight);
     }
 
 
@@ -30,7 +31,7 @@ public class DeepAetherModRegion extends Region {
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
             // Simple example:
             // Replace the Vanilla desert with our hot_red biome
-            builder.replaceBiome(Biomes.BIRCH_FOREST, DeepAetherModBiomes.AERGLOW_GROVE);
+            builder.replaceBiome(AetherBiomes.SKYROOT_FOREST, DeepAetherModBiomes.AERGLOW_GROVE);
 
             // More complex example:
             // Replace specific parameter points for the frozen peaks with our cold_blue biome
@@ -47,3 +48,4 @@ public class DeepAetherModRegion extends Region {
         });
     }
 }
+*/
