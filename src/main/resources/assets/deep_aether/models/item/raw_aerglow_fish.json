@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "deep_aether:item/aerglow_fish"
+    "layer0": "deep_aether:items/aerglow_fish"
   }
 }

@@ -1,17 +1,5 @@
-  "block.deep_aether.greotite_pillar": "greotite Pillar",
-  "block.deep_aether.chiseled_greotite_bricks": "Chiseled greotite Bricks",
-  "block.deep_aether.greotite_bricks_wall": "greotite Bricks Wall"
-
-	public static final RegistryObject<Block> GREOTITE_BRICKS = HELPER.createCompatBlock("quark","greotite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> GREOTITE_BRICKS_STAIRS = HELPER.createCompatBlock("quark","greotite_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.GREOTITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> GREOTITE_BRICKS_SLAB = HELPER.createCompatBlock("quark","greotite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> GREOTITE_BRICKS_WALL = HELPER.createCompatBlock("quark", "greotite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE_WALL)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> GREOTITE_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark","greotite_bricks_vertical_slab", () -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS = HELPER.createCompatBlock("quark","polished_greotite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS_STAIRS = HELPER.createCompatBlock("quark","polished_greotite_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.POLISHED_GREOTITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS_SLAB = HELPER.createCompatBlock("quark","polished_greotite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS_WALL = HELPER.createCompatBlock("quark", "polished_greotite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE_WALL)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-
-	public static final RegistryObject<Block> CHISELED_GREOTITE_BRICKS = HELPER.createCompatBlock("quark","chiseled_greotite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> GREOTITE_PILLAR = HELPER.createCompatBlock("quark","greotite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> POLISHED_GREOTITE_BRICKS_VERTICAL_SLAB = HELPER.createCompatBlock("quark", "polished_greotite_bricks_vertical_slab",() -> new VerticalSlabBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.POLISHED_GREOTITE_BRICKS.get())), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+  "block.deep_aether.darkerite_bricks": "Darkerite Bricks",
+  "block.deep_aether.darkerite_bricks_slab": "Darkerite Bricks Slab",
+  "block.deep_aether.darkerite_bricks_stairs": "Darkerite Bricks Stairs",
+  "block.deep_aether.darkerite_bricks_vertical_slab": "Darkerite Bricks Vertical Slab",
+  "block.deep_aether.polished_darkerite_bricks_wall": "Polished Darkerite Bricks Wall"
