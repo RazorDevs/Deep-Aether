@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "deep_aether:item/skyjade_ring"
+    "layer0": "deep_aether:items/cloudium_ingot"
   }
 }

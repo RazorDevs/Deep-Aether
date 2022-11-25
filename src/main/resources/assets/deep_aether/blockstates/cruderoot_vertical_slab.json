@@ -20,7 +20,7 @@
       "uvlock": true
     },
     "type=double": {
-      "model": "deep_aether:block/cruderoot"
+      "model": "deep_aether:block/cruderoot_planks"
     }
   }
 }

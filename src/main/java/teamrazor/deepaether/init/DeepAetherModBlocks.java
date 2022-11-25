@@ -82,8 +82,7 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_ROOTS = HELPER.createBlock("yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = HELPER.createBlock("muddy_yagroot_roots", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUDDY_MANGROVE_ROOTS)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
-	//public static final RegistryObject<Block> YAGROOT_WALL_SIGN = HELPER.createBlockNoItem("yagroot_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.YAGROOT));
-	//public static final RegistryObject<Block> YAGROOT_SIGN = HELPER.createBlockNoItem("yagroot_sign", () -> new DeepAetherModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.YAGROOT));
+	public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> YAGROOT_SIGN = HELPER.createSignBlock("yagroot", MaterialColor.TERRACOTTA_PINK);
 
 	public static final RegistryObject<Block> CRUDEROOT_WOOD = HELPER.createBlock("cruderoot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_LOG = HELPER.createBlock("cruderoot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -102,8 +101,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> CRUDEROOT_TRAPDOOR = HELPER.createBlock("cruderoot_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_TRAPDOOR)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_LEAVES = HELPER.createBlock("cruderoot_leaves", () -> new DeepAetherLeavesBlock(), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	public static final RegistryObject<Block> CRUDEROOT_SAPLING = HELPER.createBlock("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	//public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = HELPER.createBlockNoItem("cruderoot_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.CRUDEROOT));
-	//public static final RegistryObject<Block> CRUDEROOT_SIGN = HELPER.createBlockNoItem("cruderoot_sign", () -> new DeepAetherModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.CRUDEROOT));
+	public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> CRUDEROOT_SIGN = HELPER.createSignBlock("cruderoot", MaterialColor.COLOR_PINK);
+
 	public static final RegistryObject<Block> YAGROOT_VINE = HELPER.createBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = HELPER.createBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
@@ -216,9 +215,9 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> STRIPPED_CRUDEROOT_POST = HELPER.createCompatFuelBlock("quark", "stripped_cruderoot_post",() -> new WoodPostBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_LOG.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	//SHELVES
-	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> YAGROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "yagroot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
-	public static final RegistryObject<Block> CRUDEROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "cruderoot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> ROSE_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "rose_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> YAGROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "yagroot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
+	public static final RegistryObject<Block> CRUDEROOT_BOOKSHELF = HELPER.createCompatFuelBlock("quark", "cruderoot_bookshelf",() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);
 
 	//HEDGES
 	public static final RegistryObject<Block> ROSE_HEDGE = HELPER.createCompatFuelBlock("quark", "rose_hedge",() -> new HedgeBlock(BlockBehaviour.Properties.copy(DeepAetherModBlocks.ROSE_PLANKS.get())), 300, DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

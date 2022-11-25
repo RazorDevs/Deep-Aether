@@ -27,7 +27,7 @@ import teamrazor.deepaether.item.accessory.DeepAetherGlovesItem;
 public class DeepAetherModItems {
 	public static final ItemSubRegistryHelper HELPER = DeepAetherMod.REGISTRY_HELPER.getItemSubHelper();
 
-	// Block Items ------------------------------------------------------------------------------------
+	// BOATS
 
 	public static final RegistryObject<Item> ROSE_BOAT = HELPER.createItem("rose_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	public static final RegistryObject<Item> ROSE_CHEST_BOAT = HELPER.createItem("rose_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
@@ -36,8 +36,6 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> YAGROOT_CHEST_BOAT = HELPER.createItem("yagroot_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.YAGROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	public static final RegistryObject<Item> CRUDEROOT_BOAT = HELPER.createItem("cruderoot_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.CRUDEROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = HELPER.createItem("cruderoot_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.CRUDEROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	// Standalone Items ------------------------------------------------------------------------------------
-
 
 	// EQUIPMENT
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = HELPER.createItem("skyjade_sword", () -> new SkyjadeToolsSwordItem());
@@ -64,6 +62,8 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> SKYJADE = HELPER.createItem("skyjade", () -> new SkyjadeItem());
 	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = HELPER.createItem("adibium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> AGATE_GEMSTONE = HELPER.createItem("agate_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_INGOT = HELPER.createItem("cloudium_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+
 	public static final RegistryObject<Item> CLOUDIUM_SCRAP = HELPER.createItem("cloudium_scrap", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> RAW_ORATIE = HELPER.createItem("raw_oratie", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> ORATIE_INGOT = HELPER.createItem("oratie_ingot", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
@@ -97,8 +97,7 @@ public class DeepAetherModItems {
 
 	public static final RegistryObject<Item> AERGLOW_PETAL = HELPER.createItem("aerglow_petal", () -> new AerglowPetalItem());
 
-	//QUARK ITEMS
-
+	//SUPPORT
 
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
