@@ -1,8 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#  ",
-    "## ",
+    "###",
     "###"
   ],
   "key": {
@@ -11,7 +10,7 @@
     }
   },
   "result": {
-    "item": "deep_aether:aseterite_bricks_stairs",
-    "count": 4
+    "item": "deep_aether:aseterite_bricks_wall",
+    "count": 1
   }
 }

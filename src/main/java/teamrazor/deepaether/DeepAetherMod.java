@@ -1,21 +1,29 @@
 package teamrazor.deepaether;
 
 //import com.gildedgames.aether.data.generators.AetherDataGenerators;
+import com.gildedgames.aether.block.dispenser.AetherDispenseBehaviors;
 import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
+
+
+import teamrazor.deepaether.block.Behaviors.DeepAetherModBlockInteractionBehavior;
+import teamrazor.deepaether.block.Behaviors.DeepAetherModDispenseBehaviors;
 import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
 
@@ -27,6 +35,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 //import teamrazor.deepaether.tags.DeepAetherBiomeTagData;
+import teamrazor.deepaether.tags.DeepAetherBlockTagData;
 import teamrazor.deepaether.tags.DeepAetherItemTagData;
 //import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
 //import teamrazor.deepaether.world.DeepAetherModDataGenerators;
@@ -35,8 +44,6 @@ import teamrazor.deepaether.tags.DeepAetherItemTagData;
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
-import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 import java.util.stream.Collectors;
 
@@ -64,9 +71,11 @@ public class DeepAetherMod {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
 
 
+
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 
+		bus.addListener(this::commonSetup);
 
 		// Register ourselves for server and other game events we are interested in
 		MinecraftForge.EVENT_BUS.register(this);
@@ -108,11 +117,17 @@ public class DeepAetherMod {
 		AetherBlockTagData blockTags = new AetherBlockTagData(generator, helper);
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DeepAetherItemTagData(generator, blockTags, helper));
+		generator.addProvider(event.includeServer(), new DeepAetherBlockTagData(generator, helper));
 		// generator.addProvider(event.includeServer(), new DeepAetherBiomeTagData(generator, helper));
 		//generator.addProvider(event.includeServer(), DeepAetherModDataGenerators.levelStem(generator, helper));
 	}
 
-	private void enqueueIMC(final InterModEnqueueEvent event)
+	public void commonSetup(FMLCommonSetupEvent event) {
+		registerDispenserBehaviors();
+
+	}
+
+		private void enqueueIMC(final InterModEnqueueEvent event)
 	{
 		// Some example code to dispatch IMC to another mod
 		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
@@ -125,5 +140,11 @@ public class DeepAetherMod {
 				map(m->m.messageSupplier().get()).
 				collect(Collectors.toList()));
 	}
-
+	private void registerDispenserBehaviors() {
+		DispenserBlock.registerBehavior(Items.POTION, DeepAetherModDispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
+		DispenserBlock.registerBehavior(DeepAetherModItems.PLACEABLE_POISON_BUCKET.get(), DeepAetherModDispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
+		DispenserBlock.registerBehavior(DeepAetherModItems.VIRULENT_QUICKSAND_BUCKET.get(), DeepAetherModDispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
+		DispenserBlock.registerBehavior(DeepAetherModItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_PICKUP_BEHAVIOR);
+		DispenserBlock.registerBehavior(DeepAetherModItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_DISPENSE_BEHAVIOR);
+	}
 }

@@ -26,18 +26,6 @@ public class LavenderBlock extends FlowerBlock implements BonemealableBlock {
         super(p_53512_, p_53513_, p_53514_);
     }
 
-/*
-    @Nullable
-    @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, BonemealEvent bonemealEvent, boolean simulate) {
-        if (context.getItemInHand().getItem() instanceof BoneMealItem) {
-            if (state.is(DeepAetherModBlocks.AERLAVENDER.get())) {
-                return DeepAetherModBlocks.TALL_AERLAVENDER.get().defaultBlockState();
-            }
-        }
-        return super.getToolModifiedState(state, context, bonemealEvent, simulate);
-    }
-*/
     @Override
     public boolean isValidBonemealTarget(BlockGetter p_50897_, BlockPos p_50898_, BlockState p_50899_, boolean p_50900_) {
         return true;

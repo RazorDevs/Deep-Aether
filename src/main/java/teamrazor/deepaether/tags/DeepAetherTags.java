@@ -13,7 +13,7 @@ import teamrazor.deepaether.DeepAetherMod;
 public class DeepAetherTags {
 
     public static class Blocks {
-
+        public static final TagKey<Block> CONVERTABLE_TO_AETHER_MUD = tag("convertable_to_aether_mud");
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
         }
@@ -22,7 +22,7 @@ public class DeepAetherTags {
     public static class Items {
         public static final TagKey<Item> DEEP_AETHER_DIRT = tag("deep_aether_dirt");
 
-        public static final TagKey<Item> SKYJADE_TOOLS = tag("skyjade_tools");
+        //public static final TagKey<Item> SKYJADE_TOOLS = tag("skyjade_tools");
         public static final TagKey<Item> SKYJADE_WEAPONS = tag("skyjade_weapons");
 
         private static TagKey<Item> tag(String name) {

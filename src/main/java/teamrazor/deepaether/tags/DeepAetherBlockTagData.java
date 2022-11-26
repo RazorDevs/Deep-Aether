@@ -22,6 +22,7 @@ public class DeepAetherBlockTagData extends BlockTagsProvider {
         return "DeepAether Block Tags";
     }
 
+
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags() {

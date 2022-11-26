@@ -25,19 +25,8 @@ import teamrazor.deepaether.init.DeepAetherModEntities;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class DeepAetherModEventClientBusEvents {
-/*    @SubscribeEvent
-    public static void init(final FMLClientSetupEvent event) {
-
-
-        event.enqueueWork(() -> {
-            Sheets.addWoodType(DeepAetherModWoodTypes.YAGROOT);
-            Sheets.addWoodType(DeepAetherModWoodTypes.ROSE);
-            Sheets.addWoodType(DeepAetherModWoodTypes.CRUDEROOT);
-        });
-    }*/
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        //event.registerBlockEntityRenderer(DeepAetherModBlockEntityTypes.SIGN.get(), SignRenderer::new);
         event.registerEntityRenderer(DeepAetherModEntities.BOAT.get(), (context) -> new DeepAetherModBoatRenderer(context, false));
         event.registerEntityRenderer(DeepAetherModEntities.CHEST_BOAT.get(), (context) -> new DeepAetherModBoatRenderer(context, true));
         EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
