@@ -1,7 +1,7 @@
 package teamrazor.deepaether.init;
 
 
-import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.sounds.SoundEvents;
 import com.gildedgames.aether.client.AetherSoundEvents;
@@ -11,31 +11,26 @@ import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.common.Mod;
-import teamrazor.deepaether.entity.DeepAetherModBoat;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.Block;
-import teamrazor.deepaether.item.DeepAetherArmorMaterial;
-import teamrazor.deepaether.item.abilities.CloudiumAbility;
-import teamrazor.deepaether.item.accessory.CloudiumRing;
-import teamrazor.deepaether.item.accessory.DeepAetherGlovesItem;
+import teamrazor.deepaether.item.equipment.cloudium.CloudiumAbility;
+import teamrazor.deepaether.item.equipment.cloudium.CloudiumArmorItem;
+
+import teamrazor.deepaether.item.equipment.cloudium.CloudiumRing;
+import teamrazor.deepaether.item.equipment.DeepAetherGlovesItem;
+import teamrazor.deepaether.item.equipment.skyjade.*;
+
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 
 public class DeepAetherModItems {
 	public static final ItemSubRegistryHelper HELPER = DeepAetherMod.REGISTRY_HELPER.getItemSubHelper();
 
 	// BOATS
-
-	public static final RegistryObject<Item> ROSE_BOAT = HELPER.createItem("rose_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> ROSE_CHEST_BOAT = HELPER.createItem("rose_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.ROSE, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-
-	public static final RegistryObject<Item> YAGROOT_BOAT = HELPER.createItem("yagroot_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.YAGROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> YAGROOT_CHEST_BOAT = HELPER.createItem("yagroot_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.YAGROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> CRUDEROOT_BOAT = HELPER.createItem("cruderoot_boat", () -> new DeepAetherModBoatItem(false, DeepAetherModBoat.Type.CRUDEROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
-	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = HELPER.createItem("cruderoot_chest_boat", () -> new DeepAetherModBoatItem(true, DeepAetherModBoat.Type.CRUDEROOT, new Item.Properties().stacksTo(1).tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> ROSE_BOAT = HELPER.createBoatAndChestBoatItem("rose", DeepAetherModBlocks.ROSE_PLANKS);
+	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> YAGROOT_BOAT = HELPER.createBoatAndChestBoatItem("yagroot", DeepAetherModBlocks.YAGROOT_PLANKS);
+	public static final Pair<RegistryObject<Item>, RegistryObject<Item>> CRUDEROOT_BOAT = HELPER.createBoatAndChestBoatItem("cruderoot", DeepAetherModBlocks.CRUDEROOT_PLANKS);
 
 	// EQUIPMENT
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = HELPER.createItem("skyjade_sword", () -> new SkyjadeToolsSwordItem());
@@ -51,10 +46,10 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> SKYJADE_GLOVES = HELPER.createItem("skyjade_gloves", () -> new DeepAetherGlovesItem(1.5, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> SKYJADE_RING = HELPER.createItem("skyjade_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 
-	public static final RegistryObject<Item> CLOUDIUM_HELMET = HELPER.createItem("cloudium_helmet", () -> new CloudiumAbility(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.HEAD, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> CLOUDIUM_CHESTPLATE = HELPER.createItem("cloudium_chestplate", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.CHEST, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> CLOUDIUM_LEGGING = HELPER.createItem("cloudium_leggings", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.LEGS, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> CLOUDIUM_BOOTS = HELPER.createItem("cloudium_boots", () -> new ArmorItem(DeepAetherArmorMaterial.CLOUDIUM, EquipmentSlot.FEET, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_HELMET = HELPER.createItem("cloudium_helmet", () -> new CloudiumAbility(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.HEAD, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_CHESTPLATE = HELPER.createItem("cloudium_chestplate", () -> new ArmorItem(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.CHEST, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_LEGGINGS = HELPER.createItem("cloudium_leggings", () -> new ArmorItem(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.LEGS, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_BOOTS = HELPER.createItem("cloudium_boots", () -> new ArmorItem(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.FEET, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_GLOVES = HELPER.createItem("cloudium_gloves", () -> new DeepAetherGlovesItem(2.0, "cloudium_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_RING = HELPER.createItem("cloudium_ring", () -> new CloudiumRing(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 

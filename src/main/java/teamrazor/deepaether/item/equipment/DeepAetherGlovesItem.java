@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.accessory;
+package teamrazor.deepaether.item.equipment;
 
 import com.gildedgames.aether.item.accessories.gloves.GlovesItem;
 import net.minecraft.sounds.SoundEvent;

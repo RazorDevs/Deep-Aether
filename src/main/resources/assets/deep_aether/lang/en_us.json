@@ -304,5 +304,6 @@
   "block.deep_aether.yallesite_bricks_wall": "Yallesite Bricks Wall",
   "block.deep_aether.jarinite_bricks_wall": "Jarinite Bricks Wall",
   "block.deep_aether.greotite_bricks_wall": "Greotite Bricks Wall",
-  "item.deep_aether.cloudium_ingot": "Cloudium Ingot"
+  "item.deep_aether.cloudium_ingot": "Cloudium Ingot",
+  "key.deep_aether.cloudium_dash_ability.desc": "Activate Cloudium Dash"
 }
