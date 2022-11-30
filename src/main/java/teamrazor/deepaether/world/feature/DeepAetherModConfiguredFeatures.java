@@ -55,7 +55,8 @@ public class DeepAetherModConfiguredFeatures {
     private static List decorators = List.of(new FlowerDecorator(1.0F));
     public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> ROSEWOOD_TREE =
             FeatureUtils.register("rosewood", Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                    BlockStateProvider.simple(DeepAetherModBlocks.ROSE_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)),
+                    BlockStateProvider.simple(DeepAetherModBlocks.ROSE_LOG.get().defaultBlockState()
+                            .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)),
                     new StraightTrunkPlacer(5, 6, 3),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModBlocks.ROSE_LEAVES.get().defaultBlockState(), 2).add(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState(),1)),
                     new FlowerBlobFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, ConstantInt.of(3)),
@@ -70,7 +71,9 @@ public class DeepAetherModConfiguredFeatures {
                             0.5F)), ROSEWOOD_CHECKED));
 
         public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> YAGROOT_TREE = FeatureUtils.register("yagroot_tree", Feature.TREE,
-                (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(DeepAetherModBlocks.YAGROOT_LOG.get()), new UpwardsBranchingTrunkPlacer(2, 1, 4, UniformInt.of(1, 4), 0.5F,
+                (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(DeepAetherModBlocks.YAGROOT_LOG.get().defaultBlockState()
+                        .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)),
+                        new UpwardsBranchingTrunkPlacer(2, 1, 4, UniformInt.of(1, 4), 0.5F,
                         UniformInt.of(0, 1), Registry.BLOCK.getOrCreateTag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)), BlockStateProvider.simple(DeepAetherModBlocks.YAGROOT_LEAVES.get()), new RandomSpreadFoliagePlacer(ConstantInt.of(3),
                         ConstantInt.of(0), ConstantInt.of(2), 70), Optional.of(new MangroveRootPlacer(UniformInt.of(1, 3), BlockStateProvider.simple(DeepAetherModBlocks.YAGROOT_ROOTS.get()),
                         Optional.of(new AboveRootPlacement(BlockStateProvider.simple(DeepAetherModBlocks.AETHER_MOSS_CARPET.get()), 0.5F)), new MangroveRootPlacement(Registry.BLOCK.getOrCreateTag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder,
@@ -86,7 +89,8 @@ public class DeepAetherModConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> CRUDEROOT_TREE =
             FeatureUtils.register("cruderoot_tree", Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                    BlockStateProvider.simple(DeepAetherModBlocks.CRUDEROOT_LOG.get()),
+                    BlockStateProvider.simple(DeepAetherModBlocks.CRUDEROOT_LOG.get().defaultBlockState()
+                            .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)),
                     new StraightTrunkPlacer(5, 6, 3),
                     BlockStateProvider.simple(DeepAetherModBlocks.CRUDEROOT_LEAVES.get()),
                     new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
