@@ -3,6 +3,9 @@ package teamrazor.deepaether.item.gear.cloudium;
 
 import com.gildedgames.aether.item.accessories.AccessoryItem;
 
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.Options;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -15,7 +18,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraft.world.item.Items;
+import net.minecraftforge.client.event.InputEvent;
 import top.theillusivec4.curios.api.SlotContext;
+
+import javax.swing.text.JTextComponent;
+
 public class CloudiumRing extends AccessoryItem {
     public CloudiumRing(Properties properties) {
         super(properties);
@@ -29,9 +36,9 @@ public class CloudiumRing extends AccessoryItem {
         if (!livingEntity.isOnGround()) {
             if(pTime >= 1.5)
                 if(livingEntity instanceof Player player) {
-                    if(!player.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA)) {
-                        Double x = player.getLookAngle().x;
-                        Double z = player.getLookAngle().z;
+                    if(!player.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA) && Minecraft.getInstance().options.keyUp.isDown()) {
+                        Double x = player.getLookAngle().x * 0.01;
+                        Double z = player.getLookAngle().z * 0.01;
                         player.push(x, 0, z);
                         if (player instanceof ServerPlayer serverPlayer) {
                             serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
