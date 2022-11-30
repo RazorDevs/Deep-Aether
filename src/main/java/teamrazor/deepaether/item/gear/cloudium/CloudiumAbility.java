@@ -64,15 +64,12 @@ public class CloudiumAbility extends ArmorItem {
                     double x = player.getLookAngle().x * strength * 2;
                     double y = player.getLookAngle().y * strength;
                     double z = player.getLookAngle().z * strength * 2;
-                    //a is going to be multiplied with x and z. y's max value is 2 or -2. The larges muliplyer should be 1 (looking forwatd). Defor we multiply y with 0.5
                     double a = y*0.5;
                     // absolute value of a
                     if (a < 0) {
                         a = a * -1;
                     }
-                    //When a (y) is large (when you look up or down) the multiplier of x and z should be close to zero
                     a = 1 - a;
-                    System.out.println("x: " + x + "y: " + y + "z: " + z);
                     if (CloudiumAbility.isCloudiumDashActive(player)) {
                         coolDown = 5;
                         player.push(x*a, y, z*a);
