@@ -2,6 +2,7 @@ package teamrazor.deepaether.world.feature;
 
 import com.gildedgames.aether.AetherTags;
 
+import com.gildedgames.aether.block.AetherBlockStateProperties;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
@@ -52,10 +53,9 @@ import static net.minecraft.data.worldgen.features.CaveFeatures.MOSS_VEGETATION;
 public class DeepAetherModConfiguredFeatures {
 
     private static List decorators = List.of(new FlowerDecorator(1.0F));
-
     public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> ROSEWOOD_TREE =
             FeatureUtils.register("rosewood", Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                    BlockStateProvider.simple(DeepAetherModBlocks.ROSE_LOG.get()),
+                    BlockStateProvider.simple(DeepAetherModBlocks.ROSE_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)),
                     new StraightTrunkPlacer(5, 6, 3),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModBlocks.ROSE_LEAVES.get().defaultBlockState(), 2).add(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState(),1)),
                     new FlowerBlobFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, ConstantInt.of(3)),

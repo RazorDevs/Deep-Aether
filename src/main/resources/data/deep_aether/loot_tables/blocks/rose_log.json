@@ -1,14 +1,25 @@
 {
-    "type": "minecraft:block",
-    "pools": [
-      {
-        "rolls": 1,
-        "entries": [
-          {
-            "type": "minecraft:item",
-            "name": "deep_aether:rose_log"
-          }
-        ]
-      }
-    ]
-  }
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "aether:double_drops"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "deep_aether:rose_log"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

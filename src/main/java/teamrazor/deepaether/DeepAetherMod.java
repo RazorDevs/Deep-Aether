@@ -6,7 +6,6 @@ import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -14,7 +13,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -23,7 +21,6 @@ import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 
 
-import teamrazor.deepaether.block.Behaviors.DeepAetherModBlockInteractionBehavior;
 import teamrazor.deepaether.block.Behaviors.DeepAetherModDispenseBehaviors;
 import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -125,7 +122,7 @@ public class DeepAetherMod {
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		registerDispenserBehaviors();
-		registerCompostables();
+		registerCompostable();
 	}
 
 		private void enqueueIMC(final InterModEnqueueEvent event)
@@ -145,17 +142,23 @@ public class DeepAetherMod {
 		DispenserBlock.registerBehavior(Items.POTION, DeepAetherModDispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DeepAetherModItems.PLACEABLE_POISON_BUCKET.get(), DeepAetherModDispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DeepAetherModItems.VIRULENT_QUICKSAND_BUCKET.get(), DeepAetherModDispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
-		DispenserBlock.registerBehavior(DeepAetherModItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_PICKUP_BEHAVIOR);
-		DispenserBlock.registerBehavior(DeepAetherModItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_DISPENSE_BEHAVIOR);
+		//DispenserBlock.registerBehavior(DeepAetherModItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_PICKUP_BEHAVIOR);
+		//DispenserBlock.registerBehavior(DeepAetherModItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), AetherDispenseBehaviors.SKYROOT_BUCKET_DISPENSE_BEHAVIOR);
 	}
-	public void registerCompostables() {
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAVES.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAVES.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAVES.get(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAF_CARPET.get(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAF_CARPET.get(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAF_CARPET.get(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_CARPET.get(), 0.3F);
+	public void registerCompostable() {
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAF_CARPET.get().asItem(), 0.2F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAF_CARPET.get().asItem(), 0.2F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAF_CARPET.get().asItem(), 0.2F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSEWOOD_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DeepAetherModItems.AERGLOW_PETAL.get().asItem(), 0.1F);
+
 	}
 }
