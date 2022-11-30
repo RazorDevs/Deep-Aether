@@ -1,5 +1,5 @@
 
-package teamrazor.deepaether.item.equipment.skyjade;
+package teamrazor.deepaether.item.gear.skyjade;
 
 import teamrazor.deepaether.init.DeepAetherModTabs;
 import teamrazor.deepaether.init.DeepAetherModItems;

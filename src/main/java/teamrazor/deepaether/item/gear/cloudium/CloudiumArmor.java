@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.equipment.cloudium;
+package teamrazor.deepaether.item.gear.cloudium;
 
 import com.gildedgames.aether.capability.player.AetherPlayer;
 
@@ -6,7 +6,7 @@ import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import teamrazor.deepaether.item.equipment.EquipmentUtil;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
 
 public interface CloudiumArmor {
 

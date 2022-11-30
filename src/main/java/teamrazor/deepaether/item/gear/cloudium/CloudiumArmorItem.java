@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.equipment.cloudium;
+package teamrazor.deepaether.item.gear.cloudium;
 
 import java.util.function.Supplier;
 import net.minecraft.sounds.SoundEvent;

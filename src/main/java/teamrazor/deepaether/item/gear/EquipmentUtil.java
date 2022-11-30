@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.equipment;
+package teamrazor.deepaether.item.gear;
 
 import teamrazor.deepaether.init.DeepAetherModItems;
 import net.minecraft.world.entity.EquipmentSlot;

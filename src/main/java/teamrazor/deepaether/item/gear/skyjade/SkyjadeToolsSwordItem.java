@@ -1,5 +1,5 @@
 
-package teamrazor.deepaether.item.equipment.skyjade;
+package teamrazor.deepaether.item.gear.skyjade;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.EquipmentSlot;

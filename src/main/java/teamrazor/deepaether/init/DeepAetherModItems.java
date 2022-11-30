@@ -15,12 +15,10 @@ import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.level.block.Block;
-import teamrazor.deepaether.item.equipment.cloudium.CloudiumAbility;
-import teamrazor.deepaether.item.equipment.cloudium.CloudiumArmorItem;
+import teamrazor.deepaether.item.gear.cloudium.*;
 
-import teamrazor.deepaether.item.equipment.cloudium.CloudiumRing;
-import teamrazor.deepaether.item.equipment.DeepAetherGlovesItem;
-import teamrazor.deepaether.item.equipment.skyjade.*;
+import teamrazor.deepaether.item.gear.DeepAetherGlovesItem;
+import teamrazor.deepaether.item.gear.skyjade.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 
@@ -53,6 +51,11 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> CLOUDIUM_GLOVES = HELPER.createItem("cloudium_gloves", () -> new DeepAetherGlovesItem(2.0, "cloudium_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> CLOUDIUM_RING = HELPER.createItem("cloudium_ring", () -> new CloudiumRing(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 
+	public static final RegistryObject<Item> CLOUDIUM_SWORD = HELPER.createItem("cloudium_sword", () -> new CloudiumSwordItem(Tiers.NETHERITE, 3, -2.4F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_SHOVEL = HELPER.createItem("cloudium_shovel", () -> new CloudiumShovelItem(Tiers.NETHERITE, 1.5F, -3.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_PICKAXE = HELPER.createItem("cloudium_pickaxe", () -> new CloudiumPickaxeItem(Tiers.NETHERITE, 1, -2.8F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_AXE = HELPER.createItem("cloudium_axe", () -> new CloudiumAxeItem(Tiers.NETHERITE, 5.0F, -3.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> CLOUDIUM_HOE = HELPER.createItem("cloudium_hoe", () -> new CloudiumHoeItem(Tiers.NETHERITE, -4, 0.0F, (new Item.Properties()).tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = HELPER.createItem("skyjade", () -> new SkyjadeItem());
 	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = HELPER.createItem("adibium_gemstone", () -> new Item(new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB)));

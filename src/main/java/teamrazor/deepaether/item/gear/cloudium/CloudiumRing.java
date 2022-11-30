@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.equipment.cloudium;
+package teamrazor.deepaether.item.gear.cloudium;
 
 
 import com.gildedgames.aether.item.accessories.AccessoryItem;

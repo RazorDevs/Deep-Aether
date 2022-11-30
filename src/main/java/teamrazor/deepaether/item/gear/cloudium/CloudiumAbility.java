@@ -1,13 +1,8 @@
-package teamrazor.deepaether.item.equipment.cloudium;
+package teamrazor.deepaether.item.gear.cloudium;
 
-
-import com.gildedgames.aether.capability.player.AetherPlayer;
-import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,10 +13,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DeepAetherModItems;
-import teamrazor.deepaether.item.equipment.EquipmentUtil;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
 import top.theillusivec4.curios.api.CuriosApi;
-
-import java.util.Map;
 
 
 public class CloudiumAbility extends ArmorItem {
