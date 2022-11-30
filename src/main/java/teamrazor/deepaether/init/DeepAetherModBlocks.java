@@ -33,13 +33,7 @@ import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
 
 public class DeepAetherModBlocks {
 
-
 	public static final BlockSubRegistryHelper HELPER = DeepAetherMod.REGISTRY_HELPER.getBlockSubHelper();
-
-
-	// GRASS - randomTicks() is needed for grass growth.
-	//public static final RegistryObject<Block> AERGLOW_GRASS_BLOCK = HELPER.createBlock()("aerglow_grass_block", () -> new GrassBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.GRAVEL).strength(1f, 10f).randomTicks()));
-	//public static final RegistryObject<Block> AERGLOW_GRASS_PATH = HELPER.createBlock()("aerglow_grass_path", () -> new DirtPathBlock(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRAVEL)));
 
 	// WOOD
 	public static final RegistryObject<Block> ROSE_WOOD = HELPER.createBlock("rose_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)), DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB);

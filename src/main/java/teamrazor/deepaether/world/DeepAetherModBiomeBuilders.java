@@ -28,6 +28,8 @@ import java.util.List;
 
 public class DeepAetherModBiomeBuilders {
 
+    //TODO: Create and implement biomes in Aether Dimension
+
     @Nullable
     private static final Music NORMAL_MUSIC = null;
 

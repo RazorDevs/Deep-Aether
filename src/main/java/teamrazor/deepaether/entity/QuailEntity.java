@@ -62,6 +62,8 @@ public class QuailEntity extends Chicken implements IAnimatable {
         return DeepAetherModEntities.QUAIL.get().create(serverLevel);
     }
 
+    //TODO: Play Flapping animation during a fall only.
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.walk", true));
@@ -71,6 +73,7 @@ public class QuailEntity extends Chicken implements IAnimatable {
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.idle", true));
         return PlayState.CONTINUE;
     }
+
 
     @Override
     public void registerControllers(AnimationData data) {

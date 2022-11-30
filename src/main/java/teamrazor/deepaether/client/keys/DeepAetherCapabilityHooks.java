@@ -7,6 +7,8 @@ import net.minecraft.world.entity.player.Player;
 
 public class DeepAetherCapabilityHooks {
 
+    //TODO: Reorganize abilities.
+
     public static void keyInput(int key) {
         checkDashAbility(key);
     }

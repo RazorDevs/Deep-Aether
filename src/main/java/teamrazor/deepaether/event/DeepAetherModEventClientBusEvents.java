@@ -17,11 +17,7 @@ public class DeepAetherModEventClientBusEvents {
         EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
         EntityRenderers.register(DeepAetherModEntities.AETHER_FISH.get(), AetherFishRenderer::new);
     }
-    @SubscribeEvent
-    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-
-        }
-    }
+}
 
 
 
