@@ -1,17 +1,6 @@
 package teamrazor.deepaether.world;
 
-
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.client.AetherSoundEvents;
-import com.gildedgames.aether.data.resources.AetherBiomes;
-import com.gildedgames.aether.data.resources.AetherConfiguredFeatures;
-import com.gildedgames.aether.data.resources.AetherPlacedFeatures;
-import com.gildedgames.aether.data.resources.builders.AetherBiomeBuilders;
-import com.gildedgames.aether.entity.AetherEntityTypes;
-import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.JsonOps;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+/*
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.sounds.Music;
@@ -19,12 +8,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraftforge.registries.ForgeRegistries;
-import teamrazor.deepaether.init.DeepAetherModBiomes;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class DeepAetherModBiomeBuilders {
 
@@ -94,4 +79,4 @@ public class DeepAetherModBiomeBuilders {
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
         return biome(Biome.Precipitation.NONE, -0.7F, 0.9F, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
-}
+}*/

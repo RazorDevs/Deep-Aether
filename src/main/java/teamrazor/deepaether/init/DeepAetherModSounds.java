@@ -14,11 +14,15 @@ import teamrazor.deepaether.DeepAetherMod;
 import java.util.Map;
 import java.util.HashMap;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAetherModSounds {
 
-	public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DeepAetherMod.MODID);
+	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DeepAetherMod.MODID);
 
-	public static final RegistryObject<SoundEvent> NABOORU = REGISTRY.register("music_disc_nabooru", () -> new SoundEvent(new ResourceLocation("deep_aether", "music_disc_nabooru")));
-	public static final RegistryObject<SoundEvent> A_MORNING_WISH = REGISTRY.register("music_disc_a_morning_wish", () -> new SoundEvent(new ResourceLocation("deep_aether", "music_disc_a_morning_wish")));
+	public static final RegistryObject<SoundEvent> NABOORU = register("music_disc_nabooru");
+	public static final RegistryObject<SoundEvent> A_MORNING_WISH = register( "music_disc_a_morning_wish");
+
+
+	private static RegistryObject<SoundEvent> register(String name) {
+		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAetherMod.MODID, name)));
+	}
 }

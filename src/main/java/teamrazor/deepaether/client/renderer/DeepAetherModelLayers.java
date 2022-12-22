@@ -1,5 +1,5 @@
 package teamrazor.deepaether.client.renderer;
-
+/*
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 
@@ -20,3 +20,4 @@ public class DeepAetherModelLayers {
         return new ModelLayerLocation(identifier, type);
     }
 }
+*/

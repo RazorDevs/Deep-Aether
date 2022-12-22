@@ -1,8 +1,6 @@
 package teamrazor.deepaether.world.Gen;
 /*
 import com.gildedgames.aether.client.AetherSoundEvents;
-import com.gildedgames.aether.data.resources.AetherBiomes;
-import com.gildedgames.aether.data.resources.AetherPlacedFeatures;
 import com.gildedgames.aether.data.resources.builders.AetherBiomeBuilders;
 import com.gildedgames.aether.entity.AetherEntityTypes;
 import com.mojang.datafixers.util.Pair;
@@ -12,7 +10,7 @@ import net.minecraft.sounds.Music;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import teamrazor.deepaether.init.DeepAetherModBiomes;
+
 
 import java.util.List;
 
@@ -97,4 +95,5 @@ public class DeepAetherBiomeBuilder extends AetherBiomeBuilders {
                 .build();
     }
 }
+
 */

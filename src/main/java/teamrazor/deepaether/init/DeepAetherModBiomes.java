@@ -2,7 +2,6 @@ package teamrazor.deepaether.init;
 
 
 import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.data.resources.AetherBiomes;
 import com.gildedgames.aether.data.resources.builders.AetherBiomeBuilders;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -16,12 +15,12 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
 import org.checkerframework.checker.units.qual.A;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
 
 
+/*
 import java.util.HashMap;
 import java.util.Map;
-/*
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -49,12 +48,12 @@ public class DeepAetherModBiomes {
     {
         return REGISTRY.register(key.location().getPath(), biomeSupplier);
     }
-}*/
+}
 
 public class DeepAetherModBiomes {
     public static final Map<ResourceLocation, Biome> BIOMES = new HashMap<>();
 
-    //public static final ResourceKey<Biome> VIRULENT_FOREST = register("virulent_forest", DeepAetherBiomeBuilder.virulentForest());
+    public static final ResourceKey<Biome> VIRULENT_FOREST = register("virulent_forest", DeepAetherBiomeBuilder.virulentForest());
 
 
     public static ResourceKey<Biome> register(String name, Biome biome) {
@@ -63,3 +62,4 @@ public class DeepAetherModBiomes {
         return ResourceKey.create(Registry.BIOME_REGISTRY, location);
     }
 }
+*/

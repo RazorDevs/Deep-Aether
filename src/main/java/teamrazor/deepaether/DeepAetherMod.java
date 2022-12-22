@@ -1,16 +1,11 @@
 package teamrazor.deepaether;
-
-//import com.gildedgames.aether.data.generators.AetherDataGenerators;
-import com.gildedgames.aether.block.dispenser.AetherDispenseBehaviors;
 import com.gildedgames.aether.data.generators.tags.AetherBlockTagData;
 import com.mojang.logging.LogUtils;
-import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
-
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -18,9 +13,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import org.slf4j.Logger;
-import software.bernie.geckolib3.GeckoLib;
 
 
+import software.bernie.geckolib.GeckoLib;
 import teamrazor.deepaether.block.Behaviors.DeepAetherModDispenseBehaviors;
 import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -32,12 +27,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
-//import teamrazor.deepaether.tags.DeepAetherBiomeTagData;
-import teamrazor.deepaether.tags.DeepAetherBlockTagData;
-import teamrazor.deepaether.tags.DeepAetherItemTagData;
-//import teamrazor.deepaether.world.DeepAetherModBiomeBuilders;
-//import teamrazor.deepaether.world.DeepAetherModDataGenerators;
-
 
 import teamrazor.deepaether.world.feature.DeepAetherModPlacedFeatures;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
@@ -55,7 +44,6 @@ public class DeepAetherMod {
 	private static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
 
 	private static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
@@ -63,7 +51,7 @@ public class DeepAetherMod {
 	private static int messageID = 0;
 
 	public DeepAetherMod() {
-		DeepAetherModTabs.load();
+
 		// Register the setup method for modloading
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		// Register the enqueueIMC method for modloading
@@ -83,11 +71,11 @@ public class DeepAetherMod {
 		// Register ourselves for server and other game events we are interested in
 		MinecraftForge.EVENT_BUS.register(this);
 
-		REGISTRY_HELPER.register(bus);
 		GeckoLib.initialize();
-
-		DeepAetherModEntities.REGISTRY.register(bus);
-		DeepAetherModSounds.REGISTRY.register(bus);
+		DeepAetherModBlocks.BLOCKS.register(bus);
+		DeepAetherModItems.ITEMS.register(bus);
+		//DeepAetherModEntities.REGISTRY.register(bus);
+		DeepAetherModSounds.SOUNDS.register(bus);
 		DeepAetherModFluids.register(bus);
 		DeepAetherModFluidTypes.register(bus);
 		DeepAetherDecoratorType.REGISTRY.register(bus);
@@ -117,11 +105,11 @@ public class DeepAetherMod {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper helper = event.getExistingFileHelper();
 
-		AetherBlockTagData blockTags = new AetherBlockTagData(generator, helper);
+		/*AetherBlockTagData blockTags = new AetherBlockTagData(generator, helper);
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DeepAetherItemTagData(generator, blockTags, helper));
 		generator.addProvider(event.includeServer(), new DeepAetherBlockTagData(generator, helper));
-		// generator.addProvider(event.includeServer(), new DeepAetherBiomeTagData(generator, helper));
+		// generator.addProvider(event.includeServer(), new DeepAetherBiomeTagData(generator, helper));*/
 		//generator.addProvider(event.includeServer(), DeepAetherModDataGenerators.levelStem(generator, helper));
 	}
 
@@ -155,9 +143,9 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAF_CARPET.get().asItem(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAF_CARPET.get().asItem(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAF_CARPET.get().asItem(), 0.2F);
+		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAF_CARPET.get().asItem(), 0.2F);
+		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAF_CARPET.get().asItem(), 0.2F);
+		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAF_CARPET.get().asItem(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSEWOOD_SAPLING.get().asItem(), 0.3F);

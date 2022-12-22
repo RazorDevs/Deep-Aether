@@ -1,8 +1,6 @@
 
 package teamrazor.deepaether.item;
 
-import teamrazor.deepaether.init.DeepAetherModTabs;
-
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ItemStack;
@@ -10,7 +8,8 @@ import net.minecraft.world.item.Item;
 
 public class AerglowPetalItem extends Item {
 	public AerglowPetalItem() {
-		super(new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(64).rarity(Rarity.COMMON));
+		super(new Properties()
+				.stacksTo(64).rarity(Rarity.COMMON));
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package teamrazor.deepaether.block;
 
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MossBlock;
@@ -18,9 +19,9 @@ public class DeepAetherMossBlock extends Block implements BonemealableBlock {
     public DeepAetherMossBlock(BlockBehaviour.Properties p_153790_) {
         super(p_153790_);
     }
-
-    public boolean isValidBonemealTarget(BlockGetter p_153797_, BlockPos p_153798_, BlockState p_153799_, boolean p_153800_) {
-        return p_153797_.getBlockState(p_153798_.above()).isAir();
+    @Override
+    public boolean isValidBonemealTarget(LevelReader p_256559_, BlockPos p_50898_, BlockState p_50899_, boolean p_50900_) {
+        return p_256559_.getBlockState(p_50898_.above()).isAir();
     }
 
     public boolean isBonemealSuccess(Level p_221538_, RandomSource p_221539_, BlockPos p_221540_, BlockState p_221541_) {

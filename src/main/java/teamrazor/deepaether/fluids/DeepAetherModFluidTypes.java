@@ -1,6 +1,6 @@
 package teamrazor.deepaether.fluids;
 
-import com.mojang.math.Vector3f;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.common.SoundAction;
@@ -9,6 +9,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.joml.Vector3f;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DeepAetherModFluidTypes {

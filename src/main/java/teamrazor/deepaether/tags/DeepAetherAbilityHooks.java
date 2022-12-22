@@ -1,7 +1,14 @@
 package teamrazor.deepaether.tags;
 
+<<<<<<< Updated upstream:src/main/java/teamrazor/deepaether/tags/DeepAetherAbilityHooks.java
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
+=======
+
+import com.google.common.collect.ImmutableMap;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.*;
+>>>>>>> Stashed changes:src/main/java/teamrazor/deepaether/tags/AbilityHooks.java
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -9,14 +16,17 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
+import teamrazor.deepaether.item.gear.cloudium.CloudiumAbility;
 
 import java.util.Map;
 
 public class DeepAetherAbilityHooks {
     public static class AccessoryHooks {
     }
-
     public static class ArmorHooks {
+        public static boolean fallCancellation(LivingEntity livingEntity) {
+            return CloudiumAbility.hasFullCloudiumSet(livingEntity);
+        }
     }
 
 
@@ -44,6 +54,5 @@ public class DeepAetherAbilityHooks {
             }
             return speed;
         }
-
     }
 }

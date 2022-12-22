@@ -1,5 +1,5 @@
 package teamrazor.deepaether.entity;
-
+/*
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
@@ -19,6 +19,7 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
+import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -64,12 +65,20 @@ public class QuailEntity extends Chicken implements IAnimatable {
 
     //TODO: Play Flapping animation during a fall only.
 
+    private PlayState flapPredicate(AnimationEvent event) {
+        if(!this.onGround &&  event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+            event.getController().markNeedsReload();
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.flap", false));
+            this.onGround = true;
+        }
+        return PlayState.CONTINUE;
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.walk", true));
             return PlayState.CONTINUE;
         }
-
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.idle", true));
         return PlayState.CONTINUE;
     }
@@ -77,12 +86,16 @@ public class QuailEntity extends Chicken implements IAnimatable {
 
     @Override
     public void registerControllers(AnimationData data) {
+
         data.addAnimationController(new AnimationController(this, "controller",
                 0, this::predicate));
+
+        data.addAnimationController(new AnimationController(this, "flapController",
+                0, this::flapPredicate));
     }
 
     @Override
     public AnimationFactory getFactory() {
         return factory;
     }
-}
+}*/

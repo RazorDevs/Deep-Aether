@@ -1,7 +1,7 @@
 
 package teamrazor.deepaether.item.gear.skyjade;
 
-import teamrazor.deepaether.init.DeepAetherModTabs;
+
 import teamrazor.deepaether.init.DeepAetherModItems;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -62,7 +62,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Helmet extends SkyjadeArmorItem {
 		public Helmet() {
-			super(EquipmentSlot.HEAD, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.HEAD, new Properties());
 		}
 
 		@Override
@@ -73,7 +73,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Chestplate extends SkyjadeArmorItem {
 		public Chestplate() {
-			super(EquipmentSlot.CHEST, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.CHEST, new Properties());
 		}
 
 		@Override
@@ -84,7 +84,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Leggings extends SkyjadeArmorItem {
 		public Leggings() {
-			super(EquipmentSlot.LEGS, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.LEGS, new Properties());
 		}
 
 		@Override
@@ -95,7 +95,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 	public static class Boots extends SkyjadeArmorItem {
 		public Boots() {
-			super(EquipmentSlot.FEET, new Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_ITEMS_TAB));
+			super(EquipmentSlot.FEET, new Properties());
 		}
 
 		@Override

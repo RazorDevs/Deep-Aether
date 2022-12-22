@@ -1,7 +1,5 @@
-
 /*
- *    MCreator note: This file will be REGENERATED on each build.
- */
+
 package teamrazor.deepaether.init;
 
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -39,3 +37,4 @@ public class DeepAetherModTabs {
 		};
 	}
 }
+*/

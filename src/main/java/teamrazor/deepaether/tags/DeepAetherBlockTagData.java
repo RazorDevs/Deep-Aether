@@ -1,9 +1,10 @@
 package teamrazor.deepaether.tags;
-
+/*
 import com.gildedgames.aether.block.AetherBlocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -26,6 +27,8 @@ public class DeepAetherBlockTagData extends BlockTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags() {
-        tag(BlockTags.CONVERTABLE_TO_MUD).remove(AetherBlocks.AETHER_DIRT.get());
+
+        //tag(BlockTags.CONVERTABLE_TO_MUD)(AetherBlocks.AETHER_DIRT.get());
     }
 }
+*/

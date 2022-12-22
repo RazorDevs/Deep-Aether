@@ -1,5 +1,5 @@
 package teamrazor.deepaether.client.renderer;
-
+/*
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -39,4 +39,4 @@ public class QuailRenderer extends GeoEntityRenderer<QuailEntity> {
         }
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
-}
+}*/

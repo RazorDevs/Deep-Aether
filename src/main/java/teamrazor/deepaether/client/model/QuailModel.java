@@ -1,5 +1,5 @@
 package teamrazor.deepaether.client.model;
-
+/*
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -49,4 +49,4 @@ public class QuailModel extends AnimatedGeoModel<QuailEntity> {
         head.setRotationX(entityData.headPitch * Mth.DEG_TO_RAD);
         head.setRotationY(entityData.netHeadYaw * Mth.DEG_TO_RAD);
     }
-}
+}*/

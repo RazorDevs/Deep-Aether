@@ -1,5 +1,5 @@
 package teamrazor.deepaether.init;
-
+/*
 import teamrazor.deepaether.entity.AetherFishEntity;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
@@ -45,4 +45,4 @@ public class DeepAetherModEntities {
 		event.put(AETHER_FISH.get(), AetherFishEntity.createAttributes().build());
 		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
 	}
-}
+}*/

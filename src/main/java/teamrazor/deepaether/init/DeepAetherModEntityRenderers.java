@@ -1,5 +1,5 @@
 package teamrazor.deepaether.init;
-
+/*
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -14,4 +14,4 @@ public class DeepAetherModEntityRenderers {
 		event.registerEntityRenderer(DeepAetherModEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
 	}
-}
+}*/
