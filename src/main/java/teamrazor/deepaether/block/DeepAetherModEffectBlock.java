@@ -23,6 +23,7 @@ public class DeepAetherModEffectBlock extends DeepAetherLeavesBlock {
     //protected static final VoxelShape OUTLINE_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
 
+
     public void stepOn(Level p_153777_, BlockPos p_153778_, BlockState p_153779_, Entity pEntity) {
         if (!p_153777_.isClientSide && p_153777_.getDifficulty() != Difficulty.PEACEFUL) {
 

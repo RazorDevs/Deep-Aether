@@ -14,6 +14,6 @@ public class RosewoodTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return DeepAetherModConfiguredFeatures.ROSEROOT_TREE;
+        return DeepAetherModConfiguredFeatures.ROSEROOT_TREE_CONFIGURATION;
     }
 }

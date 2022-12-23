@@ -1,35 +1,24 @@
 package teamrazor.deepaether.world.feature;
 
 import com.gildedgames.aether.data.resources.builders.AetherPlacedFeatureBuilders;
+import com.gildedgames.aether.data.resources.registries.AetherConfiguredFeatures;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.EventBus;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+
 import teamrazor.deepaether.DeepAetherMod;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
+
+
 
 import java.util.List;
 
-import static teamrazor.deepaether.world.feature.DeepAetherModConfiguredFeatures.AERGLOW_FOREST_TREES_PLACEMENT;
 
 public class DeepAetherModPlacedFeatures {
 
@@ -40,25 +29,19 @@ public class DeepAetherModPlacedFeatures {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
 
-
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AERGLOW_FOREST_TREES_PLACEMENT),
-                AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(2, 0.1F, 1)));
-
-
+        register(context, AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT),
+                DeepAetherPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
     }
 
-    private static void register
-            (BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>>
-                    configuration, List<PlacementModifier> modifiers) {
+
+    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
 
-    private static void register
-            (BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>>
-                    configuration, PlacementModifier... modifiers) {
+    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
         register(context, key, configuration, List.of(modifiers));
     }
 }

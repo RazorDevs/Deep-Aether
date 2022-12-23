@@ -3,6 +3,7 @@ package teamrazor.deepaether.world.feature;
 
 import com.gildedgames.aether.block.AetherBlockStateProperties;
 import com.gildedgames.aether.block.AetherBlocks;
+import com.gildedgames.aether.data.resources.AetherFeatureStates;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -20,8 +21,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.DeepAetherMod;
@@ -30,12 +33,14 @@ import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlace
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
 
 import java.util.List;
+import java.util.OptionalInt;
 
 import static com.gildedgames.aether.data.resources.registries.AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION;
 
 public class DeepAetherModConfiguredFeatures {
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE = createKey("roseroot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT = createKey("roseroot_and_golden_oak_trees_placement");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_CONFIGURATION = createKey("roseroot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_CONFIGURATION = createKey("golden_oak_tree");
 
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -44,7 +49,7 @@ public class DeepAetherModConfiguredFeatures {
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-        register(context, ROSEROOT_TREE, Feature.TREE,
+        register(context, ROSEROOT_TREE_CONFIGURATION, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
                         new StraightTrunkPlacer(5, 6, 3),
@@ -53,9 +58,18 @@ public class DeepAetherModConfiguredFeatures {
 
                 new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
-        register(context, AERGLOW_FOREST_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+        register(context, GOLDEN_OAK_TREE_CONFIGURATION, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
+                        new FancyTrunkPlacer(9, 5, 0),
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
+                        new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().build());
+
+        register(context, ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.01F)),
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
         /*register(context, ROSEROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
 
