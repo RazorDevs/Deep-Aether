@@ -25,7 +25,7 @@ You'll need of course:
  You will also need:
  - GeckoLib
  
- This mods has support for:
+ This mod will also have support for:
  -Quark
  
 # Credits
