@@ -1,14 +1,8 @@
 package teamrazor.deepaether.tags;
 
-<<<<<<< Updated upstream:src/main/java/teamrazor/deepaether/tags/DeepAetherAbilityHooks.java
-import com.google.common.collect.ImmutableMap;
-import net.minecraft.core.BlockPos;
-=======
-
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.*;
->>>>>>> Stashed changes:src/main/java/teamrazor/deepaether/tags/AbilityHooks.java
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;

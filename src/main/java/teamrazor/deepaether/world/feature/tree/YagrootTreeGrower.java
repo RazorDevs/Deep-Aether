@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.world.feature.DeepAetherModConfiguredFeatures;
-
+/*
 public class YagrootTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
@@ -14,3 +14,4 @@ public class YagrootTreeGrower extends AbstractTreeGrower {
         return DeepAetherModConfiguredFeatures.YAGROOT_TREE;
     }
 }
+*/

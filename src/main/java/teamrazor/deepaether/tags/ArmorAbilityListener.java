@@ -18,7 +18,8 @@ public class ArmorAbilityListener {
         LivingEntity livingEntity = event.getEntity();
         CloudiumArmor.moreBoostedJump(livingEntity);
     }
-
+}
+/*
     @SubscribeEvent
     public static void onEntityFall(LivingFallEvent event) {
         LivingEntity livingEntity = event.getEntity();
@@ -26,4 +27,4 @@ public class ArmorAbilityListener {
             event.setCanceled(AbilityHooks.ArmorHooks.fallCancellation(livingEntity));
         }
     }
-}
+}*/

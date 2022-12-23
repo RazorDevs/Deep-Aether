@@ -1,58 +1,83 @@
 package teamrazor.deepaether.world.feature;
 
-import com.gildedgames.aether.AetherTags;
 
 import com.gildedgames.aether.block.AetherBlockStateProperties;
-import net.minecraft.core.Direction;
-import net.minecraft.core.HolderSet;
-import net.minecraft.core.Registry;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.MangrovePropaguleBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
-import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
-import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
-import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.UpwardsBranchingTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import net.minecraftforge.common.Tags;
-import teamrazor.deepaether.init.DeepAetherModBlocks;
-import net.minecraft.core.Holder;
-import net.minecraft.data.worldgen.features.FeatureUtils;
+import com.gildedgames.aether.block.AetherBlocks;
+import com.google.common.collect.ImmutableList;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraftforge.registries.ForgeRegistries;
+import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.init.DeepAetherModBlocks;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
-import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Supplier;
 
-import static net.minecraft.data.worldgen.features.CaveFeatures.MOSS_VEGETATION;
+import static com.gildedgames.aether.data.resources.registries.AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION;
 
 public class DeepAetherModConfiguredFeatures {
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE = createKey("roseroot_tree");
 
-    private static List decorators = List.of(new FlowerDecorator(1.0F));
+
+    private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
+    }
+
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+        register(context, ROSEROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
+                        new StraightTrunkPlacer(5, 6, 3),
+                        new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(DeepAetherModFeatureStates.ROSE_LEAVES, 4).add(DeepAetherModFeatureStates.FLOWERING_ROSE_LEAVES, 1).build()),
+                        new FlowerBlobFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(2)),
+
+                new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
+
+        register(context, AERGLOW_FOREST_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.01F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
+        /*register(context, ROSEROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+
+                        BlockStateProvider.simple(DeepAetherModBlocks.ROSE_LOG.get().defaultBlockState()
+                                .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)),
+                        new StraightTrunkPlacer(5, 6, 3),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModBlocks.ROSE_LEAVES.get().defaultBlockState(), 2).add(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState(),1)),
+                        new FlowerBlobFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, ConstantInt.of(3)),
+                        new TwoLayersFeatureSize(1, 0, 2)).decorators(decorators).build());
+
+        register(context, AERGLOW_FOREST_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.01F)),
+                PlacementUtils.inlinePlaced (configuredFeatures.getOrThrow(ROSEROOT_TREE), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
+    }*/
+    }
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
+        context.register(key, new ConfiguredFeature<>(feature, configuration));
+    }
+}
+
+/*s
+
     public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> ROSEWOOD_TREE =
             FeatureUtils.register("rosewood", Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                     BlockStateProvider.simple(DeepAetherModBlocks.ROSE_LOG.get().defaultBlockState()
@@ -161,4 +186,4 @@ public class DeepAetherModConfiguredFeatures {
             Feature.ORE, new OreConfiguration(SKYJADE_ORES, 4, 0.1F));
 
 
-}
+}*/
