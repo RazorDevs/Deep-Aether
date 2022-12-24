@@ -1,4 +1,6 @@
-// 1.19.3	2022-12-24T10:03:29.4290898	Registries
+// 1.19.3	2022-12-24T10:13:59.015015	Registries
+5ccbc3ca6847c3bfdbd26166ee6a022e2f3f6132 data/deep_aether/worldgen/configured_feature/aether_moss_patch_bonemeal.json
+3e806ca975505693cea03fe9d8c77408aa6af4b2 data/deep_aether/worldgen/configured_feature/aether_moss_vegetation.json
 4518126ad5148b8ef460f5e54695092e59f4094b data/deep_aether/worldgen/configured_feature/cruderoot_tree.json
 2217bf18c74a0644d7d9ac6a18743fc781718398 data/deep_aether/worldgen/configured_feature/golden_oak_tree.json
 611c713b6cf77eb6152f2096ac6630d105e67457 data/deep_aether/worldgen/configured_feature/roseroot_and_golden_oak_trees_placement.json
