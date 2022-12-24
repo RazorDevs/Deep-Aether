@@ -12,5 +12,7 @@ public class DeepAetherModFeatureStates {
     public static final BlockState CRUDEROOT_LOG = DeepAetherModBlocks.CRUDEROOT_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState CRUDEROOT_LEAVES = DeepAetherModBlocks.CRUDEROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState FLOWERING_ROSE_LEAVES = DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
-
+    public static final BlockState YAGROOT_ROOTS = DeepAetherModBlocks.YAGROOT_ROOTS.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+    public static final BlockState AETHER_MOSS_CARPET = DeepAetherModBlocks.AETHER_MOSS_CARPET.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+    public static final BlockState MUDDY_YAGROOT_ROOTS = DeepAetherModBlocks.MUDDY_YAGROOT_ROOTS.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
 }

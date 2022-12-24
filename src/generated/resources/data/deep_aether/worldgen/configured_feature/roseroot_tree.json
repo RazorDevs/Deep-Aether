@@ -1,7 +1,12 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "deep_aether:flowers",
+        "probability": 1.0
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -11,8 +16,8 @@
     "foliage_placer": {
       "type": "deep_aether:flowers2",
       "offset": 0,
-      "radius": 1,
-      "trunk_height": 2
+      "radius": 2,
+      "trunk_height": 3
     },
     "foliage_provider": {
       "type": "minecraft:weighted_state_provider",
@@ -22,19 +27,19 @@
             "Name": "deep_aether:rose_leaves",
             "Properties": {
               "distance": "7",
-              "double_drops": "true",
+              "double_drops": "false",
               "persistent": "false",
               "waterlogged": "false"
             }
           },
-          "weight": 4
+          "weight": 2
         },
         {
           "data": {
             "Name": "deep_aether:flowering_rose_leaves",
             "Properties": {
               "distance": "7",
-              "double_drops": "true",
+              "double_drops": "false",
               "persistent": "false",
               "waterlogged": "false"
             }
@@ -44,12 +49,12 @@
       ]
     },
     "force_dirt": false,
-    "ignore_vines": true,
+    "ignore_vines": false,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
       "limit": 1,
       "lower_size": 0,
-      "upper_size": 1
+      "upper_size": 2
     },
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
