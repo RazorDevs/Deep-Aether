@@ -75,6 +75,7 @@ public class DeepAetherModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> YALLESITE_CONFIGURATION = createKey("yallesite");
 
 
+
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }

@@ -23,7 +23,28 @@ import java.util.List;
 public class DeepAetherModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
-
+    public static final ResourceKey<PlacedFeature> COLD_AERCLOUD_PLACEMENT = createKey( "cold_aercloud");
+    public static final ResourceKey<PlacedFeature> BLUE_AERCLOUD_PLACEMENT = createKey("blue_aercloud");
+    public static final ResourceKey<PlacedFeature> GOLDEN_AERCLOUD_PLACEMENT = createKey("golden_aercloud");
+    public static final ResourceKey<PlacedFeature> PINK_AERCLOUD_PLACEMENT = createKey("pink_aercloud");
+    public static final ResourceKey<PlacedFeature> SKYROOT_GROVE_TREES_PLACEMENT = createKey("skyroot_grove_trees");
+    public static final ResourceKey<PlacedFeature> SKYROOT_FOREST_TREES_PLACEMENT = createKey("skyroot_forest_trees");
+    public static final ResourceKey<PlacedFeature> SKYROOT_THICKET_TREES_PLACEMENT = createKey("skyroot_thicket_trees");
+    public static final ResourceKey<PlacedFeature> GOLDEN_FOREST_TREES_PLACEMENT = createKey("golden_forest_trees");
+    public static final ResourceKey<PlacedFeature> CRYSTAL_ISLAND_PLACEMENT = createKey("crystal_island");
+    public static final ResourceKey<PlacedFeature> HOLIDAY_TREE_PLACEMENT = createKey("holiday_tree");
+    public static final ResourceKey<PlacedFeature> FLOWER_PATCH_PLACEMENT = createKey("flower_patch");
+    public static final ResourceKey<PlacedFeature> GRASS_PATCH_PLACEMENT = createKey("grass_patch");
+    public static final ResourceKey<PlacedFeature> TALL_GRASS_PATCH_PLACEMENT = createKey("tall_grass_patch");
+    public static final ResourceKey<PlacedFeature> QUICKSOIL_SHELF_PLACEMENT = createKey("quicksoil_shelf");
+    public static final ResourceKey<PlacedFeature> WATER_LAKE_PLACEMENT = createKey("water_lake");
+    public static final ResourceKey<PlacedFeature> WATER_SPRING_PLACEMENT = createKey("water_spring");
+    public static final ResourceKey<PlacedFeature> ORE_AETHER_DIRT_PLACEMENT = createKey("aether_dirt_ore");
+    public static final ResourceKey<PlacedFeature> ORE_ICESTONE_PLACEMENT = createKey("icestone_ore");
+    public static final ResourceKey<PlacedFeature> ORE_AMBROSIUM_PLACEMENT = createKey("ambrosium_ore");
+    public static final ResourceKey<PlacedFeature> ORE_ZANITE_PLACEMENT = createKey("zanite_ore");
+    public static final ResourceKey<PlacedFeature> ORE_GRAVITITE_COMMON_PLACEMENT = createKey("gravitite_ore_common");
+    public static final ResourceKey<PlacedFeature> ORE_GRAVITITE_DENSE_PLACEMENT = createKey("gravitite_ore_dense");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));

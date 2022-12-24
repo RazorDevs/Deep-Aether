@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.deepaether.block.Behaviors.DeepAetherModDispenseBehaviors;
+
 import teamrazor.deepaether.datagen.DeepAetherModWorldGenData;
 import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -34,6 +35,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
+
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -120,8 +122,8 @@ public class DeepAetherMod {
 
 		// Server Data
 		generator.addProvider(event.includeServer(), new DeepAetherModWorldGenData(packOutput, lookupProvider));
-		/*generator.addProvider(event.includeServer(), AetherLevelStemData.create(packOutput, fileHelper));
-		generator.addProvider(event.includeServer(), new DeepAetherModRecipeData(packOutput));
+		//generator.addProvider(event.includeServer(), DeepAetherModLevelStemData.create(packOutput, fileHelper));
+		/*generator.addProvider(event.includeServer(), new DeepAetherModRecipeData(packOutput));
 		generator.addProvider(event.includeServer(), AetherLootTableData.create(packOutput));
 		generator.addProvider(event.includeServer(), new DeepAetherModLootModifierData(packOutput));
 		generator.addProvider(event.includeServer(), new DeepAetherModAdvancementData(packOutput, lookupProvider, fileHelper));
@@ -129,9 +131,9 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DeepAetherModItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DeepAetherModEntityTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DeepAetherModStructureTagData(packOutput, lookupProvider, fileHelper));*/
+		*///generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
+		//generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(packOutput, lookupProvider, fileHelper));
+		//generator.addProvider(event.includeServer(), new DeepAetherModStructureTagData(packOutput, lookupProvider, fileHelper));*/
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
