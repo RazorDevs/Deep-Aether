@@ -1,5 +1,8 @@
-// 1.19.3	2022-12-23T16:08:29.0049565	Registries
+// 1.19.3	2022-12-24T10:03:29.4290898	Registries
+4518126ad5148b8ef460f5e54695092e59f4094b data/deep_aether/worldgen/configured_feature/cruderoot_tree.json
 2217bf18c74a0644d7d9ac6a18743fc781718398 data/deep_aether/worldgen/configured_feature/golden_oak_tree.json
 611c713b6cf77eb6152f2096ac6630d105e67457 data/deep_aether/worldgen/configured_feature/roseroot_and_golden_oak_trees_placement.json
-2d49b609c71cacca820a2cb0548d7f57fce2472c data/deep_aether/worldgen/configured_feature/roseroot_tree.json
+a5e91596d83e8cb61ae8d7e06bb8fc01c2be1a14 data/deep_aether/worldgen/configured_feature/roseroot_tree.json
+e078507a85dc07d63c0e565faf555559ae41ece0 data/deep_aether/worldgen/configured_feature/yagroot_and_cruderoot_trees_placement.json
+1095cb7542d7bd6764c15001f8888b1ef995f998 data/deep_aether/worldgen/configured_feature/yagroot_tree.json
 f8ddd9fbb6e95f302803004811f33c504da43e08 data/deep_aether/worldgen/placed_feature/aerglow_forest_trees_placement.json

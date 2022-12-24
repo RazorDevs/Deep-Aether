@@ -27,7 +27,7 @@
             "Name": "deep_aether:rose_leaves",
             "Properties": {
               "distance": "7",
-              "double_drops": "false",
+              "double_drops": "true",
               "persistent": "false",
               "waterlogged": "false"
             }
@@ -39,7 +39,7 @@
             "Name": "deep_aether:flowering_rose_leaves",
             "Properties": {
               "distance": "7",
-              "double_drops": "false",
+              "double_drops": "true",
               "persistent": "false",
               "waterlogged": "false"
             }
