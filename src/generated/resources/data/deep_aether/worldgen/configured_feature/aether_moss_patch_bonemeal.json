@@ -7,7 +7,10 @@
     "ground_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "deep_aether:aether_moss_block"
+        "Name": "deep_aether:aether_moss_block",
+        "Properties": {
+          "double_drops": "false"
+        }
       }
     },
     "replaceable": "#minecraft:moss_replaceable",

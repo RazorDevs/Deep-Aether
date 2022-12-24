@@ -3,6 +3,7 @@ package teamrazor.deepaether.world.feature;
 
 import com.gildedgames.aether.block.AetherBlockStateProperties;
 import com.gildedgames.aether.block.AetherBlocks;
+import com.gildedgames.aether.data.resources.AetherFeatureRules;
 import com.gildedgames.aether.data.resources.AetherFeatureStates;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.*;
@@ -61,9 +62,18 @@ public class DeepAetherModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?,?>> CRUDEROOT_TREE_CONFIGURATION = createKey("cruderoot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT = createKey("roseroot_and_golden_oak_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> YAGROOT_AND_CRUDEROOT_TREES_PLACEMENT = createKey("yagroot_and_cruderoot_trees_placement");
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_MOSS_VEGETATION = createKey("aether_moss_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_MOSS_PATCH_BONEMEAL = createKey("aether_moss_patch_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_SKYJADE_CONFIGURATION = createKey("skyjade_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_SKYJADE_CONFIGURATION_SMALL = createKey("skyjade_ore_small");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_DIVINE_DEBRIS_CONFIGURATION = createKey("divine_debris");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASETERITE_CONFIGURATION = createKey("aseterite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DARKERITE_CONFIGURATION = createKey("darkerite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GREOTITE_CONFIGURATION = createKey("greotite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> JARINITE_CONFIGURATION = createKey("jarinite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_CONFIGURATION = createKey("clorite");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> YALLESITE_CONFIGURATION = createKey("yallesite");
+
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -124,68 +134,19 @@ public class DeepAetherModConfiguredFeatures {
         register(context, AETHER_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModBlocks.AETHER_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
         register(context, AETHER_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get()),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AETHER_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
+
+
+        register(context, ORE_SKYJADE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.SKYJADE_ORE, 9, 1.0F));
+        register(context, ORE_SKYJADE_CONFIGURATION_SMALL, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.SKYJADE_ORE, 4, 0.1F));
+        register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.DIVINE_DEBRIS, 3, 1.0F));
+        register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.ASETERITE, 64));
+        register(context, DARKERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.DARKERITE, 64));
+        register(context, GREOTITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.GREOTITE, 64));
+        register(context, JARINITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.JARINITE, 64));
+        register(context, CLORITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.CLORITE, 64));
+        register(context, YALLESITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.YALLESITE, 64));
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 }
-
-/*
-    public static final Holder<ConfiguredFeature<VegetationPatchConfiguration, ?>> AETHER_MOSS_PATCH_BONEMEAL = FeatureUtils.register("aether_moss_patch_bonemeal", Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get()), PlacementUtils.inlinePlaced(AETHER_MOSS_VEGETATION), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
-
-
-
-    public static final List<OreConfiguration.TargetBlockState> VIRULENT_QUICKSAND_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.AETHER_DIRT), DeepAetherModBlocks.VIRULENT_QUICKSAND.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> AETHER_MOSS_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.AETHER_DIRT), DeepAetherModBlocks.AETHER_MOSS_BLOCK.get().defaultBlockState()));
-
-
-    public static final List<OreConfiguration.TargetBlockState> ASETERITE_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.ASETERITE.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> DARKERITE_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.DARKERITE.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> CLORITE_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.CLORITE.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> JARINITE_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.JARINITE.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> GREOTITE_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.GREOTITE.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> YALLESITE_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.YALLESITE.get().defaultBlockState()));
-
-    public static final List<OreConfiguration.TargetBlockState> SKYJADE_ORES = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.SKYJADE_ORE.get().defaultBlockState()));
-    public static final List<OreConfiguration.TargetBlockState> CLOUDIUM_DEBRIS_ORE = List.of(
-            OreConfiguration.target(new TagMatchTest(AetherTags.Blocks.HOLYSTONE), DeepAetherModBlocks.CLOUDIUM_DEBRIS.get().defaultBlockState()));
-
-
-
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> AETHER_MOSS = FeatureUtils.register("aether_moss",
-            Feature.ORE, new OreConfiguration(AETHER_MOSS_ORE, 32));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> VIRULENT_QUICKSAND = FeatureUtils.register("virulent_quicksand",
-            Feature.ORE, new OreConfiguration(VIRULENT_QUICKSAND_ORE, 32));
-
-
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ASETERITE = FeatureUtils.register("aseterite",
-            Feature.ORE, new OreConfiguration(ASETERITE_ORE, 64));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JARINITE = FeatureUtils.register("jarinite",
-            Feature.ORE, new OreConfiguration(JARINITE_ORE, 64));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> GREOTITE = FeatureUtils.register("greotite",
-            Feature.ORE, new OreConfiguration(GREOTITE_ORE, 64));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> DARKERITE = FeatureUtils.register("darkerite",
-            Feature.ORE, new OreConfiguration(DARKERITE_ORE, 64));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CLORITE = FeatureUtils.register("clorite",
-            Feature.ORE, new OreConfiguration(CLORITE_ORE, 64));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> YALLESITE = FeatureUtils.register("yallesite",
-            Feature.ORE, new OreConfiguration(YALLESITE_ORE, 64));
-
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CLOUDIUM_DEBRIS = FeatureUtils.register("cloudium_debris",
-            Feature.ORE, new OreConfiguration(CLOUDIUM_DEBRIS_ORE, 3, 1.0F));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> SKYJADE_ORE = FeatureUtils.register("skyjade_ore",
-            Feature.ORE, new OreConfiguration(SKYJADE_ORES, 9, 1.0F));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> SKYJADE_ORE_SMALL = FeatureUtils.register("skyjade_ore_small",
-            Feature.ORE, new OreConfiguration(SKYJADE_ORES, 4, 0.1F));
-
-
-}*/
