@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "deep_aether:aerlavender"
+                },
+                "weight": 64
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:tall_aerlavender"
+                },
+                "weight": 32
+              },
+              {
+                "data": {
+                  "Name": "minecraft:grass"
+                },
+                "weight": 32
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 218,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

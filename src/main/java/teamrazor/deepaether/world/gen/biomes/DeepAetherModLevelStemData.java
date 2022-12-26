@@ -35,7 +35,7 @@ public class DeepAetherModLevelStemData {
         HolderGetter<Biome> biomes = aetherRegistry.lookupOrThrow(Registries.BIOME);
         HolderGetter<NoiseGeneratorSettings> noiseSettings = aetherRegistry.lookupOrThrow(Registries.NOISE_SETTINGS);
         HolderGetter<DimensionType> dimensionTypes = aetherRegistry.lookupOrThrow(Registries.DIMENSION_TYPE);
-        BiomeSource source = DeepAetherModBiomeBuilders.buildDeepAetherModBiomeSource(biomes);
+        BiomeSource source = DeepAetherModBiomes.buildDeepAetherModBiomeSource(biomes);
         NoiseBasedChunkGenerator aetherChunkGen = new NoiseBasedChunkGenerator(source, noiseSettings.getOrThrow(AetherNoiseSettings.SKYLANDS));
         LevelStem levelStem = new LevelStem(dimensionTypes.getOrThrow(AetherDimensions.AETHER_DIMENSION_TYPE), aetherChunkGen);
         Map<ResourceLocation, LevelStem> map = Map.of(AetherDimensions.AETHER_LEVEL_STEM.location(), levelStem);

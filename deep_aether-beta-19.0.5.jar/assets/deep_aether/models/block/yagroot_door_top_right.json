@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_top_right",
-  "render_type": "cutout",
-  "textures": {
-    "bottom": "deep_aether:block/yagroot_door_bottom",
-    "top": "deep_aether:block/yagroot_door_top"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "experience": 1,
-  "cookingtime": 100,
-  "ingredient": {
-    "item": "deep_aether:skyjade_ore"
-  },
-  "result": "deep_aether:skyjade"
-}

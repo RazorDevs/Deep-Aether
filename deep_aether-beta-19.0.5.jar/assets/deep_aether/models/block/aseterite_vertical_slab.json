@@ -1,8 +1,0 @@
-{
-  "parent": "blueprint:block/vertical_slab",
-  "textures": {
-    "side": "deep_aether:block/aseterite",
-    "bottom": "deep_aether:block/aseterite",
-    "top": "deep_aether:block/aseterite"
-  }
-}

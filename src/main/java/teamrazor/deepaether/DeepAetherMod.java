@@ -1,6 +1,5 @@
 package teamrazor.deepaether;
-import com.gildedgames.aether.data.generators.*;
-import com.gildedgames.aether.data.generators.tags.*;
+import com.gildedgames.aether.data.generators.AetherWorldGenData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -122,6 +121,7 @@ public class DeepAetherMod {
 
 		// Server Data
 		generator.addProvider(event.includeServer(), new DeepAetherModWorldGenData(packOutput, lookupProvider));
+		//generator.addProvider(event.includeServer(), new AetherWorldGenData(packOutput, lookupProvider));
 		//generator.addProvider(event.includeServer(), DeepAetherModLevelStemData.create(packOutput, fileHelper));
 		/*generator.addProvider(event.includeServer(), new DeepAetherModRecipeData(packOutput));
 		generator.addProvider(event.includeServer(), AetherLootTableData.create(packOutput));
@@ -132,7 +132,7 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), new DeepAetherModItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DeepAetherModEntityTagData(packOutput, lookupProvider, fileHelper));
 		*///generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
-		//generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(packOutput, lookupProvider, fileHelper));
+
 		//generator.addProvider(event.includeServer(), new DeepAetherModStructureTagData(packOutput, lookupProvider, fileHelper));*/
 	}
 

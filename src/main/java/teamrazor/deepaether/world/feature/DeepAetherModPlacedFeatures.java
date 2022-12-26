@@ -1,5 +1,6 @@
 package teamrazor.deepaether.world.feature;
 
+import com.gildedgames.aether.Aether;
 import com.gildedgames.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.gildedgames.aether.data.resources.registries.AetherConfiguredFeatures;
 import net.minecraft.core.HolderGetter;
@@ -9,9 +10,8 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.core.Holder;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -23,38 +23,27 @@ import java.util.List;
 public class DeepAetherModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
-    public static final ResourceKey<PlacedFeature> COLD_AERCLOUD_PLACEMENT = createKey( "cold_aercloud");
-    public static final ResourceKey<PlacedFeature> BLUE_AERCLOUD_PLACEMENT = createKey("blue_aercloud");
-    public static final ResourceKey<PlacedFeature> GOLDEN_AERCLOUD_PLACEMENT = createKey("golden_aercloud");
-    public static final ResourceKey<PlacedFeature> PINK_AERCLOUD_PLACEMENT = createKey("pink_aercloud");
-    public static final ResourceKey<PlacedFeature> SKYROOT_GROVE_TREES_PLACEMENT = createKey("skyroot_grove_trees");
-    public static final ResourceKey<PlacedFeature> SKYROOT_FOREST_TREES_PLACEMENT = createKey("skyroot_forest_trees");
-    public static final ResourceKey<PlacedFeature> SKYROOT_THICKET_TREES_PLACEMENT = createKey("skyroot_thicket_trees");
-    public static final ResourceKey<PlacedFeature> GOLDEN_FOREST_TREES_PLACEMENT = createKey("golden_forest_trees");
-    public static final ResourceKey<PlacedFeature> CRYSTAL_ISLAND_PLACEMENT = createKey("crystal_island");
-    public static final ResourceKey<PlacedFeature> HOLIDAY_TREE_PLACEMENT = createKey("holiday_tree");
-    public static final ResourceKey<PlacedFeature> FLOWER_PATCH_PLACEMENT = createKey("flower_patch");
-    public static final ResourceKey<PlacedFeature> GRASS_PATCH_PLACEMENT = createKey("grass_patch");
-    public static final ResourceKey<PlacedFeature> TALL_GRASS_PATCH_PLACEMENT = createKey("tall_grass_patch");
-    public static final ResourceKey<PlacedFeature> QUICKSOIL_SHELF_PLACEMENT = createKey("quicksoil_shelf");
-    public static final ResourceKey<PlacedFeature> WATER_LAKE_PLACEMENT = createKey("water_lake");
-    public static final ResourceKey<PlacedFeature> WATER_SPRING_PLACEMENT = createKey("water_spring");
-    public static final ResourceKey<PlacedFeature> ORE_AETHER_DIRT_PLACEMENT = createKey("aether_dirt_ore");
-    public static final ResourceKey<PlacedFeature> ORE_ICESTONE_PLACEMENT = createKey("icestone_ore");
-    public static final ResourceKey<PlacedFeature> ORE_AMBROSIUM_PLACEMENT = createKey("ambrosium_ore");
-    public static final ResourceKey<PlacedFeature> ORE_ZANITE_PLACEMENT = createKey("zanite_ore");
-    public static final ResourceKey<PlacedFeature> ORE_GRAVITITE_COMMON_PLACEMENT = createKey("gravitite_ore_common");
-    public static final ResourceKey<PlacedFeature> ORE_GRAVITITE_DENSE_PLACEMENT = createKey("gravitite_ore_dense");
+    public static final ResourceKey<PlacedFeature> AETHER_PLAINS_TREES = createKey("aether_plains_trees");
+    public static final ResourceKey<PlacedFeature> AETHER_PLAINS_FLOWER_PATCH = createKey("aether_plains_flower");
+    public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
+
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT),
                 DeepAetherPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
+
+        register(context, AETHER_PLAINS_TREES, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AETHER_PLAINS_TREES_PLACEMENT),
+                DeepAetherPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(0, 0.05F, 1)));
+
+        register(context, AETHER_PLAINS_FLOWER_PATCH, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, AERLAVENDER_PATCH, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AERLAVENDER_PATCH), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
     }
 
 

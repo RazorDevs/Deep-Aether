@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "deep_aether:greotite"
-  },
-  "result": "deep_aether:polished_greotite_slab"
-}
