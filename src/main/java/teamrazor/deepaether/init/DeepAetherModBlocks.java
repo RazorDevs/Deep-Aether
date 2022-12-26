@@ -3,6 +3,7 @@
  *    MCreator note: This file will be REGENERATED on each build.
  */
 package teamrazor.deepaether.init;
+import com.gildedgames.aether.block.AetherWoodTypes;
 import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -203,6 +205,12 @@ public class DeepAetherModBlocks {
 
 	public static void register(IEventBus eventBus) {
 		BLOCKS.register(eventBus);
+	}
+
+	public static void registerWoodTypes() {
+		WoodType.register(DeepAetherModWoodTypes.ROSEROOT);
+		WoodType.register(DeepAetherModWoodTypes.CRUDEROOT);
+		WoodType.register(DeepAetherModWoodTypes.YAGROOT);
 	}
 
 

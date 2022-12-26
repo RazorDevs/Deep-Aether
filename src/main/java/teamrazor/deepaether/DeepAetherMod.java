@@ -1,4 +1,5 @@
 package teamrazor.deepaether;
+import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.generators.AetherWorldGenData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
@@ -90,7 +91,7 @@ public class DeepAetherMod {
 
 		//DeepAetherModBiomes.REGISTRY.register(bus);
 		//DeepAetherModBiomes.registerBiomes();
-
+		DeepAetherModBlocks.registerWoodTypes();
 	}
 
 

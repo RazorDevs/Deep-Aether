@@ -6,7 +6,6 @@ import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
+import teamrazor.deepaether.item.boats.DeepAetherModBoatItem;
 import teamrazor.deepaether.item.gear.cloudium.*;
 
 import teamrazor.deepaether.item.gear.DeepAetherGlovesItem;
@@ -72,6 +72,14 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> RAW_AERGLOW_FISH = ITEMS.register("raw_aerglow_fish", () -> new Item(new Item.Properties().food(Foods.COD)));
 	public static final RegistryObject<Item> COOKED_AERGLOW_FISH = ITEMS.register("cooked_aerglow_fish", () -> new Item(new Item.Properties().food(Foods.COOKED_COD)));
 
+	//BOATS
+	public static final RegistryObject<Item> ROSEROOT_BOAT = ITEMS.register("roseroot_boat", () -> new DeepAetherModBoatItem(false, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.ROSEROOT));
+	public static final RegistryObject<Item> ROSEROOT_CHEST_BOAT = ITEMS.register("roseroot_chest_boat", () -> new DeepAetherModBoatItem(true, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.ROSEROOT));
+	public static final RegistryObject<Item> YAGROOT_BOAT = ITEMS.register("yagroot_boat", () -> new DeepAetherModBoatItem(false, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.YAGROOT));
+	public static final RegistryObject<Item> YAGROOT_CHEST_BOAT = ITEMS.register("yagroot_chest_boat", () -> new DeepAetherModBoatItem(true, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.YAGROOT));
+
+	public static final RegistryObject<Item> CRUDEROOT_BOAT = ITEMS.register("cruderoot_boat", () -> new DeepAetherModBoatItem(false, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.CRUDEROOT));
+	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = ITEMS.register("cruderoot_chest_boat", () -> new DeepAetherModBoatItem(true, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.CRUDEROOT));
 
 	// MISC
 	/*public static final RegistryObject<Item> AERGLOW_FISH_EGG = ITEMS.register("aether_fish_spawn_egg",
