@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "deep_aether:items/skyjade_picaxe"
+    "layer0": "deep_aether:item/skyjade_picaxe"
   }
 }

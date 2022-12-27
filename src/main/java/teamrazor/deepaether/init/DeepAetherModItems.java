@@ -13,7 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.item.boats.DeepAetherModBoatItem;
+import teamrazor.deepaether.item.DeepAetherModBoatItem;
 import teamrazor.deepaether.item.gear.cloudium.*;
 
 import teamrazor.deepaether.item.gear.DeepAetherGlovesItem;

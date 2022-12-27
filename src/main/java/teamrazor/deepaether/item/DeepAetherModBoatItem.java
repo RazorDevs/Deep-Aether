@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.boats;
+package teamrazor.deepaether.item;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/oratie_ingot"
+    "layer0": "deep_aether:item/oratie_ingot"
   }
 }

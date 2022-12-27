@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/agate_gemstone"
+    "layer0": "deep_aether:item/agate_gemstone"
   }
 }

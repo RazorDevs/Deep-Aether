@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/skyroot_virulent_quicksand_bucket"
+    "layer0": "deep_aether:item/skyroot_virulent_quicksand_bucket"
   }
 }

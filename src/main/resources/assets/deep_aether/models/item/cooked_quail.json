@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/cooked_quail"
+    "layer0": "deep_aether:item/cooked_quail"
   }
 }

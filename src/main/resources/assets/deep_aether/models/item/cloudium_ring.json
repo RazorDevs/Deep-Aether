@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/cloudium_ring"
+    "layer0": "deep_aether:item/cloudium_ring"
   }
 }

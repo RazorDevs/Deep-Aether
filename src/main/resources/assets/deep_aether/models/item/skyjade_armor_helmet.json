@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/skyjade_helmet"
+    "layer0": "deep_aether:item/skyjade_helmet"
   }
 }

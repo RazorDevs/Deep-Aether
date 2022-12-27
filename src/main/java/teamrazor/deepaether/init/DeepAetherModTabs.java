@@ -170,7 +170,49 @@ public class DeepAetherModTabs {
                 builder -> builder.icon(() -> new ItemStack(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_items"))
                         .displayItems((features, output, hasPermissions) -> {
+                            output.accept(DeepAetherModItems.SKYJADE.get());
+                            output.accept(DeepAetherModItems.SKYJADE_TOOLS_SWORD.get());
+                            output.accept(DeepAetherModItems.SKYJADE_TOOLS_AXE.get());
+                            output.accept(DeepAetherModItems.SKYJADE_TOOLS_PICKAXE.get());
+                            output.accept(DeepAetherModItems.SKYJADE_TOOLS_SHOVEL.get());
+                            output.accept(DeepAetherModItems.SKYJADE_TOOLS_HOE.get());
+                            output.accept(DeepAetherModItems.SKYJADE_ARMOR_BOOTS.get());
+                            output.accept(DeepAetherModItems.SKYJADE_ARMOR_LEGGINGS.get());
+                            output.accept(DeepAetherModItems.SKYJADE_ARMOR_CHESTPLATE.get());
+                            output.accept(DeepAetherModItems.SKYJADE_ARMOR_HELMET.get());
+                            output.accept(DeepAetherModItems.SKYJADE_RING.get());
+                            output.accept(DeepAetherModItems.SKYJADE_GLOVES.get());
 
+                            output.accept(DeepAetherModItems.CLOUDIUM_INGOT.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_SCRAP.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_SWORD.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_AXE.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_PICKAXE.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_SHOVEL.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_HOE.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_BOOTS.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_LEGGINGS.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_CHESTPLATE.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_HELMET.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_RING.get());
+                            output.accept(DeepAetherModItems.CLOUDIUM_GLOVES.get());
+
+                            output.accept(DeepAetherModItems.RAW_AERGLOW_FISH.get());
+                            output.accept(DeepAetherModItems.COOKED_AERGLOW_FISH.get());
+                            output.accept(DeepAetherModItems.RAW_QUAIL.get());
+                            output.accept(DeepAetherModItems.COOKED_QUAIL.get());
+
+                            output.accept(DeepAetherModItems.ROSEROOT_BOAT.get());
+                            output.accept(DeepAetherModItems.ROSEROOT_CHEST_BOAT.get());
+                            output.accept(DeepAetherModItems.YAGROOT_BOAT.get());
+                            output.accept(DeepAetherModItems.YAGROOT_CHEST_BOAT.get());
+                            output.accept(DeepAetherModItems.CRUDEROOT_BOAT.get());
+                            output.accept(DeepAetherModItems.CRUDEROOT_CHEST_BOAT.get());
+
+                            output.accept(DeepAetherModItems.MUSIC_DISC_NABOORU.get());
+                            output.accept(DeepAetherModItems.MUSIC_DISC_A_MORNING_WISH.get());
+
+                            output.accept(DeepAetherModItems.AERGLOW_PETAL.get());
                         }));
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/raw_oratie"
+    "layer0": "deep_aether:item/raw_oratie"
   }
 }

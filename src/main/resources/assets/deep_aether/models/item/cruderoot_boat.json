@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:items/cruderoot_boat"
+    "layer0": "deep_aether:item/cruderoot_boat"
   }
 }
