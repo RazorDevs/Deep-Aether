@@ -1,8 +1,12 @@
 package teamrazor.deepaether.init;
 
 
+import com.gildedgames.aether.block.AetherBlocks;
+
+
 import com.gildedgames.aether.entity.miscellaneous.SkyrootBoat;
 import com.gildedgames.aether.entity.miscellaneous.SkyrootChestBoat;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,7 +33,7 @@ public class DeepAetherModEntities {
             () -> EntityType.Builder.<RoserootChestBoat>of(RoserootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("roseroot_boat"));
 
     public static final RegistryObject<EntityType<YagrootBoat>> YAGROOT_BOAT = ENTITY_TYPES.register("yagroot_boat",
-            () -> EntityType.Builder.<YagrootBoat>of(YagrootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("cruderoot_boat"));
+            () -> EntityType.Builder.<YagrootBoat>of(YagrootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("yagroot_boat"));
 
     public static final RegistryObject<EntityType<YagrootChestBoat>> YAGROOT_CHEST_BOAT = ENTITY_TYPES.register("yagroot_chest_boat",
             () -> EntityType.Builder.<YagrootChestBoat>of(YagrootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("yagroot_boat"));
@@ -39,6 +43,8 @@ public class DeepAetherModEntities {
 
     public static final RegistryObject<EntityType<CruderootChestBoat>> CRUDEROOT_CHEST_BOAT = ENTITY_TYPES.register("cruderoot_chest_boat",
             () -> EntityType.Builder.<CruderootChestBoat>of(CruderootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("cruderoot_boat"));
+
+
 
     /*
 	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",

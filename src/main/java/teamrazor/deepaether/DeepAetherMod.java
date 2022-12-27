@@ -1,6 +1,4 @@
 package teamrazor.deepaether;
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.data.generators.AetherWorldGenData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -33,6 +31,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 
+import teamrazor.deepaether.datagen.tags.DeepAetherBiomeTagData;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
 
@@ -76,21 +75,18 @@ public class DeepAetherMod {
 
 		bus.addListener(this::commonSetup);
 
-		// Register ourselves for server and other game events we are interested in
 		MinecraftForge.EVENT_BUS.register(this);
 
 		GeckoLib.initialize();
 		DeepAetherModBlocks.BLOCKS.register(bus);
 		DeepAetherModItems.ITEMS.register(bus);
-		//DeepAetherModEntities.REGISTRY.register(bus);
+		DeepAetherModEntities.ENTITY_TYPES.register(bus);
 		DeepAetherModSounds.SOUNDS.register(bus);
 		DeepAetherModFluids.register(bus);
 		DeepAetherModFluidTypes.register(bus);
 		DeepAetherDecoratorType.REGISTRY.register(bus);
 		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
-
-		//DeepAetherModBiomes.REGISTRY.register(bus);
-		//DeepAetherModBiomes.registerBiomes();
+		DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		DeepAetherModBlocks.registerWoodTypes();
 	}
 
@@ -132,7 +128,8 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DeepAetherModItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DeepAetherModEntityTagData(packOutput, lookupProvider, fileHelper));
-		*///generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
+		*/ generator.addProvider(event.includeServer(), new DeepAetherBiomeTagData(packOutput, lookupProvider, fileHelper));
+		// generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
 
 		//generator.addProvider(event.includeServer(), new DeepAetherModStructureTagData(packOutput, lookupProvider, fileHelper));*/
 	}

@@ -17,8 +17,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import teamrazor.deepaether.entity.boats.RoserootBoat;
-import teamrazor.deepaether.entity.boats.RoserootChestBoat;
+import teamrazor.deepaether.entity.boats.*;
 import teamrazor.deepaether.init.DeepAetherModWoodTypes;
 
 import java.util.List;
@@ -78,9 +77,9 @@ public class DeepAetherModBoatItem extends Item {
         if(woodType == DeepAetherModWoodTypes.ROSEROOT)
             return this.hasChest ? new RoserootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new RoserootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
         if(woodType == DeepAetherModWoodTypes.YAGROOT)
-            return this.hasChest ? new RoserootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new RoserootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
+            return this.hasChest ? new YagrootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new YagrootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
 
-        return this.hasChest ? new RoserootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new RoserootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
+        return this.hasChest ? new CruderootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new CruderootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
 
     }
 }

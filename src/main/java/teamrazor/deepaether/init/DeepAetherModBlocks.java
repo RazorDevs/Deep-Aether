@@ -4,6 +4,8 @@
  */
 package teamrazor.deepaether.init;
 import com.gildedgames.aether.block.AetherWoodTypes;
+import com.gildedgames.aether.block.construction.SkyrootSignBlock;
+import com.gildedgames.aether.block.construction.SkyrootWallSignBlock;
 import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -52,8 +55,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> ROSE_LEAVES = registerBlock("rose_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> FLOWERING_ROSE_LEAVES = registerBlock("flowering_rose_leaves", () -> new FloweringRoseLeavesBlock());
 	public static final RegistryObject<Block> ROSEWOOD_SAPLING = registerBlock("rosewood_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
-	//public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> ROSE_SIGN = HELPER.createSignBlock("rose", MaterialColor.COLOR_PINK);
-
+	public static final RegistryObject<Block> ROSEROOT_WALL_SIGN = BLOCKS.register("rose_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.ROSEROOT));
+	public static final RegistryObject<Block> ROSEROOT_SIGN = BLOCKS.register("rose_sign", () -> new DeepAetherModSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.ROSEROOT));
 	public static final RegistryObject<Block> YAGROOT_WOOD = registerBlock("yagroot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> YAGROOT_LOG = registerBlock("yagroot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> YAGROOT_WALL = registerBlock("yagroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -74,8 +77,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> YAGROOT_ROOTS = registerBlock("yagroot_roots", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)));
 	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = registerBlock("muddy_yagroot_roots", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(Blocks.MUDDY_MANGROVE_ROOTS)));
 
-	//public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> YAGROOT_SIGN = HELPER.createSignBlock("yagroot", MaterialColor.TERRACOTTA_PINK);
-
+	public static final RegistryObject<Block> YAGROOT_WALL_SIGN = BLOCKS.register("yagroot_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.YAGROOT));
+	public static final RegistryObject<Block> YAGROOT_SIGN = BLOCKS.register("yagroot_sign", () -> new DeepAetherModSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.YAGROOT));
 	public static final RegistryObject<Block> CRUDEROOT_WOOD = registerBlock("cruderoot_wood", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> CRUDEROOT_LOG = registerBlock("cruderoot_log", () -> new DeepAetherModLogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL = registerBlock("cruderoot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -93,8 +96,8 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> CRUDEROOT_TRAPDOOR = registerBlock("cruderoot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), SoundEvents.BAMBOO_WOOD_TRAPDOOR_CLOSE, SoundEvents.BAMBOO_WOOD_TRAPDOOR_OPEN));
 	public static final RegistryObject<Block> CRUDEROOT_LEAVES = registerBlock("cruderoot_leaves", () -> new DeepAetherLeavesBlock());
 	public static final RegistryObject<Block> CRUDEROOT_SAPLING = registerBlock("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
-	//public static final Pair<RegistryObject<BlueprintStandingSignBlock>, RegistryObject<BlueprintWallSignBlock>> CRUDEROOT_SIGN = HELPER.createSignBlock("cruderoot", MaterialColor.COLOR_PINK);
-
+	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = BLOCKS.register("cruderoot_wall_sign", () -> new DeepAetherModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DeepAetherModWoodTypes.CRUDEROOT));
+	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DeepAetherModSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DeepAetherModWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));

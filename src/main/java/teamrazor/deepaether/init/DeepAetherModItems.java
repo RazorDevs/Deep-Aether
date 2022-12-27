@@ -25,10 +25,11 @@ public class DeepAetherModItems {
 	public static final DeferredRegister<Item> ITEMS =
 			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
 
-	// BOATS
-	//public static final Pair<RegistryObject<Item>, RegistryObject<Item>> ROSE_BOAT = HELPER.createBoatAndChestBoatItem("rose", DeepAetherModBlocks.ROSE_PLANKS);
-	//public static final Pair<RegistryObject<Item>, RegistryObject<Item>> YAGROOT_BOAT = HELPER.createBoatAndChestBoatItem("yagroot", DeepAetherModBlocks.YAGROOT_PLANKS);
-	//public static final Pair<RegistryObject<Item>, RegistryObject<Item>> CRUDEROOT_BOAT = HELPER.createBoatAndChestBoatItem("cruderoot", DeepAetherModBlocks.CRUDEROOT_PLANKS);
+	// SIGNS
+	public static final RegistryObject<Item> ROSEROOT_SIGN = ITEMS.register("roseroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DeepAetherModBlocks.ROSEROOT_SIGN.get(), DeepAetherModBlocks.ROSEROOT_WALL_SIGN.get()));
+	public static final RegistryObject<Item> YAGROOT_SIGN = ITEMS.register("yagroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DeepAetherModBlocks.YAGROOT_SIGN.get(), DeepAetherModBlocks.YAGROOT_WALL_SIGN.get()));
+	public static final RegistryObject<Item> CRUDEROOT_SIGN = ITEMS.register("cruderoot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DeepAetherModBlocks.CRUDEROOT_SIGN.get(), DeepAetherModBlocks.CRUDEROOT_WALL_SIGN.get()));
+
 
 	// EQUIPMENT
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());

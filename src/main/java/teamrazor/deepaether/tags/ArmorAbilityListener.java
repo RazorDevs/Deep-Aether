@@ -2,6 +2,7 @@ package teamrazor.deepaether.tags;
 
 
 import com.gildedgames.aether.Aether;
+import com.gildedgames.aether.event.hooks.AbilityHooks;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -18,8 +19,7 @@ public class ArmorAbilityListener {
         LivingEntity livingEntity = event.getEntity();
         CloudiumArmor.moreBoostedJump(livingEntity);
     }
-}
-/*
+
     @SubscribeEvent
     public static void onEntityFall(LivingFallEvent event) {
         LivingEntity livingEntity = event.getEntity();
@@ -27,4 +27,4 @@ public class ArmorAbilityListener {
             event.setCanceled(AbilityHooks.ArmorHooks.fallCancellation(livingEntity));
         }
     }
-}*/
+}

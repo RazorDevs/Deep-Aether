@@ -138,15 +138,18 @@ public class DeepAetherModConfiguredFeatures {
 
         register(context, AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(AetherFeatureStates.PURPLE_FLOWER, 2)
-                        .add(AetherFeatureStates.WHITE_FLOWER, 2)
-                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 64));
+                        .add(AetherFeatureStates.PURPLE_FLOWER, 5)
+                        .add(AetherFeatureStates.WHITE_FLOWER, 5)
+                        .add(Blocks.GRASS.defaultBlockState(), 5)
+                        .add(Blocks.TALL_GRASS.defaultBlockState(), 5)
+                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 96));
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DeepAetherModFeatureStates.AERLAVENDER, 64)
                         .add(DeepAetherModFeatureStates.TALL_AERLAVENDER, 32)
-                        .add(Blocks.GRASS.defaultBlockState(), 32)), 218));
+                        .add(Blocks.TALL_GRASS.defaultBlockState(), 32)
+                        .add(Blocks.GRASS.defaultBlockState(), 32)), 418));
 
 
         register(context, ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(

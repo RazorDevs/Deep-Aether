@@ -23,12 +23,12 @@ public class DeepAetherModBiomes {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
     }
 
-    /*public static void bootstrap(BootstapContext<Biome> context) {
+    public static void bootstrap(BootstapContext<Biome> context) {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<ConfiguredWorldCarver<?>> vanillaConfiguredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
         context.register(AETHER_PLAINS, DeepAetherModBiomeBuilders.aetherPlainsBiome(placedFeatures, vanillaConfiguredCarvers));
 
-    }*/
+    }
 
     //does not work yet.
     public static BiomeSource buildDeepAetherModBiomeSource(HolderGetter<Biome> biomes) {

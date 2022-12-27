@@ -18,8 +18,8 @@ import javax.annotation.Nonnull;
 
 @OnlyIn(Dist.CLIENT)
 public class RoserootBoatRenderer extends BoatRenderer {
-    private static final ResourceLocation ROSEROOT_BOAT = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/miscellaneous/boat/roseroot.png");
-    private static final ResourceLocation ROSEROOT_CHEST_BOAT = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/miscellaneous/chest_boat/roseroot.png");
+    private static final ResourceLocation ROSEROOT_BOAT = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/boat/roseroot.png");
+    private static final ResourceLocation ROSEROOT_CHEST_BOAT = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/chest_boat/roseroot.png");
     private final Pair<ResourceLocation, ListModel<Boat>> roserootBoatResource;
 
     public RoserootBoatRenderer(EntityRendererProvider.Context context, boolean chest) {

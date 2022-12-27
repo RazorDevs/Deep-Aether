@@ -1,10 +1,11 @@
 package teamrazor.deepaether.world.gen.biomes;
-/*
+
 import com.gildedgames.aether.Aether;
 import com.gildedgames.aether.client.AetherSoundEvents;
 
 
 import com.gildedgames.aether.data.resources.builders.AetherBiomeBuilders;
+import com.gildedgames.aether.data.resources.registries.AetherPlacedFeatures;
 import com.gildedgames.aether.entity.AetherEntityTypes;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.HolderGetter;
@@ -35,7 +36,6 @@ public class DeepAetherModBiomeBuilders {
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DeepAetherModPlacedFeatures.AETHER_PLAINS_TREES)
         );
     }
-
     public static Biome makeDefaultBiome(BiomeGenerationSettings.Builder builder) {
         return fullDefinition(
                 Biome.Precipitation.NONE,
@@ -68,24 +68,24 @@ public class DeepAetherModBiomeBuilders {
                         .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERWHALE.get(), 2, 1, 1))
                         .build(),
                 builder
-                        .addFeature(GenerationStep.Decoration.RAW_GENERATION,  DeepAetherModPlacedFeatures.A)
-                        /*.addFeature(GenerationStep.Decoration.LAKES, DeepAetherModPlacedFeatures.WATER_LAKE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DeepAetherModPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DeepAetherModPlacedFeatures.ORE_ICESTONE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DeepAetherModPlacedFeatures.ORE_AMBROSIUM_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DeepAetherModPlacedFeatures.ORE_ZANITE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DeepAetherModPlacedFeatures.ORE_GRAVITITE_COMMON_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, DeepAetherModPlacedFeatures.ORE_GRAVITITE_DENSE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, DeepAetherModPlacedFeatures.WATER_SPRING_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DeepAetherModPlacedFeatures.GRASS_PATCH_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DeepAetherModPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DeepAetherModPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, DeepAetherModPlacedFeatures.FLOWER_PATCH_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, DeepAetherModPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, DeepAetherModPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, DeepAetherModPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, DeepAetherModPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, DeepAetherModPlacedFeatures.PINK_AERCLOUD_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AMBROSIUM_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ZANITE_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_COMMON_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_DENSE_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.FLOWER_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.PINK_AERCLOUD_PLACEMENT)
                         .build(),
                 Biome.TemperatureModifier.NONE
         );
@@ -107,4 +107,3 @@ public class DeepAetherModBiomeBuilders {
 }
 
 
-*/
