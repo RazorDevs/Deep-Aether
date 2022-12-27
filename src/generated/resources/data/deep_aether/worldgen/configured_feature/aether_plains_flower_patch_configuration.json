@@ -12,37 +12,13 @@
                 "data": {
                   "Name": "aether:purple_flower"
                 },
-                "weight": 5
+                "weight": 7
               },
               {
                 "data": {
                   "Name": "aether:white_flower"
                 },
-                "weight": 5
-              },
-              {
-                "data": {
-                  "Name": "minecraft:grass"
-                },
-                "weight": 5
-              },
-              {
-                "data": {
-                  "Name": "minecraft:tall_grass",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                },
-                "weight": 5
-              },
-              {
-                "data": {
-                  "Name": "aether:berry_bush",
-                  "Properties": {
-                    "double_drops": "true"
-                  }
-                },
-                "weight": 1
+                "weight": 8
               }
             ]
           }

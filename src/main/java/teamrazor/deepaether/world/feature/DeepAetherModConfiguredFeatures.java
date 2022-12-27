@@ -138,17 +138,16 @@ public class DeepAetherModConfiguredFeatures {
 
         register(context, AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(AetherFeatureStates.PURPLE_FLOWER, 5)
-                        .add(AetherFeatureStates.WHITE_FLOWER, 5)
-                        .add(Blocks.GRASS.defaultBlockState(), 5)
-                        .add(Blocks.TALL_GRASS.defaultBlockState(), 5)
-                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 96));
+                        .add(AetherFeatureStates.PURPLE_FLOWER, 7)
+                        .add(AetherFeatureStates.WHITE_FLOWER, 8)), 96));
+
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DeepAetherModFeatureStates.AERLAVENDER, 64)
                         .add(DeepAetherModFeatureStates.TALL_AERLAVENDER, 32)
-                        .add(Blocks.TALL_GRASS.defaultBlockState(), 32)
+                        .add(Blocks.TALL_GRASS.defaultBlockState(), 16)
+                        .add(AetherFeatureStates.BERRY_BUSH, 1)
                         .add(Blocks.GRASS.defaultBlockState(), 32)), 418));
 
 

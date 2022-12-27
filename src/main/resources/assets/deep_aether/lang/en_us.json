@@ -310,6 +310,6 @@
   "item.deep_aether.cloudium_sword": "Cloudium Sword",
   "item.deep_aether.cloudium_hoe": "Cloudium Hoe",
   "item.deep_aether.cloudium_pickaxe": "Cloudium Pickaxe",
-  "item.deep_aether.cloudium_shovel": "Cloudium Shovel"
-
+  "item.deep_aether.cloudium_shovel": "Cloudium Shovel",
+  "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks"
 }

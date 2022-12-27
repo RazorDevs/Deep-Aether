@@ -27,7 +27,16 @@
                     "half": "lower"
                   }
                 },
-                "weight": 32
+                "weight": 16
+              },
+              {
+                "data": {
+                  "Name": "aether:berry_bush",
+                  "Properties": {
+                    "double_drops": "true"
+                  }
+                },
+                "weight": 1
               },
               {
                 "data": {

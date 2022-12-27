@@ -191,7 +191,6 @@ public class DeepAetherModBlocks {
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS = registerBlock("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_SLAB = registerBlock("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICK_SLAB)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_STAIRS = registerBlock("aether_mud_bricks_stairs", () -> new StairBlock(() -> DeepAetherModBlocks.AETHER_MUD_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
-
 	public static final RegistryObject<LiquidBlock> POISON_BLOCK = BLOCKS.register("poison", () -> new PoisonBlock(DeepAetherModFluids.POISON_FLUID, BlockBehaviour.Properties.of(Material.LAVA)
 			.noCollission()
 			.strength(100f)

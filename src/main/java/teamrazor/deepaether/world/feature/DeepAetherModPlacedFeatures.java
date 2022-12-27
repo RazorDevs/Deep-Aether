@@ -42,7 +42,11 @@ public class DeepAetherModPlacedFeatures {
                 DeepAetherPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(0, 1F, 1)));
 
         register(context, AETHER_PLAINS_FLOWER_PATCH, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, AERLAVENDER_PATCH, configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AERLAVENDER_PATCH), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, AERLAVENDER_PATCH,
+
+                configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AERLAVENDER_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+
+        /*configuredFeatures.getOrThrow(DeepAetherModConfiguredFeatures.AERLAVENDER_PATCH), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());*/
 
     }
 
