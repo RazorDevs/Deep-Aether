@@ -44,7 +44,6 @@
   "block.deep_aether.radiant_orchid": "Radiant Orchid",
   "block.deep_aether.stripped_rose_wood": "Stripped Roseroot Wood",
   "block.deep_aether.rose_pressure_plate": "Roseroot Pressure Plate",
-  "itemGroup.tabdeep_aether_items_tab": "Deep Aether - Items",
   "subtitles.music_disc_a_morning_wish": "",
   "block.deep_aether.skyjade_ore": "Skyjade Ore",
   "block.deep_aether.stripped_rose_wall": "Stripped Roseroot Wall",
@@ -182,8 +181,8 @@
   "block.deep_aether.cruderoot_pressure_plate": "Yagroot Pressure Plate",
   "block.deep_aether.cruderoot_button": "Yagroot Button",
   "block.deep_aether.cruderoot_sign": "Cruderoot Sign",
-  "item.deep_aether.rose_boat": "Roseroot Boat",
-  "item.deep_aether.rose_chest_boat": "Roseroot Chest Boat",
+  "item.deep_aether.roseroot_boat": "Roseroot Boat",
+  "item.deep_aether.roseroot_chest_boat": "Roseroot Chest Boat",
   "item.deep_aether.yagroot_boat": "Yagroot Boat",
   "item.deep_aether.yagroot_chest_boat": "Yagroot Chest Boat",
   "item.deep_aether.cruderoot_boat": "Cruderoot Boat",
@@ -311,5 +310,6 @@
   "item.deep_aether.cloudium_hoe": "Cloudium Hoe",
   "item.deep_aether.cloudium_pickaxe": "Cloudium Pickaxe",
   "item.deep_aether.cloudium_shovel": "Cloudium Shovel",
+  "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",
   "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks"
 }

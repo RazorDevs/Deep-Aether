@@ -1,5 +1,5 @@
 package teamrazor.deepaether.entity;
-/*
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
@@ -19,22 +19,27 @@ import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
-import software.bernie.geckolib3.core.AnimationState;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DeepAetherModEntities;
 
 import java.util.Set;
 
 @Mod.EventBusSubscriber
-public class QuailEntity extends Chicken implements IAnimatable {
+public class QuailEntity extends Chicken implements GeoEntity {
 
-    private AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
+
+    private static final RawAnimation FLAP_ANIM = RawAnimation.begin().thenPlay("animation.quail.flap");
+    private static final RawAnimation WALK_ANIM = RawAnimation.begin().thenPlay("animation.quail.walk");
+    private static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenPlay("animation.quail.idle");
 
     public QuailEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(DeepAetherModEntities.QUAIL.get(), world);
@@ -65,37 +70,38 @@ public class QuailEntity extends Chicken implements IAnimatable {
 
     //TODO: Play Flapping animation during a fall only.
 
-    private PlayState flapPredicate(AnimationEvent event) {
-        if(!this.onGround &&  event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.flap", false));
-            this.onGround = true;
+    private <E extends GeoAnimatable> PlayState flapPredicate(AnimationState<E> event) {
+        if(!this.onGround) {
+            event.getController().setAnimation(FLAP_ANIM);
         }
         return PlayState.CONTINUE;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.walk", true));
+            event.getController().setAnimation(WALK_ANIM);
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.idle", true));
+        event.getController().setAnimation(IDLE_ANIM);
         return PlayState.CONTINUE;
     }
 
-
     @Override
-    public void registerControllers(AnimationData data) {
-
-        data.addAnimationController(new AnimationController(this, "controller",
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController(this, "controller",
                 0, this::predicate));
 
-        data.addAnimationController(new AnimationController(this, "flapController",
+        controllers.add(new AnimationController(this, "flapController",
                 0, this::flapPredicate));
     }
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
-}*/
+
+    @Override
+    public double getTick(Object object) {
+        return 0;
+    }
+}

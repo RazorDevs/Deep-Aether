@@ -25,7 +25,7 @@ public class DeepAetherModTabs {
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         TAB_DEEP_AETHER_BLOCKS_TAB = event.registerCreativeModeTab(
                 new ResourceLocation(DeepAetherMod.MODID, "deep_aether_blocks"),
-                builder -> builder.icon(() -> new ItemStack(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get()))
+                builder -> builder.icon(() -> new ItemStack(DeepAetherModBlocks.ROSE_LOG.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_blocks"))
                         .displayItems((features, output, hasPermissions) -> {
                             output.accept(DeepAetherModBlocks.ROSE_LOG.get());
@@ -211,6 +211,9 @@ public class DeepAetherModTabs {
 
                             output.accept(DeepAetherModItems.MUSIC_DISC_NABOORU.get());
                             output.accept(DeepAetherModItems.MUSIC_DISC_A_MORNING_WISH.get());
+
+                            output.accept(DeepAetherModItems.AERGLOW_FISH_EGG.get());
+                            output.accept(DeepAetherModItems.QUAIL_EGG.get());
 
                             output.accept(DeepAetherModItems.AERGLOW_PETAL.get());
                         }));

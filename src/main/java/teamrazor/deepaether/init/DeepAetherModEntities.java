@@ -18,6 +18,8 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
+import teamrazor.deepaether.entity.AetherFishEntity;
+import teamrazor.deepaether.entity.QuailEntity;
 import teamrazor.deepaether.entity.boats.*;
 
 
@@ -46,7 +48,7 @@ public class DeepAetherModEntities {
 
 
 
-    /*
+
 	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
 			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(AetherFishEntity::new)
@@ -55,7 +57,7 @@ public class DeepAetherModEntities {
 	public static final RegistryObject<EntityType<QuailEntity>> QUAIL = register("quail",
 			EntityType.Builder.<QuailEntity>of(QuailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
-					.sized(0.3f, 0.5f));*/
+					.sized(0.3f, 0.5f));
 
 
 
@@ -66,14 +68,14 @@ public class DeepAetherModEntities {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			//AetherFishEntity.init();
-			//QuailEntity.init();
+			AetherFishEntity.init();
+			QuailEntity.init();
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		//event.put(AETHER_FISH.get(), AetherFishEntity.createAttributes().build());
-		//event.put(QUAIL.get(), QuailEntity.createAttributes().build());
+		event.put(AETHER_FISH.get(), AetherFishEntity.createAttributes().build());
+		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
 	}
 }
