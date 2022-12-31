@@ -28,9 +28,9 @@ public class CloudiumRing extends AccessoryItem {
             pTime += 0.02;
             if(pTime >= 1.5)
                 if(livingEntity instanceof Player player) {
-                    if(!player.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA) && Minecraft.getInstance().options.keyUp.isDown()) {
-                        Double x = player.getLookAngle().x * 0.01;
-                        Double z = player.getLookAngle().z * 0.01;
+                    if(!player.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA) && Minecraft.getInstance().options.keyUp.isDown() && !player.isSpectator()) {
+                        Double x = player.getLookAngle().x * 0.5;
+                        Double z = player.getLookAngle().z * 0.5;
 
                         player.push(x, 0, z);
                         if (player instanceof ServerPlayer serverPlayer) {

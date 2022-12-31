@@ -7,7 +7,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -142,5 +144,31 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
 
     protected boolean shouldSkipLocation(RandomSource randomSource, int a, int b, int c, int d, boolean p_225738_) {
         return a == d && c == d && d > 0;
+    }
+    @Override
+    protected void placeLeavesRow(LevelSimulatedReader p_161438_, BiConsumer<BlockPos, BlockState> p_161439_, RandomSource p_161440_, TreeConfiguration p_161441_, BlockPos p_161442_, int p_161443_, int p_161444_, boolean p_161445_) {
+        int i = p_161445_ ? 1 : 0;
+        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+
+        for (int j = -p_161443_; j <= p_161443_ + i; ++j) {
+            for (int k = -p_161443_; k <= p_161443_ + i; ++k) {
+                if (!shouldSkipLocationSigned(p_161440_, j, p_161444_, k, p_161443_, p_161445_)) {
+                    blockpos$mutableblockpos.setWithOffset(p_161442_, j, p_161444_, k);
+                    tryPlaceLeaf(p_161438_, p_161439_, p_161440_, p_161441_, blockpos$mutableblockpos);
+                }
+            }
+        }
+    }
+
+    protected static void tryPlaceLeaf(LevelSimulatedReader p_161432_, BiConsumer<BlockPos, BlockState> p_161433_, RandomSource p_161434_, TreeConfiguration p_161435_, BlockPos p_161436_) {
+        if (validTreePos(p_161432_, p_161436_)) {
+            p_161433_.accept(p_161436_, p_161435_.foliageProvider.getState(p_161434_, p_161436_));
+        }
+    }
+
+    public static boolean validTreePos(LevelSimulatedReader level, BlockPos pos) {
+        return level.isStateAtPosition(pos, state -> {
+            return !state.hasProperty(LeavesBlock.PERSISTENT) || !state.getValue(LeavesBlock.PERSISTENT);
+        }) && TreeFeature.validTreePos(level, pos);
     }
 }

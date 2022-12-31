@@ -1,17 +1,13 @@
 package teamrazor.deepaether.world.feature;
 
 
-import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.block.AetherBlockStateProperties;
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.resources.AetherFeatureRules;
 import com.gildedgames.aether.data.resources.AetherFeatureStates;
 import com.gildedgames.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +17,6 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.MangrovePropaguleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -35,20 +30,14 @@ import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
-import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.UpwardsBranchingTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DeepAetherModBlocks;
-import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
-import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
 
 import java.util.List;
@@ -118,7 +107,7 @@ public class DeepAetherModConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
                         new StraightTrunkPlacer(9,10,0),
-                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LEAVES),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModFeatureStates.ROSE_LEAVES, 2).add(DeepAetherModFeatureStates.FLOWERING_ROSE_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -127,7 +116,7 @@ public class DeepAetherModConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
                         new StraightTrunkPlacer(5,2,0),
-                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LEAVES),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModFeatureStates.ROSE_LEAVES, 2).add(DeepAetherModFeatureStates.FLOWERING_ROSE_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
