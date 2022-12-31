@@ -49,6 +49,7 @@ import teamrazor.deepaether.init.DeepAetherModBlocks;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
+import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
 
 import java.util.List;
 import java.util.Optional;
@@ -58,7 +59,8 @@ import java.util.OptionalInt;
 
 public class DeepAetherModConfiguredFeatures {
     private static List decorators = List.of(new FlowerDecorator(1.0F));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_CONFIGURATION = createKey("roseroot_tree");
+    //OLD
+    // public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_CONFIGURATION = createKey("roseroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_CONFIGURATION = createKey("golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> YAGROOT_TREE_CONFIGURATION = createKey("yagroot_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> CRUDEROOT_TREE_CONFIGURATION = createKey("cruderoot_tree");
@@ -81,6 +83,10 @@ public class DeepAetherModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE_CONFIGURATION = createKey("skyroot_tree");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_LARGE = createKey("roseroot_tree_large");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_SMALL = createKey("roseroot_tree_small");
+
+
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -89,13 +95,15 @@ public class DeepAetherModConfiguredFeatures {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> holdergetter = context.lookup(Registries.BLOCK);
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-        register(context, ROSEROOT_TREE_CONFIGURATION, Feature.TREE,
+
+        //OLD
+        /*register(context, ROSEROOT_TREE_CONFIGURATION, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
                         new StraightTrunkPlacer(5, 6, 3),
                         new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModFeatureStates.ROSE_LEAVES, 2).add(DeepAetherModFeatureStates.FLOWERING_ROSE_LEAVES,1)),
                         new FlowerBlobFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, ConstantInt.of(3)),
-                        new TwoLayersFeatureSize(1, 0, 2)).decorators(decorators).build());
+                        new TwoLayersFeatureSize(1, 0, 2)).decorators(decorators).build());*/
 
         register(context, SKYROOT_TREE_CONFIGURATION, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -103,6 +111,24 @@ public class DeepAetherModConfiguredFeatures {
                         new StraightTrunkPlacer(4, 2, 0),
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
                         new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
+                        new TwoLayersFeatureSize(1, 0, 1)
+                ).ignoreVines().build());
+
+        register(context, ROSEROOT_TREE_LARGE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
+                        new StraightTrunkPlacer(9,10,0),
+                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LEAVES),
+                        new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)
+                ).ignoreVines().build());
+
+        register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
+                        new StraightTrunkPlacer(5,2,0),
+                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LEAVES),
+                        new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 
@@ -152,8 +178,8 @@ public class DeepAetherModConfiguredFeatures {
 
 
         register(context, ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.01F)),
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get())), 0.2F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_SMALL), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
 
         register(context, AETHER_PLAINS_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.33F)),

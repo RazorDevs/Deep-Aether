@@ -34,6 +34,7 @@ import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.datagen.tags.DeepAetherBiomeTagData;
 import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.FlowerBlobFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.foliage.DeepAetherModFoliagePlacers;
 
 
 import java.util.concurrent.CompletableFuture;
@@ -88,6 +89,7 @@ public class DeepAetherMod {
 		FlowerBlobFoliagePlacer.REGISTRY.register(bus);
 		DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		DeepAetherModBlocks.registerWoodTypes();
+		DeepAetherModFoliagePlacers.FOLIAGE_PLACERS.register(bus);
 	}
 
 

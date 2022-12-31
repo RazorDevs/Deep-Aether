@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.feature.tree;
 
 import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
@@ -14,6 +15,8 @@ public class RosewoodTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return DeepAetherModConfiguredFeatures.ROSEROOT_TREE_CONFIGURATION;
+        if(random.nextInt(5) == 0)
+            return DeepAetherModConfiguredFeatures.ROSEROOT_TREE_LARGE;
+        else return DeepAetherModConfiguredFeatures.ROSEROOT_TREE_SMALL;
     }
 }
