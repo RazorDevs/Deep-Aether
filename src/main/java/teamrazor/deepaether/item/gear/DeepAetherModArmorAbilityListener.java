@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
 import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.event.hooks.AbilityHooks;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,7 +12,10 @@ public class DeepAetherModArmorAbilityListener {
     public static void onEntityFall(LivingFallEvent event) {
         LivingEntity livingEntity = event.getEntity();
         if (!event.isCanceled()) {
-            event.setCanceled(AbilityHooks.ArmorHooks.fallCancellation(livingEntity));
+            event.setCanceled(fallCancellation(livingEntity));
         }
+    }
+    public static boolean fallCancellation(LivingEntity entity) {
+        return EquipmentUtil.hasFullCloudiumSet(entity);
     }
 }
