@@ -26,6 +26,7 @@ public class DeepAetherModFeatureStates {
     public static final BlockState YALLESITE = DeepAetherModBlocks.YALLESITE.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState AERLAVENDER = DeepAetherModBlocks.AERLAVENDER.get().defaultBlockState();
     public static final BlockState TALL_AERLAVENDER = DeepAetherModBlocks.TALL_AERLAVENDER.get().defaultBlockState();
+    public static final BlockState RADIANT_ORCHID = DeepAetherModBlocks.RADIANT_ORCHID.get().defaultBlockState();
 
 
 }

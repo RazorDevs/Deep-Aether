@@ -18,6 +18,7 @@ import java.util.List;
 
 public class DeepAetherModBiomes {
     public static final ResourceKey<Biome> AETHER_PLAINS = createKey("aether_plains");
+    public static final ResourceKey<Biome> ROSEROOT_FOREST = createKey("roseroot_forest");
 
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -34,8 +35,10 @@ public class DeepAetherModBiomes {
     public static BiomeSource buildDeepAetherModBiomeSource(HolderGetter<Biome> biomes) {
         final Climate.Parameter FULL_RANGE = Climate.Parameter.span(-1.0F, 1.0F);
         return new MultiNoiseBiomeSource(new Climate.ParameterList<>(List.of(
+                Pair.of(new Climate.ParameterPoint(FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, Climate.Parameter.span(-0.1F, 0.5F), 1),
+                        biomes.getOrThrow(DeepAetherModBiomes.AETHER_PLAINS)),
                 Pair.of(new Climate.ParameterPoint(FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, FULL_RANGE, Climate.Parameter.span(-0.1F, 0.5F), 0),
-                        biomes.getOrThrow(DeepAetherModBiomes.AETHER_PLAINS))
+                        biomes.getOrThrow(DeepAetherModBiomes.ROSEROOT_FOREST))
         )));
     }
 }

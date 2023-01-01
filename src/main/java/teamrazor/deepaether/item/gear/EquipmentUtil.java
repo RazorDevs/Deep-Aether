@@ -1,5 +1,7 @@
 package teamrazor.deepaether.item.gear;
 
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import teamrazor.deepaether.init.DeepAetherModItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;

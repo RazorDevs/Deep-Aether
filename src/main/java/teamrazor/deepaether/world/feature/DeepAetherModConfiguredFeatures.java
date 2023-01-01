@@ -47,9 +47,6 @@ import java.util.OptionalInt;
 
 
 public class DeepAetherModConfiguredFeatures {
-    private static List decorators = List.of(new FlowerDecorator(1.0F));
-    //OLD
-    // public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_CONFIGURATION = createKey("roseroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_CONFIGURATION = createKey("golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> YAGROOT_TREE_CONFIGURATION = createKey("yagroot_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> CRUDEROOT_TREE_CONFIGURATION = createKey("cruderoot_tree");
@@ -74,6 +71,7 @@ public class DeepAetherModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_LARGE = createKey("roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_SMALL = createKey("roseroot_tree_small");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_VEGETATION = createKey("roseroot_forest_vegetation");
 
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -84,15 +82,6 @@ public class DeepAetherModConfiguredFeatures {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> holdergetter = context.lookup(Registries.BLOCK);
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-
-        //OLD
-        /*register(context, ROSEROOT_TREE_CONFIGURATION, Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(DeepAetherModFeatureStates.ROSE_LOG),
-                        new StraightTrunkPlacer(5, 6, 3),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DeepAetherModFeatureStates.ROSE_LEAVES, 2).add(DeepAetherModFeatureStates.FLOWERING_ROSE_LEAVES,1)),
-                        new FlowerBlobFoliagePlacer(ConstantInt.of(2), ConstantInt.ZERO, ConstantInt.of(3)),
-                        new TwoLayersFeatureSize(1, 0, 2)).decorators(decorators).build());*/
 
         register(context, SKYROOT_TREE_CONFIGURATION, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -165,9 +154,17 @@ public class DeepAetherModConfiguredFeatures {
                         .add(AetherFeatureStates.BERRY_BUSH, 1)
                         .add(Blocks.GRASS.defaultBlockState(), 32)), 418));
 
+        register(context, ROSEROOT_FOREST_VEGETATION, Feature.FLOWER,
+                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DeepAetherModFeatureStates.RADIANT_ORCHID, 6)
+                        .add(AetherFeatureStates.PURPLE_FLOWER, 3)
+                        .add(AetherFeatureStates.WHITE_FLOWER, 3)
+                        .add(Blocks.TALL_GRASS.defaultBlockState(), 32)
+                        .add(AetherFeatureStates.BERRY_BUSH, 1)
+                        .add(Blocks.GRASS.defaultBlockState(), 64)), 400));
 
         register(context, ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get())), 0.2F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get())), 0.33F)),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_SMALL), PlacementUtils.filteredByBlockSurvival(DeepAetherModBlocks.ROSEWOOD_SAPLING.get()))));
 
         register(context, AETHER_PLAINS_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
