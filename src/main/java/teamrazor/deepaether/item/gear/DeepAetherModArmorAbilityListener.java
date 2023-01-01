@@ -1,12 +1,12 @@
 package teamrazor.deepaether.item.gear;
 
-import com.gildedgames.aether.Aether;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import teamrazor.deepaether.DeepAetherMod;
 
-@Mod.EventBusSubscriber(modid = Aether.MODID)
+@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DeepAetherModArmorAbilityListener {
     @SubscribeEvent
     public static void onEntityFall(LivingFallEvent event) {
