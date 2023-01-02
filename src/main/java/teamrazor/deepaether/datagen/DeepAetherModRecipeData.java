@@ -385,7 +385,6 @@ public class DeepAetherModRecipeData extends AetherRecipeProvider {
         cloudiumSmithingRecipe(consumer, DeepAetherModItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_RING.get());
         cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_GLOVES.get());
 
-        netheriteSmithingRecipe(consumer, AetherItems.DIAMOND_GLOVES.get(), RecipeCategory.COMBAT, AetherItems.NETHERITE_GLOVES.get());
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DeepAetherModItems.CLOUDIUM_SCRAP.get(), DeepAetherModBlocks.CLOUDIUM_DEBRIS.get(), 2.0F, 2000).save(consumer, name("cloudium_enchanting"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DeepAetherModItems.CLOUDIUM_INGOT.get())
@@ -397,15 +396,20 @@ public class DeepAetherModRecipeData extends AetherRecipeProvider {
         smeltingFoodRecipe(DeepAetherModItems.COOKED_QUAIL.get(), DeepAetherModItems.RAW_QUAIL.get(), 0.35F).save(consumer);
         smeltingFoodRecipe(DeepAetherModItems.COOKED_AERGLOW_FISH.get(), DeepAetherModItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer);
 
-        makeBoat(DeepAetherModItems.ROSEROOT_BOAT, DeepAetherModBlocks.ROSE_PLANKS.get());
-        makeBoat(DeepAetherModItems.YAGROOT_BOAT, DeepAetherModBlocks.YAGROOT_PLANKS.get());
-        makeBoat(DeepAetherModItems.CRUDEROOT_BOAT, DeepAetherModBlocks.CRUDEROOT_PLANKS.get());
+        makeBoat(DeepAetherModItems.ROSEROOT_BOAT, DeepAetherModBlocks.ROSE_PLANKS.get()).save(consumer);
+        makeBoat(DeepAetherModItems.YAGROOT_BOAT, DeepAetherModBlocks.YAGROOT_PLANKS.get()).save(consumer);
+        makeBoat(DeepAetherModItems.CRUDEROOT_BOAT, DeepAetherModBlocks.CRUDEROOT_PLANKS.get()).save(consumer);
 
-        makeChestBoat(DeepAetherModItems.ROSEROOT_CHEST_BOAT.get());
-        makeChestBoat(DeepAetherModItems.YAGROOT_CHEST_BOAT.get());
-        makeChestBoat(DeepAetherModItems.CRUDEROOT_CHEST_BOAT.get());
+        makeChestBoat(DeepAetherModItems.ROSEROOT_CHEST_BOAT.get()).save(consumer);
+        makeChestBoat(DeepAetherModItems.YAGROOT_CHEST_BOAT.get()).save(consumer);
+        makeChestBoat(DeepAetherModItems.CRUDEROOT_CHEST_BOAT.get()).save(consumer);
         hiddenEnchantingRecipe(RecipeCategory.MISC, DeepAetherModItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DeepAetherModItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
+
+        makeskyrootSticks(DeepAetherModBlocks.ROSE_PLANKS.get()).save(consumer, name("skyroot_sticks_from_roseroot_planks"));
+        makeskyrootSticks(DeepAetherModBlocks.YAGROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_yagroot_planks"));
+        makeskyrootSticks(DeepAetherModBlocks.CRUDEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_cruderoot_planks"));
+
 
     }
 
@@ -424,6 +428,14 @@ public class DeepAetherModRecipeData extends AetherRecipeProvider {
                 .define('#', material)
                 .pattern("# #")
                 .pattern("###")
+                .unlockedBy(getHasName(material), has(material));
+    }
+    protected static ShapedRecipeBuilder makeskyrootSticks(Block material) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AetherItems.SKYROOT_STICK.get(),4)
+                .group("sticks")
+                .define('#', material)
+                .pattern("#")
+                .pattern("#")
                 .unlockedBy(getHasName(material), has(material));
     }
     protected static ShapelessRecipeBuilder makeChestBoat(Item boat) {
