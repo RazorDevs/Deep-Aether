@@ -1,5 +1,6 @@
 {
-  "type": "deep_aether:ores",
+  "type": "forge:add_features",
   "biomes": "#aether:is_aether",
-  "feature": "deep_aether:darkerite"
+  "feature": "deep_aether:darkerite",
+  "step": "underground_ores"
 }
