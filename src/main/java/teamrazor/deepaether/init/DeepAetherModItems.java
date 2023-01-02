@@ -6,6 +6,7 @@ import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -84,10 +85,10 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = ITEMS.register("cruderoot_chest_boat", () -> new DeepAetherModBoatItem(true, new Item.Properties().stacksTo(1), DeepAetherModWoodTypes.CRUDEROOT));
 
 	// MISC
-	/*public static final RegistryObject<Item> AERGLOW_FISH_EGG = ITEMS.register("aether_fish_spawn_egg",
-			() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 33323, 42424, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+	public static final RegistryObject<Item> AERGLOW_FISH_EGG = ITEMS.register("aether_fish_spawn_egg",
+			() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 33323, 42424, new Item.Properties()));
 	public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_spawn_egg",
-			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,32114, new Item.Properties().tab(DeepAetherModTabs.TAB_DEEP_AETHER_BLOCKS_TAB)));*/
+			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,32114, new Item.Properties()));
 
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru", () -> new RecordItem(0, DeepAetherModSounds.NABOORU.get(),
 			new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100));

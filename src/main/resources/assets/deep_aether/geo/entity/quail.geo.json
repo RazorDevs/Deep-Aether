@@ -57,14 +57,6 @@
 					]
 				},
 				{
-					"name": "bill",
-					"parent": "quail",
-					"pivot": [-1, 5, -3],
-					"cubes": [
-						{"origin": [-2, 4, -4], "size": [3, 1, 1], "uv": [14, 0]}
-					]
-				},
-				{
 					"name": "chin",
 					"parent": "quail",
 					"pivot": [-2, 9, -4]
@@ -75,6 +67,14 @@
 					"pivot": [-1, 5, -1],
 					"cubes": [
 						{"origin": [-2, 4, -3], "size": [3, 3, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "bill",
+					"parent": "head",
+					"pivot": [-1, 5, -3],
+					"cubes": [
+						{"origin": [-2, 4, -4], "size": [3, 1, 1], "uv": [14, 0]}
 					]
 				}
 			]
