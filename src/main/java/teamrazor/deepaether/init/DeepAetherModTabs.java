@@ -25,7 +25,7 @@ public class DeepAetherModTabs {
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         TAB_DEEP_AETHER_BLOCKS_TAB = event.registerCreativeModeTab(
                 new ResourceLocation(DeepAetherMod.MODID, "deep_aether_blocks"),
-                builder -> builder.icon(() -> new ItemStack(DeepAetherModItems.SKYJADE_TOOLS_SWORD.get()))
+                builder -> builder.icon(() -> new ItemStack(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_blocks"))
                         .displayItems((features, output, hasPermissions) -> {
                             output.accept(DeepAetherModBlocks.ROSE_LOG.get());
@@ -167,7 +167,7 @@ public class DeepAetherModTabs {
 
         TAB_DEEP_AETHER_ITEMS_TAB = event.registerCreativeModeTab(
                 new ResourceLocation(DeepAetherMod.MODID, "deep_aether_items"),
-                builder -> builder.icon(() -> new ItemStack(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get()))
+                builder -> builder.icon(() -> new ItemStack(DeepAetherModItems.SKYJADE_TOOLS_SWORD.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_items"))
                         .displayItems((features, output, hasPermissions) -> {
                             output.accept(DeepAetherModItems.SKYJADE.get());
@@ -196,6 +196,8 @@ public class DeepAetherModTabs {
                             output.accept(DeepAetherModItems.CLOUDIUM_HELMET.get());
                             output.accept(DeepAetherModItems.CLOUDIUM_RING.get());
                             output.accept(DeepAetherModItems.CLOUDIUM_GLOVES.get());
+
+                            output.accept(DeepAetherModItems.GRAVITIE_RING.get());
 
                             output.accept(DeepAetherModItems.RAW_AERGLOW_FISH.get());
                             output.accept(DeepAetherModItems.COOKED_AERGLOW_FISH.get());

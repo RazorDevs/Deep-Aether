@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:aether_mud"
+    },
+    {
+      "item": "deep_aether:muddy_yagroot_roots"
+    }
+  ],
+  "result": {
+    "item": "deep_aether:muddy_yagroot_roots"
+  }
+}

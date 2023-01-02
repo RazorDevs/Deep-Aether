@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "deep_aether:polished_clorite_bricks"
-  },
-  "result": "deep_aether:polished_clorite_bricks_wall"
-}

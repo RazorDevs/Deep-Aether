@@ -311,7 +311,12 @@
   "item.deep_aether.cloudium_hoe": "Cloudium Hoe",
   "item.deep_aether.cloudium_pickaxe": "Cloudium Pickaxe",
   "item.deep_aether.cloudium_shovel": "Cloudium Shovel",
+  "item.deep_aether.gravitite_ring": "Gravitie Ring",
   "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks",
-  "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items"
-
+  "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",
+  "item.deep_aether.roseroot_boat": "Roseroot Boat",
+  "item.deep_aether.roseroot_chest_boat": "Roseroot Chest Boat",
+  "entity.deep_aether.roseroot_chest_boat": "Boat With Chest",
+  "entity.deep_aether.cruderoot_chest_boat": "Boat With Chest",
+  "entity.deep_aether.yagroot_chest_boat": "Boat With Chest"
 }
