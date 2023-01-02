@@ -68,18 +68,13 @@ public class QuailEntity extends Chicken implements GeoEntity {
         return DeepAetherModEntities.QUAIL.get().create(serverLevel);
     }
 
-    //TODO: Play Flapping animation during a fall only.
-
-    private <E extends GeoAnimatable> PlayState flapPredicate(AnimationState<E> event) {
-        if(!this.onGround) {
-            event.getController().setAnimation(FLAP_ANIM);
-        }
-        return PlayState.CONTINUE;
-    }
-
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(WALK_ANIM);
+            return PlayState.CONTINUE;
+        }
+        if(!this.onGround) {
+            event.getController().setAnimation(FLAP_ANIM);
             return PlayState.CONTINUE;
         }
         event.getController().setAnimation(IDLE_ANIM);
@@ -90,18 +85,10 @@ public class QuailEntity extends Chicken implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController(this, "controller",
                 0, this::predicate));
-
-        controllers.add(new AnimationController(this, "flapController",
-                0, this::flapPredicate));
     }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
-    }
-
-    @Override
-    public double getTick(Object object) {
-        return 0;
     }
 }

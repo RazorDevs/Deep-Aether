@@ -188,12 +188,12 @@ public class DeepAetherModConfiguredFeatures {
         register(context, ORE_SKYJADE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.SKYJADE_ORE, 6, 0.7F));
         register(context, ORE_SKYJADE_CONFIGURATION_SMALL, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.SKYJADE_ORE, 4, 0.3F));
         register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.DIVINE_DEBRIS, 3, 0.9F));
-        register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.ASETERITE, 20));
-        register(context, DARKERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.DARKERITE, 20));
-        register(context, GREOTITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.GREOTITE, 20));
-        register(context, JARINITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.JARINITE, 20));
-        register(context, CLORITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.CLORITE, 20));
-        register(context, YALLESITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.YALLESITE, 20));
+        register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.ASETERITE, 64));
+        register(context, DARKERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.DARKERITE, 64));
+        register(context, GREOTITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.GREOTITE, 64));
+        register(context, JARINITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.JARINITE, 64));
+        register(context, CLORITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.CLORITE, 64));
+        register(context, YALLESITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DeepAetherModFeatureStates.YALLESITE, 64));
 
 
 
