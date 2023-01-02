@@ -3,9 +3,6 @@
  *    MCreator note: This file will be REGENERATED on each build.
  */
 package teamrazor.deepaether.init;
-import com.gildedgames.aether.block.AetherWoodTypes;
-import com.gildedgames.aether.block.construction.SkyrootSignBlock;
-import com.gildedgames.aether.block.construction.SkyrootWallSignBlock;
 import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
@@ -15,7 +12,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -174,7 +170,7 @@ public class DeepAetherModBlocks {
 
 
 	//MISC
-	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new RadiantOrchidBlock());
+	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
 	public static final RegistryObject<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new LavenderBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 

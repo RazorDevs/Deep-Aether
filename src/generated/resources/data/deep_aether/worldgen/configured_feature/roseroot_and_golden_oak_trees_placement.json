@@ -2,7 +2,7 @@
   "type": "minecraft:random_selector",
   "config": {
     "default": {
-      "feature": "deep_aether:roseroot_tree",
+      "feature": "deep_aether:roseroot_tree_small",
       "placement": [
         {
           "type": "minecraft:block_predicate_filter",
@@ -20,16 +20,16 @@
     },
     "features": [
       {
-        "chance": 0.01,
+        "chance": 0.33,
         "feature": {
-          "feature": "deep_aether:golden_oak_tree",
+          "feature": "deep_aether:roseroot_tree_large",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether:golden_oak_sapling",
+                  "Name": "deep_aether:rosewood_sapling",
                   "Properties": {
                     "stage": "0"
                   }

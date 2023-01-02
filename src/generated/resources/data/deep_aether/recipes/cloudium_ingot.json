@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:cloudium_scrap"
+    },
+    {
+      "item": "deep_aether:cloudium_scrap"
+    },
+    {
+      "item": "deep_aether:cloudium_scrap"
+    },
+    {
+      "item": "deep_aether:cloudium_scrap"
+    },
+    {
+      "item": "aether:enchanted_gravitite"
+    },
+    {
+      "item": "aether:enchanted_gravitite"
+    },
+    {
+      "item": "aether:enchanted_gravitite"
+    },
+    {
+      "item": "aether:enchanted_gravitite"
+    }
+  ],
+  "result": {
+    "item": "deep_aether:cloudium_ingot"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_sign",
+  "key": {
+    "/": {
+      "tag": "forge:rods/wooden"
+    },
+    "P": {
+      "item": "deep_aether:yagroot_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PPP",
+    " / "
+  ],
+  "result": {
+    "count": 3,
+    "item": "deep_aether:yagroot_sign"
+  }
+}

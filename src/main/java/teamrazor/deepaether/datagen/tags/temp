@@ -1,0 +1,23 @@
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_SWORD.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_sword_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_AXE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_axe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_PICKAXE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_pickaxe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_SHOVEL.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_shovel_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_HOE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_hoe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_BOOTS.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_boots_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_LEGGINGS.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_leggings_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_CHESTPLATE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_chestplate_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_HELMET.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_helmet_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DeepAetherModItems.CLOUDIUM_INGOT_GLOVES.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_gloves_repairing"));
+
+        makeSword(DeepAetherModItems.CLOUDIUM_SWORD, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeAxe(DeepAetherModItems.CLOUDIUM_AXE, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makePickaxe(DeepAetherModItems.CLOUDIUM_PICKAXE, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeShovel(DeepAetherModItems.CLOUDIUM_SHOVEL, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeHoe(DeepAetherModItems.CLOUDIUM_HOE, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+
+        makeBoots(DeepAetherModItems.CLOUDIUM_BOOTS, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeLeggings(DeepAetherModItems.CLOUDIUM_LEGGINGS, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeChestplate(DeepAetherModItems.CLOUDIUM_CHESTPLATE, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeHelmet(DeepAetherModItems.CLOUDIUM_HELMET, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);
+        makeRing(DeepAetherModItems.CLOUDIUM_INGOT_RING, DeepAetherModItems.CLOUDIUM_INGOT.get()).save(consumer);
+        makeGloves(DeepAetherModItems.CLOUDIUM_INGOT_GLOVES, DeepAetherModItems.CLOUDIUM_INGOT).save(consumer);

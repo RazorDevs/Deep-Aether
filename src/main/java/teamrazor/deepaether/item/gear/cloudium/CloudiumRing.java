@@ -12,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import top.theillusivec4.curios.api.SlotContext;
 
 public class CloudiumRing extends AccessoryItem {
@@ -28,9 +29,9 @@ public class CloudiumRing extends AccessoryItem {
             pTime += 0.02;
             if(pTime >= 1.5)
                 if(livingEntity instanceof Player player) {
-                    if(!player.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA) && Minecraft.getInstance().options.keyUp.isDown()) {
-                        Double x = player.getLookAngle().x * 0.01;
-                        Double z = player.getLookAngle().z * 0.01;
+                    if(!player.getItemBySlot(EquipmentSlot.CHEST).is(Items.ELYTRA) && Minecraft.getInstance().options.keyUp.isDown() && !player.isSpectator() && player.getFeetBlockState().getTags() != (Blocks.WATER.defaultBlockState()) && !player.isSpectator() && player.getFeetBlockState().getTags() != (Blocks.LAVA.defaultBlockState())){
+                        Double x = player.getLookAngle().x * 0.05;
+                        Double z = player.getLookAngle().z * 0.05;
 
                         player.push(x, 0, z);
                         if (player instanceof ServerPlayer serverPlayer) {
@@ -38,7 +39,6 @@ public class CloudiumRing extends AccessoryItem {
                         }
                     }
                 }
-                //livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 4, 2, false, false));
         }
         else {
             pTime = 0;

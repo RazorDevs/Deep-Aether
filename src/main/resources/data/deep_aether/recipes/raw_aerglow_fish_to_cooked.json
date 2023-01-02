@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "deep_aether:raw_aerglow_fish"
-  },
-  "result": "deep_aether:cooked_aerglow_fish",
-  "experience": 0.1,
-  "cookingtime": 200
-}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "deep_aether:cloudium_ingot"
+  },
+  "base": {
+    "item": "deep_aether:gravitite_ring"
+  },
+  "result": {
+    "item": "deep_aether:cloudium_ring"
+  }
+}

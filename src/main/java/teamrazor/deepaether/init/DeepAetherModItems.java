@@ -46,6 +46,7 @@ public class DeepAetherModItems {
 	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new DeepAetherGlovesItem(0.75, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().stacksTo(1)));
 
+	public static final RegistryObject<Item> GRAVITIE_RING = ITEMS.register("gravitite_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().stacksTo(1)));
 	public static final RegistryObject<Item> CLOUDIUM_HELMET = ITEMS.register("cloudium_helmet", () -> new CloudiumAbility(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.HEAD, new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_CHESTPLATE = ITEMS.register("cloudium_chestplate", () -> new ArmorItem(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.CHEST, new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_LEGGINGS = ITEMS.register("cloudium_leggings", () -> new ArmorItem(CloudiumArmorItem.CLOUDIUM, EquipmentSlot.LEGS, new Item.Properties()));
