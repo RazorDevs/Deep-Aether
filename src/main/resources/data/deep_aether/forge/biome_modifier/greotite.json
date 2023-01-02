@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#aether:is_aether",
-  "feature": "deep_aether:jarinite",
+  "features": "deep_aether:yallesite",
   "step": "underground_ores"
 }

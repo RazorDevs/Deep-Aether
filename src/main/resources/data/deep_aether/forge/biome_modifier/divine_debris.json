@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#aether:is_aether",
-  "feature": "deep_aether:clorite",
+  "features": "deep_aether:divine_debris",
   "step": "underground_ores"
 }

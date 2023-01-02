@@ -31,7 +31,7 @@ public class DeepAetherModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
     public static final ResourceKey<PlacedFeature> SKYJADE_ORE_SMALL = createKey("skyjade_ore_small");
     public static final ResourceKey<PlacedFeature> DIVINE_DEBRIS = createKey("divine_debris");
-    public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterire");
+    public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> GREOTITE = createKey("greotie");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
     public static final ResourceKey<PlacedFeature> DARKERITE = createKey("darkerite");
