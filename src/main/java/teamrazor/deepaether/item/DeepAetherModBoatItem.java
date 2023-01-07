@@ -80,6 +80,5 @@ public class DeepAetherModBoatItem extends Item {
             return this.hasChest ? new YagrootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new YagrootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
 
         return this.hasChest ? new CruderootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new CruderootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
-
     }
 }

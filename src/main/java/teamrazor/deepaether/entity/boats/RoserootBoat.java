@@ -30,8 +30,10 @@ public class RoserootBoat extends Boat implements SkyrootBoatBehavior {
         this.zo = z;
     }
 
-
-
+    @Override
+    public void fall(Boat boat, double y, boolean onGround) {
+        SkyrootBoatBehavior.super.fall(boat, y, onGround);
+    }
 
     @Nonnull
     @Override
@@ -49,4 +51,6 @@ public class RoserootBoat extends Boat implements SkyrootBoatBehavior {
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
+
+
 }

@@ -33,8 +33,6 @@ public class DeepAetherModEventClientBusEvents {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        //EntityRenderers.register(DeepAetherModEntities.QUAIL.get(), QuailRenderer::new);
-        //EntityRenderers.register(DeepAetherModEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 
         event.registerEntityRenderer(DeepAetherModEntities.ROSEROOT_BOAT.get(), (context) -> new RoserootBoatRenderer(context, false));
         event.registerEntityRenderer(DeepAetherModEntities.ROSEROOT_CHEST_BOAT.get(), (context) -> new RoserootBoatRenderer(context, true));
