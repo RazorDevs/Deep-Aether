@@ -83,10 +83,11 @@ public class DeepAetherMod {
 		GeckoLib.initialize();
 		DeepAetherModBlocks.BLOCKS.register(bus);
 		DeepAetherModItems.ITEMS.register(bus);
+		DeepAetherModParticles.PARTICLE_TYPES.register(bus);
 		DeepAetherModEntities.ENTITY_TYPES.register(bus);
 		DeepAetherModSounds.SOUNDS.register(bus);
-		DeepAetherModFluids.register(bus);
-		DeepAetherModFluidTypes.register(bus);
+		DeepAetherModFluids.FLUIDS.register(bus);
+		DeepAetherModFluidTypes.FLUID_TYPES.register(bus);
 		DeepAetherDecoratorType.REGISTRY.register(bus);
 		DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		DeepAetherModBlocks.registerWoodTypes();

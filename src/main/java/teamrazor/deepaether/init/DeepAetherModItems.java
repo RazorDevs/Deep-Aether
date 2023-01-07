@@ -86,9 +86,10 @@ public class DeepAetherModItems {
 
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_FISH_EGG = ITEMS.register("aether_fish_spawn_egg",
-			() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 33323, 42424, new Item.Properties()));
+			() -> new ForgeSpawnEggItem(DeepAetherModEntities.AETHER_FISH, 698060, 16776960, new Item.Properties()));
+
 	public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_spawn_egg",
-			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,24433,32114, new Item.Properties()));
+			() -> new ForgeSpawnEggItem(DeepAetherModEntities.QUAIL,6373632,16776960, new Item.Properties()));
 
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru", () -> new RecordItem(0, DeepAetherModSounds.NABOORU.get(),
 			new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100));
