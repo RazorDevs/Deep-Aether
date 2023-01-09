@@ -1,0 +1,93 @@
+public class DeepAetherModBlockstateData AetherBlockStateProvider {
+    public DeepAetherModBlockstateData(PackOutput output, ExistingFileHelper helper) {
+        super(output, DeepAetherMod.MODID, helper);
+    }
+
+    @Override
+    public void registerStatesAndModels() {
+
+        //WOOD ROSEROOT
+
+        this.wood(DeepAetherModBlocks.ROSEROOT_WOOD.get(), DeepAetherModBlocks.ROSEROOT_LOG.get());
+        this.log(DeepAetherModBlocks.ROSEROOT_LOG.get());
+        this.block(DeepAetherModBlocks.ROSEROOT_PLANKS.get(), "construction/");
+        this.slab(DeepAetherModBlocks.ROSEROOT_SLAB.get(), DeepAetherModBlocks.ROSEROOT_PLANKS.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.ROSEROOT_STAIRS.get(), DeepAetherModBlocks.ROSEROOT_PLANKS.get(), "construction/");
+        this.fence(DeepAetherModBlocks.ROSEROOT_FENCE.get(), DeepAetherModBlocks.ROSEROOT_PLANKS.get(), "construction/");
+        this.fenceGateBlock(DeepAetherModBlocks.ROSEROOT_FENCE_GATE.get(), DeepAetherModBlocks.ROSEROOT_PLANKS.get(), "construction/");
+        this.doorBlock(DeepAetherModBlocks.ROSEROOT_DOOR.get(), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_DOOR.get()), "construction/", "_bottom"), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_DOOR.get()), "construction/", "_top"));
+        this.trapdoorBlock(DeepAetherModBlocks.ROSEROOT_TRAPDOOR.get(), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_TRAPDOOR.get()), "construction/"), false);
+        this.buttonBlock(DeepAetherModBlocks.ROSEROOT_BUTTON.get(), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_PLANKS.get()), "construction/"));
+        this.pressurePlateBlock(DeepAetherModBlocks.ROSEROOT_PRESSURE_PLATE.get(), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_PLANKS.get()), "construction/"));
+        this.wallBlock(DeepAetherModBlocks.ROSEROOT_WALL.get(), DeepAetherModBlocks.ROSEROOT_LOG.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.STRIPPED_ROSEROOT_WALL.get(), DeepAetherModBlocks.STRIPPED_ROSEROOT_LOG.get(), "construction/");
+        this.saplingBlock(DeepAetherModBlocks.ROSEROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(DeepAetherModBlocks.POTTED_ROSEROOT_SAPLING.get(), DeepAetherModBlocks.ROSEROOT_SAPLING.get(), "natural/");
+        this.block(DeepAetherModBlocks.ROSEROOT_LEAVES.get(), "natural/");
+        this.block(AetherBlocks.FLOWERING_ROSEROOT_LEAVES.get(), "natural/");
+        this.signBlock(DeepAetherModBlocks.ROSEROOT_SIGN.get(), DeepAetherModBlocks.ROSEROOT_WALL_SIGN.get(), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_PLANKS.get()), "construction/"));
+
+        //WOOD YAGROOT
+
+        this.wood(DeepAetherModBlocks.YAGROOT_WOOD.get(), DeepAetherModBlocks.YAGROOT_LOG.get());
+        this.log(DeepAetherModBlocks.YAGROOT_LOG.get());
+        this.block(DeepAetherModBlocks.YAGROOT_PLANKS.get(), "construction/");
+        this.slab(DeepAetherModBlocks.YAGROOT_SLAB.get(), DeepAetherModBlocks.YAGROOT_PLANKS.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.YAGROOT_STAIRS.get(), DeepAetherModBlocks.YAGROOT_PLANKS.get(), "construction/");
+        this.fence(DeepAetherModBlocks.YAGROOT_FENCE.get(), DeepAetherModBlocks.YAGROOT_PLANKS.get(), "construction/");
+        this.fenceGateBlock(DeepAetherModBlocks.YAGROOT_FENCE_GATE.get(), DeepAetherModBlocks.YAGROOT_PLANKS.get(), "construction/");
+        this.doorBlock(DeepAetherModBlocks.YAGROOT_DOOR.get(), this.texture(this.name(DeepAetherModBlocks.YAGROOT_DOOR.get()), "construction/", "_bottom"), this.texture(this.name(DeepAetherModBlocks.YAGROOT_DOOR.get()), "construction/", "_top"));
+        this.trapdoorBlock(DeepAetherModBlocks.YAGROOT_TRAPDOOR.get(), this.texture(this.name(DeepAetherModBlocks.YAGROOT_TRAPDOOR.get()), "construction/"), false);
+        this.buttonBlock(DeepAetherModBlocks.YAGROOT_BUTTON.get(), this.texture(this.name(DeepAetherModBlocks.YAGROOT_PLANKS.get()), "construction/"));
+        this.pressurePlateBlock(DeepAetherModBlocks.YAGROOT_PRESSURE_PLATE.get(), this.texture(this.name(DeepAetherModBlocks.YAGROOT_PLANKS.get()), "construction/"));
+        this.wallBlock(DeepAetherModBlocks.YAGROOT_WALL.get(), DeepAetherModBlocks.YAGROOT_LOG.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.STRIPPED_YAGROOT_WALL.get(), DeepAetherModBlocks.STRIPPED_YAGROOT_LOG.get(), "construction/");
+        this.saplingBlock(DeepAetherModBlocks.YAGROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(DeepAetherModBlocks.POTTED_YAGROOT_SAPLING.get(), DeepAetherModBlocks.YAGROOT_SAPLING.get(), "natural/");
+        this.block(DeepAetherModBlocks.YAGROOT_LEAVES.get(), "natural/");
+        this.block(DeepAetherModBlocks.YAGROOT_ROOTS.get(), "natural/");
+        this.block(DeepAetherModBlocks.MUDDY_YAGROOT_ROOTS.get(), "natural/");
+        this.signBlock(DeepAetherModBlocks.YAGROOT_SIGN.get(), DeepAetherModBlocks.YAGROOT_WALL_SIGN.get(), this.texture(this.name(DeepAetherModBlocks.YAGROOT_PLANKS.get()), "construction/"));
+
+        //WOOD CRUDEROOT
+
+        this.wood(DeepAetherModBlocks.CRUDEROOT_WOOD.get(), DeepAetherModBlocks.CRUDEROOT_LOG.get());
+        this.log(DeepAetherModBlocks.CRUDEROOT_LOG.get());
+        this.block(DeepAetherModBlocks.CRUDEROOT_PLANKS.get(), "construction/");
+        this.slab(DeepAetherModBlocks.CRUDEROOT_SLAB.get(), DeepAetherModBlocks.CRUDEROOT_PLANKS.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.CRUDEROOT_STAIRS.get(), DeepAetherModBlocks.CRUDEROOT_PLANKS.get(), "construction/");
+        this.fence(DeepAetherModBlocks.CRUDEROOT_FENCE.get(), DeepAetherModBlocks.CRUDEROOT_PLANKS.get(), "construction/");
+        this.fenceGateBlock(DeepAetherModBlocks.CRUDEROOT_FENCE_GATE.get(), DeepAetherModBlocks.CRUDEROOT_PLANKS.get(), "construction/");
+        this.doorBlock(DeepAetherModBlocks.CRUDEROOT_DOOR.get(), this.texture(this.name(DeepAetherModBlocks.CRUDEROOT_DOOR.get()), "construction/", "_bottom"), this.texture(this.name(DeepAetherModBlocks.CRUDEROOT_DOOR.get()), "construction/", "_top"));
+        this.trapdoorBlock(DeepAetherModBlocks.CRUDEROOT_TRAPDOOR.get(), this.texture(this.name(DeepAetherModBlocks.CRUDEROOT_TRAPDOOR.get()), "construction/"), false);
+        this.buttonBlock(DeepAetherModBlocks.CRUDEROOT_BUTTON.get(), this.texture(this.name(DeepAetherModBlocks.CRUDEROOT_PLANKS.get()), "construction/"));
+        this.pressurePlateBlock(DeepAetherModBlocks.CRUDEROOT_PRESSURE_PLATE.get(), this.texture(this.name(DeepAetherModBlocks.CRUDEROOT_PLANKS.get()), "construction/"));
+        this.wallBlock(DeepAetherModBlocks.CRUDEROOT_WALL.get(), DeepAetherModBlocks.CRUDEROOT_LOG.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.STRIPPED_CRUDEROOT_WALL.get(), DeepAetherModBlocks.STRIPPED_CRUDEROOT_LOG.get(), "construction/");
+        this.saplingBlock(DeepAetherModBlocks.CRUDEROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(DeepAetherModBlocks.POTTED_CRUDEROOT_SAPLING.get(), DeepAetherModBlocks.CRUDEROOT_SAPLING.get(), "natural/");
+        this.block(DeepAetherModBlocks.CRUDEROOT_LEAVES.get(), "natural/");
+        this.signBlock(DeepAetherModBlocks.CRUDEROOT_SIGN.get(), DeepAetherModBlocks.CRUDEROOT_WALL_SIGN.get(), this.texture(this.name(DeepAetherModBlocks.CRUDEROOT_PLANKS.get()), "construction/"));
+
+        //MUD
+
+        this.block(DeepAetherModBlocks.AETHER_MUD.get(), "natural/");
+        this.block(DeepAetherModBlocks.PACKED_AETHER_MUD.get(), "construction/");
+        this.block(DeepAetherModBlocks.AETHER_MUD_BRICKS.get(), "construction/");
+        this.slab(DeepAetherModBlocks.AETHER_MUD_BRICKS_SLAB.get(), DeepAetherModBlocks.AETHER_MUD_BRICKS.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.AETHER_MUD_BRICKS_STAIRS.get(), DeepAetherModBlocks.AETHER_MUD_BRICKS.get(), "construction/");
+
+        //ORES
+
+        this.block(DeepAetherModBLocks.SKYJADE_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.SKYJADE_BLOCK.get(), "construction/");
+
+        this.block(DeepAetherModBLocks.AGATE_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.HIGHSTONE_AGATE_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.AGATE_BLOCK.get(), "construction/");
+
+        this.block(DeepAetherModBLocks.AGATE_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.HIGHSTONE_AGATE_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.AGATE_BLOCK.get(), "construction/");
+    }
+}
