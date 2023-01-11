@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "deep_aether:placeholder"
+    "layer0": "deep_aether:item/gravitite_ring"
   }
 }

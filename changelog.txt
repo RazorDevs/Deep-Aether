@@ -1,6 +1,27 @@
 1.19.x Changelog
+44.1
+====
+ - 44.1.5 Add ClientChatReceivedEvent for system messages (#9284)
+ - 44.1.4 PR Action update (#9274)
+ - 44.1.3 fix HangingSignEditScreen crash when using custom wood types using modid (#9294)
+ - 44.1.2 Bump SecureJarHandler version, to help identify invalid mods.
+ - 44.1.1 [1.19.3] Hotfix missing null check in createUnbakedItemElements (#9285)
+ - 44.1.0 Mark 1.19.3 Recommended Build
+
 44.0
 ====
+ - 44.0.49 [1.19.3] Allow Item and Elements models to specify static color, sky light, and block light values. (#9106)
+ - 44.0.48 Fix StemBlock not checking canSustainPlant for the correct block, it now checks for Melons/Pumpkins instead of the stem itself. (#9270)
+ - 44.0.47 Add github shared actions for automation purposes. (#9251)
+ - 44.0.46 Add translate key for Forge pack.mcmeta description (#9260)
+ - 44.0.45 Fix broken link for update checker docs in mdk (#9271)
+ - 44.0.44 Remove duplicate updateNeighbourForOutputSignal call Fixes #9169 (#9234)
+ - 44.0.43 Add helper methods to access the set of loaded sprite locations (#9223)
+ - 44.0.42 Disable guiLight3d for generated item models (#9230)
+ - 44.0.41 Remove resource caching (#9254)
+ - 44.0.40 Add TradeWithVillagerEvent (#9244)
+ - 44.0.39 Update link for Parchment "Getting Started" (#9243)
+ - 44.0.38 Allows DatapackBuiltinEntriesProvider to datagen LevelStems (#9247)
  - 44.0.37 Add a method to LootContext.Builder that allows changing the queried loot table id (#9084)
  - 44.0.36 [1.19.3] Fix Datagen Tests and Providers (#9212)
  - 44.0.35 Fix concrete powder not being hydrated by singular water sources (#9236)
