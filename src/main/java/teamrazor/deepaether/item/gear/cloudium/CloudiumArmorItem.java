@@ -8,11 +8,11 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.init.DeepAetherModItems;
+import teamrazor.deepaether.init.DAItems;
 
 public enum CloudiumArmorItem implements ArmorMaterial {
     CLOUDIUM("cloudium", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
-        return Ingredient.of(DeepAetherModItems.CLOUDIUM_SCRAP.get());
+        return Ingredient.of(DAItems.CLOUDIUM_SCRAP.get());
     });
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

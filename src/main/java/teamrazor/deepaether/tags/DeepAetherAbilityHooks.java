@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
-import teamrazor.deepaether.init.DeepAetherModBlocks;
+import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.item.gear.cloudium.CloudiumAbility;
 
 import java.util.Map;
@@ -26,10 +26,10 @@ public class DeepAetherAbilityHooks {
 
     public static class ToolHooks {
         public static final Map<Block, Block> STRIPPABLES = (new ImmutableMap.Builder<Block, Block>())
-                .put(DeepAetherModBlocks.ROSE_LOG.get(), DeepAetherModBlocks.STRIPPED_ROSE_LOG.get())
-                .put(DeepAetherModBlocks.ROSE_WOOD.get(), DeepAetherModBlocks.STRIPPED_ROSE_WOOD.get())
-                .put(DeepAetherModBlocks.YAGROOT_LOG.get(), DeepAetherModBlocks.STRIPPED_YAGROOT_LOG.get())
-                .put(DeepAetherModBlocks.YAGROOT_WOOD.get(), DeepAetherModBlocks.STRIPPED_YAGROOT_WOOD.get())
+                .put(DABlocks.ROSE_LOG.get(), DABlocks.STRIPPED_ROSE_LOG.get())
+                .put(DABlocks.ROSE_WOOD.get(), DABlocks.STRIPPED_ROSE_WOOD.get())
+                .put(DABlocks.YAGROOT_LOG.get(), DABlocks.STRIPPED_YAGROOT_LOG.get())
+                .put(DABlocks.YAGROOT_WOOD.get(), DABlocks.STRIPPED_YAGROOT_WOOD.get())
                 .build();
 
         public static BlockState setupToolActions(LevelAccessor accessor, BlockPos pos, BlockState old, ToolAction action) {

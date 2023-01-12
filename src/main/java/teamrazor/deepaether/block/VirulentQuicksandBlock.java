@@ -1,10 +1,5 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.effect.AetherEffects;
-import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootSolidBucketItem;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.renderer.EffectInstance;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -16,20 +11,13 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityEvent;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.item.FallingBlockEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
@@ -40,12 +28,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.event.entity.EntityMountEvent;
-import teamrazor.deepaether.init.DeepAetherModItems;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.Optional;
-
-import static net.minecraft.world.level.block.FallingBlock.isFree;
 
 public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable {
     private static final float HORIZONTAL_PARTICLE_MOMENTUM_FACTOR = 0.083333336F;
@@ -128,7 +113,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable 
             accessor.levelEvent(2001, pos, Block.getId(blockState));
         }
 
-        return new ItemStack(DeepAetherModItems.VIRULENT_QUICKSAND_BUCKET.get());
+        return new ItemStack(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
     }
 
     public boolean skipRendering(BlockState p_154268_, BlockState p_154269_, Direction p_154270_) {

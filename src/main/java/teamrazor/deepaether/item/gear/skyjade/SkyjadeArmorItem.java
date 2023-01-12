@@ -2,7 +2,7 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
 
-import teamrazor.deepaether.init.DeepAetherModItems;
+import teamrazor.deepaether.init.DAItems;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -40,7 +40,7 @@ public abstract class SkyjadeArmorItem extends ArmorItem {
 
 			@Override
 			public Ingredient getRepairIngredient() {
-				return Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get()));
+				return Ingredient.of(new ItemStack(DAItems.SKYJADE.get()));
 			}
 
 			@Override

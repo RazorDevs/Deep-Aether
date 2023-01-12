@@ -1,6 +1,5 @@
 package teamrazor.deepaether.world.feature.tree.foliage;
 
-import com.gildedgames.aether.world.foliageplacer.AetherFoliagePlacerTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -33,7 +32,7 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return DeepAetherModFoliagePlacers.ROSEROOT_FOLIAGE_PLACER.get();
+        return DAFoliagePlacers.ROSEROOT_FOLIAGE_PLACER.get();
     }
 
 

@@ -1,22 +1,14 @@
 package teamrazor.deepaether.entity;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraftforge.common.ForgeMod;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -28,9 +20,7 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
-import teamrazor.deepaether.init.DeepAetherModEntities;
-
-import java.util.Set;
+import teamrazor.deepaether.init.DAEntities;
 
 @Mod.EventBusSubscriber
 public class QuailEntity extends Chicken implements GeoEntity {
@@ -42,7 +32,7 @@ public class QuailEntity extends Chicken implements GeoEntity {
     private static final RawAnimation IDLE_ANIM = RawAnimation.begin().thenPlay("animation.quail.idle");
 
     public QuailEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(DeepAetherModEntities.QUAIL.get(), world);
+        this(DAEntities.QUAIL.get(), world);
     }
 
     public QuailEntity(EntityType<QuailEntity> type, Level world) {
@@ -58,14 +48,14 @@ public class QuailEntity extends Chicken implements GeoEntity {
     // EVENTUAL GOALS HERE
 
     public static void init() {
-        SpawnPlacements.register(DeepAetherModEntities.QUAIL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+        SpawnPlacements.register(DAEntities.QUAIL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, world, reason, pos,
                  random) -> (world.getBlockState(pos.above()).is(Blocks.AIR)));
     }
 
     @Override
     public Chicken getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return DeepAetherModEntities.QUAIL.get().create(serverLevel);
+        return DAEntities.QUAIL.get().create(serverLevel);
     }
 
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {

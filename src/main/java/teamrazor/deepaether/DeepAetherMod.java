@@ -17,13 +17,13 @@ import org.slf4j.Logger;
 
 
 import software.bernie.geckolib.GeckoLib;
-import teamrazor.deepaether.block.Behaviors.DeepAetherModDispenseBehaviors;
+import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 
-import teamrazor.deepaether.datagen.DeepAetherModRecipeData;
-import teamrazor.deepaether.datagen.DeepAetherModWorldGenData;
-import teamrazor.deepaether.datagen.tags.DeepAetherModBlockTagData;
-import teamrazor.deepaether.datagen.tags.DeepAetherModItemTagData;
-import teamrazor.deepaether.fluids.DeepAetherModFluidTypes;
+import teamrazor.deepaether.datagen.DARecipeData;
+import teamrazor.deepaether.datagen.DAWorldGenData;
+import teamrazor.deepaether.datagen.tags.DABlockTagData;
+import teamrazor.deepaether.datagen.tags.DAItemTagData;
+import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -34,9 +34,9 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import net.minecraft.resources.ResourceLocation;
 
-import teamrazor.deepaether.datagen.tags.DeepAetherModBiomeTagData;
-import teamrazor.deepaether.world.feature.tree.decorators.DeepAetherDecoratorType;
-import teamrazor.deepaether.world.feature.tree.foliage.DeepAetherModFoliagePlacers;
+import teamrazor.deepaether.datagen.tags.DABiomeTagData;
+import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
+import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
 
 
 import java.util.concurrent.CompletableFuture;
@@ -83,17 +83,17 @@ public class DeepAetherMod {
 		MinecraftForge.EVENT_BUS.register(this);
 
 		GeckoLib.initialize();
-		DeepAetherModBlocks.BLOCKS.register(bus);
-		DeepAetherModItems.ITEMS.register(bus);
-		DeepAetherModParticles.PARTICLE_TYPES.register(bus);
-		DeepAetherModEntities.ENTITY_TYPES.register(bus);
-		DeepAetherModSounds.SOUNDS.register(bus);
-		DeepAetherModFluids.FLUIDS.register(bus);
-		DeepAetherModFluidTypes.FLUID_TYPES.register(bus);
-		DeepAetherDecoratorType.REGISTRY.register(bus);
-		DeepAetherModBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
-		DeepAetherModBlocks.registerWoodTypes();
-		DeepAetherModFoliagePlacers.FOLIAGE_PLACERS.register(bus);
+		DABlocks.BLOCKS.register(bus);
+		DAItems.ITEMS.register(bus);
+		DAParticles.PARTICLE_TYPES.register(bus);
+		DAEntities.ENTITY_TYPES.register(bus);
+		DASounds.SOUNDS.register(bus);
+		DAFluids.FLUIDS.register(bus);
+		DAFluidTypes.FLUID_TYPES.register(bus);
+		DADecoratorType.REGISTRY.register(bus);
+		DABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
+		DABlocks.registerWoodTypes();
+		DAFoliagePlacers.FOLIAGE_PLACERS.register(bus);
 	}
 
 
@@ -123,18 +123,18 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeClient(), new AetherSoundData(packOutput, fileHelper));*/
 
 		// Server Data
-		generator.addProvider(event.includeServer(), new DeepAetherModWorldGenData(packOutput, lookupProvider));
+		generator.addProvider(event.includeServer(), new DAWorldGenData(packOutput, lookupProvider));
 		//generator.addProvider(event.includeServer(), new AetherWorldGenData(packOutput, lookupProvider));
 		//generator.addProvider(event.includeServer(), DeepAetherModLevelStemData.create(packOutput, fileHelper));
-		generator.addProvider(event.includeServer(), new DeepAetherModRecipeData(packOutput));
+		generator.addProvider(event.includeServer(), new DARecipeData(packOutput));
 		//generator.addProvider(event.includeServer(), AetherLootTableData.create(packOutput));
 		//generator.addProvider(event.includeServer(), new DeepAetherModLootModifierData(packOutput));
 		//enerator.addProvider(event.includeServer(), new DeepAetherModAdvancementData(packOutput, lookupProvider, fileHelper));
-		DeepAetherModBlockTagData blockTags = new DeepAetherModBlockTagData(packOutput, lookupProvider, fileHelper);
+		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
 		//generator.addProvider(event.includeServer(), blockTags);
-		generator.addProvider(event.includeServer(), new DeepAetherModItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
+		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		//generator.addProvider(event.includeServer(), new DeepAetherModEntityTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DeepAetherModBiomeTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
 		// generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
 
 		//generator.addProvider(event.includeServer(), new DeepAetherModStructureTagData(packOutput, lookupProvider, fileHelper));*/
@@ -159,23 +159,23 @@ public class DeepAetherMod {
 				collect(Collectors.toList()));
 	}
 	private void registerDispenserBehaviors() {
-		DispenserBlock.registerBehavior(Items.POTION, DeepAetherModDispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
-		DispenserBlock.registerBehavior(DeepAetherModItems.PLACEABLE_POISON_BUCKET.get(), DeepAetherModDispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
-		DispenserBlock.registerBehavior(DeepAetherModItems.VIRULENT_QUICKSAND_BUCKET.get(), DeepAetherModDispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
+		DispenserBlock.registerBehavior(Items.POTION, DADispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
+		DispenserBlock.registerBehavior(DAItems.PLACEABLE_POISON_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
+		DispenserBlock.registerBehavior(DAItems.VIRULENT_QUICKSAND_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
 	}
 	public void registerCompostable() {
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSE_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.FLOWERING_ROSE_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAF_CARPET.get().asItem(), 0.2F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAF_CARPET.get().asItem(), 0.2F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAF_CARPET.get().asItem(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSEWOOD_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEWOOD_SAPLING.get().asItem(), 0.3F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DeepAetherModItems.AERGLOW_PETAL.get().asItem(), 0.1F);
+		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_PETAL.get().asItem(), 0.1F);
 	}
 }

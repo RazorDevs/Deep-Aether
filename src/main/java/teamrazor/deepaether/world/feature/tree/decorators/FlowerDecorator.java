@@ -3,17 +3,10 @@ package teamrazor.deepaether.world.feature.tree.decorators;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.placement.TreePlacements;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.block.BeehiveBlock;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import teamrazor.deepaether.init.DeepAetherModBlocks;
+import teamrazor.deepaether.init.DABlocks;
 
 import java.util.Collections;
 import java.util.List;
@@ -41,7 +34,7 @@ public class FlowerDecorator extends TreeDecorator {
     }
 
     protected TreeDecoratorType<?> type() {
-        return DeepAetherDecoratorType.FLOWERS.get();
+        return DADecoratorType.FLOWERS.get();
     }
 
     public void place(Context p_226019_) {
@@ -61,7 +54,7 @@ public class FlowerDecorator extends TreeDecorator {
                     return p_226019_.isAir(p_226022_) && p_226019_.isAir(p_226022_.relative(WORLDGEN_FACING));
                 }).findFirst();
                 if (!optional.isEmpty()) {
-                    p_226019_.setBlock(optional.get(), DeepAetherModBlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState());
+                    p_226019_.setBlock(optional.get(), DABlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState());
                 }
             }
         }

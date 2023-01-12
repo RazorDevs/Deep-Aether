@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.gear.cloudium;
 
 
-import com.gildedgames.aether.event.hooks.AbilityHooks;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -12,10 +11,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
-import teamrazor.deepaether.init.DeepAetherModItems;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -29,7 +26,7 @@ public class CloudiumAbility extends ArmorItem {
     }
 
     public static boolean hasFullCloudiumSet(LivingEntity entity) {
-        return hasArmorSet(entity, DeepAetherModItems.CLOUDIUM_HELMET.get(), DeepAetherModItems.CLOUDIUM_CHESTPLATE.get(),  DeepAetherModItems.CLOUDIUM_LEGGINGS.get(), DeepAetherModItems.CLOUDIUM_BOOTS.get(), DeepAetherModItems.CLOUDIUM_GLOVES.get());
+        return hasArmorSet(entity, DAItems.CLOUDIUM_HELMET.get(), DAItems.CLOUDIUM_CHESTPLATE.get(),  DAItems.CLOUDIUM_LEGGINGS.get(), DAItems.CLOUDIUM_BOOTS.get(), DAItems.CLOUDIUM_GLOVES.get());
     }
 
     public static class ArmorHooks {

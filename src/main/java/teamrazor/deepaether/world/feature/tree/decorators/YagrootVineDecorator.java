@@ -1,33 +1,13 @@
 package teamrazor.deepaether.world.feature.tree.decorators;
 
 import com.mojang.serialization.Codec;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelSimulatedReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.VineBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.levelgen.feature.HugeFungusConfiguration;
-import net.minecraft.world.level.levelgen.feature.HugeFungusFeature;
-import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import teamrazor.deepaether.block.DeepAetherVineBlock;
-import teamrazor.deepaether.init.DeepAetherModBlocks;
-
-import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import teamrazor.deepaether.init.DABlocks;
 
 
 public class YagrootVineDecorator extends TreeDecorator {
@@ -40,7 +20,7 @@ public class YagrootVineDecorator extends TreeDecorator {
 
     @Override
     protected TreeDecoratorType<?> type() {
-        return DeepAetherDecoratorType.YAGVINES.get();
+        return DADecoratorType.YAGVINES.get();
     }
 
     public YagrootVineDecorator(float p_226031_) {
@@ -92,7 +72,7 @@ public class YagrootVineDecorator extends TreeDecorator {
 
     }
     public void placeVine(BlockPos p_226065_, BooleanProperty p_226066_, TreeDecorator.Context context) {
-        context.setBlock(p_226065_, DeepAetherModBlocks.YAGROOT_VINE.get().defaultBlockState().setValue(p_226066_, Boolean.valueOf(true)));
+        context.setBlock(p_226065_, DABlocks.YAGROOT_VINE.get().defaultBlockState().setValue(p_226066_, Boolean.valueOf(true)));
     }
 }
 

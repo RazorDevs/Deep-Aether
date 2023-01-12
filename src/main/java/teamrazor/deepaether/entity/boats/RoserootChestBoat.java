@@ -1,8 +1,6 @@
 package teamrazor.deepaether.entity.boats;
 
-import com.gildedgames.aether.entity.AetherEntityTypes;
 import com.gildedgames.aether.entity.SkyrootBoatBehavior;
-import com.gildedgames.aether.item.AetherItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -12,8 +10,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkHooks;
-import teamrazor.deepaether.init.DeepAetherModEntities;
-import teamrazor.deepaether.init.DeepAetherModItems;
+import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nonnull;
 
@@ -23,7 +21,7 @@ public class RoserootChestBoat extends ChestBoat implements SkyrootBoatBehavior 
     }
 
     public RoserootChestBoat(Level level, double x, double y, double z) {
-        this(DeepAetherModEntities.ROSEROOT_CHEST_BOAT.get(), level);
+        this(DAEntities.ROSEROOT_CHEST_BOAT.get(), level);
         this.setPos(x, y, z);
         this.xo = x;
         this.yo = y;
@@ -33,7 +31,7 @@ public class RoserootChestBoat extends ChestBoat implements SkyrootBoatBehavior 
     @Nonnull
     @Override
     public Item getDropItem() {
-        return DeepAetherModItems.ROSEROOT_CHEST_BOAT.get();
+        return DAItems.ROSEROOT_CHEST_BOAT.get();
     }
 
     @Override
