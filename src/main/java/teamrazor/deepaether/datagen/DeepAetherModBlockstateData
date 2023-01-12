@@ -1,4 +1,4 @@
-public class DeepAetherModBlockstateData AetherBlockStateProvider {
+/*public class DeepAetherModBlockstateData DeepAetherModBlockstateProvider {
     public DeepAetherModBlockstateData(PackOutput output, ExistingFileHelper helper) {
         super(output, DeepAetherMod.MODID, helper);
     }
@@ -24,7 +24,8 @@ public class DeepAetherModBlockstateData AetherBlockStateProvider {
         this.saplingBlock(DeepAetherModBlocks.ROSEROOT_SAPLING.get(), "natural/");
         this.pottedPlant(DeepAetherModBlocks.POTTED_ROSEROOT_SAPLING.get(), DeepAetherModBlocks.ROSEROOT_SAPLING.get(), "natural/");
         this.block(DeepAetherModBlocks.ROSEROOT_LEAVES.get(), "natural/");
-        this.block(AetherBlocks.FLOWERING_ROSEROOT_LEAVES.get(), "natural/");
+        this.block(DeepAetherModBlocks.FLOWERING_ROSEROOT_LEAVES.get(), "natural/");
+        this.block(DeepAetherModBLocks.AERGLOW_PETAL_BLOCK.get(), "natural/");
         this.signBlock(DeepAetherModBlocks.ROSEROOT_SIGN.get(), DeepAetherModBlocks.ROSEROOT_WALL_SIGN.get(), this.texture(this.name(DeepAetherModBlocks.ROSEROOT_PLANKS.get()), "construction/"));
 
         //WOOD YAGROOT
@@ -86,8 +87,94 @@ public class DeepAetherModBlockstateData AetherBlockStateProvider {
         this.block(DeepAetherModBLocks.HIGHSTONE_AGATE_ORE.get(), "natural/");
         this.block(DeepAetherModBLocks.AGATE_BLOCK.get(), "construction/");
 
-        this.block(DeepAetherModBLocks.AGATE_ORE.get(), "natural/");
-        this.block(DeepAetherModBLocks.HIGHSTONE_AGATE_ORE.get(), "natural/");
-        this.block(DeepAetherModBLocks.AGATE_BLOCK.get(), "construction/");
+        this.block(DeepAetherModBLocks.ADIBIUM_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.HIGHSTONE_ADIBIUM_ORE.get(), "natural/");
+        this.block(DeepAetherModBLocks.ADIBIUM_BLOCK.get(), "construction/");
+
+        this.block(DeepAetherModBLocks.CLOUDIUM_DEBRIS.get(), "natural/");
+        this.block(DeepAetherModBLocks.CLOUDIUM_BLOCK.get(), "construction/");
+
+    
+        //STONE
+        //ASETERITE
+    
+        this.block(DeepAetherModBLocks.ASETERITE.get(), "natural/");
+        this.stairs(DeepAetherModBlocks.ASETERITE_STAIRS.get(), DeepAetherModBlocks.ASETERITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.ASETERITE_SLAB.get(), DeepAetherModBlocks.ASETERITE.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.ASETERITE_WALL.get(), DeepAetherModBlocks.ASETERITE.get(), "construction/");
+        this.block(DeepAetherModBLocks.POLISHED_ASETERITE.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.POLISHED_ASETERITE_STAIRS.get(), DeepAetherModBlocks.POLISHED_ASETERITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.POLISHED_ASETERITE_SLAB.get(), DeepAetherModBlocks.POLISHED_ASETERITE.get(), "construction/");
+    
+        //GREOTITE
+    
+        this.block(DeepAetherModBLocks.GREOTITE.get(), "natural/");
+        this.stairs(DeepAetherModBlocks.GREOTITE_STAIRS.get(), DeepAetherModBlocks.GREOTITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.GREOTITE_SLAB.get(), DeepAetherModBlocks.GREOTITE.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.GREOTITE_WALL.get(), DeepAetherModBlocks.GREOTITE.get(), "construction/");
+        this.block(DeepAetherModBLocks.POLISHED_GREOTITE.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.POLISHED_GREOTITE_STAIRS.get(), DeepAetherModBlocks.POLISHED_GREOTITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.POLISHED_GREOTITE_SLAB.get(), DeepAetherModBlocks.POLISHED_GREOTITE.get(), "construction/");
+    
+        //CLORITE        
+        
+        this.block(DeepAetherModBLocks.CLORITE.get(), "natural/");
+        this.stairs(DeepAetherModBlocks.CLORITE_STAIRS.get(), DeepAetherModBlocks.CLORITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.CLORITE_SLAB.get(), DeepAetherModBlocks.CLORITE.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.CLORITE_WALL.get(), DeepAetherModBlocks.CLORITE.get(), "construction/");
+        this.block(DeepAetherModBLocks.POLISHED_CLORITE.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.POLISHED_CLORITE_STAIRS.get(), DeepAetherModBlocks.POLISHED_CLORITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.POLISHED_CLORITE_SLAB.get(), DeepAetherModBlocks.POLISHED_CLORITE.get(), "construction/");
+    
+        //JARINITE
+
+        this.block(DeepAetherModBLocks.JARINITE.get(), "natural/");
+        this.stairs(DeepAetherModBlocks.JARINITE_STAIRS.get(), DeepAetherModBlocks.JARINITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.JARINITE_SLAB.get(), DeepAetherModBlocks.JARINITE.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.JARINITE_WALL.get(), DeepAetherModBlocks.JARINITE.get(), "construction/");
+        this.block(DeepAetherModBLocks.POLISHED_JARINITE.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.POLISHED_JARINITE_STAIRS.get(), DeepAetherModBlocks.POLISHED_JARINITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.POLISHED_JARINITE_SLAB.get(), DeepAetherModBlocks.POLISHED_JARINITE.get(), "construction/");
+    
+        //YALLESITE
+
+        this.block(DeepAetherModBLocks.YALLESITE.get(), "natural/");
+        this.stairs(DeepAetherModBlocks.YALLESITE_STAIRS.get(), DeepAetherModBlocks.YALLESITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.YALLESITE_SLAB.get(), DeepAetherModBlocks.YALLESITE.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.YALLESITE_WALL.get(), DeepAetherModBlocks.YALLESITE.get(), "construction/");
+        this.block(DeepAetherModBLocks.POLISHED_YALLESITE.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.POLISHED_YALLESITE_STAIRS.get(), DeepAetherModBlocks.POLISHED_YALLESITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.POLISHED_YALLESITE_SLAB.get(), DeepAetherModBlocks.POLISHED_YALLESITE.get(), "construction/");
+    
+        //DARKERITE
+
+        this.block(DeepAetherModBLocks.DARKERITE.get(), "natural/");
+        this.stairs(DeepAetherModBlocks.DARKERITE_STAIRS.get(), DeepAetherModBlocks.DARKERITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.DARKERITE_SLAB.get(), DeepAetherModBlocks.DARKERITE.get(), "construction/");
+        this.wallBlock(DeepAetherModBlocks.DARKERITE_WALL.get(), DeepAetherModBlocks.DARKERITE.get(), "construction/");
+        this.block(DeepAetherModBLocks.POLISHED_DARKERITE.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.POLISHED_DARKERITE_STAIRS.get(), DeepAetherModBlocks.POLISHED_DARKERITE.get(), "construction/");
+        this.slab(DeepAetherModBlocks.POLISHED_DARKERITE_SLAB.get(), DeepAetherModBlocks.POLISHED_DARKERITE.get(), "construction/");
+    
+        //HOLYSYONE BRICKS
+
+        this.block(DeepAetherModBLocks.HOLYSTONE_BRICKS.get(), "construction/");
+        this.stairs(DeepAetherModBlocks.HOLYSTONE_BRICKS_STAIRS.get(), DeepAetherModBlocks.HOLYSTONE_BRICKS.get(), "construction/");
+        this.slab(DeepAetherModBlocks.HOLYSTONE_BRICKS_SLAB.get(), DeepAetherModBlocks.HOLYSTONE_BRICKS.get(), "construction/");
+    
+        //PLANTS
+
+        this.crossBlock(DeepAetherModBlocks.AERLAVENDER.get(), "natural/");
+        this.crossBlock(DeepAetherModBlocks.TALL_AERLAVENDER.get(), "natural/");
+        this.crossBlock(DeepAetherModBlocks.RADIANT_ORCHID.get(), "natural/");
+        this.pottedPlant(DeepAetherModBlocks.POTTED_AERLAVENDER.get(), DeepAetherModBlocks.AERLAVENDER.get(), "natural/");
+        this.pottedPlant(DeepAetherModBlocks.POTTED_TALL_AERLAVENDER.get(), DeepAetherModBlocks.TALL_AERLAVENDER.get(), "natural/");
+        this.pottedPlant(DeepAetherModBlocks.POTTED_RADIANT_ORCHID.get(), DeepAetherModBlocks.RADIANT_ORCHID.get(), "natural/");
+
+        //MISC
+
+        this.block(DeepAetherModBLocks.VIRULENT_QUICKSAND.get(), "natural/");
+
+
     }
-}
+}*/
