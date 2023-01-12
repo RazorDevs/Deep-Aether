@@ -194,6 +194,20 @@ public class DeepAetherModBlocks {
 			.noLootTable()));
 
 
+
+	//POTS
+	public static final RegistryObject<FlowerPotBlock> POTTED_AERLAVENDER = BLOCKS.register("potted_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_TALL_AERLAVENDER = BLOCKS.register("potted_tall_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_RADIANT_ORCHID = BLOCKS.register("potted_radiant_orchid", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, RADIANT_ORCHID, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+	public static void registerPots() {
+		FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+		pot.addPlant(DeepAetherModBlocks.AERLAVENDER.getId(), DeepAetherModBlocks.POTTED_AERLAVENDER);
+		pot.addPlant(DeepAetherModBlocks.TALL_AERLAVENDER.getId(), DeepAetherModBlocks.POTTED_TALL_AERLAVENDER);
+		pot.addPlant(DeepAetherModBlocks.RADIANT_ORCHID.getId(), DeepAetherModBlocks.POTTED_RADIANT_ORCHID);
+	}
+
+
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
 		registerBlockItem(name, toReturn);
