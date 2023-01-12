@@ -22,6 +22,8 @@ public class RoserootBoatRenderer extends BoatRenderer {
     private static final ResourceLocation ROSEROOT_CHEST_BOAT = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/chest_boat/roseroot.png");
     private final Pair<ResourceLocation, ListModel<Boat>> roserootBoatResource;
 
+
+
     public RoserootBoatRenderer(EntityRendererProvider.Context context, boolean chest) {
         super(context, chest);
         this.roserootBoatResource = Pair.of(chest ? ROSEROOT_CHEST_BOAT : ROSEROOT_BOAT, chest ? new ChestBoatModel(context.bakeLayer(DeepAetherModelLayers.ROSEROOT_CHEST_BOAT)) : new BoatModel(context.bakeLayer(DeepAetherModelLayers.ROSEROOT_BOAT)));

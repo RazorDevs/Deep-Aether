@@ -40,6 +40,7 @@ public class YagrootBoat extends Boat implements SkyrootBoatBehavior {
         this.fall(this, y, onGround);
     }
 
+
     @Nonnull
     @Override
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
