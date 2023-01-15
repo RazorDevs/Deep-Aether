@@ -1,4 +1,5 @@
 package teamrazor.deepaether;
+import com.gildedgames.aether.block.AetherBlocks;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -125,25 +126,21 @@ public class DeepAetherMod {
 
 		// Server Data
 		generator.addProvider(event.includeServer(), new DAWorldGenData(packOutput, lookupProvider));
-		//generator.addProvider(event.includeServer(), new AetherWorldGenData(packOutput, lookupProvider));
-		//generator.addProvider(event.includeServer(), DeepAetherModLevelStemData.create(packOutput, fileHelper));
 		generator.addProvider(event.includeServer(), new DARecipeData(packOutput));
 		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput));
-		//generator.addProvider(event.includeServer(), new DeepAetherModLootModifierData(packOutput));
-		//enerator.addProvider(event.includeServer(), new DeepAetherModAdvancementData(packOutput, lookupProvider, fileHelper));
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
-		//generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
-		//generator.addProvider(event.includeServer(), new DeepAetherModEntityTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
-		// generator.addProvider(event.includeServer(), new DeepAetherModFluidTagData(packOutput, lookupProvider, fileHelper));
-
-		//generator.addProvider(event.includeServer(), new DeepAetherModStructureTagData(packOutput, lookupProvider, fileHelper));*/
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
-		registerDispenserBehaviors();
-		registerCompostable();
+		event.enqueueWork(() -> {
+			DABlocks.registerPots();
+			DABlocks.registerFlammability();
+
+			this.registerDispenserBehaviors();
+			this.registerCompostable();
+		});
 	}
 
 		private void enqueueIMC(final InterModEnqueueEvent event)
@@ -175,8 +172,8 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_SAPLING.get().asItem(), 0.3F);
-		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
-		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_PETAL.get().asItem(), 0.1F);
 	}
 }
