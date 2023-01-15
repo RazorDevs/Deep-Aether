@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "bottom": "deep_aether:block/polished_jarinite_bricks",
-    "top": "deep_aether:block/polished_jarinite_bricks",
-    "side": "deep_aether:block/polished_jarinite_bricks"
-  }
-}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "deep_aether:block/aseterite_slab"
+    },
+    "type=double": {
+      "model": "deep_aether:block/aseterite"
+    },
+    "type=top": {
+      "model": "deep_aether:block/aseterite_slab_top"
+    }
+  }
+}

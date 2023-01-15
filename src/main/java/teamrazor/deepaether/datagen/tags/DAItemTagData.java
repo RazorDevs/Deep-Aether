@@ -31,10 +31,10 @@ public class DAItemTagData extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(DATags.Items.CRAFTS_ROSEROOT_PLANKS).add(
-                DABlocks.ROSE_LOG.get().asItem(),
-                DABlocks.ROSE_WOOD.get().asItem(),
-                DABlocks.STRIPPED_ROSE_LOG.get().asItem(),
-                DABlocks.STRIPPED_ROSE_WOOD.get().asItem()
+                DABlocks.ROSEROOT_LOG.get().asItem(),
+                DABlocks.ROSEROOT_WOOD.get().asItem(),
+                DABlocks.STRIPPED_ROSEROOT_LOG.get().asItem(),
+                DABlocks.STRIPPED_ROSEROOT_WOOD.get().asItem()
         );
         tag(DATags.Items.CRAFTS_YAGROOT_PLANKS).add(
                 DABlocks.YAGROOT_LOG.get().asItem(),

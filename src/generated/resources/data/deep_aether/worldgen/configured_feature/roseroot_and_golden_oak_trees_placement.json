@@ -9,7 +9,7 @@
           "predicate": {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "deep_aether:rosewood_sapling",
+              "Name": "deep_aether:roseroot_sapling",
               "Properties": {
                 "stage": "0"
               }
@@ -29,7 +29,7 @@
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "deep_aether:rosewood_sapling",
+                  "Name": "deep_aether:roseroot_sapling",
                   "Properties": {
                     "stage": "0"
                   }

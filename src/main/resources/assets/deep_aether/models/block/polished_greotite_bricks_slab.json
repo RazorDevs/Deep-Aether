@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "deep_aether:block/polished_greotite_bricks",
-    "top": "deep_aether:block/polished_greotite_bricks",
-    "side": "deep_aether:block/polished_greotite_bricks"
-  }
-}

@@ -59,6 +59,7 @@
           "state": {
             "Name": "deep_aether:yagroot_roots",
             "Properties": {
+              "axis": "y",
               "double_drops": "true"
             }
           }
@@ -70,6 +71,7 @@
         "state": {
           "Name": "deep_aether:yagroot_roots",
           "Properties": {
+            "axis": "y",
             "double_drops": "true"
           }
         }

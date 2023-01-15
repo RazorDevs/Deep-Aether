@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rose_planks": {
+    "has_roseroot_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:rose_planks"
+              "deep_aether:roseroot_planks"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_rose_planks",
+      "has_roseroot_planks",
       "has_the_recipe"
     ]
   ],

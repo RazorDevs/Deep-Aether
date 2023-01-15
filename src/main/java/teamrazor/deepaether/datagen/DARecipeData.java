@@ -26,34 +26,34 @@ public class DARecipeData extends AetherRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        woodFromLogs(consumer, DABlocks.ROSE_WOOD.get(), DABlocks.ROSE_LOG.get());
-        woodFromLogs(consumer, DABlocks.STRIPPED_ROSE_WOOD.get(), DABlocks.STRIPPED_ROSE_LOG.get());
-        planksFromLogs(consumer, DABlocks.ROSE_PLANKS.get(), DATags.Items.CRAFTS_ROSEROOT_PLANKS, 4);
-        stairs(DABlocks.ROSE_STAIRS, DABlocks.ROSE_STAIRS).group("wooden_stairs").save(consumer);
+        woodFromLogs(consumer, DABlocks.ROSEROOT_WOOD.get(), DABlocks.ROSEROOT_LOG.get());
+        woodFromLogs(consumer, DABlocks.STRIPPED_ROSEROOT_WOOD.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
+        planksFromLogs(consumer, DABlocks.ROSEROOT_PLANKS.get(), DATags.Items.CRAFTS_ROSEROOT_PLANKS, 4);
+        stairs(DABlocks.ROSEROOT_STAIRS, DABlocks.ROSEROOT_STAIRS).group("wooden_stairs").save(consumer);
 
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.ROSE_SLAB.get(), Ingredient.of(DABlocks.ROSE_PLANKS.get()))
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.ROSEROOT_SLAB.get(), Ingredient.of(DABlocks.ROSEROOT_PLANKS.get()))
                 .group("wooden_slab")
-                .unlockedBy(getHasName(DABlocks.ROSE_PLANKS.get()), has(DABlocks.ROSE_PLANKS.get()))
+                .unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get()))
                 .save(consumer);
 
-        fence(DABlocks.ROSE_FENCE, DABlocks.ROSE_PLANKS).save(consumer);
-        fenceGate(DABlocks.ROSE_FENCE_GATE, DABlocks.ROSE_PLANKS).save(consumer);
+        fence(DABlocks.ROSEROOT_FENCE, DABlocks.ROSEROOT_PLANKS).save(consumer);
+        fenceGate(DABlocks.ROSEROOT_FENCE_GATE, DABlocks.ROSEROOT_PLANKS).save(consumer);
 
-        doorBuilder(DABlocks.ROSE_DOOR.get(), Ingredient.of(DABlocks.ROSE_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSE_PLANKS.get()), has(DABlocks.ROSE_PLANKS.get())).group("wooden_door").save(consumer);
-        trapdoorBuilder(DABlocks.ROSE_TRAPDOOR.get(), Ingredient.of(DABlocks.ROSE_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSE_PLANKS.get()), has(DABlocks.ROSE_PLANKS.get())).group("wooden_trapdoor").save(consumer);
-        pressurePlateBuilder(RecipeCategory.REDSTONE, DABlocks.ROSE_PRESSURE_PLATE.get(), Ingredient.of(DABlocks.ROSE_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSE_PLANKS.get()), has(DABlocks.ROSE_PLANKS.get())).group("wooden_pressure_plate").save(consumer);
-        buttonBuilder(DABlocks.ROSE_BUTTON.get(), Ingredient.of(DABlocks.ROSE_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSE_PLANKS.get()), has(DABlocks.ROSE_PLANKS.get())).group("wooden_button").save(consumer);
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.ROSE_WALL.get(), DABlocks.ROSE_LOG.get());
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_ROSE_WALL.get(), DABlocks.STRIPPED_ROSE_LOG.get());
+        doorBuilder(DABlocks.ROSEROOT_DOOR.get(), Ingredient.of(DABlocks.ROSEROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get())).group("wooden_door").save(consumer);
+        trapdoorBuilder(DABlocks.ROSEROOT_TRAPDOOR.get(), Ingredient.of(DABlocks.ROSEROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get())).group("wooden_trapdoor").save(consumer);
+        pressurePlateBuilder(RecipeCategory.REDSTONE, DABlocks.ROSEROOT_PRESSURE_PLATE.get(), Ingredient.of(DABlocks.ROSEROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get())).group("wooden_pressure_plate").save(consumer);
+        buttonBuilder(DABlocks.ROSEROOT_BUTTON.get(), Ingredient.of(DABlocks.ROSEROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get())).group("wooden_button").save(consumer);
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.ROSEROOT_SIGN.get(), 3)
                 .group("wooden_sign")
-                .define('P', DABlocks.ROSE_PLANKS.get().asItem())
+                .define('P', DABlocks.ROSEROOT_PLANKS.get().asItem())
                 .define('/', Tags.Items.RODS_WOODEN)
                 .pattern("PPP")
                 .pattern("PPP")
                 .pattern(" / ")
-                .unlockedBy(getHasName(DABlocks.ROSE_PLANKS.get()), has(DABlocks.ROSE_PLANKS.get()))
+                .unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get()))
                 .save(consumer);
 
         woodFromLogs(consumer, DABlocks.YAGROOT_WOOD.get(), DABlocks.YAGROOT_LOG.get());
@@ -389,7 +389,7 @@ public class DARecipeData extends AetherRecipeProvider {
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);
         smeltingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer);
 
-        makeBoat(DAItems.ROSEROOT_BOAT, DABlocks.ROSE_PLANKS.get()).save(consumer);
+        makeBoat(DAItems.ROSEROOT_BOAT, DABlocks.ROSEROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.YAGROOT_BOAT, DABlocks.YAGROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.CRUDEROOT_BOAT, DABlocks.CRUDEROOT_PLANKS.get()).save(consumer);
 
@@ -399,7 +399,7 @@ public class DARecipeData extends AetherRecipeProvider {
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
 
-        makeskyrootSticks(DABlocks.ROSE_PLANKS.get()).save(consumer, name("skyroot_sticks_from_roseroot_planks"));
+        makeskyrootSticks(DABlocks.ROSEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_roseroot_planks"));
         makeskyrootSticks(DABlocks.YAGROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_yagroot_planks"));
         makeskyrootSticks(DABlocks.CRUDEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_cruderoot_planks"));
 

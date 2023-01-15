@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "deep_aether:block/yagroot_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "deep_aether:block/yagroot_wood"
+    },
+    "axis=z": {
+      "model": "deep_aether:block/yagroot_wood_horizontal",
+      "x": 90
+    }
+  }
+}

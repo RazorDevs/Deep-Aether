@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "deep_aether:block/aether_dirt_bricks",
-    "top": "deep_aether:block/aether_dirt_bricks",
-    "side": "deep_aether:block/aether_dirt_bricks"
-  }
-}

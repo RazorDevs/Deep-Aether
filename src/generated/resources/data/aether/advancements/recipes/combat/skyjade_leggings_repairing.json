@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyjade_armor_leggings": {
+    "has_skyjade_leggings": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:skyjade_armor_leggings"
+              "deep_aether:skyjade_leggings"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_skyjade_armor_leggings",
+      "has_skyjade_leggings",
       "has_the_recipe"
     ]
   ],

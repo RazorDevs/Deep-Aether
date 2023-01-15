@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyjade_armor_chestplate": {
+    "has_skyjade_chestplate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:skyjade_armor_chestplate"
+              "deep_aether:skyjade_chestplate"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_skyjade_armor_chestplate",
+      "has_skyjade_chestplate",
       "has_the_recipe"
     ]
   ],

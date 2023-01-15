@@ -18,30 +18,15 @@ public class DALogBlock extends AetherLogBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
 
-    @Override
-    public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return true;
-    }
-
-    @Override
-    public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 5;
-    }
-
-    @Override
-    public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-        return 5;
-    }
-
     @Nullable
     @Override
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         if(context.getItemInHand().getItem() instanceof AxeItem) {
-            if(state.is(DABlocks.ROSE_LOG.get())) {
-                return DABlocks.STRIPPED_ROSE_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if(state.is(DABlocks.ROSEROOT_LOG.get())) {
+                return DABlocks.STRIPPED_ROSEROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
-            if(state.is(DABlocks.ROSE_WOOD.get())) {
-                return DABlocks.STRIPPED_ROSE_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if(state.is(DABlocks.ROSEROOT_WOOD.get())) {
+                return DABlocks.STRIPPED_ROSEROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
             if(state.is(DABlocks.YAGROOT_LOG.get())) {
                 return DABlocks.STRIPPED_YAGROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));

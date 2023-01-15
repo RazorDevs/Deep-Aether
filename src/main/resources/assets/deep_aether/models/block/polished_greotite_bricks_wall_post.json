@@ -1,8 +1,0 @@
-{
-  "parent": "block/template_wall_post",
-  "render_type": "cutout",
-  "textures": {
-    "wall": "deep_aether:block/polished_greotite_bricks",
-    "particle": "deep_aether:block/polished_greotite_bricks"
-  }
-}

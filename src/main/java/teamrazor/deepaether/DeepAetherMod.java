@@ -19,8 +19,11 @@ import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 
+import teamrazor.deepaether.datagen.DABlockstateData;
+import teamrazor.deepaether.datagen.DAItemModelData;
 import teamrazor.deepaether.datagen.DARecipeData;
 import teamrazor.deepaether.datagen.DAWorldGenData;
+import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
@@ -117,17 +120,15 @@ public class DeepAetherMod {
 		PackOutput packOutput = generator.getPackOutput();
 
 		// Client Data
-		/*generator.addProvider(event.includeClient(), new AetherBlockStateData(packOutput, fileHelper));
-		generator.addProvider(event.includeClient(), new AetherItemModelData(packOutput, fileHelper));
-		generator.addProvider(event.includeClient(), new AetherLanguageData(packOutput));
-		generator.addProvider(event.includeClient(), new AetherSoundData(packOutput, fileHelper));*/
+		generator.addProvider(event.includeClient(), new DABlockstateData(packOutput, fileHelper));
+		generator.addProvider(event.includeClient(), new DAItemModelData(packOutput, fileHelper));
 
 		// Server Data
 		generator.addProvider(event.includeServer(), new DAWorldGenData(packOutput, lookupProvider));
 		//generator.addProvider(event.includeServer(), new AetherWorldGenData(packOutput, lookupProvider));
 		//generator.addProvider(event.includeServer(), DeepAetherModLevelStemData.create(packOutput, fileHelper));
 		generator.addProvider(event.includeServer(), new DARecipeData(packOutput));
-		//generator.addProvider(event.includeServer(), AetherLootTableData.create(packOutput));
+		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput));
 		//generator.addProvider(event.includeServer(), new DeepAetherModLootModifierData(packOutput));
 		//enerator.addProvider(event.includeServer(), new DeepAetherModAdvancementData(packOutput, lookupProvider, fileHelper));
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
@@ -164,16 +165,16 @@ public class DeepAetherMod {
 		DispenserBlock.registerBehavior(DAItems.VIRULENT_QUICKSAND_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
 	}
 	public void registerCompostable() {
-		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSE_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.FLOWERING_ROSE_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_LEAVES.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.FLOWERING_ROSEROOT_LEAVES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
-		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSE_LEAF_CARPET.get().asItem(), 0.2F);
+		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.ROSEROOT_LEAF_CARPET.get().asItem(), 0.2F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_LEAF_CARPET.get().asItem(), 0.2F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_LEAF_CARPET.get().asItem(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEWOOD_SAPLING.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_SAPLING.get().asItem(), 0.3F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
 		//ComposterBlock.COMPOSTABLES.put(DeepAetherModBlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_PETAL.get().asItem(), 0.1F);

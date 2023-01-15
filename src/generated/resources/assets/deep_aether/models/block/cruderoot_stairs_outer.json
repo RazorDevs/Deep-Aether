@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "deep_aether:block/cruderoot_planks",
+    "side": "deep_aether:block/cruderoot_planks",
+    "top": "deep_aether:block/cruderoot_planks"
+  }
+}

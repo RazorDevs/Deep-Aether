@@ -21,29 +21,29 @@ public class DATabs {
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         TAB_DEEP_AETHER_BLOCKS_TAB = event.registerCreativeModeTab(
                 new ResourceLocation(DeepAetherMod.MODID, "deep_aether_blocks"),
-                builder -> builder.icon(() -> new ItemStack(DABlocks.FLOWERING_ROSE_LEAVES.get()))
+                builder -> builder.icon(() -> new ItemStack(DABlocks.FLOWERING_ROSEROOT_LEAVES.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_blocks"))
                         .displayItems((features, output, hasPermissions) -> {
-                            output.accept(DABlocks.ROSE_LOG.get());
-                            output.accept(DABlocks.ROSE_WOOD.get());
-                            output.accept(DABlocks.STRIPPED_ROSE_LOG.get());
-                            output.accept(DABlocks.STRIPPED_ROSE_WOOD.get());
-                            output.accept(DABlocks.ROSE_PLANKS.get());
-                            output.accept(DABlocks.ROSE_STAIRS.get());
-                            output.accept(DABlocks.ROSE_SLAB.get());
-                            output.accept(DABlocks.ROSE_FENCE.get());
-                            output.accept(DABlocks.ROSE_FENCE_GATE.get());
-                            output.accept(DABlocks.ROSE_DOOR.get());
-                            output.accept(DABlocks.ROSE_TRAPDOOR.get());
-                            output.accept(DABlocks.ROSE_PRESSURE_PLATE.get());
-                            output.accept(DABlocks.ROSE_BUTTON.get());
-                            output.accept(DABlocks.ROSE_WALL.get());
-                            output.accept(DABlocks.STRIPPED_ROSE_WALL.get());
+                            output.accept(DABlocks.ROSEROOT_LOG.get());
+                            output.accept(DABlocks.ROSEROOT_WOOD.get());
+                            output.accept(DABlocks.STRIPPED_ROSEROOT_LOG.get());
+                            output.accept(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
+                            output.accept(DABlocks.ROSEROOT_PLANKS.get());
+                            output.accept(DABlocks.ROSEROOT_STAIRS.get());
+                            output.accept(DABlocks.ROSEROOT_SLAB.get());
+                            output.accept(DABlocks.ROSEROOT_FENCE.get());
+                            output.accept(DABlocks.ROSEROOT_FENCE_GATE.get());
+                            output.accept(DABlocks.ROSEROOT_DOOR.get());
+                            output.accept(DABlocks.ROSEROOT_TRAPDOOR.get());
+                            output.accept(DABlocks.ROSEROOT_PRESSURE_PLATE.get());
+                            output.accept(DABlocks.ROSEROOT_BUTTON.get());
+                            output.accept(DABlocks.ROSEROOT_WALL.get());
+                            output.accept(DABlocks.STRIPPED_ROSEROOT_WALL.get());
                             output.accept(DAItems.ROSEROOT_SIGN.get());
-                            output.accept(DABlocks.ROSE_LEAVES.get());
-                            output.accept(DABlocks.FLOWERING_ROSE_LEAVES.get());
+                            output.accept(DABlocks.ROSEROOT_LEAVES.get());
+                            output.accept(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
                             output.accept(DABlocks.AERGLOW_PETAL_BLOCK.get());
-                            output.accept(DABlocks.ROSEWOOD_SAPLING.get());
+                            output.accept(DABlocks.ROSEROOT_SAPLING.get());
 
                             output.accept(DABlocks.YAGROOT_LOG.get());
                             output.accept(DABlocks.YAGROOT_WOOD.get());

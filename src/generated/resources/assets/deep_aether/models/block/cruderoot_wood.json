@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "deep_aether:block/cruderoot_log",
+    "side": "deep_aether:block/cruderoot_log"
+  }
+}

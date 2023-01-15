@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_fence",
+  "key": {
+    "/": {
+      "tag": "aether:skyroot_stick"
+    },
+    "M": {
+      "item": "deep_aether:roseroot_planks"
+    }
+  },
+  "pattern": [
+    "M/M",
+    "M/M"
+  ],
+  "result": {
+    "count": 3,
+    "item": "deep_aether:roseroot_fence"
+  }
+}

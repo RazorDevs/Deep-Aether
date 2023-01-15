@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyjade_armor_boots": {
+    "has_skyjade_boots": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:skyjade_armor_boots"
+              "deep_aether:skyjade_boots"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_skyjade_armor_boots",
+      "has_skyjade_boots",
       "has_the_recipe"
     ]
   ],

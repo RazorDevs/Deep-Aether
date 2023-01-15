@@ -93,18 +93,18 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_TREE_LARGE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(DAFeatureStates.ROSE_LOG),
+                        BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
                         new StraightTrunkPlacer(9,10,0),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSE_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSE_LEAVES,1)),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 
         register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(DAFeatureStates.ROSE_LOG),
+                        BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
                         new StraightTrunkPlacer(5,2,0),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSE_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSE_LEAVES,1)),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -163,12 +163,12 @@ public class DAConfiguredFeatures {
                         .add(Blocks.GRASS.defaultBlockState(), 64)), 400));
 
         register(context, ROSEROOT_AND_GOLDEN_OAK_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEWOOD_SAPLING.get())), 0.33F)),
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_SMALL), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEWOOD_SAPLING.get()))));
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_SMALL), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get()))));
 
         register(context, AETHER_PLAINS_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.33F)),
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SKYROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEWOOD_SAPLING.get()))));
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SKYROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get()))));
 
 
 

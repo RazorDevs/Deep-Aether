@@ -24,6 +24,6 @@ public class AetherFishRenderer extends GeoEntityRenderer<AetherFishEntity> {
 
 		@Override
 		public ResourceLocation getTextureLocation(AetherFishEntity instance) {
-			return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/aerglow_fish.png");
+			return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/raw_aerglow_fish.png");
 		}
 }

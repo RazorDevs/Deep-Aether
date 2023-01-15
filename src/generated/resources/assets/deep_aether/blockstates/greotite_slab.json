@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "deep_aether:block/greotite_slab"
+    },
+    "type=double": {
+      "model": "deep_aether:block/greotite"
+    },
+    "type=top": {
+      "model": "deep_aether:block/greotite_slab_top"
+    }
+  }
+}

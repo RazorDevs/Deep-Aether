@@ -26,7 +26,6 @@ import teamrazor.deepaether.init.DABlocks;
 public class DABlockInteractionBehavior {
 
 
-
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
         ItemStack itemstack = event.getItemStack();
@@ -56,30 +55,3 @@ public class DABlockInteractionBehavior {
         }
     }
 }
-    /*
-    public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
-        Level level = event.getLevel();
-        BlockPos blockpos = event.getPos();
-        Player player = event.getEntity();
-        ItemStack itemstack = event.getItemStack();
-        BlockState blockstate = level.getBlockState(blockpos);
-        if (event.getFace() != Direction.DOWN && blockstate.is(DeepAetherModBlocks.ASETERITE.get()) && PotionUtils.getPotion(itemstack) == Potions.WATER) {
-            level.playSound((Player)null, blockpos, SoundEvents.GENERIC_SPLASH, SoundSource.PLAYERS, 1.0F, 1.0F);
-            player.setItemInHand(event.getHand(), ItemUtils.createFilledResult(itemstack, player, new ItemStack(Items.GLASS_BOTTLE)));
-            player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
-            if (!level.isClientSide) {
-                ServerLevel serverlevel = (ServerLevel)level;
-
-                for(int i = 0; i < 5; ++i) {
-                    serverlevel.sendParticles(ParticleTypes.SPLASH, (double)blockpos.getX() + level.random.nextDouble(), (double)(blockpos.getY() + 1), (double)blockpos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
-                }
-            }
-
-            level.playSound((Player)null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.gameEvent((Entity)null, GameEvent.FLUID_PLACE, blockpos);
-            level.setBlockAndUpdate(blockpos, DeepAetherModBlocks.AETHER_MUD.get().defaultBlockState());
-            event.setCancellationResult(InteractionResult.SUCCESS);
-            event.setCanceled(true);
-        }
-    }
-}*/

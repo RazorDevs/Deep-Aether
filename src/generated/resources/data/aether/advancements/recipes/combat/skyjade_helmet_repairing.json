@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyjade_armor_helmet": {
+    "has_skyjade_helmet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:skyjade_armor_helmet"
+              "deep_aether:skyjade_helmet"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_skyjade_armor_helmet",
+      "has_skyjade_helmet",
       "has_the_recipe"
     ]
   ],

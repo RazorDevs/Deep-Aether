@@ -1,8 +1,0 @@
-{
-  "parent": "blueprint:block/hedge_post",
-  "render_type": "cutout",
-  "textures": {
-    "log": "deep_aether:block/cruderoot_log",
-    "leaf": "deep_aether:block/cruderoot_leaves"
-  }
-}

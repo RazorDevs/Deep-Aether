@@ -19,7 +19,7 @@
       "entries": [
         {
           "data": {
-            "Name": "deep_aether:rose_leaves",
+            "Name": "deep_aether:roseroot_leaves",
             "Properties": {
               "distance": "7",
               "double_drops": "true",
@@ -31,7 +31,7 @@
         },
         {
           "data": {
-            "Name": "deep_aether:flowering_rose_leaves",
+            "Name": "deep_aether:flowering_roseroot_leaves",
             "Properties": {
               "distance": "7",
               "double_drops": "true",
@@ -60,7 +60,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "deep_aether:rose_log",
+        "Name": "deep_aether:roseroot_log",
         "Properties": {
           "axis": "y",
           "double_drops": "true"

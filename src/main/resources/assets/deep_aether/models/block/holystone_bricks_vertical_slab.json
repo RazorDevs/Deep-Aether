@@ -1,8 +1,0 @@
-{
-  "parent": "blueprint:block/vertical_slab",
-  "textures": {
-    "side": "deep_aether:block/holystone_bricks",
-    "bottom": "deep_aether:block/holystone_bricks",
-    "top": "deep_aether:block/holystone_bricks"
-  }
-}

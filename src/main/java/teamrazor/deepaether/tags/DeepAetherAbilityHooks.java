@@ -26,8 +26,8 @@ public class DeepAetherAbilityHooks {
 
     public static class ToolHooks {
         public static final Map<Block, Block> STRIPPABLES = (new ImmutableMap.Builder<Block, Block>())
-                .put(DABlocks.ROSE_LOG.get(), DABlocks.STRIPPED_ROSE_LOG.get())
-                .put(DABlocks.ROSE_WOOD.get(), DABlocks.STRIPPED_ROSE_WOOD.get())
+                .put(DABlocks.ROSEROOT_LOG.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get())
+                .put(DABlocks.ROSEROOT_WOOD.get(), DABlocks.STRIPPED_ROSEROOT_WOOD.get())
                 .put(DABlocks.YAGROOT_LOG.get(), DABlocks.STRIPPED_YAGROOT_LOG.get())
                 .put(DABlocks.YAGROOT_WOOD.get(), DABlocks.STRIPPED_YAGROOT_WOOD.get())
                 .build();

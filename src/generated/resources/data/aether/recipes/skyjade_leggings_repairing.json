@@ -2,7 +2,7 @@
   "type": "aether:repairing",
   "group": "altar_sword_repair",
   "ingredient": {
-    "item": "deep_aether:skyjade_armor_leggings"
+    "item": "deep_aether:skyjade_leggings"
   },
   "repairTime": 7000
 }

@@ -54,7 +54,7 @@ public class FlowerDecorator extends TreeDecorator {
                     return p_226019_.isAir(p_226022_) && p_226019_.isAir(p_226022_.relative(WORLDGEN_FACING));
                 }).findFirst();
                 if (!optional.isEmpty()) {
-                    p_226019_.setBlock(optional.get(), DABlocks.FLOWERING_ROSE_LEAVES.get().defaultBlockState());
+                    p_226019_.setBlock(optional.get(), DABlocks.FLOWERING_ROSEROOT_LEAVES.get().defaultBlockState());
                 }
             }
         }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "deep_aether:block/polished_yallesite_slab"
+    },
+    "type=double": {
+      "model": "deep_aether:block/polished_yallesite"
+    },
+    "type=top": {
+      "model": "deep_aether:block/polished_yallesite_slab_top"
+    }
+  }
+}
