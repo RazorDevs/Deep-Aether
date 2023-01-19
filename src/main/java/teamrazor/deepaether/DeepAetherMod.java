@@ -52,8 +52,6 @@ public class DeepAetherMod {
 	//TODO: en_lang and code cleanup
 	//TODO: add it_lang translation
 	//TODO: shorten DeepAether to DA in classes
-	//TODO: Doors should not drop themselves when in Creative
-
 
 	private static final Logger LOGGER = LogUtils.getLogger();
 

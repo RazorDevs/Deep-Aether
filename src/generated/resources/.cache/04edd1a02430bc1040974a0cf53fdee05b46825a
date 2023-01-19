@@ -1,5 +1,6 @@
-// 1.19.3	2023-01-15T18:35:55.608985	Item Models: deep_aether
+// 1.19.3	2023-01-19T17:21:54.4049303	Item Models: deep_aether
 c9cd46e8227850b73fed20f669ee10413053d61e assets/deep_aether/models/item/adibium_block.json
+93378b372ea5414c1ea6ca3c40405ded6dd6ca9b assets/deep_aether/models/item/adibium_gemstone.json
 26f01b89e6a99d196f3e19e8dfb34a150bfb0978 assets/deep_aether/models/item/adibium_ore.json
 4a81697c908b1587d7aa033161a3d61a6ee0cdfd assets/deep_aether/models/item/aerglow_petal.json
 74dcf5209907c1101c6eee6b2dfbe20e5cb2805d assets/deep_aether/models/item/aerglow_petal_block.json
@@ -12,6 +13,7 @@ c3dfd22a3f2d3c287e776a6bcd5048ab0d91de9a assets/deep_aether/models/item/aether_m
 3021b06bf69351debd366d607e32afa2d2f384b1 assets/deep_aether/models/item/aether_mud_bricks_slab.json
 779a515e446d643a37903e7247e67b147b25a7bd assets/deep_aether/models/item/aether_mud_bricks_stairs.json
 8620e432e1970c4216ebaf679b88a893e7f86964 assets/deep_aether/models/item/agate_block.json
+550fa384c7766358ed49855500d076723c12262f assets/deep_aether/models/item/agate_gemstone.json
 86f568865bb43135bed71bdd7e2fcfe7ce005af8 assets/deep_aether/models/item/agate_ore.json
 79d29fe7cc1ee9cce8d7dd2a983a99ecde61f160 assets/deep_aether/models/item/aseterite.json
 0fa16c424e8692cac9880e2b4559696f9f283fe8 assets/deep_aether/models/item/aseterite_slab.json
@@ -67,6 +69,7 @@ cbd334a34247480cacb5895c459bf1baf1a4edf9 assets/deep_aether/models/item/greotite
 f6a6fd689e12f47cec6e57a1b6fd84e5f38fa20c assets/deep_aether/models/item/greotite_wall.json
 fc5927c7f366e1533cfcd376252cd93abf3e6855 assets/deep_aether/models/item/highstone_adibium_ore.json
 1c7baffbd02fae92cfeacfb3d1931be86bd70e2b assets/deep_aether/models/item/highstone_agate_ore.json
+4522b5237a40a4db1a513c747bf8b465843a43ab assets/deep_aether/models/item/highstone_oratie_ore.json
 4ecc56cf93a73e0360a9057336bc29fa9aa3f95f assets/deep_aether/models/item/holystone_bricks.json
 e65f09d782e1eb75377ca2f03b55283966879fcc assets/deep_aether/models/item/holystone_bricks_slab.json
 663ad6fff4e15e56284b53994c255535866461ad assets/deep_aether/models/item/holystone_bricks_stairs.json
@@ -77,6 +80,9 @@ c6fdefbf3da3d6d85b16d59878f46ef43a91162a assets/deep_aether/models/item/jarinite
 aa7fc793be5c4bf07d6ae9fe7a76ec0cce807a37 assets/deep_aether/models/item/muddy_yagroot_roots.json
 d5fa7e0967fc818e92206428ef84058d4c2e1843 assets/deep_aether/models/item/music_disc_a_morning_wish.json
 73144483c0cd198e8c76ae64e13b114368be1c71 assets/deep_aether/models/item/music_disc_nabooru.json
+72e94bbdf2d858edd8bfa5c7aa115a719d0d243b assets/deep_aether/models/item/oratie_block.json
+c97e916fdbdf67590e7d82b6f142825c93c21781 assets/deep_aether/models/item/oratie_ingot.json
+99bf1be6820f896a2831b25487c53261efc53f92 assets/deep_aether/models/item/oratie_ore.json
 55514485e8e93c9678f3b11b2e0e9bcd982f1c0c assets/deep_aether/models/item/packed_aether_mud.json
 64ffecd5e0a9ca75564898d6a54fb48375ea91a6 assets/deep_aether/models/item/poison_bucket.json
 81ee6cc9953c3ff892e112ea00d7ffe7261f20cf assets/deep_aether/models/item/polished_aseterite.json
@@ -100,6 +106,8 @@ bfc45b22b5cab658dc0f41d36895199846f2b6b7 assets/deep_aether/models/item/polished
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/deep_aether/models/item/quail_spawn_egg.json
 0d5613c246855f6718c5b9674a10581ab661a5bb assets/deep_aether/models/item/radiant_orchid.json
 2c0665d9817ac26482bebed8ec49845289a9dfef assets/deep_aether/models/item/raw_aerglow_fish.json
+96e2865c81ce2792f939ddc829fd2249e72c6078 assets/deep_aether/models/item/raw_oratie.json
+42f7fae0852a6fc89294c522321216d8eb945569 assets/deep_aether/models/item/raw_oratie_block.json
 b9096a1cd59e89492f4d4b74284103e242c91787 assets/deep_aether/models/item/raw_quail.json
 95fe0d5ed5af07e46052fb3bc128340afcc08e3a assets/deep_aether/models/item/roseroot_boat.json
 dd45e03227fec124e8d3e1fb65472aa4eae1f0e1 assets/deep_aether/models/item/roseroot_button.json
@@ -143,6 +151,7 @@ b6d1a4756d0d153368155dab798653a82562376c assets/deep_aether/models/item/stripped
 e5148d479ef8687099f352c7be33cff0b7b0fa13 assets/deep_aether/models/item/stripped_yagroot_wall.json
 e108630620ac8982b1fb7f88cc4b9296fc6049c3 assets/deep_aether/models/item/stripped_yagroot_wood.json
 0dc0e51c7886c62d9e4619ee2fc9e65d730970f4 assets/deep_aether/models/item/tall_aerlavender.json
+bbcf9744ff17615a2baa422da25e71b3e8a064af assets/deep_aether/models/item/virulent_quicksand.json
 78d92c3eb5d1a1634464924a1b611afe7befc875 assets/deep_aether/models/item/virulent_quicksand_bucket.json
 91ebe9b66a9dbaa2fcb32b0fec8347de168b0147 assets/deep_aether/models/item/yagroot_boat.json
 0acf9e9e8e775186a8bb1e96eaf1dfb232963bdd assets/deep_aether/models/item/yagroot_button.json

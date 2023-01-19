@@ -110,6 +110,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
         this.block(DABlocks.ADIBIUM_BLOCK.get());
 
+        this.block(DABlocks.ORATIE_BLOCK.get());
+        this.block(DABlocks.ORATIE_ORE.get());
+        this.block(DABlocks.RAW_ORATIE_BLOCK.get());
+        this.block(DABlocks.HIGHSTONE_ORATIE_ORE.get());
+
         this.block(DABlocks.CLOUDIUM_BLOCK.get());
 
     

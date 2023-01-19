@@ -105,9 +105,18 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
         this.itemBlock(DABlocks.ADIBIUM_BLOCK.get());
 
+        this.itemBlock(DABlocks.ORATIE_BLOCK.get());
+        this.itemBlock(DABlocks.ORATIE_ORE.get());
+        this.itemBlock(DABlocks.RAW_ORATIE_BLOCK.get());
+        this.itemBlock(DABlocks.HIGHSTONE_ORATIE_ORE.get());
+
         this.itemBlock(DABlocks.CLOUDIUM_DEBRIS.get());
         this.itemBlock(DABlocks.CLOUDIUM_BLOCK.get());
 
+        this.item(DAItems.ADIBIUM_GEMSTONE.get());
+        this.item(DAItems.AGATE_GEMSTONE.get());
+        this.item(DAItems.RAW_ORATIE.get());
+        this.item(DAItems.ORATIE_INGOT.get());
 
         this.itemBlock(DABlocks.ASETERITE.get());
         this.itemBlock(DABlocks.ASETERITE_STAIRS.get());
@@ -222,6 +231,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.AERGLOW_PETAL.get());
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+
+        this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());
     }
 
     public void handheldItem(Item item) {
