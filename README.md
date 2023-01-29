@@ -20,13 +20,12 @@ The Deep Aether mod introduces:
 You'll need of course:
  - Forge
  - The Aether Mod
- - Curios
  
  You will also need:
  - GeckoLib
  
- This mod will also have support for:
- -Quark
+Planned support for:
+- Quark
  
 # Credits
 
