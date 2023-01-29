@@ -66,7 +66,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_forest",
+          "biome": "aether:skyroot_forest",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -96,7 +96,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_grove",
+          "biome": "aether:skyroot_grove",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -126,7 +126,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_forest",
+          "biome": "aether:skyroot_forest",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -156,7 +156,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_grove",
+          "biome": "aether:skyroot_grove",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -186,7 +186,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_grove",
+          "biome": "aether:skyroot_grove",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -216,7 +216,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_forest",
+          "biome": "aether:skyroot_forest",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -246,7 +246,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_meadow",
+          "biome": "aether:skyroot_meadow",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -276,7 +276,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_grove",
+          "biome": "aether:skyroot_grove",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -306,7 +306,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_forest",
+          "biome": "aether:skyroot_forest",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -336,7 +336,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_meadow",
+          "biome": "aether:skyroot_meadow",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -366,7 +366,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_woodland",
+          "biome": "aether:skyroot_woodland",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -396,7 +396,7 @@
           }
         },
         {
-          "biome": "deep_aether:skyroot_forest",
+          "biome": "aether:skyroot_forest",
           "parameters": {
             "continentalness": [
               -1.0,

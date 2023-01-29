@@ -28,7 +28,7 @@ displayName="Deep Aether" #mandatory
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 # A text field displayed in the mod UI
-credits="Add-on to the Aether mod. Textures by 345boneshoss. Created with MCreator by Pylo, mod by the Team Razor." #optional
+credits="Add-on to the Aether mod. Textures by 345boneshoss and Aethyus. Code by TunefulTurntip and darksonic300. A mod by the Team Razor." #optional
 # A text field displayed in the mod UI
 authors="Team Razor: 345boneshoss, Aethyus, AwesomeGames, Egg, EnderCristy, darksonic300, TunefulTurntip, and the other members." #optional
 # The description text for the mod (multi line!) (#mandatory)
@@ -44,16 +44,15 @@ modId="forge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
 mandatory=true #mandatory
 # The version range of the dependency
-versionRange="[44,)" #mandatory
+versionRange="[44.1,)" #mandatory
 # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
 ordering="NONE"
 # Side this dependency is applied on - BOTH, CLIENT or SERVER
 side="BOTH"
-# Here's another dependency
+
 [[dependencies.deep_aether]]
 modId="minecraft"
 mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="[1.19.3,1.20)"
 ordering="NONE"
 side="BOTH"
@@ -62,7 +61,13 @@ side="BOTH"
 modId="aether"
 mandatory=true
 versionRange="[0,)"
-ordering="NONE"
+ordering="AFTER"
 side="BOTH"
 
+[[dependencies.deep_aether]]
+modId="geckolib"
+mandatory=true
+versionRange="[4.0.2,)"
+ordering="NONE"
+side="BOTH"
 
