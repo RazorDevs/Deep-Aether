@@ -31,20 +31,21 @@
       "aether:icestone_ore",
       "aether:ambrosium_ore",
       "aether:zanite_ore",
-      "aether:gravitite_ore_common",
-      "aether:gravitite_ore_dense"
+      "aether:gravitite_ore"
     ],
     [],
     [
       "aether:water_spring"
     ],
     [
+      "deep_aether:aether_plains_trees",
+      "deep_aether:aerlavender_patch",
+      "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",
-      "aether:holiday_tree",
-      "deep_aether:aether_plains_flower",
-      "deep_aether:aerlavender_patch",
-      "deep_aether:aether_plains_trees"
+      "aether:white_flower_patch",
+      "aether:purple_flower_patch",
+      "aether:berry_bush_patch"
     ],
     [
       "aether:crystal_island",

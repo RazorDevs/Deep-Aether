@@ -1,7 +1,5 @@
 package teamrazor.deepaether.datagen;
 
-import com.gildedgames.aether.data.resources.registries.AetherDimensions;
-import com.gildedgames.aether.data.resources.registries.AetherNoiseSettings;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
@@ -20,10 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class DAWorldGenData extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, DAConfiguredFeatures::bootstrap)
-            .add(Registries.PLACED_FEATURE, DAPlacedFeatures::bootstrap)
-            //.add(Registries.BIOME, DeepAetherModBiomes::bootstrap)
-            .add(Registries.NOISE_SETTINGS, AetherNoiseSettings::bootstrap)
-            .add(Registries.DIMENSION_TYPE, AetherDimensions::bootstrap);
+            .add(Registries.PLACED_FEATURE, DAPlacedFeatures::bootstrap);
 
 
 

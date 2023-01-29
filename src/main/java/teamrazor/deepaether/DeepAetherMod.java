@@ -1,5 +1,4 @@
 package teamrazor.deepaether;
-import com.gildedgames.aether.block.AetherBlocks;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -104,11 +103,7 @@ public class DeepAetherMod {
 	{
 		event.enqueueWork(() ->
 		{
-			// Given we only add two biomes, we should keep our weight relatively low.
-			//Regions.register(new DeepAetherModRegion(new ResourceLocation(MODID, "overworld"), 2));
 
-			// Register our surface rules
-			//SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, DeepAetherModSurfaceRuleData.makeRules());
 		});
 	}
 
@@ -130,6 +125,9 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
 	}
+
+
+
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
