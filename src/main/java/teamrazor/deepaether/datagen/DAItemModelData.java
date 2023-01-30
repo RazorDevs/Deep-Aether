@@ -38,8 +38,11 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
         this.itemWallBlock(DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.ROSEROOT_SAPLING.get());
+        this.itemBlockFlat(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.itemBlock(DABlocks.ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
+        this.itemBlock(DABlocks.BLUE_ROSEROOT_LEAVES.get());
+        this.itemBlock(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.AERGLOW_PETAL_BLOCK.get());
         this.item(DABlocks.ROSEROOT_SIGN.get().asItem());
 

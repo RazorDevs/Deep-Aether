@@ -22,9 +22,8 @@ public class FloweringRoseLeavesBlock extends AetherDoubleDropsLeaves {
 	}
 	@Override
 	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return 1;
+		return 12;
 	}
-
 	@Override
 	public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
 		return 30;

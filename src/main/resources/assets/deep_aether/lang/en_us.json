@@ -162,7 +162,6 @@
   "block.deep_aether.highstone_oratie_ore": "Highstone Oratie Ore",
   "block.deep_aether.raw_oratie_block": "Block of Raw Oratie",
   "block.deep_aether.oratie_block": "Block of Oratie",
-
   "block.deep_aether.cruderoot_log": "Yagroot Log",
   "block.deep_aether.cruderoot_wood": "Yagroot Wood",
   "block.deep_aether.stripped_cruderoot_log": "Stripped Yagroot Log",
@@ -187,11 +186,7 @@
   "item.deep_aether.yagroot_chest_boat": "Yagroot Chest Boat",
   "item.deep_aether.cruderoot_boat": "Cruderoot Boat",
   "item.deep_aether.cruderoot_chest_boat": "Cruderoot Chest Boat",
-
-
   "lore.item.deep_aether.skyjade": "A sharp gem that can be constructed to tools even more powerful than diamond, however it’s very fragile and shatters when the durability goes down and becomes slower.",
-
-
   "item.deep_aether.raw_quail": "Raw Quail",
   "item.deep_aether.cooked_quail": "Cooked Quail",
   "item.deep_aether.raw_aerglow_fish": "Raw Aerglow Fish",
@@ -317,5 +312,9 @@
   "item.deep_aether.roseroot_chest_boat": "Roseroot Chest Boat",
   "entity.deep_aether.roseroot_chest_boat": "Boat With Chest",
   "entity.deep_aether.cruderoot_chest_boat": "Boat With Chest",
-  "entity.deep_aether.yagroot_chest_boat": "Boat With Chest"
+  "entity.deep_aether.yagroot_chest_boat": "Boat With Chest",
+  "advancements.deep_aether.explore_aether.title": "Aether Explorer",
+  "advancements.deep_aether.explore_aether.description": "Explore all Aether biomes",
+  "advancements.deep_aether.cloudium_armor.title": "Cover Me in Sunshine",
+  "advancements.deep_aether.cloudium_armor.description": "Get a full suit of Cloudium Armor"
 }

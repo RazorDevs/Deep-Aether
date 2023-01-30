@@ -1,4 +1,4 @@
-// 1.19.3	2023-01-14T14:18:22.4815452	Loot Tables
+// 1.19.3	2023-01-30T07:48:44.6300589	Loot Tables
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_block.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_ore.json
 a286737623dfc7804cbfda9b2fd4db402be3088f data/deep_aether/loot_tables/blocks/aerglow_petal_block.json
@@ -15,6 +15,8 @@ e27b05c0b9a81a919dd415d5536be0b705aa7186 data/deep_aether/loot_tables/blocks/ase
 0ba57ed32f011fce7e3a2cd9275d1adcbbb592ab data/deep_aether/loot_tables/blocks/aseterite_slab.json
 855d7decd8faff6a1d39005cdacb82f3d7425255 data/deep_aether/loot_tables/blocks/aseterite_stairs.json
 52def9085d88c411a8f1192972f27caaa91cc480 data/deep_aether/loot_tables/blocks/aseterite_wall.json
+18119b748b6073d18af3ee6e7f0131d77c855d52 data/deep_aether/loot_tables/blocks/blue_roseroot_leaves.json
+572c248545eb5e953451596a0a0d710aa3a94492 data/deep_aether/loot_tables/blocks/blue_roseroot_sapling.json
 da3ca436d92834f6fdfeed7f0decf5813652dd80 data/deep_aether/loot_tables/blocks/clorite.json
 1235dd4594f67b01036f6ba7c30c97e4dfafd4df data/deep_aether/loot_tables/blocks/clorite_slab.json
 7ef820c09e50ad301c11edaee36bd4c06433a914 data/deep_aether/loot_tables/blocks/clorite_stairs.json
@@ -41,6 +43,7 @@ ff1ded1aeb0c7f956dbef20d28d8e858bcc9a671 data/deep_aether/loot_tables/blocks/dar
 360c6d42bb960b6ced2278e34f13f60ae8434f83 data/deep_aether/loot_tables/blocks/darkerite_slab.json
 32c839af79ce9aa3992b180611a8ae804e39e5fe data/deep_aether/loot_tables/blocks/darkerite_stairs.json
 c56c03ec6cc3344f1d2eecbbedc22b23ccbe857b data/deep_aether/loot_tables/blocks/darkerite_wall.json
+1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/flowering_blue_roseroot_leaves.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/flowering_roseroot_leaves.json
 a5f0d3e8eab8cb59935db207425da3d5939e86c1 data/deep_aether/loot_tables/blocks/greotite.json
 cef00502dc3d6610f15af02f2731f1ce78aba4fc data/deep_aether/loot_tables/blocks/greotite_slab.json
@@ -79,6 +82,7 @@ ee204f7f47a6ee741a964e0e5c881675680246de data/deep_aether/loot_tables/blocks/pol
 da46b28d8f88831b1731e027c48b01653ce141f2 data/deep_aether/loot_tables/blocks/polished_yallesite_slab.json
 7fb804590f4f6e85be4fe59d1a697c5d78ec560f data/deep_aether/loot_tables/blocks/polished_yallesite_stairs.json
 69f0c29a8277621cc089905fc8bbeeb130ea151b data/deep_aether/loot_tables/blocks/potted_aerlavender.json
+3e6a26a016c343658dd69de4971268f673900770 data/deep_aether/loot_tables/blocks/potted_blue_roseroot_sapling.json
 4b28f74e3ae4e0907535b1bcbe763ad7b101aac8 data/deep_aether/loot_tables/blocks/potted_cruderoot_sapling.json
 4b28f74e3ae4e0907535b1bcbe763ad7b101aac8 data/deep_aether/loot_tables/blocks/potted_radiant_orchid.json
 4e308e60edefff2c8928d6e9da85e96e4a5f1377 data/deep_aether/loot_tables/blocks/potted_roseroot_sapling.json

@@ -21,7 +21,10 @@ public class DABiomeTagData extends BiomeTagsProvider {
     public void addTags(HolderLookup.Provider provider) {
         this.tag(AetherTags.Biomes.IS_AETHER).add(
                 DABiomes.AETHER_PLAINS,
-                DABiomes.ROSEROOT_FOREST
+                DABiomes.AERGLOW_FOREST,
+                DABiomes.RARE_AERGLOW_FOREST,
+                DABiomes.BLUE_AERGLOW_FOREST
+
 
         );
     }

@@ -39,9 +39,12 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.wallBlock((WallBlock) DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
         this.wallBlock((WallBlock) DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.saplingBlock(DABlocks.ROSEROOT_SAPLING.get());
+        this.saplingBlock(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_ROSEROOT_SAPLING.get(), DABlocks.ROSEROOT_SAPLING.get());
         this.block(DABlocks.ROSEROOT_LEAVES.get());
         this.block(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
+        this.block(DABlocks.BLUE_ROSEROOT_LEAVES.get());
+        this.block(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
         this.block(DABlocks.AERGLOW_PETAL_BLOCK.get());
         this.signBlock((StandingSignBlock) DABlocks.ROSEROOT_SIGN.get(), (WallSignBlock) DABlocks.ROSEROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.ROSEROOT_PLANKS.get())));
 

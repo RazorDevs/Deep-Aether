@@ -33,20 +33,16 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-//@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABiomes {
     public static final ResourceKey<Biome> AETHER_PLAINS = createKey("aether_plains");
-    public static final ResourceKey<Biome> ROSEROOT_FOREST = createKey("roseroot_forest");
+    public static final ResourceKey<Biome> AERGLOW_FOREST = createKey("aerglow_forest");
+
+    public static final ResourceKey<Biome> BLUE_AERGLOW_FOREST = createKey("blue_aerglow_forest");
+
+    public static final ResourceKey<Biome> RARE_AERGLOW_FOREST = createKey("rare_aerglow_forest");
 
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
-    }
-
-    public static void bootstrap(BootstapContext<Biome> context) {
-        HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
-        HolderGetter<ConfiguredWorldCarver<?>> vanillaConfiguredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
-        context.register(AETHER_PLAINS, DABiomeBuilders.aetherPlainsBiome(placedFeatures, vanillaConfiguredCarvers));
-
     }
 }
 

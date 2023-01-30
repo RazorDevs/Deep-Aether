@@ -19,10 +19,7 @@ import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 
-import teamrazor.deepaether.datagen.DABlockstateData;
-import teamrazor.deepaether.datagen.DAItemModelData;
-import teamrazor.deepaether.datagen.DARecipeData;
-import teamrazor.deepaether.datagen.DAWorldGenData;
+import teamrazor.deepaether.datagen.*;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
@@ -39,6 +36,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
+import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
 
 
@@ -95,6 +93,7 @@ public class DeepAetherMod {
 		DABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		DABlocks.registerWoodTypes();
 		DAFoliagePlacers.FOLIAGE_PLACERS.register(bus);
+		DARootPlacers.ROOT_PLACERS.register(bus);
 	}
 
 
@@ -124,6 +123,7 @@ public class DeepAetherMod {
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DAAdvancementData(packOutput, lookupProvider, fileHelper));
 	}
 
 
