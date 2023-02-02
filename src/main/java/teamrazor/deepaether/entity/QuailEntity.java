@@ -14,10 +14,8 @@ import net.minecraftforge.network.PlayMessages;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DAEntities;
@@ -58,16 +56,27 @@ public class QuailEntity extends Chicken implements GeoEntity {
         return DAEntities.QUAIL.get().create(serverLevel);
     }
 
-    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(WALK_ANIM);
+    private PlayState predicate(AnimationState animationState) {
+
+        if(animationState.isMoving()) {
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.walk"));
             return PlayState.CONTINUE;
         }
+
+        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
+        return PlayState.CONTINUE;
+
+    }
+
+    private PlayState flap(AnimationState animationState) {
         if(!this.onGround) {
-            event.getController().setAnimation(FLAP_ANIM);
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlayXTimes("animation.quail.flap_start", 1).then("animation.quail.flap", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(IDLE_ANIM);
+        if(this.onGround) {
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
+            return PlayState.CONTINUE;
+        }
         return PlayState.CONTINUE;
     }
 
@@ -75,6 +84,8 @@ public class QuailEntity extends Chicken implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController(this, "controller",
                 0, this::predicate));
+        controllers.add(new AnimationController(this, "flap_controller",
+                0, this::flap));
     }
 
     @Override
