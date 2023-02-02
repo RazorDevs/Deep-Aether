@@ -165,6 +165,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> DARKERITE_STAIRS = registerBlock("darkerite_stairs", () -> new StairBlock(() -> DABlocks.DARKERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> POLISHED_DARKERITE_STAIRS = registerBlock("polished_darkerite_stairs", () -> new StairBlock(() -> DABlocks.POLISHED_DARKERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> DARKERITE_WALL = registerBlock("darkerite_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()));
+	
 	public static final RegistryObject<Block> HOLYSTONE_BRICKS = registerBlock("holystone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
 	public static final RegistryObject<Block> HOLYSTONE_BRICKS_STAIRS = registerBlock("holystone_bricks_stairs", () -> new StairBlock(() -> DABlocks.HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> HOLYSTONE_BRICKS_SLAB = registerBlock("holystone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_SLAB)));

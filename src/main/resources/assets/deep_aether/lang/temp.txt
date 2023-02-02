@@ -1,0 +1,8 @@
+  "lore.block.deep_aether.jarinite": "One of Aether's native rock types. Can be found in large chunks in the Aether. Can be used for decoration or to crafted Polished Jarinite.",
+  "lore.block.deep_aether.jarinite_slab": "Crafted from Jarinite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!",
+  "lore.block.deep_aether.jarinite_stairs": "Crafted from Jarinite. Stairs are useful for adding verticality to builds and are often used for decoration too!",
+  "lore.block.deep_aether.jarinite_wall": "Crafted from Jarinite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!",
+  "lore.block.deep_aether.polished_jarinite": "Used as a building material native to the Aether. It is made from Jarinite.",
+  "lore.block.deep_aether.polished_jarinite_slab": "Crafted from Polished Jarinite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!",
+  "lore.block.deep_aether.polished_jarinite_stairs": "Crafted from Polished Jarinite. Stairs are useful for adding verticality to builds and are often used for decoration too!",
+

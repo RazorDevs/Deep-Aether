@@ -95,6 +95,34 @@ public class PoisonBlock extends LiquidBlock {
                     TRANSFORM_ITEM = Items.MUSIC_DISC_CAT;
                     CAN_TRANSFORM = true;
                 }
+                if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
+                    TRANSFORM_ITEM = Items.GOLDEN_DART.get();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART_SHOOTER.get()) {
+                    TRANSFORM_ITEM = Items.GOLDEN_DART_SHOOTER.get();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == AetherItems.HEALING_STONE.get()) {
+                    TRANSFORM_ITEM = AetherBlocks.HOLYSTONE.get().asItem();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()) {
+                    TRANSFORM_ITEM = AetherBlocks.GRAVITITE_ORE.get().asItem();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_BERRY.get()) {
+                    TRANSFORM_ITEM = AetherItems.BLUE_BERRY.get();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == AetherBlocks.QUICKSOIL_GLASS.get().asItem()) {
+                    TRANSFORM_ITEM = AetherBlocks.QUICKSOIL.get().asItem();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == AetherItems.SKYROOT_REMEDY_BUCKET.get()) {
+                    TRANSFORM_ITEM = AetherBlocks.SKYROOT_POISON_BUCKET.get();
+                    CAN_TRANSFORM = true;
+                }
                 if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_CHINCHILLA.get()) {
                     TRANSFORM_ITEM = Items.MUSIC_DISC_STRAD;
                     CAN_TRANSFORM = true;
@@ -109,6 +137,8 @@ public class PoisonBlock extends LiquidBlock {
                     TRANSFORMED_ITEM_ENTITY = entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
                     entity.setNoGravity(true);
                 }
+
+
 
                 if (!level.isClientSide && (TRANSFORMED_ITEM_ENTITY.getFeetBlockState().getBlock() == this || level.getBlockState(TRANSFORMED_ITEM_ENTITY.getOnPos().below(1)).getBlock() == this) && TRANSFORMED_ITEM_ENTITY.isAlive()) {
                     BlockPos itemPos = TRANSFORMED_ITEM_ENTITY.getOnPos();
