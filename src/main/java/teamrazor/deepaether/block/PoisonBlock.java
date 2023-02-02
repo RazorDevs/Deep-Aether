@@ -1,6 +1,7 @@
 package teamrazor.deepaether.block;
 
 import com.gildedgames.aether.Aether;
+import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.effect.AetherEffects;
 import com.gildedgames.aether.event.events.PlacementBanEvent;
 import com.gildedgames.aether.item.AetherItems;
@@ -96,11 +97,11 @@ public class PoisonBlock extends LiquidBlock {
                     CAN_TRANSFORM = true;
                 }
                 if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
-                    TRANSFORM_ITEM = Items.GOLDEN_DART.get();
+                    TRANSFORM_ITEM = AetherItems.GOLDEN_DART.get();
                     CAN_TRANSFORM = true;
                 }
                 if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART_SHOOTER.get()) {
-                    TRANSFORM_ITEM = Items.GOLDEN_DART_SHOOTER.get();
+                    TRANSFORM_ITEM = AetherItems.GOLDEN_DART_SHOOTER.get();
                     CAN_TRANSFORM = true;
                 }
                 if (itemEntity.getItem().getItem() == AetherItems.HEALING_STONE.get()) {
@@ -120,7 +121,7 @@ public class PoisonBlock extends LiquidBlock {
                     CAN_TRANSFORM = true;
                 }
                 if (itemEntity.getItem().getItem() == AetherItems.SKYROOT_REMEDY_BUCKET.get()) {
-                    TRANSFORM_ITEM = AetherBlocks.SKYROOT_POISON_BUCKET.get();
+                    TRANSFORM_ITEM = AetherItems.SKYROOT_POISON_BUCKET.get();
                     CAN_TRANSFORM = true;
                 }
                 if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_CHINCHILLA.get()) {

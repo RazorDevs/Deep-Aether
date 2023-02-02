@@ -1,11 +1,18 @@
 package teamrazor.deepaether.entity;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.entity.animal.Cod;
+import net.minecraft.world.entity.animal.Salmon;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -19,55 +26,38 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAItems;
 
-@Mod.EventBusSubscriber
-public class AetherFishEntity extends Cod implements GeoEntity {
+@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
+public class AetherFishEntity extends AbstractSchoolingFish {
 
-	private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
-
-	private static final RawAnimation SWIM_ANIM = RawAnimation.begin().thenPlay("animation.aerglow_fish.swim");
-
-	public AetherFishEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(DAEntities.AETHER_FISH.get(), world);
+	public AetherFishEntity(EntityType<? extends AetherFishEntity> p_29790_, Level p_29791_) {
+		super(p_29790_, p_29791_);
 	}
 
-	public AetherFishEntity(EntityType<AetherFishEntity> type, Level world) {
-		super(type, world);
+	public int getMaxSchoolSize() {
+		return 5;
 	}
 
-
-	public static AttributeSupplier.Builder createAttributes() {
-		return Mob.createMobAttributes()
-				.add(Attributes.MOVEMENT_SPEED, 1)
-				.add(Attributes.MAX_HEALTH, 3)
-				.add(ForgeMod.SWIM_SPEED.get(), 1.2);
+	public ItemStack getBucketItemStack() {
+		return new ItemStack(DAItems.PLACEABLE_POISON_BUCKET.get());
 	}
 
-	public static void init() {
-		SpawnPlacements.register(DAEntities.AETHER_FISH.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos,
-						random) -> (world.getBlockState(pos).is(Blocks.WATER) && world.getBlockState(pos.above()).is(Blocks.WATER)));
+	protected SoundEvent getAmbientSound() {
+		return SoundEvents.SALMON_AMBIENT;
 	}
 
-	private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
-		if (event.isMoving()) {
-			event.getController().setAnimation(SWIM_ANIM);
-			return PlayState.CONTINUE;
-		}
-		return PlayState.CONTINUE;
+	protected SoundEvent getDeathSound() {
+		return SoundEvents.SALMON_DEATH;
 	}
 
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
-                0, this::predicate));
-    }
-
-	@Override
-	public AnimatableInstanceCache getAnimatableInstanceCache() {
-		return factory;
+	protected SoundEvent getHurtSound(DamageSource p_29795_) {
+		return SoundEvents.SALMON_HURT;
 	}
 
+	protected SoundEvent getFlopSound() {
+		return SoundEvents.SALMON_FLOP;
+	}
 }

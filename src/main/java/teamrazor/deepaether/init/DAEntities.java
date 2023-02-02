@@ -42,10 +42,14 @@ public class DAEntities {
 
 
 
-
+	/*public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
+			() -> EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.MISC)
+					.sized(0.5F, 0.5F).clientTrackingRange(10));**/
 	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
-			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(AetherFishEntity::new)
+			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE)
+					.setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3)
+					.clientTrackingRange(10)
 					.sized(0.5f, 0.5f));
 
 	public static final RegistryObject<EntityType<QuailEntity>> QUAIL = register("quail",
@@ -62,7 +66,7 @@ public class DAEntities {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			AetherFishEntity.init();
+			AetherFishEntity.createAttributes();
 			QuailEntity.init();
 		});
 	}
