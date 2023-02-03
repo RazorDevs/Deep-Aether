@@ -197,6 +197,8 @@ public class DATabs {
 
                             output.accept(DAItems.RAW_AERGLOW_FISH.get());
                             output.accept(DAItems.COOKED_AERGLOW_FISH.get());
+                            output.accept(DAItems.AERGLOW_FISH_BUCKET.get());
+                            output.accept(DAItems.SKYROOT_AERGLOW_FISH_BUCKET.get());
                             output.accept(DAItems.RAW_QUAIL.get());
                             output.accept(DAItems.COOKED_QUAIL.get());
 

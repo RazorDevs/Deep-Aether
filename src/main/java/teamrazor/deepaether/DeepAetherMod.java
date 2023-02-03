@@ -133,7 +133,7 @@ public class DeepAetherMod {
 		event.enqueueWork(() -> {
 			DABlocks.registerPots();
 			DABlocks.registerFlammability();
-
+			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
 			this.registerCompostable();
 		});

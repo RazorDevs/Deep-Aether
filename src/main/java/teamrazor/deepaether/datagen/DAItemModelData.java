@@ -216,6 +216,9 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.RAW_AERGLOW_FISH.get());
         this.item(DAItems.COOKED_AERGLOW_FISH.get());
+        this.item(DAItems.AERGLOW_FISH_BUCKET.get());
+        this.item(DAItems.SKYROOT_AERGLOW_FISH_BUCKET.get());
+
         this.item(DAItems.RAW_QUAIL.get());
         this.item(DAItems.COOKED_QUAIL.get());
 

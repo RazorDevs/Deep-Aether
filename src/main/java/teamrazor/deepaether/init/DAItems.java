@@ -1,11 +1,15 @@
 package teamrazor.deepaether.init;
 
+import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import net.minecraft.sounds.SoundEvents;
 import com.gildedgames.aether.client.AetherSoundEvents;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +23,8 @@ import teamrazor.deepaether.item.gear.cloudium.*;
 
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.skyjade.*;
+
+import static com.gildedgames.aether.item.AetherItems.SKYROOT_BUCKET;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 
@@ -75,6 +81,11 @@ public class DAItems {
 	public static final RegistryObject<Item> RAW_AERGLOW_FISH = ITEMS.register("raw_aerglow_fish", () -> new Item(new Item.Properties().food(Foods.COD)));
 	public static final RegistryObject<Item> COOKED_AERGLOW_FISH = ITEMS.register("cooked_aerglow_fish", () -> new Item(new Item.Properties().food(Foods.COOKED_COD)));
 
+	public static final RegistryObject<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).craftRemainder((Item)SKYROOT_BUCKET.get()).stacksTo(1)));
+	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).stacksTo(1)));
+
+
+
 	//BOATS
 	public static final RegistryObject<Item> ROSEROOT_BOAT = ITEMS.register("roseroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.ROSEROOT));
 	public static final RegistryObject<Item> ROSEROOT_CHEST_BOAT = ITEMS.register("roseroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.ROSEROOT));
@@ -109,5 +120,10 @@ public class DAItems {
 
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
+	}
+
+
+	public static void setupBucketReplacements() {
+		//SkyrootBucketItem.REPLACEMENTS.put(() -> DAItems.AERGLOW_FISH_BUCKET.get(), DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
 	}
 }
