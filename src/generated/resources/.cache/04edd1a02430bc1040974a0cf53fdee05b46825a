@@ -1,7 +1,8 @@
-// 1.19.3	2023-01-30T07:48:44.6390346	Item Models: deep_aether
+// 1.19.3	2023-02-06T15:03:56.8527376	Item Models: deep_aether
 c9cd46e8227850b73fed20f669ee10413053d61e assets/deep_aether/models/item/adibium_block.json
 93378b372ea5414c1ea6ca3c40405ded6dd6ca9b assets/deep_aether/models/item/adibium_gemstone.json
 26f01b89e6a99d196f3e19e8dfb34a150bfb0978 assets/deep_aether/models/item/adibium_ore.json
+4e30ff1940f4f1b0cd516851b16b9b1b1a3b6d53 assets/deep_aether/models/item/aerglow_fish_bucket.json
 4a81697c908b1587d7aa033161a3d61a6ee0cdfd assets/deep_aether/models/item/aerglow_petal.json
 74dcf5209907c1101c6eee6b2dfbe20e5cb2805d assets/deep_aether/models/item/aerglow_petal_block.json
 d6bfe1a17b797d5fb5855f8138b4792503af2554 assets/deep_aether/models/item/aerlavender.json
@@ -143,6 +144,7 @@ b03b644a10f5f8ce517a9054f631c87b6eced1e6 assets/deep_aether/models/item/skyjade_
 af89001f03767333b0d61bdf32660214b8633fe2 assets/deep_aether/models/item/skyjade_ring.json
 9833f0b71df294fd8a7a1ac0b4816b5d65c25e3c assets/deep_aether/models/item/skyjade_shovel.json
 7168ea159c2296668bf8b0f25cfa59cb7543d5b3 assets/deep_aether/models/item/skyjade_sword.json
+e6ae0f626100d3a851f13cdcb84ae06cb8ce8c88 assets/deep_aether/models/item/skyroot_aerglow_fish_bucket.json
 265179f65036f246248e2f6c0110aee5dad38572 assets/deep_aether/models/item/skyroot_virulent_quicksand_bucket.json
 f23267c9541a088b54bc58e19d54d9e9ed4d60fd assets/deep_aether/models/item/stripped_cruderoot_log.json
 de629eb694b176151def078907bdda04f327c939 assets/deep_aether/models/item/stripped_cruderoot_wall.json

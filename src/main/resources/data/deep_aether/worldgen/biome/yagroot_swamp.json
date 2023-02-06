@@ -20,14 +20,14 @@
       "aether:quicksoil_shelf"
     ],
     [
-      "aether:water_lake"
+      "deep_aether:poison_lake"
     ],
     [],
     [],
     [],
     [],
     [
-      "deep_aether:yallesite",
+      "deep_aether:darkerite",
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
       "aether:ambrosium_ore",
@@ -36,11 +36,10 @@
     ],
     [],
     [
-      "aether:water_spring"
+      "deep_aether:poison_spring"
     ],
     [
-      "deep_aether:aerglow_forest_trees_placement",
-      "deep_aether:aerglow_forest_vegetation",
+      "deep_aether:yagroot_swamp_trees_placement",
       "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",

@@ -123,7 +123,7 @@ public class DeepAetherMod {
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DAAdvancementData(packOutput, lookupProvider, fileHelper));
+		//generator.addProvider(event.includeServer(), new DAAdvancementData(packOutput, lookupProvider, fileHelper));
 	}
 
 
