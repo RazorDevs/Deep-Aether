@@ -41,6 +41,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.saplingBlock(DABlocks.ROSEROOT_SAPLING.get());
         this.saplingBlock(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_ROSEROOT_SAPLING.get(), DABlocks.ROSEROOT_SAPLING.get());
+        this.pottedPlant(DABlocks.POTTED_BLUE_ROSEROOT_SAPLING.get(), DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.block(DABlocks.ROSEROOT_LEAVES.get());
         this.block(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
         this.block(DABlocks.BLUE_ROSEROOT_LEAVES.get());

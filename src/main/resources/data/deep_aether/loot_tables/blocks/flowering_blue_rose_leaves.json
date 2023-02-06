@@ -43,7 +43,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:blue_flowering_roseroot_leaves",
+          "name": "deep_aether:flowering_blue_roseroot_leaves",
           "weight": 1,
           "conditions": [
             {

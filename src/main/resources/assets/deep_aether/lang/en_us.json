@@ -304,6 +304,11 @@
   "item.deep_aether.cloudium_pickaxe": "Cloudium Pickaxe",
   "item.deep_aether.cloudium_shovel": "Cloudium Shovel",
   "item.deep_aether.gravitite_ring": "Gravitite Ring",
+
+  "block.deep_aether.blue_roseroot_leaves": "Blue Roseroot Leaves",
+  "block.deep_aether.flowering_blue_roseroot_leaves": "Flowering Blue Roseroot Leaves",
+  "block.deep_aether.blue_roseroot_sapling": "Blue Roseroot Sapling",
+
   "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks",
   "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",
   "item.deep_aether.roseroot_boat": "Roseroot Boat",

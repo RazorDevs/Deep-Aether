@@ -45,6 +45,10 @@ public class DATabs {
                             output.accept(DABlocks.AERGLOW_PETAL_BLOCK.get());
                             output.accept(DABlocks.ROSEROOT_SAPLING.get());
 
+                            output.accept(DABlocks.BLUE_ROSEROOT_LEAVES.get());
+                            output.accept(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
+                            output.accept(DABlocks.BLUE_ROSEROOT_SAPLING.get());
+
                             output.accept(DABlocks.YAGROOT_LOG.get());
                             output.accept(DABlocks.YAGROOT_WOOD.get());
                             output.accept(DABlocks.STRIPPED_YAGROOT_LOG.get());
