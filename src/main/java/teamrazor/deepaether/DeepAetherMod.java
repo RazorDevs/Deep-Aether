@@ -130,7 +130,6 @@ public class DeepAetherMod {
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags, fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
-		//generator.addProvider(event.includeServer(), new DAAdvancementData(packOutput, lookupProvider, fileHelper));
 	}
 
 
@@ -138,7 +137,6 @@ public class DeepAetherMod {
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			this.registerCauldronInteractions();
 			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();
 			DABlocks.registerFlammability();
@@ -156,7 +154,6 @@ public class DeepAetherMod {
 
 	private void processIMC(final InterModProcessEvent event)
 	{
-		// Some example code to receive and process InterModComms from other mods
 		LOGGER.info("Got IMC {}", event.getIMCStream().
 				map(m->m.messageSupplier().get()).
 				collect(Collectors.toList()));
@@ -180,11 +177,5 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_PETAL.get().asItem(), 0.1F);
-	}
-
-
-
-	private void registerCauldronInteractions() {
-
 	}
 }

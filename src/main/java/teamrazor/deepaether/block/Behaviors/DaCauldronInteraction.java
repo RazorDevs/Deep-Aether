@@ -71,9 +71,6 @@ public interface DaCauldronInteraction {
                 return true;
             }, SoundEvents.BUCKET_FILL);
         });
-        //addDefaultInteractions(POISON);
-
-
 
         CauldronInteraction.EMPTY.put(AetherItems.SKYROOT_POISON_BUCKET.get(), DaCauldronInteraction.FILL_POISON_SKYROOT);
         CauldronInteraction.EMPTY.put(DAItems.PLACEABLE_POISON_BUCKET.get(), DaCauldronInteraction.FILL_POISON);

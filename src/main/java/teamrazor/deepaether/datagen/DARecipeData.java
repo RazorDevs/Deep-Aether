@@ -197,102 +197,6 @@ public class DARecipeData extends AetherRecipeProvider {
         stairs(DABlocks.POLISHED_CLORITE_STAIRS, DABlocks.POLISHED_CLORITE).save(consumer);
         slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_CLORITE_SLAB.get(), DABlocks.POLISHED_CLORITE.get());
 
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.JARINITE_STAIRS.get(), DABlocks.JARINITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.JARINITE_SLAB.get(), DABlocks.JARINITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.JARINITE_WALL.get(), DABlocks.JARINITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_JARINITE.get(), DABlocks.JARINITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_JARINITE_STAIRS.get(), DABlocks.JARINITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_JARINITE_SLAB.get(), DABlocks.JARINITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_JARINITE_STAIRS.get(), DABlocks.POLISHED_JARINITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_JARINITE_SLAB.get(), DABlocks.POLISHED_JARINITE.get(),2);
-
-        stairs(DABlocks.JARINITE_STAIRS, DABlocks.JARINITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.JARINITE_SLAB.get(), DABlocks.JARINITE.get());
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.JARINITE_WALL.get(), DABlocks.JARINITE.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.POLISHED_JARINITE.get(), 4)
-                .define('A', DABlocks.JARINITE.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.JARINITE.get()), has(DABlocks.JARINITE.get()))
-                .save(consumer);
-
-        stairs(DABlocks.POLISHED_JARINITE_STAIRS, DABlocks.POLISHED_JARINITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_JARINITE_SLAB.get(), DABlocks.POLISHED_JARINITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.YALLESITE_STAIRS.get(), DABlocks.YALLESITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.YALLESITE_SLAB.get(), DABlocks.YALLESITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.YALLESITE_WALL.get(), DABlocks.YALLESITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_YALLESITE.get(), DABlocks.YALLESITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_YALLESITE_STAIRS.get(), DABlocks.YALLESITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_YALLESITE_SLAB.get(), DABlocks.YALLESITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_YALLESITE_STAIRS.get(), DABlocks.POLISHED_YALLESITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_YALLESITE_SLAB.get(), DABlocks.POLISHED_YALLESITE.get(),2);
-
-        stairs(DABlocks.YALLESITE_STAIRS, DABlocks.YALLESITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.YALLESITE_SLAB.get(), DABlocks.YALLESITE.get());
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.YALLESITE_WALL.get(), DABlocks.YALLESITE.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.POLISHED_YALLESITE.get(), 4)
-                .define('A', DABlocks.YALLESITE.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.YALLESITE.get()), has(DABlocks.YALLESITE.get()))
-                .save(consumer);
-
-        stairs(DABlocks.POLISHED_YALLESITE_STAIRS, DABlocks.POLISHED_YALLESITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_YALLESITE_SLAB.get(), DABlocks.POLISHED_YALLESITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.DARKERITE_STAIRS.get(), DABlocks.DARKERITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.DARKERITE_SLAB.get(), DABlocks.DARKERITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.DARKERITE_WALL.get(), DABlocks.DARKERITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_DARKERITE.get(), DABlocks.DARKERITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_DARKERITE_STAIRS.get(), DABlocks.DARKERITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_DARKERITE_SLAB.get(), DABlocks.DARKERITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_DARKERITE_STAIRS.get(), DABlocks.POLISHED_DARKERITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_DARKERITE_SLAB.get(), DABlocks.POLISHED_DARKERITE.get(),2);
-
-        stairs(DABlocks.DARKERITE_STAIRS, DABlocks.DARKERITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.DARKERITE_SLAB.get(), DABlocks.DARKERITE.get());
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.DARKERITE_WALL.get(), DABlocks.DARKERITE.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.POLISHED_DARKERITE.get(), 4)
-                .define('A', DABlocks.DARKERITE.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.DARKERITE.get()), has(DABlocks.DARKERITE.get()))
-                .save(consumer);
-
-        stairs(DABlocks.POLISHED_DARKERITE_STAIRS, DABlocks.POLISHED_DARKERITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_DARKERITE_SLAB.get(), DABlocks.POLISHED_DARKERITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GREOTITE_STAIRS.get(), DABlocks.GREOTITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GREOTITE_SLAB.get(), DABlocks.GREOTITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GREOTITE_WALL.get(), DABlocks.GREOTITE.get());
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_GREOTITE.get(), DABlocks.GREOTITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_GREOTITE_STAIRS.get(), DABlocks.GREOTITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_GREOTITE_SLAB.get(), DABlocks.GREOTITE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_GREOTITE_STAIRS.get(), DABlocks.POLISHED_GREOTITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_GREOTITE_SLAB.get(), DABlocks.POLISHED_GREOTITE.get(),2);
-
-        stairs(DABlocks.GREOTITE_STAIRS, DABlocks.GREOTITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GREOTITE_SLAB.get(), DABlocks.GREOTITE.get());
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.GREOTITE_WALL.get(), DABlocks.GREOTITE.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.POLISHED_GREOTITE.get(), 4)
-                .define('A', DABlocks.GREOTITE.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.GREOTITE.get()), has(DABlocks.GREOTITE.get()))
-                .save(consumer);
-
-        stairs(DABlocks.POLISHED_GREOTITE_STAIRS, DABlocks.POLISHED_GREOTITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_GREOTITE_SLAB.get(), DABlocks.POLISHED_GREOTITE.get());
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
                 .define('A', DAItems.SKYJADE.get())
                 .pattern("AAA")
@@ -309,21 +213,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("AAA")
                 .unlockedBy(getHasName(DAItems.CLOUDIUM_INGOT.get()), has(DAItems.CLOUDIUM_INGOT.get()))
                 .save(consumer);
-
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_BRICKS.get(), AetherBlocks.HOLYSTONE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_BRICKS_STAIRS.get(), AetherBlocks.HOLYSTONE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_BRICKS_SLAB.get(), AetherBlocks.HOLYSTONE.get(),2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_BRICKS_STAIRS.get(), DABlocks.POLISHED_GREOTITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_BRICKS_SLAB.get(), DABlocks.POLISHED_GREOTITE.get(),2);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_BRICKS.get(), 4)
-                .define('A', AetherBlocks.HOLYSTONE.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get()))
-                .save(consumer);
-        stairs(DABlocks.HOLYSTONE_BRICKS_STAIRS, DABlocks.HOLYSTONE_BRICKS).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_BRICKS_SLAB.get(), DABlocks.HOLYSTONE_BRICKS.get());
 
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
 

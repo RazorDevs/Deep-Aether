@@ -137,25 +137,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.POLISHED_ASETERITE_SLAB.get());
         this.dropSelf(DABlocks.POLISHED_ASETERITE_STAIRS.get());
 
-
-        this.dropSelf(DABlocks.GREOTITE.get());
-        this.dropSelf(DABlocks.GREOTITE_SLAB.get());
-        this.dropSelf(DABlocks.GREOTITE_STAIRS.get());
-        this.dropSelf(DABlocks.GREOTITE_WALL.get());
-        this.dropSelf(DABlocks.POLISHED_GREOTITE.get());
-        this.dropSelf(DABlocks.POLISHED_GREOTITE_SLAB.get());
-        this.dropSelf(DABlocks.POLISHED_GREOTITE_STAIRS.get());
-
-
-        this.dropSelf(DABlocks.DARKERITE.get());
-        this.dropSelf(DABlocks.DARKERITE_SLAB.get());
-        this.dropSelf(DABlocks.DARKERITE_STAIRS.get());
-        this.dropSelf(DABlocks.DARKERITE_WALL.get());
-        this.dropSelf(DABlocks.POLISHED_DARKERITE.get());
-        this.dropSelf(DABlocks.POLISHED_DARKERITE_SLAB.get());
-        this.dropSelf(DABlocks.POLISHED_DARKERITE_STAIRS.get());
-
-
         this.dropSelf(DABlocks.CLORITE.get());
         this.dropSelf(DABlocks.CLORITE_SLAB.get());
         this.dropSelf(DABlocks.CLORITE_STAIRS.get());
@@ -163,30 +144,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.POLISHED_CLORITE.get());
         this.dropSelf(DABlocks.POLISHED_CLORITE_SLAB.get());
         this.dropSelf(DABlocks.POLISHED_CLORITE_STAIRS.get());
-
-
-        this.dropSelf(DABlocks.YALLESITE.get());
-        this.dropSelf(DABlocks.YALLESITE_SLAB.get());
-        this.dropSelf(DABlocks.YALLESITE_STAIRS.get());
-        this.dropSelf(DABlocks.YALLESITE_WALL.get());
-        this.dropSelf(DABlocks.POLISHED_YALLESITE.get());
-        this.dropSelf(DABlocks.POLISHED_YALLESITE_SLAB.get());
-        this.dropSelf(DABlocks.POLISHED_YALLESITE_STAIRS.get());
-
-    
-        this.dropSelf(DABlocks.JARINITE.get());
-        this.dropSelf(DABlocks.JARINITE_SLAB.get());
-        this.dropSelf(DABlocks.JARINITE_STAIRS.get());
-        this.dropSelf(DABlocks.JARINITE_WALL.get());
-        this.dropSelf(DABlocks.POLISHED_JARINITE.get());
-        this.dropSelf(DABlocks.POLISHED_JARINITE_SLAB.get());
-        this.dropSelf(DABlocks.POLISHED_JARINITE_STAIRS.get());
-
-
-        this.dropSelf(DABlocks.HOLYSTONE_BRICKS.get());
-        this.dropSelf(DABlocks.HOLYSTONE_BRICKS_SLAB.get());
-        this.dropSelf(DABlocks.HOLYSTONE_BRICKS_STAIRS.get());
-
 
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.TALL_AERLAVENDER.get());

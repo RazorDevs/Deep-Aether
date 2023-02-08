@@ -129,38 +129,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.POLISHED_ASETERITE_STAIRS.get());
         this.itemBlock(DABlocks.POLISHED_ASETERITE_SLAB.get());
 
-        this.itemBlock(DABlocks.GREOTITE.get());
-        this.itemBlock(DABlocks.GREOTITE_STAIRS.get());
-        this.itemBlock(DABlocks.GREOTITE_SLAB.get());
-        this.itemWallBlock(DABlocks.GREOTITE_WALL.get(), DABlocks.GREOTITE.get());
-        this.itemBlock(DABlocks.POLISHED_GREOTITE.get());
-        this.itemBlock(DABlocks.POLISHED_GREOTITE_STAIRS.get());
-        this.itemBlock(DABlocks.POLISHED_GREOTITE_SLAB.get());
-
-        this.itemBlock(DABlocks.JARINITE.get());
-        this.itemBlock(DABlocks.JARINITE_STAIRS.get());
-        this.itemBlock(DABlocks.JARINITE_SLAB.get());
-        this.itemWallBlock(DABlocks.JARINITE_WALL.get(), DABlocks.JARINITE.get());
-        this.itemBlock(DABlocks.POLISHED_JARINITE.get());
-        this.itemBlock(DABlocks.POLISHED_JARINITE_STAIRS.get());
-        this.itemBlock(DABlocks.POLISHED_JARINITE_SLAB.get());
-
-        this.itemBlock(DABlocks.DARKERITE.get());
-        this.itemBlock(DABlocks.DARKERITE_STAIRS.get());
-        this.itemBlock(DABlocks.DARKERITE_SLAB.get());
-        this.itemWallBlock(DABlocks.DARKERITE_WALL.get(), DABlocks.DARKERITE.get());
-        this.itemBlock(DABlocks.POLISHED_DARKERITE.get());
-        this.itemBlock(DABlocks.POLISHED_DARKERITE_STAIRS.get());
-        this.itemBlock(DABlocks.POLISHED_DARKERITE_SLAB.get());
-
-        this.itemBlock(DABlocks.YALLESITE.get());
-        this.itemBlock(DABlocks.YALLESITE_STAIRS.get());
-        this.itemBlock(DABlocks.YALLESITE_SLAB.get());
-        this.itemWallBlock(DABlocks.YALLESITE_WALL.get(), DABlocks.YALLESITE.get());
-        this.itemBlock(DABlocks.POLISHED_YALLESITE.get());
-        this.itemBlock(DABlocks.POLISHED_YALLESITE_STAIRS.get());
-        this.itemBlock(DABlocks.POLISHED_YALLESITE_SLAB.get());
-
         this.itemBlock(DABlocks.CLORITE.get());
         this.itemBlock(DABlocks.CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.CLORITE_SLAB.get());
@@ -168,10 +136,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.POLISHED_CLORITE.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE_SLAB.get());
-
-        this.itemBlock(DABlocks.HOLYSTONE_BRICKS.get());
-        this.itemBlock(DABlocks.HOLYSTONE_BRICKS_STAIRS.get());
-        this.itemBlock(DABlocks.HOLYSTONE_BRICKS_SLAB.get());
     
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());

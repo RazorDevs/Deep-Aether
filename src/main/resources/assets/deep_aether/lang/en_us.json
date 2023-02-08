@@ -1,5 +1,5 @@
 {
-  "item.deep_aether.skyjade_armor_chestplate": "Skyjade Chestplate",
+  "item.deep_aether.skyjade_chestplate": "Skyjade Chestplate",
   "item.deep_aether.aether_fish_spawn_egg": "Aether Fish Spawn Egg",
   "item.deep_aether.quail_spawn_egg": "Quail Spawn Egg",
   "entity.deep_aether.quail": "Quail",
@@ -7,7 +7,7 @@
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "block.deep_aether.roseroot_wall": "Roseroot Wall",
   "block.deep_aether.aerglow_grass_block": "Aerglow Grass Block",
-  "item.deep_aether.skyjade_armor_helmet": "Skyjade Helmet",
+  "item.deep_aether.skyjade_helmet": "Skyjade Helmet",
   "block.deep_aether.roseroot_leaves": "Roseroot Leaves",
   "block.deep_aether.roseroot_fence": "Roseroot Fence",
   "block.deep_aether.roseroot_fence_gate": "Roseroot Fence Gate",
@@ -34,10 +34,10 @@
   "item.deep_aether.skyjade_pickaxe": "Skyjade Pickaxe",
   "block.deep_aether.roseroot_log": "Roseroot Log",
   "block.deep_aether.roseroot_sign": "Roseroot Sign",
-  "item.deep_aether.skyjade_armor_boots": "Skyjade Boots",
+  "item.deep_aether.skyjade_boots": "Skyjade Boots",
   "subtitles.music_disc_nabooru": "",
   "item.deep_aether.skyjade_hoe": "Skyjade Hoe",
-  "item.deep_aether.skyjade_armor_leggings": "Skyjade Leggings",
+  "item.deep_aether.skyjade_leggings": "Skyjade Leggings",
   "item.deep_aether.skyjade_sword": "Skyjade Sword",
   "block.deep_aether.roseroot_trapdoor": "Roseroot Trapdoor",
   "block.deep_aether.flowering_roseroot_leaves": "Flowering Roseroot Leaves",
@@ -308,6 +308,9 @@
   "block.deep_aether.blue_roseroot_leaves": "Blue Roseroot Leaves",
   "block.deep_aether.flowering_blue_roseroot_leaves": "Flowering Blue Roseroot Leaves",
   "block.deep_aether.blue_roseroot_sapling": "Blue Roseroot Sapling",
+
+  "item.deep_aether.aerglow_fish_bucket": "Aerglow Fish Bucket",
+  "item.deep_aether.skyroot_aerglow_fish_bucket": "Skyroot Aerglow Fish Bucket",
 
   "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks",
   "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",

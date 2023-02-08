@@ -39,11 +39,10 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERGLOW_SKYJADE = createKey("aerglow_skyjade_ore");
     public static final ResourceKey<PlacedFeature> DIVINE_DEBRIS = createKey("divine_debris");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
-    public static final ResourceKey<PlacedFeature> GREOTITE = createKey("greotite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
-    public static final ResourceKey<PlacedFeature> DARKERITE = createKey("darkerite");
-    public static final ResourceKey<PlacedFeature> YALLESITE = createKey("yallesite");
-    public static final ResourceKey<PlacedFeature> JARINITE = createKey("jarinite");
+
+
+
 
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
@@ -87,15 +86,8 @@ public class DAPlacedFeatures {
 
         register(context, ASETERITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ASETERITE_CONFIGURATION),
                 AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
-        register(context, GREOTITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.GREOTITE_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
+
         register(context, CLORITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
-        register(context, DARKERITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.DARKERITE_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
-        register(context, YALLESITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.YALLESITE_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
-        register(context, JARINITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.JARINITE_CONFIGURATION),
                 AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
                 AetherPlacedFeatureBuilders.commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(48))));
