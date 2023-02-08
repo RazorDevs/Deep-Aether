@@ -1,8 +1,14 @@
 package teamrazor.deepaether;
+import com.gildedgames.aether.Aether;
+import com.gildedgames.aether.block.AetherCauldronInteractions;
+import com.gildedgames.aether.item.AetherItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -19,6 +25,7 @@ import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 
+import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 import teamrazor.deepaether.datagen.*;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
@@ -131,6 +138,8 @@ public class DeepAetherMod {
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
+			this.registerCauldronInteractions();
+			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();
 			DABlocks.registerFlammability();
 			DAItems.setupBucketReplacements();
@@ -171,5 +180,11 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_PETAL.get().asItem(), 0.1F);
+	}
+
+
+
+	private void registerCauldronInteractions() {
+
 	}
 }

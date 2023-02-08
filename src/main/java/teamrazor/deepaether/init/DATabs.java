@@ -49,7 +49,7 @@ public class DATabs {
                             output.accept(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
                             output.accept(DABlocks.BLUE_ROSEROOT_SAPLING.get());
 
-                            output.accept(DABlocks.YAGROOT_LOG.get());
+                            /*output.accept(DABlocks.YAGROOT_LOG.get());
                             output.accept(DABlocks.YAGROOT_WOOD.get());
                             output.accept(DABlocks.STRIPPED_YAGROOT_LOG.get());
                             output.accept(DABlocks.STRIPPED_YAGROOT_WOOD.get());
@@ -91,7 +91,7 @@ public class DATabs {
                             output.accept(DABlocks.CRUDEROOT_SAPLING.get());
 
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
-                            output.accept(DABlocks.AETHER_MOSS_CARPET.get());
+                            output.accept(DABlocks.AETHER_MOSS_CARPET.get());*/
 
                             output.accept(DABlocks.AETHER_MUD.get());
                             output.accept(DABlocks.PACKED_AETHER_MUD.get());
@@ -139,22 +139,22 @@ public class DATabs {
                             output.accept(DABlocks.POLISHED_YALLESITE_STAIRS.get());
                             output.accept(DABlocks.POLISHED_YALLESITE_SLAB.get());
 
-                            output.accept(DABlocks.DARKERITE.get());
+                            /*output.accept(DABlocks.DARKERITE.get());
                             output.accept(DABlocks.DARKERITE_STAIRS.get());
                             output.accept(DABlocks.DARKERITE_SLAB.get());
                             output.accept(DABlocks.DARKERITE_WALL.get());
                             output.accept(DABlocks.POLISHED_DARKERITE.get());
                             output.accept(DABlocks.POLISHED_DARKERITE_STAIRS.get());
-                            output.accept(DABlocks.POLISHED_DARKERITE_SLAB.get());
+                            output.accept(DABlocks.POLISHED_DARKERITE_SLAB.get());*/
 
                             output.accept(DABlocks.SKYJADE_ORE.get());
                             output.accept(DABlocks.SKYJADE_BLOCK.get());
                             output.accept(DABlocks.CLOUDIUM_DEBRIS.get());
                             output.accept(DABlocks.CLOUDIUM_BLOCK.get());
 
-                            output.accept(DABlocks.HOLYSTONE_BRICKS.get());
-                            output.accept(DABlocks.HOLYSTONE_BRICKS_SLAB.get());
-                            output.accept(DABlocks.HOLYSTONE_BRICKS_STAIRS.get());
+                            //output.accept(DABlocks.HOLYSTONE_BRICKS.get());
+                            //output.accept(DABlocks.HOLYSTONE_BRICKS_SLAB.get());
+                            //output.accept(DABlocks.HOLYSTONE_BRICKS_STAIRS.get());
 
                             output.accept(DABlocks.RADIANT_ORCHID.get());
                             output.accept(DABlocks.AERLAVENDER.get());
@@ -208,10 +208,10 @@ public class DATabs {
 
                             output.accept(DAItems.ROSEROOT_BOAT.get());
                             output.accept(DAItems.ROSEROOT_CHEST_BOAT.get());
-                            output.accept(DAItems.YAGROOT_BOAT.get());
-                            output.accept(DAItems.YAGROOT_CHEST_BOAT.get());
-                            output.accept(DAItems.CRUDEROOT_BOAT.get());
-                            output.accept(DAItems.CRUDEROOT_CHEST_BOAT.get());
+                            //output.accept(DAItems.YAGROOT_BOAT.get());
+                            //output.accept(DAItems.YAGROOT_CHEST_BOAT.get());
+                            //output.accept(DAItems.CRUDEROOT_BOAT.get());
+                            //output.accept(DAItems.CRUDEROOT_CHEST_BOAT.get());
 
                             output.accept(DAItems.MUSIC_DISC_NABOORU.get());
                             output.accept(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

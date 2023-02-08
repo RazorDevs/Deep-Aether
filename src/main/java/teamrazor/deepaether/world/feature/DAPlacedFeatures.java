@@ -36,7 +36,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
-    public static final ResourceKey<PlacedFeature> SKYJADE_ORE_SMALL = createKey("skyjade_ore_small");
+    public static final ResourceKey<PlacedFeature> AERGLOW_SKYJADE = createKey("aerglow_skyjade_ore");
     public static final ResourceKey<PlacedFeature> DIVINE_DEBRIS = createKey("divine_debris");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> GREOTITE = createKey("greotite");
@@ -77,9 +77,6 @@ public class DAPlacedFeatures {
         register(context, RARE_AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_TREES_PLACEMENT),
                 DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
 
-        register(context, AETHER_PLAINS_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_PLAINS_TREES_PLACEMENT),
-                DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(0, 1F, 1)));
-
         register(context, AETHER_PLAINS_FLOWER_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
         register(context, AERLAVENDER_PATCH,
 
@@ -101,11 +98,13 @@ public class DAPlacedFeatures {
         register(context, JARINITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.JARINITE_CONFIGURATION),
                 AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(5, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
-        register(context, SKYJADE_ORE_SMALL, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
+                AetherPlacedFeatureBuilders.commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(48))));
+
+        register(context, AERGLOW_SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
+                AetherPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(48))));
+
         register(context, DIVINE_DEBRIS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_DIVINE_DEBRIS_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
+                AetherPlacedFeatureBuilders.commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(40))));
     }
 
 

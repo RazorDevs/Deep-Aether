@@ -1,7 +1,16 @@
 package teamrazor.deepaether.event;
 
+import com.gildedgames.aether.client.renderer.accessory.CapeRenderer;
+import com.gildedgames.aether.client.renderer.accessory.GlovesRenderer;
+import com.gildedgames.aether.client.renderer.accessory.PendantRenderer;
+import com.gildedgames.aether.client.renderer.accessory.ShieldOfRepulsionRenderer;
+import com.gildedgames.aether.client.renderer.player.layer.*;
+import com.gildedgames.aether.item.AetherItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -13,15 +22,18 @@ import teamrazor.deepaether.client.renderer.boat.CruderootBoatRenderer;
 import teamrazor.deepaether.client.renderer.boat.RoserootBoatRenderer;
 import teamrazor.deepaether.client.renderer.boat.YagrootBoatRenderer;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.init.DAWoodTypes;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAEventClientBusEvents {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
+        registerCuriosRenderers();
         event.enqueueWork(() -> {
 
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);
@@ -33,6 +45,7 @@ public class DAEventClientBusEvents {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+
 
         event.registerEntityRenderer(DAEntities.ROSEROOT_BOAT.get(), (context) -> new RoserootBoatRenderer(context, false));
         event.registerEntityRenderer(DAEntities.ROSEROOT_CHEST_BOAT.get(), (context) -> new RoserootBoatRenderer(context, true));
@@ -47,6 +60,15 @@ public class DAEventClientBusEvents {
         Minecraft.getInstance().particleEngine.register(DAParticles.POISON_BUBBLES.get(),
                 PoisonBubbles.Provider::new);
     }
+
+    public static void registerCuriosRenderers() {
+        CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
+        CuriosRendererRegistry.register(DAItems.CLOUDIUM_GLOVES.get(), GlovesRenderer::new);
+
+    }
+
+
+
 }
 
 

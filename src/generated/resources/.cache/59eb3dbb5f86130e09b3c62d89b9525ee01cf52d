@@ -1,4 +1,4 @@
-// 1.19.3	2023-01-30T07:48:44.6300589	Loot Tables
+// 1.19.3	2023-02-07T16:04:45.8340793	Loot Tables
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_block.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_ore.json
 a286737623dfc7804cbfda9b2fd4db402be3088f data/deep_aether/loot_tables/blocks/aerglow_petal_block.json
@@ -63,6 +63,7 @@ eefee22856072e77ca487093c519b708db47ca55 data/deep_aether/loot_tables/blocks/mud
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/oratie_block.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/oratie_ore.json
 646d58aa26dbb9dfd0fba5750e6d1f0dbeb551e4 data/deep_aether/loot_tables/blocks/packed_aether_mud.json
+548d115eeb79b74d3fbe03951bdc179110ed6f8a data/deep_aether/loot_tables/blocks/poison_cauldron.json
 5c54f546ae044a0ced4c8369f706baebbbc8dc25 data/deep_aether/loot_tables/blocks/polished_aseterite.json
 d52a715ac912673ceaeafaadf32142b3f771ea1d data/deep_aether/loot_tables/blocks/polished_aseterite_slab.json
 46e7f459ecf1c57bd7ad6703531e23d108509045 data/deep_aether/loot_tables/blocks/polished_aseterite_stairs.json

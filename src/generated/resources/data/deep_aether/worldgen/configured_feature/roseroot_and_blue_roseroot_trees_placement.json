@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.05,
+        "chance": 0.15,
         "feature": {
           "feature": "deep_aether:blue_roseroot_trees_placement",
           "placement": [

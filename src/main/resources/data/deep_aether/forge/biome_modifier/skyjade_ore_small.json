@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether:is_aether",
-  "features": "deep_aether:skyjade_ore_small",
-  "step": "underground_ores"
-}

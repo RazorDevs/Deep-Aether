@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "deep_aether:aether_plains",
+    "deep_aether:aerglow_forest",
+    "deep_aether:rare_aerglow_forest"
+  ],
+  "features": "deep_aether:yallesite",
+  "step": "underground_ores"
+}

@@ -4,6 +4,7 @@ package teamrazor.deepaether.init;
 import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import com.gildedgames.aether.block.natural.AetherDoubleDropsLeaves;
 import com.gildedgames.aether.mixin.mixins.common.accessor.FireBlockAccessor;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -27,6 +28,8 @@ import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
 import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
 
 import java.util.function.Supplier;
+
+import static net.minecraft.world.level.block.Blocks.CAULDRON;
 
 public class DABlocks {
 	public static final DeferredRegister<Block> BLOCKS =
@@ -195,7 +198,7 @@ public class DABlocks {
 			.noCollission()
 			.strength(100f)
 			.noLootTable()));
-
+	public static final RegistryObject<Block> POISON_CAULDRON = BLOCKS.register("poison_cauldron", () -> new PoisonCauldronBlock(BlockBehaviour.Properties.copy(CAULDRON)));
 
 
 	//POTS

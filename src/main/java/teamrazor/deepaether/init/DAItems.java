@@ -1,15 +1,14 @@
 package teamrazor.deepaether.init;
 
+import com.gildedgames.aether.item.AetherItems;
+import com.gildedgames.aether.item.accessories.gloves.GlovesItem;
 import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
-import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import net.minecraft.sounds.SoundEvents;
 import com.gildedgames.aether.client.AetherSoundEvents;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -19,9 +18,9 @@ import teamrazor.deepaether.item.*;
 import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.item.DABoatItem;
+import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.cloudium.*;
 
-import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.skyjade.*;
 
 import static com.gildedgames.aether.item.AetherItems.SKYROOT_BUCKET;
@@ -124,6 +123,6 @@ public class DAItems {
 
 
 	public static void setupBucketReplacements() {
-		//SkyrootBucketItem.REPLACEMENTS.put(() -> DAItems.AERGLOW_FISH_BUCKET.get(), DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
+		SkyrootBucketItem.REPLACEMENTS.put(() -> DAItems.AERGLOW_FISH_BUCKET.get(), DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
 	}
 }
