@@ -9,10 +9,10 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
-      "height": 4,
+      "type": "deep_aether:roseroot_foliage_placer",
       "offset": 0,
-      "radius": 2
+      "radius": 1,
+      "trunk_height": 1
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",

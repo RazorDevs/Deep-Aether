@@ -41,6 +41,8 @@ public class DABiomes {
 
     public static final ResourceKey<Biome> RARE_AERGLOW_FOREST = createKey("rare_aerglow_forest");
 
+    public static final ResourceKey<Biome> YAGROOT_SWAMP = createKey("yagroot_swamp");
+
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
     }

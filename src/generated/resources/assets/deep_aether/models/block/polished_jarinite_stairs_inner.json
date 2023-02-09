@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "deep_aether:block/polished_jarinite",
-    "side": "deep_aether:block/polished_jarinite",
-    "top": "deep_aether:block/polished_jarinite"
-  }
-}

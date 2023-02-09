@@ -1,0 +1,74 @@
+package teamrazor.deepaether.world.biomes;
+
+
+import com.gildedgames.aether.block.AetherBlocks;
+import com.gildedgames.aether.data.resources.registries.AetherDimensions;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.dimension.LevelStem;
+import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
+import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
+import net.minecraft.world.level.levelgen.SurfaceRules;
+import net.minecraft.world.level.levelgen.WorldGenSettings;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.init.DABlocks;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import static net.minecraft.core.registries.Registries.BIOME;
+
+
+@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class DASurfaceRules {
+
+
+
+
+
+    @SubscribeEvent
+    public static void onServerAboutToStart(ServerAboutToStartEvent event) {
+        MinecraftServer server = event.getServer();
+        RegistryAccess registryAccess = server.registryAccess();
+        Registry<LevelStem> levelStemRegistry = registryAccess.registryOrThrow(Registries.LEVEL_STEM);
+        LevelStem levelStem = levelStemRegistry.get(AetherDimensions.AETHER_LEVEL_STEM);
+        ChunkGenerator chunkGenerator = levelStem.generator();
+
+
+        // Inject biomes to biome source
+        if (chunkGenerator instanceof NoiseBasedChunkGenerator noiseGenerator) {
+            NoiseGeneratorSettings noiseGeneratorSettings = noiseGenerator.settings.value();
+            SurfaceRules.RuleSource currentRuleSource = noiseGeneratorSettings.surfaceRule();
+            if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
+                List<SurfaceRules.RuleSource> surfaceRules = new ArrayList<>(sequenceRuleSource.sequence());
+                surfaceRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.YAGROOT_SWAMP),
+                        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(DABlocks.AETHER_MUD.get().defaultBlockState()))));
+                surfaceRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.YAGROOT_SWAMP),
+                        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), SurfaceRules.state(DABlocks.AETHER_MUD.get().defaultBlockState()))));
+
+
+                NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(),
+                        noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(), noiseGeneratorSettings.noiseRouter(),
+                        SurfaceRules.sequence(surfaceRules.toArray(SurfaceRules.RuleSource[]::new)), noiseGeneratorSettings.spawnTarget(),
+                        noiseGeneratorSettings.seaLevel(), noiseGeneratorSettings.disableMobGeneration(),
+                        noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(),
+                        noiseGeneratorSettings.useLegacyRandomSource());
+                noiseGenerator.settings = new Holder.Direct<>(moddedNoiseGeneratorSettings);
+            }
+        }
+    }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "deep_aether:block/greotite",
-    "side": "deep_aether:block/greotite",
-    "top": "deep_aether:block/greotite"
-  }
-}

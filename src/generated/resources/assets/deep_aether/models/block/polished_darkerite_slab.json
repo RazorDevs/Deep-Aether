@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "deep_aether:block/polished_darkerite",
-    "side": "deep_aether:block/polished_darkerite",
-    "top": "deep_aether:block/polished_darkerite"
-  }
-}

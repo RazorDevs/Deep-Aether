@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "deep_aether:block/jarinite",
-    "side": "deep_aether:block/jarinite",
-    "top": "deep_aether:block/jarinite"
-  }
-}

@@ -114,12 +114,21 @@ public class DATabs {
                             output.accept(DABlocks.POLISHED_CLORITE.get());
                             output.accept(DABlocks.POLISHED_CLORITE_STAIRS.get());
                             output.accept(DABlocks.POLISHED_CLORITE_SLAB.get());
+                            output.accept(DABlocks.CLORITE_PILLAR.get());
 
                             output.accept(DABlocks.SKYJADE_ORE.get());
                             output.accept(DABlocks.SKYJADE_BLOCK.get());
                             output.accept(DABlocks.CLOUDIUM_DEBRIS.get());
                             output.accept(DABlocks.CLOUDIUM_BLOCK.get());
 
+                            output.accept(DABlocks.HOLYSTONE_TILES.get());
+                            output.accept(DABlocks.HOLYSTONE_TILE_STAIRS.get());
+                            output.accept(DABlocks.HOLYSTONE_TILE_SLAB.get());
+                            output.accept(DABlocks.HOLYSTONE_TILE_WALL.get());
+                            output.accept(DABlocks.MOSSY_HOLYSTONE_TILES.get());
+                            output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
+                            output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
+                            output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
 
 
                             output.accept(DABlocks.RADIANT_ORCHID.get());

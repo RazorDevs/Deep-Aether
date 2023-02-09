@@ -143,6 +143,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.POLISHED_CLORITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_CLORITE_STAIRS.get(), DABlocks.POLISHED_CLORITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_CLORITE_SLAB.get(), DABlocks.POLISHED_CLORITE.get());
+        this.log((RotatedPillarBlock) DABlocks.CLORITE_PILLAR.get());
 
         //PLANTS
 
@@ -152,6 +153,19 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlant(DABlocks.POTTED_AERLAVENDER.get(), DABlocks.AERLAVENDER.get());
         this.pottedPlant(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
+
+
+        //TILES
+        this.block(DABlocks.HOLYSTONE_TILES.get());
+        this.stairs((StairBlock) DABlocks.HOLYSTONE_TILE_STAIRS.get(), DABlocks.HOLYSTONE_TILES.get());
+        this.slab((SlabBlock) DABlocks.HOLYSTONE_TILE_SLAB.get(), DABlocks.HOLYSTONE_TILES.get());
+        this.wallBlock((WallBlock) DABlocks.HOLYSTONE_TILE_WALL.get(), DABlocks.HOLYSTONE_TILES.get());
+
+        this.block(DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        this.stairs((StairBlock) DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        this.slab((SlabBlock) DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        this.wallBlock((WallBlock) DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+
 
         //MISC
 

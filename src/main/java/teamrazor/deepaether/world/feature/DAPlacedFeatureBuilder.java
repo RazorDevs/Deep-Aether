@@ -25,12 +25,17 @@ public class DAPlacedFeatureBuilder {
     }
 
 
+
     public static List<PlacementModifier> commonOrePlacement(int count, PlacementModifier heightRange) {
         return orePlacement(CountPlacement.of(count), heightRange);
     }
 
 
     private static List<PlacementModifier> orePlacement(PlacementModifier count, PlacementModifier heightRange) {
+        return List.of(count, InSquarePlacement.spread(), heightRange, BiomeFilter.biome());
+    }
+
+    private static List<PlacementModifier> VegetationPlacement(PlacementModifier count, PlacementModifier heightRange) {
         return List.of(count, InSquarePlacement.spread(), heightRange, BiomeFilter.biome());
     }
 }

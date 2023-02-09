@@ -12,6 +12,8 @@
     "deep_aether:greotite_wall",
     "deep_aether:darkerite_wall",
     "deep_aether:jarinite_wall",
-    "deep_aether:yallesite_wall"
+    "deep_aether:yallesite_wall",
+    "deep_aether:holystone_tile_wall",
+    "deep_aether:mossy_holystone_tile_wall"
   ]
 }
