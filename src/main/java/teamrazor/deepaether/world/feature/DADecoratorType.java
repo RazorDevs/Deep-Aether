@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature.tree.decorators;
+package teamrazor.deepaether.world.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
@@ -7,6 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.world.feature.tree.decorators.FlowerDecorator;
 
 public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<P>{
 

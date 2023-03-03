@@ -1,10 +1,10 @@
 
 
 package teamrazor.deepaether.init;
+
 import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import com.gildedgames.aether.block.natural.AetherDoubleDropsLeaves;
 import com.gildedgames.aether.mixin.mixins.common.accessor.FireBlockAccessor;
-import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -17,12 +17,9 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import teamrazor.deepaether.block.*;
-import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.block.DALogBlock;
-import teamrazor.deepaether.init.DAFluids;
-import teamrazor.deepaether.init.DAWoodTypes;
+import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.world.feature.tree.CruderootTreeGrower;
 import teamrazor.deepaether.world.feature.tree.RosewoodTreeGrower;
 import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
@@ -101,6 +98,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = BLOCKS.register("cruderoot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
+
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = registerBlock("skyjade_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));

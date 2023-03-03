@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature.tree.decorators;
+package teamrazor.deepaether.world.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -13,6 +13,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 
 public class YagrootVineDecorator extends TreeDecorator {
+
     private static final Logger LOGGER = LogManager.getLogger();
     public static final Codec<YagrootVineDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(YagrootVineDecorator::new, (vineDecorator) -> vineDecorator.probability).codec();
 
@@ -23,11 +24,11 @@ public class YagrootVineDecorator extends TreeDecorator {
         return DADecoratorType.YAGVINES.get();
     }
 
-    public YagrootVineDecorator(float probability) {
-        this.probability = probability;
+    public YagrootVineDecorator(float v) {
+        this.probability = v;
     }
 
-    public void place(TreeDecorator.Context context) {
+    public void place(Context context) {
         LOGGER.debug("Placing Yagroot vines...");
         RandomSource randomsource = context.random();
         context.leaves().forEach((blockPos) -> {
@@ -66,7 +67,7 @@ public class YagrootVineDecorator extends TreeDecorator {
         });
     }
 
-    private void addHangingVine(BlockPos blockPos, BooleanProperty property, TreeDecorator.Context context) {
+    private void addHangingVine(BlockPos blockPos, BooleanProperty property, Context context) {
         LOGGER.debug("Adding hanging vine to {}", blockPos);
         placeVine(blockPos, property, context);
         int i = 4;
@@ -78,7 +79,7 @@ public class YagrootVineDecorator extends TreeDecorator {
         }
 
     }
-    public void placeVine(BlockPos blockPos, BooleanProperty property, TreeDecorator.Context context) {
+    public void placeVine(BlockPos blockPos, BooleanProperty property, Context context) {
         context.setBlock(blockPos, DABlocks.YAGROOT_VINE.get().defaultBlockState().setValue(property, Boolean.valueOf(true)));
     }
 }
