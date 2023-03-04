@@ -2,10 +2,6 @@
     "replace": false,
     "values": [
       "deep_aether:aseterite",
-      "deep_aether:darkerite",
-      "deep_aether:greotite",
-      "deep_aether:clorite",
-      "deep_aether:jarinite",
-      "deep_aether:yallesite"
+      "deep_aether:clorite"
     ]
   }

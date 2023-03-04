@@ -1,28 +1,16 @@
 package teamrazor.deepaether.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.SalmonModel;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.animal.Salmon;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib.cache.object.GeoBone;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.entity.AetherFishEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import teamrazor.deepaether.init.DAModels;
-
-import javax.annotation.Nullable;
 
 @OnlyIn(Dist.CLIENT)
 public class AetherFishRenderer extends MobRenderer<AetherFishEntity, AerglowFishModel<AetherFishEntity>> {

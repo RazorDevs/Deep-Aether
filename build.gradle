@@ -30,8 +30,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'io.github.0ffz.github-packages'
 apply plugin: 'org.spongepowered.mixin'
 
-// version = 'beta-19.0.8'
-version = '19.3.beta-2'
+version = '19.3.beta-3'
 group = 'com.teamrazor.deep_aether'
 archivesBaseName = 'deep_aether'
 
@@ -148,9 +147,9 @@ dependencies {
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.3:4.0.2')
     //compileOnly "com.gildedgames.aether:aether:1.19.3-0.3.1"
     //runtimeOnly fg.deobf("com.gildedgames.aether:aether:1.19.3-0.3.1")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.3-5.1.1.2")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.3-5.1.1.2:api")
-    implementation fg.deobf('local:aether:1.19.3-0.3.1')
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.3-5.1.3.1")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.3-5.1.3.1:api")
+    implementation fg.deobf('local:aether:1.19.3-0.4.0')
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 

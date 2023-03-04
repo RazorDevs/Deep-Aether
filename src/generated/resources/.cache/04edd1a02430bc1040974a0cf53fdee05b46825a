@@ -1,4 +1,4 @@
-// 1.19.3	2023-02-09T11:46:24.3412691	Item Models: deep_aether
+// 1.19.3	2023-02-13T07:42:06.0674712	Item Models: deep_aether
 c9cd46e8227850b73fed20f669ee10413053d61e assets/deep_aether/models/item/adibium_block.json
 93378b372ea5414c1ea6ca3c40405ded6dd6ca9b assets/deep_aether/models/item/adibium_gemstone.json
 26f01b89e6a99d196f3e19e8dfb34a150bfb0978 assets/deep_aether/models/item/adibium_ore.json
@@ -23,6 +23,7 @@ c3dfd22a3f2d3c287e776a6bcd5048ab0d91de9a assets/deep_aether/models/item/aether_m
 c66aa4ae080a30a3ebf9ea5ec2988396b2e706af assets/deep_aether/models/item/blue_roseroot_leaves.json
 d22169995c0ed65629e4374f7ecdfa955de8b75f assets/deep_aether/models/item/blue_roseroot_sapling.json
 d8861e03e878e1e002576350254f20e29126e024 assets/deep_aether/models/item/clorite.json
+0c34a71c0a2af07ecdaf299901542f217f6f5229 assets/deep_aether/models/item/clorite_pillar.json
 2cf83f98d426de6ecc3874880480af8c4e4550a1 assets/deep_aether/models/item/clorite_slab.json
 67eb7ccca4d0bfdd9b90bd441d71f6dc6e7e5ad5 assets/deep_aether/models/item/clorite_stairs.json
 108a2a48860fa5f8f8dc4f8bf76629c9b2bbb43e assets/deep_aether/models/item/clorite_wall.json

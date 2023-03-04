@@ -103,7 +103,7 @@ public class DAPlacedFeatures {
                 AetherPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(48))));
 
         register(context, DIVINE_DEBRIS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_DIVINE_DEBRIS_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(40))));
+                AetherPlacedFeatureBuilders.commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));
     }
 
 

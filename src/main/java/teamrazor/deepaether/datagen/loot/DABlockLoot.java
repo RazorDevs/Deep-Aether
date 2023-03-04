@@ -158,7 +158,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
 
         this.dropSelf(DABlocks.AERLAVENDER.get());
-        this.dropSelf(DABlocks.TALL_AERLAVENDER.get());
+        this.dropNone(DABlocks.TALL_AERLAVENDER.get());
+
         this.dropSelf(DABlocks.RADIANT_ORCHID.get());
         this.dropPottedContents(DABlocks.POTTED_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_TALL_AERLAVENDER.get());

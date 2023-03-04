@@ -96,6 +96,7 @@ public class DATabs {
                             output.accept(DABlocks.AETHER_MUD.get());
                             output.accept(DABlocks.PACKED_AETHER_MUD.get());
                             output.accept(DABlocks.MUDDY_YAGROOT_ROOTS.get());
+                            output.accept(DABlocks.AETHER_MUD_BRICKS.get());
                             output.accept(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
                             output.accept(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
 

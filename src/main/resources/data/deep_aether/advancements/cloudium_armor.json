@@ -1,5 +1,5 @@
 {
-  "parent": "aether:gravitite_tools",
+  "parent": "aether:gravitite_armor",
   "criteria": {
     "cloudium_armor": {
       "conditions": {

@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.feature;
 
 
+import com.gildedgames.aether.AetherTags;
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.resources.AetherFeatureRules;
 import com.gildedgames.aether.data.resources.AetherFeatureStates;
@@ -35,6 +36,8 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.UpwardsBranchingTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
@@ -139,11 +142,6 @@ public class DAConfiguredFeatures {
                         new UpwardsBranchingTrunkPlacer(2, 1, 4,UniformInt.of(1, 4), 0.5F, UniformInt.of(0, 1),
                                 holdergetter.getOrThrow(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)), BlockStateProvider.simple(DAFeatureStates.YAGROOT_LEAVES),
                         new RandomSpreadFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), ConstantInt.of(2), 70), Optional.of(
-                                            //WORK IN PROGRESS
-                                /*new YagrootRootPlacer(UniformInt.of(0, 0), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), Optional.of(
-                                        new AboveRootPlacement(BlockStateProvider.simple(DAFeatureStates.AETHER_MOSS_CARPET), 0.0F)),
-                                        new MangroveRootPlacement(holdergetter.getOrThrow(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder, DABlocks.AETHER_MUD.get(), DABlocks.MUDDY_YAGROOT_ROOTS.get()), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), 0, 0, 0))),*/
-
                         new MangroveRootPlacer(UniformInt.of(1, 3), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), Optional.of(
                                 new AboveRootPlacement(BlockStateProvider.simple(DAFeatureStates.AETHER_MOSS_CARPET), 0.5F)),
                                 new MangroveRootPlacement(holdergetter.getOrThrow(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder, DABlocks.AETHER_MUD.get(), DABlocks.MUDDY_YAGROOT_ROOTS.get()), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), 8, 15, 0.2F))),
@@ -206,7 +204,7 @@ public class DAConfiguredFeatures {
 
 
         register(context, ORE_SKYJADE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.SKYJADE_ORE, 5, 0.65F));
-        register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.DIVINE_DEBRIS, 3, 0.9F));
+        register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(new BlockMatchTest(AetherBlocks.HOLYSTONE.get()), DAFeatureStates.DIVINE_DEBRIS, 4, 0F));
         register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.ASETERITE, 64));
         register(context, CLORITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.CLORITE, 64));
 

@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.35,
+        "chance": 0.25,
         "feature": {
           "feature": "deep_aether:cruderoot_tree",
           "placement": [

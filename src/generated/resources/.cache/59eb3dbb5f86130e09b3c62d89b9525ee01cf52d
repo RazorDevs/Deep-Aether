@@ -1,4 +1,4 @@
-// 1.19.3	2023-02-09T11:46:24.3280307	Loot Tables
+// 1.19.3	2023-03-04T15:59:42.9125309	Loot Tables
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_block.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_ore.json
 a286737623dfc7804cbfda9b2fd4db402be3088f data/deep_aether/loot_tables/blocks/aerglow_petal_block.json
@@ -18,6 +18,7 @@ e27b05c0b9a81a919dd415d5536be0b705aa7186 data/deep_aether/loot_tables/blocks/ase
 18119b748b6073d18af3ee6e7f0131d77c855d52 data/deep_aether/loot_tables/blocks/blue_roseroot_leaves.json
 572c248545eb5e953451596a0a0d710aa3a94492 data/deep_aether/loot_tables/blocks/blue_roseroot_sapling.json
 da3ca436d92834f6fdfeed7f0decf5813652dd80 data/deep_aether/loot_tables/blocks/clorite.json
+1debb9e89aa926d742b83d902d70a86d30b88827 data/deep_aether/loot_tables/blocks/clorite_pillar.json
 1235dd4594f67b01036f6ba7c30c97e4dfafd4df data/deep_aether/loot_tables/blocks/clorite_slab.json
 7ef820c09e50ad301c11edaee36bd4c06433a914 data/deep_aether/loot_tables/blocks/clorite_stairs.json
 3a1d12346e2e453ef633358be820c28751f58a46 data/deep_aether/loot_tables/blocks/clorite_wall.json
@@ -99,7 +100,7 @@ a50e90b9684556ca6efb66dc56bf929a48e8f3eb data/deep_aether/loot_tables/blocks/str
 ed89ab320423423a07940c371c6a816e0ff037e0 data/deep_aether/loot_tables/blocks/stripped_yagroot_log.json
 7a14c2be5fa9e6b8f173bcaa12a7ac56ee0a1bca data/deep_aether/loot_tables/blocks/stripped_yagroot_wall.json
 b757e316b993910df93825ad9dd9e319d25eed9c data/deep_aether/loot_tables/blocks/stripped_yagroot_wood.json
-eda6e95e2290db8bf087b1e88546286ec94e0ae1 data/deep_aether/loot_tables/blocks/tall_aerlavender.json
+1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/tall_aerlavender.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/virulent_quicksand.json
 561efb2afe409726077cb58da8969f50007c443f data/deep_aether/loot_tables/blocks/yagroot_button.json
 b153f2377c318fd1eb505be0dd130361f3c931db data/deep_aether/loot_tables/blocks/yagroot_door.json
