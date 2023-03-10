@@ -151,6 +151,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());
+        this.itemBlockFlat(DABlocks.AETHER_CATTAILS.get());
+        this.itemBlockFlat(DABlocks.TALL_AETHER_CATTAILS.get());
         this.itemBlockFlat(DABlocks.RADIANT_ORCHID.get());
 
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());

@@ -152,7 +152,9 @@
   "item.deep_aether.raw_aerglow_fish": "Raw Aerglow Fish",
   "item.deep_aether.cooked_aerglow_fish": "Cooked Aerglow Fish",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
-  "block.deep_aether.lavender": "Lavender",
+  "block.deep_aether.aether_cattails": "Aether Cattails",
+  "block.deep_aether.tall_aether_cattails": "Tall Aether Cattails",
+
   "entity.deep_aether.chest_boat": "Boat With Chest",
   "block.deep_aether.holystone_bricks_slab": "Holystone Bricks Slab",
   "block.deep_aether.holystone_bricks_stairs": "Holystone Bricks Stairs",
@@ -349,8 +351,5 @@
   "block.deep_aether.mossy_holystone_tile_stairs": "Mossy Holystone Tile Stairs",
   "block.deep_aether.mossy_holystone_tile_slab": "Mossy Holystone Tile Slab",
   "block.deep_aether.mossy_holystone_tile_wall": "Mossy Holystone Tile Wall"
-
-
-
 }
 

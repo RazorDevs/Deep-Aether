@@ -12,10 +12,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
 
-public class LavenderBlock extends FlowerBlock implements BonemealableBlock {
+public class FlowerBonemealBlock extends FlowerBlock implements BonemealableBlock {
 
 
-    public LavenderBlock(MobEffect p_53512_, int p_53513_, Properties p_53514_) {
+
+    public FlowerBonemealBlock(java.util.function.Supplier<MobEffect> p_53512_, int p_53513_, Properties p_53514_) {
+        super(p_53512_, p_53513_, p_53514_);
+    }
+
+    public FlowerBonemealBlock(MobEffect p_53512_, int p_53513_, Properties p_53514_) {
         super(p_53512_, p_53513_, p_53514_);
     }
 
@@ -31,9 +36,12 @@ public class LavenderBlock extends FlowerBlock implements BonemealableBlock {
 
     @Nullable
     @Override
-    public void performBonemeal(ServerLevel p_220874_, RandomSource p_220875_, BlockPos p_220876_, BlockState p_220877_) {
-        if (p_220877_.is(DABlocks.AERLAVENDER.get())) {
-            p_220874_.setBlock(p_220876_, DABlocks.TALL_AERLAVENDER.get().defaultBlockState(), 4);
+    public void performBonemeal(ServerLevel level, RandomSource source, BlockPos pos, BlockState state) {
+        if (state.is(DABlocks.AERLAVENDER.get())) {
+            level.setBlock(pos, DABlocks.TALL_AERLAVENDER.get().defaultBlockState(), 4);
+        }
+        if (state.is(DABlocks.AETHER_CATTAILS.get())) {
+            level.setBlock(pos, DABlocks.TALL_AETHER_CATTAILS.get().defaultBlockState(), 4);
         }
     }
 }

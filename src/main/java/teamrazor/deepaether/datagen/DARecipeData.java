@@ -362,6 +362,31 @@ public class DARecipeData extends AetherRecipeProvider {
         makeskyrootSticks(DABlocks.YAGROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_yagroot_planks"));
         makeskyrootSticks(DABlocks.CRUDEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_cruderoot_planks"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE)
+                .requires(DABlocks.AETHER_CATTAILS.get(),1)
+                .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
+                .save(consumer, "cyan_dye_from_aether_cattails");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE,2)
+                .requires(DABlocks.TALL_AETHER_CATTAILS.get(),1)
+                .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
+                .save(consumer, "cyan_dye_from_tall_aether_cattails");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PINK_DYE)
+                .requires(DABlocks.AERLAVENDER.get(),1)
+                .unlockedBy(getHasName(DABlocks.AERLAVENDER.get()), has(DABlocks.AERLAVENDER.get()))
+                .save(consumer, "cyan_dye_from_aerlavender");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PINK_DYE,2)
+                .requires(DABlocks.TALL_AERLAVENDER.get(),1)
+                .unlockedBy(getHasName(DABlocks.AERLAVENDER.get()), has(DABlocks.AERLAVENDER.get()))
+                .save(consumer, "cyan_dye_from_tall_aerlavender");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.WHITE_DYE,2)
+                .requires(DABlocks.RADIANT_ORCHID.get(),1)
+                .unlockedBy(getHasName(DABlocks.RADIANT_ORCHID.get()), has(DABlocks.RADIANT_ORCHID.get()))
+                .save(consumer);
+
 
     }
 
