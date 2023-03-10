@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cruderoot_planks": {
+    "has_holystone_tiles": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:cruderoot_planks"
+              "deep_aether:holystone_tiles"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:cruderoot_stairs"
+        "recipe": "deep_aether:mossy_holystone_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cruderoot_planks",
+      "has_holystone_tiles",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:cruderoot_stairs"
+      "deep_aether:mossy_holystone_tiles"
     ]
   }
 }

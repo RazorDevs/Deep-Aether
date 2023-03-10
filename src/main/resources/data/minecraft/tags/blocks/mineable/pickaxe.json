@@ -8,9 +8,6 @@
     "deep_aether:aseterite_slab",
     "deep_aether:polished_aseterite_slab",
     "deep_aether:aseterite_wall",
-
-
-
     "deep_aether:clorite",
     "deep_aether:polished_clorite",
     "deep_aether:clorite_stairs",
@@ -18,7 +15,6 @@
     "deep_aether:clorite_slab",
     "deep_aether:polished_clorite_slab",
     "deep_aether:clorite_wall",
-
     "deep_aether:skyjade_ore",
     "deep_aether:skyjade_block",
     "deep_aether:cloudium_debris",
@@ -29,8 +25,13 @@
     "deep_aether:adibium_ore",
     "deep_aether:highstone_adibium_ore",
     "deep_aether:adibium_block",
-    "deep_aether:holystone_bricks",
-    "deep_aether:holystone_bricks_slab",
-    "deep_aether:holystone_bricks_stairs"
+    "deep_aether:holystone_tiles",
+    "deep_aether:holystone_tile_slab",
+    "deep_aether:holystone_tile_stairs",
+    "deep_aether:holystone_tile_wall",
+    "deep_aether:mossy_holystone_tiles",
+    "deep_aether:mossy_holystone_tile_slab",
+    "deep_aether:mossy_holystone_tile_stairs",
+    "deep_aether:mossy_holystone_tile_wall"
   ]
 }

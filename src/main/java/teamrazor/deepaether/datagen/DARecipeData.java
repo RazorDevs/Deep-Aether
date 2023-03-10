@@ -30,7 +30,7 @@ public class DARecipeData extends AetherRecipeProvider {
         woodFromLogs(consumer, DABlocks.ROSEROOT_WOOD.get(), DABlocks.ROSEROOT_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_ROSEROOT_WOOD.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         planksFromLogs(consumer, DABlocks.ROSEROOT_PLANKS.get(), DATags.Items.CRAFTS_ROSEROOT_PLANKS, 4);
-        stairs(DABlocks.ROSEROOT_STAIRS, DABlocks.ROSEROOT_STAIRS).group("wooden_stairs").save(consumer);
+        stairs(DABlocks.ROSEROOT_STAIRS, DABlocks.ROSEROOT_PLANKS).group("wooden_stairs").save(consumer);
 
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.ROSEROOT_SLAB.get(), Ingredient.of(DABlocks.ROSEROOT_PLANKS.get()))
                 .group("wooden_slab")
@@ -60,7 +60,7 @@ public class DARecipeData extends AetherRecipeProvider {
         woodFromLogs(consumer, DABlocks.YAGROOT_WOOD.get(), DABlocks.YAGROOT_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_YAGROOT_WOOD.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
         planksFromLogs(consumer, DABlocks.YAGROOT_PLANKS.get(), DATags.Items.CRAFTS_YAGROOT_PLANKS, 4);
-        stairs(DABlocks.YAGROOT_STAIRS, DABlocks.YAGROOT_STAIRS).group("wooden_stairs").save(consumer);
+        stairs(DABlocks.YAGROOT_STAIRS, DABlocks.YAGROOT_PLANKS).group("wooden_stairs").save(consumer);
 
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.YAGROOT_SLAB.get(), Ingredient.of(DABlocks.YAGROOT_PLANKS.get()))
                 .group("wooden_slab")
@@ -90,7 +90,7 @@ public class DARecipeData extends AetherRecipeProvider {
         woodFromLogs(consumer, DABlocks.CRUDEROOT_WOOD.get(), DABlocks.CRUDEROOT_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_CRUDEROOT_WOOD.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         planksFromLogs(consumer, DABlocks.CRUDEROOT_PLANKS.get(), DATags.Items.CRAFTS_CRUDEROOT_PLANKS, 4);
-        stairs(DABlocks.CRUDEROOT_STAIRS, DABlocks.CRUDEROOT_STAIRS).group("wooden_stairs").save(consumer);
+        stairs(DABlocks.CRUDEROOT_STAIRS, DABlocks.CRUDEROOT_PLANKS).group("wooden_stairs").save(consumer);
 
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.CRUDEROOT_SLAB.get(), Ingredient.of(DABlocks.CRUDEROOT_PLANKS.get()))
                 .group("wooden_slab")
@@ -266,6 +266,12 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DABlocks.MOSSY_HOLYSTONE_TILES.get()), has(DABlocks.MOSSY_HOLYSTONE_TILES.get()))
                 .save(consumer, "holystone_tiles_from_aether_moss");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 4)
+                .define('A', AetherBlocks.MOSSY_HOLYSTONE.get().asItem())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+                .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
                 .define('A', DAItems.SKYJADE.get())
