@@ -1,4 +1,4 @@
-// 1.19.3	2023-02-13T07:42:06.0674712	Item Models: deep_aether
+// 1.19.3	2023-03-10T19:35:28.9607673	Item Models: deep_aether
 c9cd46e8227850b73fed20f669ee10413053d61e assets/deep_aether/models/item/adibium_block.json
 93378b372ea5414c1ea6ca3c40405ded6dd6ca9b assets/deep_aether/models/item/adibium_gemstone.json
 26f01b89e6a99d196f3e19e8dfb34a150bfb0978 assets/deep_aether/models/item/adibium_ore.json
@@ -6,6 +6,7 @@ c9cd46e8227850b73fed20f669ee10413053d61e assets/deep_aether/models/item/adibium_
 4a81697c908b1587d7aa033161a3d61a6ee0cdfd assets/deep_aether/models/item/aerglow_petal.json
 74dcf5209907c1101c6eee6b2dfbe20e5cb2805d assets/deep_aether/models/item/aerglow_petal_block.json
 d6bfe1a17b797d5fb5855f8138b4792503af2554 assets/deep_aether/models/item/aerlavender.json
+4062fa0b9ac6c76090466f9478990e145e3afbbf assets/deep_aether/models/item/aether_cattails.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/deep_aether/models/item/aether_fish_spawn_egg.json
 c3dfd22a3f2d3c287e776a6bcd5048ab0d91de9a assets/deep_aether/models/item/aether_moss_block.json
 286597bc170e9dbd4295a802b3b73c320aae2857 assets/deep_aether/models/item/aether_moss_carpet.json
@@ -138,6 +139,7 @@ b6d1a4756d0d153368155dab798653a82562376c assets/deep_aether/models/item/stripped
 e5148d479ef8687099f352c7be33cff0b7b0fa13 assets/deep_aether/models/item/stripped_yagroot_wall.json
 e108630620ac8982b1fb7f88cc4b9296fc6049c3 assets/deep_aether/models/item/stripped_yagroot_wood.json
 0dc0e51c7886c62d9e4619ee2fc9e65d730970f4 assets/deep_aether/models/item/tall_aerlavender.json
+965c93e6966d3f163a03aba70714180ff11194ba assets/deep_aether/models/item/tall_aether_cattails.json
 bbcf9744ff17615a2baa422da25e71b3e8a064af assets/deep_aether/models/item/virulent_quicksand.json
 78d92c3eb5d1a1634464924a1b611afe7befc875 assets/deep_aether/models/item/virulent_quicksand_bucket.json
 91ebe9b66a9dbaa2fcb32b0fec8347de168b0147 assets/deep_aether/models/item/yagroot_boat.json
