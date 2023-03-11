@@ -23,5 +23,7 @@ public class DAFeatureStates {
     public static final BlockState CLORITE = DABlocks.CLORITE.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState AERLAVENDER = DABlocks.AERLAVENDER.get().defaultBlockState();
     public static final BlockState TALL_AERLAVENDER = DABlocks.TALL_AERLAVENDER.get().defaultBlockState();
+    public static final BlockState AETHER_CATTAILS = DABlocks.AETHER_CATTAILS.get().defaultBlockState();
+    public static final BlockState TALL_AETHER_CATTAILS = DABlocks.TALL_AETHER_CATTAILS.get().defaultBlockState();
     public static final BlockState RADIANT_ORCHID = DABlocks.RADIANT_ORCHID.get().defaultBlockState();
 }

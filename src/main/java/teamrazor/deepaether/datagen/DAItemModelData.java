@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
@@ -152,7 +153,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.AETHER_CATTAILS.get());
-        this.itemBlockFlat(DABlocks.TALL_AETHER_CATTAILS.get());
+        this.itemBlockFlatName(DABlocks.TALL_AETHER_CATTAILS.get(), "tall_aether_cattails_top");
         this.itemBlockFlat(DABlocks.RADIANT_ORCHID.get());
 
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
@@ -233,6 +234,9 @@ public class DAItemModelData extends AetherItemModelProvider {
                 .texture("texture", this.texture(this.blockName(baseBlock)));
     }
 
+    public void itemBlockFlatName(Block block, String location) {
+        this.withExistingParent(this.blockName(block), this.mcLoc("item/generated")).texture("layer0", this.texture(location));
+    }
     public void itemButton(Block block, Block baseBlock) {
         this.withExistingParent(this.blockName(block), this.mcLoc("block/button_inventory"))
                 .texture("texture", this.texture(this.blockName(baseBlock)));
@@ -244,9 +248,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.wallInventory(this.blockName(block), this.texture(this.blockName(baseBlock)));
     }
 
-    public void translucentItemWallBlock(Block block, Block baseBlock) {
-        this.singleTexture(this.blockName(block), new ResourceLocation(Aether.MODID, BLOCK_FOLDER + "/template_translucent_wall_inventory"), "wall", this.texture(this.blockName(baseBlock)));
-    }
     public void itemBlockFlat(Block block) {
         this.withExistingParent(this.blockName(block), this.mcLoc("item/generated"))
                 .texture("layer0", this.texture(this.blockName(block)));

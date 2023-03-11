@@ -2,6 +2,7 @@ package teamrazor.deepaether.datagen;
 
 import com.gildedgames.aether.block.AetherBlockStateProperties;
 import com.gildedgames.aether.data.providers.AetherBlockStateProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -150,12 +151,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.crossBlock(DABlocks.AERLAVENDER.get());
         this.crossBlock(DABlocks.TALL_AERLAVENDER.get());
         this.crossBlock(DABlocks.AETHER_CATTAILS.get());
-        this.crossBlock(DABlocks.TALL_AETHER_CATTAILS.get());
         this.crossBlock(DABlocks.RADIANT_ORCHID.get());
         this.pottedPlant(DABlocks.POTTED_AERLAVENDER.get(), DABlocks.AERLAVENDER.get());
         this.pottedPlant(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
         this.pottedPlant(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
-        this.pottedPlant(DABlocks.POTTED_TALL_AETHER_CATTAILS.get(), DABlocks.TALL_AETHER_CATTAILS.get());
+        //this.pottedPlant(DABlocks.POTTED_TALL_AETHER_CATTAILS.get(), DABlocks.TALL_AETHER_CATTAILS.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
 
 
@@ -204,6 +204,12 @@ public class DABlockstateData extends AetherBlockStateProvider {
     public void log(RotatedPillarBlock block) {
         this.axisBlock(block, this.texture(this.name(block)), this.extend(this.texture(this.name(block)), "_top"));
     }
+
+
+
+
+
+
 
     public void wood(RotatedPillarBlock block, RotatedPillarBlock baseBlock) {
         this.axisBlock(block, this.texture(this.name(baseBlock)), this.texture(this.name(baseBlock)));

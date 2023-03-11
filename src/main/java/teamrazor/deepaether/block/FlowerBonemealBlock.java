@@ -40,8 +40,5 @@ public class FlowerBonemealBlock extends FlowerBlock implements BonemealableBloc
         if (state.is(DABlocks.AERLAVENDER.get())) {
             level.setBlock(pos, DABlocks.TALL_AERLAVENDER.get().defaultBlockState(), 4);
         }
-        if (state.is(DABlocks.AETHER_CATTAILS.get())) {
-            level.setBlock(pos, DABlocks.TALL_AETHER_CATTAILS.get().defaultBlockState(), 4);
-        }
     }
 }

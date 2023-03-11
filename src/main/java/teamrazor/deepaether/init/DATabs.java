@@ -135,6 +135,8 @@ public class DATabs {
                             output.accept(DABlocks.RADIANT_ORCHID.get());
                             output.accept(DABlocks.AERLAVENDER.get());
                             output.accept(DABlocks.TALL_AERLAVENDER.get());
+                            output.accept(DABlocks.AETHER_CATTAILS.get());
+                            output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
 
                             output.accept(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());

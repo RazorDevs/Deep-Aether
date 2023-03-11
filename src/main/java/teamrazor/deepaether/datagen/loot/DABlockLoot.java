@@ -49,9 +49,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.ROSEROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-        //this.dropNone(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
-        //this.dropNone(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
-
         this.dropOther(DABlocks.ROSEROOT_WALL_SIGN.get(), DABlocks.ROSEROOT_SIGN.get());
         this.dropSelf(DABlocks.ROSEROOT_SIGN.get());
 
@@ -158,10 +155,10 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
 
         this.dropSelf(DABlocks.AERLAVENDER.get());
-        //this.dropNone(DABlocks.TALL_AERLAVENDER.get());
+
 
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
-        this.dropNone(DABlocks.TALL_AETHER_CATTAILS.get());
+        //this.dropNone(DABlocks.TALL_AETHER_CATTAILS.get());
 
         this.dropSelf(DABlocks.RADIANT_ORCHID.get());
         this.dropPottedContents(DABlocks.POTTED_AERLAVENDER.get());

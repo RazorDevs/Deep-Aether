@@ -34,6 +34,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_PLAINS_TREES = createKey("aether_plains_trees");
     public static final ResourceKey<PlacedFeature> AETHER_PLAINS_FLOWER_PATCH = createKey("aether_plains_flower");
     public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
+    public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
     public static final ResourceKey<PlacedFeature> AERGLOW_SKYJADE = createKey("aerglow_skyjade_ore");
@@ -84,10 +85,9 @@ public class DAPlacedFeatures {
                 DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
 
         register(context, AETHER_PLAINS_FLOWER_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-        register(context, AERLAVENDER_PATCH,
+        register(context, AERLAVENDER_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERLAVENDER_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
-                configuredFeatures.getOrThrow(DAConfiguredFeatures.AERLAVENDER_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-
+        register(context, AETHER_CATTAIL_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_CATTAILS_PATCH), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
         register(context, AERGLOW_FOREST_VEGETATION, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_FOREST_VEGETATION), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 

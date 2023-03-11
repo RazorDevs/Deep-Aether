@@ -73,6 +73,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_VEGETATION = createKey("roseroot_forest_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREES_PLACEMENT = createKey("roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREES_PLACEMENT = createKey("blue_roseroot_trees_placement");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_CATTAILS_PATCH =  createKey("aether_cattails_patch");
 
 
 
@@ -171,6 +172,12 @@ public class DAConfiguredFeatures {
                         .add(AetherFeatureStates.BERRY_BUSH, 1)
                         .add(Blocks.GRASS.defaultBlockState(), 32)), 418));
 
+
+        register(context, AETHER_CATTAILS_PATCH, Feature.FLOWER,
+                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DAFeatureStates.AETHER_CATTAILS, 64)
+                        .add(DAFeatureStates.TALL_AETHER_CATTAILS, 32)), 418));
+
         register(context, ROSEROOT_FOREST_VEGETATION, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.RADIANT_ORCHID, 6)
@@ -207,6 +214,7 @@ public class DAConfiguredFeatures {
         register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(new BlockMatchTest(AetherBlocks.HOLYSTONE.get()), DAFeatureStates.DIVINE_DEBRIS, 4, 0F));
         register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.ASETERITE, 64));
         register(context, CLORITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.CLORITE, 64));
+
 
 
 
