@@ -175,8 +175,9 @@ public class DAConfiguredFeatures {
 
         register(context, AETHER_CATTAILS_PATCH, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.AETHER_CATTAILS, 64)
-                        .add(DAFeatureStates.TALL_AETHER_CATTAILS, 32)), 418));
+                        .add(DAFeatureStates.AETHER_CATTAILS, 5)
+                        .add(Blocks.GRASS.defaultBlockState(), 5)
+                        .add(DAFeatureStates.TALL_AETHER_CATTAILS, 3)), 15));
 
         register(context, ROSEROOT_FOREST_VEGETATION, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()

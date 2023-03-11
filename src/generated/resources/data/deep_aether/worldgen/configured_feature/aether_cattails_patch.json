@@ -12,7 +12,13 @@
                 "data": {
                   "Name": "deep_aether:aether_cattails"
                 },
-                "weight": 64
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "minecraft:grass"
+                },
+                "weight": 5
               },
               {
                 "data": {
@@ -21,7 +27,7 @@
                     "half": "lower"
                   }
                 },
-                "weight": 32
+                "weight": 3
               }
             ]
           }
@@ -37,7 +43,7 @@
         }
       ]
     },
-    "tries": 418,
+    "tries": 15,
     "xz_spread": 7,
     "y_spread": 3
   }
