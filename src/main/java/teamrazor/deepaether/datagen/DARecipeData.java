@@ -1,21 +1,21 @@
 package teamrazor.deepaether.datagen;
 
 import com.gildedgames.aether.block.AetherBlocks;
+import com.gildedgames.aether.data.providers.AetherRecipeProvider;
 import com.gildedgames.aether.item.AetherItems;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import teamrazor.deepaether.init.*;
 import net.minecraftforge.common.Tags;
-import teamrazor.deepaether.init.DABlocks;
-import com.gildedgames.aether.data.providers.AetherRecipeProvider;
-import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.crafting.Ingredient;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

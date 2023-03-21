@@ -1,14 +1,12 @@
 package teamrazor.deepaether.world.biomes;
 
 import com.gildedgames.aether.client.AetherSoundEvents;
-
-
-import com.gildedgames.aether.data.resources.registries.AetherPlacedFeatures;
-import com.gildedgames.aether.entity.AetherEntityTypes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.sounds.Music;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;

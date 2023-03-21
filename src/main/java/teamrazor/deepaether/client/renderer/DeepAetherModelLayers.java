@@ -1,6 +1,5 @@
 package teamrazor.deepaether.client.renderer;
 
-import com.gildedgames.aether.Aether;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.DeepAetherMod;

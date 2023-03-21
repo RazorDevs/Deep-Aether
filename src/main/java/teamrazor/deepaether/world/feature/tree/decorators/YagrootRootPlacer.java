@@ -1,24 +1,20 @@
 package teamrazor.deepaether.world.feature.tree.decorators;
 
-import com.mojang.datafixers.Products;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.rootplacers.*;
+import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
+import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
+import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer;
+import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 import java.util.function.BiConsumer;
@@ -38,12 +34,12 @@ public class YagrootRootPlacer extends RootPlacer {
     }
 
 
-    protected RootPlacerType<?> type() {
+    protected @NotNull RootPlacerType<?> type() {
         return DARootPlacers.YAGROOT_ROOT_PLACER.get();
     }
 
     @Override
-    public boolean placeRoots(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockstate, RandomSource random, BlockPos pos, BlockPos pos1, TreeConfiguration treeConfiguration) {
+    public boolean placeRoots(@NotNull LevelSimulatedReader level, @NotNull BiConsumer<BlockPos, BlockState> blockstate, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockPos pos1, @NotNull TreeConfiguration treeConfiguration) {
         int a;
         int b;
         for (int i = 1; i <= 4; i++) {
@@ -109,13 +105,6 @@ public class YagrootRootPlacer extends RootPlacer {
 
 
     private boolean isEmpty(LevelSimulatedReader level, BlockPos pos) {
-        if (level.isStateAtPosition(pos, state -> state.getBlock() == Blocks.AIR || state.getBlock() == Blocks.CAVE_AIR))
-            return true;
-        else return false;
+        return level.isStateAtPosition(pos, state -> state.getBlock() == Blocks.AIR || state.getBlock() == Blocks.CAVE_AIR);
     }
 }
-/*
-    protected void placeRoot(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> p_225875_, RandomSource random, BlockPos pos, TreeConfiguration treeConfiguration) {
-        p_225875_.accept(pos, this.rootProvider.getState(random, pos));
-        }
-    }*/

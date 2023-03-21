@@ -3,20 +3,18 @@ package teamrazor.deepaether.datagen.loot;
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.providers.AetherBlockLootSubProvider;
 import com.gildedgames.aether.mixin.mixins.common.accessor.BlockLootAccessor;
-import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import teamrazor.deepaether.DeepAetherMod;
+import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import net.minecraftforge.registries.RegistryObject;
 
 public class DABlockLoot extends AetherBlockLootSubProvider {
     private static final Set<Item> EXPLOSION_RESISTANT = Stream.of(AetherBlocks.TREASURE_CHEST.get()).map(ItemLike::asItem).collect(Collectors.toSet());

@@ -1,13 +1,10 @@
 package teamrazor.deepaether.world.feature.tree.decorators;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
 
 public class DARootPlacers {
     public static final DeferredRegister<RootPlacerType<?>> ROOT_PLACERS = DeferredRegister.create(Registries.ROOT_PLACER_TYPE, DeepAetherMod.MODID);

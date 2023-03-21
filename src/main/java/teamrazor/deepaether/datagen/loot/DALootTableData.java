@@ -1,6 +1,5 @@
 package teamrazor.deepaether.datagen.loot;
 
-import com.gildedgames.aether.loot.AetherLoot;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
