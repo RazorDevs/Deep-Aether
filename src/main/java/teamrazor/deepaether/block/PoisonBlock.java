@@ -71,6 +71,8 @@ public class PoisonBlock extends LiquidBlock {
                 ItemEntity TRANSFORMED_ITEM_ENTITY = (new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.DIRT, 1)));
                 int count = itemEntity.getItem().getCount();
 
+                CAN_TRANSFORM = false;
+
                 if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_LEGACY.get()) {
                     TRANSFORM_ITEM = Items.MUSIC_DISC_CAT;
                     CAN_TRANSFORM = true;
@@ -106,8 +108,19 @@ public class PoisonBlock extends LiquidBlock {
                 if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_CHINCHILLA.get()) {
                     TRANSFORM_ITEM = Items.MUSIC_DISC_STRAD;
                     CAN_TRANSFORM = true;
-                } else
-                    CAN_TRANSFORM = false;
+                }
+
+                if (!level.isClientSide && CAN_TRANSFORM) {
+                    assert TRANSFORMED_ITEM_ENTITY != null;
+                    if ((TRANSFORMED_ITEM_ENTITY.getFeetBlockState().getBlock() == this || level.getBlockState(TRANSFORMED_ITEM_ENTITY.getOnPos().below(1)).getBlock() == this) && TRANSFORMED_ITEM_ENTITY.isAlive()) {
+                        BlockPos itemPos = TRANSFORMED_ITEM_ENTITY.getOnPos();
+                        ServerLevel serverlevel = (ServerLevel) level;
+                        serverlevel.sendParticles(DAParticles.POISON_BUBBLES.get(), (double) itemPos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) itemPos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.2D, 0.3D);
+                        if (level.random.nextInt(25) == 0) {
+                            serverlevel.playSound(itemEntity, itemPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 0.2F + level.random.nextFloat() * 0.2F, 0.9F + level.random.nextFloat() * 0.15F);
+                        }
+                    }
+                }
 
                 COUNT = true;
                 if ((TIME > 90) && itemEntity.isAlive() && CAN_TRANSFORM) {
@@ -116,17 +129,6 @@ public class PoisonBlock extends LiquidBlock {
                     itemEntity.discard();
                     TRANSFORMED_ITEM_ENTITY = entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
                     entity.setNoGravity(true);
-                }
-
-
-
-                if (!level.isClientSide && (TRANSFORMED_ITEM_ENTITY.getFeetBlockState().getBlock() == this || level.getBlockState(TRANSFORMED_ITEM_ENTITY.getOnPos().below(1)).getBlock() == this) && TRANSFORMED_ITEM_ENTITY.isAlive()) {
-                    BlockPos itemPos = TRANSFORMED_ITEM_ENTITY.getOnPos();
-                    ServerLevel serverlevel = (ServerLevel) level;
-                    serverlevel.sendParticles(DAParticles.POISON_BUBBLES.get(), (double) itemPos.getX() + level.random.nextDouble(), (double) (pos.getY() + 1), (double) itemPos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.2D, 0.3D);
-                    if (level.random.nextInt(25) == 0) {
-                        serverlevel.playSound(itemEntity, itemPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 0.2F + level.random.nextFloat() * 0.2F, 0.9F + level.random.nextFloat() * 0.15F);
-                    }
                 }
             }
         }
