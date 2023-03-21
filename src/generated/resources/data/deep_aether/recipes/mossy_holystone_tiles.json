@@ -13,5 +13,6 @@
   "result": {
     "count": 4,
     "item": "deep_aether:mossy_holystone_tiles"
-  }
+  },
+  "show_notification": true
 }

@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "deep_aether:mossy_holystone_tiles"
-  }
+  },
+  "show_notification": true
 }

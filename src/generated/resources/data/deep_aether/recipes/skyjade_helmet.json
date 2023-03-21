@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "deep_aether:skyjade_helmet"
-  }
+  },
+  "show_notification": true
 }

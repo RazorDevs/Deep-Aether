@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "deep_aether:skyjade_shovel"
-  }
+  },
+  "show_notification": true
 }

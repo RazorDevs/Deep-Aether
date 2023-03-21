@@ -21,7 +21,7 @@ public class CloudiumAbility extends ArmorItem {
 
     static float coolDown = 0;
 
-    public CloudiumAbility(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
+    public CloudiumAbility(ArmorMaterial p_40386_, ArmorItem.Type p_40387_, Properties p_40388_) {
         super(p_40386_, p_40387_, p_40388_);
     }
 

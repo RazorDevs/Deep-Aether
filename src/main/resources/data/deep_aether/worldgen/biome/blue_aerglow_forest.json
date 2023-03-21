@@ -1,5 +1,6 @@
 {
   "carvers": {},
+  "creature_spawn_probability": 0.25,
   "downfall": 0.0,
   "effects": {
     "fog_color": 9671612,
@@ -55,7 +56,7 @@
       "aether:golden_aercloud"
     ]
   ],
-  "precipitation": "none",
+  "has_precipitation": false,
   "spawn_costs": {
     "aether:zephyr": {
       "charge": 0.7,

@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "deep_aether:aerglow_petal_block"
-  }
+  },
+  "show_notification": true
 }

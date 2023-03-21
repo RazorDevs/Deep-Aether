@@ -23,7 +23,7 @@ public class DATabs {
                 new ResourceLocation(DeepAetherMod.MODID, "deep_aether_blocks"),
                 builder -> builder.icon(() -> new ItemStack(DABlocks.FLOWERING_ROSEROOT_LEAVES.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_blocks"))
-                        .displayItems((features, output, hasPermissions) -> {
+                        .displayItems((features, output) -> {
                             output.accept(DABlocks.ROSEROOT_LOG.get());
                             output.accept(DABlocks.ROSEROOT_WOOD.get());
                             output.accept(DABlocks.STRIPPED_ROSEROOT_LOG.get());
@@ -147,7 +147,7 @@ public class DATabs {
                 new ResourceLocation(DeepAetherMod.MODID, "deep_aether_items"),
                 builder -> builder.icon(() -> new ItemStack(DAItems.SKYJADE_TOOLS_SWORD.get()))
                         .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_items"))
-                        .displayItems((features, output, hasPermissions) -> {
+                        .displayItems((features, output) -> {
                             output.accept(DAItems.SKYJADE.get());
                             output.accept(DAItems.SKYJADE_TOOLS_SWORD.get());
                             output.accept(DAItems.SKYJADE_TOOLS_AXE.get());

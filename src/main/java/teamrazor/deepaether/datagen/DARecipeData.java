@@ -399,7 +399,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
     protected static void cloudiumSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
-        UpgradeRecipeBuilder.smithing(Ingredient.of(ingredient), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), category, item).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(consumer, name(getItemName(item) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredient), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), category, item).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(consumer, getItemName(item) + "_smithing");
     }
     protected static SimpleCookingRecipeBuilder smeltingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
         return SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 200)

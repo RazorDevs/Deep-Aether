@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "deep_aether:cruderoot_boat"
-  }
+  },
+  "show_notification": true
 }

@@ -13,5 +13,6 @@
   "result": {
     "count": 4,
     "item": "deep_aether:polished_clorite"
-  }
+  },
+  "show_notification": true
 }

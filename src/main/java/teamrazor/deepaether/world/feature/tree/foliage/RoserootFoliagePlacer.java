@@ -36,14 +36,16 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
     }
 
 
-    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, TreeConfiguration treeConfiguration, int p_225748_, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int p_225751_, int p_225752_) {
+
+    @Override
+    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int p_225748_, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int p_225751_, int p_225752_) {
         BlockPos blockpos = foliageAttachment.pos();
         int i = randomSource.nextInt(2);
         int j = 1;
         int k = 0;
 
         for(int l = randomSource.nextInt(1, 4); l >= 0; --l) {
-            this.placeLeavesRow(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.above(1+l), 0, 1, foliageAttachment.doubleTrunk());
+            this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.above(1+l), 0, 1, foliageAttachment.doubleTrunk());
         }
         int a1 = ((foliageMaxHeight/3)*2) + randomSource.nextInt(-1,1);
         int a2 = ((foliageMaxHeight/3)) + randomSource.nextInt(-1,1);
@@ -51,89 +53,89 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
 
         for(int l = foliageMaxHeight; l >= 0; --l) {
             if (l == 0) {
-                this.placeLeavesRow(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos, 1, 1, foliageAttachment.doubleTrunk());
+                this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 1, 1, foliageAttachment.doubleTrunk());
                 blockpos = blockpos.below(1);
             }
             else if(l >= a1) {
-                placeSmallCircle(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos, foliageAttachment);
+                placeSmallCircle(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, foliageAttachment);
                 blockpos = blockpos.below(1);
             }
             else if (l >= a2) {
-                this.placeSquare(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos);
+                this.placeSquare(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos);
                 blockpos = blockpos.below(1);
             }
             else {
-                placeBiggerCircle(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos, foliageAttachment);
+                placeBiggerCircle(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, foliageAttachment);
                 blockpos = blockpos.below(1);
             }
         }
 
     }
-    public void placeSquare(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos) {
+    public void placeSquare(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos) {
         for (int i = 0; i < 3; ++i) {
             for (int ii = 0; ii < 3; ++ii) {
-                tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(i-1).east(ii-1).above(2));
+                tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(i-1).east(ii-1).above(2));
             }
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(2).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(-2).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(0).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(0).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(2).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(-2).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(0).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(0).above(2));
 
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(1).east(2).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(1).east(-2).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-1).east(2).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-1).east(-2).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(1).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(1).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(-1).above(2));
-            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(-1).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(2).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(-2).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(2).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(-2).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(1).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(1).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(-1).above(2));
+            if(randomSource.nextInt(4) == 1)tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(-1).above(2));
 
         }
     }
-    public void placeSmallCircle(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
-        this.placeLeavesRow(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos, 1, 2, foliageAttachment.doubleTrunk());
+    public void placeSmallCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
+        this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 1, 2, foliageAttachment.doubleTrunk());
 
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-1).east(-1).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(1).east(1).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-1).east(1).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(1).east(-1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(-1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(-2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(0).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(0).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(-1).above(2));
     }
-    public void placeBigCircle(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
-        this.placeLeavesRow(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
+    public void placeBigCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
+        this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
 
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(-3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(3).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-3).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(-3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(3).east(0).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-3).east(0).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(-2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(-2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(2).above(2));
 
     }
-    public void placeBiggerCircle(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
-        this.placeLeavesRow(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
+    public void placeBiggerCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
+        this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
 
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(0).east(-3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(3).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-3).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(2).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-2).east(2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(1).east(3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-1).east(3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(1).east(-3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-1).east(-3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(3).east(1).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(3).east(-1).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-3).east(1).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, biConsumer, randomSource, treeConfiguration, blockpos.north(-3).east(-1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(-3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(3).east(0).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-3).east(0).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(-2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(-2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(2).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(-3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(-3).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(3).east(1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(3).east(-1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-3).east(1).above(2));
+        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-3).east(-1).above(2));
 
     }
 
@@ -145,7 +147,7 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
         return a == d && c == d && d > 0;
     }
     @Override
-    protected void placeLeavesRow(LevelSimulatedReader p_161438_, BiConsumer<BlockPos, BlockState> p_161439_, RandomSource p_161440_, TreeConfiguration p_161441_, BlockPos p_161442_, int p_161443_, int p_161444_, boolean p_161445_) {
+    protected void placeLeavesRow(LevelSimulatedReader p_161438_, FoliageSetter p_161439_, RandomSource p_161440_, TreeConfiguration p_161441_, BlockPos p_161442_, int p_161443_, int p_161444_, boolean p_161445_) {
         int i = p_161445_ ? 1 : 0;
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
@@ -156,12 +158,6 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
                     tryPlaceLeaf(p_161438_, p_161439_, p_161440_, p_161441_, blockpos$mutableblockpos);
                 }
             }
-        }
-    }
-
-    protected static void tryPlaceLeaf(LevelSimulatedReader p_161432_, BiConsumer<BlockPos, BlockState> p_161433_, RandomSource p_161434_, TreeConfiguration p_161435_, BlockPos p_161436_) {
-        if (validTreePos(p_161432_, p_161436_)) {
-            p_161433_.accept(p_161436_, p_161435_.foliageProvider.getState(p_161434_, p_161436_));
         }
     }
 

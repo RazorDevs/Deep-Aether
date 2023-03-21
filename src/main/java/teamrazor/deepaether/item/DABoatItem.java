@@ -59,7 +59,7 @@ public class DABoatItem extends Item {
                 } else {
                     if (!level.isClientSide()) {
                         level.addFreshEntity(boat);
-                        level.gameEvent(player, GameEvent.ENTITY_PLACE, new BlockPos(hitResult.getLocation()));
+                        level.gameEvent(player, GameEvent.ENTITY_PLACE, BlockPos.containing(hitResult.getLocation()));
                         if (!player.getAbilities().instabuild) {
                             heldStack.shrink(1);
                         }

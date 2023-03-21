@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "deep_aether:cloudium_block"
-  }
+  },
+  "show_notification": true
 }

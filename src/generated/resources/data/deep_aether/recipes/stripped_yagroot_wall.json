@@ -13,5 +13,6 @@
   "result": {
     "count": 6,
     "item": "deep_aether:stripped_yagroot_wall"
-  }
+  },
+  "show_notification": true
 }

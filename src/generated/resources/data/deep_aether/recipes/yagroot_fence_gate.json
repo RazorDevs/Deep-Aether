@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "deep_aether:yagroot_fence_gate"
-  }
+  },
+  "show_notification": true
 }

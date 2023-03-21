@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "deep_aether:clorite_pillar"
-  }
+  },
+  "show_notification": true
 }

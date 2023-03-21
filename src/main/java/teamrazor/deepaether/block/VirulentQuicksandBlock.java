@@ -2,15 +2,20 @@ package teamrazor.deepaether.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageEffects;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -101,7 +106,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable 
             int h = (int) entity.getEyeHeight();
             if((entity.getY()+h) == pos.getY() && entity instanceof LivingEntity) {
                 ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 4, false, false, false));
-                entity.hurt(DamageSource.IN_WALL, 1.5f);
+                entity.hurt(level.damageSources().inWall(), 1.5f);
             }
         }
     }
