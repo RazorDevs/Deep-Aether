@@ -1,45 +1,26 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.Aether;
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.effect.AetherEffects;
-import com.gildedgames.aether.event.events.PlacementBanEvent;
 import com.gildedgames.aether.item.AetherItems;
-import com.mojang.blaze3d.shaders.Effect;
-import net.minecraft.client.renderer.EffectInstance;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.RecordItem;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.material.FlowingFluid;
 import teamrazor.deepaether.init.DAParticles;
 
-import javax.annotation.Nullable;
-import java.io.IOException;
-import java.util.Optional;
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class PoisonBlock extends LiquidBlock {
@@ -48,14 +29,13 @@ public class PoisonBlock extends LiquidBlock {
         super(p_54694_, p_54695_);
     }
 
-    boolean CAN_DESTROY_ITEMS = true;
     boolean COUNT = false;
     float TIME = 0;
     Item TRANSFORM_ITEM;
     boolean CAN_TRANSFORM = false;
 
     @Override
-    public void stepOn(Level p_152431_, BlockPos p_152432_, BlockState p_152433_, Entity entity) {
+    public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
         if (entity instanceof LivingEntity) {
             ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 500, 0, false, false));
         }
@@ -63,10 +43,9 @@ public class PoisonBlock extends LiquidBlock {
 
         @Override
         public void animateTick (BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource){
-            double d0 = (double) blockPos.getX();
-            double d1 = (double) blockPos.getY();
-            double d2 = (double) blockPos.getZ();
-            //level.addAlwaysVisibleParticle(DeepAetherModParticles.POISON_BUBBLES.get(), d0 + 0.5D, d1, d2 + 0.5D, 0.0D, 0.04D, 0.0D);
+            double d0 = blockPos.getX();
+            double d1 = blockPos.getY();
+            double d2 = blockPos.getZ();
             level.addAlwaysVisibleParticle(DAParticles.POISON_BUBBLES.get(), d0 + (double) randomSource.nextFloat(), d1 + (double) randomSource.nextFloat(), d2 + (double) randomSource.nextFloat(), 0.0D, 0.04D, 0.0D);
 
             if (randomSource.nextInt(10) == 0) {

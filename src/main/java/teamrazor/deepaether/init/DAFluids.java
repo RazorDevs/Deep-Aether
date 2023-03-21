@@ -1,9 +1,8 @@
 package teamrazor.deepaether.init;
 
 
-import com.gildedgames.aether.item.AetherItems;
-import net.minecraft.world.level.material.*;
-
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

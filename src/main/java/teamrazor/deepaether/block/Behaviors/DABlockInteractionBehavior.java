@@ -2,7 +2,6 @@ package teamrazor.deepaether.block.Behaviors;
 
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.item.AetherItems;
-import com.ibm.icu.text.AlphabeticIndex;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,22 +13,17 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -38,10 +32,6 @@ import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAFluids;
-import teamrazor.deepaether.init.DAItems;
-
-import javax.annotation.Nonnull;
 
 import static net.minecraft.core.cauldron.CauldronInteraction.emptyBucket;
 

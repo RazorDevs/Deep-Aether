@@ -20,6 +20,6 @@ public class DAFluidTypes {
     
     private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
         return FLUID_TYPES.register(name, () -> new BaseFluidType(POISON_STILL_RL, POISON_FLOWING_RL, POISON_OVERLAY_RL,
-                0x7F00FF, new Vector3f(224f / 255f, 56f / 255f, 208f / 255f), properties));
+                0xffAB5AFD, new Vector3f(224f / 255f, 56f / 255f, 208f / 255f), properties));
     }
 }

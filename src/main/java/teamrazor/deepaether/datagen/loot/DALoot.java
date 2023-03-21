@@ -1,6 +1,5 @@
 package teamrazor.deepaether.datagen.loot;
 
-import com.gildedgames.aether.Aether;
 import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.DeepAetherMod;
 

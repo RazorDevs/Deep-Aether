@@ -1,6 +1,5 @@
 package teamrazor.deepaether.item.gear.cloudium;
 
-import java.util.function.Supplier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
@@ -9,6 +8,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAItems;
+
+import java.util.function.Supplier;
 
 public enum CloudiumArmorItem implements ArmorMaterial {
     CLOUDIUM("cloudium", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
@@ -25,7 +26,7 @@ public enum CloudiumArmorItem implements ArmorMaterial {
     private final float knockbackResistance;
     private final LazyLoadedValue<Ingredient> repairIngredient;
 
-    private CloudiumArmorItem(String p_40474_, int p_40475_, int[] p_40476_, int p_40477_, SoundEvent p_40478_, float p_40479_, float p_40480_, Supplier<Ingredient> p_40481_) {
+    CloudiumArmorItem(String p_40474_, int p_40475_, int[] p_40476_, int p_40477_, SoundEvent p_40478_, float p_40479_, float p_40480_, Supplier<Ingredient> p_40481_) {
         this.name = p_40474_;
         this.durabilityMultiplier = p_40475_;
         this.slotProtections = p_40476_;

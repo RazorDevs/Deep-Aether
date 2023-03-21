@@ -1,27 +1,25 @@
 package teamrazor.deepaether.init;
 
-import com.gildedgames.aether.item.AetherItems;
-import com.gildedgames.aether.item.accessories.gloves.GlovesItem;
-import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
-import net.minecraft.sounds.SoundEvents;
 import com.gildedgames.aether.client.AetherSoundEvents;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
+import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import teamrazor.deepaether.item.*;
-import teamrazor.deepaether.DeepAetherMod;
 import net.minecraftforge.registries.RegistryObject;
+import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.item.AerglowPetalItem;
 import teamrazor.deepaether.item.DABoatItem;
+import teamrazor.deepaether.item.DABucketItem;
+import teamrazor.deepaether.item.DASkyrootBucketItem;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.cloudium.*;
-
 import teamrazor.deepaether.item.gear.skyjade.*;
 
 import static com.gildedgames.aether.item.AetherItems.SKYROOT_BUCKET;
@@ -39,16 +37,16 @@ public class DAItems {
 
 
 	// EQUIPMENT
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());
+	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
 	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));
 	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = ITEMS.register("skyjade_axe", () -> new SkyjadeToolsAxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = ITEMS.register("skyjade_shovel", () -> new SkyjadeToolsShovelItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));
 	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = ITEMS.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem(DATiers.SKYJADE, 0, -3f, new Item.Properties()));
 
-	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = ITEMS.register("skyjade_helmet", () -> new SkyjadeArmorItem.Helmet());
-	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = ITEMS.register("skyjade_chestplate", () -> new SkyjadeArmorItem.Chestplate());
-	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = ITEMS.register("skyjade_leggings", () -> new SkyjadeArmorItem.Leggings());
-	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = ITEMS.register("skyjade_boots", () -> new SkyjadeArmorItem.Boots());
+	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = ITEMS.register("skyjade_helmet", SkyjadeArmorItem.Helmet::new);
+	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = ITEMS.register("skyjade_chestplate", SkyjadeArmorItem.Chestplate::new);
+	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = ITEMS.register("skyjade_leggings", SkyjadeArmorItem.Leggings::new);
+	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = ITEMS.register("skyjade_boots", SkyjadeArmorItem.Boots::new);
 	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new DAGlovesItem(0.75, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().stacksTo(1)));
 
@@ -66,7 +64,7 @@ public class DAItems {
 	public static final RegistryObject<Item> CLOUDIUM_AXE = ITEMS.register("cloudium_axe", () -> new CloudiumAxeItem(Tiers.NETHERITE, 5.0F, -3.0F, (new Item.Properties())));
 	public static final RegistryObject<Item> CLOUDIUM_HOE = ITEMS.register("cloudium_hoe", () -> new CloudiumHoeItem(Tiers.NETHERITE, -4, 0.0F, (new Item.Properties())));
 	// ORES
-	public static final RegistryObject<Item> SKYJADE = ITEMS.register("skyjade", () -> new SkyjadeItem());
+	public static final RegistryObject<Item> SKYJADE = ITEMS.register("skyjade", SkyjadeItem::new);
 	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = ITEMS.register("adibium_gemstone", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> AGATE_GEMSTONE = ITEMS.register("agate_gemstone", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_INGOT = ITEMS.register("cloudium_ingot", () -> new Item(new Item.Properties()));
@@ -81,7 +79,7 @@ public class DAItems {
 	public static final RegistryObject<Item> RAW_AERGLOW_FISH = ITEMS.register("raw_aerglow_fish", () -> new Item(new Item.Properties().food(Foods.COD)));
 	public static final RegistryObject<Item> COOKED_AERGLOW_FISH = ITEMS.register("cooked_aerglow_fish", () -> new Item(new Item.Properties().food(Foods.COOKED_COD)));
 
-	public static final RegistryObject<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).craftRemainder((Item)SKYROOT_BUCKET.get()).stacksTo(1)));
+	public static final RegistryObject<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).craftRemainder(SKYROOT_BUCKET.get()).stacksTo(1)));
 	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).stacksTo(1)));
 
 
@@ -116,7 +114,7 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = ITEMS.register("skyroot_virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1)));
 
-	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new AerglowPetalItem());
+	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", AerglowPetalItem::new);
 
 
 	public static void register(IEventBus eventBus) {
@@ -125,6 +123,6 @@ public class DAItems {
 
 
 	public static void setupBucketReplacements() {
-		SkyrootBucketItem.REPLACEMENTS.put(() -> DAItems.AERGLOW_FISH_BUCKET.get(), DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
+		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
 	}
 }

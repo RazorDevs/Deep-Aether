@@ -2,8 +2,6 @@ package teamrazor.deepaether.item.gear.cloudium;
 
 
 import com.gildedgames.aether.item.accessories.AccessoryItem;
-
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;

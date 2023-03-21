@@ -21,8 +21,8 @@ public class CloudiumAbility extends ArmorItem {
 
     static float coolDown = 0;
 
-    public CloudiumAbility(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public CloudiumAbility(ArmorMaterial material, EquipmentSlot equipmentSlot, Properties properties) {
+        super(material, equipmentSlot, properties);
     }
 
     public static boolean hasFullCloudiumSet(LivingEntity entity) {
@@ -43,12 +43,7 @@ public class CloudiumAbility extends ArmorItem {
                 && CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent();
     }
     private static boolean isCloudiumDashActive(Player player) {
-        if(hasFullCloudiumSet(player) == true && coolDown <= 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return hasFullCloudiumSet(player) && coolDown <= 0;
     }
 
     double strength = 1.5;

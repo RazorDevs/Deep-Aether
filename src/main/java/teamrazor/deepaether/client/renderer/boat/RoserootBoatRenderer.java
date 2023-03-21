@@ -1,7 +1,5 @@
 package teamrazor.deepaether.client.renderer.boat;
 
-import com.gildedgames.aether.Aether;
-import teamrazor.deepaether.client.renderer.DeepAetherModelLayers;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
@@ -13,6 +11,7 @@ import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.client.renderer.DeepAetherModelLayers;
 
 import javax.annotation.Nonnull;
 

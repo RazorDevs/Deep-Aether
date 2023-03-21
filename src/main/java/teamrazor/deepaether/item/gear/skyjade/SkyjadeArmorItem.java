@@ -2,18 +2,16 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
 
-import teamrazor.deepaether.init.DAItems;
-
-import net.minecraftforge.registries.ForgeRegistries;
-
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.registries.ForgeRegistries;
+import teamrazor.deepaether.init.DAItems;
 
 public abstract class SkyjadeArmorItem extends ArmorItem {
 	public SkyjadeArmorItem(EquipmentSlot slot, Properties properties) {

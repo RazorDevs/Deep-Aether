@@ -1,6 +1,6 @@
 package teamrazor.deepaether.world.feature.tree.foliage;
 
-import net.minecraft.world.level.levelgen.feature.foliageplacers.*;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

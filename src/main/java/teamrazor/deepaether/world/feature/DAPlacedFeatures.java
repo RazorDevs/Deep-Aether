@@ -2,6 +2,7 @@ package teamrazor.deepaether.world.feature;
 
 import com.gildedgames.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.gildedgames.aether.world.placementmodifier.DungeonBlacklistFilter;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -11,11 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.minecraft.core.Holder;
-
 import teamrazor.deepaether.DeepAetherMod;
-
-
 
 import java.util.List;
 

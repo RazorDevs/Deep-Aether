@@ -2,15 +2,15 @@ package teamrazor.deepaether.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.entity.AetherFishEntity;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 @OnlyIn(Dist.CLIENT)
 public class AetherFishRenderer extends MobRenderer<AetherFishEntity, AerglowFishModel<AetherFishEntity>> {

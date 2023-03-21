@@ -1,8 +1,8 @@
 
 package teamrazor.deepaether.item.gear.skyjade;
 
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.Tier;
 import teamrazor.deepaether.tags.SkyjadeTool;
 
 public class SkyjadeToolsAxeItem extends AxeItem implements SkyjadeTool {

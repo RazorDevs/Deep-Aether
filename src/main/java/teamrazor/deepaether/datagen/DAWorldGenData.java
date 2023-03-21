@@ -12,7 +12,6 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 import teamrazor.deepaether.world.feature.DAPlacedFeatures;
 
-
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 public class DAWorldGenData extends DatapackBuiltinEntriesProvider {

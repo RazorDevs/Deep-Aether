@@ -1,7 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
 import net.minecraft.core.HolderLookup;
-
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
@@ -11,7 +10,6 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nonnull;
-
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 

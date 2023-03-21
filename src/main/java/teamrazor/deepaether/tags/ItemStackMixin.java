@@ -1,13 +1,7 @@
 package teamrazor.deepaether.tags;
 
-import com.google.common.collect.Multimap;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {

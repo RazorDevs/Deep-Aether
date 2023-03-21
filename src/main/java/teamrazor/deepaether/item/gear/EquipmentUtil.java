@@ -1,9 +1,9 @@
 package teamrazor.deepaether.item.gear;
 
-import teamrazor.deepaether.init.DAItems;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
+import teamrazor.deepaether.init.DAItems;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public class EquipmentUtil {

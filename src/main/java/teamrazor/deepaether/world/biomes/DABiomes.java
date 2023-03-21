@@ -1,37 +1,10 @@
 package teamrazor.deepaether.world.biomes;
 
-import com.gildedgames.aether.Aether;
-import com.gildedgames.aether.data.resources.builders.AetherBiomeBuilders;
-import com.gildedgames.aether.data.resources.registries.AetherBiomes;
-import com.google.common.base.Suppliers;
-import com.ibm.icu.util.Region;
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.dimension.LevelStem;
-import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
-import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.event.server.ServerAboutToStartEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import org.apache.logging.log4j.core.jmx.Server;
+import net.minecraft.world.level.biome.Biome;
 import teamrazor.deepaether.DeepAetherMod;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class DABiomes {
     public static final ResourceKey<Biome> AETHER_PLAINS = createKey("aether_plains");
