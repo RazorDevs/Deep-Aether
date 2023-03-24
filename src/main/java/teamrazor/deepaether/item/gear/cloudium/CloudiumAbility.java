@@ -13,11 +13,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import top.theillusivec4.curios.api.CuriosApi;
 
 
-public class CloudiumAbility extends ArmorItem {
+public class CloudiumAbility extends DaArmorItem {
 
     static float coolDown = 0;
 

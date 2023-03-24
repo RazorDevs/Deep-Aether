@@ -4,8 +4,10 @@ import com.gildedgames.aether.AetherTags;
 import com.gildedgames.aether.client.AetherSoundEvents;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,7 +17,7 @@ import teamrazor.deepaether.init.DAItems;
 import java.util.EnumMap;
 import java.util.function.Supplier;
 
-public enum DaArmorMaterials implements ArmorMaterial {
+public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
     CLOUDIUM("cloudium", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
@@ -43,6 +45,8 @@ public enum DaArmorMaterials implements ArmorMaterial {
     private final float toughness;
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairMaterial;
+    public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
+
 
     DaArmorMaterials(String name, int maxDamageFactor, EnumMap<ArmorItem.Type, Integer> protectionAmountMap, int enchantability, Supplier<SoundEvent> soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterial) {
         this.name = name;
@@ -94,5 +98,8 @@ public enum DaArmorMaterials implements ArmorMaterial {
     @Override
     public float getKnockbackResistance() {
         return 0;
+    }
+    public String getSerializedName() {
+        return this.name;
     }
 }

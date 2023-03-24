@@ -350,6 +350,9 @@
   "block.deep_aether.mossy_holystone_tiles": "Mossy Holystone Tiles",
   "block.deep_aether.mossy_holystone_tile_stairs": "Mossy Holystone Tile Stairs",
   "block.deep_aether.mossy_holystone_tile_slab": "Mossy Holystone Tile Slab",
-  "block.deep_aether.mossy_holystone_tile_wall": "Mossy Holystone Tile Wall"
+  "block.deep_aether.mossy_holystone_tile_wall": "Mossy Holystone Tile Wall",
+  "trim_material.deep_aether.skyjade": "Skyjade Material",
+  "trim_material.deep_aether.cloudium": "Cloudium Material"
+
 }
 

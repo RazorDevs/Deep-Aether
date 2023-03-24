@@ -1,0 +1,12 @@
+{
+  "asset_name": "skyjade",
+  "description": {
+    "color": "#4d5626",
+    "translate": "trim_material.deep_aether.skyjade"
+  },
+  "ingredient": "deep_aether:skyjade",
+  "item_model_index": 1.1,
+  "override_armor_materials": {
+    "skyjade": "skyjade_darker"
+  }
+}
