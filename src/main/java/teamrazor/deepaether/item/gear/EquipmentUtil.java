@@ -39,6 +39,8 @@ public class EquipmentUtil {
     }
 
     public static double HandleCloudiumRingBoost(LivingEntity entity) {
+        EquipmentUtil.damageRing(entity, (RingItem) DaItems.GRAVITIE_RING.get())
+        EquipmentUtil.damageRing(entity, (RingItem) DaItems.CLOUDIUM_RING.get())
         double multiplier = 1;
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.CLOUDIUM_RING.get()).isPresent())
             multiplier = Math.pow(1.25, (EquipmentUtil.getCurios(entity, DAItems.CLOUDIUM_RING.get()).toArray().length));

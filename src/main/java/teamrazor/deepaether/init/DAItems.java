@@ -54,13 +54,13 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new DAGlovesItem(0.75, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new SkyjadeRingItem(new Item.Properties().stacksTo(1).durability(30)));
 
-	public static final RegistryObject<Item> GRAVITIE_RING = ITEMS.register("gravitite_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> GRAVITIE_RING = ITEMS.register("gravitite_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().stacksTo(1).durability(50)));
 	public static final RegistryObject<Item> CLOUDIUM_HELMET = ITEMS.register("cloudium_helmet", () -> new CloudiumAbility(DaArmorMaterials.CLOUDIUM, ArmorItem.Type.HELMET, new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_CHESTPLATE = ITEMS.register("cloudium_chestplate", () -> new DaArmorItem(DaArmorMaterials.CLOUDIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_LEGGINGS = ITEMS.register("cloudium_leggings", () -> new DaArmorItem(DaArmorMaterials.CLOUDIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_BOOTS = ITEMS.register("cloudium_boots", () -> new DaArmorItem(DaArmorMaterials.CLOUDIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_GLOVES = ITEMS.register("cloudium_gloves", () -> new DAGlovesItem(1.0, "cloudium_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
-	public static final RegistryObject<Item> CLOUDIUM_RING = ITEMS.register("cloudium_ring", () -> new RingItem(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1)));
+	public static final RegistryObject<Item> CLOUDIUM_RING = ITEMS.register("cloudium_ring", () -> new RingItem(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(100)));
 
 	public static final RegistryObject<Item> CLOUDIUM_SWORD = ITEMS.register("cloudium_sword", () -> new CloudiumSwordItem(Tiers.NETHERITE, 3, -2.4F, (new Item.Properties())));
 	public static final RegistryObject<Item> CLOUDIUM_SHOVEL = ITEMS.register("cloudium_shovel", () -> new CloudiumShovelItem(Tiers.NETHERITE, 1.5F, -3.0F, (new Item.Properties())));

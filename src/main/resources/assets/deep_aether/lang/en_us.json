@@ -383,7 +383,22 @@
   "lore.item.deep_aether.gravitite_ring": "A powerful ring that boosts the Cloudium Armor's dash and Gravitite Armor's boosted jump.",
   "lore.item.deep_aether.cloudium_ring": "An upgraded variant of the Gravitite Ring ",
 
-  "lore.item.deep_aether.cloudium_sword": "An upgrade to the Gravitite Sword, when attacking with this powerful weapon, anything you hit will be flung into the air, causing lots of damage! Use this to your advantage, as it works even while your sword is cooling down!",
+  "lore.block.deep_aether.cloudium_debris": "One of Aether's most valuable resources. It can rarely be found inside of clouds in small patches.",
+  "lore.item.deep_aether.cloudium_scrap": "Crafted from Divine Debris. Can be used to craft Cloudium Ingots.",
+  "lore.item.deep_aether.cloudium_ingot": "Crafted from Cloudium Scrap and Gravitite giving the ingot a pink color. Can be used to upgrade Gravitite Weapons and Armors.",
+
+  "lore.item.deep_aether.skyroot_aerglow_fish_bucket": "A bucket with a Aerglow Fish in it. Make sure to keep the water topped up or your new friend won't survive the journey home.",
+  "lore.item.deep_aether.aerglow_fish_bucket": "A bucket with a Cod in it. Make sure to keep the water topped up or your new friend won't survive the journey home.",
+
+  "lore.item.deep_aether.music_disc_nabooru":"A music disc that plays Nabooru by Emile van Krieken.",
+  "lore.item.deep_aether.music_disc_a_morning_wish":"A music disc that plays A Morning Wish by Emile van Krieken.",
+
+  "lore.item.deep_aether.poison_bucket": "A Skyroot Bucket that has been filled with a deadly poison.",
+  "lore.item.deep_aether.virulent_quicksand_bucket": "A Skyroot Bucket filled with Virulent Quicksand",
+  "lore.item.deep_aether.skyroot_virulent_quicksand_bucket": "A Bucket filled with Virulent Quicksand",
+
+
+
 
   "block.deep_aether.holystone_tiles": "Holystone Tiles",
   "block.deep_aether.holystone_tile_stairs": "Holystone Tile Stairs",
