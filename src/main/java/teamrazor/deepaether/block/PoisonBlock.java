@@ -127,7 +127,7 @@ public class PoisonBlock extends LiquidBlock {
                     CAN_TRANSFORM = false;
                     COUNT = false;
                     itemEntity.discard();
-                    TRANSFORMED_ITEM_ENTITY = entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
+                    entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
                     entity.setNoGravity(true);
                 }
             }

@@ -146,7 +146,6 @@
   "item.deep_aether.yagroot_chest_boat": "Yagroot Chest Boat",
   "item.deep_aether.cruderoot_boat": "Cruderoot Boat",
   "item.deep_aether.cruderoot_chest_boat": "Cruderoot Chest Boat",
-  "lore.item.deep_aether.skyjade": "A sharp gem that can be constructed to tools even more powerful than diamond, however it’s very fragile and shatters when the durability goes down and becomes slower.",
   "item.deep_aether.raw_quail": "Raw Quail",
   "item.deep_aether.cooked_quail": "Cooked Quail",
   "item.deep_aether.raw_aerglow_fish": "Raw Aerglow Fish",
@@ -339,9 +338,52 @@
   "lore.block.deep_aether.aether_moss_block": "Aether's variant of Moss",
   "lore.block.deep_aether.aether_moss_carpet": "Aether's variant of Moss",
 
+  "lore.item.deep_aether.skyjade": "A sharp gem that can be constructed to tools even more powerful than diamond, however it’s very fragile and shatters when the durability goes down and becomes slower.",
 
   "lore.block.deep_aether.skyjade_block": "A block of compacted Skyjade Gemstones. They can power beacons, and just have a sleek look to them.",
   "lore.block.deep_aether.skyjade_ore": "A rare ore that drops Skyjade Gemstones when broken with Iron tools.",
+
+
+  "lore.block.deep_aether.holystone_tiles": "A tile variant of Holystone. Can be used for decoration.",
+  "lore.block.deep_aether.holystone_tile_stairs": "Crafted from Holystone Tiles. Stairs are useful for adding verticality to builds and are often used for decoration too!",
+  "lore.block.deep_aether.holystone_tile_slab": "Crafted from Holystone Tiles. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!",
+  "lore.block.deep_aether.holystone_tile_wall": "Crafted from Holystone Tiles. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!",
+  "lore.block.deep_aether.mossy_holystone_tiles": "A mossy variant of Tiles Holystone. Can be used for decoration.",
+  "lore.block.deep_aether.mossy_holystone_tile_stairs": "Crafted from Mossy Holystone Tiles. Stairs are useful for adding verticality to builds and are often used for decoration too!",
+  "lore.block.deep_aether.mossy_holystone_tile_slab": "Crafted from Mossy Holystone Tiles. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!",
+  "lore.block.deep_aether.mossy_holystone_tile_wall": "Crafted from Mossy Holystone Tiles. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!",
+
+  "lore.block.deep_aether.aether_cattails": "A cyan flower found in Yagroot Swamps. Can be potted and used for decoration or to craft Cyan dye.",
+  "lore.block.deep_aether.tall_aether_cattails": "A cyan flower found in Yagroot Swamps. Can be potted and used for decoration or to craft Cyan dye.",
+
+  "lore.item.deep_aether.skyjade_axe": "One of Aether's mid-tier tools, you can mine wood faster than diamond, but the tool mines slower as the tool is worn down.",
+  "lore.item.deep_aether.skyjade_boots": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
+  "lore.item.deep_aether.skyjade_chestplate": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
+  "lore.item.deep_aether.skyjade_gloves": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
+  "lore.item.deep_aether.skyjade_helmet": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
+  "lore.item.deep_aether.skyjade_hoe": "One of Aether's mid-tier tools, you can mine faster than diamond, but the tool mines slower as the tool is worn down.",
+  "lore.item.deep_aether.skyjade_leggings": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
+  "lore.item.deep_aether.skyjade_pendant": "A pendant which allows you to mine faster. It lasts for a shorter period of time than Zanite Rings, so use it wisely!",
+  "lore.item.deep_aether.skyjade_pickaxe": "One of Aether's mid-tier tools, you can mine stone faster than diamond, but the tool mines slower as the tool is worn down.",
+  "lore.item.deep_aether.skyjade_ring": "A ring which allows you to mine faster. It lasts for a shorter time than Zanite Rings, so use it wisely!",
+  "lore.item.deep_aether.skyjade_shovel": "One of Aether's mid-tier tools, you can mine dirt and quicksoil faster than diamond, but the tool mines slower as the tool is worn down.",
+  "lore.item.deep_aether.skyjade_sword": "One of Aether's mid-tier tools, the attack damage on this sword starts at Netherite level, and will get to Wood level when its durability is low.",
+
+  "lore.item.deep_aether.cloudium_axe": "An upgrade to the Gravitite Axe, this Axe not only can make wood blocks float, but it can mine Golden Oak logs for Golden Amber!",
+  "lore.item.deep_aether.cloudium_boots": "An upgrade to the Gravitite Boots, when the full set is worn, you get an extra high jump and a dash!",
+  "lore.item.deep_aether.cloudium_chestplate": "An upgrade to the Gravitite Boots, when the full set is worn, you get an extra high jump and a dash!",
+  "lore.item.deep_aether.cloudium_gloves": "An upgrade to the Gravitite Gloves, needed to complete the cloudium set.",
+  "lore.item.deep_aether.cloudium_helmet": "An upgrade to the Gravitite Helmet, when the full set is worn, you get an extra high jump and a dash!",
+  "lore.item.deep_aether.cloudium_hoe": "An upgrade to the Gravitite Hoe, this hoe not only can make weirdly specific blocks float, but it can also till dirt which totally justifies its existence.",
+  "lore.item.deep_aether.cloudium_leggings": "An upgrade to the Gravitite Leggings, when the full set is worn, you get an extra high jump and a dash!",
+  "lore.item.deep_aether.cloudium_pickaxe": "An upgrade to the Gravitite Pickaxe, when mining with this powerful tool, you can right-click on any stone block and it will levitate into the air! You can mine any ore with this Pickaxe.",
+  "lore.item.deep_aether.cloudium_shovel": "An upgrade to the Gravitite Shovel, this shovel has the special ability to make dirt blocks, or sand levitate! When combined with enchantments such as Efficiency, it will instantly break Aether Dirt!",
+  "lore.item.deep_aether.cloudium_sword": "An upgrade to the Gravitite Sword, when attacking with this powerful weapon, anything you hit will be flung into the air, causing lots of damage! Use this to your advantage, as it works even while your sword is cooling down!",
+
+  "lore.item.deep_aether.gravitite_ring": "A powerful ring that boosts the Cloudium Armor's dash and Gravitite Armor's boosted jump.",
+  "lore.item.deep_aether.cloudium_ring": "An upgraded variant of the Gravitite Ring ",
+
+  "lore.item.deep_aether.cloudium_sword": "An upgrade to the Gravitite Sword, when attacking with this powerful weapon, anything you hit will be flung into the air, causing lots of damage! Use this to your advantage, as it works even while your sword is cooling down!",
 
   "block.deep_aether.holystone_tiles": "Holystone Tiles",
   "block.deep_aether.holystone_tile_stairs": "Holystone Tile Stairs",

@@ -1,0 +1,73 @@
+package teamrazor.deepaether.item.gear;
+
+import com.gildedgames.aether.capability.player.AetherPlayer;
+import com.gildedgames.aether.event.hooks.AbilityHooks;
+import com.gildedgames.aether.item.accessories.ring.RingItem;
+import com.gildedgames.aether.item.combat.abilities.armor.GravititeArmor;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.init.DAItems;
+import top.theillusivec4.curios.api.SlotResult;
+
+import java.util.List;
+
+@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
+public class DaAbilityListener {
+    @SubscribeEvent
+    public static void onEntityFall(LivingFallEvent event) {
+        LivingEntity livingEntity = event.getEntity();
+        if (!event.isCanceled()) {
+            event.setCanceled(fallCancellation(livingEntity));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityJump(LivingEvent.LivingJumpEvent event) {
+        LivingEntity livingEntity = event.getEntity();
+
+
+        if (com.gildedgames.aether.util.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
+            if (livingEntity instanceof Player player) {
+                AetherPlayer.get(player).ifPresent(aetherPlayer -> {
+                    if (aetherPlayer.isGravititeJumpActive()) {
+                        player.push(0.0, EquipmentUtil.HandleCloudiumRingBoost(livingEntity)-1.0, 0.0);
+                        if (player instanceof ServerPlayer serverPlayer) {
+                            serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public static boolean fallCancellation(LivingEntity entity) {
+        return EquipmentUtil.hasFullCloudiumSet(entity);
+    }
+
+
+    @SubscribeEvent
+    public static void onMiningSpeed(PlayerEvent.BreakSpeed event) {
+        Player player = event.getEntity();
+        if (!event.isCanceled()) {
+            event.setNewSpeed(EquipmentUtil.handleSkyjadeRingAbility(player, event.getNewSpeed()));
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        if (!event.isCanceled()) {
+            EquipmentUtil.damageRing(player, (RingItem) DAItems.SKYJADE_RING.get());
+        }
+    }
+}

@@ -30,7 +30,7 @@ public class PoisonCauldronBlock extends AbstractCauldronBlock {
     public void entityInside(BlockState p_153506_, Level p_153507_, BlockPos p_153508_, Entity entity) {
         if (this.isEntityInsideContent(p_153506_, p_153508_, entity)) {
             if (entity instanceof LivingEntity livingEntity)
-                livingEntity.addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 600, 0, false, false));
+                livingEntity.addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 500, 0, false, false));
         }
 
     }
