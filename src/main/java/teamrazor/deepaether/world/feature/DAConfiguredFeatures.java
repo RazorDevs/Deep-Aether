@@ -161,9 +161,9 @@ public class DAConfiguredFeatures {
         register(context, TEST_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
-                        new TwinTrunkPlacer(5, 2, 2, 5, ConstantInt.of(1)),
+                        new TwinTrunkPlacer(10, 10, 10),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
-                        new GoldenOakFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new GoldenOakFoliagePlacer(ConstantInt.of(0), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
 
 
