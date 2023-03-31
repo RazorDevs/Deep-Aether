@@ -38,7 +38,8 @@ import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
-import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
+import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacerTypes;
+import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
 
 
 import java.util.concurrent.CompletableFuture;
@@ -93,8 +94,9 @@ public class DeepAetherMod {
 		DADecoratorType.REGISTRY.register(bus);
 		DABlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
 		DABlocks.registerWoodTypes();
-		DAFoliagePlacers.FOLIAGE_PLACERS.register(bus);
+		DAFoliagePlacerTypes.FOLIAGE_PLACERS.register(bus);
 		DARootPlacers.ROOT_PLACERS.register(bus);
+		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 	}
 
 

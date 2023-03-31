@@ -6,6 +6,7 @@ import com.gildedgames.aether.data.resources.AetherFeatureRules;
 import com.gildedgames.aether.data.resources.AetherFeatureStates;
 import com.gildedgames.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
 import com.gildedgames.aether.world.feature.AetherFeatures;
+import com.gildedgames.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -40,6 +41,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
 
 import java.util.List;
 import java.util.Optional;
@@ -72,6 +74,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREES_PLACEMENT = createKey("roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREES_PLACEMENT = createKey("blue_roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_CATTAILS_PATCH =  createKey("aether_cattails_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TEST_TREE = createKey("test_tree");
 
 
 
@@ -154,6 +157,15 @@ public class DAConfiguredFeatures {
                         BlockStateProvider.simple(DAFeatureStates.CRUDEROOT_LEAVES),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
+
+        register(context, TEST_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
+                        new TwinTrunkPlacer(5, 2, 2, 5, ConstantInt.of(1)),
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
+                        new GoldenOakFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 2)).build());
+
 
 
         register(context, AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION, Feature.FLOWER,
