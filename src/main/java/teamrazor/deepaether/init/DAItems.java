@@ -39,8 +39,6 @@ public class DAItems {
 	public static final RegistryObject<Item> YAGROOT_SIGN = ITEMS.register("yagroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.YAGROOT_SIGN.get(), DABlocks.YAGROOT_WALL_SIGN.get()));
 	public static final RegistryObject<Item> CRUDEROOT_SIGN = ITEMS.register("cruderoot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.CRUDEROOT_SIGN.get(), DABlocks.CRUDEROOT_WALL_SIGN.get()));
 
-	public static final RegistryObject<Item> AMBERROOT_SIGN = ITEMS.register("amberroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.AMBERROOT_SIGN.get(), DABlocks.AMBERROOT_WALL_SIGN.get()));
-
 
 	// EQUIPMENT
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", () -> new SkyjadeToolsSwordItem());

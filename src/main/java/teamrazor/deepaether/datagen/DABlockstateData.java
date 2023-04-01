@@ -1,8 +1,6 @@
 package teamrazor.deepaether.datagen;
 
-import com.gildedgames.aether.Aether;
 import com.gildedgames.aether.block.AetherBlockStateProperties;
-import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -23,9 +21,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
     @Override
     public void registerStatesAndModels() {
 
-
-
         //WOOD ROSEROOT
+
         this.wood((RotatedPillarBlock) DABlocks.ROSEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.ROSEROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.ROSEROOT_LOG.get());
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_LOG.get());
@@ -95,27 +92,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlant(DABlocks.POTTED_CRUDEROOT_SAPLING.get(), DABlocks.CRUDEROOT_SAPLING.get());
         this.block(DABlocks.CRUDEROOT_LEAVES.get());
         this.signBlock((StandingSignBlock) DABlocks.CRUDEROOT_SIGN.get(), (WallSignBlock) DABlocks.CRUDEROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.CRUDEROOT_PLANKS.get())));
-
-        //WOOD AMBERROOT
-        this.wood((RotatedPillarBlock) DABlocks.AMBERROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.AMBERROOT_LOG.get());
-        this.log((RotatedPillarBlock) DABlocks.AMBERROOT_LOG.get());
-        this.wood((RotatedPillarBlock) DABlocks.STRIPPED_AMBERROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.log((RotatedPillarBlock) DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.block(DABlocks.AMBERROOT_PLANKS.get());
-        this.slab((SlabBlock) DABlocks.AMBERROOT_SLAB.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.stairs((StairBlock) DABlocks.AMBERROOT_STAIRS.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.fence((FenceBlock) DABlocks.AMBERROOT_FENCE.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.fenceGateBlock((FenceGateBlock) DABlocks.AMBERROOT_FENCE_GATE.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.doorBlock((DoorBlock) DABlocks.AMBERROOT_DOOR.get(), this.texture(this.name(DABlocks.AMBERROOT_DOOR.get())+ "_bottom"), this.texture(this.name(DABlocks.AMBERROOT_DOOR.get())+ "_top"));
-        this.trapdoorBlock((TrapDoorBlock) DABlocks.AMBERROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.AMBERROOT_TRAPDOOR.get())), false);
-        this.buttonBlock((ButtonBlock) DABlocks.AMBERROOT_BUTTON.get(), this.texture(this.name(DABlocks.AMBERROOT_PLANKS.get())));
-        this.pressurePlateBlock((PressurePlateBlock) DABlocks.AMBERROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.AMBERROOT_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.AMBERROOT_WALL.get(), DABlocks.AMBERROOT_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_AMBERROOT_WALL.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.saplingBlock(DABlocks.AMBERROOT_SAPLING.get());
-        this.pottedPlant(DABlocks.POTTED_AMBERROOT_SAPLING.get(), DABlocks.AMBERROOT_SAPLING.get());
-        this.block(DABlocks.AMBERROOT_LEAVES.get());
-        this.signBlock((StandingSignBlock) DABlocks.AMBERROOT_SIGN.get(), (WallSignBlock) DABlocks.AMBERROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.AMBERROOT_PLANKS.get())));
 
         //MUD
 
@@ -197,6 +173,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         //MISC
 
         this.block(DABlocks.VIRULENT_QUICKSAND.get());
+
+        //MOSS
         this.block(DABlocks.AETHER_MOSS_BLOCK.get());
     }
 
@@ -228,13 +206,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
 
 
-    public ResourceLocation textureAether(String name) {
-        return this.modLocAether("block/" + name);
-    }
 
-    public ResourceLocation modLocAether(String name) {
-        return new ResourceLocation(Aether.MODID, name);
-    }
 
 
 

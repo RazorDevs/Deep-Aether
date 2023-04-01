@@ -89,23 +89,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "deep_aether:aerlavender_fields"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "deep_aether:golden_fields": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "deep_aether:golden_fields"
+                "biome": "deep_aether:aether_plains"
               }
             }
           }

@@ -45,11 +45,5 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_CRUDEROOT_LOG.get().asItem(),
                 DABlocks.STRIPPED_CRUDEROOT_WOOD.get().asItem()
         );
-        tag(DATags.Items.CRAFTS_AMBERROOT_PLANKS).add(
-                DABlocks.AMBERROOT_LOG.get().asItem(),
-                DABlocks.AMBERROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_AMBERROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_AMBERROOT_WOOD.get().asItem()
-        );
     }
 }

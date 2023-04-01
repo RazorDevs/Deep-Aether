@@ -7,10 +7,14 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+
+import java.util.function.BiConsumer;
+
 
 
 public class RoserootFoliagePlacer extends FoliagePlacer {
@@ -27,7 +31,7 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return DAFoliagePlacerTypes.ROSEROOT_FOLIAGE_PLACER.get();
+        return DAFoliagePlacers.ROSEROOT_FOLIAGE_PLACER.get();
     }
 
 

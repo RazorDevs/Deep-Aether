@@ -16,8 +16,6 @@ public class DABiomes {
 
     public static final ResourceKey<Biome> YAGROOT_SWAMP = createKey("yagroot_swamp");
 
-    public static final ResourceKey<Biome> GOLDEN_FIELDS = createKey("golden_fields");
-
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
     }

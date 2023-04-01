@@ -156,7 +156,7 @@
           }
         },
         {
-          "biome": "deep_aether:golden_fields",
+          "biome": "aether:skyroot_grove",
           "parameters": {
             "continentalness": [
               -1.0,

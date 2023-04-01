@@ -4,7 +4,6 @@ package teamrazor.deepaether.init;
 
 import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import com.gildedgames.aether.block.natural.AetherDoubleDropsLeaves;
-import com.gildedgames.aether.block.natural.AetherGrassBlock;
 import com.gildedgames.aether.effect.AetherEffects;
 import com.gildedgames.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import net.minecraft.sounds.SoundEvents;
@@ -34,12 +33,6 @@ import static net.minecraft.world.level.block.Blocks.MOSSY_STONE_BRICKS;
 public class DABlocks {
 	public static final DeferredRegister<Block> BLOCKS =
 			DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAetherMod.MODID);
-
-	//GRASS
-	public static final RegistryObject<Block> GOLDEN_FIELD_GRASS_BLOCK = registerBlock("golden_field_grass_block", () -> new AetherGrassBlock(Block.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
-
-
-
 	// WOOD
 	public static final RegistryObject<Block> ROSEROOT_WOOD = registerBlock("roseroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> ROSEROOT_LOG = registerBlock("roseroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
@@ -106,31 +99,6 @@ public class DABlocks {
 	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = BLOCKS.register("cruderoot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
-
-
-	//AMBERROOT
-
-	public static final RegistryObject<Block> AMBERROOT_WOOD = registerBlock("amberroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> AMBERROOT_LOG = registerBlock("amberroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> AMBERROOT_WALL = registerBlock("amberroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> STRIPPED_AMBERROOT_WOOD = registerBlock("stripped_amberroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> STRIPPED_AMBERROOT_LOG = registerBlock("stripped_amberroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> STRIPPED_AMBERROOT_WALL = registerBlock("stripped_amberroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> AMBERROOT_PLANKS = registerBlock("amberroot_planks", () -> new Block (BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> AMBERROOT_STAIRS = registerBlock("amberroot_stairs", () -> new StairBlock(() -> DABlocks.AMBERROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> AMBERROOT_SLAB = registerBlock("amberroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
-	public static final RegistryObject<Block> AMBERROOT_FENCE = registerBlock("amberroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> AMBERROOT_FENCE_GATE = registerBlock("amberroot_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.AMBERROOT));
-	public static final RegistryObject<Block> AMBERROOT_PRESSURE_PLATE = registerBlock("amberroot_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), DAWoodTypes.AMBERROOT_BLOCK_SET));
-	public static final RegistryObject<Block> AMBERROOT_BUTTON = registerBlock("amberroot_button", () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), DAWoodTypes.AMBERROOT_BLOCK_SET, 30, true));
-	public static final RegistryObject<Block> AMBERROOT_DOOR = registerBlock("amberroot_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR), DAWoodTypes.AMBERROOT_BLOCK_SET));
-	public static final RegistryObject<Block> AMBERROOT_TRAPDOOR = registerBlock("amberroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.AMBERROOT_BLOCK_SET));
-	public static final RegistryObject<Block> AMBERROOT_LEAVES = registerBlock("amberroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
-	public static final RegistryObject<Block> AMBERROOT_SAPLING = registerBlock("amberroot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
-	public static final RegistryObject<Block> AMBERROOT_WALL_SIGN = BLOCKS.register("amberroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.AMBERROOT));
-	public static final RegistryObject<Block> AMBERROOT_SIGN = BLOCKS.register("amberroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.AMBERROOT));
-
-
 
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
@@ -220,8 +188,7 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_ROSEROOT_SAPLING = BLOCKS.register("potted_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_ROSEROOT_SAPLING = BLOCKS.register("potted_blue_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_YAGROOT_SAPLING = BLOCKS.register("potted_yagroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
-	public static final RegistryObject<FlowerPotBlock> POTTED_CRUDEROOT_SAPLING = BLOCKS.register("potted_cruderoot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRUDEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
-	public static final RegistryObject<FlowerPotBlock> POTTED_AMBERROOT_SAPLING = BLOCKS.register("potted_amberroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AMBERROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_CRUDEROOT_SAPLING = BLOCKS.register("potted_cruderoot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, RADIANT_ORCHID, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static void registerPots() {
 		FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 		pot.addPlant(DABlocks.AERLAVENDER.getId(), DABlocks.POTTED_AERLAVENDER);
@@ -234,7 +201,6 @@ public class DABlocks {
 		pot.addPlant(DABlocks.BLUE_ROSEROOT_SAPLING.getId(), DABlocks.POTTED_ROSEROOT_SAPLING);
 		pot.addPlant(DABlocks.YAGROOT_SAPLING.getId(), DABlocks.POTTED_YAGROOT_SAPLING);
 		pot.addPlant(DABlocks.CRUDEROOT_SAPLING.getId(), DABlocks.POTTED_CRUDEROOT_SAPLING);
-		pot.addPlant(DABlocks.AMBERROOT_SAPLING.getId(), DABlocks.POTTED_AMBERROOT_SAPLING);
 	}
 
 
@@ -256,7 +222,6 @@ public class DABlocks {
 		WoodType.register(DAWoodTypes.ROSEROOT);
 		WoodType.register(DAWoodTypes.CRUDEROOT);
 		WoodType.register(DAWoodTypes.YAGROOT);
-		WoodType.register(DAWoodTypes.AMBERROOT);
 	}
 	public static void registerFlammability() {
 		FireBlockAccessor fireBlockAccessor = (FireBlockAccessor) Blocks.FIRE;

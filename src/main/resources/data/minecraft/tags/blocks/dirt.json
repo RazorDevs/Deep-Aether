@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "deep_aether:aether_moss_block",
-    "deep_aether:aether_mud",
-    "deep_aether:golden_field_grass_block"
+    "deep_aether:aether_mud"
   ]
 }
