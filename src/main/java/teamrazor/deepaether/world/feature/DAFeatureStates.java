@@ -13,6 +13,8 @@ public class DAFeatureStates {
     public static final BlockState YAGROOT_LEAVES = DABlocks.YAGROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState CRUDEROOT_LOG = DABlocks.CRUDEROOT_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState CRUDEROOT_LEAVES = DABlocks.CRUDEROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+    public static final BlockState AMBERROOT_LOG = DABlocks.AMBERROOT_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+    public static final BlockState AMBERROOT_LEAVES = DABlocks.AMBERROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState FLOWERING_ROSEROOT_LEAVES = DABlocks.FLOWERING_ROSEROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState FLOWERING_BLUE_ROSEROOT_LEAVES = DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState YAGROOT_ROOTS = DABlocks.YAGROOT_ROOTS.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);

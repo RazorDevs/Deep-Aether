@@ -89,6 +89,28 @@ public class DATabs {
                             output.accept(DABlocks.CRUDEROOT_LEAVES.get());
                             output.accept(DABlocks.CRUDEROOT_SAPLING.get());
 
+
+
+                            output.accept(DABlocks.AMBERROOT_LOG.get());
+                            output.accept(DABlocks.AMBERROOT_WOOD.get());
+                            output.accept(DABlocks.STRIPPED_AMBERROOT_LOG.get());
+                            output.accept(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
+                            output.accept(DABlocks.AMBERROOT_PLANKS.get());
+                            output.accept(DABlocks.AMBERROOT_STAIRS.get());
+                            output.accept(DABlocks.AMBERROOT_SLAB.get());
+                            output.accept(DABlocks.AMBERROOT_FENCE.get());
+                            output.accept(DABlocks.AMBERROOT_FENCE_GATE.get());
+                            output.accept(DABlocks.AMBERROOT_DOOR.get());
+                            output.accept(DABlocks.AMBERROOT_TRAPDOOR.get());
+                            output.accept(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
+                            output.accept(DABlocks.AMBERROOT_WALL.get());
+                            output.accept(DABlocks.STRIPPED_AMBERROOT_WALL.get());
+                            output.accept(DABlocks.AMBERROOT_BUTTON.get());
+                            output.accept(DAItems.AMBERROOT_SIGN.get());
+                            output.accept(DABlocks.AMBERROOT_LEAVES.get());
+                            output.accept(DABlocks.AMBERROOT_SAPLING.get());
+
+
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
                             output.accept(DABlocks.AETHER_MOSS_CARPET.get());
 

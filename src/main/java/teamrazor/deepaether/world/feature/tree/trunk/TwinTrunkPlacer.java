@@ -45,17 +45,22 @@ public class TwinTrunkPlacer extends TrunkPlacer {
         setDirtAt(level, posState, random, pos1.mutable().move(direction.getOpposite()), config);
         List<FoliagePlacer.FoliageAttachment> list = Lists.newArrayList();
         int i;
+        int m = 1;
         int j = 0;
-        this.placeLog(level, posState, random, pos1, config);
-        for(i = 1; i < p_226082_; ++i) {
-            if(random.nextInt(10) >= i+1)
-                j+=1;
+        this.placeLog(level, posState, random, pos1.above(1), config);
+        this.placeLog(level, posState, random, pos1.above(1).mutable().move(direction.getOpposite(),1), config);
+        for(i = 2; i < p_226082_; ++i) {
+            if(random.nextInt(10) >= (i/2)+m) {
+                m += 1;
+                j += 1;
+            }
+            else m+=1;
             this.placeLog(level, posState, random, pos1.above(i).mutable().move(direction, j), config);
-            this.placeLog(level, posState, random, pos1.above(i).mutable().move(direction.getOpposite(), j), config);
+            this.placeLog(level, posState, random, pos1.above(i).mutable().move(direction.getOpposite(), j+1), config);
         }
 
         list.add(new FoliagePlacer.FoliageAttachment(pos1.above(i).mutable().move(direction, j), 0, false));
-        list.add(new FoliagePlacer.FoliageAttachment(pos1.above(i).mutable().move(direction.getOpposite(), j), 0, false));
+        list.add(new FoliagePlacer.FoliageAttachment(pos1.above(i).mutable().move(direction.getOpposite(), j+1), 0, false));
         return list;
     }
 }

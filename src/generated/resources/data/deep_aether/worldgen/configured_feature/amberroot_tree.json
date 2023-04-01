@@ -17,7 +17,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether:golden_oak_leaves",
+        "Name": "deep_aether:amberroot_leaves",
         "Properties": {
           "distance": "7",
           "double_drops": "true",
@@ -36,14 +36,14 @@
     },
     "trunk_placer": {
       "type": "deep_aether:twin_trunk_placer",
-      "base_height": 10,
-      "height_rand_a": 10,
-      "height_rand_b": 10
+      "base_height": 7,
+      "height_rand_a": 6,
+      "height_rand_b": 3
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether:golden_oak_log",
+        "Name": "deep_aether:amberroot_log",
         "Properties": {
           "axis": "y",
           "double_drops": "true"
