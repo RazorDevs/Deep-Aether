@@ -6,7 +6,6 @@ import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import com.gildedgames.aether.block.natural.AetherDoubleDropsLeaves;
 import com.gildedgames.aether.effect.AetherEffects;
 import com.gildedgames.aether.mixin.mixins.common.accessor.FireBlockAccessor;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

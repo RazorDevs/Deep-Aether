@@ -143,7 +143,7 @@ public class DAConfiguredFeatures {
                         new MangroveRootPlacer(UniformInt.of(1, 3), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), Optional.of(
                                 new AboveRootPlacement(BlockStateProvider.simple(DAFeatureStates.AETHER_MOSS_CARPET), 0.5F)),
                                 new MangroveRootPlacement(holdergetter.getOrThrow(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder, DABlocks.AETHER_MUD.get(), DABlocks.MUDDY_YAGROOT_ROOTS.get()), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), 8, 15, 0.2F))),
-                        new TwoLayersFeatureSize(2, 0, 2))).decorators(List.of(new YagrootVineDecorator(0.5f))).build());
+                        new TwoLayersFeatureSize(2, 0, 2))).decorators(List.of(new YagrootVineDecorator(0.2f))).build());
 
 
         register(context, CRUDEROOT_TREE_CONFIGURATION, Feature.TREE,

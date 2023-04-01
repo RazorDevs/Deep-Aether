@@ -1,8 +1,6 @@
 package teamrazor.deepaether.item.gear.cloudium;
 
 
-import com.gildedgames.aether.capability.player.AetherPlayer;
-import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -18,8 +16,6 @@ import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import top.theillusivec4.curios.api.CuriosApi;
-
-import java.io.Console;
 
 
 public class CloudiumAbility extends DaArmorItem {
@@ -77,7 +73,7 @@ public class CloudiumAbility extends DaArmorItem {
                 a = 1 - a;
                 if (CloudiumAbility.isCloudiumDashActive(player)) {
                     coolDown = 5;
-                    dashMultiplier = (float) EquipmentUtil.HandleCloudiumRingBoost(player);
+                    dashMultiplier = (float) EquipmentUtil.handleCloudiumRingBoost(player);
                     player.push(x * a * dashMultiplier, y * dashMultiplier, z * a * dashMultiplier);
                     if (player instanceof ServerPlayer serverPlayer) {
                         serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));

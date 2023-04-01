@@ -19,8 +19,6 @@ public class DAWorldGenData extends DatapackBuiltinEntriesProvider {
             .add(Registries.CONFIGURED_FEATURE, DAConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, DAPlacedFeatures::bootstrap);
 
-
-
     public DAWorldGenData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Collections.singleton(DeepAetherMod.MODID));
     }

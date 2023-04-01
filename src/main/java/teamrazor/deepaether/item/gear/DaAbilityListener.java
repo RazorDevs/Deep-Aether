@@ -1,9 +1,7 @@
 package teamrazor.deepaether.item.gear;
 
 import com.gildedgames.aether.capability.player.AetherPlayer;
-import com.gildedgames.aether.event.hooks.AbilityHooks;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
-import com.gildedgames.aether.item.combat.abilities.armor.GravititeArmor;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,9 +14,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAItems;
-import top.theillusivec4.curios.api.SlotResult;
-
-import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DaAbilityListener {
@@ -39,7 +34,7 @@ public class DaAbilityListener {
             if (livingEntity instanceof Player player) {
                 AetherPlayer.get(player).ifPresent(aetherPlayer -> {
                     if (aetherPlayer.isGravititeJumpActive()) {
-                        player.push(0.0, EquipmentUtil.HandleCloudiumRingBoost(livingEntity)-1.0, 0.0);
+                        player.push(0.0, EquipmentUtil.handleCloudiumRingBoost(livingEntity)-1.0, 0.0);
                         if (player instanceof ServerPlayer serverPlayer) {
                             serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                         }

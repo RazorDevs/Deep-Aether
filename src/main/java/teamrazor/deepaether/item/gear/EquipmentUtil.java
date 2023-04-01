@@ -1,7 +1,5 @@
 package teamrazor.deepaether.item.gear;
 
-import com.gildedgames.aether.item.AetherItems;
-import com.gildedgames.aether.item.accessories.abilities.ZaniteAccessory;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -38,7 +36,7 @@ public class EquipmentUtil {
         }
     }
 
-    public static double HandleCloudiumRingBoost(LivingEntity entity) {
+    public static double handleCloudiumRingBoost(LivingEntity entity) {
         EquipmentUtil.damageRing(entity, (RingItem) DAItems.GRAVITIE_RING.get());
         EquipmentUtil.damageRing(entity, (RingItem) DAItems.CLOUDIUM_RING.get());
         double multiplier = 1;
