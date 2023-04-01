@@ -1,10 +1,7 @@
 {
   "type": "forge:add_features",
   "biomes": [
-    "aether:skyroot_woodland",
-    "aether:skyroot_meadow",
-    "aether:skyroot_forest",
-    "aether:skyroot_grove"
+    "#aether:is_aether"
   ],
   "features": "deep_aether:aseterite",
   "step": "underground_ores"

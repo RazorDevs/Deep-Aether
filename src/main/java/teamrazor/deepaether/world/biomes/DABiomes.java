@@ -7,12 +7,12 @@ import net.minecraft.world.level.biome.Biome;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DABiomes {
-    public static final ResourceKey<Biome> AETHER_PLAINS = createKey("aether_plains");
+    public static final ResourceKey<Biome> AERLAVENDER_FIELDS = createKey("aerlavender_fields");
     public static final ResourceKey<Biome> AERGLOW_FOREST = createKey("aerglow_forest");
 
     public static final ResourceKey<Biome> BLUE_AERGLOW_FOREST = createKey("blue_aerglow_forest");
 
-    public static final ResourceKey<Biome> RARE_AERGLOW_FOREST = createKey("rare_aerglow_forest");
+    public static final ResourceKey<Biome> MYSTIC_AERGLOW_FOREST = createKey("mystic_aerglow_forest");
 
     public static final ResourceKey<Biome> YAGROOT_SWAMP = createKey("yagroot_swamp");
 

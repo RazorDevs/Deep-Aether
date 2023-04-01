@@ -6,7 +6,7 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "deep_aether:aether_plains",
+          "biome": "deep_aether:aerlavender_fields",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -36,7 +36,7 @@
           }
         },
         {
-          "biome": "deep_aether:rare_aerglow_forest",
+          "biome": "deep_aether:mystic_aerglow_forest",
           "parameters": {
             "continentalness": [
               -1.0,
@@ -306,7 +306,7 @@
           }
         },
         {
-          "biome": "deep_aether:aether_plains",
+          "biome": "deep_aether:aerlavender_fields",
           "parameters": {
             "continentalness": [
               -1.0,
