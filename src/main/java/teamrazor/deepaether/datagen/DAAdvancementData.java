@@ -30,7 +30,7 @@ public class DAAdvancementData extends ForgeAdvancementProvider {
 
 
     private static final List<ResourceKey<Biome>> EXPLORABLE_BIOMES = ImmutableList.of(AetherBiomes.SKYROOT_GROVE, AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_MEADOW, AetherBiomes.SKYROOT_WOODLAND,
-            DABiomes.AERGLOW_FOREST, DABiomes.BLUE_AERGLOW_FOREST, DABiomes.RARE_AERGLOW_FOREST, DABiomes.AETHER_PLAINS);
+            DABiomes.AERGLOW_FOREST, DABiomes.BLUE_AERGLOW_FOREST, DABiomes.MYSTIC_AERGLOW_FOREST, DABiomes.AERLAVENDER_FIELDS);
 
     public static class DAAdvancements implements AdvancementGenerator {
         @Override

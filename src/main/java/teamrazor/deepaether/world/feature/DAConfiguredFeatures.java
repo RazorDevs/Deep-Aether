@@ -60,7 +60,6 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_DIVINE_DEBRIS_CONFIGURATION = createKey("divine_debris");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASETERITE_CONFIGURATION = createKey("aseterite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_CONFIGURATION = createKey("clorite");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION = createKey("aether_plains_flower_patch_configuration");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE_CONFIGURATION = createKey("skyroot_tree");
 
@@ -155,11 +154,6 @@ public class DAConfiguredFeatures {
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
 
-
-        register(context, AETHER_PLAINS_FLOWER_PATCH_CONFIGURATION, Feature.FLOWER,
-                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(AetherFeatureStates.PURPLE_FLOWER, 7)
-                        .add(AetherFeatureStates.WHITE_FLOWER, 8)), 96));
 
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,

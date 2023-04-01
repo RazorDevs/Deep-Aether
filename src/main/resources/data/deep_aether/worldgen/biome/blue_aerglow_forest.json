@@ -28,12 +28,11 @@
     [],
     [],
     [
-      "deep_aether:aerglow_skyjade_ore",
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
       "aether:ambrosium_ore",
-      "deep_aether:aerglow_zanite_ore",
-      "deep_aether:aerglow_gravitite_ore"
+      "aether:zanite_ore",
+      "aether:gravitite_ore"
     ],
     [],
     [
