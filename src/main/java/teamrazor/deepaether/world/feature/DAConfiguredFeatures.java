@@ -5,7 +5,9 @@ import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.resources.AetherFeatureRules;
 import com.gildedgames.aether.data.resources.AetherFeatureStates;
 import com.gildedgames.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
+import com.gildedgames.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.gildedgames.aether.world.feature.AetherFeatures;
+import com.gildedgames.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -40,6 +42,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
 
 import java.util.List;
 import java.util.Optional;
@@ -70,7 +73,10 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_VEGETATION = createKey("roseroot_forest_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREES_PLACEMENT = createKey("roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREES_PLACEMENT = createKey("blue_roseroot_trees_placement");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_AND_AMBERROOT_TREES_PLACEMENT = createKey("golden_oak_and_amberroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_CATTAILS_PATCH =  createKey("aether_cattails_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AMBERROOT_TREE = createKey("amberroot_tree");
 
 
 
@@ -154,6 +160,15 @@ public class DAConfiguredFeatures {
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
 
+        register(context, AMBERROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(DAFeatureStates.AMBERROOT_LOG),
+                        new TwinTrunkPlacer(7, 6, 3),
+                        BlockStateProvider.simple(DAFeatureStates.AMBERROOT_LEAVES),
+                        new GoldenOakFoliagePlacer(ConstantInt.of(0), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 2)).build());
+
+
 
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,
@@ -196,7 +211,6 @@ public class DAConfiguredFeatures {
         register(context, YAGROOT_AND_CRUDEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CRUDEROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DABlocks.CRUDEROOT_SAPLING.get())), 0.25F)),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(YAGROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DABlocks.YAGROOT_SAPLING.get()))));
-
 
         register(context, AETHER_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.AETHER_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
         register(context, AETHER_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DABlocks.AETHER_MOSS_BLOCK.get()),

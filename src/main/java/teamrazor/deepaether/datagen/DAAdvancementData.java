@@ -32,10 +32,11 @@ public class DAAdvancementData extends ForgeAdvancementProvider {
     private static final List<ResourceKey<Biome>> EXPLORABLE_BIOMES = ImmutableList.of(AetherBiomes.SKYROOT_GROVE, AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_MEADOW, AetherBiomes.SKYROOT_WOODLAND,
             DABiomes.AERGLOW_FOREST, DABiomes.BLUE_AERGLOW_FOREST, DABiomes.MYSTIC_AERGLOW_FOREST, DABiomes.AERLAVENDER_FIELDS);
 
+
     public static class DAAdvancements implements AdvancementGenerator {
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
-            Advancement enterAether = addBiomes(Advancement.Builder.advancement(), EXPLORABLE_BIOMES)
+            Advancement exploreAether = addBiomes(Advancement.Builder.advancement(), EXPLORABLE_BIOMES)
                     .parent(new ResourceLocation("aether:enter_aether"))
                     .display(DABlocks.ROSEROOT_SAPLING.get().asItem(), Component.translatable("advancements.deep_aether.explore_aether.title"), Component.translatable("advancements.deep_aether.explore_aether.description"),
                             null, FrameType.CHALLENGE, true, true, false)

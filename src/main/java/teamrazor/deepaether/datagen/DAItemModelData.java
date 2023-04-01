@@ -91,6 +91,27 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DABlocks.CRUDEROOT_SIGN.get().asItem());
 
 
+
+        this.itemBlock(DABlocks.AMBERROOT_WOOD.get());
+        this.itemBlock(DABlocks.AMBERROOT_LOG.get());
+        this.itemBlock(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
+        this.itemBlock(DABlocks.STRIPPED_AMBERROOT_LOG.get());
+        this.itemBlock(DABlocks.AMBERROOT_PLANKS.get());
+        this.itemBlock(DABlocks.AMBERROOT_SLAB.get());
+        this.itemBlock(DABlocks.AMBERROOT_STAIRS.get());
+        this.itemFence(DABlocks.AMBERROOT_FENCE.get(), DABlocks.AMBERROOT_PLANKS.get());
+        this.itemBlock(DABlocks.AMBERROOT_FENCE_GATE.get());
+        this.item(DABlocks.AMBERROOT_DOOR.get().asItem());
+        this.itemBlock(DABlocks.AMBERROOT_TRAPDOOR.get(), "_bottom");
+        this.itemButton(DABlocks.AMBERROOT_BUTTON.get(), DABlocks.AMBERROOT_PLANKS.get());
+        this.itemBlock(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
+        this.itemWallBlock(DABlocks.AMBERROOT_WALL.get(), DABlocks.AMBERROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_AMBERROOT_WALL.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
+        this.itemBlockFlat(DABlocks.AMBERROOT_SAPLING.get());
+        this.itemBlock(DABlocks.AMBERROOT_LEAVES.get());
+        this.item(DABlocks.AMBERROOT_SIGN.get().asItem());
+
+
         this.itemBlock(DABlocks.AETHER_MUD.get());
         this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS.get());
@@ -158,6 +179,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
         this.itemBlock(DABlocks.AETHER_MOSS_BLOCK.get());
+        this.itemBlock(DABlocks.GOLDEN_FIELD_GRASS_BLOCK.get());
 
         this.item(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
         this.item(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
