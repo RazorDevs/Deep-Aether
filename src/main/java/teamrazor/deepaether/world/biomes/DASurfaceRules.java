@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.biomes;
 
 
+import com.gildedgames.aether.block.AetherBlockStateProperties;
 import com.gildedgames.aether.data.resources.registries.AetherDimensions;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -46,9 +47,9 @@ public class DASurfaceRules {
             if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
                 List<SurfaceRules.RuleSource> surfaceRules = new ArrayList<>(sequenceRuleSource.sequence());
                 surfaceRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.YAGROOT_SWAMP),
-                        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(DABlocks.AETHER_MUD.get().defaultBlockState()))));
+                        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(DABlocks.AETHER_MUD.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))));
                 surfaceRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.YAGROOT_SWAMP),
-                        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), SurfaceRules.state(DABlocks.AETHER_MUD.get().defaultBlockState()))));
+                        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, true, 0, CaveSurface.FLOOR), SurfaceRules.state(DABlocks.AETHER_MUD.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))));
 
 
                 NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(),
