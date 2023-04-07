@@ -69,13 +69,13 @@ public class DAItems {
 	public static final RegistryObject<Item> CLOUDIUM_HOE = ITEMS.register("cloudium_hoe", () -> new CloudiumHoeItem(Tiers.NETHERITE, -4, 0.0F, (new Item.Properties())));
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = ITEMS.register("skyjade", () -> new SkyjadeItem());
-	public static final RegistryObject<Item> ADIBIUM_GEMSTONE = ITEMS.register("adibium_gemstone", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> AGATE_GEMSTONE = ITEMS.register("agate_gemstone", () -> new Item(new Item.Properties()));
+	//public static final RegistryObject<Item> ADIBIUM_GEMSTONE = ITEMS.register("adibium_gemstone", () -> new Item(new Item.Properties()));
+	//public static final RegistryObject<Item> AGATE_GEMSTONE = ITEMS.register("agate_gemstone", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> CLOUDIUM_INGOT = ITEMS.register("cloudium_ingot", () -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> CLOUDIUM_SCRAP = ITEMS.register("cloudium_scrap", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> RAW_ORATIE = ITEMS.register("raw_oratie", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> ORATIE_INGOT = ITEMS.register("oratie_ingot", () -> new Item(new Item.Properties()));
+	//public static final RegistryObject<Item> RAW_ORATIE = ITEMS.register("raw_oratie", () -> new Item(new Item.Properties()));
+	//public static final RegistryObject<Item> ORATIE_INGOT = ITEMS.register("oratie_ingot", () -> new Item(new Item.Properties()));
 
 	// FOOD
 	public static final RegistryObject<Item> RAW_QUAIL = ITEMS.register("raw_quail", () -> new Item(new Item.Properties().food(Foods.CHICKEN)));

@@ -3,13 +3,21 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.AddPackFindersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -45,6 +53,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Mod("deep_aether")
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAetherMod {
 
 	//TODO: en_lang and code cleanup
@@ -167,4 +176,14 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_PETAL.get().asItem(), 0.1F);
 	}
+	@SubscribeEvent
+	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
+		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+			var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("deep_aether_additional_assets");
+			var pack = Pack.readMetaAndCreate("builtin/deep_aether_additional_assets", Component.literal("Deep Aether Additional Assets"), true,
+					path -> new PathPackResources(path, resourcePath, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
+			event.addRepositorySource(consumer -> consumer.accept(pack));
+		}
+	}
+
 }

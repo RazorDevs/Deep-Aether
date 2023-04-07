@@ -1,7 +1,4 @@
-// 1.19.4	2023-04-07T14:54:33.0387287	Item Models: deep_aether
-c9cd46e8227850b73fed20f669ee10413053d61e assets/deep_aether/models/item/adibium_block.json
-93378b372ea5414c1ea6ca3c40405ded6dd6ca9b assets/deep_aether/models/item/adibium_gemstone.json
-26f01b89e6a99d196f3e19e8dfb34a150bfb0978 assets/deep_aether/models/item/adibium_ore.json
+// 1.19.4	2023-04-07T17:27:25.4212555	Item Models: deep_aether
 4e30ff1940f4f1b0cd516851b16b9b1b1a3b6d53 assets/deep_aether/models/item/aerglow_fish_bucket.json
 4a81697c908b1587d7aa033161a3d61a6ee0cdfd assets/deep_aether/models/item/aerglow_petal.json
 74dcf5209907c1101c6eee6b2dfbe20e5cb2805d assets/deep_aether/models/item/aerglow_petal_block.json
@@ -14,9 +11,6 @@ c3dfd22a3f2d3c287e776a6bcd5048ab0d91de9a assets/deep_aether/models/item/aether_m
 120457ac311e35c561ec9fb2b098fb2dd2b535bd assets/deep_aether/models/item/aether_mud_bricks.json
 3021b06bf69351debd366d607e32afa2d2f384b1 assets/deep_aether/models/item/aether_mud_bricks_slab.json
 779a515e446d643a37903e7247e67b147b25a7bd assets/deep_aether/models/item/aether_mud_bricks_stairs.json
-8620e432e1970c4216ebaf679b88a893e7f86964 assets/deep_aether/models/item/agate_block.json
-550fa384c7766358ed49855500d076723c12262f assets/deep_aether/models/item/agate_gemstone.json
-86f568865bb43135bed71bdd7e2fcfe7ce005af8 assets/deep_aether/models/item/agate_ore.json
 79d29fe7cc1ee9cce8d7dd2a983a99ecde61f160 assets/deep_aether/models/item/aseterite.json
 0fa16c424e8692cac9880e2b4559696f9f283fe8 assets/deep_aether/models/item/aseterite_slab.json
 72be94ab602997e5733d2f09b558e0de37c513c6 assets/deep_aether/models/item/aseterite_stairs.json
@@ -65,9 +59,6 @@ cd94b2760e8306e46efb3e6597e35d062ed40be8 assets/deep_aether/models/item/cruderoo
 d98370808b244e1e69b40063b3d92cda4dd75a8d assets/deep_aether/models/item/flowering_blue_roseroot_leaves.json
 557ec335fff29d6f40dd406d19f95d7bd2675030 assets/deep_aether/models/item/flowering_roseroot_leaves.json
 304a247bd8104cc716c15245dbc9b7070d1ff74b assets/deep_aether/models/item/gravitite_ring.json
-fc5927c7f366e1533cfcd376252cd93abf3e6855 assets/deep_aether/models/item/highstone_adibium_ore.json
-1c7baffbd02fae92cfeacfb3d1931be86bd70e2b assets/deep_aether/models/item/highstone_agate_ore.json
-4522b5237a40a4db1a513c747bf8b465843a43ab assets/deep_aether/models/item/highstone_oratie_ore.json
 fbbbef4f049fc469ea6b67a8b7416c8642dabfb6 assets/deep_aether/models/item/holystone_tiles.json
 b696c32391cebbeb23c81ce35d96fd4a9c46110d assets/deep_aether/models/item/holystone_tile_slab.json
 1bb442f6f94d265984cf8f90957ea91e9e1e8aac assets/deep_aether/models/item/holystone_tile_stairs.json
@@ -79,9 +70,6 @@ e5b08756814976642cfd950b5313ec59a6a3643a assets/deep_aether/models/item/holyston
 aa7fc793be5c4bf07d6ae9fe7a76ec0cce807a37 assets/deep_aether/models/item/muddy_yagroot_roots.json
 d5fa7e0967fc818e92206428ef84058d4c2e1843 assets/deep_aether/models/item/music_disc_a_morning_wish.json
 73144483c0cd198e8c76ae64e13b114368be1c71 assets/deep_aether/models/item/music_disc_nabooru.json
-72e94bbdf2d858edd8bfa5c7aa115a719d0d243b assets/deep_aether/models/item/oratie_block.json
-c97e916fdbdf67590e7d82b6f142825c93c21781 assets/deep_aether/models/item/oratie_ingot.json
-99bf1be6820f896a2831b25487c53261efc53f92 assets/deep_aether/models/item/oratie_ore.json
 55514485e8e93c9678f3b11b2e0e9bcd982f1c0c assets/deep_aether/models/item/packed_aether_mud.json
 64ffecd5e0a9ca75564898d6a54fb48375ea91a6 assets/deep_aether/models/item/poison_bucket.json
 81ee6cc9953c3ff892e112ea00d7ffe7261f20cf assets/deep_aether/models/item/polished_aseterite.json
@@ -93,8 +81,6 @@ e3694a277498b4335d01687c4c9f4e9c70698a56 assets/deep_aether/models/item/polished
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/deep_aether/models/item/quail_spawn_egg.json
 0d5613c246855f6718c5b9674a10581ab661a5bb assets/deep_aether/models/item/radiant_orchid.json
 2c0665d9817ac26482bebed8ec49845289a9dfef assets/deep_aether/models/item/raw_aerglow_fish.json
-96e2865c81ce2792f939ddc829fd2249e72c6078 assets/deep_aether/models/item/raw_oratie.json
-42f7fae0852a6fc89294c522321216d8eb945569 assets/deep_aether/models/item/raw_oratie_block.json
 b9096a1cd59e89492f4d4b74284103e242c91787 assets/deep_aether/models/item/raw_quail.json
 95fe0d5ed5af07e46052fb3bc128340afcc08e3a assets/deep_aether/models/item/roseroot_boat.json
 dd45e03227fec124e8d3e1fb65472aa4eae1f0e1 assets/deep_aether/models/item/roseroot_button.json

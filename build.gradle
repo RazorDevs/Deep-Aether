@@ -154,8 +154,6 @@ dependencies {
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.4.2:api")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     runtimeOnly(fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.2"))
-    compileOnly ("mezz.jei:jei-1.19.4-common-api:13.1.0.2")
-    compileOnly ("mezz.jei:jei-1.19.4-fabric-api:13.1.0.2")
 
 }
 

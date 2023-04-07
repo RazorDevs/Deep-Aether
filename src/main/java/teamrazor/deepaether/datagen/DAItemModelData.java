@@ -117,10 +117,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CLOUDIUM_DEBRIS.get());
         this.itemBlock(DABlocks.CLOUDIUM_BLOCK.get());
 
-        this.item(DAItems.ADIBIUM_GEMSTONE.get());
-        this.item(DAItems.AGATE_GEMSTONE.get());
-        this.item(DAItems.RAW_ORATIE.get());
-        this.item(DAItems.ORATIE_INGOT.get());
+        //this.item(DAItems.ADIBIUM_GEMSTONE.get());
+        //this.item(DAItems.AGATE_GEMSTONE.get());
+        //this.item(DAItems.RAW_ORATIE.get());
+        //this.item(DAItems.ORATIE_INGOT.get());
 
         this.itemBlock(DABlocks.ASETERITE.get());
         this.itemBlock(DABlocks.ASETERITE_STAIRS.get());
