@@ -147,7 +147,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.4-45.0.40'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.4:4.1.1')
-    compileOnly "com.gildedgames.aether:aether:1.19.4-0.5.0"
+    compileOnly "com.gildedgames.aether:aether:1.19.4-0.6.1"
     runtimeOnly fg.deobf("com.gildedgames.aether:aether:1.19.4-0.6.1")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.4.2")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.4.2:api")

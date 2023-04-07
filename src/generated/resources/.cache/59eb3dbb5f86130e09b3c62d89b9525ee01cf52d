@@ -1,4 +1,4 @@
-// 1.19.4	2023-04-07T16:07:14.8636421	Loot Tables
+// 1.19.4	2023-04-07T16:12:39.0834379	Loot Tables
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_block.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/adibium_ore.json
 a286737623dfc7804cbfda9b2fd4db402be3088f data/deep_aether/loot_tables/blocks/aerglow_petal_block.json
@@ -41,8 +41,8 @@ d9d3af63ea33e50f15d7da4b72f3ad81d1597bc2 data/deep_aether/loot_tables/blocks/cru
 526111d1728b49dcc798d75c48f6c04959f1f85c data/deep_aether/loot_tables/blocks/cruderoot_wall.json
 80a9c8245f90bb8802088dc07fed3b75d460e7cd data/deep_aether/loot_tables/blocks/cruderoot_wall_sign.json
 64509ecde041821b0228fd379da045d868b9058f data/deep_aether/loot_tables/blocks/cruderoot_wood.json
-72d7d9626016201343904b51fd3063530bcba402 data/deep_aether/loot_tables/blocks/flowering_blue_roseroot_leaves.json
-4ded7f008c2ff3373433a20df6f3bca554e69e89 data/deep_aether/loot_tables/blocks/flowering_roseroot_leaves.json
+94ff69c58f0a0ca3e218850933838388d133a187 data/deep_aether/loot_tables/blocks/flowering_blue_roseroot_leaves.json
+b1b89c6b3adecf6772855ee360c1e172b410293d data/deep_aether/loot_tables/blocks/flowering_roseroot_leaves.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/highstone_adibium_ore.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/highstone_agate_ore.json
 1d4929d7d6176f60e5ea991a577527ed251ef375 data/deep_aether/loot_tables/blocks/highstone_oratie_ore.json
