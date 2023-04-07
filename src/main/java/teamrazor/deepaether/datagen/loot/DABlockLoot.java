@@ -193,18 +193,18 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.YAGROOT_VINE.get());
 
-        this.dropNone(DABlocks.AGATE_BLOCK.get());
-        this.dropNone(DABlocks.AGATE_ORE.get());
-        this.dropNone(DABlocks.HIGHSTONE_AGATE_ORE.get());
+       //this.dropNone(DABlocks.AGATE_BLOCK.get());
+       //this.dropNone(DABlocks.AGATE_ORE.get());
+       //this.dropNone(DABlocks.HIGHSTONE_AGATE_ORE.get());
 
-        this.dropNone(DABlocks.ADIBIUM_BLOCK.get());
-        this.dropNone(DABlocks.ADIBIUM_ORE.get());
-        this.dropNone(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
+       //this.dropNone(DABlocks.ADIBIUM_BLOCK.get());
+       //this.dropNone(DABlocks.ADIBIUM_ORE.get());
+       //this.dropNone(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
 
-        this.dropNone(DABlocks.ORATIE_BLOCK.get());
-        this.dropNone(DABlocks.RAW_ORATIE_BLOCK.get());
-        this.dropNone(DABlocks.ORATIE_ORE.get());
-        this.dropNone(DABlocks.HIGHSTONE_ORATIE_ORE.get());
+       //this.dropNone(DABlocks.ORATIE_BLOCK.get());
+       //this.dropNone(DABlocks.RAW_ORATIE_BLOCK.get());
+       //this.dropNone(DABlocks.ORATIE_ORE.get());
+       //this.dropNone(DABlocks.HIGHSTONE_ORATIE_ORE.get());
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
     }

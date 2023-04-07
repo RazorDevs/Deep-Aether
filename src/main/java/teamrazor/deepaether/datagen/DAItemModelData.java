@@ -101,18 +101,18 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SKYJADE_BLOCK.get());
         this.itemBlock(DABlocks.SKYJADE_ORE.get());
 
-        this.itemBlock(DABlocks.AGATE_ORE.get());
-        this.itemBlock(DABlocks.HIGHSTONE_AGATE_ORE.get());
-        this.itemBlock(DABlocks.AGATE_BLOCK.get());
+        //this.itemBlock(DABlocks.AGATE_ORE.get());
+        //this.itemBlock(DABlocks.HIGHSTONE_AGATE_ORE.get());
+        //this.itemBlock(DABlocks.AGATE_BLOCK.get());
 
-        this.itemBlock(DABlocks.ADIBIUM_ORE.get());
-        this.itemBlock(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
-        this.itemBlock(DABlocks.ADIBIUM_BLOCK.get());
+        //this.itemBlock(DABlocks.ADIBIUM_ORE.get());
+        //this.itemBlock(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
+        //this.itemBlock(DABlocks.ADIBIUM_BLOCK.get());
 
-        this.itemBlock(DABlocks.ORATIE_BLOCK.get());
-        this.itemBlock(DABlocks.ORATIE_ORE.get());
-        this.itemBlock(DABlocks.RAW_ORATIE_BLOCK.get());
-        this.itemBlock(DABlocks.HIGHSTONE_ORATIE_ORE.get());
+        //this.itemBlock(DABlocks.ORATIE_BLOCK.get());
+        //this.itemBlock(DABlocks.ORATIE_ORE.get());
+        //this.itemBlock(DABlocks.RAW_ORATIE_BLOCK.get());
+        //this.itemBlock(DABlocks.HIGHSTONE_ORATIE_ORE.get());
 
         this.itemBlock(DABlocks.CLOUDIUM_DEBRIS.get());
         this.itemBlock(DABlocks.CLOUDIUM_BLOCK.get());

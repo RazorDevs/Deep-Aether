@@ -103,21 +103,21 @@ public class DABlocks {
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = registerBlock("skyjade_block", () -> new Block (BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
 
-	public static final RegistryObject<Block> AGATE_ORE = registerBlock("agate_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
-	public static final RegistryObject<Block> HIGHSTONE_AGATE_ORE = registerBlock("highstone_agate_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
-	public static final RegistryObject<Block> AGATE_BLOCK = registerBlock("agate_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+	//public static final RegistryObject<Block> AGATE_ORE = registerBlock("agate_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	//public static final RegistryObject<Block> HIGHSTONE_AGATE_ORE = registerBlock("highstone_agate_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	//public static final RegistryObject<Block> AGATE_BLOCK = registerBlock("agate_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
 
-	public static final RegistryObject<Block> ADIBIUM_ORE = registerBlock("adibium_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
-	public static final RegistryObject<Block> HIGHSTONE_ADIBIUM_ORE = registerBlock("highstone_adibium_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
-	public static final RegistryObject<Block> ADIBIUM_BLOCK = registerBlock("adibium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+	//public static final RegistryObject<Block> ADIBIUM_ORE = registerBlock("adibium_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	//public static final RegistryObject<Block> HIGHSTONE_ADIBIUM_ORE = registerBlock("highstone_adibium_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	//public static final RegistryObject<Block> ADIBIUM_BLOCK = registerBlock("adibium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
 
 	public static final RegistryObject<Block> CLOUDIUM_DEBRIS = registerBlock("cloudium_debris", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(10f, 10f)));
 	public static final RegistryObject<Block> CLOUDIUM_BLOCK = registerBlock("cloudium_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(10f, 10f)));
 
-	public static final RegistryObject<Block> ORATIE_ORE = registerBlock("oratie_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
-	public static final RegistryObject<Block> HIGHSTONE_ORATIE_ORE = registerBlock("highstone_oratie_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
-	public static final RegistryObject<Block> RAW_ORATIE_BLOCK= registerBlock("raw_oratie_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
-	public static final RegistryObject<Block> ORATIE_BLOCK = registerBlock("oratie_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+	//public static final RegistryObject<Block> ORATIE_ORE = registerBlock("oratie_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	//public static final RegistryObject<Block> HIGHSTONE_ORATIE_ORE = registerBlock("highstone_oratie_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f)));
+	//public static final RegistryObject<Block> RAW_ORATIE_BLOCK= registerBlock("raw_oratie_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
+	//public static final RegistryObject<Block> ORATIE_BLOCK = registerBlock("oratie_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f)));
 
 	public static final RegistryObject<Block> ASETERITE = registerBlock("aseterite", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 	public static final RegistryObject<Block> POLISHED_ASETERITE = registerBlock("polished_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
@@ -181,7 +181,6 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_AERLAVENDER = BLOCKS.register("potted_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_TALL_AERLAVENDER = BLOCKS.register("potted_tall_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_AETHER_CATTAILS = BLOCKS.register("potted_aether_cattails", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AETHER_CATTAILS, Block.Properties.copy(Blocks.FLOWER_POT)));
-	//public static final RegistryObject<FlowerPotBlock> POTTED_TALL_AETHER_CATTAILS = BLOCKS.register("potted_tall_aether_cattails", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AETHER_CATTAILS, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_RADIANT_ORCHID = BLOCKS.register("potted_radiant_orchid", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, RADIANT_ORCHID, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_ROSEROOT_SAPLING = BLOCKS.register("potted_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -193,7 +192,6 @@ public class DABlocks {
 		pot.addPlant(DABlocks.AERLAVENDER.getId(), DABlocks.POTTED_AERLAVENDER);
 		pot.addPlant(DABlocks.TALL_AERLAVENDER.getId(), DABlocks.POTTED_TALL_AERLAVENDER);
 		pot.addPlant(DABlocks.AETHER_CATTAILS.getId(), DABlocks.POTTED_AETHER_CATTAILS);
-		///pot.addPlant(DABlocks.TALL_AETHER_CATTAILS.getId(), DABlocks.POTTED_TALL_AETHER_CATTAILS);
 		pot.addPlant(DABlocks.RADIANT_ORCHID.getId(), DABlocks.POTTED_RADIANT_ORCHID);
 
 		pot.addPlant(DABlocks.ROSEROOT_SAPLING.getId(), DABlocks.POTTED_ROSEROOT_SAPLING);
