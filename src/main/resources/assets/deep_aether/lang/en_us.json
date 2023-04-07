@@ -409,7 +409,8 @@
   "block.deep_aether.mossy_holystone_tile_slab": "Mossy Holystone Tile Slab",
   "block.deep_aether.mossy_holystone_tile_wall": "Mossy Holystone Tile Wall",
   "trim_material.deep_aether.skyjade": "Skyjade Material",
-  "trim_material.deep_aether.cloudium": "Cloudium Material"
+  "trim_material.deep_aether.cloudium": "Cloudium Material",
 
+  "fluid_type.deep_aether.poison_fluid": "Poison"
 }
 

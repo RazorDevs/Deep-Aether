@@ -2,12 +2,29 @@ package teamrazor.deepaether.datagen.loot;
 
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.data.providers.AetherBlockLootSubProvider;
+import com.gildedgames.aether.item.AetherItems;
+import com.gildedgames.aether.loot.functions.DoubleDrops;
 import com.gildedgames.aether.mixin.mixins.common.accessor.BlockLootAccessor;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -22,6 +39,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
     public DABlockLoot() {
         super(EXPLOSION_RESISTANT, FeatureFlags.REGISTRY.allFlags());
     }
+
 
     @Override
     public void generate() {
@@ -47,8 +65,15 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.ROSEROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
+        this.add(DABlocks.FLOWERING_ROSEROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticksAndAerglowPetal(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticksAndAerglowPetal(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
         this.dropOther(DABlocks.ROSEROOT_WALL_SIGN.get(), DABlocks.ROSEROOT_SIGN.get());
         this.dropSelf(DABlocks.ROSEROOT_SIGN.get());
+        this.add(DABlocks.BLUE_ROSEROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
         this.dropSelf(DABlocks.AERGLOW_PETAL_BLOCK.get());
 
@@ -72,8 +97,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_YAGROOT_SAPLING.get());
         this.add(DABlocks.YAGROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.YAGROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-        this.add(DABlocks.BLUE_ROSEROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.YAGROOT_WALL_SIGN.get(), DABlocks.YAGROOT_SIGN.get());
         this.dropSelf(DABlocks.YAGROOT_SIGN.get());
 
@@ -153,16 +176,16 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
 
         this.dropSelf(DABlocks.AERLAVENDER.get());
-
-
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
-        //this.dropNone(DABlocks.TALL_AETHER_CATTAILS.get());
+        this.dropSelf(DABlocks.TALL_AERLAVENDER.get());
+        this.add(DABlocks.TALL_AETHER_CATTAILS.get(),
+                (flower) -> createSinglePropConditionTable(DABlocks.TALL_AETHER_CATTAILS.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 
         this.dropSelf(DABlocks.RADIANT_ORCHID.get());
         this.dropPottedContents(DABlocks.POTTED_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_TALL_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_AETHER_CATTAILS.get());
-        this.dropPottedContents(DABlocks.POTTED_TALL_AETHER_CATTAILS.get());
+        //this.dropPottedContents(DABlocks.POTTED_TALL_AETHER_CATTAILS.get());
         this.dropPottedContents(DABlocks.POTTED_RADIANT_ORCHID.get());
 
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
@@ -184,6 +207,27 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
     }
+
+    public LootTable.Builder droppingWithChancesAndSkyrootSticksAndAerglowPetal(Block block, Block sapling, float... chances) {
+        return createSilkTouchOrShearsDispatchTable(block, this.applyExplosionCondition(block, LootItem.lootTableItem(sapling)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, chances)))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(BlockLootAccessor.aether$hasShearsOrSilkTouch().invert())
+                        .add(this.applyExplosionDecay(block,
+                                LootItem.lootTableItem(AetherItems.SKYROOT_STICK.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+                                        .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F))))
+                        .add(this.applyExplosionDecay(block,
+                                        LootItem.lootTableItem(DAItems.AERGLOW_PETAL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+                                .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,0.2F, 0.22222223F, 0.25F, 0.33333335F, 1F))))
+                .apply(DoubleDrops.builder());
+    }
+
+    //protected static final LootItemCondition.Builder HAS_NO_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert();
+    //protected static LootTable.Builder deepAetherTallFlowerDrop(Block block, Block block1) {
+    //    return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SILK_TOUCH).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block))).withPool(LootPool.lootPool().when(HAS_NO_SILK_TOUCH).when(HAS_NO_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block1)));
+    //}
+
+    //public void createDeepAetherTallFlowerDrop(Block block, Block block1) {
+    //    this.add(block, (result) -> this.deepAetherTallFlowerDrop(block, block1));
+    //}
 
     @Override
     protected Iterable<Block> getKnownBlocks() {

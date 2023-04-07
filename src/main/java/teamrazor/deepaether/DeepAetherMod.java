@@ -123,12 +123,10 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), new DARecipeData(packOutput));
 		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput));
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
+		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
 	}
-
-
-
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
