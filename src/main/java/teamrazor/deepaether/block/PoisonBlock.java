@@ -37,7 +37,7 @@ public class PoisonBlock extends LiquidBlock {
     @Override
     public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 500, 0, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
         }
     }
 
@@ -65,7 +65,7 @@ public class PoisonBlock extends LiquidBlock {
         @Override
         public void entityInside (BlockState blockState, Level level, BlockPos pos, Entity entity) {
             if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 500, 0, false, false));
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
             } else if (entity instanceof ItemEntity itemEntity) {
 
                 ItemEntity TRANSFORMED_ITEM_ENTITY = (new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.DIRT, 1)));
