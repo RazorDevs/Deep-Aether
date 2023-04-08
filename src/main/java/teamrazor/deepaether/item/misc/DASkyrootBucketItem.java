@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item;
+package teamrazor.deepaether.item.misc;
 
 import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import net.minecraft.core.BlockPos;

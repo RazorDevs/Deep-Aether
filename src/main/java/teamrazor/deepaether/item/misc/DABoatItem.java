@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item;
+package teamrazor.deepaether.item.misc;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;

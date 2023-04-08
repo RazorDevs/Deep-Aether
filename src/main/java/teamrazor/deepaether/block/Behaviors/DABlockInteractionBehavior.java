@@ -37,9 +37,7 @@ import static net.minecraft.core.cauldron.CauldronInteraction.emptyBucket;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {
-    static CauldronInteraction FILL_POISON = (p_175683_, p_175684_, p_175685_, p_175686_, p_175687_, p_175688_) -> {
-        return emptyBucket(p_175684_, p_175685_, p_175686_, p_175687_, p_175688_, Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, Integer.valueOf(3)), SoundEvents.BUCKET_EMPTY);
-    };
+
 
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {

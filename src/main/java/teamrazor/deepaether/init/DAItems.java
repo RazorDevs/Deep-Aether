@@ -13,15 +13,15 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.item.AerglowPetalItem;
-import teamrazor.deepaether.item.DABoatItem;
-import teamrazor.deepaether.item.DABucketItem;
-import teamrazor.deepaether.item.DASkyrootBucketItem;
+import teamrazor.deepaether.item.misc.DABoatItem;
+import teamrazor.deepaether.item.misc.DABucketItem;
+import teamrazor.deepaether.item.misc.DASkyrootBucketItem;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.cloudium.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
+import teamrazor.deepaether.item.misc.DrinkableBucketItem;
 
 import static com.gildedgames.aether.item.AetherItems.SKYROOT_BUCKET;
 
@@ -107,7 +107,7 @@ public class DAItems {
 			new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
-			() -> new BucketItem(DAFluids.POISON_FLUID, new Item.Properties().stacksTo(1)));
+			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID, new Item.Properties().stacksTo(1)));
 
 	public static final RegistryObject<Item> VIRULENT_QUICKSAND_BUCKET = ITEMS.register("virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1)));
@@ -115,7 +115,7 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = ITEMS.register("skyroot_virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1)));
 
-	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new AerglowPetalItem());
+	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new Item(new Item.Properties()));
 
 
 	public static void register(IEventBus eventBus) {

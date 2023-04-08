@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item;
+package teamrazor.deepaether.item.misc;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -42,7 +42,7 @@ public class DABucketItem extends MobBucketItem {
             return new InteractionResultHolder<>(InteractionResult.PASS, heldStack);
         } else {
             BlockHitResult raytrace = getPlayerPOVHitResult(world, player, ClipContext.Fluid.SOURCE_ONLY);
-            if (raytrace.getType() != HitResult.Type.BLOCK) {
+             if (raytrace.getType() != HitResult.Type.BLOCK) {
                 return new InteractionResultHolder<>(InteractionResult.PASS, heldStack);
             } else {
                 BlockPos pos = raytrace.getBlockPos();
