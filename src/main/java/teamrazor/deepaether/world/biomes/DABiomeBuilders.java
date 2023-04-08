@@ -1,17 +1,5 @@
 package teamrazor.deepaether.world.biomes;
 
-import com.gildedgames.aether.client.AetherSoundEvents;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.sounds.Music;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeGenerationSettings;
-import net.minecraft.world.level.biome.BiomeSpecialEffects;
-import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import teamrazor.deepaether.world.feature.DAPlacedFeatures;
-
 public class DABiomeBuilders {
 
 /*

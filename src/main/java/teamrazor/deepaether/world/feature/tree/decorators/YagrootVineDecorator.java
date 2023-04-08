@@ -7,8 +7,6 @@ import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import teamrazor.deepaether.init.DABlocks;
 
 

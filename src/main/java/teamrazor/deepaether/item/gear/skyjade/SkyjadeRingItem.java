@@ -1,6 +1,5 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
-import com.gildedgames.aether.AetherTags;
 import com.gildedgames.aether.client.AetherSoundEvents;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.item.ItemStack;

@@ -1,9 +1,11 @@
 package teamrazor.deepaether;
+
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
@@ -15,39 +17,34 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
-
-
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
-
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
-import teamrazor.deepaether.datagen.*;
+import teamrazor.deepaether.datagen.DABlockstateData;
+import teamrazor.deepaether.datagen.DAItemModelData;
+import teamrazor.deepaether.datagen.DARecipeData;
+import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
+import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
-
-import net.minecraftforge.network.simple.SimpleChannel;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.IEventBus;
-
-import net.minecraft.resources.ResourceLocation;
-
-import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
-
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;

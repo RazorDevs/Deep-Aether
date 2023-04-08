@@ -1,6 +1,5 @@
 package teamrazor.deepaether.init;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import teamrazor.deepaether.DeepAetherMod;
