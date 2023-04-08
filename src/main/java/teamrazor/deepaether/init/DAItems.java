@@ -2,6 +2,7 @@ package teamrazor.deepaether.init;
 
 import com.gildedgames.aether.client.AetherSoundEvents;
 import com.gildedgames.aether.item.accessories.ring.RingItem;
+import com.gildedgames.aether.item.miscellaneous.AetherRecordItem;
 import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.Foods;
@@ -101,10 +102,10 @@ public class DAItems {
 	public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_spawn_egg",
 			() -> new ForgeSpawnEggItem(DAEntities.QUAIL,6373632,16776960, new Item.Properties()));
 
-	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru", () -> new RecordItem(0, DASounds.NABOORU.get(),
-			new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100));
-	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = ITEMS.register("music_disc_a_morning_wish", () -> new RecordItem(0, DASounds.A_MORNING_WISH.get(),
-			new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 100));
+	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru",
+			() -> new AetherRecordItem(7, DASounds.NABOORU, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));
+	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = ITEMS.register("music_disc_a_morning_wish",
+			() -> new AetherRecordItem(8, DASounds.A_MORNING_WISH, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 5660));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID, new Item.Properties().stacksTo(1)));

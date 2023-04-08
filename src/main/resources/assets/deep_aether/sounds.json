@@ -1,6 +1,5 @@
 {
-  "music_disc_a_morning_wish": {
-    "category": "record",
+  "item.music_disc.a_morning_wish": {
     "sounds": [
       {
         "name": "deep_aether:emile-van-krieken-a-morning-wish",
@@ -8,8 +7,7 @@
       }
     ]
   },
-  "music_disc_nabooru": {
-    "category": "record",
+  "item.music_disc.nabooru": {
     "sounds": [
       {
         "name": "deep_aether:emile-van-krieken-nabooru",

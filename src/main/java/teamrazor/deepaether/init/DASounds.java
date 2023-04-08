@@ -11,8 +11,8 @@ public class DASounds {
 
 	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DeepAetherMod.MODID);
 
-	public static final RegistryObject<SoundEvent> NABOORU = register("music_disc_nabooru");
-	public static final RegistryObject<SoundEvent> A_MORNING_WISH = register( "music_disc_a_morning_wish");
+	public static final RegistryObject<SoundEvent> NABOORU = register("item.music_disc.nabooru");
+	public static final RegistryObject<SoundEvent> A_MORNING_WISH = register( "item.music_disc.a_morning_wish");
 
 
 	private static RegistryObject<SoundEvent> register(String name) {
