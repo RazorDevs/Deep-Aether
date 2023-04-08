@@ -132,7 +132,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.PACKED_AETHER_MUD.get())
                 .requires(DABlocks.AETHER_MUD.get())
-                .requires(Items.WHEAT)
+                .requires(DAItems.AERGLOW_PETAL.get())
                 .unlockedBy(getHasName(DABlocks.AETHER_MUD.get()), has(DABlocks.AETHER_MUD.get()))
                 .save(consumer);
 
