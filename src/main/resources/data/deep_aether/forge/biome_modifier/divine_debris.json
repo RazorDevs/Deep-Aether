@@ -2,5 +2,5 @@
   "type": "forge:add_features",
   "biomes": "#aether:is_aether",
   "features": "deep_aether:divine_debris",
-  "step": "underground_ores"
+  "step": "top_layer_modification"
 }

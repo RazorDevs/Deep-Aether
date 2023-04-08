@@ -204,7 +204,7 @@ public class DAConfiguredFeatures {
 
 
         register(context, ORE_SKYJADE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.SKYJADE_ORE, 5, 0.65F));
-        register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(new BlockMatchTest(AetherBlocks.HOLYSTONE.get()), DAFeatureStates.DIVINE_DEBRIS, 4, 0F));
+        register(context, ORE_DIVINE_DEBRIS_CONFIGURATION, Feature.ORE, new OreConfiguration(new BlockMatchTest(AetherBlocks.COLD_AERCLOUD.get()), DAFeatureStates.DIVINE_DEBRIS, 3,1F));
         register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.ASETERITE, 64));
         register(context, CLORITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.CLORITE, 64));
 
