@@ -1,6 +1,7 @@
 package teamrazor.deepaether.block;
 
 import com.gildedgames.aether.block.AetherBlockStateProperties;
+import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
@@ -14,17 +15,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 
-public class DAMossBlock extends Block implements BonemealableBlock {
+public class DAMossBlock extends AetherDoubleDropBlock implements BonemealableBlock {
     public DAMossBlock(BlockBehaviour.Properties p_153790_) {
         super(p_153790_);
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder);
-        builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
-    }
-
     @Override
     public boolean isValidBonemealTarget(LevelReader p_256559_, BlockPos p_50898_, BlockState p_50899_, boolean p_50900_) {
         return p_256559_.getBlockState(p_50898_.above()).isAir();

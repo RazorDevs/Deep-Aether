@@ -42,7 +42,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.ROSEROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.ROSEROOT_LOG.get());
-        this.dropSelfDouble(DABlocks.STRIPPED_ROSEROOT_LOG.get());
+        this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.dropSelf(DABlocks.ROSEROOT_PLANKS.get());
         this.dropSelf(DABlocks.ROSEROOT_SLAB.get());
         this.dropSelf(DABlocks.ROSEROOT_STAIRS.get());
@@ -77,7 +77,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.YAGROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_YAGROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.YAGROOT_LOG.get());
-        this.dropSelfDouble(DABlocks.STRIPPED_YAGROOT_LOG.get());
+        this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.dropSelf(DABlocks.YAGROOT_PLANKS.get());
         this.dropSelf(DABlocks.YAGROOT_SLAB.get());
         this.dropSelf(DABlocks.YAGROOT_STAIRS.get());
@@ -96,7 +96,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropOther(DABlocks.YAGROOT_WALL_SIGN.get(), DABlocks.YAGROOT_SIGN.get());
         this.dropSelf(DABlocks.YAGROOT_SIGN.get());
 
-        this.dropSelf(DABlocks.YAGROOT_ROOTS.get());
+        this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
 
 
@@ -104,7 +104,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.CRUDEROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.CRUDEROOT_LOG.get());
-        this.dropSelfDouble(DABlocks.STRIPPED_CRUDEROOT_LOG.get());
+        this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.dropSelf(DABlocks.CRUDEROOT_PLANKS.get());
         this.dropSelf(DABlocks.CRUDEROOT_SLAB.get());
         this.dropSelf(DABlocks.CRUDEROOT_STAIRS.get());
@@ -124,7 +124,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.CRUDEROOT_SIGN.get());
 
 
-        this.dropSelf(DABlocks.AETHER_MUD.get());
+        this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
@@ -143,7 +143,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         //STONES
 
-        this.dropSelf(DABlocks.ASETERITE.get());
+        this.dropSelfDouble(DABlocks.ASETERITE.get());
         this.dropSelf(DABlocks.ASETERITE_SLAB.get());
         this.dropSelf(DABlocks.ASETERITE_STAIRS.get());
         this.dropSelf(DABlocks.ASETERITE_WALL.get());
@@ -151,7 +151,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.POLISHED_ASETERITE_SLAB.get());
         this.dropSelf(DABlocks.POLISHED_ASETERITE_STAIRS.get());
 
-        this.dropSelf(DABlocks.CLORITE.get());
+        this.dropSelfDouble(DABlocks.CLORITE.get());
         this.dropSelf(DABlocks.CLORITE_SLAB.get());
         this.dropSelf(DABlocks.CLORITE_STAIRS.get());
         this.dropSelf(DABlocks.CLORITE_WALL.get());
