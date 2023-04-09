@@ -9,7 +9,7 @@ It aims to add lots of new features to give players a chance to venture deeper i
 
 The Deep Aether mod introduces:
   - Two New Ores, Cloudium Debris And Skyjade Ore
-  - New Armor And Tools
+  - New Armors And Tools
   - 3 new Biomes, The Roseroot Forest, Yagroot Swamp and Aerlavender Fields 
   - New Music Discs
   - New Docorational Blocks, including 2 stone types and tree woodsets 
