@@ -8,11 +8,11 @@ It aims to add lots of new features to give players a chance to venture deeper i
  # What is new?
 
 The Deep Aether mod introduces:
-  - New Skyjade Ore
-  - New Skyjade Tools
-  - New Aerglow Grove Biome
+  - Two New Ores, Cloudium Debris And Skyjade Ore
+  - New Armor And Tools
+  - 3 new Biomes, The Roseroot Forest, Yagroot Swamp and Aerlavender Fields 
   - New Music Discs
-  - New Structures
+  - New Docorational Blocks, including 2 stone types and tree woodsets 
   - And more...
 
 # Requirements
@@ -23,10 +23,8 @@ You'll need of course:
  
  You will also need:
  - GeckoLib
- 
-Planned support for:
-- Quark
+
  
 # Credits
 
-The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy.
+The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights goes to Emile van Krieken.
