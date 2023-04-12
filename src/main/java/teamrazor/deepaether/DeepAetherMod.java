@@ -182,5 +182,4 @@ public class DeepAetherMod {
 			event.addRepositorySource(consumer -> consumer.accept(pack));
 		}
 	}
-
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -21,6 +22,14 @@ public class DATags {
 
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
+        }
+    }
+
+    public static class Biomes {
+
+        public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
+        private static TagKey<Biome> tag(String name) {
+            return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
         }
     }
 }

@@ -5,14 +5,22 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCauldronBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MaterialColor;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 
 
 public class PoisonCauldronBlock extends AbstractCauldronBlock {
+
+    @Override
+    public MaterialColor getMapColor(BlockState state, BlockGetter level, BlockPos pos, MaterialColor defaultColor) {
+        return super.getMapColor(state, level, pos, defaultColor);
+    }
+
 
 
     public PoisonCauldronBlock(BlockBehaviour.Properties p_153498_) {
@@ -38,9 +46,5 @@ public class PoisonCauldronBlock extends AbstractCauldronBlock {
     public int getAnalogOutputSignal(BlockState p_153502_, Level p_153503_, BlockPos p_153504_) {
         return 14;
     }
-
-
-
-
 
 }
