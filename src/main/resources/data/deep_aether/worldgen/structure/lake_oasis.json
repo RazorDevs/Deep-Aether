@@ -49,8 +49,8 @@
         {
           "type": "deep_aether:aether_fish",
           "weight": 1,
-          "minCount": 1,
-          "maxCount": 4
+          "minCount": 4,
+          "maxCount": 10
         }
       ]
     }
