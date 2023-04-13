@@ -2,6 +2,6 @@
   "parent": "minecraft:block/flower_pot_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "plant": "deep_aether:block/aether_cattails"
+    "plant": "deep_aether:block/aether_cattails_pot"
   }
 }

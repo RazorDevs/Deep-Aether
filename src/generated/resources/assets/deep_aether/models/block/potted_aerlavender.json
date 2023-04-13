@@ -2,6 +2,6 @@
   "parent": "minecraft:block/flower_pot_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "plant": "deep_aether:block/aerlavender"
+    "plant": "deep_aether:block/aerlavender_pot"
   }
 }
