@@ -29,10 +29,10 @@ public class DAEventClientBusEvents {
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
 
         event.enqueueWork(() -> {
-
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);
             Sheets.addWoodType(DAWoodTypes.CRUDEROOT);
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
+            Sheets.addWoodType(DAWoodTypes.AMBERROOT);
         });
     }
 
@@ -47,6 +47,8 @@ public class DAEventClientBusEvents {
         event.registerEntityRenderer(DAEntities.YAGROOT_CHEST_BOAT.get(), (context) -> new YagrootBoatRenderer(context, true));
         event.registerEntityRenderer(DAEntities.CRUDEROOT_BOAT.get(), (context) -> new CruderootBoatRenderer(context, false));
         event.registerEntityRenderer(DAEntities.CRUDEROOT_CHEST_BOAT.get(), (context) -> new CruderootBoatRenderer(context, true));
+        event.registerEntityRenderer(DAEntities.AMBERROOT_BOAT.get(), (context) -> new CruderootBoatRenderer(context, false));
+        event.registerEntityRenderer(DAEntities.AMBERROOT_CHEST_BOAT.get(), (context) -> new CruderootBoatRenderer(context, true));
     }
 
     @SubscribeEvent

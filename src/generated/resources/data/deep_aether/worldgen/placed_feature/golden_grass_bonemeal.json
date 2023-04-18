@@ -1,0 +1,12 @@
+{
+  "feature": "deep_aether:golden_grass_block_bonemeal_patch",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "minecraft:air"
+      }
+    }
+  ]
+}

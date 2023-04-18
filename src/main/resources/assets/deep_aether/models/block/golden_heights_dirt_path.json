@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "bottom": "aether:block/natural/aether_dirt",
+    "particle": "aether:block/natural/aether_dirt",
+    "side": "deep_aether:block/golden_heights_dirt_path_side",
+    "top": "deep_aether:block/golden_heights_dirt_path_top"
+  }
+}

@@ -5,8 +5,10 @@ import com.gildedgames.aether.item.accessories.ring.RingItem;
 import com.gildedgames.aether.item.miscellaneous.AetherRecordItem;
 import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -14,15 +16,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.item.misc.DABoatItem;
-import teamrazor.deepaether.item.misc.DABucketItem;
-import teamrazor.deepaether.item.misc.DASkyrootBucketItem;
+import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.cloudium.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
-import teamrazor.deepaether.item.misc.DrinkableBucketItem;
 
 import static com.gildedgames.aether.item.AetherItems.SKYROOT_BUCKET;
 
@@ -36,6 +35,7 @@ public class DAItems {
 	public static final RegistryObject<Item> ROSEROOT_SIGN = ITEMS.register("roseroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.ROSEROOT_SIGN.get(), DABlocks.ROSEROOT_WALL_SIGN.get()));
 	public static final RegistryObject<Item> YAGROOT_SIGN = ITEMS.register("yagroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.YAGROOT_SIGN.get(), DABlocks.YAGROOT_WALL_SIGN.get()));
 	public static final RegistryObject<Item> CRUDEROOT_SIGN = ITEMS.register("cruderoot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.CRUDEROOT_SIGN.get(), DABlocks.CRUDEROOT_WALL_SIGN.get()));
+	public static final RegistryObject<Item> AMBERROOT_SIGN = ITEMS.register("amberroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.AMBERROOT_SIGN.get(), DABlocks.AMBERROOT_WALL_SIGN.get()));
 
 
 	// EQUIPMENT
@@ -49,7 +49,7 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = ITEMS.register("skyjade_chestplate", () -> new DaArmorItem(DaArmorMaterials.SKYJADE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = ITEMS.register("skyjade_leggings", () -> new DaArmorItem(DaArmorMaterials.SKYJADE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
 	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = ITEMS.register("skyjade_boots", () -> new DaArmorItem(DaArmorMaterials.SKYJADE, ArmorItem.Type.BOOTS, new Item.Properties()));
-	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new DAGlovesItem(0.75, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
+	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new SkyjadeGlovesItem(0.5, new Item.Properties().defaultDurability(150)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new SkyjadeRingItem(new Item.Properties().stacksTo(1).durability(30)));
 
 	public static final RegistryObject<Item> GRAVITIE_RING = ITEMS.register("gravitite_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().stacksTo(1).durability(50)));
@@ -95,6 +95,9 @@ public class DAItems {
 	public static final RegistryObject<Item> CRUDEROOT_BOAT = ITEMS.register("cruderoot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = ITEMS.register("cruderoot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.CRUDEROOT));
 
+	public static final RegistryObject<Item> AMBERROOT_BOAT = ITEMS.register("amberroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.CRUDEROOT));
+	public static final RegistryObject<Item> AMBERROOT_CHEST_BOAT = ITEMS.register("amberroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.AMBERROOT));
+
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_FISH_EGG = ITEMS.register("aether_fish_spawn_egg",
 			() -> new ForgeSpawnEggItem(DAEntities.AETHER_FISH, 698060, 16776960, new Item.Properties()));
@@ -117,8 +120,7 @@ public class DAItems {
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1)));
 
 	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new Item(new Item.Properties()));
-
-
+	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("golden_white_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}

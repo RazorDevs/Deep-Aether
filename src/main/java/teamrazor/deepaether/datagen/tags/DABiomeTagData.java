@@ -24,10 +24,11 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.AERGLOW_FOREST,
                 DABiomes.MYSTIC_AERGLOW_FOREST,
                 DABiomes.BLUE_AERGLOW_FOREST,
-                DABiomes.YAGROOT_SWAMP
+                DABiomes.YAGROOT_SWAMP,
+                DABiomes.GOLDEN_HEIGHTS
         );
 
-        this.tag(DATags.Biomes.IS_NOT_SWAMP).add(
+        /*this.tag(DATags.Biomes.IS_NOT_SWAMP).add(
                 AetherBiomes.SKYROOT_FOREST,
                 AetherBiomes.SKYROOT_GROVE,
                 AetherBiomes.SKYROOT_MEADOW,
@@ -36,6 +37,6 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.AERGLOW_FOREST,
                 DABiomes.MYSTIC_AERGLOW_FOREST,
                 DABiomes.BLUE_AERGLOW_FOREST
-        );
+        );*/
     }
 }

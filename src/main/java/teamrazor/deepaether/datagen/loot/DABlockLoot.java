@@ -5,12 +5,16 @@ import com.gildedgames.aether.data.providers.AetherBlockLootSubProvider;
 import com.gildedgames.aether.item.AetherItems;
 import com.gildedgames.aether.loot.functions.DoubleDrops;
 import com.gildedgames.aether.mixin.mixins.common.accessor.BlockLootAccessor;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CaveVines;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -19,9 +23,11 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
+import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
@@ -124,6 +130,28 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.CRUDEROOT_SIGN.get());
 
 
+        this.dropSelf(DABlocks.AMBERROOT_WOOD.get());
+        this.dropSelf(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
+        this.dropSelfDouble(DABlocks.AMBERROOT_LOG.get());
+        this.dropSelfDouble(DABlocks.STRIPPED_AMBERROOT_LOG.get());
+        this.dropSelf(DABlocks.AMBERROOT_PLANKS.get());
+        this.dropSelf(DABlocks.AMBERROOT_SLAB.get());
+        this.dropSelf(DABlocks.AMBERROOT_STAIRS.get());
+        this.dropSelf(DABlocks.AMBERROOT_FENCE.get());
+        this.dropSelf(DABlocks.AMBERROOT_FENCE_GATE.get());
+        this.add(DABlocks.AMBERROOT_DOOR.get(), createDoorTable(DABlocks.AMBERROOT_DOOR.get()));
+        this.dropSelf(DABlocks.AMBERROOT_TRAPDOOR.get());
+        this.dropSelf(DABlocks.AMBERROOT_BUTTON.get());
+        this.dropSelf(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
+        this.dropSelf(DABlocks.AMBERROOT_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_AMBERROOT_WALL.get());
+        this.dropSelf(DABlocks.AMBERROOT_SAPLING.get());
+        this.dropPottedContents(DABlocks.POTTED_AMBERROOT_SAPLING.get());
+        this.add(DABlocks.AMBERROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.AMBERROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.dropOther(DABlocks.AMBERROOT_WALL_SIGN.get(), DABlocks.AMBERROOT_SIGN.get());
+        this.dropSelf(DABlocks.AMBERROOT_SIGN.get());
+
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
@@ -132,6 +160,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
         this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());
+
+        this.dropSelf(DABlocks.STRIPPED_SKYROOT_WALL.get());
+        this.dropSelf(DABlocks.SKYROOT_WALL.get());
 
     //ORES
         this.dropWithFortune(DABlocks.SKYJADE_ORE.get(), DAItems.SKYJADE.get());
@@ -188,6 +219,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.YAGROOT_VINE.get());
 
+        this.dropOther(DABlocks.GOLDEN_HEIGHTS_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
        //this.dropNone(DABlocks.AGATE_BLOCK.get());
        //this.dropNone(DABlocks.AGATE_ORE.get());
        //this.dropNone(DABlocks.HIGHSTONE_AGATE_ORE.get());
@@ -202,6 +234,20 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
        //this.dropNone(DABlocks.HIGHSTONE_ORATIE_ORE.get());
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
+        this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
+        this.dropDoubleWithSilk(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropNone(DABlocks.MINI_GOLDEN_GRASS.get());
+        this.dropNone(DABlocks.SHORT_GOLDEN_GRASS.get());
+        this.dropNone(DABlocks.MEDIUM_GOLDEN_GRASS.get());
+        this.dropNone(DABlocks.TALL_GOLDEN_GRASS.get());
+        this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
+
+        this.add(DABlocks.GOLDEN_VINES.get(), (vines) -> this.createGoldenVinesDrop(vines));
+        this.add(DABlocks.GOLDEN_VINES_PLANT.get(), (vines) -> this.createGoldenVinesDrop(vines));
+    }
+
+    protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(DAItems.GOLDEN_BERRIES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_251070_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenVines.BERRIES, true))));
     }
 
     public LootTable.Builder droppingWithChancesAndSkyrootSticksAndAerglowPetal(Block block, Block sapling, float... chances) {

@@ -46,5 +46,4 @@ public class PoisonCauldronBlock extends AbstractCauldronBlock {
     public int getAnalogOutputSignal(BlockState p_153502_, Level p_153503_, BlockPos p_153504_) {
         return 14;
     }
-
 }

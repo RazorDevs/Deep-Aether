@@ -45,6 +45,7 @@ import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
+import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
@@ -102,6 +103,7 @@ public class DeepAetherMod {
 		DABlocks.registerWoodTypes();
 		DAFoliagePlacers.FOLIAGE_PLACERS.register(bus);
 		DARootPlacers.ROOT_PLACERS.register(bus);
+		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 	}
 
 

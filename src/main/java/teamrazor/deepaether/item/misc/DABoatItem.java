@@ -79,6 +79,9 @@ public class DABoatItem extends Item {
         if(woodType == DAWoodTypes.YAGROOT)
             return this.hasChest ? new YagrootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new YagrootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
 
+        if(woodType == DAWoodTypes.AMBERROOT)
+            return this.hasChest ? new AmberrootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new AmberrootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
+
         return this.hasChest ? new CruderootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new CruderootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
     }
 }

@@ -12,4 +12,6 @@ public class DAWoodTypes {
 
     public static final BlockSetType CRUDEROOT_BLOCK_SET = new BlockSetType(DeepAetherMod.MODID + ":cruderoot");
     public static final WoodType CRUDEROOT = new WoodType(DeepAetherMod.MODID + ":cruderoot", ROSEROOT_BLOCK_SET);
+    public static final BlockSetType AMBERROOT_BLOCK_SET = new BlockSetType(DeepAetherMod.MODID + ":amberroot");
+    public static final WoodType AMBERROOT = new WoodType(DeepAetherMod.MODID + ":amberoot", AMBERROOT_BLOCK_SET);
 }

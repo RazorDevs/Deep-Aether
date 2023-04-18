@@ -41,10 +41,10 @@ public class EquipmentUtil {
         EquipmentUtil.damageRing(entity, (RingItem) DAItems.CLOUDIUM_RING.get());
         double multiplier = 1;
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.CLOUDIUM_RING.get()).isPresent())
-            multiplier = Math.pow(1.25, (EquipmentUtil.getCurios(entity, DAItems.CLOUDIUM_RING.get()).toArray().length));
+            multiplier = multiplier*Math.pow(1.25, (EquipmentUtil.getCurios(entity, DAItems.CLOUDIUM_RING.get()).toArray().length));
 
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.GRAVITIE_RING.get()).isPresent())
-            multiplier = multiplier*Math.pow(1.15, (EquipmentUtil.getCurios(entity, DAItems.CLOUDIUM_RING.get()).toArray().length));
+            multiplier = multiplier*Math.pow(1.25, (EquipmentUtil.getCurios(entity, DAItems.GRAVITIE_RING.get()).toArray().length));
 
         System.out.println(multiplier);
         return multiplier;

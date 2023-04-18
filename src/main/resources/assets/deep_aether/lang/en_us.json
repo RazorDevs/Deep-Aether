@@ -146,6 +146,29 @@
   "item.deep_aether.yagroot_chest_boat": "Yagroot Chest Boat",
   "item.deep_aether.cruderoot_boat": "Cruderoot Boat",
   "item.deep_aether.cruderoot_chest_boat": "Cruderoot Chest Boat",
+
+
+  "block.deep_aether.amberroot_log": "Amberroot Log",
+  "block.deep_aether.amberroot_wood": "Amberroot Wood",
+  "block.deep_aether.stripped_amberroot_log": "Stripped Amberroot Log",
+  "block.deep_aether.stripped_amberroot_wood": "Stripped Amberroot wood",
+  "block.deep_aether.amberroot_slab": "Amberroot Slab",
+  "block.deep_aether.amberroot_stairs": "Amberroot Stairs",
+  "block.deep_aether.amberroot_fence": "Amberroot Fence",
+  "block.deep_aether.amberroot_fence_gate": "Amberroot Fence Gate",
+  "block.deep_aether.amberroot_wall": "Amberroot Wall",
+  "block.deep_aether.stripped_amberroot_wall": "Stripped Amberroot Wall",
+  "block.deep_aether.amberroot_door": "Amberroot Door",
+  "block.deep_aether.amberroot_trapdoor": "Amberroot Trapdoor",
+  "block.deep_aether.amberroot_sapling": "Amberroot Sapling",
+  "block.deep_aether.amberroot_planks": "Amberroot Planks",
+  "block.deep_aether.amberroot_leaves": "Amberroot Leaves",
+  "block.deep_aether.amberroot_pressure_plate": "Amberroot Pressure Plate",
+  "block.deep_aether.amberroot_button": "Amberroot Button",
+  "block.deep_aether.amberroot_sign": "Amberroot Sign",
+  "item.deep_aether.amberroot_boat": "Amberroot Boat",
+  "item.deep_aether.amberroot_chest_boat": "Amberroot Chest Boat",
+
   "item.deep_aether.raw_quail": "Raw Quail",
   "item.deep_aether.cooked_quail": "Cooked Quail",
   "item.deep_aether.raw_aerglow_fish": "Raw Aerglow Fish",
@@ -219,6 +242,7 @@
   "block.deep_aether.clorite_bricks_stairs": "Clorite Bricks Stairs",
   "block.deep_aether.clorite_bricks_vertical_slab": "Clorite Bricks Vertical Slab",
   "block.deep_aether.polished_clorite_bricks_wall": "Polished Clorite Bricks Wall",
+  "block.deep_aether.rain_aercloud": "Rain Aercloud",
   "item.deep_aether.cloudium_ingot": "Cloudium Ingot",
   "key.deep_aether.cloudium_dash_ability.desc": "Activate Cloudium Dash",
   "item.deep_aether.cloudium_axe": "Cloudium Axe",
@@ -342,6 +366,25 @@
 
   "lore.block.deep_aether.skyjade_block": "A block of compacted Skyjade Gemstones. They can power beacons, and just have a sleek look to them.",
   "lore.block.deep_aether.skyjade_ore": "A rare ore that drops Skyjade Gemstones when broken with Iron tools.",
+  "lore.block.deep_aether.amberroot_button": "Crafted from Amberroot Planks, a button used to activate mechanisms and redstone.",
+  "lore.block.deep_aether.amberroot_door": "Crafted from Amberroot Planks, an ornate door helpful for keeping an enclosed and safe space without worry of monsters wandering in.",
+  "lore.block.deep_aether.amberroot_fence": "Crafted from Amberroot planks and Skyroot Sticks. Great for keeping your livestock safe from wandering predators!",
+  "lore.block.deep_aether.amberroot_fence_gate": "Crafted from Skyroot Sticks and Amberroot planks. Gives a homely entrance and exit to your precious enclosures.",
+  "lore.block.deep_aether.amberroot_leaves": "These leaves generate with Amberroot Trees. They can drop Amberroot Saplings when decaying.",
+  "lore.block.deep_aether.amberroot_log": "These spawn with Amberroot Trees. They can be double dropped with Amberroot Axes. When put in a crafting table they will provide 4 Amberroot Planks.",
+  "lore.block.deep_aether.amberroot_planks": "Amberroot Planks can be made into various tools, blocks and items. They are crafted from Amberroot Logs, and make a great building material.",
+  "lore.block.deep_aether.amberroot_pressure_plate": "Crafted from Amberroot Planks. A wooden pressure plate used to activate mechanisms and redstone.",
+  "lore.block.deep_aether.amberroot_sapling": "These small golden saplings will grow into Amberroot Trees. They can be grown faster with Bone Meal.",
+  "lore.block.deep_aether.amberroot_sign": "Crafted from Amberroot Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
+  "lore.block.deep_aether.amberroot_slab": "Crafted from Amberroot. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!",
+  "lore.block.deep_aether.amberroot_stairs": "Crafted from Amberroot Planks. Stairs are useful for adding verticality to builds and are often used for decoration too!",
+  "lore.block.deep_aether.amberroot_trapdoor": "Crafted from Amberroot Planks. A Trapdoor useful for covering entryways one block wide. Often used to add extra protection to staircases.",
+  "lore.block.deep_aether.stripped_amberroot_log": "A Amberroot Log that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 Amberroot Planks.",
+  "lore.block.deep_aether.stripped_amberroot_wood": "A Amberroot Log that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 Amberroot Planks. Crafted to be smooth on all sides.",
+  "lore.item.deep_aether.amberroot_boat": "While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
+  "lore.item.deep_aether.amberroot_chest_boat": "A Amberroot Boat with a handy chest in the back. Helpful for transporting more items over long stretches of water, which are famously difficult to find in the Aether.",
+  "lore.block.deep_aether.amberroot_wall": "Crafted from Amberroot. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!",
+  "lore.block.deep_aether.stripped_amberroot_wall": "Crafted from Amberroot. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!",
 
 
   "lore.block.deep_aether.holystone_tiles": "A tile variant of Holystone. Can be used for decoration.",
@@ -397,9 +440,6 @@
   "lore.item.deep_aether.virulent_quicksand_bucket": "A Skyroot Bucket filled with Virulent Quicksand",
   "lore.item.deep_aether.skyroot_virulent_quicksand_bucket": "A Bucket filled with Virulent Quicksand",
 
-
-
-
   "block.deep_aether.holystone_tiles": "Holystone Tiles",
   "block.deep_aether.holystone_tile_stairs": "Holystone Tile Stairs",
   "block.deep_aether.holystone_tile_slab": "Holystone Tile Slab",
@@ -410,6 +450,19 @@
   "block.deep_aether.mossy_holystone_tile_wall": "Mossy Holystone Tile Wall",
   "trim_material.deep_aether.skyjade": "Skyjade Material",
   "trim_material.deep_aether.cloudium": "Cloudium Material",
+
+  "block.deep_aether.mini_golden_grass": "Mini Golden Grass",
+  "block.deep_aether.short_golden_grass": "Short Golden Grass",
+  "block.deep_aether.medium_golden_grass": "Medium Golden Grass",
+  "block.deep_aether.tall_golden_grass": "Tall Golden Grass",
+  "block.deep_aether.golden_heights_grass_block": "Golden Heights Grass Block",
+  "block.deep_aether.golden_flower": "Golden Flower",
+  "item.deep_aether.golden_white_berries": "Golden White Berries",
+  "block.deep_aether.golden_heights_dirt_path": "Golden Heights Dirt Path",
+
+
+
+
 
   "fluid_type.deep_aether.poison_fluid": "Poison"
 }

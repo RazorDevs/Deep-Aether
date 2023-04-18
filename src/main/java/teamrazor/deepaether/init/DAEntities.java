@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.entity.AetherFishEntity;
+import teamrazor.deepaether.entity.AerglowFishEntity;
 import teamrazor.deepaether.entity.QuailEntity;
 import teamrazor.deepaether.entity.boats.*;
 
@@ -41,12 +41,19 @@ public class DAEntities {
             () -> EntityType.Builder.<CruderootChestBoat>of(CruderootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("cruderoot_boat"));
 
 
+	public static final RegistryObject<EntityType<AmberrootBoat>> AMBERROOT_BOAT = ENTITY_TYPES.register("amberroot_boat",
+			() -> EntityType.Builder.<AmberrootBoat>of(AmberrootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("amberroot_boat"));
+
+	public static final RegistryObject<EntityType<AmberrootChestBoat>> AMBERROOT_CHEST_BOAT = ENTITY_TYPES.register("amberroot_chest_boat",
+			() -> EntityType.Builder.<AmberrootChestBoat>of(AmberrootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("amberroot_boat"));
+
+
 
 	/*public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
 			() -> EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.MISC)
 					.sized(0.5F, 0.5F).clientTrackingRange(10));**/
-	public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
-			EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.WATER_CREATURE)
+	public static final RegistryObject<EntityType<AerglowFishEntity>> AETHER_FISH = register("aerglow_fish",
+			EntityType.Builder.of(AerglowFishEntity::new, MobCategory.WATER_CREATURE)
 					.setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3)
 					.clientTrackingRange(10)
@@ -66,14 +73,14 @@ public class DAEntities {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			AetherFishEntity.createAttributes();
+			AerglowFishEntity.createAttributes();
 			QuailEntity.init();
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(AETHER_FISH.get(), AetherFishEntity.createAttributes().build());
+		event.put(AETHER_FISH.get(), AerglowFishEntity.createAttributes().build());
 		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
 	}
 }

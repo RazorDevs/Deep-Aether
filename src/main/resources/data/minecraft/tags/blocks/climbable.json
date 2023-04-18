@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "deep_aether:yagroot_vine"
+    "deep_aether:yagroot_vine",
+    "deep_aether:golden_vines",
+    "deep_aether:golden_vines_plant"
   ]
 }

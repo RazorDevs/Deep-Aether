@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "deep_aether:block/golden_heights_dirt_path"
+      },
+      {
+        "model": "deep_aether:block/golden_heights_dirt_path",
+        "y": 90
+      },
+      {
+        "model": "deep_aether:block/golden_heights_dirt_path",
+        "y": 180
+      },
+      {
+        "model": "deep_aether:block/golden_heights_dirt_path",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "deep_aether:crafts_cruderoot_planks"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "deep_aether:amberroot_planks"
+  }
+}

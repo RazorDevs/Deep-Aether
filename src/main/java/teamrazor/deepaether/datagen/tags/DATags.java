@@ -13,6 +13,7 @@ public class DATags {
         public static final TagKey<Item> CRAFTS_ROSEROOT_PLANKS = tag("crafts_roseroot_planks");
         public static final TagKey<Item> CRAFTS_YAGROOT_PLANKS = tag("crafts_yagroot_planks");
         public static final TagKey<Item> CRAFTS_CRUDEROOT_PLANKS = tag("crafts_cruderoot_planks");
+        public static final TagKey<Item> CRAFTS_AMBERROOT_PLANKS = tag("crafts_cruderoot_planks");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -20,6 +21,7 @@ public class DATags {
     }
     public static class Blocks {
 
+        public static final TagKey<Block> CAN_GOLDEN_FLOWERS_SURVIVE_ON = tag("can_golden_flowers_survive_on");
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
         }

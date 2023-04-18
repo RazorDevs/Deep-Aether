@@ -22,7 +22,8 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
     }), 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 3.0F, 0.1F, () -> Ingredient.of(DAItems.CLOUDIUM_INGOT.get())),
-    SKYJADE("skyjade", 25, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+
+    SKYJADE("skyjade", 12, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 11);
         map.put(ArmorItem.Type.LEGGINGS, 15);
         map.put(ArmorItem.Type.CHESTPLATE, 16);

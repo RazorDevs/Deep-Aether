@@ -68,13 +68,14 @@ public class DABlockInteractionBehavior {
                 event.setCanceled(true);
             }
         }
-
         if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockRayTraceResult.getType() == HitResult.Type.MISS) {
                 event.setCancellationResult(InteractionResult.PASS);
             } else if (blockRayTraceResult.getType() != HitResult.Type.BLOCK) {
+                event.setCancellationResult(InteractionResult.PASS);
+            } else if (world.getBlockState(blockRayTraceResult.getBlockPos()).getBlock() == Blocks.CAULDRON) {
                 event.setCancellationResult(InteractionResult.PASS);
             } else {
                 BlockPos blockpos = blockRayTraceResult.getBlockPos();
@@ -105,6 +106,8 @@ public class DABlockInteractionBehavior {
             if (blockhitresult.getType() == HitResult.Type.MISS) {
                 event.setCancellationResult(InteractionResult.PASS);
             } else if (blockhitresult.getType() != HitResult.Type.BLOCK) {
+                event.setCancellationResult(InteractionResult.PASS);
+            } else if (world.getBlockState(blockhitresult.getBlockPos()).getBlock() == DABlocks.POISON_CAULDRON.get()) {
                 event.setCancellationResult(InteractionResult.PASS);
             } else {
                 BlockPos blockpos = blockhitresult.getBlockPos();

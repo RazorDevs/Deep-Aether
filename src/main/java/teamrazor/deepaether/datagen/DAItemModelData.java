@@ -88,6 +88,27 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DABlocks.CRUDEROOT_SIGN.get().asItem());
 
 
+        this.itemBlock(DABlocks.AMBERROOT_WOOD.get());
+        this.itemBlock(DABlocks.AMBERROOT_LOG.get());
+        this.itemBlock(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
+        this.itemBlock(DABlocks.STRIPPED_AMBERROOT_LOG.get());
+        this.itemBlock(DABlocks.AMBERROOT_PLANKS.get());
+        this.itemBlock(DABlocks.AMBERROOT_SLAB.get());
+        this.itemBlock(DABlocks.AMBERROOT_STAIRS.get());
+        this.itemFence(DABlocks.AMBERROOT_FENCE.get(), DABlocks.AMBERROOT_PLANKS.get());
+        this.itemBlock(DABlocks.AMBERROOT_FENCE_GATE.get());
+        this.item(DABlocks.AMBERROOT_DOOR.get().asItem());
+        this.itemBlock(DABlocks.AMBERROOT_TRAPDOOR.get(), "_bottom");
+        this.itemButton(DABlocks.AMBERROOT_BUTTON.get(), DABlocks.AMBERROOT_PLANKS.get());
+        this.itemBlock(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
+        this.itemWallBlock(DABlocks.AMBERROOT_WALL.get(), DABlocks.AMBERROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_AMBERROOT_WALL.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
+        this.itemBlockFlat(DABlocks.AMBERROOT_SAPLING.get());
+        this.itemBlock(DABlocks.AMBERROOT_LEAVES.get());
+        this.item(DABlocks.AMBERROOT_SIGN.get().asItem());
+
+
+
         this.itemBlock(DABlocks.AETHER_MUD.get());
         this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS.get());
@@ -159,6 +180,12 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
         this.item(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
 
+        this.itemBlock(DABlocks.RAIN_AERCLOUD.get());
+
+        this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
+        this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
+        this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
+        this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
         //ITEMS
         this.item(DAItems.SKYJADE.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_SWORD.get());
@@ -204,6 +231,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.YAGROOT_CHEST_BOAT.get());
         this.item(DAItems.CRUDEROOT_BOAT.get());
         this.item(DAItems.CRUDEROOT_CHEST_BOAT.get());
+        this.item(DAItems.AMBERROOT_BOAT.get());
+        this.item(DAItems.AMBERROOT_CHEST_BOAT.get());
 
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
@@ -213,8 +242,15 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.AERGLOW_PETAL.get());
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+        this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
+        this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
+        this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
+        this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
+        this.itemBlock(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get());
 
+        this.item(DAItems.GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());
+        this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
     }
 
     public void handheldItem(Item item) {

@@ -89,6 +89,27 @@ public class DATabs {
                             output.accept(DABlocks.CRUDEROOT_LEAVES.get());
                             output.accept(DABlocks.CRUDEROOT_SAPLING.get());
 
+                            output.accept(DABlocks.AMBERROOT_LOG.get());
+                            output.accept(DABlocks.AMBERROOT_WOOD.get());
+                            output.accept(DABlocks.STRIPPED_AMBERROOT_LOG.get());
+                            output.accept(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
+                            output.accept(DABlocks.AMBERROOT_PLANKS.get());
+                            output.accept(DABlocks.AMBERROOT_STAIRS.get());
+                            output.accept(DABlocks.AMBERROOT_SLAB.get());
+                            output.accept(DABlocks.AMBERROOT_FENCE.get());
+                            output.accept(DABlocks.AMBERROOT_FENCE_GATE.get());
+                            output.accept(DABlocks.AMBERROOT_DOOR.get());
+                            output.accept(DABlocks.AMBERROOT_TRAPDOOR.get());
+                            output.accept(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
+                            output.accept(DABlocks.AMBERROOT_WALL.get());
+                            output.accept(DABlocks.STRIPPED_AMBERROOT_WALL.get());
+                            output.accept(DABlocks.AMBERROOT_BUTTON.get());
+                            output.accept(DAItems.AMBERROOT_SIGN.get());
+                            output.accept(DABlocks.AMBERROOT_LEAVES.get());
+                            output.accept(DABlocks.AMBERROOT_SAPLING.get());
+                            output.accept(DABlocks.SKYROOT_WALL.get());
+                            output.accept(DABlocks.STRIPPED_SKYROOT_WALL.get());
+
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
                             output.accept(DABlocks.AETHER_MOSS_CARPET.get());
 
@@ -130,12 +151,20 @@ public class DATabs {
                             output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
                             output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
 
-
                             output.accept(DABlocks.RADIANT_ORCHID.get());
                             output.accept(DABlocks.AERLAVENDER.get());
                             output.accept(DABlocks.TALL_AERLAVENDER.get());
                             output.accept(DABlocks.AETHER_CATTAILS.get());
                             output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
+
+                            output.accept(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get());
+                            output.accept(DABlocks.GOLDEN_HEIGHTS_DIRT_PATH.get());
+                            output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
+                            output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());
+                            output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());
+                            output.accept(DABlocks.TALL_GOLDEN_GRASS.get());
+
+
 
                             output.accept(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
@@ -182,6 +211,7 @@ public class DATabs {
                             output.accept(DAItems.SKYROOT_AERGLOW_FISH_BUCKET.get());
                             output.accept(DAItems.RAW_QUAIL.get());
                             output.accept(DAItems.COOKED_QUAIL.get());
+                            output.accept(DAItems.GOLDEN_BERRIES.get());
 
                             output.accept(DAItems.ROSEROOT_BOAT.get());
                             output.accept(DAItems.ROSEROOT_CHEST_BOAT.get());
@@ -189,6 +219,8 @@ public class DATabs {
                             output.accept(DAItems.YAGROOT_CHEST_BOAT.get());
                             output.accept(DAItems.CRUDEROOT_BOAT.get());
                             output.accept(DAItems.CRUDEROOT_CHEST_BOAT.get());
+                            output.accept(DAItems.AMBERROOT_BOAT.get());
+                            output.accept(DAItems.AMBERROOT_CHEST_BOAT.get());
 
                             output.accept(DAItems.MUSIC_DISC_NABOORU.get());
                             output.accept(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

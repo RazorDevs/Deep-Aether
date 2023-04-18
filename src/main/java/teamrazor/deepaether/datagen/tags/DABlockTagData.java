@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
+import com.gildedgames.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -24,6 +25,6 @@ public class DABlockTagData extends BlockTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
-
+        AetherBlocks.QUICKSOIL.get();
     }
 }

@@ -39,6 +39,7 @@
     "deep_aether:yagroot_fence_gate",
     "deep_aether:yagroot_sign",
     "deep_aether:yagroot_wall_sign",
+
     "deep_aether:cruderoot_wood",
     "deep_aether:stripped_cruderoot_wood",
     "deep_aether:stripped_cruderoot_log",
@@ -56,6 +57,25 @@
     "deep_aether:cruderoot_sapling",
     "deep_aether:cruderoot_fence_gate",
     "deep_aether:cruderoot_sign",
-    "deep_aether:cruderoot_wall_sign"
+    "deep_aether:cruderoot_wall_sign",
+
+    "deep_aether:amberroot_wood",
+    "deep_aether:stripped_amberroot_wood",
+    "deep_aether:stripped_amberroot_log",
+    "deep_aether:amberroot_log",
+    "deep_aether:amberroot_planks",
+    "deep_aether:amberroot_door",
+    "deep_aether:amberroot_trapdoor",
+    "deep_aether:amberroot_wall",
+    "deep_aether:stripped_amberroot_wall",
+    "deep_aether:amberroot_slab",
+    "deep_aether:amberroot_stairs",
+    "deep_aether:amberroot_button",
+    "deep_aether:amberroot_pressure_plate",
+    "deep_aether:amberroot_fence",
+    "deep_aether:amberroot_sapling",
+    "deep_aether:amberroot_fence_gate",
+    "deep_aether:amberroot_sign",
+    "deep_aether:amberroot_wall_sign"
   ]
 }

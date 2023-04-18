@@ -47,6 +47,9 @@ public class DARecipeData extends AetherRecipeProvider {
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
 
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.SKYROOT_WALL.get(), AetherBlocks.SKYROOT_LOG.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_SKYROOT_WALL.get(), AetherBlocks.SKYROOT_LOG.get());
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.ROSEROOT_SIGN.get(), 3)
                 .group("wooden_sign")
                 .define('P', DABlocks.ROSEROOT_PLANKS.get().asItem())
@@ -116,6 +119,38 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern(" / ")
                 .unlockedBy(getHasName(DABlocks.CRUDEROOT_PLANKS.get()), has(DABlocks.CRUDEROOT_PLANKS.get()))
                 .save(consumer);
+
+
+        woodFromLogs(consumer, DABlocks.AMBERROOT_WOOD.get(), DABlocks.AMBERROOT_LOG.get());
+        woodFromLogs(consumer, DABlocks.STRIPPED_AMBERROOT_WOOD.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
+        planksFromLogs(consumer, DABlocks.AMBERROOT_PLANKS.get(), DATags.Items.CRAFTS_AMBERROOT_PLANKS, 4);
+        stairs(DABlocks.AMBERROOT_STAIRS, DABlocks.AMBERROOT_PLANKS).group("wooden_stairs").save(consumer);
+
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.AMBERROOT_SLAB.get(), Ingredient.of(DABlocks.AMBERROOT_PLANKS.get()))
+                .group("wooden_slab")
+                .unlockedBy(getHasName(DABlocks.AMBERROOT_PLANKS.get()), has(DABlocks.AMBERROOT_PLANKS.get()))
+                .save(consumer);
+
+        fence(DABlocks.AMBERROOT_FENCE, DABlocks.AMBERROOT_PLANKS).save(consumer);
+        fenceGate(DABlocks.AMBERROOT_FENCE_GATE, DABlocks.AMBERROOT_PLANKS).save(consumer);
+
+        doorBuilder(DABlocks.AMBERROOT_DOOR.get(), Ingredient.of(DABlocks.AMBERROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.AMBERROOT_PLANKS.get()), has(DABlocks.AMBERROOT_PLANKS.get())).group("wooden_door").save(consumer);
+        trapdoorBuilder(DABlocks.AMBERROOT_TRAPDOOR.get(), Ingredient.of(DABlocks.AMBERROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.AMBERROOT_PLANKS.get()), has(DABlocks.AMBERROOT_PLANKS.get())).group("wooden_trapdoor").save(consumer);
+        pressurePlateBuilder(RecipeCategory.REDSTONE, DABlocks.AMBERROOT_PRESSURE_PLATE.get(), Ingredient.of(DABlocks.AMBERROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.AMBERROOT_PLANKS.get()), has(DABlocks.AMBERROOT_PLANKS.get())).group("wooden_pressure_plate").save(consumer);
+        buttonBuilder(DABlocks.AMBERROOT_BUTTON.get(), Ingredient.of(DABlocks.AMBERROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.AMBERROOT_PLANKS.get()), has(DABlocks.AMBERROOT_PLANKS.get())).group("wooden_button").save(consumer);
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.AMBERROOT_WALL.get(), DABlocks.AMBERROOT_LOG.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_AMBERROOT_WALL.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AMBERROOT_SIGN.get(), 3)
+                .group("wooden_sign")
+                .define('P', DABlocks.AMBERROOT_PLANKS.get().asItem())
+                .define('/', Tags.Items.RODS_WOODEN)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern(" / ")
+                .unlockedBy(getHasName(DABlocks.AMBERROOT_PLANKS.get()), has(DABlocks.AMBERROOT_PLANKS.get()))
+                .save(consumer);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_PETAL_BLOCK.get(), 1)
                 .define('A', DAItems.AERGLOW_PETAL.get())

@@ -36,18 +36,11 @@ import teamrazor.deepaether.init.DAItems;
 import java.util.Optional;
 
 public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable {
-    private static final float HORIZONTAL_PARTICLE_MOMENTUM_FACTOR = 0.083333336F;
-    private static final float IN_BLOCK_HORIZONTAL_SPEED_MULTIPLIER = 0.9F;
-    private static final float IN_BLOCK_VERTICAL_SPEED_MULTIPLIER = 1.5F;
-    private static final float NUM_BLOCKS_TO_FALL_INTO_BLOCK = 2.5F;
     private static final VoxelShape FALLING_COLLISION_SHAPE = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, (double)0.9F, 1.0D);
-    private static final double MINIMUM_FALL_DISTANCE_FOR_SOUND = 4.0D;
-    private static final double MINIMUM_FALL_DISTANCE_FOR_BIG_SOUND = 7.0D;
 
     public VirulentQuicksandBlock(Properties properties) {
         super(properties);
     }
-
     public void onPlace(BlockState p_53233_, Level p_53234_, BlockPos p_53235_, BlockState p_53236_, boolean p_53237_) {
         p_53234_.scheduleTick(p_53235_, this, this.getDelayAfterPlace());
     }
@@ -65,6 +58,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable 
     }
 
     protected void falling(FallingBlockEntity blockEntity) {
+        blockEntity.dropItem = false;
     }
 
     @SuppressWarnings("SameReturnValue")
