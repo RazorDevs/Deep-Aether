@@ -178,9 +178,9 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.crossBlock(DABlocks.TALL_AERLAVENDER.get());
         this.crossBlock(DABlocks.AETHER_CATTAILS.get());
         this.crossBlock(DABlocks.RADIANT_ORCHID.get());
-        this.pottedPlant(DABlocks.POTTED_AERLAVENDER.get(), DABlocks.AERLAVENDER.get());
-        this.pottedPlant(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
-        this.pottedPlant(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
+        this.pottedPlantFix(DABlocks.POTTED_AERLAVENDER.get(), DABlocks.AERLAVENDER.get());
+        this.pottedPlantFix(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
+        this.pottedPlantFix(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
         //this.pottedPlant(DABlocks.POTTED_TALL_AETHER_CATTAILS.get(), DABlocks.TALL_AETHER_CATTAILS.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
 
@@ -260,6 +260,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
     }
     public void pottedPlant(Block block, Block flower) {
         ModelFile pot = this.models().withExistingParent(this.name(block), this.mcLoc("block/flower_pot_cross")).texture("plant", this.modLoc("block/"  + this.name(flower))).renderType(new ResourceLocation("cutout"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+
+    public void pottedPlantFix(Block block, Block flower) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), this.mcLoc("block/flower_pot_cross")).texture("plant", this.modLoc("block/"  + this.name(flower) + "_pot")).renderType(new ResourceLocation("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
