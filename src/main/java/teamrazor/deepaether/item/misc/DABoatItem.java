@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
@@ -22,58 +23,60 @@ import teamrazor.deepaether.entity.DAChestBoatEntity;
 
 import java.util.List;
 import java.util.function.Predicate;
-public class DABoatItem extends Item {
+public class DABoatItem extends BoatItem {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
     private final boolean hasChest;
     private final DABoatEntity.Type woodType;
 
     public DABoatItem(boolean hasChest, Properties properties, DABoatEntity.Type  woodType) {
-        super(properties);
+        super(hasChest, null, properties);
         this.hasChest = hasChest;
         this.woodType = woodType;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        ItemStack heldStack = player.getItemInHand(hand);
-        HitResult hitResult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY);
-        if (hitResult.getType() == HitResult.Type.MISS) {
-            return InteractionResultHolder.pass(heldStack);
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
+        ItemStack itemstack = pPlayer.getItemInHand(pHand);
+        HitResult hitresult = getPlayerPOVHitResult(pLevel, pPlayer, ClipContext.Fluid.ANY);
+        if (hitresult.getType() == HitResult.Type.MISS) {
+            return InteractionResultHolder.pass(itemstack);
         } else {
-            Vec3 viewVector = player.getViewVector(1.0F);
-            List<Entity> list = level.getEntities(player, player.getBoundingBox().expandTowards(viewVector.scale(5.0D)).inflate(1.0D), ENTITY_PREDICATE);
+            Vec3 vec3 = pPlayer.getViewVector(1.0F);
+            double d0 = 5.0D;
+            List<Entity> list = pLevel.getEntities(pPlayer, pPlayer.getBoundingBox().expandTowards(vec3.scale(5.0D)).inflate(1.0D), ENTITY_PREDICATE);
             if (!list.isEmpty()) {
-                Vec3 eyePosition = player.getEyePosition();
+                Vec3 vec31 = pPlayer.getEyePosition();
                 for(Entity entity : list) {
-                    AABB aabb = entity.getBoundingBox().inflate(entity.getPickRadius());
-                    if (aabb.contains(eyePosition)) {
-                        return InteractionResultHolder.pass(heldStack);
+                    AABB aabb = entity.getBoundingBox().inflate((double)entity.getPickRadius());
+                    if (aabb.contains(vec31)) {
+                        return InteractionResultHolder.pass(itemstack);
                     }
                 }
             }
-            if (hitResult.getType() == HitResult.Type.BLOCK) {
-                Boat boat = this.getBoat(level, hitResult);
-                boat.setYRot(player.getYRot());
-                if (!level.noCollision(boat, boat.getBoundingBox())) {
-                    return InteractionResultHolder.fail(heldStack);
+            if (hitresult.getType() == HitResult.Type.BLOCK) {
+                DABoatEntity boat = this.getBoat(pLevel, hitresult);
+                boat.setWoodType(this.woodType);
+                boat.setYRot(pPlayer.getYRot());
+                if (!pLevel.noCollision(boat, boat.getBoundingBox())) {
+                    return InteractionResultHolder.fail(itemstack);
                 } else {
-                    if (!level.isClientSide()) {
-                        level.addFreshEntity(boat);
-                        level.gameEvent(player, GameEvent.ENTITY_PLACE, BlockPos.containing(hitResult.getLocation()));
-                        if (!player.getAbilities().instabuild) {
-                            heldStack.shrink(1);
+                    if (!pLevel.isClientSide) {
+                        pLevel.addFreshEntity(boat);
+                        pLevel.gameEvent(pPlayer, GameEvent.ENTITY_PLACE, hitresult.getLocation());
+                        if (!pPlayer.getAbilities().instabuild) {
+                            itemstack.shrink(1);
                         }
                     }
-                    player.awardStat(Stats.ITEM_USED.get(this));
-                    return InteractionResultHolder.sidedSuccess(heldStack, level.isClientSide());
+
+                    pPlayer.awardStat(Stats.ITEM_USED.get(this));
+                    return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
                 }
             } else {
-                return InteractionResultHolder.pass(heldStack);
+                return InteractionResultHolder.pass(itemstack);
             }
         }
     }
-
-    private Boat getBoat(Level level, HitResult hitResult) {
+    private DABoatEntity getBoat(Level level, HitResult hitResult) {
         return this.hasChest ? new DAChestBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new DABoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
 
     }
