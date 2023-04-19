@@ -33,7 +33,7 @@ public class SkyjadeGlovesItem extends DAGlovesItem {
 
         }
         else if (currentDurability >= maxDurability - (int) (maxDurability / 3.0)) {
-            return 0.5F;
+            return 0.75F;
         }
 
         else if (currentDurability >= maxDurability - (int) (maxDurability / 1.5)) {

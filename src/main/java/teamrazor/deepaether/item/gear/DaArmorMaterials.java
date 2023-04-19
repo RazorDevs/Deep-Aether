@@ -23,11 +23,11 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
         map.put(ArmorItem.Type.HELMET, 3);
     }), 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 3.0F, 0.1F, () -> Ingredient.of(DAItems.CLOUDIUM_INGOT.get())),
 
-    SKYJADE("skyjade", 12, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-        map.put(ArmorItem.Type.BOOTS, 11);
-        map.put(ArmorItem.Type.LEGGINGS, 15);
-        map.put(ArmorItem.Type.CHESTPLATE, 16);
-        map.put(ArmorItem.Type.HELMET, 11);
+    SKYJADE("skyjade", 4, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 4);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 4);
     }), 24, AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, 0.0F, 0.0F, () -> Ingredient.of(DAItems.SKYJADE.get()));
 
     private static final EnumMap<ArmorItem.Type, Integer> DURABILITY_MAP = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
