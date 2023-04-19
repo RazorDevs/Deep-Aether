@@ -17,17 +17,17 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import teamrazor.deepaether.entity.boats.*;
-import teamrazor.deepaether.init.DAWoodTypes;
+import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.entity.DAChestBoatEntity;
 
 import java.util.List;
 import java.util.function.Predicate;
 public class DABoatItem extends Item {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
     private final boolean hasChest;
-    private final WoodType woodType;
+    private final DABoatEntity.Type woodType;
 
-    public DABoatItem(boolean hasChest, Properties properties, WoodType woodType) {
+    public DABoatItem(boolean hasChest, Properties properties, DABoatEntity.Type  woodType) {
         super(properties);
         this.hasChest = hasChest;
         this.woodType = woodType;
@@ -74,14 +74,7 @@ public class DABoatItem extends Item {
     }
 
     private Boat getBoat(Level level, HitResult hitResult) {
-        if(woodType == DAWoodTypes.ROSEROOT)
-            return this.hasChest ? new RoserootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new RoserootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
-        if(woodType == DAWoodTypes.YAGROOT)
-            return this.hasChest ? new YagrootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new YagrootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
+        return this.hasChest ? new DAChestBoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new DABoatEntity(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
 
-        if(woodType == DAWoodTypes.AMBERROOT)
-            return this.hasChest ? new AmberrootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new AmberrootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
-
-        return this.hasChest ? new CruderootChestBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z) : new CruderootBoat(level, hitResult.getLocation().x, hitResult.getLocation().y, hitResult.getLocation().z);
     }
 }

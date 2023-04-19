@@ -251,6 +251,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());
         this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
+
+        this.item(DAItems.GOLDEN_GRASS_SEEDS.get());
+        this.item(DAItems.GOLDEN_SWET_BALL.get());
     }
 
     public void handheldItem(Item item) {

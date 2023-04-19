@@ -12,9 +12,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.client.renderer.boat.CruderootBoatRenderer;
-import teamrazor.deepaether.client.renderer.boat.RoserootBoatRenderer;
-import teamrazor.deepaether.client.renderer.boat.YagrootBoatRenderer;
+import teamrazor.deepaether.client.renderer.DABoatRenderer;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -37,19 +35,7 @@ public class DAEventClientBusEvents {
     }
 
 
-    @SubscribeEvent
-    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
 
-
-        event.registerEntityRenderer(DAEntities.ROSEROOT_BOAT.get(), (context) -> new RoserootBoatRenderer(context, false));
-        event.registerEntityRenderer(DAEntities.ROSEROOT_CHEST_BOAT.get(), (context) -> new RoserootBoatRenderer(context, true));
-        event.registerEntityRenderer(DAEntities.YAGROOT_BOAT.get(), (context) -> new YagrootBoatRenderer(context, false));
-        event.registerEntityRenderer(DAEntities.YAGROOT_CHEST_BOAT.get(), (context) -> new YagrootBoatRenderer(context, true));
-        event.registerEntityRenderer(DAEntities.CRUDEROOT_BOAT.get(), (context) -> new CruderootBoatRenderer(context, false));
-        event.registerEntityRenderer(DAEntities.CRUDEROOT_CHEST_BOAT.get(), (context) -> new CruderootBoatRenderer(context, true));
-        event.registerEntityRenderer(DAEntities.AMBERROOT_BOAT.get(), (context) -> new CruderootBoatRenderer(context, false));
-        event.registerEntityRenderer(DAEntities.AMBERROOT_CHEST_BOAT.get(), (context) -> new CruderootBoatRenderer(context, true));
-    }
 
     @SubscribeEvent
     public static  void registerParticleFactories(final RegisterParticleProvidersEvent event) {

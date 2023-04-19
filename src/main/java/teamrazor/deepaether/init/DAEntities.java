@@ -13,45 +13,22 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.AerglowFishEntity;
+import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.entity.DAChestBoatEntity;
 import teamrazor.deepaether.entity.QuailEntity;
-import teamrazor.deepaether.entity.boats.*;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAEntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, DeepAetherMod.MODID);
 
+	public static final RegistryObject<EntityType<DABoatEntity>> BOAT = ENTITY_TYPES.register("boat",
+			() -> EntityType.Builder.<DABoatEntity>of(DABoatEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("boat"));
 
-    public static final RegistryObject<EntityType<RoserootBoat>> ROSEROOT_BOAT = ENTITY_TYPES.register("roseroot_boat",
-            () -> EntityType.Builder.<RoserootBoat>of(RoserootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("roseroot_boat"));
-
-    public static final RegistryObject<EntityType<RoserootChestBoat>> ROSEROOT_CHEST_BOAT = ENTITY_TYPES.register("roseroot_chest_boat",
-            () -> EntityType.Builder.<RoserootChestBoat>of(RoserootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("roseroot_boat"));
-
-    public static final RegistryObject<EntityType<YagrootBoat>> YAGROOT_BOAT = ENTITY_TYPES.register("yagroot_boat",
-            () -> EntityType.Builder.<YagrootBoat>of(YagrootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("yagroot_boat"));
-
-    public static final RegistryObject<EntityType<YagrootChestBoat>> YAGROOT_CHEST_BOAT = ENTITY_TYPES.register("yagroot_chest_boat",
-            () -> EntityType.Builder.<YagrootChestBoat>of(YagrootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("yagroot_boat"));
-
-    public static final RegistryObject<EntityType<CruderootBoat>> CRUDEROOT_BOAT = ENTITY_TYPES.register("cruderoot_boat",
-            () -> EntityType.Builder.<CruderootBoat>of(CruderootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("cruderoot_boat"));
-
-    public static final RegistryObject<EntityType<CruderootChestBoat>> CRUDEROOT_CHEST_BOAT = ENTITY_TYPES.register("cruderoot_chest_boat",
-            () -> EntityType.Builder.<CruderootChestBoat>of(CruderootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("cruderoot_boat"));
+	public static final RegistryObject<EntityType<DAChestBoatEntity>> CHEST_BOAT = ENTITY_TYPES.register("chest_boat",
+			() -> EntityType.Builder.<DAChestBoatEntity>of(DAChestBoatEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("chest_boat"));
 
 
-	public static final RegistryObject<EntityType<AmberrootBoat>> AMBERROOT_BOAT = ENTITY_TYPES.register("amberroot_boat",
-			() -> EntityType.Builder.<AmberrootBoat>of(AmberrootBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("amberroot_boat"));
-
-	public static final RegistryObject<EntityType<AmberrootChestBoat>> AMBERROOT_CHEST_BOAT = ENTITY_TYPES.register("amberroot_chest_boat",
-			() -> EntityType.Builder.<AmberrootChestBoat>of(AmberrootChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("amberroot_boat"));
-
-
-
-	/*public static final RegistryObject<EntityType<AetherFishEntity>> AETHER_FISH = register("aether_fish",
-			() -> EntityType.Builder.<AetherFishEntity>of(AetherFishEntity::new, MobCategory.MISC)
-					.sized(0.5F, 0.5F).clientTrackingRange(10));**/
 	public static final RegistryObject<EntityType<AerglowFishEntity>> AETHER_FISH = register("aerglow_fish",
 			EntityType.Builder.of(AerglowFishEntity::new, MobCategory.WATER_CREATURE)
 					.setShouldReceiveVelocityUpdates(true)

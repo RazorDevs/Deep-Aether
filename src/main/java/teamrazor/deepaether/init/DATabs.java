@@ -212,6 +212,8 @@ public class DATabs {
                             output.accept(DAItems.RAW_QUAIL.get());
                             output.accept(DAItems.COOKED_QUAIL.get());
                             output.accept(DAItems.GOLDEN_BERRIES.get());
+                            output.accept(DAItems.GOLDEN_GRASS_SEEDS.get());
+                            output.accept(DAItems.GOLDEN_SWET_BALL.get());
 
                             output.accept(DAItems.ROSEROOT_BOAT.get());
                             output.accept(DAItems.ROSEROOT_CHEST_BOAT.get());

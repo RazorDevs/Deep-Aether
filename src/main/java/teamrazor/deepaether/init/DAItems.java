@@ -16,6 +16,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
@@ -87,16 +88,16 @@ public class DAItems {
 
 
 	//BOATS
-	public static final RegistryObject<Item> ROSEROOT_BOAT = ITEMS.register("roseroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.ROSEROOT));
-	public static final RegistryObject<Item> ROSEROOT_CHEST_BOAT = ITEMS.register("roseroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.ROSEROOT));
-	public static final RegistryObject<Item> YAGROOT_BOAT = ITEMS.register("yagroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.YAGROOT));
-	public static final RegistryObject<Item> YAGROOT_CHEST_BOAT = ITEMS.register("yagroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.YAGROOT));
+	public static final RegistryObject<Item> ROSEROOT_BOAT = ITEMS.register("roseroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.ROSEROOT));
+	public static final RegistryObject<Item> ROSEROOT_CHEST_BOAT = ITEMS.register("roseroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1),  DABoatEntity.Type.ROSEROOT));
+	public static final RegistryObject<Item> YAGROOT_BOAT = ITEMS.register("yagroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.YAGROOT));
+	public static final RegistryObject<Item> YAGROOT_CHEST_BOAT = ITEMS.register("yagroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DABoatEntity.Type.YAGROOT));
 
-	public static final RegistryObject<Item> CRUDEROOT_BOAT = ITEMS.register("cruderoot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.CRUDEROOT));
-	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = ITEMS.register("cruderoot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.CRUDEROOT));
+	public static final RegistryObject<Item> CRUDEROOT_BOAT = ITEMS.register("cruderoot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.CRUDEROOT));
+	public static final RegistryObject<Item> CRUDEROOT_CHEST_BOAT = ITEMS.register("cruderoot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DABoatEntity.Type.CRUDEROOT));
 
-	public static final RegistryObject<Item> AMBERROOT_BOAT = ITEMS.register("amberroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DAWoodTypes.CRUDEROOT));
-	public static final RegistryObject<Item> AMBERROOT_CHEST_BOAT = ITEMS.register("amberroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DAWoodTypes.AMBERROOT));
+	public static final RegistryObject<Item> AMBERROOT_BOAT = ITEMS.register("amberroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.AMBERROOT));
+	public static final RegistryObject<Item> AMBERROOT_CHEST_BOAT = ITEMS.register("amberroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1), DABoatEntity.Type.AMBERROOT));
 
 	// MISC
 	public static final RegistryObject<Item> AERGLOW_FISH_EGG = ITEMS.register("aether_fish_spawn_egg",
@@ -121,6 +122,10 @@ public class DAItems {
 
 	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("golden_white_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
+	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new GoldenSwetBall(new Item.Properties()));
+
+
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}

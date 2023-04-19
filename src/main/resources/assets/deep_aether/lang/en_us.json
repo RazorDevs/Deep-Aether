@@ -263,9 +263,6 @@
   "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",
   "item.deep_aether.roseroot_boat": "Roseroot Boat",
   "item.deep_aether.roseroot_chest_boat": "Roseroot Chest Boat",
-  "entity.deep_aether.roseroot_chest_boat": "Boat With Chest",
-  "entity.deep_aether.cruderoot_chest_boat": "Boat With Chest",
-  "entity.deep_aether.yagroot_chest_boat": "Boat With Chest",
   "advancements.deep_aether.explore_aether.title": "Aether Explorer",
   "advancements.deep_aether.explore_aether.description": "Explore all Aether biomes",
   "advancements.deep_aether.cloudium_armor.title": "Cover Me in Sunshine",
@@ -460,6 +457,8 @@
   "item.deep_aether.golden_white_berries": "Golden White Berries",
   "block.deep_aether.golden_heights_dirt_path": "Golden Heights Dirt Path",
 
+  "item.deep_aether.golden_grass_seeds": "Golden Grass Seeds",
+  "item.deep_aether.golden_swet_ball": "Golden Swet Ball",
 
 
 
