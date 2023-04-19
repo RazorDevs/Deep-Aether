@@ -5,7 +5,10 @@ import com.gildedgames.aether.data.providers.AetherBlockLootSubProvider;
 import com.gildedgames.aether.item.AetherItems;
 import com.gildedgames.aether.loot.functions.DoubleDrops;
 import com.gildedgames.aether.mixin.mixins.common.accessor.BlockLootAccessor;
+import net.minecraft.advancements.critereon.BlockPredicate;
+import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.BlockPos;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -20,10 +23,13 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
@@ -236,10 +242,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
         this.dropDoubleWithSilk(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
-        this.dropNone(DABlocks.MINI_GOLDEN_GRASS.get());
-        this.dropNone(DABlocks.SHORT_GOLDEN_GRASS.get());
-        this.dropNone(DABlocks.MEDIUM_GOLDEN_GRASS.get());
-        this.dropNone(DABlocks.TALL_GOLDEN_GRASS.get());
+
+        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
+        this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
+        this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
+        this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
+
+
         this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
 
         this.add(DABlocks.GOLDEN_VINES.get(), (vines) -> this.createGoldenVinesDrop(vines));
@@ -249,6 +258,32 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
     protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(DAItems.GOLDEN_BERRIES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_251070_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenVines.BERRIES, true))));
     }
+
+    protected LootTable.Builder createGoldenDoublePlantWithSeedDrops(Block block, Block p_248735_) {
+        LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(p_248735_).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(HAS_SHEARS).otherwise(this.applyExplosionCondition(block, LootItem.lootTableItem(Items.WHEAT_SEEDS)).when(LootItemRandomChanceCondition.randomChance(0.125F)));
+        LootPoolEntryContainer.Builder<?> builder1 = LootItem.lootTableItem(p_248735_).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(HAS_SHEARS).otherwise(this.applyExplosionCondition(block, LootItem.lootTableItem(DAItems.GOLDEN_GRASS_SEEDS.get())).when(LootItemRandomChanceCondition.randomChance(0.1F)));
+        LootPoolEntryContainer.Builder<?> builder2 = LootItem.lootTableItem(p_248735_).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(HAS_SHEARS).otherwise(this.applyExplosionCondition(block, LootItem.lootTableItem(AetherItems.AMBROSIUM_SHARD.get())).when(LootItemRandomChanceCondition.randomChance(0.01F)));
+
+        return LootTable.lootTable()
+
+                .withPool(LootPool.lootPool().add(builder).add(builder1).add(builder2).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)))
+                .when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER).build()).build()), new BlockPos(0, 1, 0))))
+                .withPool(LootPool.lootPool().add(builder).add(builder1).add(builder2).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)))
+                        .when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).build()).build()), new BlockPos(0, -1, 0))));
+    }
+
+
+    protected LootTable.Builder createGoldenGrassDrops(Block block) {
+        return createShearsDispatchTable(block, this.applyExplosionDecay(block,
+                LootItem.lootTableItem(Items.WHEAT_SEEDS).when(LootItemRandomChanceCondition.randomChance(0.125F))
+                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.1F))
+                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)).add(LootItem.lootTableItem(DAItems.GOLDEN_GRASS_SEEDS.get())))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.01F))
+                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)).add(LootItem.lootTableItem(AetherItems.AMBROSIUM_SHARD.get())));
+
+    }
+
 
     public LootTable.Builder droppingWithChancesAndSkyrootSticksAndAerglowPetal(Block block, Block sapling, float... chances) {
         return createSilkTouchOrShearsDispatchTable(block, this.applyExplosionCondition(block, LootItem.lootTableItem(sapling)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, chances)))
