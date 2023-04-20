@@ -44,8 +44,7 @@ public class TwinTrunkPlacer extends TrunkPlacer {
         BlockPos pos1 = blockposState$mutableblockposState.below();
         List<FoliagePlacer.FoliageAttachment> list = Lists.newArrayList();
 
-        Random random1 = new Random();
-        float m = random1.nextFloat(1.5F,2.5F);
+        float m = random.nextFloat() + 1.5F;
         int i;
         int oldX = 0;
         int x = 0;
