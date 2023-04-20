@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -14,20 +13,17 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Fallable;
 import net.minecraft.world.level.block.PowderSnowBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +31,7 @@ import teamrazor.deepaether.init.DAItems;
 
 import java.util.Optional;
 
-public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable {
-    private static final VoxelShape FALLING_COLLISION_SHAPE = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, (double)0.9F, 1.0D);
-
+public class VirulentQuicksandBlock extends PowderSnowBlock {
     public VirulentQuicksandBlock(Properties properties) {
         super(properties);
     }
@@ -48,17 +42,6 @@ public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable 
     public BlockState updateShape(BlockState p_53226_, Direction p_53227_, BlockState p_53228_, LevelAccessor p_53229_, BlockPos p_53230_, BlockPos p_53231_) {
         p_53229_.scheduleTick(p_53230_, this, this.getDelayAfterPlace());
         return super.updateShape(p_53226_, p_53227_, p_53228_, p_53229_, p_53230_, p_53231_);
-    }
-
-    public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-        if (isFree(serverLevel.getBlockState(blockPos.below())) && blockPos.getY() >= serverLevel.getMinBuildHeight()) {
-            FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(serverLevel, blockPos, blockState);
-            this.falling(fallingblockentity);
-        }
-    }
-
-    protected void falling(FallingBlockEntity blockEntity) {
-        blockEntity.dropItem = false;
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -122,23 +105,6 @@ public class VirulentQuicksandBlock extends PowderSnowBlock implements Fallable 
         return Shapes.empty();
     }
 
-    public @NotNull VoxelShape getCollisionShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext context) {
-        if (context instanceof EntityCollisionContext entitycollisioncontext) {
-            Entity entity = entitycollisioncontext.getEntity();
-            if (entity != null) {
-                if (entity.fallDistance > 2.5F) {
-                    return FALLING_COLLISION_SHAPE;
-                }
-
-                boolean flag = entity instanceof FallingBlockEntity;
-                if (flag || canEntityWalkOnPowderSnow(entity) && context.isAbove(Shapes.block(), blockPos, false) && !context.isDescending()) {
-                    return super.getCollisionShape(blockState, blockGetter, blockPos, context);
-                }
-            }
-        }
-
-        return Shapes.empty();
-    }
 
     public @NotNull VoxelShape getVisualShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, CollisionContext context) {
         return Shapes.empty();
