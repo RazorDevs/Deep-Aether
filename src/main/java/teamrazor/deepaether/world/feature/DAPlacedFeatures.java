@@ -82,7 +82,7 @@ public class DAPlacedFeatures {
 
 
         register(context, GOLDEN_VINES_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_VINES_PATCH),
-                CountPlacement.of(15),
+                CountPlacement.of(7),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());

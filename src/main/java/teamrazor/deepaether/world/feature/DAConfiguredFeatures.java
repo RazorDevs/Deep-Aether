@@ -201,7 +201,7 @@ public class DAConfiguredFeatures {
 
 
         register(context, GOLDEN_VINES_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(6, 5, 5,
+                new RandomPatchConfiguration(6, 3, 5,
                         PlacementUtils.inlinePlaced(Feature.BLOCK_COLUMN,
                                 BlockColumnConfiguration.simple(BiasedToBottomInt.of(2, 4),
                                         new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES, false), 1).add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(BlockStateProperties.BERRIES, true), 1))),
