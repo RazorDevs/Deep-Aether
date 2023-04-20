@@ -31,7 +31,6 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
-    public static final ResourceKey<PlacedFeature> AERGLOW_SKYJADE = createKey("aerglow_skyjade_ore");
     public static final ResourceKey<PlacedFeature> DIVINE_DEBRIS = createKey("divine_debris");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
@@ -42,6 +41,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
 
     public static final ResourceKey<PlacedFeature>  GOLDEN_GRASS_BONEMEAL = createKey("golden_grass_bonemeal");
+    public static final ResourceKey<PlacedFeature>  VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -69,6 +69,13 @@ public class DAPlacedFeatures {
 
         register(context, AETHER_MOSS_PATCHES, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_MOSS_PATCH_BONEMEAL),
                 CountPlacement.of(10),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
+
+        register(context, VIRULENT_QUICKSAND_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.VIRULENT_QUICKSAND_PATCH),
+                RarityFilter.onAverageOnceEvery(5),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());

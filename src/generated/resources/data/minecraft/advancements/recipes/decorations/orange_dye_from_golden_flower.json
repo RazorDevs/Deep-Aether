@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:orange_dye"
+        "recipe": "minecraft:orange_dye_from_golden_flower"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:orange_dye"
+      "minecraft:orange_dye_from_golden_flower"
     ]
   }
 }

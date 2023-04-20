@@ -3,9 +3,11 @@ package teamrazor.deepaether.datagen.tags;
 import com.gildedgames.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -25,6 +27,9 @@ public class DABlockTagData extends BlockTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
-        AetherBlocks.QUICKSOIL.get();
+        tag(DATags.Blocks.CAN_GOLDEN_VINES_SURVIVE_ON).add(
+                AetherBlocks.QUICKSOIL.get(),
+                Blocks.SAND
+        );
     }
 }

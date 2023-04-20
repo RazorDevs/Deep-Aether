@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
@@ -92,9 +93,9 @@ public class GoldenVinesBlock extends GrowingPlantHeadBlock implements Bonemeala
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         boolean HasValidHightAndBlock = false;
         Block block;
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 5; i++) {
             block = level.getBlockState(pos.below(i)).getBlock();
-            if (block == AetherBlocks.QUICKSOIL.get()) {
+            if (block.defaultBlockState().is(DATags.Blocks.CAN_GOLDEN_VINES_SURVIVE_ON)) {
                 HasValidHightAndBlock = true;
             }
         }

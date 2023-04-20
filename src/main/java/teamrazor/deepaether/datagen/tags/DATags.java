@@ -21,7 +21,7 @@ public class DATags {
     }
     public static class Blocks {
 
-        public static final TagKey<Block> CAN_GOLDEN_FLOWERS_SURVIVE_ON = tag("can_golden_flowers_survive_on");
+        public static final TagKey<Block> CAN_GOLDEN_VINES_SURVIVE_ON = tag("can_golden_vines_survive_on");
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
         }
