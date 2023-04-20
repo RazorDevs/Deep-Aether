@@ -75,7 +75,7 @@ public class DAPlacedFeatures {
 
 
         register(context, VIRULENT_QUICKSAND_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.VIRULENT_QUICKSAND_PATCH),
-                RarityFilter.onAverageOnceEvery(5),
+                RarityFilter.onAverageOnceEvery(10),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
