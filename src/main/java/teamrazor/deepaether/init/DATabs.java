@@ -107,8 +107,6 @@ public class DATabs {
                             output.accept(DAItems.AMBERROOT_SIGN.get());
                             output.accept(DABlocks.AMBERROOT_LEAVES.get());
                             output.accept(DABlocks.AMBERROOT_SAPLING.get());
-                            output.accept(DABlocks.SKYROOT_WALL.get());
-                            output.accept(DABlocks.STRIPPED_SKYROOT_WALL.get());
 
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
                             output.accept(DABlocks.AETHER_MOSS_CARPET.get());
@@ -159,6 +157,7 @@ public class DATabs {
 
                             output.accept(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get());
                             output.accept(DABlocks.GOLDEN_HEIGHTS_DIRT_PATH.get());
+                            output.accept(DABlocks.GOLDEN_FLOWER.get());
                             output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                             output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());
                             output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());
