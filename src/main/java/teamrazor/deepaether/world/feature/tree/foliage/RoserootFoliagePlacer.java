@@ -15,16 +15,16 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 
 public class RoserootFoliagePlacer extends FoliagePlacer {
-    public static final Codec<RoserootFoliagePlacer> CODEC = RecordCodecBuilder.create((p_68735_) -> {
-        return foliagePlacerParts(p_68735_).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((p_161553_) -> {
-            return p_161553_.trunkHeight;
-        })).apply(p_68735_, RoserootFoliagePlacer::new);
+    public static final Codec<RoserootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> {
+        return foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer) -> {
+            return foliagePlacer.trunkHeight;
+        })).apply(p2, RoserootFoliagePlacer::new);
     });
     private final IntProvider trunkHeight;
 
-    public RoserootFoliagePlacer(IntProvider p_161539_, IntProvider p_161540_, IntProvider p_161541_) {
-        super(p_161539_, p_161540_);
-        this.trunkHeight = p_161541_;
+    public RoserootFoliagePlacer(IntProvider intProvider, IntProvider intProvider1, IntProvider intProvider2) {
+        super(intProvider, intProvider1);
+        this.trunkHeight = intProvider2;
     }
 
     protected FoliagePlacerType<?> type() {
@@ -34,7 +34,7 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
 
 
     @Override
-    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int p_225748_, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int p_225751_, int p_225752_) {
+    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         BlockPos blockpos = foliageAttachment.pos();
         int i = randomSource.nextInt(2);
         int j = 1;
@@ -135,23 +135,23 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
 
     }
 
-    public int foliageHeight(RandomSource randomSource, int p_225741_, TreeConfiguration treeConfiguration) {
-        return Math.max(4, p_225741_ - this.trunkHeight.sample(randomSource));
+    public int foliageHeight(RandomSource randomSource, int i, TreeConfiguration treeConfiguration) {
+        return Math.max(4, i - this.trunkHeight.sample(randomSource));
     }
 
-    protected boolean shouldSkipLocation(RandomSource randomSource, int a, int b, int c, int d, boolean p_225738_) {
+    protected boolean shouldSkipLocation(RandomSource randomSource, int a, int b, int c, int d, boolean b1) {
         return a == d && c == d && d > 0;
     }
     @Override
-    protected void placeLeavesRow(LevelSimulatedReader p_161438_, FoliageSetter p_161439_, RandomSource p_161440_, TreeConfiguration p_161441_, BlockPos p_161442_, int p_161443_, int p_161444_, boolean p_161445_) {
-        int i = p_161445_ ? 1 : 0;
+    protected void placeLeavesRow(LevelSimulatedReader simulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration configuration, BlockPos blockPos, int i1, int i2, boolean b) {
+        int i = b ? 1 : 0;
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
-        for (int j = -p_161443_; j <= p_161443_ + i; ++j) {
-            for (int k = -p_161443_; k <= p_161443_ + i; ++k) {
-                if (!shouldSkipLocationSigned(p_161440_, j, p_161444_, k, p_161443_, p_161445_)) {
-                    blockpos$mutableblockpos.setWithOffset(p_161442_, j, p_161444_, k);
-                    tryPlaceLeaf(p_161438_, p_161439_, p_161440_, p_161441_, blockpos$mutableblockpos);
+        for (int j = -i1; j <= i1 + i; ++j) {
+            for (int k = -i1; k <= i1 + i; ++k) {
+                if (!shouldSkipLocationSigned(randomSource, j, i2, k, i1, b)) {
+                    blockpos$mutableblockpos.setWithOffset(blockPos, j, i2, k);
+                    tryPlaceLeaf(simulatedReader, foliageSetter, randomSource, configuration, blockpos$mutableblockpos);
                 }
             }
         }
