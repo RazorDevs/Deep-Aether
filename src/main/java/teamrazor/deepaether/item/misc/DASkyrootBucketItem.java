@@ -1,6 +1,6 @@
 package teamrazor.deepaether.item.misc;
 
-import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
+import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;

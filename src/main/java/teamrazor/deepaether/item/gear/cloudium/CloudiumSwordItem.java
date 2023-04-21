@@ -1,6 +1,6 @@
 package teamrazor.deepaether.item.gear.cloudium;
 
-import com.gildedgames.aether.item.combat.abilities.weapon.GravititeWeapon;
+import com.aetherteam.aether.item.combat.abilities.weapon.GravititeWeapon;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;

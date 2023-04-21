@@ -1,6 +1,6 @@
 package teamrazor.deepaether.item.misc;
 
-import com.gildedgames.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;

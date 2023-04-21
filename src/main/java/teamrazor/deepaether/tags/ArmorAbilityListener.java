@@ -1,7 +1,7 @@
 package teamrazor.deepaether.tags;
 
 
-import com.gildedgames.aether.event.hooks.AbilityHooks;
+import com.aetherteam.aether.event.hooks.AbilityHooks;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;

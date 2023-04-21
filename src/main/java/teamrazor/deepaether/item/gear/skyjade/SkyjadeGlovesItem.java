@@ -1,7 +1,7 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
-import com.gildedgames.aether.client.AetherSoundEvents;
-import com.gildedgames.aether.item.accessories.gloves.GlovesItem;
+import com.aetherteam.aether.client.AetherSoundEvents;
+import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.ai.attributes.Attribute;

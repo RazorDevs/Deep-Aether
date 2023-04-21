@@ -1,7 +1,7 @@
 package teamrazor.deepaether.world.feature;
 
-import com.gildedgames.aether.world.placementmodifier.DungeonBlacklistFilter;
-import com.gildedgames.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
+import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
+import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.Heightmap;

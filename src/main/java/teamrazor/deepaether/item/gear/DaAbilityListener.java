@@ -1,7 +1,7 @@
 package teamrazor.deepaether.item.gear;
 
-import com.gildedgames.aether.capability.player.AetherPlayer;
-import com.gildedgames.aether.item.accessories.ring.RingItem;
+import com.aetherteam.aether.capability.player.AetherPlayer;
+import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -30,7 +30,7 @@ public class DaAbilityListener {
         LivingEntity livingEntity = event.getEntity();
 
 
-        if (com.gildedgames.aether.util.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
+        if (com.aetherteam.aether.util.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
             if (livingEntity instanceof Player player) {
                 AetherPlayer.get(player).ifPresent(aetherPlayer -> {
                     if (aetherPlayer.isGravititeJumpActive()) {

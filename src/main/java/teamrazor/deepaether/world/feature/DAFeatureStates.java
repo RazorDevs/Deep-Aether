@@ -1,6 +1,6 @@
 package teamrazor.deepaether.world.feature;
 
-import com.gildedgames.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
 import net.minecraft.world.level.block.state.BlockState;
 import teamrazor.deepaether.init.DABlocks;
 

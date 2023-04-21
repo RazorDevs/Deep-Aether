@@ -1,6 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
-import com.gildedgames.aether.item.accessories.gloves.GlovesItem;
+import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import net.minecraft.sounds.SoundEvent;
 import teamrazor.deepaether.DeepAetherMod;
 

@@ -1,6 +1,6 @@
 package teamrazor.deepaether.block.Behaviors;
 
-import com.gildedgames.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;

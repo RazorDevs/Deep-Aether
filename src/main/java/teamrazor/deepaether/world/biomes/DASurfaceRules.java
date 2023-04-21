@@ -1,10 +1,10 @@
 package teamrazor.deepaether.world.biomes;
 
 
-import com.gildedgames.aether.block.AetherBlockStateProperties;
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.data.resources.AetherFeatureStates;
-import com.gildedgames.aether.data.resources.registries.AetherDimensions;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.AetherFeatureStates;
+import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;

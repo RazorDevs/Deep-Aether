@@ -1,7 +1,7 @@
 package teamrazor.deepaether.block.Behaviors;
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.item.AetherItems;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

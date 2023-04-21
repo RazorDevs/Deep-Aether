@@ -1,13 +1,13 @@
 package teamrazor.deepaether.world.feature;
 
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.data.resources.AetherFeatureRules;
-import com.gildedgames.aether.data.resources.AetherFeatureStates;
-import com.gildedgames.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
-import com.gildedgames.aether.world.configuration.ShelfConfiguration;
-import com.gildedgames.aether.world.feature.AetherFeatures;
-import com.gildedgames.aether.world.foliageplacer.GoldenOakFoliagePlacer;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.AetherFeatureRules;
+import com.aetherteam.aether.data.resources.AetherFeatureStates;
+import com.aetherteam.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
+import com.aetherteam.aether.world.configuration.ShelfConfiguration;
+import com.aetherteam.aether.world.feature.AetherFeatures;
+import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;

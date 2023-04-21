@@ -1,6 +1,6 @@
 package teamrazor.deepaether.block.Behaviors;
 
-import com.gildedgames.aether.item.AetherItems;
+import com.aetherteam.aether.item.AetherItems;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;

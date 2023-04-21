@@ -1,6 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
-import com.gildedgames.aether.client.AetherSoundEvents;
+import com.aetherteam.aether.client.AetherSoundEvents;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.StringRepresentable;
