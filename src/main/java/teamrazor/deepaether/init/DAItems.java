@@ -1,14 +1,11 @@
 package teamrazor.deepaether.init;
 
-import com.gildedgames.aether.client.AetherSoundEvents;
-import com.gildedgames.aether.item.accessories.ring.RingItem;
-import com.gildedgames.aether.item.miscellaneous.AetherRecordItem;
-import com.gildedgames.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.aether.client.AetherSoundEvents;
+import com.aetherteam.aether.item.accessories.ring.RingItem;
+import com.aetherteam.aether.item.miscellaneous.AetherRecordItem;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +21,6 @@ import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.cloudium.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
 
-import static com.gildedgames.aether.item.AetherItems.SKYROOT_BUCKET;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 

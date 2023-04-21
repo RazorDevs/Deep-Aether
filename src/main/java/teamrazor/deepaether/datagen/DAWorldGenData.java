@@ -21,8 +21,4 @@ public class DAWorldGenData extends DatapackBuiltinEntriesProvider {
     public DAWorldGenData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Collections.singleton(DeepAetherMod.MODID));
     }
-
-    public static HolderLookup.Provider createLookup() {
-        return BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), VanillaRegistries.createLookup());
-    }
 }

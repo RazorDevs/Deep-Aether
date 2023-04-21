@@ -1,6 +1,6 @@
 package teamrazor.deepaether.datagen;
 
-import com.gildedgames.aether.data.providers.AetherItemModelProvider;
+import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

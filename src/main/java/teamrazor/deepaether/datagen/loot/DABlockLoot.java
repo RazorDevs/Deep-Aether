@@ -1,15 +1,14 @@
 package teamrazor.deepaether.datagen.loot;
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.data.providers.AetherBlockLootSubProvider;
-import com.gildedgames.aether.item.AetherItems;
-import com.gildedgames.aether.loot.functions.DoubleDrops;
-import com.gildedgames.aether.mixin.mixins.common.accessor.BlockLootAccessor;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.providers.AetherBlockLootSubProvider;
+import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.loot.functions.DoubleDrops;
+import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
 import net.minecraft.advancements.critereon.BlockPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -17,7 +16,6 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CaveVines;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;

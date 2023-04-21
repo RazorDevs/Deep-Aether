@@ -1,6 +1,6 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.block.natural.AetherGrassBlock;
+import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;

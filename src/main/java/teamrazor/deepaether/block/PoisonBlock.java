@@ -1,8 +1,8 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.effect.AetherEffects;
-import com.gildedgames.aether.item.AetherItems;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.effect.AetherEffects;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -73,10 +73,12 @@ public class PoisonBlock extends LiquidBlock {
 
                 CAN_TRANSFORM = false;
 
-                if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_LEGACY.get()) {
-                    TRANSFORM_ITEM = Items.MUSIC_DISC_CAT;
-                    CAN_TRANSFORM = true;
-                }
+                //MUSIC DISC LEGACY REMOVED
+
+                //if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_LEGACY.get()) {
+                //    TRANSFORM_ITEM = Items.MUSIC_DISC_CAT;
+                //    CAN_TRANSFORM = true;
+                //}
                 if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
                     TRANSFORM_ITEM = AetherItems.GOLDEN_DART.get();
                     CAN_TRANSFORM = true;

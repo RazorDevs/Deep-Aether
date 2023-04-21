@@ -1,19 +1,20 @@
 package teamrazor.deepaether.event;
 
-import com.gildedgames.aether.client.renderer.accessory.GlovesRenderer;
+import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.client.renderer.DABoatRenderer;
-import teamrazor.deepaether.init.*;
+import teamrazor.deepaether.init.DAFluids;
+import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.init.DAParticles;
+import teamrazor.deepaether.init.DAWoodTypes;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 

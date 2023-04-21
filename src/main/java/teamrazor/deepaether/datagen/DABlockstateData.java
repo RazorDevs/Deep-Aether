@@ -1,11 +1,10 @@
 package teamrazor.deepaether.datagen;
 
-import com.gildedgames.aether.block.AetherBlockStateProperties;
-import com.gildedgames.aether.data.providers.AetherBlockStateProvider;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;

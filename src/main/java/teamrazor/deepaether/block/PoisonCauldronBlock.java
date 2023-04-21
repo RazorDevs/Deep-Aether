@@ -1,6 +1,6 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.effect.AetherEffects;
+import com.aetherteam.aether.effect.AetherEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;

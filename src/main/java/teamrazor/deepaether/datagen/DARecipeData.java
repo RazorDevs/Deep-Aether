@@ -1,8 +1,8 @@
 package teamrazor.deepaether.datagen;
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.data.providers.AetherRecipeProvider;
-import com.gildedgames.aether.item.AetherItems;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.providers.AetherRecipeProvider;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
@@ -47,8 +47,8 @@ public class DARecipeData extends AetherRecipeProvider {
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
 
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.SKYROOT_WALL.get(), AetherBlocks.SKYROOT_LOG.get());
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_SKYROOT_WALL.get(), AetherBlocks.SKYROOT_LOG.get());
+        //wall(consumer, RecipeCategory.DECORATIONS, DABlocks.SKYROOT_WALL.get(), AetherBlocks.SKYROOT_LOG.get());
+        //wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_SKYROOT_WALL.get(), AetherBlocks.SKYROOT_LOG.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.ROSEROOT_SIGN.get(), 3)
                 .group("wooden_sign")

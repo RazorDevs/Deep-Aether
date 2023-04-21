@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity;
 
+import com.aetherteam.aether.entity.SkyrootBoatBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -18,7 +19,7 @@ import teamrazor.deepaether.init.DAItems;
 
 import java.util.function.Supplier;
 
-public class DABoatEntity extends Boat {
+public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
     private static final EntityDataAccessor<Integer> WOOD_TYPE = SynchedEntityData.defineId(DABoatEntity.class, EntityDataSerializers.INT);
 
     public DABoatEntity(EntityType<? extends Boat> type, Level level) {

@@ -2,14 +2,13 @@
 
 package teamrazor.deepaether.init;
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.block.construction.AetherDirtPathBlock;
-import com.gildedgames.aether.block.natural.AercloudBlock;
-import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
-import com.gildedgames.aether.block.natural.AetherDoubleDropsLeaves;
-import com.gildedgames.aether.block.natural.AetherGrassBlock;
-import com.gildedgames.aether.effect.AetherEffects;
-import com.gildedgames.aether.mixin.mixins.common.accessor.FireBlockAccessor;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.construction.AetherDirtPathBlock;
+import com.aetherteam.aether.block.natural.AercloudBlock;
+import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
+import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.effect.AetherEffects;
+import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

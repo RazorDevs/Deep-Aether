@@ -1,18 +1,16 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.block.AetherBlockStateProperties;
-import com.gildedgames.aether.block.natural.AetherDoubleDropBlock;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
 import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 
 public class DAMossBlock extends AetherDoubleDropBlock implements BonemealableBlock {

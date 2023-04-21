@@ -1,6 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
-import com.gildedgames.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Blocks;

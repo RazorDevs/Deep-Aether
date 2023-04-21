@@ -1,6 +1,5 @@
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;

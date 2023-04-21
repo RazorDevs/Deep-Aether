@@ -1,6 +1,6 @@
 package teamrazor.deepaether.client.keys;
 
-import com.gildedgames.aether.capability.player.AetherPlayer;
+import com.aetherteam.aether.capability.player.AetherPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 

@@ -1,6 +1,7 @@
 package teamrazor.deepaether.datagen.tags;
 
-import com.gildedgames.aether.AetherTags;
+
+import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;

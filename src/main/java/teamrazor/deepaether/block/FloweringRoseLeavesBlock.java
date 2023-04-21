@@ -1,8 +1,8 @@
 
 package teamrazor.deepaether.block;
 
-import com.gildedgames.aether.block.AetherBlockStateProperties;
-import com.gildedgames.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;

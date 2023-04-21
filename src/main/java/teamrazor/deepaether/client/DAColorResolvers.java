@@ -1,8 +1,7 @@
 package teamrazor.deepaether.client;
 
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.item.AetherItems;
-import com.gildedgames.aether.mixin.mixins.client.accessor.BlockColorsAccessor;
+
+import com.aetherteam.aether.mixin.mixins.client.accessor.BlockColorsAccessor;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
