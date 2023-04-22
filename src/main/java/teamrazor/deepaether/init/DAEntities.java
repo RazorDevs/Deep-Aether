@@ -12,10 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.entity.AerglowFishEntity;
-import teamrazor.deepaether.entity.DABoatEntity;
-import teamrazor.deepaether.entity.DAChestBoatEntity;
-import teamrazor.deepaether.entity.QuailEntity;
+import teamrazor.deepaether.entity.*;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -41,6 +38,11 @@ public class DAEntities {
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
 					.sized(0.3f, 0.5f));
 
+	public static final RegistryObject<EntityType<SnailEntity>> SNAIL = register("snail",
+			EntityType.Builder.<SnailEntity>of(SnailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(SnailEntity::new)
+					.sized(0.3f, 0.5f));
+
 
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
@@ -52,6 +54,7 @@ public class DAEntities {
 		event.enqueueWork(() -> {
 			AerglowFishEntity.createAttributes();
 			QuailEntity.init();
+			SnailEntity.init();
 		});
 	}
 
@@ -59,5 +62,6 @@ public class DAEntities {
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(AETHER_FISH.get(), AerglowFishEntity.createAttributes().build());
 		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
+		event.put(SNAIL.get(), QuailEntity.createAttributes().build());
 	}
 }

@@ -44,7 +44,7 @@ public class DAColorResolvers {
             event.register(((state, level, pos, tintIndex) -> {
                 if (level != null && pos != null) {
                     BlockPos newPos = state.hasProperty(DoublePlantBlock.HALF) ? (state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos) : pos;
-                    if (level.getBlockState(newPos.below()).is(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get())) {
+                    if (level.getBlockState(newPos.below()).is(DABlocks.GOLDEN_GRASS_BLOCK.get())) {
                         return level.getBlockTint(newPos, GOLDEN_GRASS);
                     }
                 }

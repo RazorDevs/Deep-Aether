@@ -4,13 +4,10 @@ import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -78,7 +75,7 @@ public class GoldenGrassBlock extends AetherGrassBlock {
     @Override
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         if(context.getItemInHand().getItem() instanceof ShovelItem) {
-                return DABlocks.GOLDEN_HEIGHTS_DIRT_PATH.get().defaultBlockState();
+                return DABlocks.GOLDEN_DIRT_PATH.get().defaultBlockState();
         }
 
         return super.getToolModifiedState(state, context, toolAction, simulate);

@@ -155,8 +155,8 @@ public class DATabs {
                             output.accept(DABlocks.AETHER_CATTAILS.get());
                             output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
 
-                            output.accept(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get());
-                            output.accept(DABlocks.GOLDEN_HEIGHTS_DIRT_PATH.get());
+                            output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
+                            output.accept(DABlocks.GOLDEN_DIRT_PATH.get());
                             output.accept(DABlocks.GOLDEN_FLOWER.get());
                             output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                             output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());

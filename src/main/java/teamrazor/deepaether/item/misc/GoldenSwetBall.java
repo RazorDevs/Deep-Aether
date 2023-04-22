@@ -27,7 +27,7 @@ public class GoldenSwetBall extends Item {
         if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
             Player player = context.getPlayer();
             if (player != null && !level.isClientSide) {
-                level.setBlockAndUpdate(pos, DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get().defaultBlockState());
+                level.setBlockAndUpdate(pos, DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState());
                 player.awardStat(Stats.ITEM_USED.get(item.getItem()));
                 item.shrink(1);
             }

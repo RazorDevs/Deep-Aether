@@ -223,7 +223,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.YAGROOT_VINE.get());
 
-        this.dropOther(DABlocks.GOLDEN_HEIGHTS_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
        //this.dropNone(DABlocks.AGATE_BLOCK.get());
        //this.dropNone(DABlocks.AGATE_ORE.get());
        //this.dropNone(DABlocks.HIGHSTONE_AGATE_ORE.get());
@@ -239,7 +239,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
-        this.dropDoubleWithSilk(DABlocks.GOLDEN_HEIGHTS_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
 
         this.add(DABlocks.MINI_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
         this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
