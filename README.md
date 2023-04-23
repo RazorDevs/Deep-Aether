@@ -2,24 +2,25 @@
 ![](https://media.discordapp.net/attachments/983858839269036053/985145208985485312/unknown.png?width=886&height=498)
 # What is this about?
 
-The Deep Aether is an addon for the original version of the Aether Mod for Minecraft.
+The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.4 and beyond.
 It aims to add lots of new features to give players a chance to venture deeper into the Aether dimension, while also maintaining its original style.
+Basically, we aim to give the Aether the "Nether Expansion Update" treatment.
  
  # What is new?
 
 The Deep Aether mod introduces:
-  - Two New Ores, Cloudium Debris And Skyjade Ore
+  - New Ores: such as Cloudium Debris and Skyjade Ore
   - New Armors And Tools
-  - 3 new Biomes, The Roseroot Forest, Yagroot Swamp and Aerlavender Fields 
+  - 5 new Biomes (for now): Aerglow Forest, Blue Aerglow Forest, Yagroot Swamp, Aerlavender Fields, and Golden Heights
   - New Music Discs
-  - New Docorational Blocks, including 2 stone types and tree woodsets 
+  - New Decorational Blocks, including 2 stone types, 4 trees, 3 wood sets, etc.
   - And more...
 
 # Requirements
 
 You'll need of course:
  - Forge
- - The Aether Mod
+ - The Aether Mod (The 1.19.4 version)
  
  You will also need:
  - GeckoLib
@@ -27,4 +28,4 @@ You'll need of course:
  
 # Credits
 
-The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights goes to Emile van Krieken.
+The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken.
