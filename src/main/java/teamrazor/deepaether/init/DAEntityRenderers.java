@@ -21,11 +21,11 @@ public class DAEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
-		event.registerEntityRenderer(DAEntities.SNAIL.get(), SnailRenderer::new);
+		//event.registerEntityRenderer(DAEntities.SNAIL.get(), SnailRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 
-		event.registerEntityRenderer(DAEntities.BOAT.get(), context -> new DABoatRenderer(context, false));
-		event.registerEntityRenderer(DAEntities.CHEST_BOAT.get(), context -> new DABoatRenderer(context, true));
+		event.registerEntityRenderer(DAEntities.BOAT.get(), context -> new DABoatRenderer<>(context, false));
+		event.registerEntityRenderer(DAEntities.CHEST_BOAT.get(), context -> new DABoatRenderer<>(context, true));
 
 	}
 	@SubscribeEvent

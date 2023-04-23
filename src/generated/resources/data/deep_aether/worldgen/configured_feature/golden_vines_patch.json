@@ -13,30 +13,56 @@
           "layers": [
             {
               "height": {
-                "type": "minecraft:biased_to_bottom",
-                "value": {
-                  "max_inclusive": 4,
-                  "min_inclusive": 2
-                }
-              },
-              "provider": {
-                "type": "minecraft:weighted_state_provider",
-                "entries": [
+                "type": "minecraft:weighted_list",
+                "distribution": [
                   {
                     "data": {
-                      "Name": "deep_aether:golden_vines",
-                      "Properties": {
-                        "age": "0",
-                        "berries": "false"
+                      "type": "minecraft:uniform",
+                      "value": {
+                        "max_inclusive": 1,
+                        "min_inclusive": 0
                       }
                     },
                     "weight": 1
                   },
                   {
                     "data": {
-                      "Name": "deep_aether:golden_vines",
+                      "type": "minecraft:uniform",
+                      "value": {
+                        "max_inclusive": 2,
+                        "min_inclusive": 0
+                      }
+                    },
+                    "weight": 1
+                  },
+                  {
+                    "data": {
+                      "type": "minecraft:uniform",
+                      "value": {
+                        "max_inclusive": 3,
+                        "min_inclusive": 0
+                      }
+                    },
+                    "weight": 1
+                  }
+                ]
+              },
+              "provider": {
+                "type": "minecraft:weighted_state_provider",
+                "entries": [
+                  {
+                    "data": {
+                      "Name": "deep_aether:golden_vines_plant",
                       "Properties": {
-                        "age": "0",
+                        "berries": "false"
+                      }
+                    },
+                    "weight": 4
+                  },
+                  {
+                    "data": {
+                      "Name": "deep_aether:golden_vines_plant",
+                      "Properties": {
                         "berries": "true"
                       }
                     },
@@ -44,9 +70,48 @@
                   }
                 ]
               }
+            },
+            {
+              "height": 1,
+              "provider": {
+                "type": "minecraft:randomized_int_state_provider",
+                "property": "age",
+                "source": {
+                  "type": "minecraft:weighted_state_provider",
+                  "entries": [
+                    {
+                      "data": {
+                        "Name": "deep_aether:golden_vines",
+                        "Properties": {
+                          "age": "0",
+                          "berries": "false"
+                        }
+                      },
+                      "weight": 4
+                    },
+                    {
+                      "data": {
+                        "Name": "deep_aether:golden_vines",
+                        "Properties": {
+                          "age": "0",
+                          "berries": "true"
+                        }
+                      },
+                      "weight": 1
+                    }
+                  ]
+                },
+                "values": {
+                  "type": "minecraft:uniform",
+                  "value": {
+                    "max_inclusive": 25,
+                    "min_inclusive": 23
+                  }
+                }
+              }
             }
           ],
-          "prioritize_tip": false
+          "prioritize_tip": true
         }
       },
       "placement": [
@@ -56,17 +121,19 @@
             "type": "minecraft:all_of",
             "predicates": [
               {
-                "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:air"
-              },
-              {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "deep_aether:golden_vines",
+                  "Name": "deep_aether:golden_vines_plant",
                   "Properties": {
-                    "age": "0",
                     "berries": "false"
                   }
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "deep_aether:golden_vines"
                 }
               }
             ]
@@ -74,8 +141,8 @@
         }
       ]
     },
-    "tries": 6,
-    "xz_spread": 3,
-    "y_spread": 5
+    "tries": 1,
+    "xz_spread": 1,
+    "y_spread": 1
   }
 }
