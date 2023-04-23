@@ -1,10 +1,10 @@
 {
   "variants": {
     "berries=false": {
-      "model": "deep_aether:block/golden_vines_plant"
+      "model": "deep_aether:block/golden_vines_top"
     },
     "berries=true": {
-      "model": "deep_aether:block/golden_vines_plant_lit"
+      "model": "deep_aether:block/fruit_golden_vines_top"
     }
   }
 }
