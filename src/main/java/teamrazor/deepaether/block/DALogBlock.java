@@ -32,10 +32,16 @@ public class DALogBlock extends AetherLogBlock {
                 return DABlocks.STRIPPED_YAGROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
             if(state.is(DABlocks.CRUDEROOT_LOG.get())) {
-                return DABlocks.STRIPPED_CRUDEROOT_LOG.get().defaultBlockState();
+                return DABlocks.STRIPPED_CRUDEROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
             if(state.is(DABlocks.CRUDEROOT_WOOD.get())) {
-                return DABlocks.CRUDEROOT_WOOD.get().defaultBlockState();
+                return DABlocks.CRUDEROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if(state.is(DABlocks.AMBERROOT_LOG.get())) {
+                return DABlocks.STRIPPED_AMBERROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
+            if(state.is(DABlocks.AMBERROOT_WOOD.get())) {
+                return DABlocks.STRIPPED_AMBERROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }
 
