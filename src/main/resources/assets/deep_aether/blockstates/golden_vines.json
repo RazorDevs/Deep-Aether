@@ -4,7 +4,7 @@
       "model": "deep_aether:block/golden_vines"
     },
     "berries=true": {
-      "model": "deep_aether:block/fruit_golden_vines"
+      "model": "deep_aether:block/golden_vines_lit"
     }
   }
 }
