@@ -382,7 +382,10 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.CLOUDIUM_INGOT.get())
                 .requires(DAItems.CLOUDIUM_SCRAP.get(),4)
-                .requires(AetherBlocks.ENCHANTED_GRAVITITE.get(),4)
+                .requires(AetherBlocks.ENCHANTED_GRAVITITE.get())
+                .requires(AetherItems.ZANITE_GEMSTONE.get())
+                .requires(AetherItems.AMBROSIUM_SHARD.get())
+                .requires(DAItems.SKYJADE.get())
                 .unlockedBy(getHasName(DABlocks.CLOUDIUM_DEBRIS.get()), has(DABlocks.CLOUDIUM_DEBRIS.get()))
                 .save(consumer);
 
