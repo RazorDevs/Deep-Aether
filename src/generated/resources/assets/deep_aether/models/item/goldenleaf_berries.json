@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:item/golden_white_berries"
+    "layer0": "deep_aether:item/goldenleaf_berries"
   }
 }
