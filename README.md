@@ -29,3 +29,13 @@ You'll need of course:
 # Credits
 
 The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken.
+
+
+# License
+
+LGPL-3.0-only
+
+
+# Our Links
+
+CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
