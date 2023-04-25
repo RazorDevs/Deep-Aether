@@ -17,9 +17,9 @@ New Biomes:
  
 New Ores, Tools, and Armor:
  - Skyjade (found in Holystone; has blocks, armor, tools, and weapons)
-  - Skyjade's ability is powerful upon first use, but gets weaker the more durability is lost; basically the opposite of Zanite's ability.
+   - Skyjade's ability is powerful upon first use, but gets weaker the more durability is lost; basically the opposite of Zanite's ability.
  - Cloudium (found in Aerclouds; has blocks, armor, tools, and weapons)
-  - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves).
+   - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves).
   
 New Trees and Wood Sets:
  - Roseroot and Blue Roseroot (Roseroot and Blue Roseroot Forests)
