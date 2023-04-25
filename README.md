@@ -16,16 +16,16 @@ New Biomes:
  - Golden Heights
  
 New Ores, Tools, and Armor:
- - Skyjade (found in Holystone; will have blocks, armor, tools, and weapons)
+ - Skyjade (found in Holystone; has blocks, armor, tools, and weapons)
   - Skyjade's ability is powerful upon first use, but gets weaker the more durability is lost; basically the opposite of Zanite's ability.
- - Cloudium (found in Aerclouds; will have blocks, armor, tools, and weapons)
+ - Cloudium (found in Aerclouds; has blocks, armor, tools, and weapons)
   - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves).
   
 New Trees and Wood Sets:
- - Roseroot and Blue Roseroot (Roseroot and Blue Roseroot Forests; 1x1 only)
- - Yagroot (Yagroot Swamp; 1x1 only)
- - Cruderoot (Yagroot Swamp; 1x1 only)
- - Amberroot (Golden Heights; 1x1 only)
+ - Roseroot and Blue Roseroot (Roseroot and Blue Roseroot Forests)
+ - Yagroot (Yagroot Swamp)
+ - Cruderoot (Yagroot Swamp)
+ - Amberroot (Golden Heights)
  
 New Mobs:
  - Aerglow Fish
@@ -45,7 +45,7 @@ New Blocks:
  
 New Items:
  - Golden Grass Seeds (drops from Golden Grass (not the block version); can be crafted with swet balls into a new swet ball type, which can turn Aether Dirt into Golden Grass)
- - Music Disks: Nabooru and Morning Wish by Emile van Krieken (these tracks were originally meant for the Aether I mod a long time ago, but were never implemented)
+ - Music Disks: Nabooru and A Morning Wish by Emile van Krieken (these tracks were originally meant for the Aether I mod a long time ago, but were never implemented)
  
 New Liquid:
  - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
