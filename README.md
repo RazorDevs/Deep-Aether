@@ -15,7 +15,9 @@ The Deep Aether mod introduces:
   - New Armors And Tools
   - 5 new Biomes (for now): Aerglow Forest, Blue Aerglow Forest, Yagroot Swamp, Aerlavender Fields, and Golden Heights
   - New Music Discs
-  - New Decorational Blocks, including 2 stone types, 4 trees, 3 wood sets, etc.
+  - New Decorational Blocks, including 2 stone types, 5 trees, 4 wood sets, etc.
+      - New tree types are: Roseroot, Blue Roseroot, Yagroot, Cruderoot, and Amberroot
+      - Wood sets: Roseroot, Yagroot, Cruderoot, and Amberroot
   - And more...
 
 # Requirements
