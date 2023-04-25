@@ -33,7 +33,7 @@ The rights to this mod belong to The Aether Team, (Gilded Games) and all its dev
 
 # License
 
-LGPL-3.0-only
+GNU Lesser General Public License v3.0 only
 
 
 # Our Links
