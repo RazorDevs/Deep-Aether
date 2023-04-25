@@ -8,17 +8,47 @@ Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatmen
  
  # What is new?
 
-The Deep Aether mod introduces:
-  - New Ores: such as Cloudium Debris and Skyjade Ore, both of which have armor and tool sets
-      - Skyjade's ability is powerful upon first use, but gets less powerful the more durability is lost; basically the opposite of Zanite
-      - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves)
-  - New Armors And Tools
-  - 5 new Biomes (for now): Aerglow Forest, Blue Aerglow Forest, Yagroot Swamp, Aerlavender Fields, and Golden Heights
-  - New Music Discs
-  - New Decorational Blocks, including 2 stone types, 5 trees, 4 wood sets, etc.
-      - New tree types are: Roseroot, Blue Roseroot, Yagroot, Cruderoot, and Amberroot
-      - Wood sets: Roseroot, Yagroot, Cruderoot, and Amberroot
-  - And more...
+New Biomes:
+ - Roseroot Forest
+ - Blue Roseroot Forest
+ - Aerlavender Fields
+ - Yagroot Swamp
+ - Golden Heights
+ 
+New Ores, Tools, and Armor:
+ - Skyjade (found in Holystone; will have blocks, armor, tools, and weapons)
+  - Skyjade's ability is powerful upon first use, but gets weaker the more durability is lost; basically the opposite of Zanite's ability.
+ - Cloudium (found in Aerclouds; will have blocks, armor, tools, and weapons)
+  - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves).
+  
+New Trees and Wood Sets:
+ - Roseroot and Blue Roseroot (Roseroot and Blue Roseroot Forests; 1x1 only)
+ - Yagroot (Yagroot Swamp; 1x1 only)
+ - Cruderoot (Yagroot Swamp; 1x1 only)
+ - Amberroot (Golden Heights; 1x1 only)
+ 
+New Mobs:
+ - Aerglow Fish
+ - Aether Quail
+ 
+New Stone Types:
+ - Clorite
+ - Aseterite
+ 
+New Blocks:
+ - Aether Mud and Aether Mud Bricks
+ - Unique grass and path blocks for the Golden Heights biome, as well as the Aether Moss Block for the Yagroot Swamp
+ - Normal decorative variants for new wood, stone, and ores
+ - Unique flora for all added biomes, and the Golden Vine Fruit for the Golden Heights biome
+ - Aerglow Block (crafted from Aerglow Petals, which come from Radiant Orchids and Flowering Roseroot Leaves)
+ - Virulent Quicksand (functions like how quicksand does in real life, as well as Powdered Snow; immediate suffocation when fallen through)
+ 
+New Items:
+ - Golden Grass Seeds (drops from Golden Grass (not the block version); can be crafted with swet balls into a new swet ball type, which can turn Aether Dirt into Golden Grass)
+ - Music Disks: Nabooru and Morning Wish by Emile van Krieken (these tracks were originally meant for the Aether I mod a long time ago, but were never implemented)
+ 
+New Liquid:
+ - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
 
 # Requirements
 
