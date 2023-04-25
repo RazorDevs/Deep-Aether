@@ -73,4 +73,5 @@ GNU Lesser General Public License v3.0 only
 # Our Links
 
 CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
+
 Modrinth: https://modrinth.com/mod/deep-aether
