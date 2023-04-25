@@ -9,7 +9,9 @@ Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatmen
  # What is new?
 
 The Deep Aether mod introduces:
-  - New Ores: such as Cloudium Debris and Skyjade Ore
+  - New Ores: such as Cloudium Debris and Skyjade Ore, both of which have armor and tool sets
+      - Skyjade's ability is powerful upon first use, but gets less powerful the more durability is lost; basically the opposite of Zanite
+      - Cloudium's ability is slow falling
   - New Armors And Tools
   - 5 new Biomes (for now): Aerglow Forest, Blue Aerglow Forest, Yagroot Swamp, Aerlavender Fields, and Golden Heights
   - New Music Discs
