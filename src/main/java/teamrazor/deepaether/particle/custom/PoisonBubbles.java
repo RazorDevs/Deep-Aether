@@ -26,13 +26,6 @@ public class PoisonBubbles extends TextureSheetParticle {
     }
 
 
-    public void tick() {
-        super.tick();
-        if (!this.removed) {
-            float f = (float)this.age / (float)this.lifetime;
-        }
-    }
-
     @OnlyIn(Dist.CLIENT)
     public static class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprite;
@@ -41,9 +34,10 @@ public class PoisonBubbles extends TextureSheetParticle {
             this.sprite = p_105753_;
         }
 
+
         public Particle createParticle(SimpleParticleType p_105764_, ClientLevel p_105765_, double p_105766_, double p_105767_, double p_105768_, double p_105769_, double p_105770_, double p_105771_) {
             PoisonBubbles poisonBubbles = new PoisonBubbles(p_105765_, p_105766_, p_105767_, p_105768_, p_105769_, p_105770_, p_105771_);
-            poisonBubbles.pickSprite(this.sprite);
+            poisonBubbles.setSpriteFromAge(this.sprite);
             return poisonBubbles;
         }
     }
