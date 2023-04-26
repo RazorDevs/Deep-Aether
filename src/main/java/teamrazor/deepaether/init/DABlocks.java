@@ -119,27 +119,27 @@ public class DABlocks {
 	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 
-	//AMBERROOT
+	//CONBERRY
 
-	public static final RegistryObject<Block> AMBERROOT_WOOD = registerBlock("amberroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> AMBERROOT_LOG = registerBlock("amberroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> AMBERROOT_WALL = registerBlock(300,"amberroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> STRIPPED_AMBERROOT_WOOD = registerBlock("stripped_amberroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> STRIPPED_AMBERROOT_LOG = registerBlock("stripped_amberroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> STRIPPED_AMBERROOT_WALL = registerBlock(300,"stripped_amberroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> AMBERROOT_PLANKS = registerBlock( 300,"amberroot_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> AMBERROOT_STAIRS = registerBlock("amberroot_stairs", () -> new StairBlock(() -> DABlocks.AMBERROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> AMBERROOT_SLAB = registerBlock("amberroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
-	public static final RegistryObject<Block> AMBERROOT_FENCE = registerBlock("amberroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> AMBERROOT_FENCE_GATE = registerBlock("amberroot_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.AMBERROOT));
-	public static final RegistryObject<Block> AMBERROOT_PRESSURE_PLATE = registerBlock("amberroot_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), DAWoodTypes.AMBERROOT_BLOCK_SET));
-	public static final RegistryObject<Block> AMBERROOT_BUTTON = registerBlock("amberroot_button", () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), DAWoodTypes.AMBERROOT_BLOCK_SET, 30, true));
-	public static final RegistryObject<Block> AMBERROOT_DOOR = registerBlock("amberroot_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR), DAWoodTypes.AMBERROOT_BLOCK_SET));
-	public static final RegistryObject<Block> AMBERROOT_TRAPDOOR = registerBlock("amberroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.AMBERROOT_BLOCK_SET));
-	public static final RegistryObject<Block> AMBERROOT_LEAVES = registerBlock("amberroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
-	public static final RegistryObject<Block> AMBERROOT_SAPLING = registerBlock("amberroot_sapling", () -> new SaplingBlock( new AmberrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
-	public static final RegistryObject<Block> AMBERROOT_WALL_SIGN = BLOCKS.register("amberroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.AMBERROOT));
-	public static final RegistryObject<Block> AMBERROOT_SIGN = BLOCKS.register("amberroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.AMBERROOT));
+	public static final RegistryObject<Block> CONBERRY_WOOD = registerBlock("conberry_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> CONBERRY_LOG = registerBlock("conberry_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> CONBERRY_WALL = registerBlock(300,"conberry_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> STRIPPED_CONBERRY_WOOD = registerBlock("stripped_conberry_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> STRIPPED_CONBERRY_LOG = registerBlock("stripped_conberry_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> STRIPPED_CONBERRY_WALL = registerBlock(300,"stripped_conberry_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> CONBERRY_PLANKS = registerBlock( 300,"conberry_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> CONBERRY_STAIRS = registerBlock("conberry_stairs", () -> new StairBlock(() -> DABlocks.CONBERRY_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> CONBERRY_SLAB = registerBlock("conberry_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
+	public static final RegistryObject<Block> CONBERRY_FENCE = registerBlock("conberry_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> CONBERRY_FENCE_GATE = registerBlock("conberry_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.CONBERRY));
+	public static final RegistryObject<Block> CONBERRY_PRESSURE_PLATE = registerBlock("conberry_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), DAWoodTypes.CONBERRY_BLOCK_SET));
+	public static final RegistryObject<Block> CONBERRY_BUTTON = registerBlock("conberry_button", () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), DAWoodTypes.CONBERRY_BLOCK_SET, 30, true));
+	public static final RegistryObject<Block> CONBERRY_DOOR = registerBlock("conberry_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR), DAWoodTypes.CONBERRY_BLOCK_SET));
+	public static final RegistryObject<Block> CONBERRY_TRAPDOOR = registerBlock("conberry_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.CONBERRY_BLOCK_SET));
+	public static final RegistryObject<Block> CONBERRY_LEAVES = registerBlock("conberry_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+	public static final RegistryObject<Block> CONBERRY_SAPLING = registerBlock("conberry_sapling", () -> new SaplingBlock( new ConberryTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
+	public static final RegistryObject<Block> CONBERRY_WALL_SIGN = BLOCKS.register("conberry_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CONBERRY));
+	public static final RegistryObject<Block> CONBERRY_SIGN = BLOCKS.register("conberry_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CONBERRY));
 
 	//SKYROOT WALLS
 	public static final RegistryObject<Block> STRIPPED_SKYROOT_WALL = registerBlock(300,"stripped_skyroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -240,7 +240,7 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_ROSEROOT_SAPLING = BLOCKS.register("potted_blue_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_YAGROOT_SAPLING = BLOCKS.register("potted_yagroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CRUDEROOT_SAPLING = BLOCKS.register("potted_cruderoot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRUDEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
-	public static final RegistryObject<FlowerPotBlock> POTTED_AMBERROOT_SAPLING = BLOCKS.register("potted_amberroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AMBERROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_CONBERRY_SAPLING = BLOCKS.register("potted_conberry_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CONBERRY_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static void registerPots() {
 		FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 		pot.addPlant(DABlocks.AERLAVENDER.getId(), DABlocks.POTTED_AERLAVENDER);
@@ -252,7 +252,7 @@ public class DABlocks {
 		pot.addPlant(DABlocks.BLUE_ROSEROOT_SAPLING.getId(), DABlocks.POTTED_ROSEROOT_SAPLING);
 		pot.addPlant(DABlocks.YAGROOT_SAPLING.getId(), DABlocks.POTTED_YAGROOT_SAPLING);
 		pot.addPlant(DABlocks.CRUDEROOT_SAPLING.getId(), DABlocks.POTTED_CRUDEROOT_SAPLING);
-		pot.addPlant(DABlocks.AMBERROOT_SAPLING.getId(), DABlocks.POTTED_AMBERROOT_SAPLING);
+		pot.addPlant(DABlocks.CONBERRY_SAPLING.getId(), DABlocks.POTTED_CONBERRY_SAPLING);
 
 	}
 
@@ -285,14 +285,14 @@ public class DABlocks {
 		WoodType.register(DAWoodTypes.ROSEROOT);
 		WoodType.register(DAWoodTypes.CRUDEROOT);
 		WoodType.register(DAWoodTypes.YAGROOT);
-		WoodType.register(DAWoodTypes.AMBERROOT);
+		WoodType.register(DAWoodTypes.CONBERRY);
 	}
 	public static void registerFlammability() {
 		FireBlockAccessor fireBlockAccessor = (FireBlockAccessor) Blocks.FIRE;
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LEAVES.get(), 30, 60);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_LEAVES.get(), 30, 60);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LEAVES.get(), 30, 60);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_LOG.get(), 5, 5);
@@ -300,19 +300,19 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_LOG.get(), 5, 5);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_LOG.get(), 5, 5);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_AMBERROOT_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_LOG.get(), 5, 5);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_WOOD.get(), 5, 5);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_WOOD.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WOOD.get(), 5, 5);
 
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_PLANKS.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_PLANKS.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_PLANKS.get(), 5, 20);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.AERLAVENDER.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.TALL_AERLAVENDER.get(), 60, 100);
@@ -340,10 +340,10 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_STAIRS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_SLAB.get(), 5, 20);
 
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_FENCE_GATE.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_FENCE.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_STAIRS.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_SLAB.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_FENCE_GATE.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_FENCE.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_STAIRS.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_SLAB.get(), 5, 20);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), 5, 20);
@@ -351,8 +351,8 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.AMBERROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_AMBERROOT_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.SKYROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SKYROOT_WALL.get(), 5, 20);
 	}

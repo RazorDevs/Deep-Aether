@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "deep_aether:clorite"
-  },
-  "result": "deep_aether:clorite_pillar"
-}

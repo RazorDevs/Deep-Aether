@@ -83,7 +83,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREES_PLACEMENT = createKey("blue_roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_CATTAILS_PATCH =  createKey("aether_cattails_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_PATCH = createKey("golden_grass_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AMBERROOT_TREE = createKey("amberroot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CONBERRY_TREE = createKey("amberroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH = createKey("golden_grass_block_bonemeal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
@@ -174,11 +174,11 @@ public class DAConfiguredFeatures {
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
 
-        register(context, AMBERROOT_TREE, Feature.TREE,
+        register(context, CONBERRY_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(DAFeatureStates.AMBERROOT_LOG),
+                        BlockStateProvider.simple(DAFeatureStates.CONBERRY_LOG),
                         new TwinTrunkPlacer(7, 6, 3),
-                        BlockStateProvider.simple(DAFeatureStates.AMBERROOT_LEAVES),
+                        BlockStateProvider.simple(DAFeatureStates.CONBERRY_LEAVES),
                         new GoldenOakFoliagePlacer(ConstantInt.of(0), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
 

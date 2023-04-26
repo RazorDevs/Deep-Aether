@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "deep_aether:block/aether_mud_bricks",
-    "side": "deep_aether:block/aether_mud_bricks",
-    "top": "deep_aether:block/aether_mud_bricks"
-  }
-}

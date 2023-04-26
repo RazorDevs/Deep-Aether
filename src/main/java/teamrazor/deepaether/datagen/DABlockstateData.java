@@ -93,26 +93,26 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.signBlock((StandingSignBlock) DABlocks.CRUDEROOT_SIGN.get(), (WallSignBlock) DABlocks.CRUDEROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.CRUDEROOT_PLANKS.get())));
 
 
-        //WOOD AMBERROOT
-        this.wood((RotatedPillarBlock) DABlocks.AMBERROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.AMBERROOT_LOG.get());
-        this.log((RotatedPillarBlock) DABlocks.AMBERROOT_LOG.get());
-        this.wood((RotatedPillarBlock) DABlocks.STRIPPED_AMBERROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.log((RotatedPillarBlock) DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.block(DABlocks.AMBERROOT_PLANKS.get());
-        this.slab((SlabBlock) DABlocks.AMBERROOT_SLAB.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.stairs((StairBlock) DABlocks.AMBERROOT_STAIRS.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.fence((FenceBlock) DABlocks.AMBERROOT_FENCE.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.fenceGateBlock((FenceGateBlock) DABlocks.AMBERROOT_FENCE_GATE.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.doorBlock((DoorBlock) DABlocks.AMBERROOT_DOOR.get(), this.texture(this.name(DABlocks.AMBERROOT_DOOR.get())+ "_bottom"), this.texture(this.name(DABlocks.AMBERROOT_DOOR.get())+ "_top"));
-        this.trapdoorBlock((TrapDoorBlock) DABlocks.AMBERROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.AMBERROOT_TRAPDOOR.get())), false);
-        this.buttonBlock((ButtonBlock) DABlocks.AMBERROOT_BUTTON.get(), this.texture(this.name(DABlocks.AMBERROOT_PLANKS.get())));
-        this.pressurePlateBlock((PressurePlateBlock) DABlocks.AMBERROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.AMBERROOT_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.AMBERROOT_WALL.get(), DABlocks.AMBERROOT_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_AMBERROOT_WALL.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.saplingBlock(DABlocks.AMBERROOT_SAPLING.get());
-        this.pottedPlant(DABlocks.POTTED_AMBERROOT_SAPLING.get(), DABlocks.AMBERROOT_SAPLING.get());
-        this.block(DABlocks.AMBERROOT_LEAVES.get());
-        this.signBlock((StandingSignBlock) DABlocks.AMBERROOT_SIGN.get(), (WallSignBlock) DABlocks.AMBERROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.AMBERROOT_PLANKS.get())));
+        //WOOD CONBERRY
+        this.wood((RotatedPillarBlock) DABlocks.CONBERRY_WOOD.get(), (RotatedPillarBlock) DABlocks.CONBERRY_LOG.get());
+        this.log((RotatedPillarBlock) DABlocks.CONBERRY_LOG.get());
+        this.wood((RotatedPillarBlock) DABlocks.STRIPPED_CONBERRY_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.log((RotatedPillarBlock) DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.block(DABlocks.CONBERRY_PLANKS.get());
+        this.slab((SlabBlock) DABlocks.CONBERRY_SLAB.get(), DABlocks.CONBERRY_PLANKS.get());
+        this.stairs((StairBlock) DABlocks.CONBERRY_STAIRS.get(), DABlocks.CONBERRY_PLANKS.get());
+        this.fence((FenceBlock) DABlocks.CONBERRY_FENCE.get(), DABlocks.CONBERRY_PLANKS.get());
+        this.fenceGateBlock((FenceGateBlock) DABlocks.CONBERRY_FENCE_GATE.get(), DABlocks.CONBERRY_PLANKS.get());
+        this.doorBlock((DoorBlock) DABlocks.CONBERRY_DOOR.get(), this.texture(this.name(DABlocks.CONBERRY_DOOR.get())+ "_bottom"), this.texture(this.name(DABlocks.CONBERRY_DOOR.get())+ "_top"));
+        this.trapdoorBlock((TrapDoorBlock) DABlocks.CONBERRY_TRAPDOOR.get(), this.texture(this.name(DABlocks.CONBERRY_TRAPDOOR.get())), false);
+        this.buttonBlock((ButtonBlock) DABlocks.CONBERRY_BUTTON.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
+        this.pressurePlateBlock((PressurePlateBlock) DABlocks.CONBERRY_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
+        this.wallBlock((WallBlock) DABlocks.CONBERRY_WALL.get(), DABlocks.CONBERRY_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.saplingBlock(DABlocks.CONBERRY_SAPLING.get());
+        this.pottedPlant(DABlocks.POTTED_CONBERRY_SAPLING.get(), DABlocks.CONBERRY_SAPLING.get());
+        this.block(DABlocks.CONBERRY_LEAVES.get());
+        this.signBlock((StandingSignBlock) DABlocks.CONBERRY_SIGN.get(), (WallSignBlock) DABlocks.CONBERRY_WALL_SIGN.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
 
         //MUD
 

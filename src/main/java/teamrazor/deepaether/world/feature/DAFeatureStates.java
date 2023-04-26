@@ -27,8 +27,8 @@ public class DAFeatureStates {
     public static final BlockState TALL_AETHER_CATTAILS = DABlocks.TALL_AETHER_CATTAILS.get().defaultBlockState();
     public static final BlockState RADIANT_ORCHID = DABlocks.RADIANT_ORCHID.get().defaultBlockState();
     public static final BlockState RAIN_AERCLOUD = DABlocks.RAIN_AERCLOUD.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
-    public static final BlockState AMBERROOT_LOG = DABlocks.AMBERROOT_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
-    public static final BlockState AMBERROOT_LEAVES = DABlocks.AMBERROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+    public static final BlockState CONBERRY_LOG = DABlocks.CONBERRY_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+    public static final BlockState CONBERRY_LEAVES = DABlocks.CONBERRY_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState VIRULENT_QUICKSAND = DABlocks.VIRULENT_QUICKSAND.get().defaultBlockState();
 
 }

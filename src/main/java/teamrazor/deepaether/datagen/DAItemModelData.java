@@ -88,24 +88,24 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DABlocks.CRUDEROOT_SIGN.get().asItem());
 
 
-        this.itemBlock(DABlocks.AMBERROOT_WOOD.get());
-        this.itemBlock(DABlocks.AMBERROOT_LOG.get());
-        this.itemBlock(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
-        this.itemBlock(DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.itemBlock(DABlocks.AMBERROOT_PLANKS.get());
-        this.itemBlock(DABlocks.AMBERROOT_SLAB.get());
-        this.itemBlock(DABlocks.AMBERROOT_STAIRS.get());
-        this.itemFence(DABlocks.AMBERROOT_FENCE.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.itemBlock(DABlocks.AMBERROOT_FENCE_GATE.get());
-        this.item(DABlocks.AMBERROOT_DOOR.get().asItem());
-        this.itemBlock(DABlocks.AMBERROOT_TRAPDOOR.get(), "_bottom");
-        this.itemButton(DABlocks.AMBERROOT_BUTTON.get(), DABlocks.AMBERROOT_PLANKS.get());
-        this.itemBlock(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.AMBERROOT_WALL.get(), DABlocks.AMBERROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_AMBERROOT_WALL.get(), DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.itemBlockFlat(DABlocks.AMBERROOT_SAPLING.get());
-        this.itemBlock(DABlocks.AMBERROOT_LEAVES.get());
-        this.item(DABlocks.AMBERROOT_SIGN.get().asItem());
+        this.itemBlock(DABlocks.CONBERRY_WOOD.get());
+        this.itemBlock(DABlocks.CONBERRY_LOG.get());
+        this.itemBlock(DABlocks.STRIPPED_CONBERRY_WOOD.get());
+        this.itemBlock(DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.itemBlock(DABlocks.CONBERRY_PLANKS.get());
+        this.itemBlock(DABlocks.CONBERRY_SLAB.get());
+        this.itemBlock(DABlocks.CONBERRY_STAIRS.get());
+        this.itemFence(DABlocks.CONBERRY_FENCE.get(), DABlocks.CONBERRY_PLANKS.get());
+        this.itemBlock(DABlocks.CONBERRY_FENCE_GATE.get());
+        this.item(DABlocks.CONBERRY_DOOR.get().asItem());
+        this.itemBlock(DABlocks.CONBERRY_TRAPDOOR.get(), "_bottom");
+        this.itemButton(DABlocks.CONBERRY_BUTTON.get(), DABlocks.CONBERRY_PLANKS.get());
+        this.itemBlock(DABlocks.CONBERRY_PRESSURE_PLATE.get());
+        this.itemWallBlock(DABlocks.CONBERRY_WALL.get(), DABlocks.CONBERRY_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.itemBlockFlat(DABlocks.CONBERRY_SAPLING.get());
+        this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
+        this.item(DABlocks.CONBERRY_SIGN.get().asItem());
 
 
 
@@ -231,8 +231,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.YAGROOT_CHEST_BOAT.get());
         this.item(DAItems.CRUDEROOT_BOAT.get());
         this.item(DAItems.CRUDEROOT_CHEST_BOAT.get());
-        this.item(DAItems.AMBERROOT_BOAT.get());
-        this.item(DAItems.AMBERROOT_CHEST_BOAT.get());
+        this.item(DAItems.CONBERRY_BOAT.get());
+        this.item(DAItems.CONBERRY_CHEST_BOAT.get());
 
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

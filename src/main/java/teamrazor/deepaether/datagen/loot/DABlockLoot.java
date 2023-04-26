@@ -134,27 +134,27 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.CRUDEROOT_SIGN.get());
 
 
-        this.dropSelf(DABlocks.AMBERROOT_WOOD.get());
-        this.dropSelf(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
-        this.dropSelfDouble(DABlocks.AMBERROOT_LOG.get());
-        this.dropSelfDouble(DABlocks.STRIPPED_AMBERROOT_LOG.get());
-        this.dropSelf(DABlocks.AMBERROOT_PLANKS.get());
-        this.dropSelf(DABlocks.AMBERROOT_SLAB.get());
-        this.dropSelf(DABlocks.AMBERROOT_STAIRS.get());
-        this.dropSelf(DABlocks.AMBERROOT_FENCE.get());
-        this.dropSelf(DABlocks.AMBERROOT_FENCE_GATE.get());
-        this.add(DABlocks.AMBERROOT_DOOR.get(), createDoorTable(DABlocks.AMBERROOT_DOOR.get()));
-        this.dropSelf(DABlocks.AMBERROOT_TRAPDOOR.get());
-        this.dropSelf(DABlocks.AMBERROOT_BUTTON.get());
-        this.dropSelf(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
-        this.dropSelf(DABlocks.AMBERROOT_WALL.get());
-        this.dropSelf(DABlocks.STRIPPED_AMBERROOT_WALL.get());
-        this.dropSelf(DABlocks.AMBERROOT_SAPLING.get());
-        this.dropPottedContents(DABlocks.POTTED_AMBERROOT_SAPLING.get());
-        this.add(DABlocks.AMBERROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.AMBERROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-        this.dropOther(DABlocks.AMBERROOT_WALL_SIGN.get(), DABlocks.AMBERROOT_SIGN.get());
-        this.dropSelf(DABlocks.AMBERROOT_SIGN.get());
+        this.dropSelf(DABlocks.CONBERRY_WOOD.get());
+        this.dropSelf(DABlocks.STRIPPED_CONBERRY_WOOD.get());
+        this.dropSelfDouble(DABlocks.CONBERRY_LOG.get());
+        this.dropSelfDouble(DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.dropSelf(DABlocks.CONBERRY_PLANKS.get());
+        this.dropSelf(DABlocks.CONBERRY_SLAB.get());
+        this.dropSelf(DABlocks.CONBERRY_STAIRS.get());
+        this.dropSelf(DABlocks.CONBERRY_FENCE.get());
+        this.dropSelf(DABlocks.CONBERRY_FENCE_GATE.get());
+        this.add(DABlocks.CONBERRY_DOOR.get(), createDoorTable(DABlocks.CONBERRY_DOOR.get()));
+        this.dropSelf(DABlocks.CONBERRY_TRAPDOOR.get());
+        this.dropSelf(DABlocks.CONBERRY_BUTTON.get());
+        this.dropSelf(DABlocks.CONBERRY_PRESSURE_PLATE.get());
+        this.dropSelf(DABlocks.CONBERRY_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CONBERRY_WALL.get());
+        this.dropSelf(DABlocks.CONBERRY_SAPLING.get());
+        this.dropPottedContents(DABlocks.POTTED_CONBERRY_SAPLING.get());
+        this.add(DABlocks.CONBERRY_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CONBERRY_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.dropOther(DABlocks.CONBERRY_WALL_SIGN.get(), DABlocks.CONBERRY_SIGN.get());
+        this.dropSelf(DABlocks.CONBERRY_SIGN.get());
 
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "deep_aether:holystone_tiles"
-  },
-  "result": "deep_aether:holystone_tile_wall"
-}

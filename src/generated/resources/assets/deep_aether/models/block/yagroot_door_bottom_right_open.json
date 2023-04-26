@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_right_open",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "deep_aether:block/yagroot_door_bottom",
-    "top": "deep_aether:block/yagroot_door_top"
-  }
-}

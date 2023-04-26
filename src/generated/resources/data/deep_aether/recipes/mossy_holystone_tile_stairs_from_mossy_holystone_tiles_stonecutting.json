@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "deep_aether:mossy_holystone_tiles"
-  },
-  "result": "deep_aether:mossy_holystone_tile_stairs"
-}

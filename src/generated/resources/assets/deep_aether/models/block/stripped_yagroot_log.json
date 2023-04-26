@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "deep_aether:block/stripped_yagroot_log_top",
-    "side": "deep_aether:block/stripped_yagroot_log"
-  }
-}

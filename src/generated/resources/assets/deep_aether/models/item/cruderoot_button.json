@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/button_inventory",
-  "textures": {
-    "texture": "deep_aether:block/cruderoot_planks"
-  }
-}

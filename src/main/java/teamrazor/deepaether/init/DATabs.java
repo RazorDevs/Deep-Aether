@@ -89,24 +89,24 @@ public class DATabs {
                             output.accept(DABlocks.CRUDEROOT_LEAVES.get());
                             output.accept(DABlocks.CRUDEROOT_SAPLING.get());
 
-                            output.accept(DABlocks.AMBERROOT_LOG.get());
-                            output.accept(DABlocks.AMBERROOT_WOOD.get());
-                            output.accept(DABlocks.STRIPPED_AMBERROOT_LOG.get());
-                            output.accept(DABlocks.STRIPPED_AMBERROOT_WOOD.get());
-                            output.accept(DABlocks.AMBERROOT_PLANKS.get());
-                            output.accept(DABlocks.AMBERROOT_STAIRS.get());
-                            output.accept(DABlocks.AMBERROOT_SLAB.get());
-                            output.accept(DABlocks.AMBERROOT_FENCE.get());
-                            output.accept(DABlocks.AMBERROOT_FENCE_GATE.get());
-                            output.accept(DABlocks.AMBERROOT_DOOR.get());
-                            output.accept(DABlocks.AMBERROOT_TRAPDOOR.get());
-                            output.accept(DABlocks.AMBERROOT_PRESSURE_PLATE.get());
-                            output.accept(DABlocks.AMBERROOT_WALL.get());
-                            output.accept(DABlocks.STRIPPED_AMBERROOT_WALL.get());
-                            output.accept(DABlocks.AMBERROOT_BUTTON.get());
-                            output.accept(DAItems.AMBERROOT_SIGN.get());
-                            output.accept(DABlocks.AMBERROOT_LEAVES.get());
-                            output.accept(DABlocks.AMBERROOT_SAPLING.get());
+                            output.accept(DABlocks.CONBERRY_LOG.get());
+                            output.accept(DABlocks.CONBERRY_WOOD.get());
+                            output.accept(DABlocks.STRIPPED_CONBERRY_LOG.get());
+                            output.accept(DABlocks.STRIPPED_CONBERRY_WOOD.get());
+                            output.accept(DABlocks.CONBERRY_PLANKS.get());
+                            output.accept(DABlocks.CONBERRY_STAIRS.get());
+                            output.accept(DABlocks.CONBERRY_SLAB.get());
+                            output.accept(DABlocks.CONBERRY_FENCE.get());
+                            output.accept(DABlocks.CONBERRY_FENCE_GATE.get());
+                            output.accept(DABlocks.CONBERRY_DOOR.get());
+                            output.accept(DABlocks.CONBERRY_TRAPDOOR.get());
+                            output.accept(DABlocks.CONBERRY_PRESSURE_PLATE.get());
+                            output.accept(DABlocks.CONBERRY_WALL.get());
+                            output.accept(DABlocks.STRIPPED_CONBERRY_WALL.get());
+                            output.accept(DABlocks.CONBERRY_BUTTON.get());
+                            output.accept(DAItems.CONBERRY_SIGN.get());
+                            output.accept(DABlocks.CONBERRY_LEAVES.get());
+                            output.accept(DABlocks.CONBERRY_SAPLING.get());
 
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
                             output.accept(DABlocks.AETHER_MOSS_CARPET.get());
@@ -220,8 +220,8 @@ public class DATabs {
                             output.accept(DAItems.YAGROOT_CHEST_BOAT.get());
                             output.accept(DAItems.CRUDEROOT_BOAT.get());
                             output.accept(DAItems.CRUDEROOT_CHEST_BOAT.get());
-                            output.accept(DAItems.AMBERROOT_BOAT.get());
-                            output.accept(DAItems.AMBERROOT_CHEST_BOAT.get());
+                            output.accept(DAItems.CONBERRY_BOAT.get());
+                            output.accept(DAItems.CONBERRY_CHEST_BOAT.get());
 
                             output.accept(DAItems.MUSIC_DISC_NABOORU.get());
                             output.accept(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

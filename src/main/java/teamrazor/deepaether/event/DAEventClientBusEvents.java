@@ -31,7 +31,7 @@ public class DAEventClientBusEvents {
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);
             Sheets.addWoodType(DAWoodTypes.CRUDEROOT);
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
-            Sheets.addWoodType(DAWoodTypes.AMBERROOT);
+            Sheets.addWoodType(DAWoodTypes.CONBERRY);
         });
     }
 
