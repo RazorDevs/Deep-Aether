@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.item.AetherItems;
@@ -120,6 +121,13 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DABlocks.CRUDEROOT_PLANKS.get()), has(DABlocks.CRUDEROOT_PLANKS.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.CRAFTING_TABLE, 1)
+                .group("minecraft:crafting_table")
+                .define('P', AetherTags.Items.PLANKS_CRAFTING)
+                .pattern("PP")
+                .pattern("PP")
+                .unlockedBy(getHasName(AetherBlocks.SKYROOT_PLANKS.get()), has(AetherBlocks.SKYROOT_PLANKS.get()))
+                .save(consumer, name("skyroot_crafting_table"));
 
         woodFromLogs(consumer, DABlocks.CONBERRY_WOOD.get(), DABlocks.CONBERRY_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_CONBERRY_WOOD.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());

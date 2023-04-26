@@ -1,0 +1,17 @@
+{
+  "type": "aether:shelf",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:virulent_quicksand"
+      }
+    },
+    "radius": 3.4641016,
+    "valid_blocks": "deep_aether:aether_mud",
+    "y_range": {
+      "max_inclusive": 48,
+      "min_inclusive": 0
+    }
+  }
+}

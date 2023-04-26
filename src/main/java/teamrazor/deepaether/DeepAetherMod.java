@@ -40,6 +40,7 @@ import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
+import teamrazor.deepaether.event.DAMissingEntries;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
@@ -89,6 +90,7 @@ public class DeepAetherMod {
 		bus.addListener(this::commonSetup);
 
 		MinecraftForge.EVENT_BUS.register(this);
+
 
 		GeckoLib.initialize();
 		DABlocks.BLOCKS.register(bus);

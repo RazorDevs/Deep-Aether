@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
+import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -49,6 +50,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.CONBERRY_WOOD.get().asItem(),
                 DABlocks.STRIPPED_CONBERRY_LOG.get().asItem(),
                 DABlocks.STRIPPED_CONBERRY_WOOD.get().asItem()
+        );
+        tag(AetherTags.Items.PLANKS_CRAFTING).add(
+                DABlocks.ROSEROOT_PLANKS.get().asItem(),
+                DABlocks.YAGROOT_PLANKS.get().asItem(),
+                DABlocks.CRUDEROOT_PLANKS.get().asItem(),
+                DABlocks.CONBERRY_PLANKS.get().asItem()
         );
     }
 }

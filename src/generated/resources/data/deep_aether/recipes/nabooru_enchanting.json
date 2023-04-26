@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_misc",
+  "cookingtime": 2500,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "minecraft:music_disc_pigstep"
+  },
+  "result": "deep_aether:music_disc_nabooru"
+}

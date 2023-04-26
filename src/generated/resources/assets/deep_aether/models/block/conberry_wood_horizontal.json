@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "deep_aether:block/conberry_log",
+    "side": "deep_aether:block/conberry_log"
+  }
+}
