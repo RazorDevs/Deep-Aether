@@ -9,8 +9,8 @@ Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatmen
  # What is new?
 
 New Biomes:
- - Roseroot Forest
- - Blue Roseroot Forest
+ - Aerglow Forest
+ - Blue Aerglow Forest
  - Aerlavender Fields
  - Yagroot Swamp
  - Golden Heights
@@ -22,7 +22,7 @@ New Ores, Tools, and Armor:
    - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves).
   
 New Trees and Wood Sets:
- - Roseroot and Blue Roseroot (Roseroot and Blue Roseroot Forests)
+ - Roseroot and Blue Roseroot (Aerglow and Blue Aerglow Forests)
  - Yagroot (Yagroot Swamp)
  - Cruderoot (Yagroot Swamp)
  - Amberroot (Golden Heights)
@@ -45,7 +45,7 @@ New Blocks:
  
 New Items:
  - Golden Grass Seeds (drops from Golden Grass (not the block version); can be crafted with swet balls into a new swet ball type, which can turn Aether Dirt into Golden Grass)
- - Music Disks: Nabooru and A Morning Wish by Emile van Krieken (these tracks were originally meant for the Aether I mod a long time ago, but were never implemented)
+ - Music Disks: "Nabooru" and "A Morning Wish" by Emile van Krieken (these tracks were originally meant for the Aether I mod a long time ago, but were never implemented)
  
 New Liquid:
  - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
