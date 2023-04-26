@@ -22,14 +22,14 @@
       {
         "chance": 0.66,
         "feature": {
-          "feature": "deep_aether:amberroot_tree",
+          "feature": "deep_aether:conberry_tree",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "deep_aether:amberroot_sapling",
+                  "Name": "deep_aether:conberry_sapling",
                   "Properties": {
                     "stage": "0"
                   }

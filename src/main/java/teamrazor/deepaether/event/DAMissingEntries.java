@@ -20,15 +20,6 @@ import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DAMissingEntries {
-
-    public static final ResourceKey<Block> AMBERROOT_PLANKS = block("amberroot_planks");
-
-
-    private static ResourceKey<Block> block(String name) {
-        return ResourceKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
-    }
-
-
     @SubscribeEvent
     public static void missingMappings(MissingMappingsEvent missingMappingsEvent) {
         missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1210).remap(DABlocks.CONBERRY_BUTTON.get());
