@@ -183,7 +183,11 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("AA")
                 .unlockedBy(getHasName(DABlocks.PACKED_AETHER_MUD.get()), has(DABlocks.PACKED_AETHER_MUD.get()))
                 .save(consumer);
+        stairs(DABlocks.AETHER_MUD_BRICKS_STAIRS, DABlocks.AETHER_MUD_BRICKS).save(consumer);
 
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), Ingredient.of(DABlocks.AETHER_MUD_BRICKS.get()))
+                .unlockedBy(getHasName(DABlocks.AETHER_MUD_BRICKS.get()), has(DABlocks.AETHER_MUD_BRICKS.get()))
+                .save(consumer);
 
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get(),2);
@@ -326,6 +330,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
+        blastingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 0.5F).save(consumer, name("skjyade_from_blasting"));
 
         repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_SWORD.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_sword_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_AXE.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_axe_repairing"));
@@ -392,6 +397,9 @@ public class DARecipeData extends AetherRecipeProvider {
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);
         smeltingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer);
 
+        SmokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, "cooked_quail_from_smoker");
+        SmokingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer, "cooked_aerglow_fish_from_smoker");
+
         makeBoat(DAItems.ROSEROOT_BOAT, DABlocks.ROSEROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.YAGROOT_BOAT, DABlocks.YAGROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.CRUDEROOT_BOAT, DABlocks.CRUDEROOT_PLANKS.get()).save(consumer);
@@ -456,6 +464,10 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(ingredient), has(ingredient));
     }
 
+    protected static SimpleCookingRecipeBuilder SmokingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
+        return SimpleCookingRecipeBuilder.smoking(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 100)
+                .unlockedBy(getHasName(ingredient), has(ingredient));
+    }
     protected static ShapedRecipeBuilder makeBoat(Supplier<? extends Item> boat, Block material) {
         return ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, boat.get())
                 .define('#', material)
