@@ -15,6 +15,7 @@
     "deep_aether:clorite_slab",
     "deep_aether:polished_clorite_slab",
     "deep_aether:clorite_wall",
+    "deep_aether:clorite_pillar",
     "deep_aether:skyjade_ore",
     "deep_aether:skyjade_block",
     "deep_aether:cloudium_debris",
@@ -26,6 +27,10 @@
     "deep_aether:mossy_holystone_tiles",
     "deep_aether:mossy_holystone_tile_slab",
     "deep_aether:mossy_holystone_tile_stairs",
-    "deep_aether:mossy_holystone_tile_wall"
+    "deep_aether:mossy_holystone_tile_wall",
+    "deep_aether:packed_aether_mud",
+    "deep_aether:aether_mud_bricks",
+    "deep_aether:aether_mud_bricks_slab",
+    "deep_aether:aether_mud_bricks_stairs"
   ]
 }
