@@ -76,4 +76,4 @@ CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
 
 Modrinth: https://modrinth.com/mod/deep-aether
 
-Discord: https://discord.gg/Z6WeHeuUxM
+
