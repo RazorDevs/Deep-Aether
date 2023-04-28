@@ -15,7 +15,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.AerglowFishEntity;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.entity.DAChestBoatEntity;
-import teamrazor.deepaether.entity.QuailEntity;
+import teamrazor.deepaether.entity.quail.QuailEntity;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -39,7 +39,7 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<QuailEntity>> QUAIL = register("quail",
 			EntityType.Builder.<QuailEntity>of(QuailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
-					.sized(0.3f, 0.5f));
+					.sized(0.3F, 0.5f));
 
 
 
