@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
+import org.spongepowered.asm.mixin.Interface;
 import software.bernie.geckolib.event.GeoRenderEvent;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
@@ -21,28 +22,46 @@ import java.util.function.Predicate;
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DAMissingEntries {
     @SubscribeEvent
-    public static void missingMappings(MissingMappingsEvent missingMappingsEvent) {
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1210).remap(DABlocks.CONBERRY_BUTTON.get());
+    public static void missingMappings(MissingMappingsEvent event) {
+        int amberroot_planks = event.getAllMappings(Registries.BLOCK).indexOf("deep_aether:amberroot_planks");
 
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1211).remap(DABlocks.CONBERRY_DOOR.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1207).remap(DABlocks.CONBERRY_FENCE.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1208).remap(DABlocks.CONBERRY_FENCE_GATE.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1213).remap(DABlocks.CONBERRY_LEAVES.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1199).remap(DABlocks.CONBERRY_LOG.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1204).remap(DABlocks.CONBERRY_PLANKS.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1209).remap(DABlocks.CONBERRY_PRESSURE_PLATE.get());
-
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1214).remap(DABlocks.CONBERRY_SAPLING.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1216).remap(DABlocks.CONBERRY_SIGN.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1206).remap(DABlocks.CONBERRY_SLAB.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1205).remap(DABlocks.CONBERRY_STAIRS.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1212).remap(DABlocks.CONBERRY_TRAPDOOR.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1200).remap(DABlocks.CONBERRY_WALL.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1215).remap(DABlocks.CONBERRY_WALL_SIGN.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1198).remap(DABlocks.CONBERRY_WOOD.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1202).remap(DABlocks.STRIPPED_CONBERRY_LOG.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1203).remap(DABlocks.STRIPPED_CONBERRY_WALL.get());
-        missingMappingsEvent.getAllMappings(Registries.BLOCK).get(1201).remap(DABlocks.STRIPPED_CONBERRY_WOOD.get());
-
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_planks")).toList().get(0).remap(DABlocks.CONBERRY_PLANKS.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_button")).toList().get(0).remap(DABlocks.CONBERRY_BUTTON.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_fence")).toList().get(0).remap(DABlocks.CONBERRY_FENCE.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_fence_gate")).toList().get(0).remap(DABlocks.CONBERRY_FENCE_GATE.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_leaves")).toList().get(0).remap(DABlocks.CONBERRY_LEAVES.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_log")).toList().get(0).remap(DABlocks.CONBERRY_LOG.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_pressure_plate")).toList().get(0).remap(DABlocks.CONBERRY_PRESSURE_PLATE.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_sapling")).toList().get(0).remap(DABlocks.CONBERRY_SAPLING.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_sign")).toList().get(0).remap(DABlocks.CONBERRY_SIGN.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_slab")).toList().get(0).remap(DABlocks.CONBERRY_SLAB.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_stairs")).toList().get(0).remap(DABlocks.CONBERRY_STAIRS.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_trapdoor")).toList().get(0).remap(DABlocks.CONBERRY_TRAPDOOR.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wall")).toList().get(0).remap(DABlocks.CONBERRY_WALL.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wall_sign")).toList().get(0).remap(DABlocks.CONBERRY_WALL_SIGN.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wood")).toList().get(0).remap(DABlocks.CONBERRY_WOOD.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("potted_amberroot_sapling")).toList().get(0).remap(DABlocks.POTTED_CONBERRY_SAPLING.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_log")).toList().get(0).remap(DABlocks.STRIPPED_CONBERRY_LOG.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_wall")).toList().get(0).remap(DABlocks.STRIPPED_CONBERRY_WALL.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_wood")).toList().get(0).remap(DABlocks.STRIPPED_CONBERRY_WOOD.get());
     }
 }
