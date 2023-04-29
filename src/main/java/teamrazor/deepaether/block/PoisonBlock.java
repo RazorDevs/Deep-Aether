@@ -15,10 +15,12 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.FluidState;
 import teamrazor.deepaether.init.DAParticles;
 
 import java.util.function.Supplier;
@@ -41,13 +43,17 @@ public class PoisonBlock extends LiquidBlock {
         }
     }
 
-        @Override
+    @Override
+    public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos pos, FluidState fluidState) {
+        return true;
+    }
+
+    @Override
         public void animateTick (BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource){
             double d0 = blockPos.getX();
             double d1 = blockPos.getY();
             double d2 = blockPos.getZ();
             level.addAlwaysVisibleParticle(DAParticles.POISON_BUBBLES.get(), d0 + (double) randomSource.nextFloat(), d1 + (double) randomSource.nextFloat(), d2 + (double) randomSource.nextFloat(), 0.0D, 0.04D, 0.0D);
-
             if (randomSource.nextInt(10) == 0) {
                 level.playLocalSound(d0, d1, d2, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 0.2F + randomSource.nextFloat() * 0.2F, 0.9F + randomSource.nextFloat() * 0.15F, false);
             }
