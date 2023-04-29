@@ -25,11 +25,12 @@ New Trees and Wood Sets:
  - Roseroot and Blue Roseroot (Aerglow and Blue Aerglow Forests)
  - Yagroot (Yagroot Swamp)
  - Cruderoot (Yagroot Swamp)
- - Amberroot (Golden Heights)
+ - Conberry (Golden Heights)
  
 New Mobs:
  - Aerglow Fish
  - Aether Quail
+   - Has multiple color variants
  
 New Stone Types:
  - Clorite
