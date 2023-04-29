@@ -39,14 +39,12 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DIVINE_DEBRIS = createKey("divine_debris");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
-
     public static final ResourceKey<PlacedFeature> AETHER_MOSS_PATCHES = createKey("aether_moss");
-
     public static final ResourceKey<PlacedFeature> GOLDEN_GRASS_PATCH = createKey("golden_grass_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
-
     public static final ResourceKey<PlacedFeature>  GOLDEN_GRASS_BONEMEAL = createKey("golden_grass_bonemeal");
     public static final ResourceKey<PlacedFeature>  VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
+    public static final ResourceKey<PlacedFeature>  GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -95,6 +93,9 @@ public class DAPlacedFeatures {
         register(context, GOLDEN_GRASS_BONEMEAL, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH), PlacementUtils.isEmpty());
         register(context, BLUE_AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.BLUE_ROSEROOT_TREES_PLACEMENT),
                 DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
+
+        register(context, GOLDEN_HEIGHTS_FLOWERS, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_HEIGHTS_FLOWERS), RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
 
         register(context, MYSTIC_AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_TREES_PLACEMENT),
                 DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
