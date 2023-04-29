@@ -23,8 +23,6 @@ import java.util.function.Predicate;
 public class DAMissingEntries {
     @SubscribeEvent
     public static void missingMappings(MissingMappingsEvent event) {
-        int amberroot_planks = event.getAllMappings(Registries.BLOCK).indexOf("deep_aether:amberroot_planks");
-
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
                 .filter(mapping -> mapping.getKey().getPath().contains("amberroot_planks")).toList().get(0).remap(DABlocks.CONBERRY_PLANKS.get());
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
@@ -49,6 +47,8 @@ public class DAMissingEntries {
                 .filter(mapping -> mapping.getKey().getPath().contains("amberroot_stairs")).toList().get(0).remap(DABlocks.CONBERRY_STAIRS.get());
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
                 .filter(mapping -> mapping.getKey().getPath().contains("amberroot_trapdoor")).toList().get(0).remap(DABlocks.CONBERRY_TRAPDOOR.get());
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_door")).toList().get(0).remap(DABlocks.CONBERRY_DOOR.get());
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
                 .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wall")).toList().get(0).remap(DABlocks.CONBERRY_WALL.get());
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
