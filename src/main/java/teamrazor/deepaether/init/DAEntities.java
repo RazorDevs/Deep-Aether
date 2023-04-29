@@ -39,7 +39,7 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<QuailEntity>> QUAIL = register("quail",
 			EntityType.Builder.<QuailEntity>of(QuailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
-					.sized(0.3F, 0.5f));
+					.sized(0.35F, 0.7f));
 
 
 
