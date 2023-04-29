@@ -24,44 +24,44 @@ public class DAMissingEntries {
     @SubscribeEvent
     public static void missingMappings(MissingMappingsEvent event) {
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_planks")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_PLANKS.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_planks")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_PLANKS.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_button")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_BUTTON.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_button")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_BUTTON.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_fence")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_FENCE.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_fence")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_FENCE.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_fence_gate")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_FENCE_GATE.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_fence_gate")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_FENCE_GATE.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_leaves")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_LEAVES.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_leaves")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_LEAVES.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_log")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_LOG.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_log")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_LOG.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_pressure_plate")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_PRESSURE_PLATE.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_pressure_plate")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_PRESSURE_PLATE.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_sapling")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_SAPLING.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_sapling")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_SAPLING.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_sign")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_SIGN.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_sign")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_SIGN.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_slab")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_SLAB.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_slab")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_SLAB.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_stairs")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_STAIRS.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_stairs")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_STAIRS.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_trapdoor")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_TRAPDOOR.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_trapdoor")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_TRAPDOOR.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_door")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_DOOR.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_door")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_DOOR.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_wall")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_WALL.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wall")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_WALL.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_wall_sign")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_WALL_SIGN.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wall_sign")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_WALL_SIGN.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:amberroot_wood")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_WOOD.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("amberroot_wood")).forEach(blockMapping -> blockMapping.remap(DABlocks.CONBERRY_WOOD.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:potted_amberroot_sapling")).forEach(blockMapping -> blockMapping.remap(DABlocks.POTTED_CONBERRY_SAPLING.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("potted_amberroot_sapling")).forEach(blockMapping -> blockMapping.remap(DABlocks.POTTED_CONBERRY_SAPLING.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:stripped_amberroot_log")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_LOG.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_log")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_LOG.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:stripped_amberroot_wall")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_WALL.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_wall")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_WALL.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
-                .filter(mapping -> mapping.getKey().getPath().contains("deep_aether:stripped_amberroot_wood")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_WOOD.get()));
+                .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_wood")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_WALL.get()));
     }
 }
