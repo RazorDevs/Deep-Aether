@@ -199,8 +199,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
 
         //MISC
-
-        this.block(DABlocks.VIRULENT_QUICKSAND.get());
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
 
         //MOSS
