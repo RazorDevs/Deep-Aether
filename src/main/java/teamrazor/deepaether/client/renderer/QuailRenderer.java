@@ -54,9 +54,9 @@ public class QuailRenderer extends GeoEntityRenderer<QuailEntity> {
                           float red, float green, float blue, float alpha) {
 
         if (animatable.isBaby()){
-            poseStack.scale(0.35f, 0.35f, 0.35f);
+            poseStack.scale(0.4f, 0.4f, 0.4f);
         }else{
-            poseStack.scale(0.7f, 0.7f,0.7f);
+            poseStack.scale(0.9f, 0.9f,0.9f);
         }
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }

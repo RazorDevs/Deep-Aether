@@ -2,8 +2,6 @@ package teamrazor.deepaether.world.feature;
 
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -11,13 +9,10 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.init.DABlocks;
 
 import java.util.List;
 
@@ -115,7 +110,7 @@ public class DAPlacedFeatures {
                 AetherPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
 
         register(context, DIVINE_DEBRIS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_DIVINE_DEBRIS_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(45, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));
+                AetherPlacedFeatureBuilders.commonOrePlacement(65, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));
 
         register(context, GOLDEN_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
     }

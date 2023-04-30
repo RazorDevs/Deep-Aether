@@ -14,10 +14,10 @@ import teamrazor.deepaether.init.DABlocks;
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID,  value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DAEvents {
 
+    // Fog effect to mimic PowderSnow behaviour
     @SubscribeEvent
     public static void fogDensityEvent(ViewportEvent.RenderFog event) {
         Minecraft mc = Minecraft.getInstance();
-        // Reduce lava fog from players when they have the lava vision enchantment
         Player player = mc.player;
         if (player != null) {
             if (mc.level != null) {
