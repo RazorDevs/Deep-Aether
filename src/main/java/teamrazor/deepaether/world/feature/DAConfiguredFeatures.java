@@ -87,6 +87,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH = createKey("golden_grass_block_bonemeal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -193,8 +194,15 @@ public class DAConfiguredFeatures {
 
 
         register(context, GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH,  Feature.SIMPLE_BLOCK,
-                new SimpleBlockConfiguration(BlockStateProvider.simple(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState())));
+                new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState(), 1)
+                        .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 1)
+                        .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(),1)
+                        .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(),1))));
 
+        register(context, GOLDEN_HEIGHTS_FLOWERS,  Feature.FLOWER,
+                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 3)), 64));
 
         register(context, GOLDEN_VINES_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(1, 1, 1,

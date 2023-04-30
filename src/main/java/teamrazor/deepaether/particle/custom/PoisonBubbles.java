@@ -26,9 +26,14 @@ public class PoisonBubbles extends TextureSheetParticle {
     }
 
 
+    public void tick() {
+        this.setSpriteFromAge(Provider.sprite);
+        super.tick();
+    }
+
     @OnlyIn(Dist.CLIENT)
     public static class Provider implements ParticleProvider<SimpleParticleType> {
-        private final SpriteSet sprite;
+        protected static SpriteSet sprite = null;
 
         public Provider(SpriteSet p_105753_) {
             this.sprite = p_105753_;
