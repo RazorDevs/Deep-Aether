@@ -354,6 +354,17 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.CLOUDIUM_INGOT.get()), has(DAItems.CLOUDIUM_INGOT.get()))
                 .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.CLOUDIUM_INGOT.get(), 9)
+                .requires(DABlocks.CLOUDIUM_BLOCK.get())
+                .unlockedBy(getHasName(DAItems.CLOUDIUM_INGOT.get()), has(DAItems.CLOUDIUM_INGOT.get()))
+                .save(consumer, "cloudium_ingot_from_cloudium_block");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
+                .requires(DABlocks.SKYJADE_BLOCK.get())
+                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
+                .save(consumer, "skyjade_from_skyjade_block");
+
+
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
         blastingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 0.5F).save(consumer, name("skjyade_from_blasting"));
 

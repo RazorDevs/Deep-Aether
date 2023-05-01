@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -31,6 +32,10 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(DATags.Blocks.CAN_GOLDEN_VINES_SURVIVE_ON).add(
                 AetherBlocks.QUICKSOIL.get(),
                 Blocks.SAND
+        );
+        tag(BlockTags.BEACON_BASE_BLOCKS).add(
+                DABlocks.SKYJADE_BLOCK.get(),
+                DABlocks.CLOUDIUM_BLOCK.get()
         );
     }
 }
