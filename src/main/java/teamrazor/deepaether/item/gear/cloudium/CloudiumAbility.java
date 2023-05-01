@@ -43,10 +43,15 @@ public class CloudiumAbility extends DaArmorItem {
         return hasFullCloudiumSet(player) && coolDown <= 0;
     }
 
-    double strength = 1.5;
+    private double strength = 1.3;
+    private static boolean hasBeenOnGround = true;
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
+        if(player.isOnGround()) {
+            hasBeenOnGround = true;
+        }
+
         if (coolDown >= 0)
             coolDown -= 0.02;
         if (!world.isClientSide() && hasFullCloudiumSet(player)) {
@@ -58,10 +63,9 @@ public class CloudiumAbility extends DaArmorItem {
     }
 
     static void dash(LivingEntity entity, double strength) {
-        float dashMultiplier = 1.0F;
-        if (EquipmentUtil.hasFullCloudiumSet(entity)) {
+        float dashMultiplier;
+        if (EquipmentUtil.hasFullCloudiumSet(entity) && hasBeenOnGround) {
             if (entity instanceof Player player) {
-
                 double x = player.getLookAngle().x * strength * 2;
                 double y = player.getLookAngle().y * strength;
                 double z = player.getLookAngle().z * strength * 2;
@@ -72,6 +76,7 @@ public class CloudiumAbility extends DaArmorItem {
                 }
                 a = 1 - a;
                 if (CloudiumAbility.isCloudiumDashActive(player)) {
+                    hasBeenOnGround = false;
                     coolDown = 5;
                     dashMultiplier = (float) EquipmentUtil.handleCloudiumRingBoost(player);
                     player.push(x * a * dashMultiplier, y * dashMultiplier, z * a * dashMultiplier);
