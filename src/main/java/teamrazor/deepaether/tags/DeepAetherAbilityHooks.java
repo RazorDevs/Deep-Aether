@@ -18,9 +18,6 @@ public class DeepAetherAbilityHooks {
     public static class AccessoryHooks {
     }
     public static class ArmorHooks {
-        public static boolean fallCancellation(LivingEntity livingEntity) {
-            return CloudiumAbility.hasFullCloudiumSet(livingEntity);
-        }
     }
 
 

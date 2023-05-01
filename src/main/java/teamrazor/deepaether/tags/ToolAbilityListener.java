@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.Mod;
 public class ToolAbilityListener {
     @SubscribeEvent
     public static void modifyBreakSpeed(PlayerEvent.BreakSpeed event) {
-        BlockState blockState = event.getState();
         Player player = event.getEntity();
         ItemStack itemStack = player.getMainHandItem();
         if (!event.isCanceled()) {
