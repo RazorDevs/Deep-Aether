@@ -290,6 +290,9 @@ public class DABlocks {
 	public static void registerFlammability() {
 		FireBlockAccessor fireBlockAccessor = (FireBlockAccessor) Blocks.FIRE;
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LEAVES.get(), 30, 60);
+		fireBlockAccessor.callSetFlammable(DABlocks.BLUE_ROSEROOT_LEAVES.get(), 30, 60);
+		fireBlockAccessor.callSetFlammable(DABlocks.FLOWERING_ROSEROOT_LEAVES.get(), 30, 60);
+		fireBlockAccessor.callSetFlammable(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LEAVES.get(), 30, 60);
