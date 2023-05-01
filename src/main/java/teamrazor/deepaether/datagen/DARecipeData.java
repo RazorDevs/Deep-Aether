@@ -182,7 +182,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MUDDY_YAGROOT_ROOTS.get())
                 .requires(DABlocks.AETHER_MUD.get())
-                .requires(DABlocks.MUDDY_YAGROOT_ROOTS.get())
+                .requires(DABlocks.YAGROOT_ROOTS.get())
                 .unlockedBy(getHasName(DABlocks.AETHER_MUD.get()), has(DABlocks.AETHER_MUD.get()))
                 .save(consumer);
 
@@ -479,7 +479,8 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
     //TODO: REMOVE WHEN 1.20 RELEASES
-    @Deprecated
+    //ignore warnings
+    @Deprecated(forRemoval = true)
     protected static void legacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
         LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), p_266966_, p_267096_).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(p_267010_, getItemName(p_267096_) + "_cloudium_smithing");
     }
