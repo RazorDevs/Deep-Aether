@@ -1,6 +1,7 @@
 package teamrazor.deepaether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -62,5 +63,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.CLOUDIUM_PICKAXE.get().asItem()
         );
+        tag(DATags.Items.CRAFT_SKYROOT_TOOLS).add(
+                DABlocks.ROSEROOT_PLANKS.get().asItem(),
+                DABlocks.YAGROOT_PLANKS.get().asItem(),
+                DABlocks.CRUDEROOT_PLANKS.get().asItem(),
+                DABlocks.CONBERRY_PLANKS.get().asItem(),
+                AetherBlocks.SKYROOT_PLANKS.get().asItem()
+        );
     }
+
 }

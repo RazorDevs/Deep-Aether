@@ -454,6 +454,7 @@ public class DARecipeData extends AetherRecipeProvider {
         makeskyrootSticks(DABlocks.ROSEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_roseroot_planks"));
         makeskyrootSticks(DABlocks.YAGROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_yagroot_planks"));
         makeskyrootSticks(DABlocks.CRUDEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_cruderoot_planks"));
+        makeskyrootSticks(DABlocks.CONBERRY_PLANKS.get()).save(consumer, name("skyroot_sticks_from_conberry_planks"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE)
                 .requires(DABlocks.AETHER_CATTAILS.get(),1)
@@ -492,8 +493,61 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.GOLDEN_GRASS_SEEDS.get()), has(DAItems.GOLDEN_GRASS_SEEDS.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_SWORD.get())
+                .group("skyroot_sword")
+                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
+                .define('/', AetherTags.Items.SKYROOT_STICKS)
+                .pattern("#")
+                .pattern("#")
+                .pattern("/")
+                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
+                .save(consumer);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_SHOVEL.get())
+                .group("skyroot_shovel")
+                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
+                .define('/', AetherTags.Items.SKYROOT_STICKS)
+                .pattern("#")
+                .pattern("/")
+                .pattern("/")
+                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_AXE.get())
+                .group("skyroot_axe")
+                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
+                .define('/', AetherTags.Items.SKYROOT_STICKS)
+                .pattern("##")
+                .pattern("#/")
+                .pattern(" /")
+                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_HOE.get())
+                .group("skyroot_hoe")
+                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
+                .define('/', AetherTags.Items.SKYROOT_STICKS)
+                .pattern("##")
+                .pattern(" /")
+                .pattern(" /")
+                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_PICKAXE.get())
+                .group("skyroot_pickaxe")
+                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
+                .define('/', AetherTags.Items.SKYROOT_STICKS)
+                .pattern("###")
+                .pattern(" / ")
+                .pattern(" / ")
+                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
+                .save(consumer);
+
+
 
     }
+
 
 
     //TODO: REMOVE WHEN 1.20 RELEASES

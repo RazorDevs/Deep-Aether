@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "skyroot_hoe",
+  "key": {
+    "#": {
+      "tag": "deep_aether:craft_skyroot_tools"
+    },
+    "/": {
+      "tag": "aether:skyroot_stick"
+    }
+  },
+  "pattern": [
+    "##",
+    " /",
+    " /"
+  ],
+  "result": {
+    "item": "aether:skyroot_hoe"
+  },
+  "show_notification": true
+}
