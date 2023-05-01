@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mossy_holystone_tiles": {
+    "has_conberry_chest_boat": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:mossy_holystone_tiles"
+              "deep_aether:conberry_chest_boat"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:holystone_tiles_from_moss"
+        "recipe": "deep_aether:conberry_chest_boat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_mossy_holystone_tiles",
+      "has_conberry_chest_boat",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:holystone_tiles_from_moss"
+      "deep_aether:conberry_chest_boat"
     ]
   }
 }

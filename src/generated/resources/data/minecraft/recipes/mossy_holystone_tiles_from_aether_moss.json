@@ -1,19 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
+  "group": "mossy_holystone_tiles",
+  "ingredients": [
+    {
       "item": "deep_aether:holystone_tiles"
     },
-    "B": {
+    {
       "item": "deep_aether:aether_moss_block"
     }
-  },
-  "pattern": [
-    "AB"
   ],
   "result": {
     "item": "deep_aether:mossy_holystone_tiles"
-  },
-  "show_notification": true
+  }
 }

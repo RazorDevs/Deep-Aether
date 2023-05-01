@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

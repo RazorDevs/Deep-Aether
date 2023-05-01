@@ -319,8 +319,8 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
                 .requires(Blocks.VINE.asItem())
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
-                .save(consumer);
-        
+                .save(consumer, "mossy_holystone_tiles_from_vines");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 4)
                 .define('A', AetherBlocks.MOSSY_HOLYSTONE.get().asItem())
                 .pattern("AA")
@@ -356,16 +356,16 @@ public class DARecipeData extends AetherRecipeProvider {
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
         blastingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 0.5F).save(consumer, name("skjyade_from_blasting"));
 
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_SWORD.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_sword_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_AXE.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_axe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_PICKAXE.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_pickaxe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_SHOVEL.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_shovel_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_HOE.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_hoe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_BOOTS.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_boots_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_LEGGINGS.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_leggings_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_CHESTPLATE.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_chestplate_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_HELMET.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_helmet_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_GLOVES.get(), 7000).group("altar_sword_repair").save(consumer, name("skyjade_gloves_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_SWORD.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_sword_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_AXE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_axe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_PICKAXE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_pickaxe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_SHOVEL.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_shovel_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_HOE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_hoe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_BOOTS.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_boots_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_LEGGINGS.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_leggings_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_CHESTPLATE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_chestplate_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_HELMET.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_helmet_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_GLOVES.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_gloves_repairing"));
 
         makeSword(DAItems.SKYJADE_TOOLS_SWORD, DAItems.SKYJADE).save(consumer);
         makeAxe(DAItems.SKYJADE_TOOLS_AXE, DAItems.SKYJADE).save(consumer);
@@ -382,16 +382,16 @@ public class DARecipeData extends AetherRecipeProvider {
 
         makeRing(DAItems.GRAVITIE_RING, AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()).save(consumer);
 
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_sword_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_AXE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_axe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_PICKAXE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_pickaxe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHOVEL.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_shovel_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_HOE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_hoe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_BOOTS.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_boots_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_LEGGINGS.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_leggings_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_CHESTPLATE.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_chestplate_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_HELMET.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_helmet_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get(), 16000).group("altar_sword_repair").save(consumer, name("cloudium_gloves_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_sword_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_AXE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_axe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_PICKAXE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_pickaxe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHOVEL.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_shovel_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_HOE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_hoe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_BOOTS.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_boots_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_LEGGINGS.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_leggings_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_CHESTPLATE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_chestplate_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_HELMET.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_helmet_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_gloves_repairing"));
 
 
         cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get());
