@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:skyroot_sticks_from_yagroot_planks"
+        "recipe": "deep_aether:skyroot_hoe_from_block.deep_aether.yagroot_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:skyroot_sticks_from_yagroot_planks"
+      "deep_aether:skyroot_hoe_from_block.deep_aether.yagroot_planks"
     ]
   }
 }

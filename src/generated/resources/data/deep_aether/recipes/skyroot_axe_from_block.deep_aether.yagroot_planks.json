@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "deep_aether:yagroot_planks"
+    },
+    "/": {
+      "item": "aether:skyroot_stick"
+    }
+  },
+  "pattern": [
+    "##",
+    "/#",
+    "/ "
+  ],
+  "result": {
+    "item": "aether:skyroot_axe"
+  },
+  "show_notification": true
+}
