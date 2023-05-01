@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_conberry_planks": {
+    "has_roseroot_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:conberry_planks"
+              "deep_aether:roseroot_planks"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:skyroot_sticks_from_block.deep_aether.conberry_planks"
+        "recipe": "deep_aether:skyroot_sticks_from_roseroot_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_conberry_planks",
+      "has_roseroot_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:skyroot_sticks_from_block.deep_aether.conberry_planks"
+      "deep_aether:skyroot_sticks_from_roseroot_planks"
     ]
   }
 }

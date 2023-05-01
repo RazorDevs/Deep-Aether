@@ -227,8 +227,8 @@ public class DATabs {
                             output.accept(DAItems.MUSIC_DISC_NABOORU.get());
                             output.accept(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
 
-                            output.accept(DAItems.AERGLOW_FISH_EGG.get());
-                            output.accept(DAItems.QUAIL_EGG.get());
+                            output.accept(DAItems.AETHER_FISH_SPAWN_EGG.get());
+                            output.accept(DAItems.QUAIL_SPAWN_EGG.get());
 
                             output.accept(DAItems.AERGLOW_PETAL.get());
                         }));

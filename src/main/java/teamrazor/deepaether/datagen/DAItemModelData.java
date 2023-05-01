@@ -237,8 +237,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
 
-        this.eggItem(DAItems.AERGLOW_FISH_EGG.get());
-        this.eggItem(DAItems.QUAIL_EGG.get());
+        this.eggItem(DAItems.AETHER_FISH_SPAWN_EGG.get());
+        this.eggItem(DAItems.QUAIL_SPAWN_EGG.get());
 
         this.item(DAItems.AERGLOW_PETAL.get());
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
