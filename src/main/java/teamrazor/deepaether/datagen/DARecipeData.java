@@ -18,6 +18,7 @@ import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
+import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -391,6 +392,20 @@ public class DARecipeData extends AetherRecipeProvider {
         cloudiumSmithingRecipe(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_RING.get());
         cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get());
 
+
+
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_AXE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_PICKAXE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHOVEL.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_HOE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_BOOTS.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_LEGGINGS.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_CHESTPLATE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_HELMET.get());
+        legacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_RING.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get());
+
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DAItems.CLOUDIUM_SCRAP.get(), DABlocks.CLOUDIUM_DEBRIS.get(), 2.0F, 2000).save(consumer, name("cloudium_enchanting"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.CLOUDIUM_INGOT.get())
@@ -463,6 +478,11 @@ public class DARecipeData extends AetherRecipeProvider {
     }
 
 
+    //TODO: REMOVE WHEN 1.20 RELEASES
+    @Deprecated
+    protected static void legacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
+        LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), p_266966_, p_267096_).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(p_267010_, getItemName(p_267096_) + "_cloudium_smithing");
+    }
 
     protected static void cloudiumSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredient), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), category, item).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(consumer, getItemName(item) + "_smithing");

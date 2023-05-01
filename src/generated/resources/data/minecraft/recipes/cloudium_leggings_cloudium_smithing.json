@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "deep_aether:cloudium_ingot"
+  },
+  "base": {
+    "item": "aether:gravitite_leggings"
+  },
+  "result": {
+    "item": "deep_aether:cloudium_leggings"
+  }
+}
