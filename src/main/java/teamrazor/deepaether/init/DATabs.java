@@ -117,6 +117,7 @@ public class DATabs {
                             output.accept(DABlocks.AETHER_MUD_BRICKS.get());
                             output.accept(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
                             output.accept(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
+                            output.accept(DABlocks.AETHER_MUD_BRICKS_WALL.get());
 
                             output.accept(DABlocks.ASETERITE.get());
                             output.accept(DABlocks.ASETERITE_STAIRS.get());

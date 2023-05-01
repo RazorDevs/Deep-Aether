@@ -12,6 +12,7 @@
     "deep_aether:aseterite_wall",
     "deep_aether:clorite_wall",
     "deep_aether:holystone_tile_wall",
-    "deep_aether:mossy_holystone_tile_wall"
+    "deep_aether:mossy_holystone_tile_wall",
+    "deep_aether:aether_mud_bricks_wall"
   ]
 }

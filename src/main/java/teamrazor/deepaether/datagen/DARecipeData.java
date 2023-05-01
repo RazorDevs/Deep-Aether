@@ -197,6 +197,7 @@ public class DARecipeData extends AetherRecipeProvider {
         slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), Ingredient.of(DABlocks.AETHER_MUD_BRICKS.get()))
                 .unlockedBy(getHasName(DABlocks.AETHER_MUD_BRICKS.get()), has(DABlocks.AETHER_MUD_BRICKS.get()))
                 .save(consumer);
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get(),2);

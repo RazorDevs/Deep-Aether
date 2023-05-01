@@ -161,6 +161,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
+        this.dropSelf(DABlocks.AETHER_MUD_BRICKS_WALL.get());
 
         this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
         this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());

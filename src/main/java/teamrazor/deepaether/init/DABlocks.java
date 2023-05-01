@@ -66,10 +66,10 @@ public class DABlocks {
 	public static final RegistryObject<Block> ROSEROOT_DOOR = registerBlock("roseroot_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR), DAWoodTypes.ROSEROOT_BLOCK_SET));
 	public static final RegistryObject<Block> ROSEROOT_TRAPDOOR = registerBlock("roseroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.ROSEROOT_BLOCK_SET));
 	public static final RegistryObject<Block> ROSEROOT_LEAVES = registerBlock("roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
-	public static final RegistryObject<Block> FLOWERING_ROSEROOT_LEAVES = registerBlock("flowering_roseroot_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(DABlocks::ocelotOrParrot).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).lightLevel(s -> 5)));
+	public static final RegistryObject<Block> FLOWERING_ROSEROOT_LEAVES = registerBlock("flowering_roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(DABlocks::ocelotOrParrot).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).lightLevel(s -> 5)));
 	public static final RegistryObject<Block> ROSEROOT_SAPLING = registerBlock("roseroot_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> BLUE_ROSEROOT_LEAVES = registerBlock("blue_roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
-	public static final RegistryObject<Block> FLOWERING_BLUE_ROSEROOT_LEAVES = registerBlock("flowering_blue_roseroot_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(DABlocks.FLOWERING_ROSEROOT_LEAVES.get())));
+	public static final RegistryObject<Block> FLOWERING_BLUE_ROSEROOT_LEAVES = registerBlock("flowering_blue_roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(DABlocks.FLOWERING_ROSEROOT_LEAVES.get())));
 	public static final RegistryObject<Block> BLUE_ROSEROOT_SAPLING = registerBlock("blue_roseroot_sapling", () -> new SaplingBlock( new BlueRosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> ROSEROOT_WALL_SIGN = BLOCKS.register("roseroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.ROSEROOT));
 	public static final RegistryObject<Block> ROSEROOT_SIGN = BLOCKS.register("roseroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.ROSEROOT));
@@ -222,7 +222,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS = registerBlock("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_SLAB = registerBlock("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICK_SLAB)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_STAIRS = registerBlock("aether_mud_bricks_stairs", () -> new StairBlock(() -> DABlocks.AETHER_MUD_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
-
+	public static final RegistryObject<Block> AETHER_MUD_BRICKS_WALL = registerBlock("aether_mud_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 
 	public static final RegistryObject<Block>  GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final RegistryObject<Block>  GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));

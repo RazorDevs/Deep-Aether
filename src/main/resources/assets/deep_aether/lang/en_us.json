@@ -82,8 +82,10 @@
 
   "block.deep_aether.packed_aether_mud": "Packed Aether Mud",
   "block.deep_aether.aether_mud_bricks": "Aether Mud Bricks",
-  "block.deep_aether.aether_mud_bricks_slab": "Aether Mud Bricks Slab",
-  "block.deep_aether.aether_mud_bricks_stairs": "Aether Mud Bricks Stairs",
+  "block.deep_aether.aether_mud_bricks_slab": "Aether Mud Brick Slab",
+  "block.deep_aether.aether_mud_bricks_stairs": "Aether Mud Brick Stairs",
+  "block.deep_aether.aether_mud_bricks_wall": "Aether Mud Brick Wall",
+
   "block.deep_aether.polished_clorite": "Polished Clorite",
   "block.deep_aether.clorite": "Clorite",
   "block.deep_aether.polished_clorite_bricks": "Clorite Bricks",

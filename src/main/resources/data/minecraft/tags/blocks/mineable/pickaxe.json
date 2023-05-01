@@ -31,6 +31,7 @@
     "deep_aether:packed_aether_mud",
     "deep_aether:aether_mud_bricks",
     "deep_aether:aether_mud_bricks_slab",
-    "deep_aether:aether_mud_bricks_stairs"
+    "deep_aether:aether_mud_bricks_stairs",
+    "deep_aether:aether_mud_bricks_wall"
   ]
 }

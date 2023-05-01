@@ -121,6 +121,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.AETHER_MUD_BRICKS.get());
         this.slab((SlabBlock) DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get());
         this.stairs((StairBlock) DABlocks.AETHER_MUD_BRICKS_STAIRS.get(), DABlocks.AETHER_MUD_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
         //ORES
 
