@@ -426,10 +426,13 @@ public class DARecipeData extends AetherRecipeProvider {
         makeBoat(DAItems.ROSEROOT_BOAT, DABlocks.ROSEROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.YAGROOT_BOAT, DABlocks.YAGROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.CRUDEROOT_BOAT, DABlocks.CRUDEROOT_PLANKS.get()).save(consumer);
+        makeBoat(DAItems.CONBERRY_BOAT, DABlocks.CONBERRY_PLANKS.get()).save(consumer);
 
         makeChestBoat(DAItems.ROSEROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.YAGROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.CRUDEROOT_CHEST_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.CONBERRY_CHEST_BOAT.get()).save(consumer);
+
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
 
