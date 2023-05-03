@@ -76,7 +76,3 @@ GNU Lesser General Public License v3.0 only
 CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
 
 Modrinth: https://modrinth.com/mod/deep-aether
-
-
-# Looking for Help
-__4/30/2023:__ We are looking for at least 1 coder to join Team Razor (but more than 1 is appreciated) to help us out with the Deep Aether mod, as 1 of our 2 coders is gonna be too busy to help out for the next 2-3 weeks. Message 345boneshoss#8427 on Discord if you're interested in joining!
