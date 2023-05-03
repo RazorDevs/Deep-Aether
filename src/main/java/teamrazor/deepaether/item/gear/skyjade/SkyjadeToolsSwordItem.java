@@ -18,4 +18,14 @@ public class SkyjadeToolsSwordItem extends SwordItem implements SkyjadeWeapon {
 	public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
 		return this.increaseDamage(super.getAttributeModifiers(slot, stack), stack, slot);
 	}
+
+	@Override
+	public boolean isEnchantable(ItemStack itemStack) {
+		return false;
+	}
+
+	@Override
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+		return false;
+	}
 }

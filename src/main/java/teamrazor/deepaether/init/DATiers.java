@@ -10,7 +10,7 @@ public enum DATiers implements Tier {
     /*public static final ForgeTier SKYJADE = new ForgeTier(2, 150, 6.0F, 2.0F, 14,
             BlockTags.NEEDS_IRON_TOOL, () -> Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get())));*/
 
-    SKYJADE(2, 150, 10.0F, 2.0F, 14, () -> Ingredient.of(new ItemStack(DAItems.SKYJADE.get())));
+    SKYJADE(2, 150, 10.0F, 2.0F, 0, () -> Ingredient.of(new ItemStack(DAItems.SKYJADE.get())));
 
     private final int harvestLevel;
     private final int maxUses;

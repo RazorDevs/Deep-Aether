@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
-import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -42,5 +41,10 @@ public class SkyjadeGlovesItem extends DAGlovesItem {
         else {
             return 0.25F;
         }
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack itemStack) {
+        return false;
     }
 }

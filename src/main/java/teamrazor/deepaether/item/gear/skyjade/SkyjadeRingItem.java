@@ -15,4 +15,14 @@ public class SkyjadeRingItem extends RingItem implements SkyjadeAccessory {
     public boolean isValidRepairItem(ItemStack repairItem, ItemStack repairMaterial) {
         return repairMaterial.is(DAItems.SKYJADE.get());
     }
+
+    @Override
+    public boolean isEnchantable(ItemStack itemStack) {
+        return false;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
 }
