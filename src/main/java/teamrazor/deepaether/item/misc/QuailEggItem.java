@@ -1,5 +1,5 @@
 package teamrazor.deepaether.item.misc;
-/*
+
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -34,4 +34,4 @@ public class QuailEggItem extends EggItem {
 
         return InteractionResultHolder.sidedSuccess(itemstack, p_41128_.isClientSide());
     }
-}*/
+}

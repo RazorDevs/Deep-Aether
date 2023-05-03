@@ -1,11 +1,10 @@
 package teamrazor.deepaether.entity.quail;
 
-/*import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
-import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
@@ -72,4 +71,4 @@ public class ThrownQuailEgg extends ThrowableItemProjectile {
     protected Item getDefaultItem() {
         return DAItems.QUAIL_EGG.get();
     }
-}*/
+}

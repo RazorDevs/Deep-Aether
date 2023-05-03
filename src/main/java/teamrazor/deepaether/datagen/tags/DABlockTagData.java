@@ -29,6 +29,9 @@ public class DABlockTagData extends BlockTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
+        tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
+                DABlocks.GOLDEN_GRASS_BLOCK.get()
+        );
         tag(DATags.Blocks.CAN_GOLDEN_VINES_SURVIVE_ON).add(
                 AetherBlocks.QUICKSOIL.get(),
                 Blocks.SAND

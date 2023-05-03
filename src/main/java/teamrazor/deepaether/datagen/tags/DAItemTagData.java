@@ -53,6 +53,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_CONBERRY_LOG.get().asItem(),
                 DABlocks.STRIPPED_CONBERRY_WOOD.get().asItem()
         );
+        tag(DATags.Items.CRAFT_SKYROOT_TOOLS).add(
+                DABlocks.ROSEROOT_PLANKS.get().asItem(),
+                DABlocks.YAGROOT_PLANKS.get().asItem(),
+                DABlocks.CRUDEROOT_PLANKS.get().asItem(),
+                DABlocks.CONBERRY_PLANKS.get().asItem(),
+                AetherBlocks.SKYROOT_PLANKS.get().asItem()
+        );
         tag(AetherTags.Items.PLANKS_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
@@ -62,13 +69,6 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.CLOUDIUM_PICKAXE.get().asItem()
-        );
-        tag(DATags.Items.CRAFT_SKYROOT_TOOLS).add(
-                DABlocks.ROSEROOT_PLANKS.get().asItem(),
-                DABlocks.YAGROOT_PLANKS.get().asItem(),
-                DABlocks.CRUDEROOT_PLANKS.get().asItem(),
-                DABlocks.CONBERRY_PLANKS.get().asItem(),
-                AetherBlocks.SKYROOT_PLANKS.get().asItem()
         );
     }
 

@@ -16,6 +16,7 @@ import teamrazor.deepaether.entity.AerglowFishEntity;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.entity.DAChestBoatEntity;
 import teamrazor.deepaether.entity.quail.QuailEntity;
+import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -28,12 +29,12 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<DAChestBoatEntity>> CHEST_BOAT = ENTITY_TYPES.register("chest_boat",
 			() -> EntityType.Builder.<DAChestBoatEntity>of(DAChestBoatEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("chest_boat"));
 
-	/*public static final RegistryObject<EntityType<ThrownQuailEgg>> QUAIL_EGG = ENTITY_TYPES.register("quail_egg",
+	public static final RegistryObject<EntityType<ThrownQuailEgg>> QUAIL_EGG = ENTITY_TYPES.register("quail_egg",
 			() -> EntityType.Builder.<ThrownQuailEgg>of(ThrownQuailEgg::new, MobCategory.MISC)
 					.sized(0.25F, 0.25F)
 					.clientTrackingRange(4)
 					.updateInterval(10)
-					.build("quail_egg"));*/
+					.build("quail_egg"));
 
 	public static final RegistryObject<EntityType<AerglowFishEntity>> AETHER_FISH = register("aerglow_fish",
 			EntityType.Builder.of(AerglowFishEntity::new, MobCategory.WATER_CREATURE)

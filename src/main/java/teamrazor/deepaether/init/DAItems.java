@@ -104,8 +104,8 @@ public class DAItems {
 	public static final RegistryObject<Item> QUAIL_SPAWN_EGG = ITEMS.register("quail_spawn_egg",
 			() -> new ForgeSpawnEggItem(DAEntities.QUAIL,6373632,16776960, new Item.Properties()));
 
-	/*public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_egg",
-			() -> new QuailEggItem(new Item.Properties().stacksTo(16)));*/
+	public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_egg",
+			() -> new QuailEggItem(new Item.Properties().stacksTo(16)));
 
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru",
 			() -> new AetherRecordItem(7, DASounds.NABOORU, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));

@@ -18,7 +18,6 @@ import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
-import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -556,13 +555,27 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
                 .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.PUMPKIN_PIE)
+                .requires(DAItems.QUAIL_EGG.get())
+                .requires(Items.PUMPKIN)
+                .requires(Items.SUGAR)
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DAItems.QUAIL_EGG.get()))
+                .save(consumer);
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Items.CAKE)
+                .define('U', Items.MILK_BUCKET).define('Y', Items.WHEAT)
+                .define('S', Items.SUGAR).define('O', DAItems.QUAIL_EGG.get())
+                .pattern("UUU")
+                .pattern("SOS")
+                .pattern("YYY")
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DAItems.QUAIL_EGG.get()))
+                .save(consumer);
     }
 
 
 
-    //TODO: REMOVE WHEN 1.20 RELEASES
+    //TODO: REMOVE WHEN 1.20 RELEASES - BACKPORT TO 1.19.2
     //ignore warnings
     @Deprecated(forRemoval = true)
     protected static void legacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
