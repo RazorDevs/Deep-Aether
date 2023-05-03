@@ -63,7 +63,7 @@ You'll need of course:
  
 # Credits
 
-The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken.
+The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
 
 
 # License
