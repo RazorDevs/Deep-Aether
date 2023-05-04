@@ -70,6 +70,18 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.CLOUDIUM_PICKAXE.get().asItem()
         );
+        tag(AetherTags.Items.TREATED_AS_AETHER_ITEM).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get().asItem(),
+                DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
+                DAItems.SKYJADE_TOOLS_AXE.get().asItem(),
+                DAItems.SKYJADE_TOOLS_SHOVEL.get().asItem(),
+                DAItems.SKYJADE_TOOLS_HOE.get().asItem(),
+                DAItems.CLOUDIUM_SWORD.get().asItem(),
+                DAItems.CLOUDIUM_PICKAXE.get().asItem(),
+                DAItems.CLOUDIUM_AXE.get().asItem(),
+                DAItems.CLOUDIUM_SHOVEL.get().asItem(),
+                DAItems.CLOUDIUM_HOE.get().asItem()
+        );
     }
 
 }
