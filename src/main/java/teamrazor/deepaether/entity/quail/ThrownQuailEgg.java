@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity.quail;
 
+import net.minecraft.Util;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
@@ -26,8 +27,8 @@ public class ThrownQuailEgg extends ThrowableItemProjectile {
         super(DAEntities.QUAIL_EGG.get(), p_37477_, p_37478_, p_37479_, p_37476_);
     }
 
-    public void handleEntityEvent(byte p_37484_) {
-        if (p_37484_ == 3) {
+    public void handleEntityEvent(byte b) {
+        if (b == 3) {
             double d0 = 0.08D;
 
             for(int i = 0; i < 8; ++i) {
@@ -37,13 +38,13 @@ public class ThrownQuailEgg extends ThrowableItemProjectile {
 
     }
 
-    protected void onHitEntity(EntityHitResult p_37486_) {
-        super.onHitEntity(p_37486_);
-        p_37486_.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.0F);
+    protected void onHitEntity(EntityHitResult hitResult) {
+        super.onHitEntity(hitResult);
+        hitResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.0F);
     }
 
-    protected void onHit(HitResult p_37488_) {
-        super.onHit(p_37488_);
+    protected void onHit(HitResult hitResult) {
+        super.onHit(hitResult);
         if (!this.level.isClientSide) {
             if (this.random.nextInt(8) == 0) {
                 int i = 1;
@@ -53,6 +54,8 @@ public class ThrownQuailEgg extends ThrowableItemProjectile {
 
                 for(int j = 0; j < i; ++j) {
                     QuailEntity quail = DAEntities.QUAIL.get().create(this.level);
+                    QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
+                    quail.setVariant(variant);
                     if (quail != null) {
                         quail.setAge(-24000);
                         quail.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);

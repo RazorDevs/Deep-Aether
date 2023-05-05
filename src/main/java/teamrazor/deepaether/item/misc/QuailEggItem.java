@@ -12,26 +12,26 @@ import net.minecraft.world.level.Level;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 
 public class QuailEggItem extends EggItem {
-    public QuailEggItem(Properties p_41126_) {
-        super(p_41126_);
+    public QuailEggItem(Properties properties) {
+        super(properties);
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level p_41128_, Player p_41129_, InteractionHand p_41130_) {
-        ItemStack itemstack = p_41129_.getItemInHand(p_41130_);
-        p_41128_.playSound((Player)null, p_41129_.getX(), p_41129_.getY(), p_41129_.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 0.5F, 0.4F / (p_41128_.getRandom().nextFloat() * 0.4F + 0.8F));
-        if (!p_41128_.isClientSide) {
-            ThrownQuailEgg thrownegg = new ThrownQuailEgg(p_41128_, p_41129_);
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.EGG_THROW, SoundSource.PLAYERS, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
+        if (!level.isClientSide) {
+            ThrownQuailEgg thrownegg = new ThrownQuailEgg(level, player);
             thrownegg.setItem(itemstack);
-            thrownegg.shootFromRotation(p_41129_, p_41129_.getXRot(), p_41129_.getYRot(), 0.0F, 1.5F, 1.0F);
-            p_41128_.addFreshEntity(thrownegg);
+            thrownegg.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
+            level.addFreshEntity(thrownegg);
         }
 
-        p_41129_.awardStat(Stats.ITEM_USED.get(this));
-        if (!p_41129_.getAbilities().instabuild) {
+        player.awardStat(Stats.ITEM_USED.get(this));
+        if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);
         }
 
-        return InteractionResultHolder.sidedSuccess(itemstack, p_41128_.isClientSide());
+        return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
     }
 }

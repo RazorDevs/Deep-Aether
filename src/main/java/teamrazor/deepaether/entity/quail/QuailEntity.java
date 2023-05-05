@@ -50,7 +50,9 @@ public class QuailEntity extends AetherAnimal implements GeoEntity {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(QuailEntity.class, EntityDataSerializers.INT);
 
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS, Items.TORCHFLOWER_SEEDS);
+    private static final Ingredient FOOD_ITEMS = Ingredient.of(
+            Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
+    );
     public float flap;
     public float flapSpeed;
     public float oFlapSpeed;
@@ -219,7 +221,7 @@ public class QuailEntity extends AetherAnimal implements GeoEntity {
         return this.entityData.get(DATA_ID_TYPE_VARIANT);
     }
 
-    private void setVariant(QuailVariants variant) {
+    public void setVariant(QuailVariants variant) {
         this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 
