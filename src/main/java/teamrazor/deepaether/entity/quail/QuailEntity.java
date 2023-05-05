@@ -53,6 +53,7 @@ public class QuailEntity extends AetherAnimal implements GeoEntity {
     private static final Ingredient FOOD_ITEMS = Ingredient.of(
             Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
     );
+
     public float flap;
     public float flapSpeed;
     public float oFlapSpeed;
