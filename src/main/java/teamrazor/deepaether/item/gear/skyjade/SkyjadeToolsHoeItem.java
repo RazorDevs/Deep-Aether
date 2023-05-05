@@ -4,6 +4,7 @@ package teamrazor.deepaether.item.gear.skyjade;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
+import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.tags.SkyjadeTool;
 
 public class SkyjadeToolsHoeItem extends HoeItem implements SkyjadeTool {
@@ -13,11 +14,11 @@ public class SkyjadeToolsHoeItem extends HoeItem implements SkyjadeTool {
 
 	@Override
 	public boolean isEnchantable(ItemStack itemStack) {
-		return false;
+		return DeepAetherConfig.COMMON.skyjade_enchant.get();
 	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return false;
+		return DeepAetherConfig.COMMON.skyjade_enchant.get();
 	}
 }
