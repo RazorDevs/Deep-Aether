@@ -1,5 +1,5 @@
 # Deep Aether
-![](https://media.discordapp.net/attachments/983858839269036053/985145208985485312/unknown.png?width=886&height=498)
+![](https://cdn.discordapp.com/attachments/1045643746089373747/1104507395880779817/image.png)
 # What is this about?
 
 The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.4 and beyond.
