@@ -200,6 +200,11 @@ public class QuailEntity extends AetherAnimal implements GeoEntity {
     }
 
     @Override
+    public boolean isInvulnerableTo(DamageSource p_20122_) {
+        return super.isInvulnerableTo(p_20122_);
+    }
+
+    @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("EggLayTime", this.eggTime);

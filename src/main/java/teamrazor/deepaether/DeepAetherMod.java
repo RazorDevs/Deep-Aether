@@ -42,6 +42,7 @@ import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
+import teamrazor.deepaether.datagen.tags.DAEntityTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -144,6 +145,7 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {

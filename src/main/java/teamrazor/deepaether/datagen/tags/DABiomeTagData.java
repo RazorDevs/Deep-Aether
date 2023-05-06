@@ -28,7 +28,6 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.GOLDEN_HEIGHTS
         );
 
-
         this.tag(DATags.Biomes.IS_NOT_SWAMP).add(
                 DABiomes.AERLAVENDER_FIELDS,
                 DABiomes.AERGLOW_FOREST,
