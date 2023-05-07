@@ -462,11 +462,6 @@ public class DARecipeData extends AetherRecipeProvider {
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
 
-        makeskyrootSticks(DABlocks.ROSEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_roseroot_planks"));
-        makeskyrootSticks(DABlocks.YAGROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_yagroot_planks"));
-        makeskyrootSticks(DABlocks.CRUDEROOT_PLANKS.get()).save(consumer, name("skyroot_sticks_from_cruderoot_planks"));
-        makeskyrootSticks(DABlocks.CONBERRY_PLANKS.get()).save(consumer, name("skyroot_sticks_from_conberry_planks"));
-
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE)
                 .requires(DABlocks.AETHER_CATTAILS.get(),1)
                 .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
@@ -502,57 +497,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(DAItems.GOLDEN_GRASS_SEEDS.get())
                 .requires(AetherItems.SWET_BALL.get())
                 .unlockedBy(getHasName(DAItems.GOLDEN_GRASS_SEEDS.get()), has(DAItems.GOLDEN_GRASS_SEEDS.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_SWORD.get())
-                .group("skyroot_sword")
-                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
-                .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .pattern("#")
-                .pattern("#")
-                .pattern("/")
-                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
-                .save(consumer);
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_SHOVEL.get())
-                .group("skyroot_shovel")
-                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
-                .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .pattern("#")
-                .pattern("/")
-                .pattern("/")
-                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_AXE.get())
-                .group("skyroot_axe")
-                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
-                .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .pattern("##")
-                .pattern("#/")
-                .pattern(" /")
-                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_HOE.get())
-                .group("skyroot_hoe")
-                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
-                .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .pattern("##")
-                .pattern(" /")
-                .pattern(" /")
-                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.SKYROOT_PICKAXE.get())
-                .group("skyroot_pickaxe")
-                .define('#', DATags.Items.CRAFT_SKYROOT_TOOLS)
-                .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .pattern("###")
-                .pattern(" / ")
-                .pattern(" / ")
-                .unlockedBy(getHasName(AetherItems.SKYROOT_STICK.get()), has(AetherItems.SKYROOT_STICK.get()))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.PUMPKIN_PIE)
@@ -601,14 +545,14 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("###")
                 .unlockedBy(getHasName(material), has(material));
     }
-    protected static ShapedRecipeBuilder makeskyrootSticks(Block material) {
+    /*protected static ShapedRecipeBuilder makeskyrootSticks(Block material) {
         return ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AetherItems.SKYROOT_STICK.get(),4)
                 .group("sticks")
                 .define('#', material)
                 .pattern("#")
                 .pattern("#")
                 .unlockedBy(getHasName(material), has(material));
-    }
+    }*/
     protected static ShapelessRecipeBuilder makeChestBoat(Item boat) {
         return ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, boat)
                 .requires(boat)

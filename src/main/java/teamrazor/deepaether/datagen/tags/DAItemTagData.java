@@ -1,10 +1,10 @@
 package teamrazor.deepaether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
-import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAetherMod;
@@ -53,14 +53,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_CONBERRY_LOG.get().asItem(),
                 DABlocks.STRIPPED_CONBERRY_WOOD.get().asItem()
         );
-        tag(DATags.Items.CRAFT_SKYROOT_TOOLS).add(
+        tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
-                DABlocks.CONBERRY_PLANKS.get().asItem(),
-                AetherBlocks.SKYROOT_PLANKS.get().asItem()
+                DABlocks.CONBERRY_PLANKS.get().asItem()
         );
-        tag(AetherTags.Items.PLANKS_CRAFTING).add(
+        tag(AetherTags.Items.SKYROOT_TOOL_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
@@ -81,6 +80,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.CLOUDIUM_AXE.get().asItem(),
                 DAItems.CLOUDIUM_SHOVEL.get().asItem(),
                 DAItems.CLOUDIUM_HOE.get().asItem()
+        );
+        tag(ItemTags.SMALL_FLOWERS).add(
+                DABlocks.AERLAVENDER.get().asItem(),
+                DABlocks.AETHER_CATTAILS.get().asItem(),
+                DABlocks.GOLDEN_FLOWER.get().asItem(),
+                DABlocks.RADIANT_ORCHID.get().asItem()
         );
     }
 
