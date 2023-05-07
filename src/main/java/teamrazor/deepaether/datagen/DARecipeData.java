@@ -459,6 +459,11 @@ public class DARecipeData extends AetherRecipeProvider {
         makeChestBoat(DAItems.CRUDEROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.CONBERRY_CHEST_BOAT.get()).save(consumer);
 
+        makeSkyrootBucket(DABlocks.ROSEROOT_PLANKS.get()).save(consumer, "roseroot_skyroot_bucket");;
+        makeSkyrootBucket(DABlocks.YAGROOT_PLANKS.get()).save(consumer, "yagroot_skyroot_bucket");;
+        makeSkyrootBucket(DABlocks.CRUDEROOT_PLANKS.get()).save(consumer, "cruderoot_skyroot_bucket");;
+        makeSkyrootBucket(DABlocks.CONBERRY_PLANKS.get()).save(consumer, "conberry_skyroot_bucket");;
+
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
 
@@ -545,14 +550,16 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("###")
                 .unlockedBy(getHasName(material), has(material));
     }
-    /*protected static ShapedRecipeBuilder makeskyrootSticks(Block material) {
-        return ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AetherItems.SKYROOT_STICK.get(),4)
-                .group("sticks")
+
+    //TODO: Skyroot Bucket Recipe to be removed when fixed
+    protected static ShapedRecipeBuilder makeSkyrootBucket(Block material) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AetherItems.SKYROOT_BUCKET.get())
                 .define('#', material)
-                .pattern("#")
-                .pattern("#")
+                .pattern("# #")
+                .pattern(" # ")
                 .unlockedBy(getHasName(material), has(material));
-    }*/
+    }
+
     protected static ShapelessRecipeBuilder makeChestBoat(Item boat) {
         return ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, boat)
                 .requires(boat)
