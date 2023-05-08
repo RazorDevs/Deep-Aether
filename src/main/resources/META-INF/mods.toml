@@ -11,7 +11,7 @@ loaderVersion="[44,)" #mandatory This is typically bumped every Minecraft versio
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license = "Assets: All Rights Reserved; Code: GPL-3.0"
 # A URL to refer people to when problems occur with this mod
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+issueTrackerURL="https://github.com/RazorDevs/Deep-Aether/issues"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
@@ -25,15 +25,19 @@ displayName="Deep Aether" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+displayURL="https://github.com/RazorDevs/Deep-Aether/wiki" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 # A text field displayed in the mod UI
-credits="Add-on to the Aether mod. Textures by 345boneshoss and Aethyus. Code by TunefulTurntip and darksonic300. A mod by the Team Razor." #optional
+credits="Unofficial Add-on to the Aether mod. Textures by 345boneshoss and Aethyus. Code by TunefulTurntip and darksonic300. A mod by the Team Razor." #optional
 # A text field displayed in the mod UI
 authors="Team Razor: 345boneshoss, Aethyus, AwesomeGames, Egg, EnderCristy, darksonic300, TunefulTurntip, and the other members." #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-An addon for the Aether mod, created by the Team Razor!
+Deep Aether is an unofficial addon for the Aether Mod which aims to add extra content to the Aether Dimension in a similar fashion to the 1.16 Nether Expansion update.
+
+Extra content includes new blocks, items, plants, biomes, trees, mobs, and more!
+
+Created by RazorDevs!
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.deep_aether]] #optional
