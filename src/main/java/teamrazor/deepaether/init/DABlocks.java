@@ -55,7 +55,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> ROSEROOT_WALL = registerBlock(300, "roseroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> STRIPPED_ROSEROOT_WOOD = registerBlock("stripped_roseroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> STRIPPED_ROSEROOT_LOG = registerBlock("stripped_roseroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
-	public static final RegistryObject<Block> STRIPPED_ROSEROOT_WALL = registerBlock("stripped_roseroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> STRIPPED_ROSEROOT_WALL = registerBlock(300, "stripped_roseroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> ROSEROOT_PLANKS = registerBlock(300, "roseroot_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
 	public static final RegistryObject<Block> ROSEROOT_STAIRS = registerBlock("roseroot_stairs", () -> new StairBlock(() -> DABlocks.ROSEROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> ROSEROOT_SLAB = registerBlock("roseroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
@@ -94,7 +94,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> YAGROOT_TRAPDOOR = registerBlock("yagroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.YAGROOT_BLOCK_SET));
 	public static final RegistryObject<Block> YAGROOT_LEAVES = registerBlock("yagroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> YAGROOT_SAPLING = registerBlock("yagroot_sapling", () -> new SaplingBlock( new YagrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
-	public static final RegistryObject<Block> YAGROOT_ROOTS = registerBlock("yagroot_roots", () -> new DADoubleDropRotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(0.7F).randomTicks().sound(SoundType.MANGROVE_ROOTS).noOcclusion()));
+	public static final RegistryObject<Block> YAGROOT_ROOTS = registerBlock(300, "yagroot_roots", () -> new DADoubleDropRotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(0.7F).randomTicks().sound(SoundType.MANGROVE_ROOTS).noOcclusion()));
 	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = registerBlock("muddy_yagroot_roots", () -> new DADoubleDropRotatedPillarBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.PODZOL).strength(0.7F).sound(SoundType.MUDDY_MANGROVE_ROOTS)));
 
 	public static final RegistryObject<Block> YAGROOT_WALL_SIGN = BLOCKS.register("yagroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.YAGROOT));

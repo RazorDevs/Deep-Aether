@@ -1,0 +1,18 @@
+{
+  "values": [
+    "deep_aether:roseroot_wall",
+    "deep_aether:stripped_roseroot_wall",
+    "deep_aether:yagroot_wall",
+    "deep_aether:stripped_yagroot_wall",
+    "deep_aether:cruderoot_wall",
+    "deep_aether:stripped_cruderoot_wall",
+    "deep_aether:conberry_wall",
+    "deep_aether:stripped_conberry_wall",
+    "deep_aether:skyroot_wall",
+    "deep_aether:clorite_wall",
+    "deep_aether:aseterite_wall",
+    "deep_aether:aether_mud_bricks_wall",
+    "deep_aether:holystone_tile_wall",
+    "deep_aether:mossy_holystone_tile_wall"
+  ]
+}

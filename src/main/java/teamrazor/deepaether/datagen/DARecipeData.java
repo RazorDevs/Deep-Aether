@@ -563,7 +563,7 @@ public class DARecipeData extends AetherRecipeProvider {
     protected static ShapelessRecipeBuilder makeChestBoat(Item boat) {
         return ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, boat)
                 .requires(boat)
-                .requires(Tags.Items.RODS_WOODEN)
+                .requires(Tags.Items.CHESTS_WOODEN)
                 .unlockedBy(getHasName(boat), has(boat));
     }
 }

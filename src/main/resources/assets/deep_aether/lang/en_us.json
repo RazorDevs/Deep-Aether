@@ -480,6 +480,12 @@
   "lore.item.deep_aether.golden_swet_ball": "A gooey orb that is combined from Swet Balls and Golden Grass Seeds. Can be used to turn Aether Dirt into Golden Grass.",
 
 
+  "biomes.deep_aether.aerglow_forest": "Aerglow Forest",
+  "biomes.deep_aether.blue_aerglow_forest": "Blue Aerglow Forest",
+  "biomes.deep_aether.mystic_aerglow_forest": "Mystic Aerglow Forest",
+  "biomes.deep_aether.aerlavender_fields": "Aerlavender Fields",
+  "biomes.deep_aether.yagroot_swamp": "Yagroot Swamp",
+  "biomes.deep_aether.golden_heights": "Golden Heights",
 
 
   "fluid_type.deep_aether.poison_fluid": "Poison"
