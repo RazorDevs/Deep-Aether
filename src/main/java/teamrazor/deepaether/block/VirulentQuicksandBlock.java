@@ -2,7 +2,6 @@ package teamrazor.deepaether.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -59,7 +58,9 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                 double d0 = (double)blockPos.getX() + randomSource.nextDouble();
                 double d1 = (double)blockPos.getY() - 0.05D;
                 double d2 = (double)blockPos.getZ() + randomSource.nextDouble();
-                level.addParticle(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+                //level.addParticle(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+                level.addParticle(ParticleTypes.WHITE_ASH, d0, d1, d2, 0.1, 0, 0.2);
+                level.addParticle(ParticleTypes.WHITE_ASH, d0, d1, d2, 0.2, 0,  0.1);
             }
         }
 
