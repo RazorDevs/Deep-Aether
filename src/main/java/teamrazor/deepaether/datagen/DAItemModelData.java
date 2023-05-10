@@ -257,6 +257,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.GOLDEN_SWET_BALL.get());
 
         this.itemWallBlock(DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
+
+        this.itemBlock(DABlocks.RED_AERCLOUD.get());
     }
 
     public void handheldItem(Item item) {

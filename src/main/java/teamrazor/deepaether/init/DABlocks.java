@@ -233,6 +233,8 @@ public class DABlocks {
 			.noLootTable()));
 	public static final RegistryObject<Block> POISON_CAULDRON = BLOCKS.register("poison_cauldron", () -> new PoisonCauldronBlock(BlockBehaviour.Properties.copy(CAULDRON)));
 
+	public static final RegistryObject<Block> RED_AERCLOUD = registerBlock("red_aercloud", () -> new RedAercloudBlock(BlockBehaviour.Properties.of(Material.ICE, MaterialColor.COLOR_RED).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::always).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
+
 
 	//POTS
 	public static final RegistryObject<FlowerPotBlock> POTTED_AERLAVENDER = BLOCKS.register("potted_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));

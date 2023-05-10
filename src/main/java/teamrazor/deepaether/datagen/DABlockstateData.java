@@ -204,6 +204,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
         //MOSS
         this.block(DABlocks.AETHER_MOSS_BLOCK.get());
+
+        this.translucentBlock(DABlocks.RED_AERCLOUD.get());
     }
 
     public ResourceLocation texture(String name, String suffix) {
