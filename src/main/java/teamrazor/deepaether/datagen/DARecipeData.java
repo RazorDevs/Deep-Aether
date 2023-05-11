@@ -445,32 +445,34 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get().asItem()))
                 .save(consumer, "mossy_holystone_from_aether_moss");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
-                .define('A', DAItems.SKYJADE.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
-                .save(consumer);
+
+        makeFullBlock(DAItems.STRATUS_INGOT.get(), DABlocks.STRATUS_BLOCK.get()).save(consumer);
+
+        makeFullBlock(DAItems.SKYJADE.get(), DABlocks.SKYJADE_BLOCK.get()).save(consumer);
+
+        makeFullBlock(DAItems.ADIBIUM_GEMSTONE.get(), DABlocks.ADIBIUM_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.AGATE_GEMSTONE.get(), DABlocks.AGATE_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.PURPITE_INGOT.get(), DABlocks.PURPITE_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.RAW_PURPITE.get(), DABlocks.RAW_PURPITE_BLOCK.get()).save(consumer);
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.STRATUS_BLOCK.get())
-                .define('A', DAItems.STRATUS_INGOT.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get(), 9)
-                .requires(DABlocks.STRATUS_BLOCK.get())
-                .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
+        materialFromBlock(DABlocks.STRATUS_BLOCK.get(), DAItems.STRATUS_INGOT.get())
                 .save(consumer, "stratus_ingot_from_stratus_block");
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
-                .requires(DABlocks.SKYJADE_BLOCK.get())
-                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
+        materialFromBlock(DABlocks.SKYJADE_BLOCK.get(), DAItems.SKYJADE.get())
                 .save(consumer, "skyjade_from_skyjade_block");
+
+        materialFromBlock(DABlocks.ADIBIUM_BLOCK.get(), DAItems.ADIBIUM_GEMSTONE.get())
+                .save(consumer, "adibium_from_adibium_block");
+
+        materialFromBlock(DABlocks.AGATE_BLOCK.get(), DAItems.AGATE_GEMSTONE.get())
+                .save(consumer, "agate_from_agate_block");
+
+        materialFromBlock(DABlocks.PURPITE_BLOCK.get(), DAItems.PURPITE_INGOT.get())
+                .save(consumer, "purpite_ingot_from_purpite_block");
+
+        materialFromBlock(DABlocks.RAW_PURPITE_BLOCK.get(), DAItems.RAW_PURPITE.get())
+                .save(consumer, "raw_purpite_from_raw_purpite_block");
 
 
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
@@ -691,6 +693,22 @@ public class DARecipeData extends AetherRecipeProvider {
         return SimpleCookingRecipeBuilder.smoking(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 100)
                 .unlockedBy(getHasName(ingredient), has(ingredient));
     }
+
+    protected static ShapedRecipeBuilder makeFullBlock(Item material, Block result) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result)
+                .define('#', material)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy(getHasName(material), has(material));
+    }
+
+    protected static ShapelessRecipeBuilder materialFromBlock(Block material, Item result){
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, result, 9)
+                .requires(material)
+                .unlockedBy(getHasName(material), has(material));
+    }
+
     protected static ShapedRecipeBuilder makeBoat(Supplier<? extends Item> boat, Block material) {
         return ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, boat.get())
                 .define('#', material)

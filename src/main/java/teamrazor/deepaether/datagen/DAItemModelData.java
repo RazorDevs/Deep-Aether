@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -161,7 +160,25 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SKYJADE_BLOCK.get());
         this.itemBlock(DABlocks.SKYJADE_ORE.get());
 
+        this.itemBlock(DABlocks.AGATE_ORE.get());
+        this.itemBlock(DABlocks.HIGHSTONE_AGATE_ORE.get());
+        this.itemBlock(DABlocks.AGATE_BLOCK.get());
+
+        this.itemBlock(DABlocks.ADIBIUM_ORE.get());
+        this.itemBlock(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
+        this.itemBlock(DABlocks.ADIBIUM_BLOCK.get());
+
+        this.itemBlock(DABlocks.PURPITE_BLOCK.get());
+        this.itemBlock(DABlocks.PURPITE_ORE.get());
+        this.itemBlock(DABlocks.RAW_PURPITE_BLOCK.get());
+        this.itemBlock(DABlocks.HIGHSTONE_PURPITE_ORE.get());
+
         this.itemBlock(DABlocks.STRATUS_BLOCK.get());
+
+        this.item(DAItems.ADIBIUM_GEMSTONE.get());
+        this.item(DAItems.AGATE_GEMSTONE.get());
+        this.item(DAItems.RAW_PURPITE.get());
+        this.item(DAItems.PURPITE_INGOT.get());
 
         this.itemBlock(DABlocks.ASETERITE.get());
         this.itemBlock(DABlocks.ASETERITE_STAIRS.get());

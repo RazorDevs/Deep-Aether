@@ -214,6 +214,18 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.SKYJADE_ORE.get(), (block) -> this.createOreDrop(block, DAItems.SKYJADE.get()));
         this.dropSelf(DABlocks.SKYJADE_BLOCK.get());
         this.dropSelf(DABlocks.STRATUS_BLOCK.get());
+        this.dropSelf(DABlocks.AGATE_BLOCK.get());
+        this.dropSelf(DABlocks.AGATE_ORE.get());
+        this.dropSelf(DABlocks.HIGHSTONE_AGATE_ORE.get());
+
+        this.dropSelf(DABlocks.ADIBIUM_BLOCK.get());
+        this.dropSelf(DABlocks.ADIBIUM_ORE.get());
+        this.dropSelf(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
+
+        this.dropSelf(DABlocks.PURPITE_BLOCK.get());
+        this.dropSelf(DABlocks.RAW_PURPITE_BLOCK.get());
+        this.dropSelf(DABlocks.PURPITE_ORE.get());
+        this.dropSelf(DABlocks.HIGHSTONE_PURPITE_ORE.get());
 
 
         //STONES

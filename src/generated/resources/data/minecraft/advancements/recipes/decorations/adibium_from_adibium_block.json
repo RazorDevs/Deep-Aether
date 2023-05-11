@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stratus_block": {
+    "has_adibium_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:stratus_block"
+              "deep_aether:adibium_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:stratus_ingot_from_stratus_block"
+        "recipe": "minecraft:adibium_from_adibium_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stratus_block",
+      "has_adibium_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:stratus_ingot_from_stratus_block"
+      "minecraft:adibium_from_adibium_block"
     ]
   }
 }
