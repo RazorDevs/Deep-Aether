@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
+    "#": {
       "item": "deep_aether:skyjade"
     }
   },
   "pattern": [
-    "AAA",
-    "AAA",
-    "AAA"
+    "###",
+    "###",
+    "###"
   ],
   "result": {
     "item": "deep_aether:skyjade_block"

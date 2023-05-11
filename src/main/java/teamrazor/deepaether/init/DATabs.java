@@ -216,6 +216,11 @@ public class DATabs {
 
                             output.accept(DAItems.GRAVITIE_RING.get());
 
+                            output.accept(DAItems.ADIBIUM_GEMSTONE.get());
+                            output.accept(DAItems.AGATE_GEMSTONE.get());
+                            output.accept(DAItems.RAW_PURPITE.get());
+                            output.accept(DAItems.PURPITE_INGOT.get());
+
                             output.accept(DAItems.RAW_AERGLOW_FISH.get());
                             output.accept(DAItems.COOKED_AERGLOW_FISH.get());
                             output.accept(DAItems.AERGLOW_FISH_BUCKET.get());
