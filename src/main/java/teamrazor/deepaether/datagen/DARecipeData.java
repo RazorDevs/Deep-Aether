@@ -336,22 +336,14 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get().asItem()))
                 .save(consumer, "mossy_holystone_from_aether_moss");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
-                .define('A', DAItems.SKYJADE.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
-                .save(consumer);
 
+        makeFullBlock(DAItems.SKYJADE.get(), DABlocks.SKYJADE_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.CLOUDIUM_INGOT.get(), DABlocks.CLOUDIUM_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.ADIBIUM_GEMSTONE.get(), DABlocks.ADIBIUM_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.AGATE_GEMSTONE.get(), DABlocks.AGATE_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.PURPITE_INGOT.get(), DABlocks.PURPITE_BLOCK.get()).save(consumer);
+        makeFullBlock(DAItems.RAW_PURPITE.get(), DABlocks.RAW_PURPITE_BLOCK.get()).save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CLOUDIUM_BLOCK.get())
-                .define('A', DAItems.CLOUDIUM_INGOT.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.CLOUDIUM_INGOT.get()), has(DAItems.CLOUDIUM_INGOT.get()))
-                .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.CLOUDIUM_INGOT.get(), 9)
                 .requires(DABlocks.CLOUDIUM_BLOCK.get())
@@ -547,6 +539,15 @@ public class DARecipeData extends AetherRecipeProvider {
         return ShapedRecipeBuilder.shaped(RecipeCategory.TRANSPORTATION, boat.get())
                 .define('#', material)
                 .pattern("# #")
+                .pattern("###")
+                .unlockedBy(getHasName(material), has(material));
+    }
+
+    protected static ShapedRecipeBuilder makeFullBlock(Item material, Block result) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, result)
+                .define('#', material)
+                .pattern("###")
+                .pattern("###")
                 .pattern("###")
                 .unlockedBy(getHasName(material), has(material));
     }

@@ -55,6 +55,15 @@ public class RedAercloudBlock extends AercloudBlock {
         return check1 || check2 || check3;
     }
 
+    private boolean checkIfPowered(Level level, BlockPos pos)
+    {
+        boolean check1 = level.hasNeighborSignal(pos.below()) ||  level.hasNeighborSignal(pos.above());
+        boolean check2 =  level.hasNeighborSignal(pos.north()) ||  level.hasNeighborSignal(pos.south());
+        boolean check3 =  level.hasNeighborSignal(pos.east()) ||  level.hasNeighborSignal(pos.west());
+
+        return check1 || check2 || check3;
+    }
+
 
     @Override
     public int getSignal(BlockState blockState, BlockGetter level, BlockPos pos, Direction direction) {
@@ -70,6 +79,8 @@ public class RedAercloudBlock extends AercloudBlock {
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos pos1, boolean b) {
         if (level.hasNeighborSignal(pos)){
             state.setValue(POWERED, true);
+        }else{
+            state.setValue(POWERED, false);
         }
         super.neighborChanged(state, level, pos, block, pos1, b);
     }
@@ -78,6 +89,8 @@ public class RedAercloudBlock extends AercloudBlock {
     public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
         if (checkIfPowered(level, pos)){
             state.setValue(POWERED, true);
+        }else{
+            state.setValue(POWERED, false);
         }
         super.onNeighborChange(state, level, pos, neighbor);
     }
@@ -85,7 +98,7 @@ public class RedAercloudBlock extends AercloudBlock {
     @SuppressWarnings("deprecation")
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        if (!state.getValue(POWERED)) {
+        if (!checkIfPowered((LevelReader) level, pos)) {
             if (context instanceof EntityCollisionContext entityCollisionContext) {
                 Entity entity = entityCollisionContext.getEntity();
                 if (entity != null) {

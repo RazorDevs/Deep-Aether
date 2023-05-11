@@ -140,6 +140,16 @@ public class DATabs {
                             output.accept(DABlocks.SKYJADE_BLOCK.get());
                             output.accept(DABlocks.CLOUDIUM_DEBRIS.get());
                             output.accept(DABlocks.CLOUDIUM_BLOCK.get());
+                            output.accept(DABlocks.ADIBIUM_ORE.get());
+                            output.accept(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
+                            output.accept(DABlocks.ADIBIUM_BLOCK.get());
+                            output.accept(DABlocks.AGATE_ORE.get());
+                            output.accept(DABlocks.HIGHSTONE_AGATE_ORE.get());
+                            output.accept(DABlocks.AGATE_BLOCK.get());
+                            output.accept(DABlocks.PURPITE_ORE.get());
+                            output.accept(DABlocks.HIGHSTONE_PURPITE_ORE.get());
+                            output.accept(DABlocks.RAW_PURPITE_BLOCK.get());
+                            output.accept(DABlocks.PURPITE_BLOCK.get());
 
                             output.accept(DABlocks.HOLYSTONE_TILES.get());
                             output.accept(DABlocks.HOLYSTONE_TILE_STAIRS.get());
