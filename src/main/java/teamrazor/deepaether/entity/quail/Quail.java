@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
 @Mod.EventBusSubscriber
-public class QuailEntity extends AetherAnimal implements GeoEntity {
+public class Quail extends AetherAnimal implements GeoEntity {
 
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
-            SynchedEntityData.defineId(QuailEntity.class, EntityDataSerializers.INT);
+            SynchedEntityData.defineId(Quail.class, EntityDataSerializers.INT);
 
     private static final Ingredient FOOD_ITEMS = Ingredient.of(
             Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
@@ -62,12 +62,12 @@ public class QuailEntity extends AetherAnimal implements GeoEntity {
     private float nextFlap = 1.0F;
     public int eggTime = this.random.nextInt(6000) + 6000;
 
-    public QuailEntity(PlayMessages.SpawnEntity packet, Level world) {
+    public Quail(PlayMessages.SpawnEntity packet, Level world) {
         this(DAEntities.QUAIL.get(), world);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
     }
 
-    public QuailEntity(EntityType<QuailEntity> type, Level world) {
+    public Quail(EntityType<Quail> type, Level world) {
         super(type, world);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
     }
@@ -124,8 +124,8 @@ public class QuailEntity extends AetherAnimal implements GeoEntity {
 
     @Nullable
     @Override
-    public QuailEntity getBreedOffspring(ServerLevel serverLevel, AgeableMob mob) {
-        QuailEntity baby = DAEntities.QUAIL.get().create(serverLevel);
+    public Quail getBreedOffspring(ServerLevel serverLevel, AgeableMob mob) {
+        Quail baby = DAEntities.QUAIL.get().create(serverLevel);
         QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
         baby.setVariant(variant);
         return baby;

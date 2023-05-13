@@ -10,21 +10,21 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
-import teamrazor.deepaether.entity.AerglowFishEntity;
+import teamrazor.deepaether.entity.AerglowFish;
 
 @OnlyIn(Dist.CLIENT)
-public class AetherFishRenderer extends MobRenderer<AerglowFishEntity, AerglowFishModel<AerglowFishEntity>> {
+public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishModel<AerglowFish>> {
 	private static final ResourceLocation AERGLOW_FISH_LOCATION = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/aerglow_fish.png");
 
 	public AetherFishRenderer(EntityRendererProvider.Context p_174364_) {
 		super(p_174364_, new AerglowFishModel<>(p_174364_.bakeLayer(DeepAetherModelLayers.AERGLOW_FISH)), 0.4F);
 	}
 
-	public ResourceLocation getTextureLocation(AerglowFishEntity p_115826_) {
+	public ResourceLocation getTextureLocation(AerglowFish p_115826_) {
 		return AERGLOW_FISH_LOCATION;
 	}
 
-	protected void setupRotations(AerglowFishEntity p_115828_, PoseStack p_115829_, float p_115830_, float p_115831_, float p_115832_) {
+	protected void setupRotations(AerglowFish p_115828_, PoseStack p_115829_, float p_115830_, float p_115831_, float p_115832_) {
 		super.setupRotations(p_115828_, p_115829_, p_115830_, p_115831_, p_115832_);
 		float f = 1.0F;
 		float f1 = 1.0F;

@@ -11,12 +11,12 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.QuailModel;
-import teamrazor.deepaether.entity.quail.QuailEntity;
+import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.QuailVariants;
 
 import java.util.Map;
 
-public class QuailRenderer extends GeoEntityRenderer<QuailEntity> {
+public class QuailRenderer extends GeoEntityRenderer<Quail> {
 
     public QuailRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new QuailModel());
@@ -43,11 +43,11 @@ public class QuailRenderer extends GeoEntityRenderer<QuailEntity> {
 
             });
     @Override
-    public ResourceLocation getTextureLocation(QuailEntity instance) {
+    public ResourceLocation getTextureLocation(Quail instance) {
         return LOCATION_BY_VARIANT.get(instance.getVariant());
     }
     @Override
-    public void preRender(PoseStack poseStack, QuailEntity animatable,
+    public void preRender(PoseStack poseStack, Quail animatable,
                           BakedGeoModel model, MultiBufferSource bufferSource,
                           VertexConsumer buffer, boolean isReRender,
                           float partialTick, int packedLight, int packedOverlay,

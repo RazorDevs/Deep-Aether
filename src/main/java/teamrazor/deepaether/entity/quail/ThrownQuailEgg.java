@@ -53,7 +53,7 @@ public class ThrownQuailEgg extends ThrowableItemProjectile {
                 }
 
                 for(int j = 0; j < i; ++j) {
-                    QuailEntity quail = DAEntities.QUAIL.get().create(this.level);
+                    Quail quail = DAEntities.QUAIL.get().create(this.level);
                     QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
                     quail.setVariant(variant);
                     if (quail != null) {

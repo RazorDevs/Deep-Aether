@@ -12,9 +12,9 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAItems;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
-public class AerglowFishEntity extends AbstractSchoolingFish {
+public class AerglowFish extends AbstractSchoolingFish {
 
-	public AerglowFishEntity(EntityType<? extends AerglowFishEntity> p_29790_, Level p_29791_) {
+	public AerglowFish(EntityType<? extends AerglowFish> p_29790_, Level p_29791_) {
 		super(p_29790_, p_29791_);
 	}
 

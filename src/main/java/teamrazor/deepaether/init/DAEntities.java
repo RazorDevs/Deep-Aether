@@ -12,10 +12,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.entity.AerglowFishEntity;
+import teamrazor.deepaether.entity.AerglowFish;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.entity.DAChestBoatEntity;
-import teamrazor.deepaether.entity.quail.QuailEntity;
+import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 
 
@@ -36,16 +36,16 @@ public class DAEntities {
 					.updateInterval(10)
 					.build("quail_egg"));
 
-	public static final RegistryObject<EntityType<AerglowFishEntity>> AETHER_FISH = register("aerglow_fish",
-			EntityType.Builder.of(AerglowFishEntity::new, MobCategory.WATER_CREATURE)
+	public static final RegistryObject<EntityType<AerglowFish>> AETHER_FISH = register("aerglow_fish",
+			EntityType.Builder.of(AerglowFish::new, MobCategory.WATER_CREATURE)
 					.setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3)
 					.clientTrackingRange(10)
 					.sized(0.5f, 0.5f));
 
-	public static final RegistryObject<EntityType<QuailEntity>> QUAIL = register("quail",
-			EntityType.Builder.<QuailEntity>of(QuailEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(QuailEntity::new)
+	public static final RegistryObject<EntityType<Quail>> QUAIL = register("quail",
+			EntityType.Builder.<Quail>of(Quail::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Quail::new)
 					.sized(0.35F, 0.7f));
 
 
@@ -58,14 +58,14 @@ public class DAEntities {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			AerglowFishEntity.createAttributes();
-			QuailEntity.init();
+			AerglowFish.createAttributes();
+			Quail.init();
 		});
 	}
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(AETHER_FISH.get(), AerglowFishEntity.createAttributes().build());
-		event.put(QUAIL.get(), QuailEntity.createAttributes().build());
+		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
+		event.put(QUAIL.get(), Quail.createAttributes().build());
 	}
 }
