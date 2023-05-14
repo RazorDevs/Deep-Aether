@@ -66,6 +66,13 @@ You'll need of course:
 The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
 
 
+# Former Members
+
+bagu_chan: https://github.com/baguchan
+  - Role: Developer
+  - Reason for leaving: Real life and health stuff getting in the way
+
+
 # License
 
 GNU Lesser General Public License v3.0 only
