@@ -6,6 +6,7 @@ import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.functions.DoubleDrops;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
 import net.minecraft.advancements.critereon.BlockPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.BlockPos;
@@ -24,10 +25,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
-import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
@@ -222,7 +220,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
 
-        this.dropSelf(DABlocks.YAGROOT_VINE.get());
+        this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createYagrootVinesDrop(DABlocks.YAGROOT_VINE.get()));
 
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
        //this.dropNone(DABlocks.AGATE_BLOCK.get());
@@ -256,6 +254,10 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
     protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(DAItems.GOLDEN_BERRIES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_251070_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenVines.BERRIES, true))));
+    }
+
+    protected static LootTable.Builder createYagrootVinesDrop(Block block) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block)));
     }
 
     protected LootTable.Builder createGoldenDoublePlantWithSeedDrops(Block block, Block p_248735_) {
@@ -295,10 +297,10 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                 .apply(DoubleDrops.builder());
     }
 
-    //protected static final LootItemCondition.Builder HAS_NO_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert();
-    //protected static LootTable.Builder deepAetherTallFlowerDrop(Block block, Block block1) {
-    //    return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SILK_TOUCH).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block))).withPool(LootPool.lootPool().when(HAS_NO_SILK_TOUCH).when(HAS_NO_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block1)));
-    //}
+    protected static final LootItemCondition.Builder HAS_NO_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert();
+    protected static LootTable.Builder deepAetherTallFlowerDrop(Block block, Block block1) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SILK_TOUCH).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block))).withPool(LootPool.lootPool().when(HAS_NO_SILK_TOUCH).when(HAS_NO_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block1)));
+    }
 
     //public void createDeepAetherTallFlowerDrop(Block block, Block block1) {
     //    this.add(block, (result) -> this.deepAetherTallFlowerDrop(block, block1));
