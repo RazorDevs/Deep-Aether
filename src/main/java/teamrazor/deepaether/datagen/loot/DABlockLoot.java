@@ -217,7 +217,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_TALL_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_AETHER_CATTAILS.get());
-        //this.dropPottedContents(DABlocks.POTTED_TALL_AETHER_CATTAILS.get());
         this.dropPottedContents(DABlocks.POTTED_RADIANT_ORCHID.get());
 
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
@@ -225,18 +224,19 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.YAGROOT_VINE.get());
 
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
-        this.dropNone(DABlocks.AGATE_BLOCK.get());
-        this.dropNone(DABlocks.AGATE_ORE.get());
-        this.dropNone(DABlocks.HIGHSTONE_AGATE_ORE.get());
 
-        this.dropNone(DABlocks.ADIBIUM_BLOCK.get());
-        this.dropNone(DABlocks.ADIBIUM_ORE.get());
-        this.dropNone(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
+        this.dropSelf(DABlocks.AGATE_BLOCK.get());
+        this.dropWithFortune(DABlocks.AGATE_ORE.get(), DAItems.AGATE_GEMSTONE.get());
+        this.dropWithFortune(DABlocks.HIGHSTONE_AGATE_ORE.get(), DAItems.AGATE_GEMSTONE.get());
 
-        this.dropNone(DABlocks.PURPITE_BLOCK.get());
-        this.dropNone(DABlocks.RAW_PURPITE_BLOCK.get());
-        this.dropNone(DABlocks.PURPITE_ORE.get());
-        this.dropNone(DABlocks.HIGHSTONE_PURPITE_ORE.get());
+        this.dropSelf(DABlocks.ADIBIUM_BLOCK.get());
+        this.dropWithFortune(DABlocks.ADIBIUM_ORE.get(), DAItems.ADIBIUM_GEMSTONE.get());
+        this.dropWithFortune(DABlocks.HIGHSTONE_ADIBIUM_ORE.get(), DAItems.ADIBIUM_GEMSTONE.get());
+
+        this.dropSelf(DABlocks.PURPITE_BLOCK.get());
+        this.dropSelf(DABlocks.RAW_PURPITE_BLOCK.get());
+        this.dropWithFortune(DABlocks.PURPITE_ORE.get(), DAItems.RAW_PURPITE.get());
+        this.dropWithFortune(DABlocks.HIGHSTONE_PURPITE_ORE.get(), DAItems.RAW_PURPITE.get());
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());

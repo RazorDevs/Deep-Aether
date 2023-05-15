@@ -28,6 +28,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
 
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
@@ -148,6 +150,21 @@ public class ZephytaGolem extends TamableAnimal implements FlyingAnimal, GeoAnim
     @Override
     public boolean isFlying() {
         return true;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return null;
+    }
+
+    @Override
+    public double getTick(Object o) {
+        return 0;
     }
 
     static class SnowballAttackGoal extends Goal {
