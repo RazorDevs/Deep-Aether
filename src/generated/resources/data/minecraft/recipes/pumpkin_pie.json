@@ -1,9 +1,10 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "minecraft:pumpkin_pie",
   "ingredients": [
     {
-      "item": "deep_aether:quail_egg"
+      "tag": "deep_aether:eggs"
     },
     {
       "item": "minecraft:pumpkin"

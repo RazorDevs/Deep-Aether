@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "deep_aether:quail_egg"
-            ]
+            "tag": "deep_aether:eggs"
           }
         ]
       },

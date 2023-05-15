@@ -1,24 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "minecraft:cake",
   "key": {
-    "O": {
-      "item": "deep_aether:quail_egg"
+    "A": {
+      "tag": "deep_aether:milk_buckets"
     },
-    "S": {
+    "B": {
       "item": "minecraft:sugar"
     },
-    "U": {
-      "item": "minecraft:milk_bucket"
-    },
-    "Y": {
+    "C": {
       "item": "minecraft:wheat"
+    },
+    "E": {
+      "tag": "deep_aether:eggs"
     }
   },
   "pattern": [
-    "UUU",
-    "SOS",
-    "YYY"
+    "AAA",
+    "BEB",
+    "CCC"
   ],
   "result": {
     "item": "minecraft:cake"

@@ -14,6 +14,8 @@ public class DATags {
         public static final TagKey<Item> CRAFTS_YAGROOT_PLANKS = tag("crafts_yagroot_planks");
         public static final TagKey<Item> CRAFTS_CRUDEROOT_PLANKS = tag("crafts_cruderoot_planks");
         public static final TagKey<Item> CRAFTS_CONBERRY_PLANKS = tag("crafts_conberry_planks");
+        public static final TagKey<Item> EGGS = tag("eggs");
+        public static final TagKey<Item> MILK_BUCKETS = tag("milk_buckets");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.MODID, name));

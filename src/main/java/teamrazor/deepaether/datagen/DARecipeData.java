@@ -505,21 +505,37 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.PUMPKIN_PIE)
-                .requires(DAItems.QUAIL_EGG.get())
+                .group("minecraft:pumpkin_pie")
+                .requires(DATags.Items.EGGS)
                 .requires(Items.PUMPKIN)
                 .requires(Items.SUGAR)
-                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DAItems.QUAIL_EGG.get()))
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
                 .save(consumer);
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Items.CAKE)
-                .define('U', Items.MILK_BUCKET).define('Y', Items.WHEAT)
-                .define('S', Items.SUGAR).define('O', DAItems.QUAIL_EGG.get())
+                .group("minecraft:cake")
+                .define('U', Items.MILK_BUCKET)
+                .define('S', Items.SUGAR)
+                .define('Y', Items.WHEAT)
+                .define('O', DAItems.QUAIL_EGG.get())
                 .pattern("UUU")
                 .pattern("SOS")
                 .pattern("YYY")
-                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DAItems.QUAIL_EGG.get()))
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
                 .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Blocks.CAKE)
+                .group("minecraft:cake")
+                .define('A', AetherItems.SKYROOT_MILK_BUCKET.get())
+                .define('B', Items.SUGAR)
+                .define('C', Items.WHEAT)
+                .define('E', DAItems.QUAIL_EGG.get())
+                .pattern("AAA")
+                .pattern("BEB")
+                .pattern("CCC")
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
+                .save(consumer, name("skyroot_milk_bucket_cake"));
     }
 
 
