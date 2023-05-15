@@ -167,7 +167,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.STRIPPED_SKYROOT_WALL.get());
         this.dropSelf(DABlocks.SKYROOT_WALL.get());
 
-    //ORES
+        //ORES
         this.dropWithFortune(DABlocks.SKYJADE_ORE.get(), DAItems.SKYJADE.get());
         this.dropSelf(DABlocks.SKYJADE_BLOCK.get());
 
@@ -223,18 +223,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createYagrootVinesDrop(DABlocks.YAGROOT_VINE.get()));
 
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
-       //this.dropNone(DABlocks.AGATE_BLOCK.get());
-       //this.dropNone(DABlocks.AGATE_ORE.get());
-       //this.dropNone(DABlocks.HIGHSTONE_AGATE_ORE.get());
-
-       //this.dropNone(DABlocks.ADIBIUM_BLOCK.get());
-       //this.dropNone(DABlocks.ADIBIUM_ORE.get());
-       //this.dropNone(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
-
-       //this.dropNone(DABlocks.ORATIE_BLOCK.get());
-       //this.dropNone(DABlocks.RAW_ORATIE_BLOCK.get());
-       //this.dropNone(DABlocks.ORATIE_ORE.get());
-       //this.dropNone(DABlocks.HIGHSTONE_ORATIE_ORE.get());
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
@@ -298,13 +286,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
     }
 
     protected static final LootItemCondition.Builder HAS_NO_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert();
-    protected static LootTable.Builder deepAetherTallFlowerDrop(Block block, Block block1) {
+    /*protected static LootTable.Builder deepAetherTallFlowerDrop(Block block, Block block1) {
         return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SILK_TOUCH).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block))).withPool(LootPool.lootPool().when(HAS_NO_SILK_TOUCH).when(HAS_NO_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block1)));
     }
 
-    //public void createDeepAetherTallFlowerDrop(Block block, Block block1) {
-    //    this.add(block, (result) -> this.deepAetherTallFlowerDrop(block, block1));
-    //}
+    public void createDeepAetherTallFlowerDrop(Block block, Block block1) {
+        this.add(block, (result) -> this.deepAetherTallFlowerDrop(block, block1));
+    }*/
 
     @Override
     protected Iterable<Block> getKnownBlocks() {

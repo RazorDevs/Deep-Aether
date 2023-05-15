@@ -128,19 +128,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.SKYJADE_ORE.get());
         this.block(DABlocks.SKYJADE_BLOCK.get());
 
-        //this.block(DABlocks.AGATE_ORE.get());
-        //this.block(DABlocks.HIGHSTONE_AGATE_ORE.get());
-        //this.block(DABlocks.AGATE_BLOCK.get());
-
-        //this.block(DABlocks.ADIBIUM_ORE.get());
-        //this.block(DABlocks.HIGHSTONE_ADIBIUM_ORE.get());
-        //this.block(DABlocks.ADIBIUM_BLOCK.get());
-
-        //this.block(DABlocks.ORATIE_BLOCK.get());
-        //this.block(DABlocks.ORATIE_ORE.get());
-        //this.block(DABlocks.RAW_ORATIE_BLOCK.get());
-        //this.block(DABlocks.HIGHSTONE_ORATIE_ORE.get());
-
         this.block(DABlocks.CLOUDIUM_BLOCK.get());
 
         this.crossBlock(DABlocks.MINI_GOLDEN_GRASS.get());
@@ -181,7 +168,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlantFix(DABlocks.POTTED_AERLAVENDER.get(), DABlocks.AERLAVENDER.get());
         this.pottedPlantFix(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
         this.pottedPlantFix(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
-        //this.pottedPlant(DABlocks.POTTED_TALL_AETHER_CATTAILS.get(), DABlocks.TALL_AETHER_CATTAILS.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
 
 
