@@ -75,7 +75,7 @@ __Q: I am interested in joining your team to help with the development of the mo
 
 # Credits
 
-The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
+The rights to this mod belong to The Aether Team and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
 
 
 # Former Members
