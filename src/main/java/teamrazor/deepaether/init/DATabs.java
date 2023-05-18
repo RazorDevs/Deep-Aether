@@ -8,6 +8,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -232,6 +233,10 @@ public class DATabs {
                             output.accept(DAItems.QUAIL_SPAWN_EGG.get());
 
                             output.accept(DAItems.AERGLOW_PETAL.get());
+                            if(ModList.get().isLoaded("lost_aether_content")){
+                                output.accept(DAItems.SKYJADE_SHIELD.get());
+                                output.accept(DAItems.CLOUDIUM_SHIELD.get());
+                            }
                         }));
     }
 }

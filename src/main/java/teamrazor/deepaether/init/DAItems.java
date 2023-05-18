@@ -22,6 +22,7 @@ import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.cloudium.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.misc.*;
+import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -120,6 +121,15 @@ public class DAItems {
 	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("goldenleaf_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new GoldenSwetBall(new Item.Properties()));
+
+
+	//LOST CONTENT
+	public static final DeferredRegister<Item> LOST_CONTENT =
+			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
+
+	public static final RegistryObject<Item> SKYJADE_SHIELD = LOST_CONTENT.register("skyjade_shield", () -> new LCDAShieldItem(new Item.Properties().durability(672)));
+	public static final RegistryObject<Item> CLOUDIUM_SHIELD = LOST_CONTENT.register("cloudium_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
+
 
 
 	public static void register(IEventBus eventBus) {

@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.item.AetherItems;
+import com.legacy.lost_aether.registry.LCItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
@@ -536,6 +538,22 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("CCC")
                 .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
                 .save(consumer, name("skyroot_milk_bucket_cake"));
+
+
+        //LOST CONTENT
+        if(ModList.get().isLoaded("lost_aether_content")){
+            ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 1)
+                    .group("minecraft:shield")
+                    .define('G', DAItems.SKYJADE.get())
+                    .define('R', Tags.Items.RODS_WOODEN)
+                    .pattern("GRG")
+                    .pattern("GGG")
+                    .pattern(" G ")
+                    .unlockedBy("has_skyjade_gemstone", has(DAItems.SKYJADE.get()))
+                    .save(consumer, name("skyjade_shield"));
+
+            legacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHIELD.get());
+        }
     }
 
 

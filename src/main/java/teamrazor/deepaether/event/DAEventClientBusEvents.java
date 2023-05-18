@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAetherMod;
@@ -15,6 +16,7 @@ import teamrazor.deepaether.init.DAFluids;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.init.DAWoodTypes;
+import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -33,6 +35,9 @@ public class DAEventClientBusEvents {
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
 
+            if(ModList.get().isLoaded("lost_aether_content")) {
+                AddonItemModelPredicates.init();
+            }
         });
 
 
