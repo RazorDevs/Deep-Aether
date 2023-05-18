@@ -23,6 +23,7 @@ import teamrazor.deepaether.item.gear.cloudium.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
+import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -127,7 +128,7 @@ public class DAItems {
 	public static final DeferredRegister<Item> LOST_CONTENT =
 			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
 
-	public static final RegistryObject<Item> SKYJADE_SHIELD = LOST_CONTENT.register("skyjade_shield", () -> new LCDAShieldItem(new Item.Properties().durability(672)));
+	public static final RegistryObject<Item> SKYJADE_SHIELD = LOST_CONTENT.register("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> CLOUDIUM_SHIELD = LOST_CONTENT.register("cloudium_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
 

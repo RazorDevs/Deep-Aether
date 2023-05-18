@@ -553,6 +553,9 @@ public class DARecipeData extends AetherRecipeProvider {
                     .save(consumer, name("skyjade_shield"));
 
             legacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHIELD.get());
+
+            repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 2250).group("altar_shield_repair").save(consumer, name("skyjade_shield_repairing"));
+            repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("cloudium_shield_repairing"));
         }
     }
 

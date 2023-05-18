@@ -1,0 +1,8 @@
+{
+  "type": "aether:repairing",
+  "group": "altar_shield_repair",
+  "ingredient": {
+    "item": "deep_aether:cloudium_shield"
+  },
+  "repairTime": 5500
+}
