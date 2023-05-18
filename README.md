@@ -61,6 +61,18 @@ You'll need of course:
  - GeckoLib
 
  
+# FAQ
+
+__Q: Do you plan on backporting to version 1.19.2 once the Aether Mod does?__
+  - A: Yes, we plan on doing so, as it shouldn't be *too* difficult and 1.19.2 has more mods than 1.19.4.
+
+__Q: Do you plan on adding cross compatibility with other mods and Aether addons?__
+  - A: Yes, we plan on doing that as well, Aether Lost Content being an example!
+
+__Q: I am interested in joining your team to help with development of the mod! How can I do so?__
+  - A: We are always open to accepting new members, especially testers, developers, and texture artists. You can join our Discord Server and message 345boneshoss#8427, darksonic300#8284, or TunefulTurnip#4079 to let them know! __BE PREPARED TO SHOW PROOF OF YOUR SKILLS.__
+
+
 # Credits
 
 The rights to this mod belong to The Aether Team, (Gilded Games) and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo by Aethyus, and background by EnderCristy. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
