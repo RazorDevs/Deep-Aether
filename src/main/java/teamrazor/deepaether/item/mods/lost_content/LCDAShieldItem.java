@@ -1,10 +1,10 @@
 package teamrazor.deepaether.item.mods.lost_content;
 
-import com.legacy.lost_aether.item.LCShieldItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShieldItem;
 import teamrazor.deepaether.init.DAItems;
 
-public class LCDAShieldItem extends LCShieldItem {
+public class LCDAShieldItem extends ShieldItem {
     public LCDAShieldItem(Properties pProperties) {
         super(pProperties);
     }
