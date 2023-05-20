@@ -14,6 +14,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -205,16 +206,16 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 3)), 64));
 
         register(context, GOLDEN_VINES_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(1, 1, 1,
-                        PlacementUtils.inlinePlaced(Feature.BLOCK_COLUMN,
-                                new BlockColumnConfiguration(List.of(BlockColumnConfiguration.layer(
-                                                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                                                        .add(UniformInt.of(0, 1), 1)
-                                                        .add(UniformInt.of(0, 2), 1)
-                                                        .add(UniformInt.of(0, 3), 1).build()), weightedstateprovider),
-                                        BlockColumnConfiguration.layer(ConstantInt.of(1), randomizedintstateprovider)),
-                                        Direction.UP, BlockPredicate.ONLY_IN_AIR_PREDICATE, true),
-                                BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.wouldSurvive(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), BlockPos.ZERO), BlockPredicate.not(BlockPredicate.matchesBlocks(DABlocks.GOLDEN_VINES.get())))))));
+               new RandomPatchConfiguration(1, 1, 0,
+                       PlacementUtils.inlinePlaced(Feature.BLOCK_COLUMN,
+                               new BlockColumnConfiguration(List.of(BlockColumnConfiguration.layer(
+                                               new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                                       .add(UniformInt.of(0, 1), 1)
+                                                       .add(UniformInt.of(0, 2), 1)
+                                                       .add(UniformInt.of(0, 3), 1).build()), weightedstateprovider),
+                                       BlockColumnConfiguration.layer(ConstantInt.of(1), randomizedintstateprovider)),
+                                       Direction.UP, BlockPredicate.ONLY_IN_AIR_PREDICATE, true),
+                               BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.wouldSurvive(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), BlockPos.ZERO), BlockPredicate.not(BlockPredicate.matchesBlocks(DABlocks.GOLDEN_VINES.get())))))));
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,
                 AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()

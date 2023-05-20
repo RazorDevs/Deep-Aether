@@ -2,6 +2,8 @@ package teamrazor.deepaether.world.feature;
 
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -9,10 +11,13 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.init.DABlocks;
 
 import java.util.List;
 
@@ -52,6 +57,7 @@ public class DAPlacedFeatures {
                 CountPlacement.of(20),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome());
+
         register(context, POISON_SPRING_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.POISON_SPRING_CONFIGURATION),
                 CountPlacement.of(100),
                 InSquarePlacement.spread(),
@@ -71,6 +77,12 @@ public class DAPlacedFeatures {
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
 
+        register(context, GOLDEN_VINES_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_VINES_PATCH),
+                CountPlacement.of(9),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
 
         register(context, VIRULENT_QUICKSAND_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.VIRULENT_QUICKSAND_PATCH),
                 RarityFilter.onAverageOnceEvery(10),
@@ -78,12 +90,6 @@ public class DAPlacedFeatures {
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
 
-
-        register(context, GOLDEN_VINES_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_VINES_PATCH),
-                CountPlacement.of(7),
-                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
-                BiomeFilter.biome(),
-                new DungeonBlacklistFilter());
 
         register(context, GOLDEN_GRASS_BONEMEAL, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH), PlacementUtils.isEmpty());
         register(context, BLUE_AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.BLUE_ROSEROOT_TREES_PLACEMENT),
