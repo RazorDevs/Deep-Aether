@@ -33,7 +33,7 @@
                         "min_inclusive": 0
                       }
                     },
-                    "weight": 1
+                    "weight": 4
                   },
                   {
                     "data": {
@@ -43,7 +43,7 @@
                         "min_inclusive": 0
                       }
                     },
-                    "weight": 1
+                    "weight": 5
                   }
                 ]
               },
