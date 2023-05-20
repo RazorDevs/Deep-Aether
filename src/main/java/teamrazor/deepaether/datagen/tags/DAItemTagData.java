@@ -67,6 +67,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
                 DABlocks.CONBERRY_PLANKS.get().asItem()
         );
+        tag(AetherTags.Items.SKYROOT_REPAIRING).add(
+                DABlocks.ROSEROOT_PLANKS.get().asItem(),
+                DABlocks.YAGROOT_PLANKS.get().asItem(),
+                DABlocks.CRUDEROOT_PLANKS.get().asItem(),
+                DABlocks.CONBERRY_PLANKS.get().asItem()
+        );
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.CLOUDIUM_PICKAXE.get().asItem()
