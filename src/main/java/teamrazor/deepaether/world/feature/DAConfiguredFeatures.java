@@ -211,8 +211,8 @@ public class DAConfiguredFeatures {
                                new BlockColumnConfiguration(List.of(BlockColumnConfiguration.layer(
                                                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                                        .add(UniformInt.of(0, 1), 1)
-                                                       .add(UniformInt.of(0, 2), 1)
-                                                       .add(UniformInt.of(0, 3), 1).build()), weightedstateprovider),
+                                                       .add(UniformInt.of(0, 2), 4)
+                                                       .add(UniformInt.of(0, 3), 5).build()), weightedstateprovider),
                                        BlockColumnConfiguration.layer(ConstantInt.of(1), randomizedintstateprovider)),
                                        Direction.UP, BlockPredicate.ONLY_IN_AIR_PREDICATE, true),
                                BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.wouldSurvive(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), BlockPos.ZERO), BlockPredicate.not(BlockPredicate.matchesBlocks(DABlocks.GOLDEN_VINES.get())))))));
