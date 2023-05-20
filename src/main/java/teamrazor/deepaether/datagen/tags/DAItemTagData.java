@@ -2,6 +2,7 @@ package teamrazor.deepaether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
+import com.legacy.lost_aether.data.LCTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -9,6 +10,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -183,5 +185,11 @@ public class DAItemTagData extends ItemTagsProvider {
                 AetherItems.SKYROOT_MILK_BUCKET.get(),
                 Items.MILK_BUCKET
         );
+        if(ModList.get().isLoaded("lost_aether_content")) {
+            tag(LCTags.Items.AETHER_SHIELDS).add(
+                    DAItems.SKYJADE_SHIELD.get(),
+                    DAItems.CLOUDIUM_SHIELD.get()
+            );
+        }
     }
 }
