@@ -46,6 +46,7 @@ public class CloudiumAbility extends DaArmorItem {
     private double strength = 1.3;
     private static boolean hasBeenOnGround = true;
 
+
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if(player.isOnGround()) {
@@ -54,7 +55,7 @@ public class CloudiumAbility extends DaArmorItem {
 
         if (coolDown >= 0)
             coolDown -= 0.02;
-        if (!world.isClientSide() && hasFullCloudiumSet(player)) {
+        if (world.isClientSide() && hasFullCloudiumSet(player)) {
 
             if (DeepAetherKeys.CLOUDIUM_DASH_ABILITY.isDown()) {
                 dash(player, strength);
