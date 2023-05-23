@@ -185,6 +185,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 AetherItems.SKYROOT_MILK_BUCKET.get(),
                 Items.MILK_BUCKET
         );
+        tag(DATags.Items.CLOUDIUM_REPAIRING).add(
+                DAItems.CLOUDIUM_INGOT.get()
+        );
+        tag(DATags.Items.SKYJADE_REPAIRING).add(
+                DAItems.SKYJADE.get()
+        );
         if(ModList.get().isLoaded("lost_aether_content")) {
             tag(LCTags.Items.AETHER_SHIELDS).add(
                     DAItems.SKYJADE_SHIELD.get(),

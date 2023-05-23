@@ -61,11 +61,11 @@ public class DAItems {
 	public static final RegistryObject<Item> CLOUDIUM_GLOVES = ITEMS.register("cloudium_gloves", () -> new DAGlovesItem(1.0, "cloudium_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> CLOUDIUM_RING = ITEMS.register("cloudium_ring", () -> new RingItem(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(100)));
 
-	public static final RegistryObject<Item> CLOUDIUM_SWORD = ITEMS.register("cloudium_sword", () -> new CloudiumSwordItem(Tiers.NETHERITE, 3, -2.4F, (new Item.Properties())));
-	public static final RegistryObject<Item> CLOUDIUM_SHOVEL = ITEMS.register("cloudium_shovel", () -> new CloudiumShovelItem(Tiers.NETHERITE, 1.5F, -3.0F, (new Item.Properties())));
-	public static final RegistryObject<Item> CLOUDIUM_PICKAXE = ITEMS.register("cloudium_pickaxe", () -> new CloudiumPickaxeItem(Tiers.NETHERITE, 1, -2.8F, (new Item.Properties())));
-	public static final RegistryObject<Item> CLOUDIUM_AXE = ITEMS.register("cloudium_axe", () -> new CloudiumAxeItem(Tiers.NETHERITE, 5.0F, -3.0F, (new Item.Properties())));
-	public static final RegistryObject<Item> CLOUDIUM_HOE = ITEMS.register("cloudium_hoe", () -> new CloudiumHoeItem(Tiers.NETHERITE, -4, 0.0F, (new Item.Properties())));
+	public static final RegistryObject<Item> CLOUDIUM_SWORD = ITEMS.register("cloudium_sword", () -> new CloudiumSwordItem(DATiers.CLOUDIUM, 3, -2.4F, (new Item.Properties())));
+	public static final RegistryObject<Item> CLOUDIUM_SHOVEL = ITEMS.register("cloudium_shovel", () -> new CloudiumShovelItem(DATiers.CLOUDIUM, 1.5F, -3.0F, (new Item.Properties())));
+	public static final RegistryObject<Item> CLOUDIUM_PICKAXE = ITEMS.register("cloudium_pickaxe", () -> new CloudiumPickaxeItem(DATiers.CLOUDIUM, 1, -2.8F, (new Item.Properties())));
+	public static final RegistryObject<Item> CLOUDIUM_AXE = ITEMS.register("cloudium_axe", () -> new CloudiumAxeItem(DATiers.CLOUDIUM, 5.0F, -3.0F, (new Item.Properties())));
+	public static final RegistryObject<Item> CLOUDIUM_HOE = ITEMS.register("cloudium_hoe", () -> new CloudiumHoeItem(DATiers.CLOUDIUM, -4, 0.0F, (new Item.Properties())));
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = ITEMS.register("skyjade", () -> new SkyjadeItem());
 	public static final RegistryObject<Item> CLOUDIUM_INGOT = ITEMS.register("cloudium_ingot", () -> new Item(new Item.Properties()));

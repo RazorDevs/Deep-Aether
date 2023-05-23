@@ -1,8 +1,8 @@
 package teamrazor.deepaether.init;
 
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import teamrazor.deepaether.datagen.tags.DATags;
 
 import java.util.function.Supplier;
 
@@ -10,7 +10,9 @@ public enum DATiers implements Tier {
     /*public static final ForgeTier SKYJADE = new ForgeTier(2, 150, 6.0F, 2.0F, 14,
             BlockTags.NEEDS_IRON_TOOL, () -> Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get())));*/
 
-    SKYJADE(2, 150, 10.0F, 2.0F, 0, () -> Ingredient.of(new ItemStack(DAItems.SKYJADE.get())));
+    SKYJADE(2, 150, 10.0F, 2.0F, 0, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING)),
+    CLOUDIUM(4, 2031, 9.0F, 4.0F, 15,  () -> Ingredient.of(DATags.Items.CLOUDIUM_REPAIRING));
+
 
     private final int harvestLevel;
     private final int maxUses;
