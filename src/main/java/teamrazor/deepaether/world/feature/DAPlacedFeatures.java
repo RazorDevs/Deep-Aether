@@ -116,7 +116,7 @@ public class DAPlacedFeatures {
                 AetherPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
 
         register(context, DIVINE_DEBRIS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_DIVINE_DEBRIS_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(65, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));
+                AetherPlacedFeatureBuilders.commonOrePlacement(27, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(3), VerticalAnchor.belowTop(41))));
 
         register(context, GOLDEN_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
     }
