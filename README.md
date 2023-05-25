@@ -51,6 +51,10 @@ New Items:
 New Liquid:
  - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
 
+Mod Cross Compat:
+ - Aether Lost Content
+    - Skyjade and Cloudium Sheilds
+
 # Requirements
 
 You'll need of course:
