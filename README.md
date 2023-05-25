@@ -53,7 +53,7 @@ New Liquid:
 
 Mod Cross Compat:
  - Aether Lost Content
-    - Skyjade and Cloudium Sheilds
+    - Skyjade and Cloudium Shields
 
 # Requirements
 
