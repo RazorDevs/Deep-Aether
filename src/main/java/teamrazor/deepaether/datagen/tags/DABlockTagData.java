@@ -103,7 +103,9 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get()
+                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get()
         );
         tag(BlockTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get(),

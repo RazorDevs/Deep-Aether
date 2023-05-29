@@ -155,8 +155,7 @@ dependencies {
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3:api")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    //runtimeOnly(fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.2"))
-
+    implementation fg.deobf('local:aether_redux:a1.0.1-mc1.19.4')
 }
 
 jar {

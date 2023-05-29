@@ -204,6 +204,16 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
 
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
+
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
+
 
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
