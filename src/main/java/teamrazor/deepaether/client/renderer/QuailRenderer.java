@@ -25,20 +25,20 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
 
 
     public static final Map<QuailVariants, ResourceLocation> LOCATION_BY_VARIANT =
-            Util.make(Maps.newEnumMap(QuailVariants.class), (p_114874_) -> {
-                p_114874_.put(QuailVariants.OLD_GREEN,
+            Util.make(Maps.newEnumMap(QuailVariants.class), (map) -> {
+                map.put(QuailVariants.OLD_GREEN,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_old_green.png"));
-                p_114874_.put(QuailVariants.PINK,
+                map.put(QuailVariants.PINK,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_pink.png"));
-                p_114874_.put(QuailVariants.PURPLE,
+                map.put(QuailVariants.PURPLE,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_purple.png"));
-                p_114874_.put(QuailVariants.TROPICAL_BLUE,
+                map.put(QuailVariants.TROPICAL_BLUE,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_tropical_blue.png"));
-                p_114874_.put(QuailVariants.FADED_YELLOW,
+                map.put(QuailVariants.FADED_YELLOW,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_faded_yellow.png"));
-                p_114874_.put(QuailVariants.LIGHT_BLUE,
+                map.put(QuailVariants.LIGHT_BLUE,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_light_blue.png"));
-                p_114874_.put(QuailVariants.COPPER,
+                map.put(QuailVariants.COPPER,
                         new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_copper.png"));
 
             });
@@ -58,6 +58,10 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
         }else{
             poseStack.scale(0.9f, 0.9f,0.9f);
         }
+        if (animatable.isSitting()){
+            poseStack.translate(0.0, -0.35, 0.0);
+        }
+
         super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
     }
 }

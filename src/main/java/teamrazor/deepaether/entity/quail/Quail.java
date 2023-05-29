@@ -1,6 +1,5 @@
 package teamrazor.deepaether.entity.quail;
 
-import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -44,7 +43,7 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
 @Mod.EventBusSubscriber
-public class Quail extends AetherAnimal implements GeoEntity {
+public class Quail extends SittingAetherAnimal implements GeoEntity {
 
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
@@ -53,6 +52,7 @@ public class Quail extends AetherAnimal implements GeoEntity {
     private static final Ingredient FOOD_ITEMS = Ingredient.of(
             Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
     );
+
 
     public float flap;
     public float flapSpeed;
@@ -81,7 +81,9 @@ public class Quail extends AetherAnimal implements GeoEntity {
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(8, new RandomSittingGoal(this));
     }
+
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
@@ -153,6 +155,7 @@ public class Quail extends AetherAnimal implements GeoEntity {
             return PlayState.CONTINUE;
         }
     }
+
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.getItem() == DAItems.GOLDEN_GRASS_SEEDS.get();
@@ -257,6 +260,4 @@ public class Quail extends AetherAnimal implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
-
-
 }
