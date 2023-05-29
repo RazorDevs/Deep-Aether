@@ -131,12 +131,6 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_SHIELD = LOST_CONTENT.register("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> CLOUDIUM_SHIELD = LOST_CONTENT.register("cloudium_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
-	//AETHER REDUX
-	//USed in DABlocks
-
-	public static final DeferredRegister<Item> AETHER_REDUX =
-			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
-
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}

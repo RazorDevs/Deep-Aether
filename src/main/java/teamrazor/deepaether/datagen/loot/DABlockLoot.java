@@ -28,11 +28,13 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -204,16 +206,17 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
 
-        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
-        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
-        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
-        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
+        if (ModList.get().isLoaded("lost_aether_content")) {
+            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
+            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
+            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
+            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
 
-        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
-        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
-        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
-        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
-
+            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
+            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
+            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
+        }
 
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
