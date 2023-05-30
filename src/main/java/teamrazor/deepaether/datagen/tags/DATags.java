@@ -6,6 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DATags {
@@ -37,6 +38,14 @@ public class DATags {
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
+        }
+    }
+
+    public static class Fluids {
+        public static final TagKey<Fluid> POISON = tag("poison");
+
+        private static TagKey<Fluid> tag(String name) {
+            return TagKey.create(Registries.FLUID, new ResourceLocation(DeepAetherMod.MODID, name));
         }
     }
 }
