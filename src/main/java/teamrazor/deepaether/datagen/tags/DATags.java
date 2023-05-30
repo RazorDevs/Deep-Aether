@@ -18,6 +18,7 @@ public class DATags {
         public static final TagKey<Item> MILK_BUCKETS = tag("milk_buckets");
         public static final TagKey<Item> CLOUDIUM_REPAIRING = tag("cloudium_repairing");
         public static final TagKey<Item> SKYJADE_REPAIRING = tag("skyjade_repairing");
+        public static final TagKey<Item> IS_GOLDEN_SWET_BALL = tag("is_golden_swet_ball");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.MODID, name));

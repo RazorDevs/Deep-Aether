@@ -226,8 +226,9 @@ public class DATabs {
                             output.accept(DAItems.QUAIL_EGG.get());
                             output.accept(DAItems.GOLDEN_BERRIES.get());
                             output.accept(DAItems.GOLDEN_GRASS_SEEDS.get());
-                            output.accept(DAItems.GOLDEN_SWET_BALL.get());
-
+                            if(!ModList.get().isLoaded("aether_redux") && !ModList.get().isLoaded("aether_genesis")) {
+                                output.accept(DAItems.GOLDEN_SWET_BALL.get());
+                            }
                             output.accept(DAItems.ROSEROOT_BOAT.get());
                             output.accept(DAItems.ROSEROOT_CHEST_BOAT.get());
                             output.accept(DAItems.YAGROOT_BOAT.get());

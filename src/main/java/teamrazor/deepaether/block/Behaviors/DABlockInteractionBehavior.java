@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -26,10 +27,13 @@ import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.zepalesque.aether.item.ReduxItems;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -45,7 +49,16 @@ public class DABlockInteractionBehavior {
         BlockPos pos = event.getPos();
         Level world = event.getLevel();
         BlockState state = world.getBlockState(pos);
-
+        if (itemstack.is(DATags.Items.IS_GOLDEN_SWET_BALL)) {
+            if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
+                BlockState newState = DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState();
+                world.setBlockAndUpdate(pos, newState);
+                itemstack.shrink(1);
+                event.getEntity().awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
+            }
+        }
 
         if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {

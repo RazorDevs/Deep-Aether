@@ -1,0 +1,8 @@
+{
+  "pack": {
+    "description": "Changes Aether Genesis' Or Aether Redux's Slime ball texture to Deep Aether's Slime ball texture",
+    "pack_format": 13,
+    "forge:resource_pack_format": 13,
+    "forge:data_pack_format": 12
+  }
+}
