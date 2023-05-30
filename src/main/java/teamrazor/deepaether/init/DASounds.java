@@ -14,6 +14,11 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> NABOORU = register("item.music_disc.nabooru");
 	public static final RegistryObject<SoundEvent> A_MORNING_WISH = register( "item.music_disc.a_morning_wish");
 
+	public static final RegistryObject<SoundEvent> QUAIL_DEATH = register( "entity.quail.death");
+
+	public static final RegistryObject<SoundEvent> QUAIL_HURT = register( "entity.quail.hurt");
+	public static final RegistryObject<SoundEvent> QUAIL_AMBIENT = register( "entity.quail.ambient");
+
 
 	private static RegistryObject<SoundEvent> register(String name) {
 		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAetherMod.MODID, name)));

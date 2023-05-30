@@ -14,5 +14,26 @@
         "stream": true
       }
     ]
+  },
+  "entity.quail.ambient": {
+    "sounds": [
+      "deep_aether:entity/quail/say1",
+      "deep_aether:entity/quail/say2",
+      "deep_aether:entity/quail/say3"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.quail.ambient"
+  },
+  "entity.quail.death": {
+    "sounds": [
+      "deep_aether:entity/quail/death"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.quail.death"
+  },
+  "entity.quail.hurt": {
+    "sounds": [
+      "deep_aether:entity/quail/hurt1",
+      "deep_aether:entity/quail/hurt2"
+    ],
+    "subtitle": "subtitles.aether.deep_entity.quail.hurt"
   }
 }

@@ -38,6 +38,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.init.DASounds;
 
 import javax.annotation.Nullable;
 
@@ -187,15 +188,15 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.CHICKEN_AMBIENT;
+        return DASounds.QUAIL_AMBIENT.get();
     }
 
     protected SoundEvent getHurtSound(DamageSource p_28262_) {
-        return SoundEvents.CHICKEN_HURT;
+        return DASounds.QUAIL_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.CHICKEN_DEATH;
+        return DASounds.QUAIL_DEATH.get();
     }
 
     protected void playStepSound(BlockPos p_28254_, BlockState p_28255_) {

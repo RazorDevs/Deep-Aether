@@ -3,7 +3,7 @@
 ### Zepalesque
 - Improved Mud, packed mud, mud bricks and muddy yagroot roots textures.
 - Improved raw and cooked quail textures.
-- Quail sounds
+- Quail sounds (based on https://freesound.org/people/Stephenkujo/sounds/500306/)
 
 ### Parallel011
 - zh_cn translation
