@@ -74,7 +74,7 @@ __Q: Do you plan on adding cross-compatibility with other mods and Aether addons
   - A: Yes, we plan on doing that as well, Aether Lost Content, Aether Redux, and Quark are just a few examples!
 
 __Q: I am interested in joining your team to help with the development of the mod! How can I do so?__
-  - A: We are always open to accepting new members, especially testers, developers, and texture artists. You can join our Discord Server and message 345boneshoss#8427, darksonic300#8284, or TunefulTurnip#4079 to let them know! __BE PREPARED TO SHOW PROOF OF YOUR SKILLS.__
+  - A: We are always open to accepting new members, especially testers, developers, and texture artists. You can join our Discord Server and follow the directions for filling out an application in #recruitment-info! __BE PREPARED TO SHOW PROOF OF YOUR SKILLS.__
 
 
 # Credits
