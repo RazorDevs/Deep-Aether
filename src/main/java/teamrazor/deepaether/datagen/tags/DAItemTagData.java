@@ -12,7 +12,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.ModList;
-import net.zepalesque.aether.ReduxTags;
 import net.zepalesque.aether.item.ReduxItems;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
@@ -36,6 +35,13 @@ public class DAItemTagData extends ItemTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        tag(AetherTags.Items.PLANKS_CRAFTING).add(
+                DABlocks.ROSEROOT_PLANKS.get().asItem(),
+                DABlocks.YAGROOT_PLANKS.get().asItem(),
+                DABlocks.CRUDEROOT_PLANKS.get().asItem(),
+                DABlocks.CONBERRY_PLANKS.get().asItem()
+        );
+
         tag(DATags.Items.CRAFTS_ROSEROOT_PLANKS).add(
                 DABlocks.ROSEROOT_LOG.get().asItem(),
                 DABlocks.ROSEROOT_WOOD.get().asItem(),

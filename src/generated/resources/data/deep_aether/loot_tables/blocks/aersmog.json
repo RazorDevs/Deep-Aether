@@ -16,7 +16,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "deep_aether:aersmog"
         }
       ],
       "rolls": 1.0
