@@ -176,8 +176,6 @@ public class DATabs {
                             output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());
                             output.accept(DABlocks.TALL_GOLDEN_GRASS.get());
 
-
-
                             output.accept(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.PLACEABLE_POISON_BUCKET.get());

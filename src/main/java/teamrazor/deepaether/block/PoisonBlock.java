@@ -17,10 +17,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
+import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DAParticles;
 
 import java.util.function.Supplier;
@@ -140,5 +142,17 @@ public class PoisonBlock extends LiquidBlock {
                 }
             }
         }
+
+    public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState state, boolean b) {
+        if (!DAFluidInteraction.canInteract(level, blockPos)) {
+            level.scheduleTick(blockPos, blockState.getFluidState().getType(), this.getFluid().getTickDelay(level));
+        }
+    }
+
+    public void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, BlockPos blockPos1, boolean b) {
+        if (!DAFluidInteraction.canInteract(level, blockPos)) {
+            level.scheduleTick(blockPos, blockState.getFluidState().getType(), this.getFluid().getTickDelay(level));
+        }
+    }
 }
 

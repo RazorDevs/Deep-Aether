@@ -21,19 +21,19 @@
       "deep_aether:entity/quail/say2",
       "deep_aether:entity/quail/say3"
     ],
-    "subtitle": "subtitles.deep_aether.entity.quail.ambient"
+    "subtitle": "Quail chirps"
   },
   "entity.quail.death": {
     "sounds": [
       "deep_aether:entity/quail/death"
     ],
-    "subtitle": "subtitles.deep_aether.entity.quail.death"
+    "subtitle": "Quail dies"
   },
   "entity.quail.hurt": {
     "sounds": [
       "deep_aether:entity/quail/hurt1",
       "deep_aether:entity/quail/hurt2"
     ],
-    "subtitle": "subtitles.aether.deep_entity.quail.hurt"
+    "subtitle": "Quail hurts"
   }
 }

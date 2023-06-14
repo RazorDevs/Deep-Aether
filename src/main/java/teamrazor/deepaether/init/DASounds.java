@@ -19,7 +19,6 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> QUAIL_HURT = register( "entity.quail.hurt");
 	public static final RegistryObject<SoundEvent> QUAIL_AMBIENT = register( "entity.quail.ambient");
 
-
 	private static RegistryObject<SoundEvent> register(String name) {
 		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAetherMod.MODID, name)));
 	}

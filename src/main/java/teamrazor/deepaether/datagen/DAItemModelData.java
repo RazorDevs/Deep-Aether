@@ -173,6 +173,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
 
         this.itemBlock(DABlocks.RAIN_AERCLOUD.get());
+        this.itemBlock(DABlocks.AERSMOG.get());
 
         this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());

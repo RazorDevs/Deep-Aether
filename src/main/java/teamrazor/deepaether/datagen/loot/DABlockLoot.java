@@ -34,7 +34,6 @@ import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -238,6 +237,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
+        this.dropSelfDouble(DABlocks.AERSMOG.get());
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
         this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
 
