@@ -1,5 +1,8 @@
 package teamrazor.deepaether;
 
+
+import atumblender.api.Regions;
+import atumblender.api.SurfaceRuleManager;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -46,6 +49,8 @@ import teamrazor.deepaether.datagen.tags.DAEntityTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
+import teamrazor.deepaether.world.biomes.GoldenHeights;
+import teamrazor.deepaether.world.biomes.TestSurfaceData;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
@@ -162,6 +167,15 @@ public class DeepAetherMod {
 			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
 			this.registerCompostable();
+		});
+
+		event.enqueueWork(() ->
+		{
+			// Weights are kept intentionally low as we add minimal biomes
+			Regions.register(new GoldenHeights(new ResourceLocation(MODID, "golden_heights"), 2));
+
+			// Register our surface rules
+			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.AETHER, MODID, TestSurfaceData.makeRules());
 		});
 	}
 
