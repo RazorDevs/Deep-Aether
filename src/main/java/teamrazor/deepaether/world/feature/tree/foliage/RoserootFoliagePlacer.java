@@ -156,10 +156,4 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
             }
         }
     }
-
-    public static boolean validTreePos(LevelSimulatedReader level, BlockPos pos) {
-        return level.isStateAtPosition(pos, state -> {
-            return !state.hasProperty(LeavesBlock.PERSISTENT) || !state.getValue(LeavesBlock.PERSISTENT);
-        }) && TreeFeature.validTreePos(level, pos);
-    }
 }

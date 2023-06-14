@@ -34,6 +34,7 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
@@ -49,9 +50,12 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTes
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.foliage.YagrootFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
+import teamrazor.deepaether.world.feature.tree.trunk.YagrootTrunkPlacer;
 
 import java.util.List;
 import java.util.Optional;
@@ -159,19 +163,18 @@ public class DAConfiguredFeatures {
 
         register(context, YAGROOT_TREE_CONFIGURATION, Feature.TREE,
                 (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(DAFeatureStates.YAGROOT_LOG),
-                        new UpwardsBranchingTrunkPlacer(2, 1, 4,UniformInt.of(1, 4), 0.5F, UniformInt.of(0, 1),
-                                holdergetter.getOrThrow(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH)), BlockStateProvider.simple(DAFeatureStates.YAGROOT_LEAVES),
-                        new RandomSpreadFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), ConstantInt.of(2), 70), Optional.of(
-                        new MangroveRootPlacer(UniformInt.of(1, 3), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), Optional.of(
+                        new YagrootTrunkPlacer(4, 6, 2), BlockStateProvider.simple(DAFeatureStates.YAGROOT_LEAVES),
+                        new YagrootFoliagePlacer(ConstantInt.of(1), ConstantInt.of(1), ConstantInt.of(1)), Optional.of(
+                        new YagrootRootPlacer(UniformInt.of(0, 1), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), Optional.of(
                                 new AboveRootPlacement(BlockStateProvider.simple(DAFeatureStates.AETHER_MOSS_CARPET), 0.5F)),
-                                new MangroveRootPlacement(holdergetter.getOrThrow(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder, DABlocks.AETHER_MUD.get(), DABlocks.MUDDY_YAGROOT_ROOTS.get()), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), 8, 15, 0.2F))),
-                        new TwoLayersFeatureSize(2, 0, 2))).decorators(List.of(new YagrootVineDecorator(0.2f))).build());
+                                new MangroveRootPlacement(holdergetter.getOrThrow(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH), HolderSet.direct(Block::builtInRegistryHolder, DABlocks.AETHER_MUD.get(), DABlocks.MUDDY_YAGROOT_ROOTS.get()), BlockStateProvider.simple(DAFeatureStates.YAGROOT_ROOTS), 8, 15, 0.0F))),
+                        new TwoLayersFeatureSize(2, 0, 2))).decorators(List.of(new YagrootVineDecorator(0.2f))).ignoreVines().build());
 
 
         register(context, CRUDEROOT_TREE_CONFIGURATION, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DAFeatureStates.CRUDEROOT_LOG),
-                        new StraightTrunkPlacer(5, 6, 3),
+                        new StraightTrunkPlacer(5, 7, 3),
                         BlockStateProvider.simple(DAFeatureStates.CRUDEROOT_LEAVES),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());

@@ -14,11 +14,10 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:random_spread_foliage_placer",
-      "foliage_height": 2,
-      "leaf_placement_attempts": 70,
-      "offset": 0,
-      "radius": 3
+      "type": "deep_aether:yagroot_foliage_placer",
+      "offset": 1,
+      "radius": 1,
+      "trunk_height": 1
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -33,7 +32,7 @@
       }
     },
     "force_dirt": false,
-    "ignore_vines": false,
+    "ignore_vines": true,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
       "limit": 2,
@@ -41,7 +40,7 @@
       "upper_size": 2
     },
     "root_placer": {
-      "type": "minecraft:mangrove_root_placer",
+      "type": "deep_aether:yagroot_root_placer",
       "above_root_placement": {
         "above_root_placement_chance": 0.5,
         "above_root_provider": {
@@ -51,7 +50,24 @@
           }
         }
       },
-      "mangrove_root_placement": {
+      "root_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "deep_aether:yagroot_roots",
+          "Properties": {
+            "axis": "y",
+            "double_drops": "true"
+          }
+        }
+      },
+      "trunk_offset_y": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 1,
+          "min_inclusive": 0
+        }
+      },
+      "yagroot_root_placer": {
         "can_grow_through": "#minecraft:mangrove_roots_can_grow_through",
         "max_root_length": 15,
         "max_root_width": 8,
@@ -69,47 +85,14 @@
             }
           }
         },
-        "random_skew_chance": 0.2
-      },
-      "root_provider": {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "deep_aether:yagroot_roots",
-          "Properties": {
-            "axis": "y",
-            "double_drops": "true"
-          }
-        }
-      },
-      "trunk_offset_y": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 3,
-          "min_inclusive": 1
-        }
+        "random_skew_chance": 0.0
       }
     },
     "trunk_placer": {
-      "type": "minecraft:upwards_branching_trunk_placer",
-      "base_height": 2,
-      "can_grow_through": "#minecraft:mangrove_logs_can_grow_through",
-      "extra_branch_length": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 1,
-          "min_inclusive": 0
-        }
-      },
-      "extra_branch_steps": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 4,
-          "min_inclusive": 1
-        }
-      },
-      "height_rand_a": 1,
-      "height_rand_b": 4,
-      "place_branch_per_log_probability": 0.5
+      "type": "deep_aether:yagroot_trunk_placer",
+      "base_height": 4,
+      "height_rand_a": 6,
+      "height_rand_b": 2
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
