@@ -123,5 +123,13 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LEAVES.get(),
                 DABlocks.YAGROOT_ROOTS.get()
         );
+        tag(BlockTags.NEEDS_IRON_TOOL).add(
+                DABlocks.SKYJADE_BLOCK.get(),
+                DABlocks.SKYJADE_ORE.get()
+        );
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
+                DABlocks.CLOUDIUM_BLOCK.get(),
+                DABlocks.CLOUDIUM_DEBRIS.get()
+        );
     }
 }
