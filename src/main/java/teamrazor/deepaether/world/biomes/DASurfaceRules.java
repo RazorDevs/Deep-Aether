@@ -22,7 +22,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DASurfaceRules {
@@ -55,7 +55,7 @@ public class DASurfaceRules {
                 surfaceRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.GOLDEN_HEIGHTS),
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                                 SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.2D),
-                                        SurfaceRules.state(AetherFeatureStates.QUICKSOIL)))));*/
+                                        SurfaceRules.state(AetherFeatureStates.QUICKSOIL)))));*//*
                 NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(),
                         noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(), noiseGeneratorSettings.noiseRouter(),
                         SurfaceRules.sequence(surfaceRules.toArray(SurfaceRules.RuleSource[]::new)), noiseGeneratorSettings.spawnTarget(),
@@ -67,3 +67,4 @@ public class DASurfaceRules {
         }
     }
 }
+*/

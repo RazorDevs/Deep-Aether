@@ -99,7 +99,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property "mixin.env.remapRefMap", "true"
             property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+
             args '--mod', 'deep_aether', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             environment 'target', 'fmluserdevdata'
@@ -142,7 +142,8 @@ dependencies {
     compileOnly "com.aetherteam.aether:aether:1.19.4-1.0.0-beta.4-forge"
     runtimeOnly fg.deobf("com.aetherteam.aether:aether:1.19.4-1.0.0-beta.4-forge")
 
-    implementation('local:AtumBlender-forge-1.19.4-1.0.null')
+    implementation fg.deobf('local:AtumBlender-forge:1.19.4-1.0.null')
+
 
     //implementation fg.deobf('com.github.darksonic300:AtumBlender-forge:1.19.4-1.0')
 
