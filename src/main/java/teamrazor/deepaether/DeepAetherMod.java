@@ -49,8 +49,8 @@ import teamrazor.deepaether.datagen.tags.DAEntityTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
-import teamrazor.deepaether.world.biomes.GoldenHeights;
-import teamrazor.deepaether.world.biomes.TestSurfaceData;
+import teamrazor.deepaether.world.biomes.DARegion;
+import teamrazor.deepaether.world.biomes.DASurfaceData;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
@@ -172,10 +172,10 @@ public class DeepAetherMod {
 		event.enqueueWork(() ->
 		{
 			// Weights are kept intentionally low as we add minimal biomes
-			Regions.register(new GoldenHeights(new ResourceLocation(MODID, "golden_heights"), 2));
+			Regions.register(new DARegion(new ResourceLocation(MODID, "golden_heights"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 
 			// Register our surface rules
-			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.AETHER, MODID, TestSurfaceData.makeRules());
+			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.AETHER, MODID, DASurfaceData.makeRules());
 		});
 	}
 

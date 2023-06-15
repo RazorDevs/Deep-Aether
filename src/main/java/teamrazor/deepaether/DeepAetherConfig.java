@@ -18,6 +18,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> golden_heights_spawn;*/
 
         public final ConfigValue<Boolean> skyjade_enchant;
+        public final ConfigValue<Integer> deep_aether_biome_weight;
 
         public Common(ForgeConfigSpec.Builder builder) {
 
@@ -64,6 +65,13 @@ public class DeepAetherConfig {
                     .comment("Skyjade tools will be enchantable")
                     .translation("config.deep_aether.common.gameplay.skyjade_enchant")
                     .define("Skyjade Enchant", false);
+            builder.pop();
+
+            builder.push("Gameplay");
+            deep_aether_biome_weight = builder
+                    .comment("The weighting of Deep Aether regions in the aether")
+                    .translation("config.deep_aether.common.gameplay.deep_aether_region_weight")
+                    .define("Deep Aether Region Weight", 2);
             builder.pop();
         }
     }

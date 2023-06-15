@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import teamrazor.deepaether.init.DABlocks;
 
-public class TestSurfaceData {
+public class DASurfaceData {
 
     public static SurfaceRules.RuleSource makeRules()
     {
@@ -29,7 +29,7 @@ public class TestSurfaceData {
                 );
     }
 
-    
+
     private static SurfaceRules.RuleSource makeStateRule(Block block)
     {
         return SurfaceRules.state(block.defaultBlockState());
