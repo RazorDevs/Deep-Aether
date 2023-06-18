@@ -68,7 +68,7 @@ public class DAPlacedFeatures {
                 DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(20, 0.1F, 2)));
 
         register(context, AETHER_MOSS_PATCHES, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_MOSS_PATCH_BONEMEAL),
-                CountPlacement.of(10),
+                CountPlacement.of(5),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
