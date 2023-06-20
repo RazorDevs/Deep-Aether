@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.Interface;
 import software.bernie.geckolib.event.GeoRenderEvent;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.function.Predicate;
 
@@ -63,5 +64,26 @@ public class DAMissingEntries {
                 .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_wall")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_WALL.get()));
         event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream()
                 .filter(mapping -> mapping.getKey().getPath().contains("stripped_amberroot_wood")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRIPPED_CONBERRY_WALL.get()));
+
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_debris")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRATUS_DEBRIS.get().asItem()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_block")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRATUS_BLOCK.get().asItem()));
+
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_axe")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_AXE.get()));
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_block")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRATUS_BLOCK.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_boots")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_BOOTS.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_chestplate")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_CHESTPLATE.get()));
+        event.getMappings(ForgeRegistries.Keys.BLOCKS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_debris")).forEach(blockMapping -> blockMapping.remap(DABlocks.STRATUS_DEBRIS.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_gloves")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_GLOVES.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_helmet")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_HELMET.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_hoe")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_HOE.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_ingot")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_INGOT.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_leggings")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_LEGGINGS.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_pickaxe")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_PICKAXE.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_ring")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_RING.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_scrap")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SCRAP.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_shield")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SHIELD.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_shovel")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SHOVEL.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_sword")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SWORD.get()));
+
     }
 }

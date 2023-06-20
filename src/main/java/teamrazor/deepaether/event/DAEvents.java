@@ -49,7 +49,7 @@ public class DAEvents {
             if (blocker.getUseItem().is(LCTags.Items.AETHER_SHIELDS)) {
                 blocker.level.playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level.random.nextFloat() * 0.4F);
 
-                if (blocker.getUseItem().getItem() == DAItems.CLOUDIUM_SHIELD.get() && source.getDirectEntity() instanceof LivingEntity attacker) {
+                if (blocker.getUseItem().getItem() == DAItems.STRATUS_SHIELD.get() && source.getDirectEntity() instanceof LivingEntity attacker) {
                     attacker.knockback(1.5F, blocker.getX() - attacker.getX(), blocker.getZ() - attacker.getZ());
                     attacker.setPos(attacker.getX(), attacker.getY() + 1D, attacker.getZ());
                     attacker.hasImpulse = true;

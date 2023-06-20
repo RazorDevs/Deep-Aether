@@ -18,7 +18,7 @@ public class DAFeatureStates {
     public static final BlockState YAGROOT_ROOTS = DABlocks.YAGROOT_ROOTS.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState AETHER_MOSS_CARPET = DABlocks.AETHER_MOSS_CARPET.get().defaultBlockState();
     public static final BlockState SKYJADE_ORE = DABlocks.SKYJADE_ORE.get().defaultBlockState();
-    public static final BlockState DIVINE_DEBRIS = DABlocks.CLOUDIUM_DEBRIS.get().defaultBlockState();
+    public static final BlockState DIVINE_DEBRIS = DABlocks.STRATUS_DEBRIS.get().defaultBlockState();
     public static final BlockState ASETERITE = DABlocks.ASETERITE.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState CLORITE = DABlocks.CLORITE.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState AERLAVENDER = DABlocks.AERLAVENDER.get().defaultBlockState();

@@ -10,10 +10,10 @@ import teamrazor.deepaether.DeepAetherMod;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAetherKeys {
-    public final static KeyMapping CLOUDIUM_DASH_ABILITY = new KeyMapping("key.deep_aether.cloudium_dash_ability.desc", GLFW.GLFW_KEY_R, "key.aether.category");
+    public final static KeyMapping STRATUS_DASH_ABILITY = new KeyMapping("key.deep_aether.stratus_dash_ability.desc", GLFW.GLFW_KEY_R, "key.aether.category");
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
-        event.register(CLOUDIUM_DASH_ABILITY);
+        event.register(STRATUS_DASH_ABILITY);
     }
 }

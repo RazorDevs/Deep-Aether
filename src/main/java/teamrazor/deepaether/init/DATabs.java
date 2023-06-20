@@ -139,8 +139,8 @@ public class DATabs {
 
                             output.accept(DABlocks.SKYJADE_ORE.get());
                             output.accept(DABlocks.SKYJADE_BLOCK.get());
-                            output.accept(DABlocks.CLOUDIUM_DEBRIS.get());
-                            output.accept(DABlocks.CLOUDIUM_BLOCK.get());
+                            output.accept(DABlocks.STRATUS_DEBRIS.get());
+                            output.accept(DABlocks.STRATUS_BLOCK.get());
 
                             output.accept(DABlocks.HOLYSTONE_TILES.get());
                             output.accept(DABlocks.HOLYSTONE_TILE_STAIRS.get());
@@ -199,19 +199,19 @@ public class DATabs {
                             output.accept(DAItems.SKYJADE_RING.get());
                             output.accept(DAItems.SKYJADE_GLOVES.get());
 
-                            output.accept(DAItems.CLOUDIUM_INGOT.get());
-                            output.accept(DAItems.CLOUDIUM_SCRAP.get());
-                            output.accept(DAItems.CLOUDIUM_SWORD.get());
-                            output.accept(DAItems.CLOUDIUM_AXE.get());
-                            output.accept(DAItems.CLOUDIUM_PICKAXE.get());
-                            output.accept(DAItems.CLOUDIUM_SHOVEL.get());
-                            output.accept(DAItems.CLOUDIUM_HOE.get());
-                            output.accept(DAItems.CLOUDIUM_BOOTS.get());
-                            output.accept(DAItems.CLOUDIUM_LEGGINGS.get());
-                            output.accept(DAItems.CLOUDIUM_CHESTPLATE.get());
-                            output.accept(DAItems.CLOUDIUM_HELMET.get());
-                            output.accept(DAItems.CLOUDIUM_RING.get());
-                            output.accept(DAItems.CLOUDIUM_GLOVES.get());
+                            output.accept(DAItems.STRATUS_INGOT.get());
+                            output.accept(DAItems.STRATUS_SCRAP.get());
+                            output.accept(DAItems.STRATUS_SWORD.get());
+                            output.accept(DAItems.STRATUS_AXE.get());
+                            output.accept(DAItems.STRATUS_PICKAXE.get());
+                            output.accept(DAItems.STRATUS_SHOVEL.get());
+                            output.accept(DAItems.STRATUS_HOE.get());
+                            output.accept(DAItems.STRATUS_BOOTS.get());
+                            output.accept(DAItems.STRATUS_LEGGINGS.get());
+                            output.accept(DAItems.STRATUS_CHESTPLATE.get());
+                            output.accept(DAItems.STRATUS_HELMET.get());
+                            output.accept(DAItems.STRATUS_RING.get());
+                            output.accept(DAItems.STRATUS_GLOVES.get());
 
                             output.accept(DAItems.GRAVITIE_RING.get());
 
@@ -245,7 +245,7 @@ public class DATabs {
                             output.accept(DAItems.AERGLOW_PETAL.get());
                             if(ModList.get().isLoaded("lost_aether_content")){
                                 output.accept(DAItems.SKYJADE_SHIELD.get());
-                                output.accept(DAItems.CLOUDIUM_SHIELD.get());
+                                output.accept(DAItems.STRATUS_SHIELD.get());
                             }
                         }));
     }

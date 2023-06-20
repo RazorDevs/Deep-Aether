@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_blocks",
+  "cookingtime": 2000,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "deep_aether:stratus_debris"
+  },
+  "result": "deep_aether:stratus_scrap"
+}

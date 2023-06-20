@@ -1,8 +1,0 @@
-{
-  "type": "aether:repairing",
-  "group": "altar_sword_repair",
-  "ingredient": {
-    "item": "deep_aether:cloudium_sword"
-  },
-  "repairTime": 1500
-}

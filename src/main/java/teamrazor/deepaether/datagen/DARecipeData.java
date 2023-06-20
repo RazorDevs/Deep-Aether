@@ -394,18 +394,18 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CLOUDIUM_BLOCK.get())
-                .define('A', DAItems.CLOUDIUM_INGOT.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.STRATUS_BLOCK.get())
+                .define('A', DAItems.STRATUS_INGOT.get())
                 .pattern("AAA")
                 .pattern("AAA")
                 .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.CLOUDIUM_INGOT.get()), has(DAItems.CLOUDIUM_INGOT.get()))
+                .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.CLOUDIUM_INGOT.get(), 9)
-                .requires(DABlocks.CLOUDIUM_BLOCK.get())
-                .unlockedBy(getHasName(DAItems.CLOUDIUM_INGOT.get()), has(DAItems.CLOUDIUM_INGOT.get()))
-                .save(consumer, "cloudium_ingot_from_cloudium_block");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get(), 9)
+                .requires(DABlocks.STRATUS_BLOCK.get())
+                .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
+                .save(consumer, "stratus_ingot_from_stratus_block");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
                 .requires(DABlocks.SKYJADE_BLOCK.get())
@@ -442,54 +442,54 @@ public class DARecipeData extends AetherRecipeProvider {
 
         makeRing(DAItems.GRAVITIE_RING, AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()).save(consumer);
 
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_sword_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_AXE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_axe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_PICKAXE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_pickaxe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHOVEL.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_shovel_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_HOE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_hoe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_BOOTS.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_boots_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_LEGGINGS.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_leggings_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_CHESTPLATE.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_chestplate_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_HELMET.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_helmet_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get(), 1500).group("altar_sword_repair").save(consumer, name("cloudium_gloves_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_sword_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_axe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_pickaxe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SHOVEL.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_shovel_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_HOE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_hoe_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_BOOTS.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_boots_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_leggings_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_chestplate_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_helmet_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_gloves_repairing"));
 
 
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_AXE.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_PICKAXE.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHOVEL.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_HOE.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SHOVEL.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HOE.get());
 
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_BOOTS.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_LEGGINGS.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_CHESTPLATE.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_HELMET.get());
-        cloudiumSmithingRecipe(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_RING.get());
-        cloudiumSmithingRecipe(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_BOOTS.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
+        stratusSmithingRecipe(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
+        stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
 
 
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SWORD.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_AXE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_PICKAXE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHOVEL.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_HOE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_BOOTS.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_LEGGINGS.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_CHESTPLATE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_HELMET.get());
-        legacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_RING.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.CLOUDIUM_GLOVES.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SHOVEL.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HOE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_BOOTS.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
+        legacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
+        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
-        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DAItems.CLOUDIUM_SCRAP.get(), DABlocks.CLOUDIUM_DEBRIS.get(), 2.0F, 2000).save(consumer, name("cloudium_enchanting"));
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DAItems.STRATUS_SCRAP.get(), DABlocks.STRATUS_DEBRIS.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.CLOUDIUM_INGOT.get())
-                .requires(DAItems.CLOUDIUM_SCRAP.get(),4)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
+                .requires(DAItems.STRATUS_SCRAP.get(),4)
                 .requires(AetherBlocks.ENCHANTED_GRAVITITE.get())
                 .requires(AetherItems.ZANITE_GEMSTONE.get())
                 .requires(AetherItems.AMBROSIUM_SHARD.get())
                 .requires(DAItems.SKYJADE.get())
-                .unlockedBy(getHasName(DABlocks.CLOUDIUM_DEBRIS.get()), has(DABlocks.CLOUDIUM_DEBRIS.get()))
+                .unlockedBy(getHasName(DABlocks.STRATUS_DEBRIS.get()), has(DABlocks.STRATUS_DEBRIS.get()))
                 .save(consumer);
 
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);
@@ -594,10 +594,10 @@ public class DARecipeData extends AetherRecipeProvider {
                     .unlockedBy("has_skyjade_gemstone", has(DAItems.SKYJADE.get()))
                     .save(consumer, name("skyjade_shield"));
 
-            legacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHIELD.get());
+            legacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get());
 
             repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 2250).group("altar_shield_repair").save(consumer, name("skyjade_shield_repairing"));
-            repairingRecipe(RecipeCategory.COMBAT, DAItems.CLOUDIUM_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("cloudium_shield_repairing"));
+            repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("stratus_shield_repairing"));
         }
     }
 
@@ -607,11 +607,11 @@ public class DARecipeData extends AetherRecipeProvider {
     //ignore warnings
     @Deprecated(forRemoval = true)
     protected static void legacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
-        LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), p_266966_, p_267096_).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(p_267010_, getItemName(p_267096_) + "_cloudium_smithing");
+        LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.STRATUS_INGOT.get()), p_266966_, p_267096_).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(p_267010_, getItemName(p_267096_) + "_stratus_smithing");
     }
 
-    protected static void cloudiumSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredient), Ingredient.of(DAItems.CLOUDIUM_INGOT.get()), category, item).unlocks("has_cloudium_ingot", has(DAItems.CLOUDIUM_INGOT.get())).save(consumer, getItemName(item) + "_smithing");
+    protected static void stratusSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredient), Ingredient.of(DAItems.STRATUS_INGOT.get()), category, item).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(consumer, getItemName(item) + "_smithing");
     }
     protected static SimpleCookingRecipeBuilder smeltingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
         return SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 200)

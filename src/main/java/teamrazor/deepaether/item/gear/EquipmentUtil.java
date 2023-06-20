@@ -12,8 +12,8 @@ import top.theillusivec4.curios.api.SlotResult;
 import java.util.List;
 
 public class EquipmentUtil {
-    public static boolean hasFullCloudiumSet(LivingEntity entity) {
-        return hasArmorSet(entity, DAItems.CLOUDIUM_HELMET.get(), DAItems.CLOUDIUM_CHESTPLATE.get(), DAItems.CLOUDIUM_LEGGINGS.get(), DAItems.CLOUDIUM_BOOTS.get(), DAItems.CLOUDIUM_GLOVES.get());
+    public static boolean hasFullStratusSet(LivingEntity entity) {
+        return hasArmorSet(entity, DAItems.STRATUS_HELMET.get(), DAItems.STRATUS_CHESTPLATE.get(), DAItems.STRATUS_LEGGINGS.get(), DAItems.STRATUS_BOOTS.get(), DAItems.STRATUS_GLOVES.get());
     }
 
 
@@ -36,12 +36,12 @@ public class EquipmentUtil {
         }
     }
 
-    public static double handleCloudiumRingBoost(LivingEntity entity) {
+    public static double handleStratusRingBoost(LivingEntity entity) {
         EquipmentUtil.damageRing(entity, (RingItem) DAItems.GRAVITIE_RING.get());
-        EquipmentUtil.damageRing(entity, (RingItem) DAItems.CLOUDIUM_RING.get());
+        EquipmentUtil.damageRing(entity, (RingItem) DAItems.STRATUS_RING.get());
         double multiplier = 1;
-        if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.CLOUDIUM_RING.get()).isPresent())
-            multiplier = multiplier+1.25*(EquipmentUtil.getCurios(entity, DAItems.CLOUDIUM_RING.get()).toArray().length);
+        if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.STRATUS_RING.get()).isPresent())
+            multiplier = multiplier+1.25*(EquipmentUtil.getCurios(entity, DAItems.STRATUS_RING.get()).toArray().length);
 
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.GRAVITIE_RING.get()).isPresent())
             multiplier = multiplier+1.15*(EquipmentUtil.getCurios(entity, DAItems.GRAVITIE_RING.get()).toArray().length);

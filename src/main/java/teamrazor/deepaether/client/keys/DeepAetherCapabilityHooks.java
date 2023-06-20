@@ -15,8 +15,8 @@ public class DeepAetherCapabilityHooks {
         Player player = Minecraft.getInstance().player;
         if (player != null) {
             AetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-                if (input == DeepAetherKeys.CLOUDIUM_DASH_ABILITY.getKey().getValue()) {
-                    aetherPlayer.setGravititeJumpActive(DeepAetherKeys.CLOUDIUM_DASH_ABILITY.isDown());
+                if (input == DeepAetherKeys.STRATUS_DASH_ABILITY.getKey().getValue()) {
+                    aetherPlayer.setGravititeJumpActive(DeepAetherKeys.STRATUS_DASH_ABILITY.isDown());
                 }
             });
         }

@@ -10,7 +10,7 @@ public class AddonItemModelPredicates {
     public static void init()
     {
         createActivePredicate(DAItems.SKYJADE_SHIELD.get(), "blocking");
-        createActivePredicate(DAItems.CLOUDIUM_SHIELD.get(), "blocking");
+        createActivePredicate(DAItems.STRATUS_SHIELD.get(), "blocking");
     }
 
 

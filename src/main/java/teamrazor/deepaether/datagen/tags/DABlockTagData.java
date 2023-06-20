@@ -38,7 +38,7 @@ public class DABlockTagData extends BlockTagsProvider {
         );
         tag(BlockTags.BEACON_BASE_BLOCKS).add(
                 DABlocks.SKYJADE_BLOCK.get(),
-                DABlocks.CLOUDIUM_BLOCK.get()
+                DABlocks.STRATUS_BLOCK.get()
         );
 
         tag(BlockTags.LOGS).add(
@@ -128,8 +128,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKYJADE_ORE.get()
         );
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
-                DABlocks.CLOUDIUM_BLOCK.get(),
-                DABlocks.CLOUDIUM_DEBRIS.get()
+                DABlocks.STRATUS_BLOCK.get(),
+                DABlocks.STRATUS_DEBRIS.get()
         );
     }
 }

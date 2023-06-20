@@ -128,7 +128,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.SKYJADE_ORE.get());
         this.block(DABlocks.SKYJADE_BLOCK.get());
 
-        this.block(DABlocks.CLOUDIUM_BLOCK.get());
+        this.block(DABlocks.STRATUS_BLOCK.get());
 
         this.crossBlock(DABlocks.MINI_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.MEDIUM_GOLDEN_GRASS.get());

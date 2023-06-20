@@ -7,7 +7,7 @@ import org.apache.commons.lang3.tuple.Pair;
 public class DeepAetherConfig {
 
     public static class Common {
-        /*public final ConfigValue<Boolean> cloudium_spawn;
+        /*public final ConfigValue<Boolean> stratus_spawn;
         public final ConfigValue<Boolean> skyjade_spawn;
 
         public final ConfigValue<Boolean> aerlavender_fields_spawn;
@@ -22,10 +22,10 @@ public class DeepAetherConfig {
         public Common(ForgeConfigSpec.Builder builder) {
 
             /*builder.push("World Generation");
-            cloudium_spawn = builder
-                    .comment("Allows Cloudium spawning in the world")
-                    .translation("config.deep_aether.common.gameplay.cloudium_spawn")
-                    .define("Cloudium Spawn", false);
+            stratus_spawn = builder
+                    .comment("Allows Stratus spawning in the world")
+                    .translation("config.deep_aether.common.gameplay.stratus_spawn")
+                    .define("Stratus Spawn", false);
             skyjade_spawn = builder
                     .comment("Allows Skyjade spawning in the world")
                     .translation("config.deep_aether.common.gameplay.skyjade_spawn")

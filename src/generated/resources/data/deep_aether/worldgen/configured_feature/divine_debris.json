@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "deep_aether:cloudium_debris"
+          "Name": "deep_aether:stratus_debris"
         },
         "target": {
           "block": "aether:cold_aercloud",

@@ -34,7 +34,7 @@ public class DaAbilityListener {
             if (livingEntity instanceof Player player) {
                 AetherPlayer.get(player).ifPresent(aetherPlayer -> {
                     if (aetherPlayer.isGravititeJumpActive()) {
-                        player.push(0.0, EquipmentUtil.handleCloudiumRingBoost(livingEntity)-1.0, 0.0);
+                        player.push(0.0, EquipmentUtil.handleStratusRingBoost(livingEntity)-1.0, 0.0);
                         if (player instanceof ServerPlayer serverPlayer) {
                             serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                         }
@@ -45,7 +45,7 @@ public class DaAbilityListener {
     }
 
     public static boolean fallCancellation(LivingEntity entity) {
-        return EquipmentUtil.hasFullCloudiumSet(entity);
+        return EquipmentUtil.hasFullStratusSet(entity);
     }
 
 

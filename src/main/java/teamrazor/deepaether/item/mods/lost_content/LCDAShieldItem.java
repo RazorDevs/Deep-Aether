@@ -14,8 +14,8 @@ public class LCDAShieldItem extends ShieldItem {
         if (this.equals(DAItems.SKYJADE_SHIELD.get())) {
             return pRepairCandidate.is(DAItems.SKYJADE.get());
         }
-        if (this.equals(DAItems.CLOUDIUM_SHIELD.get())) {
-            return pRepairCandidate.is(DAItems.CLOUDIUM_INGOT.get());
+        if (this.equals(DAItems.STRATUS_SHIELD.get())) {
+            return pRepairCandidate.is(DAItems.STRATUS_INGOT.get());
         }
         return super.isValidRepairItem(pStack, pRepairCandidate);
     }

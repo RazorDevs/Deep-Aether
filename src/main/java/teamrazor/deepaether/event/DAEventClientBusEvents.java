@@ -54,7 +54,7 @@ public class DAEventClientBusEvents {
 
     public static void registerCuriosRenderers() {
         CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
-        CuriosRendererRegistry.register(DAItems.CLOUDIUM_GLOVES.get(), GlovesRenderer::new);
+        CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
 
     }
 

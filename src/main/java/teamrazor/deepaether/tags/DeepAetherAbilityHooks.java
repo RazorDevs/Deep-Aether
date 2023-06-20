@@ -2,7 +2,6 @@ package teamrazor.deepaether.tags;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -10,7 +9,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.item.gear.cloudium.CloudiumAbility;
 
 import java.util.Map;
 

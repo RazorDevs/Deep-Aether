@@ -1,0 +1,56 @@
+{
+  "parent": "aether:gravitite_armor",
+  "criteria": {
+    "stratus_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "deep_aether:stratus_helmet"
+            ]
+          },
+          {
+            "items": [
+              "deep_aether:stratus_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "deep_aether:stratus_leggings"
+            ]
+          },
+          {
+            "items": [
+              "deep_aether:stratus_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.deep_aether.stratus_armor.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "deep_aether:stratus_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.deep_aether.stratus_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "stratus_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

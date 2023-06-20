@@ -12,7 +12,7 @@ public interface ModifiedGravititeArmor {
             if (entity instanceof Player player) {
                 AetherPlayer.get(player).ifPresent(aetherPlayer -> {
                     if (aetherPlayer.isGravititeJumpActive()) {
-                        player.push(0.0, 1.0 * (float) EquipmentUtil.handleCloudiumRingBoost(player), 0.0);
+                        player.push(0.0, 1.0 * (float) EquipmentUtil.handleStratusRingBoost(player), 0.0);
                         if (player instanceof ServerPlayer serverPlayer) {
                             serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                         }

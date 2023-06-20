@@ -86,7 +86,7 @@ public class DAItemTagData extends ItemTagsProvider {
         );
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
-                DAItems.CLOUDIUM_PICKAXE.get().asItem()
+                DAItems.STRATUS_PICKAXE.get().asItem()
         );
         tag(AetherTags.Items.TREATED_AS_AETHER_ITEM).add(
                 DAItems.SKYJADE_TOOLS_SWORD.get().asItem(),
@@ -94,11 +94,11 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_TOOLS_AXE.get().asItem(),
                 DAItems.SKYJADE_TOOLS_SHOVEL.get().asItem(),
                 DAItems.SKYJADE_TOOLS_HOE.get().asItem(),
-                DAItems.CLOUDIUM_SWORD.get().asItem(),
-                DAItems.CLOUDIUM_PICKAXE.get().asItem(),
-                DAItems.CLOUDIUM_AXE.get().asItem(),
-                DAItems.CLOUDIUM_SHOVEL.get().asItem(),
-                DAItems.CLOUDIUM_HOE.get().asItem()
+                DAItems.STRATUS_SWORD.get().asItem(),
+                DAItems.STRATUS_PICKAXE.get().asItem(),
+                DAItems.STRATUS_AXE.get().asItem(),
+                DAItems.STRATUS_SHOVEL.get().asItem(),
+                DAItems.STRATUS_HOE.get().asItem()
         );
         tag(ItemTags.SMALL_FLOWERS).add(
                 DABlocks.AERLAVENDER.get().asItem(),
@@ -196,8 +196,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 AetherItems.SKYROOT_MILK_BUCKET.get(),
                 Items.MILK_BUCKET
         );
-        tag(DATags.Items.CLOUDIUM_REPAIRING).add(
-                DAItems.CLOUDIUM_INGOT.get()
+        tag(DATags.Items.STRATUS_REPAIRING).add(
+                DAItems.STRATUS_INGOT.get()
         );
         tag(DATags.Items.SKYJADE_REPAIRING).add(
                 DAItems.SKYJADE.get()
@@ -213,7 +213,7 @@ public class DAItemTagData extends ItemTagsProvider {
         if(ModList.get().isLoaded("lost_aether_content")) {
             tag(LCTags.Items.AETHER_SHIELDS).add(
                     DAItems.SKYJADE_SHIELD.get(),
-                    DAItems.CLOUDIUM_SHIELD.get()
+                    DAItems.STRATUS_SHIELD.get()
             );
         }
     }

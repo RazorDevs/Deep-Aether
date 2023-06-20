@@ -11,7 +11,7 @@ public enum DATiers implements Tier {
             BlockTags.NEEDS_IRON_TOOL, () -> Ingredient.of(new ItemStack(DeepAetherModItems.SKYJADE.get())));*/
 
     SKYJADE(2, 150, 10.0F, 2.0F, 0, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING)),
-    CLOUDIUM(4, 2031, 9.0F, 4.0F, 15,  () -> Ingredient.of(DATags.Items.CLOUDIUM_REPAIRING));
+    STRATUS(4, 2031, 9.0F, 4.0F, 15,  () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING));
 
 
     private final int harvestLevel;

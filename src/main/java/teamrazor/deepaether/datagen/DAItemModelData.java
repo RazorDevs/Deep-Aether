@@ -119,8 +119,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SKYJADE_BLOCK.get());
         this.itemBlock(DABlocks.SKYJADE_ORE.get());
 
-        this.itemBlock(DABlocks.CLOUDIUM_DEBRIS.get());
-        this.itemBlock(DABlocks.CLOUDIUM_BLOCK.get());
+        this.itemBlock(DABlocks.STRATUS_DEBRIS.get());
+        this.itemBlock(DABlocks.STRATUS_BLOCK.get());
 
         this.itemBlock(DABlocks.ASETERITE.get());
         this.itemBlock(DABlocks.ASETERITE_STAIRS.get());
@@ -194,19 +194,19 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SKYJADE_GLOVES.get());
 
 
-        this.item(DAItems.CLOUDIUM_SCRAP.get());
-        this.item(DAItems.CLOUDIUM_INGOT.get());
-        this.handheldItem(DAItems.CLOUDIUM_SWORD.get());
-        this.handheldItem(DAItems.CLOUDIUM_AXE.get());
-        this.handheldItem(DAItems.CLOUDIUM_PICKAXE.get());
-        this.handheldItem(DAItems.CLOUDIUM_SHOVEL.get());
-        this.handheldItem(DAItems.CLOUDIUM_HOE.get());
-        this.item(DAItems.CLOUDIUM_BOOTS.get());
-        this.item(DAItems.CLOUDIUM_LEGGINGS.get());
-        this.item(DAItems.CLOUDIUM_CHESTPLATE.get());
-        this.item(DAItems.CLOUDIUM_HELMET.get());
-        this.item(DAItems.CLOUDIUM_RING.get());
-        this.item(DAItems.CLOUDIUM_GLOVES.get());
+        this.item(DAItems.STRATUS_SCRAP.get());
+        this.item(DAItems.STRATUS_INGOT.get());
+        this.handheldItem(DAItems.STRATUS_SWORD.get());
+        this.handheldItem(DAItems.STRATUS_AXE.get());
+        this.handheldItem(DAItems.STRATUS_PICKAXE.get());
+        this.handheldItem(DAItems.STRATUS_SHOVEL.get());
+        this.handheldItem(DAItems.STRATUS_HOE.get());
+        this.item(DAItems.STRATUS_BOOTS.get());
+        this.item(DAItems.STRATUS_LEGGINGS.get());
+        this.item(DAItems.STRATUS_CHESTPLATE.get());
+        this.item(DAItems.STRATUS_HELMET.get());
+        this.item(DAItems.STRATUS_RING.get());
+        this.item(DAItems.STRATUS_GLOVES.get());
 
         this.item(DAItems.GRAVITIE_RING.get());
 
