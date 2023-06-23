@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -123,5 +124,19 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LEAVES.get(),
                 DABlocks.YAGROOT_ROOTS.get()
         );
+
+
+        if (ModList.get().isLoaded("aether_genesis")) {
+            tag(BlockTags.WALLS).add(
+                    DABlocks.ROSEROOT_LOG_WALL.get(),
+                    DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(),
+                    DABlocks.YAGROOT_LOG_WALL.get(),
+                    DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(),
+                    DABlocks.CRUDEROOT_LOG_WALL.get(),
+                    DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(),
+                    DABlocks.CONBERRY_LOG_WALL.get(),
+                    DABlocks.STRIPPED_CONBERRY_LOG_WALL.get()
+            );
+        }
     }
 }

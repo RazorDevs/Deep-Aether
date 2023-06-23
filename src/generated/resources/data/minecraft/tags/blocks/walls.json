@@ -15,6 +15,14 @@
     "deep_aether:holystone_tile_wall",
     "deep_aether:mossy_holystone_tile_wall",
     "deep_aether:gilded_holystone_tile_wall",
-    "deep_aether:blightmoss_holystone_tile_wall"
+    "deep_aether:blightmoss_holystone_tile_wall",
+    "deep_aether:roseroot_log_wall",
+    "deep_aether:stripped_roseroot_log_wall",
+    "deep_aether:yagroot_log_wall",
+    "deep_aether:stripped_yagroot_log_wall",
+    "deep_aether:cruderoot_log_wall",
+    "deep_aether:stripped_cruderoot_log_wall",
+    "deep_aether:conberry_log_wall",
+    "deep_aether:stripped_conberry_log_wall"
   ]
 }

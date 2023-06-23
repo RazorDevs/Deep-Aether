@@ -109,6 +109,18 @@ public class DATabs {
                             output.accept(DABlocks.CONBERRY_LEAVES.get());
                             output.accept(DABlocks.CONBERRY_SAPLING.get());
 
+
+                            if(ModList.get().isLoaded("aether_genesis")) {
+                                output.accept(DABlocks.ROSEROOT_LOG_WALL.get());
+                                output.accept(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
+                                output.accept(DABlocks.CRUDEROOT_LOG_WALL.get());
+                                output.accept(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
+                                output.accept(DABlocks.YAGROOT_LOG_WALL.get());
+                                output.accept(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
+                                output.accept(DABlocks.CONBERRY_LOG_WALL.get());
+                                output.accept(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
+                            }
+
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
                             output.accept(DABlocks.AETHER_MOSS_CARPET.get());
 
