@@ -32,7 +32,15 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.AERLAVENDER_FIELDS,
                 DABiomes.AERGLOW_FOREST,
                 DABiomes.MYSTIC_AERGLOW_FOREST,
-                DABiomes.BLUE_AERGLOW_FOREST
+                DABiomes.BLUE_AERGLOW_FOREST,
+                DABiomes.GOLDEN_HEIGHTS
+        );
+        this.tag(DATags.Biomes.CAN_QUAIL_SPAWN).add(
+                DABiomes.AERLAVENDER_FIELDS,
+                DABiomes.AERGLOW_FOREST,
+                DABiomes.MYSTIC_AERGLOW_FOREST,
+                DABiomes.BLUE_AERGLOW_FOREST,
+                DABiomes.GOLDEN_HEIGHTS
         );
     }
 }

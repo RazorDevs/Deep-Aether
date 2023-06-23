@@ -36,9 +36,12 @@ public class DATags {
     public static class Biomes {
 
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
+        public static final TagKey<Biome> CAN_QUAIL_SPAWN = tag("can_quail_spawn");
+
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
         }
+
     }
 
     public static class Fluids {

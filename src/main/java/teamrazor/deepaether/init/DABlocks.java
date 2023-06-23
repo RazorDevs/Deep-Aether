@@ -126,7 +126,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> CRUDEROOT_SAPLING = registerBlock("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = BLOCKS.register("cruderoot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CRUDEROOT));
-	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
+	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().randomTicks().strength(0.2F).sound(SoundType.VINE)));
 
 	//CONBERRY
 

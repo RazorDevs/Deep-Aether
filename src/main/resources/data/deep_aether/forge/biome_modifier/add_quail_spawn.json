@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#aether:is_aether",
+  "biomes": "#deep_aether:can_quail_spawn",
   "spawners":
   {
     "type": "deep_aether:quail",
