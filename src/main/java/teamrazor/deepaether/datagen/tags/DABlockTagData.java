@@ -129,8 +129,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKYJADE_ORE.get()
         );
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
-                DABlocks.STRATUS_BLOCK.get(),
-                DABlocks.STRATUS_DEBRIS.get()
+                DABlocks.STRATUS_BLOCK.get()
         );
 
 

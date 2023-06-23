@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.feature;
 
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
+import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.world.placementmodifier.ImprovedRarityFilter;
 
 import java.util.List;
 
@@ -31,7 +33,6 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
-    public static final ResourceKey<PlacedFeature> DIVINE_DEBRIS = createKey("divine_debris");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
     public static final ResourceKey<PlacedFeature> AETHER_MOSS_PATCHES = createKey("aether_moss");
@@ -40,6 +41,8 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature>  GOLDEN_GRASS_BONEMEAL = createKey("golden_grass_bonemeal");
     public static final ResourceKey<PlacedFeature>  VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
     public static final ResourceKey<PlacedFeature>  GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
+    public static final ResourceKey<PlacedFeature> STERLING_AERCLOUD_PLACEMENT = createKey("sterling_aercloud");
+
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -111,11 +114,14 @@ public class DAPlacedFeatures {
                 AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
                 AetherPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
-
-        register(context, DIVINE_DEBRIS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_DIVINE_DEBRIS_CONFIGURATION),
-                AetherPlacedFeatureBuilders.commonOrePlacement(27, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(3), VerticalAnchor.belowTop(41))));
-
         register(context, GOLDEN_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+
+        register(context, STERLING_AERCLOUD_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.STERLING_AERCLOUD_CONFIGURATION),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(200), VerticalAnchor.absolute(255)),
+                ImprovedRarityFilter.onAverageOnceEvery(0.0005F),
+                InSquarePlacement.spread(),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
     }
 
 

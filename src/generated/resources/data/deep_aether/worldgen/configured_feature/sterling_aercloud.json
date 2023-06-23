@@ -1,0 +1,12 @@
+{
+  "type": "aether:aercloud",
+  "config": {
+    "blocks": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:sterling_aercloud"
+      }
+    },
+    "bounds": 2
+  }
+}

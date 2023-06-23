@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 
 
 public class YagrootVineDecorator extends TreeDecorator {

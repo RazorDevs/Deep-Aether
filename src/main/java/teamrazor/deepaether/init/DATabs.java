@@ -151,7 +151,6 @@ public class DATabs {
 
                             output.accept(DABlocks.SKYJADE_ORE.get());
                             output.accept(DABlocks.SKYJADE_BLOCK.get());
-                            output.accept(DABlocks.STRATUS_DEBRIS.get());
                             output.accept(DABlocks.STRATUS_BLOCK.get());
 
                             output.accept(DABlocks.HOLYSTONE_TILES.get());
@@ -191,6 +190,10 @@ public class DATabs {
                             output.accept(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.PLACEABLE_POISON_BUCKET.get());
+
+                            output.accept(DABlocks.AERSMOG.get());
+                            output.accept(DABlocks.CHROMATIC_AERCLOUD.get());
+                            output.accept(DABlocks.STERLING_AERCLOUD.get());
                         }));
 
         TAB_DEEP_AETHER_ITEMS_TAB = event.registerCreativeModeTab(
@@ -212,7 +215,6 @@ public class DATabs {
                             output.accept(DAItems.SKYJADE_GLOVES.get());
 
                             output.accept(DAItems.STRATUS_INGOT.get());
-                            output.accept(DAItems.STRATUS_SCRAP.get());
                             output.accept(DAItems.STRATUS_SWORD.get());
                             output.accept(DAItems.STRATUS_AXE.get());
                             output.accept(DAItems.STRATUS_PICKAXE.get());

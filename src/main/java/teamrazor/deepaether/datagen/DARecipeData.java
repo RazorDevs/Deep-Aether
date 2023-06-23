@@ -481,15 +481,15 @@ public class DARecipeData extends AetherRecipeProvider {
         legacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
         legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
-        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DAItems.STRATUS_SCRAP.get(), DABlocks.STRATUS_DEBRIS.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.CHROMATIC_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
-                .requires(DAItems.STRATUS_SCRAP.get(),4)
+                .requires(DABlocks.CHROMATIC_AERCLOUD.get(),5)
                 .requires(AetherBlocks.ENCHANTED_GRAVITITE.get())
                 .requires(AetherItems.ZANITE_GEMSTONE.get())
                 .requires(AetherItems.AMBROSIUM_SHARD.get())
                 .requires(DAItems.SKYJADE.get())
-                .unlockedBy(getHasName(DABlocks.STRATUS_DEBRIS.get()), has(DABlocks.STRATUS_DEBRIS.get()))
+                .unlockedBy(getHasName(DABlocks.STERLING_AERCLOUD.get()), has(DABlocks.STERLING_AERCLOUD.get()))
                 .save(consumer);
 
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);

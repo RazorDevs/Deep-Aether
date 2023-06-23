@@ -123,7 +123,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SKYJADE_BLOCK.get());
         this.itemBlock(DABlocks.SKYJADE_ORE.get());
 
-        this.itemBlock(DABlocks.STRATUS_DEBRIS.get());
         this.itemBlock(DABlocks.STRATUS_BLOCK.get());
 
         this.itemBlock(DABlocks.ASETERITE.get());
@@ -178,6 +177,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(DABlocks.RAIN_AERCLOUD.get());
         this.itemBlock(DABlocks.AERSMOG.get());
+        this.itemBlock(DABlocks.STERLING_AERCLOUD.get());
+        this.itemBlock(DABlocks.CHROMATIC_AERCLOUD.get());
 
         this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
@@ -210,8 +211,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SKYJADE_RING.get());
         this.item(DAItems.SKYJADE_GLOVES.get());
 
-
-        this.item(DAItems.STRATUS_SCRAP.get());
         this.item(DAItems.STRATUS_INGOT.get());
         this.handheldItem(DAItems.STRATUS_SWORD.get());
         this.handheldItem(DAItems.STRATUS_AXE.get());

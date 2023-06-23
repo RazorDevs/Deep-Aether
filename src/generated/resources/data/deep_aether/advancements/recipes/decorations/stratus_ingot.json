@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stratus_debris": {
+    "has_sterling_aercloud": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:stratus_debris"
+              "deep_aether:sterling_aercloud"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_stratus_debris",
+      "has_sterling_aercloud",
       "has_the_recipe"
     ]
   ],

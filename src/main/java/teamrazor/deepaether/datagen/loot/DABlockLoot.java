@@ -171,8 +171,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         //ORES
         this.add(DABlocks.SKYJADE_ORE.get(), (block) -> this.createOreDrop(block, DAItems.SKYJADE.get()));
         this.dropSelf(DABlocks.SKYJADE_BLOCK.get());
-
-        this.dropSelf(DABlocks.STRATUS_DEBRIS.get());
         this.dropSelf(DABlocks.STRATUS_BLOCK.get());
 
 
@@ -226,6 +224,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());
         this.dropSelfDouble(DABlocks.AERSMOG.get());
+        this.dropSelf(DABlocks.STERLING_AERCLOUD.get());
+        this.dropSelf(DABlocks.CHROMATIC_AERCLOUD.get());
+
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
         this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
 

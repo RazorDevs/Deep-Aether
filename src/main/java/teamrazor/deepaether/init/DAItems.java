@@ -70,7 +70,6 @@ public class DAItems {
 	// ORES
 	public static final RegistryObject<Item> SKYJADE = ITEMS.register("skyjade", () -> new SkyjadeItem());
 	public static final RegistryObject<Item> STRATUS_INGOT = ITEMS.register("stratus_ingot", () -> new Item(new Item.Properties()));
-	public static final RegistryObject<Item> STRATUS_SCRAP = ITEMS.register("stratus_scrap", () -> new Item(new Item.Properties()));
 
 	// FOOD
 	public static final RegistryObject<Item> RAW_QUAIL = ITEMS.register("raw_quail", () -> new Item(new Item.Properties().food(Foods.CHICKEN)));

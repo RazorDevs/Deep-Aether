@@ -3,6 +3,7 @@ package teamrazor.deepaether;
 
 import atumblender.api.Regions;
 import atumblender.api.SurfaceRuleManager;
+import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -51,10 +52,12 @@ import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
+import teamrazor.deepaether.world.feature.DAFeatures;
 import teamrazor.deepaether.world.feature.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
 import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
+import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
@@ -118,6 +121,7 @@ public class DeepAetherMod {
 		DAFoliagePlacers.FOLIAGE_PLACERS.register(bus);
 		DARootPlacers.ROOT_PLACERS.register(bus);
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
+		DAFeatures.FEATURES.register(bus);
 
 		if(ModList.get().isLoaded("lost_aether_content")){
 			DAItems.LOST_CONTENT.register(bus);
@@ -160,6 +164,7 @@ public class DeepAetherMod {
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
+		Reflection.initialize(DAPlacementModifiers.class);
 		event.enqueueWork(() -> {
 			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();

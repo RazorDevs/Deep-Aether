@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ViewportEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -58,19 +59,17 @@ public class DAEvents {
         }
     }
 
-    /*@SubscribeEvent
-    public static void fogColorEvent(ViewportEvent.ComputeFogColor event) {
-        Minecraft mc = Minecraft.getInstance();
-        // Reduce lava fog from players when they have the lava vision enchantment
-        Player player = mc.player;
-        if (player != null) {
-            if (mc.level != null) {
-                BlockState state = mc.level.getBlockState(new BlockPos(player.blockPosition().above(1)));
-                if (state.is(DABlocks.VIRULENT_QUICKSAND.get())) {
-                    event.setBlue(0.4f);
-                    event.setCanceled(true);
-                }
+    @SubscribeEvent
+    public static void playerTickEvent(TickEvent.PlayerTickEvent event) {
+        Player player = event.player;
+        if(!player.isSpectator() && !player.isCreative()) {
+            if(player.getFeetBlockState().is(DABlocks.CHROMATIC_AERCLOUD.get()))
+                player.getAbilities().mayfly = true;
+            else {
+                player.getAbilities().flying = false;
+                player.getAbilities().mayfly = false;
             }
+
         }
-    }*/
+    }
 }

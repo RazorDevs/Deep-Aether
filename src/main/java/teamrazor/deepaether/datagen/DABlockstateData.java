@@ -198,12 +198,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.slab((SlabBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
         this.wallBlock((WallBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
 
-
-
-
         //MISC
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
         this.translucentBlock(DABlocks.AERSMOG.get());
+        this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
+        this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
 
         //MOSS
         this.block(DABlocks.AETHER_MOSS_BLOCK.get());
