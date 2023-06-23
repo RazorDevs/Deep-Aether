@@ -1,8 +1,8 @@
 package teamrazor.deepaether;
 
 
-import atumblender.api.Regions;
-import atumblender.api.SurfaceRuleManager;
+import aeroblender.api.Regions;
+import aeroblender.api.SurfaceRuleManager;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;

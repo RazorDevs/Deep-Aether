@@ -1,7 +1,7 @@
 package teamrazor.deepaether.world.biomes;
 
-import atumblender.api.Region;
-import atumblender.api.RegionType;
+import aeroblender.api.Region;
+import aeroblender.api.RegionType;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
