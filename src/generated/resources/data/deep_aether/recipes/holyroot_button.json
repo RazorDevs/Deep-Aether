@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "deep_aether:holyroot_planks"
+    }
+  ],
+  "result": {
+    "item": "deep_aether:holyroot_button"
+  }
+}

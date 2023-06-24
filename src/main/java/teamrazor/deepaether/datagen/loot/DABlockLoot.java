@@ -155,6 +155,28 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropOther(DABlocks.CONBERRY_WALL_SIGN.get(), DABlocks.CONBERRY_SIGN.get());
         this.dropSelf(DABlocks.CONBERRY_SIGN.get());
 
+        this.dropSelf(DABlocks.HOLYROOT_WOOD.get());
+        this.dropSelf(DABlocks.STRIPPED_HOLYROOT_WOOD.get());
+        this.dropSelfDouble(DABlocks.HOLYROOT_LOG.get());
+        this.dropSelfDouble(DABlocks.STRIPPED_HOLYROOT_LOG.get());
+        this.dropSelf(DABlocks.HOLYROOT_PLANKS.get());
+        this.dropSelf(DABlocks.HOLYROOT_SLAB.get());
+        this.dropSelf(DABlocks.HOLYROOT_STAIRS.get());
+        this.dropSelf(DABlocks.HOLYROOT_FENCE.get());
+        this.dropSelf(DABlocks.HOLYROOT_FENCE_GATE.get());
+        this.add(DABlocks.HOLYROOT_DOOR.get(), createDoorTable(DABlocks.HOLYROOT_DOOR.get()));
+        this.dropSelf(DABlocks.HOLYROOT_TRAPDOOR.get());
+        this.dropSelf(DABlocks.HOLYROOT_BUTTON.get());
+        this.dropSelf(DABlocks.HOLYROOT_PRESSURE_PLATE.get());
+        this.dropSelf(DABlocks.HOLYROOT_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_HOLYROOT_WALL.get());
+        this.dropSelf(DABlocks.HOLYROOT_SAPLING.get());
+        this.dropPottedContents(DABlocks.POTTED_HOLYROOT_SAPLING.get());
+        this.add(DABlocks.HOLYROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.HOLYROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.dropOther(DABlocks.HOLYROOT_WALL_SIGN.get(), DABlocks.HOLYROOT_SIGN.get());
+        this.dropSelf(DABlocks.HOLYROOT_SIGN.get());
+
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
@@ -164,9 +186,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
         this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());
-
-        this.dropSelf(DABlocks.STRIPPED_SKYROOT_WALL.get());
-        this.dropSelf(DABlocks.SKYROOT_WALL.get());
 
         //ORES
         this.add(DABlocks.SKYJADE_ORE.get(), (block) -> this.createOreDrop(block, DAItems.SKYJADE.get()));
@@ -263,6 +282,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
             this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
             this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
             this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
+            this.dropSelf(DABlocks.HOLYROOT_LOG_WALL.get());
+            this.dropSelf(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.get());
         }
     }
 

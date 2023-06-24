@@ -8,21 +8,60 @@
     "deep_aether:stripped_cruderoot_wall",
     "deep_aether:conberry_wall",
     "deep_aether:stripped_conberry_wall",
-    "deep_aether:skyroot_wall",
+    "deep_aether:holyroot_wall",
+    "deep_aether:stripped_holyroot_wall",
     "deep_aether:clorite_wall",
     "deep_aether:aseterite_wall",
     "deep_aether:aether_mud_bricks_wall",
     "deep_aether:holystone_tile_wall",
     "deep_aether:mossy_holystone_tile_wall",
-    "deep_aether:gilded_holystone_tile_wall",
-    "deep_aether:blightmoss_holystone_tile_wall",
-    "deep_aether:roseroot_log_wall",
-    "deep_aether:stripped_roseroot_log_wall",
-    "deep_aether:yagroot_log_wall",
-    "deep_aether:stripped_yagroot_log_wall",
-    "deep_aether:cruderoot_log_wall",
-    "deep_aether:stripped_cruderoot_log_wall",
-    "deep_aether:conberry_log_wall",
-    "deep_aether:stripped_conberry_log_wall"
+    {
+      "id": "deep_aether:gilded_holystone_tile_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blightmoss_holystone_tile_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:roseroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_roseroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:yagroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_yagroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:cruderoot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_cruderoot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:conberry_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_conberry_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:holyroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_holyroot_log_wall",
+      "required": false
+    }
   ]
 }

@@ -111,7 +111,24 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
         this.item(DABlocks.CONBERRY_SIGN.get().asItem());
 
-
+        this.itemBlock(DABlocks.HOLYROOT_WOOD.get());
+        this.itemBlock(DABlocks.HOLYROOT_LOG.get());
+        this.itemBlock(DABlocks.STRIPPED_HOLYROOT_WOOD.get());
+        this.itemBlock(DABlocks.STRIPPED_HOLYROOT_LOG.get());
+        this.itemBlock(DABlocks.HOLYROOT_PLANKS.get());
+        this.itemBlock(DABlocks.HOLYROOT_SLAB.get());
+        this.itemBlock(DABlocks.HOLYROOT_STAIRS.get());
+        this.itemFence(DABlocks.HOLYROOT_FENCE.get(), DABlocks.HOLYROOT_PLANKS.get());
+        this.itemBlock(DABlocks.HOLYROOT_FENCE_GATE.get());
+        this.item(DABlocks.HOLYROOT_DOOR.get().asItem());
+        this.itemBlock(DABlocks.HOLYROOT_TRAPDOOR.get(), "_bottom");
+        this.itemButton(DABlocks.HOLYROOT_BUTTON.get(), DABlocks.HOLYROOT_PLANKS.get());
+        this.itemBlock(DABlocks.HOLYROOT_PRESSURE_PLATE.get());
+        this.itemWallBlock(DABlocks.HOLYROOT_WALL.get(), DABlocks.HOLYROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_HOLYROOT_WALL.get(), DABlocks.STRIPPED_HOLYROOT_LOG.get());
+        this.itemBlockFlat(DABlocks.HOLYROOT_SAPLING.get());
+        this.itemBlock(DABlocks.HOLYROOT_LEAVES.get());
+        this.item(DABlocks.HOLYROOT_SIGN.get().asItem());
 
         this.itemBlock(DABlocks.AETHER_MUD.get());
         this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
@@ -185,16 +202,17 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
 
-        if (ModList.get().isLoaded("aether_genesis")) {
-            this.itemLogWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.YAGROOT_LOG_WALL.get(), DABlocks.YAGROOT_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.CONBERRY_LOG_WALL.get(), DABlocks.CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
-            this.itemLogWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
-        }
+        this.itemLogWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.YAGROOT_LOG_WALL.get(), DABlocks.YAGROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.CONBERRY_LOG_WALL.get(), DABlocks.CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.HOLYROOT_LOG_WALL.get(), DABlocks.HOLYROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.get(), DABlocks.STRIPPED_HOLYROOT_LOG.get(), "", DeepAetherMod.MODID);
+
 
 
         //ITEMS
@@ -243,6 +261,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.CRUDEROOT_CHEST_BOAT.get());
         this.item(DAItems.CONBERRY_BOAT.get());
         this.item(DAItems.CONBERRY_CHEST_BOAT.get());
+        this.item(DAItems.HOLYROOT_BOAT.get());
+        this.item(DAItems.HOLYROOT_CHEST_BOAT.get());
 
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

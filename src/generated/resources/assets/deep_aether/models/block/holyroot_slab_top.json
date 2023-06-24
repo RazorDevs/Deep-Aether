@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "deep_aether:block/holyroot_planks",
+    "side": "deep_aether:block/holyroot_planks",
+    "top": "deep_aether:block/holyroot_planks"
+  }
+}

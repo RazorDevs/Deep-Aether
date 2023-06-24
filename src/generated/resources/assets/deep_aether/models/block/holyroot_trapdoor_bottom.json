@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_trapdoor_bottom",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "texture": "deep_aether:block/holyroot_trapdoor"
+  }
+}

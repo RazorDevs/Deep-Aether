@@ -14,6 +14,7 @@ public class DABlockEntityTypes {
             DABlocks.YAGROOT_SIGN.get(), DABlocks.YAGROOT_WALL_SIGN.get(),
             DABlocks.CRUDEROOT_SIGN.get(), DABlocks.CRUDEROOT_WALL_SIGN.get(),
             DABlocks.ROSEROOT_SIGN.get(), DABlocks.ROSEROOT_WALL_SIGN.get(),
-            DABlocks.CONBERRY_SIGN.get(), DABlocks.CONBERRY_WALL_SIGN.get()
+            DABlocks.CONBERRY_SIGN.get(), DABlocks.CONBERRY_WALL_SIGN.get(),
+            DABlocks.HOLYROOT_SIGN.get(), DABlocks.HOLYROOT_WALL_SIGN.get()
     ).build(null));
 }

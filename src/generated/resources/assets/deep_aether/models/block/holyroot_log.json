@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "deep_aether:block/holyroot_log_top",
+    "side": "deep_aether:block/holyroot_log"
+  }
+}

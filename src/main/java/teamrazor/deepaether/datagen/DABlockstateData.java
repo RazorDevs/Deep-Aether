@@ -119,6 +119,28 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.CONBERRY_LEAVES.get());
         this.signBlock((StandingSignBlock) DABlocks.CONBERRY_SIGN.get(), (WallSignBlock) DABlocks.CONBERRY_WALL_SIGN.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
 
+
+        //WOOD HOLYROOT
+        this.wood((RotatedPillarBlock) DABlocks.HOLYROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.HOLYROOT_LOG.get());
+        this.log((RotatedPillarBlock) DABlocks.HOLYROOT_LOG.get());
+        this.wood((RotatedPillarBlock) DABlocks.STRIPPED_HOLYROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_HOLYROOT_LOG.get());
+        this.log((RotatedPillarBlock) DABlocks.STRIPPED_HOLYROOT_LOG.get());
+        this.block(DABlocks.HOLYROOT_PLANKS.get());
+        this.slab((SlabBlock) DABlocks.HOLYROOT_SLAB.get(), DABlocks.HOLYROOT_PLANKS.get());
+        this.stairs((StairBlock) DABlocks.HOLYROOT_STAIRS.get(), DABlocks.HOLYROOT_PLANKS.get());
+        this.fence((FenceBlock) DABlocks.HOLYROOT_FENCE.get(), DABlocks.HOLYROOT_PLANKS.get());
+        this.fenceGateBlock((FenceGateBlock) DABlocks.HOLYROOT_FENCE_GATE.get(), DABlocks.HOLYROOT_PLANKS.get());
+        this.doorBlock((DoorBlock) DABlocks.HOLYROOT_DOOR.get(), this.texture(this.name(DABlocks.HOLYROOT_DOOR.get())+ "_bottom"), this.texture(this.name(DABlocks.HOLYROOT_DOOR.get())+ "_top"));
+        this.trapdoorBlock((TrapDoorBlock) DABlocks.HOLYROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.HOLYROOT_TRAPDOOR.get())), false);
+        this.buttonBlock((ButtonBlock) DABlocks.HOLYROOT_BUTTON.get(), this.texture(this.name(DABlocks.HOLYROOT_PLANKS.get())));
+        this.pressurePlateBlock((PressurePlateBlock) DABlocks.HOLYROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.HOLYROOT_PLANKS.get())));
+        this.wallBlock((WallBlock) DABlocks.HOLYROOT_WALL.get(), DABlocks.HOLYROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_HOLYROOT_WALL.get(), DABlocks.STRIPPED_HOLYROOT_LOG.get());
+        this.saplingBlock(DABlocks.HOLYROOT_SAPLING.get());
+        this.pottedPlant(DABlocks.POTTED_HOLYROOT_SAPLING.get(), DABlocks.HOLYROOT_SAPLING.get());
+        this.block(DABlocks.HOLYROOT_LEAVES.get());
+        this.signBlock((StandingSignBlock) DABlocks.HOLYROOT_SIGN.get(), (WallSignBlock) DABlocks.HOLYROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.HOLYROOT_PLANKS.get())));
+
         //MUD
 
         this.blockDoubleDrops(DABlocks.AETHER_MUD.get());

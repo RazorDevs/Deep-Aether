@@ -76,6 +76,25 @@
     "deep_aether:conberry_sapling",
     "deep_aether:conberry_fence_gate",
     "deep_aether:conberry_sign",
-    "deep_aether:conberry_wall_sign"
+    "deep_aether:conberry_wall_sign",
+
+    "deep_aether:holyroot_wood",
+    "deep_aether:stripped_holyroot_wood",
+    "deep_aether:stripped_holyroot_log",
+    "deep_aether:holyroot_log",
+    "deep_aether:holyroot_planks",
+    "deep_aether:holyroot_door",
+    "deep_aether:holyroot_trapdoor",
+    "deep_aether:holyroot_wall",
+    "deep_aether:stripped_holyroot_wall",
+    "deep_aether:holyroot_slab",
+    "deep_aether:holyroot_stairs",
+    "deep_aether:holyroot_button",
+    "deep_aether:holyroot_pressure_plate",
+    "deep_aether:holyroot_fence",
+    "deep_aether:holyroot_sapling",
+    "deep_aether:holyroot_fence_gate",
+    "deep_aether:holyroot_sign",
+    "deep_aether:holyroot_wall_sign"
   ]
 }

@@ -58,7 +58,11 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LOG.get(),
                 DABlocks.CONBERRY_WOOD.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG.get(),
-                DABlocks.STRIPPED_CONBERRY_WOOD.get()
+                DABlocks.STRIPPED_CONBERRY_WOOD.get(),
+                DABlocks.HOLYROOT_LOG.get(),
+                DABlocks.HOLYROOT_WOOD.get(),
+                DABlocks.STRIPPED_HOLYROOT_LOG.get(),
+                DABlocks.STRIPPED_HOLYROOT_WOOD.get()
         );
         tag(BlockTags.LOGS_THAT_BURN).add(
                 DABlocks.ROSEROOT_LOG.get(),
@@ -76,19 +80,18 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LOG.get(),
                 DABlocks.CONBERRY_WOOD.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG.get(),
-                DABlocks.STRIPPED_CONBERRY_WOOD.get()
+                DABlocks.STRIPPED_CONBERRY_WOOD.get(),
+                DABlocks.HOLYROOT_LOG.get(),
+                DABlocks.HOLYROOT_WOOD.get(),
+                DABlocks.STRIPPED_HOLYROOT_LOG.get(),
+                DABlocks.STRIPPED_HOLYROOT_WOOD.get()
         );
         tag(BlockTags.ALL_SIGNS).add(
                 DABlocks.ROSEROOT_SIGN.get(),
                 DABlocks.YAGROOT_SIGN.get(),
                 DABlocks.CRUDEROOT_SIGN.get(),
-                DABlocks.CONBERRY_SIGN.get()
-        );
-        tag(BlockTags.ALL_HANGING_SIGNS).add(
-                DABlocks.ROSEROOT_WALL_SIGN.get(),
-                DABlocks.YAGROOT_WALL_SIGN.get(),
-                DABlocks.CRUDEROOT_WALL_SIGN.get(),
-                DABlocks.CONBERRY_WALL_SIGN.get()
+                DABlocks.CONBERRY_SIGN.get(),
+                DABlocks.HOLYROOT_SIGN.get()
         );
         tag(BlockTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get(),
@@ -99,20 +102,32 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRIPPED_CRUDEROOT_WALL.get(),
                 DABlocks.CONBERRY_WALL.get(),
                 DABlocks.STRIPPED_CONBERRY_WALL.get(),
-                DABlocks.SKYROOT_WALL.get(),
+                DABlocks.HOLYROOT_WALL.get(),
+                DABlocks.STRIPPED_HOLYROOT_WALL.get(),
                 DABlocks.CLORITE_WALL.get(),
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
-                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get()
-        );
+                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId())
+                .addOptional(DABlocks.ROSEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.YAGROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_YAGROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.CRUDEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
+                .addOptional(DABlocks.HOLYROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.getId()
+                );
         tag(BlockTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get(),
                 DABlocks.YAGROOT_FENCE_GATE.get(),
                 DABlocks.CRUDEROOT_FENCE_GATE.get(),
-                DABlocks.CONBERRY_FENCE_GATE.get()
+                DABlocks.CONBERRY_FENCE_GATE.get(),
+                DABlocks.HOLYROOT_FENCE_GATE.get()
         );
         tag(BlockTags.LEAVES).add(
                 DABlocks.ROSEROOT_LEAVES.get(),
@@ -122,6 +137,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_LEAVES.get(),
                 DABlocks.CRUDEROOT_LEAVES.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
+                DABlocks.HOLYROOT_LEAVES.get(),
                 DABlocks.YAGROOT_ROOTS.get()
         );
         tag(BlockTags.NEEDS_IRON_TOOL).add(
@@ -131,19 +147,5 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
                 DABlocks.STRATUS_BLOCK.get()
         );
-
-
-        if (ModList.get().isLoaded("aether_genesis")) {
-            tag(BlockTags.WALLS).add(
-                    DABlocks.ROSEROOT_LOG_WALL.get(),
-                    DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(),
-                    DABlocks.YAGROOT_LOG_WALL.get(),
-                    DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(),
-                    DABlocks.CRUDEROOT_LOG_WALL.get(),
-                    DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(),
-                    DABlocks.CONBERRY_LOG_WALL.get(),
-                    DABlocks.STRIPPED_CONBERRY_LOG_WALL.get()
-            );
-        }
     }
 }

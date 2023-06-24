@@ -150,10 +150,26 @@ public class DABlocks {
 	public static final RegistryObject<Block> CONBERRY_WALL_SIGN = BLOCKS.register("conberry_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CONBERRY));
 	public static final RegistryObject<Block> CONBERRY_SIGN = BLOCKS.register("conberry_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CONBERRY));
 
-	//SKYROOT WALLS
-	public static final RegistryObject<Block> STRIPPED_SKYROOT_WALL = registerBlock(300,"stripped_skyroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> SKYROOT_WALL = registerBlock(300,"skyroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-
+	//HOLYROOT
+	public static final RegistryObject<Block> HOLYROOT_WOOD = registerBlock("holyroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> HOLYROOT_LOG = registerBlock("holyroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> HOLYROOT_WALL = registerBlock(300,"holyroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> STRIPPED_HOLYROOT_WOOD = registerBlock("stripped_holyroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> STRIPPED_HOLYROOT_LOG = registerBlock("stripped_holyroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> STRIPPED_HOLYROOT_WALL = registerBlock(300,"stripped_holyroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> HOLYROOT_PLANKS = registerBlock( 300,"holyroot_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> HOLYROOT_STAIRS = registerBlock("holyroot_stairs", () -> new StairBlock(() -> DABlocks.HOLYROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> HOLYROOT_SLAB = registerBlock("holyroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
+	public static final RegistryObject<Block> HOLYROOT_FENCE = registerBlock("holyroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> HOLYROOT_FENCE_GATE = registerBlock("holyroot_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.HOLYROOT));
+	public static final RegistryObject<Block> HOLYROOT_PRESSURE_PLATE = registerBlock("holyroot_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), DAWoodTypes.HOLYROOT_BLOCK_SET));
+	public static final RegistryObject<Block> HOLYROOT_BUTTON = registerBlock("holyroot_button", () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), DAWoodTypes.HOLYROOT_BLOCK_SET, 30, true));
+	public static final RegistryObject<Block> HOLYROOT_DOOR = registerBlock("holyroot_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR), DAWoodTypes.HOLYROOT_BLOCK_SET));
+	public static final RegistryObject<Block> HOLYROOT_TRAPDOOR = registerBlock("holyroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.HOLYROOT_BLOCK_SET));
+	public static final RegistryObject<Block> HOLYROOT_LEAVES = registerBlock("holyroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+	public static final RegistryObject<Block> HOLYROOT_SAPLING = registerBlock("holyroot_sapling", () -> new SaplingBlock( new ConberryTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+	public static final RegistryObject<Block> HOLYROOT_WALL_SIGN = BLOCKS.register("holyroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.HOLYROOT));
+	public static final RegistryObject<Block> HOLYROOT_SIGN = BLOCKS.register("holyroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.HOLYROOT));
 
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
@@ -242,6 +258,7 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_YAGROOT_SAPLING = BLOCKS.register("potted_yagroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CRUDEROOT_SAPLING = BLOCKS.register("potted_cruderoot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRUDEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CONBERRY_SAPLING = BLOCKS.register("potted_conberry_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CONBERRY_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_HOLYROOT_SAPLING = BLOCKS.register("potted_holyroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, HOLYROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	//REDUX COMPATIBILITY
 
@@ -266,7 +283,8 @@ public class DABlocks {
 	public static final RegistryObject<WallBlock> STRIPPED_YAGROOT_LOG_WALL = registerAetherGenesisBlock("stripped_yagroot_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<WallBlock> CONBERRY_LOG_WALL = registerAetherGenesisBlock("conberry_log_wall", () -> new GenesisDoubleDropsWall(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<WallBlock> STRIPPED_CONBERRY_LOG_WALL = registerAetherGenesisBlock("stripped_conberry_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-
+	public static final RegistryObject<WallBlock> HOLYROOT_LOG_WALL = registerAetherGenesisBlock("holyroot_log_wall", () -> new GenesisDoubleDropsWall(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
+	public static final RegistryObject<WallBlock> STRIPPED_HOLYROOT_LOG_WALL = registerAetherGenesisBlock("stripped_holyroot_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 
 
 
@@ -282,6 +300,7 @@ public class DABlocks {
 		pot.addPlant(DABlocks.YAGROOT_SAPLING.getId(), DABlocks.POTTED_YAGROOT_SAPLING);
 		pot.addPlant(DABlocks.CRUDEROOT_SAPLING.getId(), DABlocks.POTTED_CRUDEROOT_SAPLING);
 		pot.addPlant(DABlocks.CONBERRY_SAPLING.getId(), DABlocks.POTTED_CONBERRY_SAPLING);
+		pot.addPlant(DABlocks.HOLYROOT_SAPLING.getId(), DABlocks.POTTED_HOLYROOT_SAPLING);
 
 	}
 
@@ -333,6 +352,7 @@ public class DABlocks {
 		WoodType.register(DAWoodTypes.CRUDEROOT);
 		WoodType.register(DAWoodTypes.YAGROOT);
 		WoodType.register(DAWoodTypes.CONBERRY);
+		WoodType.register(DAWoodTypes.HOLYROOT);
 	}
 	public static void registerFlammability() {
 		FireBlockAccessor fireBlockAccessor = (FireBlockAccessor) Blocks.FIRE;
@@ -342,7 +362,7 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LEAVES.get(), 30, 60);
-		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LEAVES.get(), 30, 60);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_LEAVES.get(), 30, 60);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_LOG.get(), 5, 5);
@@ -352,17 +372,20 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_HOLYROOT_LOG.get(), 5, 5);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WOOD.get(), 5, 5);
-
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_WOOD.get(), 5, 5);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_PLANKS.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_PLANKS.get(), 5, 20);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.AERLAVENDER.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.TALL_AERLAVENDER.get(), 60, 100);
@@ -395,6 +418,11 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_STAIRS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_SLAB.get(), 5, 20);
 
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_FENCE_GATE.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_FENCE.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_STAIRS.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_SLAB.get(), 5, 20);
+
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WALL.get(), 5, 20);
@@ -403,8 +431,10 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.SKYROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SKYROOT_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.HOLYROOT_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_HOLYROOT_WALL.get(), 5, 20);
+
+
 	}
 
 

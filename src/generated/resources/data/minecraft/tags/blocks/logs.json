@@ -15,6 +15,10 @@
     "deep_aether:conberry_log",
     "deep_aether:conberry_wood",
     "deep_aether:stripped_conberry_log",
-    "deep_aether:stripped_conberry_wood"
+    "deep_aether:stripped_conberry_wood",
+    "deep_aether:holyroot_log",
+    "deep_aether:holyroot_wood",
+    "deep_aether:stripped_holyroot_log",
+    "deep_aether:stripped_holyroot_wood"
   ]
 }
