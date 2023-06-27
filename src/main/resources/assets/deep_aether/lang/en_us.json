@@ -516,13 +516,13 @@
   "item.deep_aether.skyjade_shield": "Skyjade Shield",
   "item.deep_aether.stratus_shield": "Stratus Shield",
 
-  "item.deep_aether.roseroot_log_wall": "Roseroot Log Wall",
-  "item.deep_aether.stripped_roseroot_log_wall": "Stripped Roseroot Log Wall",
-  "item.deep_aether.cruderoot_log_wall": "Cruderoot Log Wall",
-  "item.deep_aether.stripped_cruderoot_log_wall": "Stripped Cruderoot Log Wall",
-  "item.deep_aether.yagroot_log_wall": "Yagroot Log Wall",
-  "item.deep_aether.stripped_yagroot_log_wall": "Stripped Yagroot Log Wall",
-  "item.deep_aether.conberry_log_wall": "Conberry Log Wall",
-  "item.deep_aether.stripped_conberry_log_wall": "Stripped Conberry Log Wall"
+  "block.deep_aether.roseroot_log_wall": "Roseroot Log Wall",
+  "block.deep_aether.stripped_roseroot_log_wall": "Stripped Roseroot Log Wall",
+  "block.deep_aether.cruderoot_log_wall": "Cruderoot Log Wall",
+  "block.deep_aether.stripped_cruderoot_log_wall": "Stripped Cruderoot Log Wall",
+  "block.deep_aether.yagroot_log_wall": "Yagroot Log Wall",
+  "block.deep_aether.stripped_yagroot_log_wall": "Stripped Yagroot Log Wall",
+  "block.deep_aether.conberry_log_wall": "Conberry Log Wall",
+  "block.deep_aether.stripped_conberry_log_wall": "Stripped Conberry Log Wall"
 }
 

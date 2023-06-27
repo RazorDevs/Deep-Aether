@@ -18,8 +18,8 @@ New Biomes:
 New Ores, Tools, and Armor:
  - Skyjade (found in Holystone; has blocks, armor, tools, and weapons)
    - Skyjade's ability is powerful upon first use, but gets weaker the more durability is lost; basically the opposite of Zanite's ability.
- - Cloudium (found in Aerclouds; has blocks, armor, tools, and weapons)
-   - Cloudium's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press r with a full set (including the gloves).
+ - Stratus (found in Sterling Aerclouds, which can be enchanted to Chromatic Aerclouds, and Stratus Ingots can be crafted from them; has blocks, armor, tools, and weapons)
+   - Stratus's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press R with a full set (including the gloves).
   
 New Trees and Wood Sets:
  - Roseroot and Blue Roseroot (Aerglow and Blue Aerglow Forests)
@@ -58,6 +58,7 @@ Mod Cross Compat:
 # Requirements
 
 You'll need of course:
+ - Aeroblender - This mod is **REQUIRED** for the biomes to work!!
  - Forge
  - The Aether Mod (The 1.19.4 version)
  

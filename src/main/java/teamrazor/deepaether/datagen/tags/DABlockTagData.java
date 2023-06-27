@@ -84,12 +84,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CRUDEROOT_SIGN.get(),
                 DABlocks.CONBERRY_SIGN.get()
         );
-        tag(BlockTags.ALL_HANGING_SIGNS).add(
-                DABlocks.ROSEROOT_WALL_SIGN.get(),
-                DABlocks.YAGROOT_WALL_SIGN.get(),
-                DABlocks.CRUDEROOT_WALL_SIGN.get(),
-                DABlocks.CONBERRY_WALL_SIGN.get()
-        );
+
         tag(BlockTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get(),
                 DABlocks.STRIPPED_ROSEROOT_WALL.get(),
@@ -104,10 +99,19 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
-                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get()
-        );
+                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId())
+                .addOptional(DABlocks.ROSEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.YAGROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_YAGROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.CRUDEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId()
+
+                );
         tag(BlockTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get(),
                 DABlocks.YAGROOT_FENCE_GATE.get(),
@@ -131,19 +135,5 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
                 DABlocks.STRATUS_BLOCK.get()
         );
-
-
-        if (ModList.get().isLoaded("aether_genesis")) {
-            tag(BlockTags.WALLS).add(
-                    DABlocks.ROSEROOT_LOG_WALL.get(),
-                    DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(),
-                    DABlocks.YAGROOT_LOG_WALL.get(),
-                    DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(),
-                    DABlocks.CRUDEROOT_LOG_WALL.get(),
-                    DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(),
-                    DABlocks.CONBERRY_LOG_WALL.get(),
-                    DABlocks.STRIPPED_CONBERRY_LOG_WALL.get()
-            );
-        }
     }
 }
