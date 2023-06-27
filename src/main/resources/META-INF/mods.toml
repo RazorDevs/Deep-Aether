@@ -73,3 +73,10 @@ versionRange="[4.0.2,)"
 ordering="NONE"
 side="BOTH"
 
+[[dependencies.deep_aether]]
+modId="aeroblender"
+mandatory=true
+versionRange="[1.0,)"
+ordering="NONE"
+side="BOTH"
+

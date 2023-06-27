@@ -143,7 +143,7 @@ dependencies {
     compileOnly "com.aetherteam.aether:aether:1.19.4-1.0.0-beta.4-forge"
     runtimeOnly fg.deobf("com.aetherteam.aether:aether:1.19.4-1.0.0-beta.4-forge")
 
-    implementation fg.deobf('local:AtumBlender-forge:1.19.4-1.0.null')
+    implementation fg.deobf('local:aeroblender:1.19.4-1.1')
 
 
     //implementation fg.deobf('com.github.darksonic300:AtumBlender-forge:1.19.4-1.0')
