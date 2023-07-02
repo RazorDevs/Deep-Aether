@@ -1,9 +1,10 @@
 {
-  "replace": false,
   "values": [
     "deep_aether:yagroot_leaves",
     "deep_aether:flowering_roseroot_leaves",
     "deep_aether:roseroot_leaves",
+    "deep_aether:flowering_blue_roseroot_leaves",
+    "deep_aether:blue_roseroot_leaves",
     "deep_aether:cruderoot_leaves",
     "deep_aether:aether_moss_block",
     "deep_aether:aether_moss_carpet",
