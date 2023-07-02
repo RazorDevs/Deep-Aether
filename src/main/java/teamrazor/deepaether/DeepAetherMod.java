@@ -124,10 +124,6 @@ public class DeepAetherMod {
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 
-		if(ModList.get().isLoaded("lost_aether_content")){
-			DAItems.LOST_CONTENT.register(bus);
-		}
-
 
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
