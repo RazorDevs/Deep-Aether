@@ -6,14 +6,18 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.DAPlacedFeatures;
@@ -76,8 +80,12 @@ public class GoldenGrassBlock extends AetherGrassBlock {
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         if(context.getItemInHand().getItem() instanceof ShovelItem) {
                 return DABlocks.GOLDEN_DIRT_PATH.get().defaultBlockState();
+        } else if (ToolActions.HOE_TILL == toolAction) {
+            Block block = state.getBlock();
+            if (block == this && context.getLevel().getBlockState(context.getClickedPos().above()).isAir()) {
+                return Blocks.FARMLAND.defaultBlockState();
+            }
         }
-
         return super.getToolModifiedState(state, context, toolAction, simulate);
     }
 }
