@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stratus_sword": {
+    "has_enchanted_blossom": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:stratus_sword"
+              "deep_aether:enchanted_blossom"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:stratus_sword_repairing"
+        "recipe": "minecraft:white_dye_from_enchanted_blossom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stratus_sword",
+      "has_enchanted_blossom",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:stratus_sword_repairing"
+      "minecraft:white_dye_from_enchanted_blossom"
     ]
   }
 }

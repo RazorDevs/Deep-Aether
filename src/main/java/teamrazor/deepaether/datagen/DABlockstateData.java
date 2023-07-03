@@ -135,11 +135,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
         this.block(DABlocks.STRATUS_BLOCK.get());
 
-        this.crossBlock(DABlocks.MINI_GOLDEN_GRASS.get());
-        this.crossBlock(DABlocks.MEDIUM_GOLDEN_GRASS.get());
-        this.crossBlock(DABlocks.SHORT_GOLDEN_GRASS.get());
-        this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
-
     
         //STONE
         //ASETERITE
@@ -174,6 +169,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlantFix(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
         this.pottedPlantFix(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
+        this.crossBlock(DABlocks.MINI_GOLDEN_GRASS.get());
+        this.crossBlock(DABlocks.MEDIUM_GOLDEN_GRASS.get());
+        this.crossBlock(DABlocks.SHORT_GOLDEN_GRASS.get());
+        this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
+        this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
 
 
 

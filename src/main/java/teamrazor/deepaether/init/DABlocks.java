@@ -148,11 +148,6 @@ public class DABlocks {
 	public static final RegistryObject<Block> CONBERRY_WALL_SIGN = BLOCKS.register("conberry_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CONBERRY));
 	public static final RegistryObject<Block> CONBERRY_SIGN = BLOCKS.register("conberry_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CONBERRY));
 
-	//SKYROOT WALLS
-	public static final RegistryObject<Block> STRIPPED_SKYROOT_WALL = registerBlock(300,"stripped_skyroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> SKYROOT_WALL = registerBlock(300,"skyroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-
-
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = registerBlock("skyjade_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
@@ -202,6 +197,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> TALL_AETHER_CATTAILS = registerBlock("tall_aether_cattails", () ->  new TallFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
 
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = registerBlock("aerglow_petal_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
@@ -368,6 +364,7 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.TALL_AETHER_CATTAILS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.RADIANT_ORCHID.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.GOLDEN_FLOWER.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.ENCHANTED_BLOSSOM.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.MINI_GOLDEN_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.SHORT_GOLDEN_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.MEDIUM_GOLDEN_GRASS.get(), 60, 100);
@@ -401,8 +398,6 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.SKYROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SKYROOT_WALL.get(), 5, 20);
 	}
 
 

@@ -182,6 +182,7 @@ public class DATabs {
                             output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
                             output.accept(DABlocks.GOLDEN_DIRT_PATH.get());
                             output.accept(DABlocks.GOLDEN_FLOWER.get());
+                            output.accept(DABlocks.ENCHANTED_BLOSSOM.get());
                             output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                             output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());
                             output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());

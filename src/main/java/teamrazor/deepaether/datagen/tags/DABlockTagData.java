@@ -94,7 +94,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRIPPED_CRUDEROOT_WALL.get(),
                 DABlocks.CONBERRY_WALL.get(),
                 DABlocks.STRIPPED_CONBERRY_WALL.get(),
-                DABlocks.SKYROOT_WALL.get(),
                 DABlocks.CLORITE_WALL.get(),
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
