@@ -135,6 +135,18 @@ repositories {
         dir 'libs'
     }
     maven githubPackage.invoke("The-Aether-Team/The-Aether")
+
+    //exclusiveContent {
+    //    forRepository {
+    //        maven {
+    //            name = 'Modrinth'
+    //            url = "https://api.modrinth.com/maven"
+    //        }
+    //    }
+    //    filter {
+    //        includeGroup 'maven.modrinth'
+    //    }
+    //}
 }
 
 dependencies {
@@ -149,8 +161,9 @@ dependencies {
     implementation fg.deobf('local:aether_genesis:1.19.4-0.0.1-forge')
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3:api")
-    implementation fg.deobf('local:aether_redux:a1.0.1-mc1.19.4')
+    implementation fg.deobf('local:aether_redux:beta.1-pre6-mc1.19.4')
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.19.4-2.2.0.161')
+
 }
 
 mixin {
