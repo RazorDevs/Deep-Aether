@@ -1,19 +1,22 @@
 package teamrazor.deepaether.datagen.tags;
 
-import com.aetherteam.aether.AetherTags;
+import  com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 
 public class DABlockTagData extends BlockTagsProvider {
@@ -30,6 +33,14 @@ public class DABlockTagData extends BlockTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
+
+        // Makes tool debuff work with all Deep Aether blocks. Commented code can be used to remove blocks if necessary
+        IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
+        Collection<RegistryObject<Block>> blocks = DABlocks.BLOCKS.getEntries();
+        // blocks.remove(Blocks.DIRT);
+        for (RegistryObject<Block> block : blocks)
+        { tag.add(block.get()); }
+
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
                 DABlocks.GOLDEN_GRASS_BLOCK.get()
         );
@@ -41,6 +52,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKYJADE_BLOCK.get(),
                 DABlocks.STRATUS_BLOCK.get()
         );
+
+
 
         tag(BlockTags.LOGS).add(
                 DABlocks.ROSEROOT_LOG.get(),
