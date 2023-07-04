@@ -15,7 +15,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -35,20 +34,15 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
-import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.UpwardsBranchingTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
@@ -198,6 +192,7 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(), 32)
                         .add(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState(), 16)
                         .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 8)
+                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(), 2)), 418));
 
 
