@@ -1,8 +1,6 @@
 package teamrazor.deepaether;
 
 
-import atumblender.api.Regions;
-import atumblender.api.SurfaceRuleManager;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
@@ -37,6 +35,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 import teamrazor.deepaether.datagen.DABlockstateData;
@@ -58,6 +57,8 @@ import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
 import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
@@ -123,10 +124,6 @@ public class DeepAetherMod {
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 
-		if(ModList.get().isLoaded("lost_aether_content")){
-			DAItems.LOST_CONTENT.register(bus);
-		}
-
 
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
@@ -177,14 +174,14 @@ public class DeepAetherMod {
 		event.enqueueWork(() ->
 		{
 			// Weights are kept intentionally low as we add minimal biomes
-			Regions.register(new DARegion(new ResourceLocation(MODID, "golden_heights"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
+			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 
 			// Register our surface rules
-			SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.AETHER, MODID, DASurfaceData.makeRules());
+			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 		});
 	}
 
-		private void enqueueIMC(final InterModEnqueueEvent event)
+	private void enqueueIMC(final InterModEnqueueEvent event)
 	{
 		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
 	}

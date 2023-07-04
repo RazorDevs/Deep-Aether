@@ -573,6 +573,11 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DABlocks.GOLDEN_FLOWER.get()), has(DABlocks.GOLDEN_FLOWER.get()))
                 .save(consumer, "orange_dye_from_golden_flower");
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.WHITE_DYE)
+                .requires(DABlocks.ENCHANTED_BLOSSOM.get(),1)
+                .unlockedBy(getHasName(DABlocks.ENCHANTED_BLOSSOM.get()), has(DABlocks.ENCHANTED_BLOSSOM.get()))
+                .save(consumer, "white_dye_from_enchanted_blossom");
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, DAItems.GOLDEN_SWET_BALL.get())
                 .requires(DAItems.GOLDEN_GRASS_SEEDS.get())
                 .requires(AetherItems.SWET_BALL.get())

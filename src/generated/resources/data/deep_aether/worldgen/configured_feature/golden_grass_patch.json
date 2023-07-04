@@ -34,6 +34,12 @@
               },
               {
                 "data": {
+                  "Name": "deep_aether:enchanted_blossom"
+                },
+                "weight": 3
+              },
+              {
+                "data": {
                   "Name": "deep_aether:tall_golden_grass",
                   "Properties": {
                     "half": "lower"

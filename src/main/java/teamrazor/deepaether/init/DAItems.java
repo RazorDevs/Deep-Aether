@@ -9,8 +9,10 @@ import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,6 +27,8 @@ import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
+
+import java.util.function.Supplier;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -128,11 +132,9 @@ public class DAItems {
 
 
 	//LOST CONTENT
-	public static final DeferredRegister<Item> LOST_CONTENT =
-			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
 
-	public static final RegistryObject<Item> SKYJADE_SHIELD = LOST_CONTENT.register("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
-	public static final RegistryObject<Item> STRATUS_SHIELD = LOST_CONTENT.register("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
+	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
+	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
@@ -141,5 +143,12 @@ public class DAItems {
 
 	public static void setupBucketReplacements() {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
+	}
+
+	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
+		if(ModList.get().isLoaded("lost_aether_content")) {
+			return ITEMS.register(name, item);
+		}
+		return null;
 	}
 }

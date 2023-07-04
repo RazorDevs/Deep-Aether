@@ -8,8 +8,6 @@
     "deep_aether:stripped_cruderoot_wall",
     "deep_aether:conberry_wall",
     "deep_aether:stripped_conberry_wall",
-    "deep_aether:holyroot_wall",
-    "deep_aether:stripped_holyroot_wall",
     "deep_aether:clorite_wall",
     "deep_aether:aseterite_wall",
     "deep_aether:aether_mud_bricks_wall",
@@ -53,14 +51,6 @@
     },
     {
       "id": "deep_aether:stripped_conberry_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:holyroot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:stripped_holyroot_log_wall",
       "required": false
     }
   ]

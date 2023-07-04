@@ -12,6 +12,12 @@
       "replace_current_music": true,
       "sound": "aether:music.aether"
     },
+    "particle": {
+      "options": {
+        "type": "minecraft:end_rod"
+      },
+      "probability": 0.008
+    },
     "sky_color": 12632319,
     "water_color": 4159204,
     "water_fog_color": 329011
