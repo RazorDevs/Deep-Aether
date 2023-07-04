@@ -72,6 +72,24 @@
     "deep_aether:conberry_sapling",
     "deep_aether:conberry_fence_gate",
     "deep_aether:conberry_sign",
-    "deep_aether:conberry_wall_sign"
+    "deep_aether:conberry_wall_sign",
+    "deep_aether:sunroot_wood",
+    "deep_aether:stripped_sunroot_wood",
+    "deep_aether:stripped_sunroot_log",
+    "deep_aether:sunroot_log",
+    "deep_aether:sunroot_planks",
+    "deep_aether:sunroot_door",
+    "deep_aether:sunroot_trapdoor",
+    "deep_aether:sunroot_wall",
+    "deep_aether:stripped_sunroot_wall",
+    "deep_aether:sunroot_slab",
+    "deep_aether:sunroot_stairs",
+    "deep_aether:sunroot_button",
+    "deep_aether:sunroot_pressure_plate",
+    "deep_aether:sunroot_fence",
+    "deep_aether:sunroot_sapling",
+    "deep_aether:sunroot_fence_gate",
+    "deep_aether:sunroot_sign",
+    "deep_aether:sunroot_wall_sign"
   ]
 }

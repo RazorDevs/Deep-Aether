@@ -155,6 +155,29 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropOther(DABlocks.CONBERRY_WALL_SIGN.get(), DABlocks.CONBERRY_SIGN.get());
         this.dropSelf(DABlocks.CONBERRY_SIGN.get());
 
+
+        this.dropSelf(DABlocks.SUNROOT_WOOD.get());
+        this.dropSelf(DABlocks.STRIPPED_SUNROOT_WOOD.get());
+        this.dropSelfDouble(DABlocks.SUNROOT_LOG.get());
+        this.dropSelfDouble(DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.dropSelf(DABlocks.SUNROOT_PLANKS.get());
+        this.dropSelf(DABlocks.SUNROOT_SLAB.get());
+        this.dropSelf(DABlocks.SUNROOT_STAIRS.get());
+        this.dropSelf(DABlocks.SUNROOT_FENCE.get());
+        this.dropSelf(DABlocks.SUNROOT_FENCE_GATE.get());
+        this.add(DABlocks.SUNROOT_DOOR.get(), createDoorTable(DABlocks.SUNROOT_DOOR.get()));
+        this.dropSelf(DABlocks.SUNROOT_TRAPDOOR.get());
+        this.dropSelf(DABlocks.SUNROOT_BUTTON.get());
+        this.dropSelf(DABlocks.SUNROOT_PRESSURE_PLATE.get());
+        this.dropSelf(DABlocks.SUNROOT_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_SUNROOT_WALL.get());
+        this.dropSelf(DABlocks.SUNROOT_SAPLING.get());
+        this.dropPottedContents(DABlocks.POTTED_SUNROOT_SAPLING.get());
+        this.add(DABlocks.SUNROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.SUNROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.dropOther(DABlocks.SUNROOT_WALL_SIGN.get(), DABlocks.SUNROOT_SIGN.get());
+        this.dropSelf(DABlocks.SUNROOT_SIGN.get());
+
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
@@ -212,6 +235,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_AETHER_CATTAILS.get());
         //this.dropPottedContents(DABlocks.POTTED_TALL_AETHER_CATTAILS.get());
         this.dropPottedContents(DABlocks.POTTED_RADIANT_ORCHID.get());
+        this.dropPottedContents(DABlocks.POTTED_ENCHANTED_BLOSSOM.get());
 
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
 
@@ -261,7 +285,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
             this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
             this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
             this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
-        }
+            this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
+            this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());        }
     }
 
     protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {

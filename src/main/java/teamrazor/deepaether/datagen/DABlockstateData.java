@@ -119,6 +119,28 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.CONBERRY_LEAVES.get());
         this.signBlock((StandingSignBlock) DABlocks.CONBERRY_SIGN.get(), (WallSignBlock) DABlocks.CONBERRY_WALL_SIGN.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
 
+
+        //WOOD SUNROOT
+        this.wood((RotatedPillarBlock) DABlocks.SUNROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.SUNROOT_LOG.get());
+        this.log((RotatedPillarBlock) DABlocks.SUNROOT_LOG.get());
+        this.wood((RotatedPillarBlock) DABlocks.STRIPPED_SUNROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.log((RotatedPillarBlock) DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.block(DABlocks.SUNROOT_PLANKS.get());
+        this.slab((SlabBlock) DABlocks.SUNROOT_SLAB.get(), DABlocks.SUNROOT_PLANKS.get());
+        this.stairs((StairBlock) DABlocks.SUNROOT_STAIRS.get(), DABlocks.SUNROOT_PLANKS.get());
+        this.fence((FenceBlock) DABlocks.SUNROOT_FENCE.get(), DABlocks.SUNROOT_PLANKS.get());
+        this.fenceGateBlock((FenceGateBlock) DABlocks.SUNROOT_FENCE_GATE.get(), DABlocks.SUNROOT_PLANKS.get());
+        this.doorBlock((DoorBlock) DABlocks.SUNROOT_DOOR.get(), this.texture(this.name(DABlocks.SUNROOT_DOOR.get())+ "_bottom"), this.texture(this.name(DABlocks.SUNROOT_DOOR.get())+ "_top"));
+        this.trapdoorBlock((TrapDoorBlock) DABlocks.SUNROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.SUNROOT_TRAPDOOR.get())), false);
+        this.buttonBlock((ButtonBlock) DABlocks.SUNROOT_BUTTON.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
+        this.pressurePlateBlock((PressurePlateBlock) DABlocks.SUNROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
+        this.wallBlock((WallBlock) DABlocks.SUNROOT_WALL.get(), DABlocks.SUNROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.saplingBlock(DABlocks.SUNROOT_SAPLING.get());
+        this.pottedPlant(DABlocks.POTTED_SUNROOT_SAPLING.get(), DABlocks.SUNROOT_SAPLING.get());
+        this.block(DABlocks.SUNROOT_LEAVES.get());
+        this.signBlock((StandingSignBlock) DABlocks.SUNROOT_SIGN.get(), (WallSignBlock) DABlocks.SUNROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
+
         //MUD
 
         this.blockDoubleDrops(DABlocks.AETHER_MUD.get());
@@ -315,6 +337,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.logWallBlock(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get(), "", DeepAetherMod.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
         this.logWallBlock(DABlocks.CONBERRY_LOG_WALL.get(), DABlocks.CONBERRY_LOG.get(), "", DeepAetherMod.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
         this.logWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAetherMod.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), "", DeepAetherMod.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAetherMod.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
     }
 
     protected BlockModelBuilder makeWallPostModel(int width, int height, String name) {

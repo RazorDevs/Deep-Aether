@@ -148,6 +148,28 @@ public class DABlocks {
 	public static final RegistryObject<Block> CONBERRY_WALL_SIGN = BLOCKS.register("conberry_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CONBERRY));
 	public static final RegistryObject<Block> CONBERRY_SIGN = BLOCKS.register("conberry_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CONBERRY));
 
+	//SUNROOT
+
+	public static final RegistryObject<Block> SUNROOT_WOOD = registerBlock("sunroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> SUNROOT_LOG = registerBlock("sunroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> SUNROOT_WALL = registerBlock(300,"sunroot_wall", () ->  new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> STRIPPED_SUNROOT_WOOD = registerBlock("stripped_sunroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> STRIPPED_SUNROOT_LOG = registerBlock("stripped_sunroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> STRIPPED_SUNROOT_WALL = registerBlock(300,"stripped_sunroot_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
+	public static final RegistryObject<Block> SUNROOT_PLANKS = registerBlock( 300,"sunroot_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> SUNROOT_STAIRS = registerBlock("sunroot_stairs", () -> new StairBlock(() -> DABlocks.SUNROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> SUNROOT_SLAB = registerBlock("sunroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
+	public static final RegistryObject<Block> SUNROOT_FENCE = registerBlock("sunroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2f, 3f)));
+	public static final RegistryObject<Block> SUNROOT_FENCE_GATE = registerBlock("sunroot_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.SUNROOT));
+	public static final RegistryObject<Block> SUNROOT_PRESSURE_PLATE = registerBlock("sunroot_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), DAWoodTypes.SUNROOT_BLOCK_SET));
+	public static final RegistryObject<Block> SUNROOT_BUTTON = registerBlock("sunroot_button", () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), DAWoodTypes.SUNROOT_BLOCK_SET, 30, true));
+	public static final RegistryObject<Block> SUNROOT_DOOR = registerBlock("sunroot_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR), DAWoodTypes.SUNROOT_BLOCK_SET));
+	public static final RegistryObject<Block> SUNROOT_TRAPDOOR = registerBlock("sunroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR), DAWoodTypes.SUNROOT_BLOCK_SET));
+	public static final RegistryObject<Block> SUNROOT_LEAVES = registerBlock("sunroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+	public static final RegistryObject<Block> SUNROOT_SAPLING = registerBlock("sunroot_sapling", () -> new SaplingBlock( new SunrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
+	public static final RegistryObject<Block> SUNROOT_WALL_SIGN = BLOCKS.register("sunroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.SUNROOT));
+	public static final RegistryObject<Block> SUNROOT_SIGN = BLOCKS.register("sunroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.SUNROOT));
+
 	// ORES
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = registerBlock("skyjade_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
@@ -230,12 +252,15 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_TALL_AERLAVENDER = BLOCKS.register("potted_tall_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_AETHER_CATTAILS = BLOCKS.register("potted_aether_cattails", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AETHER_CATTAILS, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_RADIANT_ORCHID = BLOCKS.register("potted_radiant_orchid", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, RADIANT_ORCHID, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_ENCHANTED_BLOSSOM = BLOCKS.register("potted_enchanted_blossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ENCHANTED_BLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_ROSEROOT_SAPLING = BLOCKS.register("potted_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_ROSEROOT_SAPLING = BLOCKS.register("potted_blue_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_YAGROOT_SAPLING = BLOCKS.register("potted_yagroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CRUDEROOT_SAPLING = BLOCKS.register("potted_cruderoot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRUDEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CONBERRY_SAPLING = BLOCKS.register("potted_conberry_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CONBERRY_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+	public static final RegistryObject<FlowerPotBlock> POTTED_SUNROOT_SAPLING = BLOCKS.register("potted_sunroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	//REDUX COMPATIBILITY
 
@@ -260,7 +285,8 @@ public class DABlocks {
 	public static final RegistryObject<WallBlock> STRIPPED_YAGROOT_LOG_WALL = registerAetherGenesisBlock("stripped_yagroot_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<WallBlock> CONBERRY_LOG_WALL = registerAetherGenesisBlock("conberry_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<WallBlock> STRIPPED_CONBERRY_LOG_WALL = registerAetherGenesisBlock("stripped_conberry_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-
+	public static final RegistryObject<WallBlock> SUNROOT_LOG_WALL = registerAetherGenesisBlock("sunroot_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
+	public static final RegistryObject<WallBlock> STRIPPED_SUNROOT_LOG_WALL = registerAetherGenesisBlock("stripped_sunroot_log_wall", () -> new WallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 
 
 
@@ -276,6 +302,7 @@ public class DABlocks {
 		pot.addPlant(DABlocks.YAGROOT_SAPLING.getId(), DABlocks.POTTED_YAGROOT_SAPLING);
 		pot.addPlant(DABlocks.CRUDEROOT_SAPLING.getId(), DABlocks.POTTED_CRUDEROOT_SAPLING);
 		pot.addPlant(DABlocks.CONBERRY_SAPLING.getId(), DABlocks.POTTED_CONBERRY_SAPLING);
+		pot.addPlant(DABlocks.SUNROOT_SAPLING.getId(), DABlocks.POTTED_SUNROOT_SAPLING);
 
 	}
 
@@ -327,6 +354,7 @@ public class DABlocks {
 		WoodType.register(DAWoodTypes.CRUDEROOT);
 		WoodType.register(DAWoodTypes.YAGROOT);
 		WoodType.register(DAWoodTypes.CONBERRY);
+		WoodType.register(DAWoodTypes.SUNROOT);
 	}
 	public static void registerFlammability() {
 		FireBlockAccessor fireBlockAccessor = (FireBlockAccessor) Blocks.FIRE;
@@ -337,6 +365,7 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LEAVES.get(), 30, 60);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LEAVES.get(), 30, 60);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_LEAVES.get(), 30, 60);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_LOG.get(), 5, 5);
@@ -346,17 +375,21 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SUNROOT_LOG.get(), 5, 5);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_WOOD.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WOOD.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_WOOD.get(), 5, 5);
 
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_PLANKS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_PLANKS.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_PLANKS.get(), 5, 20);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.AERLAVENDER.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.TALL_AERLAVENDER.get(), 60, 100);
@@ -390,6 +423,11 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_STAIRS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_SLAB.get(), 5, 20);
 
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_FENCE_GATE.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_FENCE.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_STAIRS.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_SLAB.get(), 5, 20);
+
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WALL.get(), 5, 20);
@@ -398,6 +436,8 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SUNROOT_WALL.get(), 5, 20);
 	}
 
 

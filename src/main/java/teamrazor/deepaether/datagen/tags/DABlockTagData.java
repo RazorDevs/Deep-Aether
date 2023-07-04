@@ -71,7 +71,11 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LOG.get(),
                 DABlocks.CONBERRY_WOOD.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG.get(),
-                DABlocks.STRIPPED_CONBERRY_WOOD.get()
+                DABlocks.STRIPPED_CONBERRY_WOOD.get(),
+                DABlocks.SUNROOT_LOG.get(),
+                DABlocks.SUNROOT_WOOD.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get()
         );
         tag(BlockTags.LOGS_THAT_BURN).add(
                 DABlocks.ROSEROOT_LOG.get(),
@@ -89,13 +93,18 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LOG.get(),
                 DABlocks.CONBERRY_WOOD.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG.get(),
-                DABlocks.STRIPPED_CONBERRY_WOOD.get()
+                DABlocks.STRIPPED_CONBERRY_WOOD.get(),
+                DABlocks.SUNROOT_LOG.get(),
+                DABlocks.SUNROOT_WOOD.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get()
         );
         tag(BlockTags.ALL_SIGNS).add(
                 DABlocks.ROSEROOT_SIGN.get(),
                 DABlocks.YAGROOT_SIGN.get(),
                 DABlocks.CRUDEROOT_SIGN.get(),
-                DABlocks.CONBERRY_SIGN.get()
+                DABlocks.CONBERRY_SIGN.get(),
+                DABlocks.SUNROOT_SIGN.get()
         );
 
         tag(BlockTags.WALLS).add(
@@ -107,6 +116,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRIPPED_CRUDEROOT_WALL.get(),
                 DABlocks.CONBERRY_WALL.get(),
                 DABlocks.STRIPPED_CONBERRY_WALL.get(),
+                DABlocks.SUNROOT_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_WALL.get(),
                 DABlocks.CLORITE_WALL.get(),
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
@@ -121,14 +132,16 @@ public class DABlockTagData extends BlockTagsProvider {
                 .addOptional(DABlocks.CRUDEROOT_LOG_WALL.getId())
                 .addOptional(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.getId())
                 .addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId()
-
+                .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
+                .addOptional(DABlocks.SUNROOT_LOG_WALL.getId())
+                .addOptional(DABlocks.STRIPPED_SUNROOT_LOG_WALL.getId()
                 );
         tag(BlockTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get(),
                 DABlocks.YAGROOT_FENCE_GATE.get(),
                 DABlocks.CRUDEROOT_FENCE_GATE.get(),
-                DABlocks.CONBERRY_FENCE_GATE.get()
+                DABlocks.CONBERRY_FENCE_GATE.get(),
+                DABlocks.SUNROOT_FENCE_GATE.get()
         );
         tag(BlockTags.LEAVES).add(
                 DABlocks.ROSEROOT_LEAVES.get(),
@@ -138,6 +151,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_LEAVES.get(),
                 DABlocks.CRUDEROOT_LEAVES.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
+                DABlocks.SUNROOT_LEAVES.get(),
                 DABlocks.YAGROOT_ROOTS.get()
         );
         tag(BlockTags.NEEDS_IRON_TOOL).add(
@@ -179,7 +193,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ROSEROOT_FENCE.get(),
                 DABlocks.YAGROOT_FENCE.get(),
                 DABlocks.CRUDEROOT_FENCE.get(),
-                DABlocks.CONBERRY_FENCE.get()
+                DABlocks.CONBERRY_FENCE.get(),
+                DABlocks.SUNROOT_FENCE.get()
         );
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
@@ -198,7 +213,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MOSS_BLOCK.get(),
                 DABlocks.AETHER_MOSS_CARPET.get(),
                 DABlocks.AERGLOW_PETAL_BLOCK.get(),
-                DABlocks.CONBERRY_LEAVES.get()
+                DABlocks.CONBERRY_LEAVES.get(),
+                DABlocks.SUNROOT_LEAVES.get()
         );
         tag(BlockTags.MINEABLE_WITH_AXE).add(
                 DABlocks.ROSEROOT_WOOD.get(),
@@ -276,7 +292,26 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_SAPLING.get(),
                 DABlocks.CONBERRY_FENCE_GATE.get(),
                 DABlocks.CONBERRY_SIGN.get(),
-                DABlocks.CONBERRY_WALL_SIGN.get()
+                DABlocks.CONBERRY_WALL_SIGN.get(),
+
+                DABlocks.SUNROOT_WOOD.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get(),
+                DABlocks.SUNROOT_LOG.get(),
+                DABlocks.SUNROOT_PLANKS.get(),
+                DABlocks.SUNROOT_DOOR.get(),
+                DABlocks.SUNROOT_TRAPDOOR.get(),
+                DABlocks.SUNROOT_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_WALL.get(),
+                DABlocks.SUNROOT_SLAB.get(),
+                DABlocks.SUNROOT_STAIRS.get(),
+                DABlocks.SUNROOT_BUTTON.get(),
+                DABlocks.SUNROOT_PRESSURE_PLATE.get(),
+                DABlocks.SUNROOT_FENCE.get(),
+                DABlocks.SUNROOT_SAPLING.get(),
+                DABlocks.SUNROOT_FENCE_GATE.get(),
+                DABlocks.SUNROOT_SIGN.get(),
+                DABlocks.SUNROOT_WALL_SIGN.get()
         );
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 DABlocks.ASETERITE.get(),

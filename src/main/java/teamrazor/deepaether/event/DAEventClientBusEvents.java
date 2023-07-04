@@ -34,6 +34,7 @@ public class DAEventClientBusEvents {
             Sheets.addWoodType(DAWoodTypes.CRUDEROOT);
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
+            Sheets.addWoodType(DAWoodTypes.SUNROOT);
 
             if(ModList.get().isLoaded("lost_aether_content")) {
                 AddonItemModelPredicates.init();

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "deep_aether:block/sunroot_planks",
+    "side": "deep_aether:block/sunroot_planks",
+    "top": "deep_aether:block/sunroot_planks"
+  }
+}

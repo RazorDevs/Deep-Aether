@@ -76,7 +76,8 @@ public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
         ROSEROOT("roseroot", () -> DAItems.ROSEROOT_BOAT.get(), () -> DAItems.ROSEROOT_CHEST_BOAT.get()),
         CONBERRY("conberry", () -> DAItems.CONBERRY_BOAT.get(), () -> DAItems.CONBERRY_CHEST_BOAT.get()),
         CRUDEROOT("cruderoot", () -> DAItems.CRUDEROOT_BOAT.get(), () -> DAItems.CRUDEROOT_CHEST_BOAT.get()),
-        YAGROOT("yagroot", () -> DAItems.YAGROOT_BOAT.get(), () -> DAItems.YAGROOT_CHEST_BOAT.get());
+        YAGROOT("yagroot", () -> DAItems.YAGROOT_BOAT.get(), () -> DAItems.YAGROOT_CHEST_BOAT.get()),
+        SUNROOT("sunroot", () -> DAItems.SUNROOT_BOAT.get(), () -> DAItems.SUNROOT_CHEST_BOAT.get());
 
         private final String name;
         private final Supplier<Item> item;
