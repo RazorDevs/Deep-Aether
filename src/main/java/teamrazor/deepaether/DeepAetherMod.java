@@ -181,7 +181,7 @@ public class DeepAetherMod {
 		});
 	}
 
-		private void enqueueIMC(final InterModEnqueueEvent event)
+	private void enqueueIMC(final InterModEnqueueEvent event)
 	{
 		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
 	}
