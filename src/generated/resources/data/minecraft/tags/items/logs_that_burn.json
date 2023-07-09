@@ -19,6 +19,10 @@
     "deep_aether:holyroot_log",
     "deep_aether:holyroot_wood",
     "deep_aether:stripped_holyroot_log",
-    "deep_aether:stripped_holyroot_wood"
+    "deep_aether:stripped_holyroot_wood",
+    "deep_aether:sunroot_log",
+    "deep_aether:sunroot_wood",
+    "deep_aether:stripped_sunroot_log",
+    "deep_aether:stripped_sunroot_wood"
   ]
 }

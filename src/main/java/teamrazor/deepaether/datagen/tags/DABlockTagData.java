@@ -148,7 +148,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 .addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
                 .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
                 .addOptional(DABlocks.HOLYROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.getId()
+                .addOptional(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.getId())
                 .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
                 .addOptional(DABlocks.SUNROOT_LOG_WALL.getId())
                 .addOptional(DABlocks.STRIPPED_SUNROOT_LOG_WALL.getId()
