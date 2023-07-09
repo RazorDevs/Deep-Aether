@@ -41,7 +41,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
                 DABlocks.CONBERRY_PLANKS.get().asItem(),
-                DABlocks.HOLYROOT_PLANKS.get().asItem()
+                DABlocks.HOLYROOT_PLANKS.get().asItem(),
+                DABlocks.SUNROOT_PLANKS.get().asItem()
         );
 
         tag(DATags.Items.CRAFTS_ROSEROOT_PLANKS).add(
@@ -74,26 +75,35 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_HOLYROOT_LOG.get().asItem(),
                 DABlocks.STRIPPED_HOLYROOT_WOOD.get().asItem()
         );
+        tag(DATags.Items.CRAFTS_SUNROOT_PLANKS).add(
+                DABlocks.SUNROOT_LOG.get().asItem(),
+                DABlocks.SUNROOT_WOOD.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
+        );
         tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
                 DABlocks.CONBERRY_PLANKS.get().asItem(),
-                DABlocks.HOLYROOT_PLANKS.get().asItem()
+                DABlocks.HOLYROOT_PLANKS.get().asItem(),
+                DABlocks.SUNROOT_PLANKS.get().asItem()
         );
         tag(AetherTags.Items.SKYROOT_TOOL_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
                 DABlocks.CONBERRY_PLANKS.get().asItem(),
-                DABlocks.HOLYROOT_PLANKS.get().asItem()
+                DABlocks.HOLYROOT_PLANKS.get().asItem(),
+                DABlocks.SUNROOT_PLANKS.get().asItem()
         );
         tag(AetherTags.Items.SKYROOT_REPAIRING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
                 DABlocks.CRUDEROOT_PLANKS.get().asItem(),
                 DABlocks.CONBERRY_PLANKS.get().asItem(),
-                DABlocks.HOLYROOT_PLANKS.get().asItem()
+                DABlocks.HOLYROOT_PLANKS.get().asItem(),
+                DABlocks.SUNROOT_PLANKS.get().asItem()
         );
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
@@ -138,7 +148,11 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.HOLYROOT_LOG.get().asItem(),
                 DABlocks.HOLYROOT_WOOD.get().asItem(),
                 DABlocks.STRIPPED_HOLYROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_HOLYROOT_WOOD.get().asItem()
+                DABlocks.STRIPPED_HOLYROOT_WOOD.get().asItem(),
+                DABlocks.SUNROOT_LOG.get().asItem(),
+                DABlocks.SUNROOT_WOOD.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
         );
         tag(ItemTags.LOGS_THAT_BURN).add(
                 DABlocks.ROSEROOT_LOG.get().asItem(),
@@ -160,14 +174,19 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.HOLYROOT_LOG.get().asItem(),
                 DABlocks.HOLYROOT_WOOD.get().asItem(),
                 DABlocks.STRIPPED_HOLYROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_HOLYROOT_WOOD.get().asItem()
+                DABlocks.STRIPPED_HOLYROOT_WOOD.get().asItem(),
+                DABlocks.SUNROOT_LOG.get().asItem(),
+                DABlocks.SUNROOT_WOOD.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
         );
         tag(ItemTags.SIGNS).add(
                 DABlocks.ROSEROOT_SIGN.get().asItem(),
                 DABlocks.YAGROOT_SIGN.get().asItem(),
                 DABlocks.CRUDEROOT_SIGN.get().asItem(),
                 DABlocks.CONBERRY_SIGN.get().asItem(),
-                DABlocks.HOLYROOT_SIGN.get().asItem()
+                DABlocks.HOLYROOT_SIGN.get().asItem(),
+                DABlocks.SUNROOT_SIGN.get().asItem()
         );
         tag(ItemTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get().asItem(),
@@ -180,6 +199,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_CONBERRY_WALL.get().asItem(),
                 DABlocks.HOLYROOT_WALL.get().asItem(),
                 DABlocks.STRIPPED_HOLYROOT_WALL.get().asItem(),
+                DABlocks.SUNROOT_WALL.get().asItem(),
+                DABlocks.STRIPPED_SUNROOT_WALL.get().asItem(),
                 DABlocks.CLORITE_WALL.get().asItem(),
                 DABlocks.ASETERITE_WALL.get().asItem(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get().asItem(),
@@ -193,7 +214,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.YAGROOT_FENCE_GATE.get().asItem(),
                 DABlocks.CRUDEROOT_FENCE_GATE.get().asItem(),
                 DABlocks.CONBERRY_FENCE_GATE.get().asItem(),
-                DABlocks.HOLYROOT_FENCE_GATE.get().asItem()
+                DABlocks.HOLYROOT_FENCE_GATE.get().asItem(),
+                DABlocks.SUNROOT_FENCE_GATE.get().asItem()
         );
         tag(ItemTags.LEAVES).add(
                 DABlocks.ROSEROOT_LEAVES.get().asItem(),
@@ -203,7 +225,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.YAGROOT_LEAVES.get().asItem(),
                 DABlocks.CRUDEROOT_LEAVES.get().asItem(),
                 DABlocks.CONBERRY_LEAVES.get().asItem(),
-                DABlocks.HOLYROOT_LEAVES.get().asItem()
+                DABlocks.HOLYROOT_LEAVES.get().asItem(),
+                DABlocks.SUNROOT_LEAVES.get().asItem()
         );
         tag(DATags.Items.EGGS).add(
                 DAItems.QUAIL_EGG.get(),

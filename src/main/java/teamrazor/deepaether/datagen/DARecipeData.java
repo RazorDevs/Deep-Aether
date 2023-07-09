@@ -192,6 +192,36 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DABlocks.HOLYROOT_PLANKS.get()), has(DABlocks.HOLYROOT_PLANKS.get()))
                 .save(consumer);
 
+        woodFromLogs(consumer, DABlocks.SUNROOT_WOOD.get(), DABlocks.SUNROOT_LOG.get());
+        woodFromLogs(consumer, DABlocks.STRIPPED_SUNROOT_WOOD.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+        planksFromLogs(consumer, DABlocks.SUNROOT_PLANKS.get(), DATags.Items.CRAFTS_SUNROOT_PLANKS, 4);
+        stairs(DABlocks.SUNROOT_STAIRS, DABlocks.SUNROOT_PLANKS).group("wooden_stairs").save(consumer);
+
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.SUNROOT_SLAB.get(), Ingredient.of(DABlocks.SUNROOT_PLANKS.get()))
+                .group("wooden_slab")
+                .unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get()))
+                .save(consumer);
+
+        fence(DABlocks.SUNROOT_FENCE, DABlocks.SUNROOT_PLANKS).save(consumer);
+        fenceGate(DABlocks.SUNROOT_FENCE_GATE, DABlocks.SUNROOT_PLANKS).save(consumer);
+
+        doorBuilder(DABlocks.SUNROOT_DOOR.get(), Ingredient.of(DABlocks.SUNROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get())).group("wooden_door").save(consumer);
+        trapdoorBuilder(DABlocks.SUNROOT_TRAPDOOR.get(), Ingredient.of(DABlocks.SUNROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get())).group("wooden_trapdoor").save(consumer);
+        pressurePlateBuilder(RecipeCategory.REDSTONE, DABlocks.SUNROOT_PRESSURE_PLATE.get(), Ingredient.of(DABlocks.SUNROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get())).group("wooden_pressure_plate").save(consumer);
+        buttonBuilder(DABlocks.SUNROOT_BUTTON.get(), Ingredient.of(DABlocks.SUNROOT_PLANKS.get())).unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get())).group("wooden_button").save(consumer);
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.SUNROOT_WALL.get(), DABlocks.SUNROOT_LOG.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SUNROOT_SIGN.get(), 3)
+                .group("wooden_sign")
+                .define('P', DABlocks.SUNROOT_PLANKS.get().asItem())
+                .define('/', Tags.Items.RODS_WOODEN)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern(" / ")
+                .unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get()))
+                .save(consumer);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_PETAL_BLOCK.get(), 1)
                 .define('A', DAItems.AERGLOW_PETAL.get())
@@ -533,11 +563,14 @@ public class DARecipeData extends AetherRecipeProvider {
         makeBoat(DAItems.CRUDEROOT_BOAT, DABlocks.CRUDEROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.CONBERRY_BOAT, DABlocks.CONBERRY_PLANKS.get()).save(consumer);
         makeBoat(DAItems.HOLYROOT_BOAT, DABlocks.HOLYROOT_PLANKS.get()).save(consumer);
+        makeBoat(DAItems.SUNROOT_BOAT, DABlocks.SUNROOT_PLANKS.get()).save(consumer);
 
         makeChestBoat(DAItems.ROSEROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.YAGROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.CRUDEROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.HOLYROOT_CHEST_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.CONBERRY_CHEST_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.SUNROOT_CHEST_BOAT.get()).save(consumer);
 
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));

@@ -15,4 +15,6 @@ public class DAWoodTypes {
     public static final WoodType CONBERRY = new WoodType(DeepAetherMod.MODID + ":conberry", CONBERRY_BLOCK_SET);
     public static final BlockSetType HOLYROOT_BLOCK_SET = new BlockSetType(DeepAetherMod.MODID + ":holyroot");
     public static final WoodType HOLYROOT = new WoodType(DeepAetherMod.MODID + ":holyroot", CONBERRY_BLOCK_SET);
+    public static final BlockSetType SUNROOT_BLOCK_SET = new BlockSetType(DeepAetherMod.MODID + ":sunroot");
+    public static final WoodType SUNROOT = new WoodType(DeepAetherMod.MODID + ":sunroot", SUNROOT_BLOCK_SET);
 }

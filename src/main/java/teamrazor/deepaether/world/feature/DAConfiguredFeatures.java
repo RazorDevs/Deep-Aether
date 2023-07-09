@@ -49,7 +49,9 @@ import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.foliage.SunrootFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.foliage.YagrootFoliagePlacer;
+import teamrazor.deepaether.world.feature.tree.trunk.SunrootHookedTrunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.YagrootTrunkPlacer;
 
@@ -84,6 +86,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_CATTAILS_PATCH =  createKey("aether_cattails_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_PATCH = createKey("golden_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONBERRY_TREE = createKey("conberry_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_TREE = createKey("sunroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH = createKey("golden_grass_block_bonemeal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
@@ -184,6 +187,15 @@ public class DAConfiguredFeatures {
                         BlockStateProvider.simple(DAFeatureStates.CONBERRY_LEAVES),
                         new GoldenOakFoliagePlacer(ConstantInt.of(0), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
+
+        register(context, SUNROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(DABlocks.SUNROOT_LOG.get()),
+                        new SunrootHookedTrunkPlacer(8, 14, 14),
+                        BlockStateProvider.simple(DABlocks.SUNROOT_LEAVES.get()),
+                        new SunrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 1, 4)
+                ).ignoreVines().build());
 
 
         register(context, GOLDEN_GRASS_PATCH, Feature.FLOWER,

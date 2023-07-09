@@ -128,6 +128,25 @@ public class DATabs {
                             output.accept(DABlocks.HOLYROOT_LEAVES.get());
                             output.accept(DABlocks.HOLYROOT_SAPLING.get());
 
+                            output.accept(DABlocks.SUNROOT_LOG.get());
+                            output.accept(DABlocks.SUNROOT_WOOD.get());
+                            output.accept(DABlocks.STRIPPED_SUNROOT_LOG.get());
+                            output.accept(DABlocks.STRIPPED_SUNROOT_WOOD.get());
+                            output.accept(DABlocks.SUNROOT_PLANKS.get());
+                            output.accept(DABlocks.SUNROOT_STAIRS.get());
+                            output.accept(DABlocks.SUNROOT_SLAB.get());
+                            output.accept(DABlocks.SUNROOT_FENCE.get());
+                            output.accept(DABlocks.SUNROOT_FENCE_GATE.get());
+                            output.accept(DABlocks.SUNROOT_DOOR.get());
+                            output.accept(DABlocks.SUNROOT_TRAPDOOR.get());
+                            output.accept(DABlocks.SUNROOT_PRESSURE_PLATE.get());
+                            output.accept(DABlocks.SUNROOT_WALL.get());
+                            output.accept(DABlocks.STRIPPED_SUNROOT_WALL.get());
+                            output.accept(DABlocks.SUNROOT_BUTTON.get());
+                            output.accept(DAItems.SUNROOT_SIGN.get());
+                            output.accept(DABlocks.SUNROOT_LEAVES.get());
+                            output.accept(DABlocks.SUNROOT_SAPLING.get());
+
 
                             if(ModList.get().isLoaded("aether_genesis")) {
                                 output.accept(DABlocks.ROSEROOT_LOG_WALL.get());
@@ -140,6 +159,8 @@ public class DATabs {
                                 output.accept(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
                                 output.accept(DABlocks.HOLYROOT_LOG_WALL.get());
                                 output.accept(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.get());
+                                output.accept(DABlocks.SUNROOT_LOG_WALL.get());
+                                output.accept(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
                             }
 
                             output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
@@ -273,6 +294,8 @@ public class DATabs {
                             output.accept(DAItems.CONBERRY_CHEST_BOAT.get());
                             output.accept(DAItems.HOLYROOT_BOAT.get());
                             output.accept(DAItems.HOLYROOT_CHEST_BOAT.get());
+                            output.accept(DAItems.SUNROOT_BOAT.get());
+                            output.accept(DAItems.SUNROOT_CHEST_BOAT.get());
 
                             output.accept(DAItems.MUSIC_DISC_NABOORU.get());
                             output.accept(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

@@ -130,6 +130,27 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.HOLYROOT_LEAVES.get());
         this.item(DABlocks.HOLYROOT_SIGN.get().asItem());
 
+        this.itemBlock(DABlocks.SUNROOT_WOOD.get());
+        this.itemBlock(DABlocks.SUNROOT_LOG.get());
+        this.itemBlock(DABlocks.STRIPPED_SUNROOT_WOOD.get());
+        this.itemBlock(DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.itemBlock(DABlocks.SUNROOT_PLANKS.get());
+        this.itemBlock(DABlocks.SUNROOT_SLAB.get());
+        this.itemBlock(DABlocks.SUNROOT_STAIRS.get());
+        this.itemFence(DABlocks.SUNROOT_FENCE.get(), DABlocks.SUNROOT_PLANKS.get());
+        this.itemBlock(DABlocks.SUNROOT_FENCE_GATE.get());
+        this.item(DABlocks.SUNROOT_DOOR.get().asItem());
+        this.itemBlock(DABlocks.SUNROOT_TRAPDOOR.get(), "_bottom");
+        this.itemButton(DABlocks.SUNROOT_BUTTON.get(), DABlocks.SUNROOT_PLANKS.get());
+        this.itemBlock(DABlocks.SUNROOT_PRESSURE_PLATE.get());
+        this.itemWallBlock(DABlocks.SUNROOT_WALL.get(), DABlocks.SUNROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.itemBlockFlat(DABlocks.SUNROOT_SAPLING.get());
+        this.itemBlock(DABlocks.SUNROOT_LEAVES.get());
+        this.item(DABlocks.SUNROOT_SIGN.get().asItem());
+
+
+
         this.itemBlock(DABlocks.AETHER_MUD.get());
         this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS.get());
@@ -212,7 +233,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemLogWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
         this.itemLogWallBlock(DABlocks.HOLYROOT_LOG_WALL.get(), DABlocks.HOLYROOT_LOG.get(), "", DeepAetherMod.MODID);
         this.itemLogWallBlock(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.get(), DABlocks.STRIPPED_HOLYROOT_LOG.get(), "", DeepAetherMod.MODID);
-
+        this.itemLogWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
+        this.itemLogWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
 
 
         //ITEMS
@@ -263,6 +285,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.CONBERRY_CHEST_BOAT.get());
         this.item(DAItems.HOLYROOT_BOAT.get());
         this.item(DAItems.HOLYROOT_CHEST_BOAT.get());
+        this.item(DAItems.SUNROOT_BOAT.get());
+        this.item(DAItems.SUNROOT_CHEST_BOAT.get());
 
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());

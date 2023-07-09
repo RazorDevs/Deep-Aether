@@ -17,6 +17,7 @@ public class DATags {
         public static final TagKey<Item> CRAFTS_CONBERRY_PLANKS = tag("crafts_conberry_planks");
         public static final TagKey<Item> CRAFTS_HOLYROOT_PLANKS = tag("crafts_holyroot_planks");
 
+        public static final TagKey<Item> CRAFTS_SUNROOT_PLANKS = tag("crafts_sunroot_planks");
         public static final TagKey<Item> EGGS = tag("eggs");
         public static final TagKey<Item> MILK_BUCKETS = tag("milk_buckets");
         public static final TagKey<Item> STRATUS_REPAIRING = tag("stratus_repairing");
