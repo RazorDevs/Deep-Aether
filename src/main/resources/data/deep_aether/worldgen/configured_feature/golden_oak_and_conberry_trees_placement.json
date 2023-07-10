@@ -38,6 +38,26 @@
             }
           ]
         }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "deep_aether:sunroot_tree",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "deep_aether:sunroot_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }
