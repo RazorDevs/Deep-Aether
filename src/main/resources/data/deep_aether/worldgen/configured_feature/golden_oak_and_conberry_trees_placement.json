@@ -40,7 +40,7 @@
         }
       },
       {
-        "chance": 0.2,
+        "chance": 0.4,
         "feature": {
           "feature": "deep_aether:sunroot_tree",
           "placement": [
