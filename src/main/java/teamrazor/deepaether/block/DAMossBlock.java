@@ -11,7 +11,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
+import teamrazor.deepaether.world.features.DAConfiguredFeatures;
 
 public class DAMossBlock extends AetherDoubleDropBlock implements BonemealableBlock {
     public DAMossBlock(BlockBehaviour.Properties p_153790_) {

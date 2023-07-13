@@ -1,0 +1,34 @@
+{
+  "type": "deep_aether:aercloud_pillar",
+  "config": {
+    "blockstate": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether:cold_aercloud",
+            "Properties": {
+              "double_drops": "true"
+            }
+          },
+          "weight": 50
+        },
+        {
+          "data": {
+            "Name": "deep_aether:rain_aercloud",
+            "Properties": {
+              "double_drops": "true"
+            }
+          },
+          "weight": 50
+        },
+        {
+          "data": {
+            "Name": "deep_aether:sterling_aercloud"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

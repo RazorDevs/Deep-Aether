@@ -28,7 +28,7 @@ import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
-import teamrazor.deepaether.world.feature.tree.*;
+import teamrazor.deepaether.world.features.tree.*;
 
 import java.util.function.Supplier;
 

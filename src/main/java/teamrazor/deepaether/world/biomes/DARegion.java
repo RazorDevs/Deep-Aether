@@ -30,13 +30,14 @@ public class DARegion extends Region {
         Climate.Parameter temps2 = Climate.Parameter.span(0.0F, 0.4F);
 
         //AERLAVENDER FIELDS
-        Climate.Parameter temps3 = Climate.Parameter.span(0.4F, 0.93F);
-        Climate.Parameter temps5 = Climate.Parameter.span(0.93F, 0.94F);
-        Climate.Parameter temps6 = Climate.Parameter.span(0.94F, 1.0F);
+        Climate.Parameter temps3 = Climate.Parameter.span(0.4F, 1.0F);
 
 
         this.addBiome(mapper, new Climate.ParameterPoint(temps1, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.GOLDEN_HEIGHTS);
+
+        this.addBiome(mapper, new Climate.ParameterPoint(temps1, Climate.Parameter.span(-0.33F, 0.33F), fullRange, fullRange, fullRange, fullRange, 0),
+                DABiomes.SACRED_LANDS);
 
         this.addBiome(mapper, new Climate.ParameterPoint(temps1, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.YAGROOT_SWAMP);
@@ -50,7 +51,10 @@ public class DARegion extends Region {
         this.addBiome(mapper, new Climate.ParameterPoint(temps2, Climate.Parameter.span(0.8F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.BLUE_AERGLOW_FOREST);
 
-        this.addBiome(mapper, new Climate.ParameterPoint(temps3, fullRange, fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.AERLAVENDER_FIELDS);
+        //this.addBiome(mapper, new Climate.ParameterPoint(temps3, fullRange, fullRange, fullRange, fullRange, fullRange, 0),
+        //        DABiomes.AERLAVENDER_FIELDS);
+
+        this.addBiome(mapper, new Climate.ParameterPoint(temps3, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.0F, -0.9F), fullRange, 0),
+                DABiomes.AERCLOUD);
     }
 }

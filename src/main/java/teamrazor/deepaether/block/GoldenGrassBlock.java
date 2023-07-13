@@ -11,7 +11,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
@@ -20,7 +19,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.world.feature.DAPlacedFeatures;
+import teamrazor.deepaether.world.features.DAPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;

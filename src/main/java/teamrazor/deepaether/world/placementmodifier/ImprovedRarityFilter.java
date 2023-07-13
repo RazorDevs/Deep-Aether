@@ -7,7 +7,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
-import teamrazor.deepaether.world.feature.DAPlacedFeatures;
 
 public class ImprovedRarityFilter extends PlacementFilter {
     public static final Codec<ImprovedRarityFilter> CODEC = ExtraCodecs.POSITIVE_FLOAT.fieldOf("chance").xmap(ImprovedRarityFilter::new, (p_274876_)

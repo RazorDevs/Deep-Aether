@@ -1,0 +1,29 @@
+{
+  "feature": "deep_aether:aercloud_base",
+  "placement": [
+    {
+      "type": "minecraft:noise_threshold_count",
+      "above_noise": 2,
+      "below_noise": 3,
+      "noise_level": -0.5
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "absolute": 249
+        },
+        "min_inclusive": {
+          "absolute": 248
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
