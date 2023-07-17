@@ -478,6 +478,9 @@
   "lore.item.deep_aether.golden_grass_seeds": "These seeds come from Golden Grass. Combine it with a Swet Ball to make Golden Swet Balls.",
   "item.deep_aether.golden_swet_ball": "Golden Swet Ball",
   "lore.item.deep_aether.golden_swet_ball": "A gooey orb that is combined from Swet Balls and Golden Grass Seeds. Can be used to turn Aether Dirt into Golden Grass.",
+  "block.deep_aether.moa_totem": "Moa Totem",
+  "block.deep_aether.zephyr_totem": "Zephyr Totem",
+  "block.deep_aether.aerwhale_totem": "Aerwhale Totem",
 
 
   "biomes.deep_aether.aerglow_forest": "Aerglow Forest",

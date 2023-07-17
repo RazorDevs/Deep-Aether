@@ -254,6 +254,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.GOLDEN_VINES_PLANT.get(), (vines) -> this.createGoldenVinesDrop(vines));
 
         this.dropSelf(DABlocks.RED_AERCLOUD.get());
+        this.dropSelf(DABlocks.MOA_TOTEM.get());
+        this.dropSelf(DABlocks.ZEPHYR_TOTEM.get());
+        this.dropSelf(DABlocks.AERWHALE_TOTEM.get());
     }
 
     protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {

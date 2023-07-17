@@ -180,6 +180,9 @@ public class DATabs {
                             output.accept(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.PLACEABLE_POISON_BUCKET.get());
 
+                            output.accept(DABlocks.MOA_TOTEM.get());
+                            output.accept(DABlocks.ZEPHYR_TOTEM.get());
+                            output.accept(DABlocks.AERWHALE_TOTEM.get());
                         }));
 
         TAB_DEEP_AETHER_ITEMS_TAB = event.registerCreativeModeTab(

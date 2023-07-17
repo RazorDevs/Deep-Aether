@@ -235,6 +235,9 @@ public class DABlocks {
 
 	public static final RegistryObject<Block> RED_AERCLOUD = registerBlock("red_aercloud", () -> new RedAercloudBlock(BlockBehaviour.Properties.of(Material.ICE, MaterialColor.COLOR_RED).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::always).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
 
+	public static final RegistryObject<Block> MOA_TOTEM = registerBlock("moa_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
+	public static final RegistryObject<Block> ZEPHYR_TOTEM = registerBlock("zephyr_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
+	public static final RegistryObject<Block> AERWHALE_TOTEM = registerBlock("aerwhale_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
 
 	//POTS
 	public static final RegistryObject<FlowerPotBlock> POTTED_AERLAVENDER = BLOCKS.register("potted_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
