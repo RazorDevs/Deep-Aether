@@ -242,6 +242,9 @@ public class DABlocks {
 	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
+	public static final RegistryObject<Block> MOA_TOTEM = registerBlock("moa_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
+	public static final RegistryObject<Block> ZEPHYR_TOTEM = registerBlock("zephyr_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
+	public static final RegistryObject<Block> AERWHALE_TOTEM = registerBlock("aerwhale_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
 
 	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = registerBlock("aerglow_petal_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = registerBlock("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));

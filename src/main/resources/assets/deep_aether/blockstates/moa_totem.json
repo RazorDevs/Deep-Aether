@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "deep_aether:block/moa_totem"
+    },
+    "facing=south": {
+      "model": "deep_aether:block/moa_totem",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "deep_aether:block/moa_totem",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "deep_aether:block/moa_totem",
+      "y": 90
+    }
+  }
+}

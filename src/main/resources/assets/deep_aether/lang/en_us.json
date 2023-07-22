@@ -1,14 +1,17 @@
 {
   "item.deep_aether.skyjade_chestplate": "Skyjade Chestplate",
   "lore.item.deep_aether.skyjade_chestplate": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
-  "item.deep_aether.aether_fish_spawn_egg": "Aether Fish Spawn Egg",
-  "lore.item.deep_aether.aether_fish_spawn_egg": "This is a Spawn Egg that is used to spawn the Aether Fish in Creative Mode.",
+  "item.deep_aether.aether_fish_spawn_egg": "Aerglow Fish Spawn Egg",
+  "lore.item.deep_aether.aether_fish_spawn_egg": "This is a Spawn Egg that is used to spawn the Aerglow Fish in Creative Mode.",
   "item.deep_aether.quail_spawn_egg": "Quail Spawn Egg",
   "lore.item.deep_aether.quail_spawn_egg": "This is a Spawn Egg that is used to spawn the Quail in Creative Mode.",
+  "item.deep_aether.steer_spawn_egg": "Steer Spawn Egg",
+  "lore.item.deep_aether.steer_spawn_egg": "This is a Spawn Egg that is used to spawn the Steer in Creative Mode.",
   "item.deep_aether.quail_egg": "Quail Egg",
   "lore.item.deep_aether.quail_egg": "Peculiar egg that Quails lay. They're as tasty as the originals!",
   "entity.deep_aether.quail": "Quail",
   "entity.deep_aether.aerglow_fish": "Aerglow Fish",
+  "entity.deep_aether.steer": "Steer",
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "lore.block.deep_aether.aerglow_grass_path": "This block is the result of using a shovel on an Aerglow Grass Block.",
   "block.deep_aether.aersmog": "Aersmog",
@@ -610,6 +613,12 @@
   "block.deep_aether.holyroot_log_wall": "Holyroot Log Wall",
   "block.deep_aether.stripped_holyroot_log_wall": "Stripped Holyroot Log Wall",
   "block.deep_aether.sunroot_log_wall": "Sunroot Log Wall",
-  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall"
+  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall",
+
+  "block.deep_aether.moa_totem": "Moa Totem",
+  "block.deep_aether.zephyr_totem": "Zephyr Totem",
+  "block.deep_aether.aerwhale_totem": "Aerwhale Totem",
+
+  "effect.deep_aether.blessing": "Blessing"
 }
 

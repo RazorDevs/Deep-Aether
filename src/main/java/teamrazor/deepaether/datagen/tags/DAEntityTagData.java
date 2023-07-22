@@ -27,7 +27,8 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
         tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(
-                DAEntities.QUAIL.get()
+                DAEntities.QUAIL.get(),
+                DAEntities.STEER.get()
         );
     }
 }

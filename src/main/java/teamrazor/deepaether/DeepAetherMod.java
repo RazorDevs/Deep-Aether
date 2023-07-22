@@ -114,6 +114,7 @@ public class DeepAetherMod {
 		DAParticles.PARTICLE_TYPES.register(bus);
 		DAEntities.ENTITY_TYPES.register(bus);
 		DASounds.SOUNDS.register(bus);
+		DAEffects.MOB_EFFECTS.register(bus);
 		DAFluids.FLUIDS.register(bus);
 		DAFluidTypes.FLUID_TYPES.register(bus);
 		DADecoratorType.REGISTRY.register(bus);

@@ -285,6 +285,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.GOLDEN_VINES.get(), (vines) -> this.createGoldenVinesDrop(vines));
         this.add(DABlocks.GOLDEN_VINES_PLANT.get(), (vines) -> this.createGoldenVinesDrop(vines));
 
+        this.dropSelf(DABlocks.MOA_TOTEM.get());
+        this.dropSelf(DABlocks.ZEPHYR_TOTEM.get());
+        this.dropSelf(DABlocks.AERWHALE_TOTEM.get());
 
         if (ModList.get().isLoaded("lost_aether_content")) {
             this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());

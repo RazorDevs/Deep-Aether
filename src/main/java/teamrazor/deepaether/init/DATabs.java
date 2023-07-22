@@ -237,6 +237,10 @@ public class DATabs {
                             output.accept(DABlocks.AERSMOG.get());
                             output.accept(DABlocks.CHROMATIC_AERCLOUD.get());
                             output.accept(DABlocks.STERLING_AERCLOUD.get());
+
+                            output.accept(DABlocks.MOA_TOTEM.get());
+                            output.accept(DABlocks.ZEPHYR_TOTEM.get());
+                            output.accept(DABlocks.AERWHALE_TOTEM.get());
                         }));
 
         TAB_DEEP_AETHER_ITEMS_TAB = event.registerCreativeModeTab(
