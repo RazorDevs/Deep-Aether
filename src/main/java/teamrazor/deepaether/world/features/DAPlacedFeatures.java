@@ -146,7 +146,7 @@ public class DAPlacedFeatures {
 
         register(context, AERCLOUD_PILLAR, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_PILLAR),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(249), VerticalAnchor.absolute(255)),
-                CountPlacement.of(1),
+                RarityFilter.onAverageOnceEvery(10),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());

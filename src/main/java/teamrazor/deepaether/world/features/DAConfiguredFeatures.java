@@ -265,8 +265,7 @@ public class DAConfiguredFeatures {
 
 
         WeightedStateProvider aerclouds = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(AetherFeatureStates.COLD_AERCLOUD, 50)
-                .add(DAFeatureStates.RAIN_AERCLOUD, 50)
+                .add(DAFeatureStates.RAIN_AERCLOUD, 100)
                 .add(DABlocks.STERLING_AERCLOUD.get().defaultBlockState(), 1)
         );
 
