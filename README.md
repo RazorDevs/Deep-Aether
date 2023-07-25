@@ -43,6 +43,8 @@ New Blocks:
  - Unique flora for all added biomes, and the Golden Vine Fruit for the Golden Heights biome
  - Aerglow Block (crafted from Aerglow Petals, which come from Radiant Orchids and Flowering Roseroot Leaves)
  - Virulent Quicksand (functions like how quicksand does in real life, as well as Powdered Snow; immediate suffocation when fallen through)
+ - Aersmog: A type of Aercloud that is created from the mixture of Water and Poison. Inflicts the Inebration effect when stepped on.
+ - Sterling and Chromatic Aerclouds
  
 New Items:
  - Golden Grass Seeds (drops from Golden Grass (not the block version); can be crafted with swet balls into a new swet ball type, which can turn Aether Dirt into Golden Grass)
@@ -54,12 +56,14 @@ New Liquid:
 Mod Cross Compat:
  - Aether Lost Content
     - Skyjade and Cloudium Shields
+ - Aether Redux
+    - Tile variants for Gilded, Frosted, and Blightmoss Holystone
 
 # Requirements
 
 You'll need of course:
- - Aeroblender - This mod is **REQUIRED** for the biomes to work!!
  - Forge
+ - Aeroblender - This mod is **REQUIRED** for the biomes to work!!
  - The Aether Mod (The 1.19.4 version)
  
  You will also need:
