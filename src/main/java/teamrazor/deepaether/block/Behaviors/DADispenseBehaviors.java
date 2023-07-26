@@ -9,8 +9,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,12 +20,12 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.entity.DispenserBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.BlockHitResult;
 import teamrazor.deepaether.init.DABlocks;
 
 public class DADispenseBehaviors {
@@ -60,27 +60,47 @@ public class DADispenseBehaviors {
         }
     };
     public static final DispenseItemBehavior WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR = new DefaultDispenseItemBehavior() {
+
+
         @Override
         public ItemStack execute(BlockSource source, ItemStack stack) {
             if (PotionUtils.getPotion(stack) != Potions.WATER) {
                 return super.execute(source, stack);
-            } else {
+            }
+
+            else {
                 ServerLevel serverlevel = source.getLevel();
                 BlockPos blockpos = source.getPos();
                 BlockPos blockpos1 = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
-                if (!serverlevel.getBlockState(blockpos1).is(AetherBlocks.AETHER_DIRT.get())) {
-                    return super.execute(source, stack);
-                } else {
+
+                if (serverlevel.getBlockState(blockpos1).is(AetherBlocks.AETHER_DIRT.get())) {
                     if (!serverlevel.isClientSide) {
                         for (int i = 0; i < 5; ++i) {
                             serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), (double) (blockpos.getY() + 1), (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
                         }
                     }
 
-                    serverlevel.playSound((Player) null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    serverlevel.gameEvent((Entity) null, GameEvent.FLUID_PLACE, blockpos);
+                    serverlevel.playSound(null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    serverlevel.gameEvent(null, GameEvent.FLUID_PLACE, blockpos);
                     serverlevel.setBlockAndUpdate(blockpos1, DABlocks.AETHER_MUD.get().defaultBlockState());
                     return new ItemStack(Items.GLASS_BOTTLE);
+                }
+
+                else if (serverlevel.getBlockState(blockpos1).getBlockHolder().containsTag(BlockTags.CONVERTABLE_TO_MUD)) {
+                    if (!serverlevel.isClientSide) {
+                        for (int i = 0; i < 5; ++i) {
+                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), (double) (blockpos.getY() + 1), (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
+                        }
+                    }
+
+                    serverlevel.playSound(null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    serverlevel.gameEvent(null, GameEvent.FLUID_PLACE, blockpos);
+                    serverlevel.setBlockAndUpdate(blockpos1, Blocks.MUD.defaultBlockState());
+                    return new ItemStack(Items.GLASS_BOTTLE);
+                }
+
+                else {
+                   return super.execute(source, stack);
                 }
             }
         }
@@ -93,8 +113,8 @@ public class DADispenseBehaviors {
             DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)p_123562_.getItem();
             BlockPos blockpos = p_123561_.getPos().relative(p_123561_.getBlockState().getValue(DispenserBlock.FACING));
             Level level = p_123561_.getLevel();
-            if (dispensiblecontaineritem.emptyContents((Player)null, level, blockpos, (BlockHitResult)null)) {
-                dispensiblecontaineritem.checkExtraContent((Player)null, level, p_123562_, blockpos);
+            if (dispensiblecontaineritem.emptyContents(null, level, blockpos, null)) {
+                dispensiblecontaineritem.checkExtraContent(null, level, p_123562_, blockpos);
                 return new ItemStack(Items.BUCKET);
             } else {
                 return this.defaultDispenseItemBehavior.dispense(p_123561_, p_123562_);
