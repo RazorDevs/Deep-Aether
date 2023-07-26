@@ -43,6 +43,9 @@ public class DALogBlock extends AetherLogBlock {
             if(state.is(DABlocks.CONBERRY_WOOD.get())) {
                 return DABlocks.STRIPPED_CONBERRY_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
+            if(state.is(DABlocks.SUNROOT_LOG.get())) {
+                return DABlocks.STRIPPED_SUNROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            }
             if(state.is(DABlocks.SUNROOT_WOOD.get())) {
                 return DABlocks.STRIPPED_SUNROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
