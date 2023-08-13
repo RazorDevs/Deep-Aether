@@ -1,11 +1,13 @@
 package teamrazor.deepaether.init;
 
+import com.aetherteam.aether.client.renderer.entity.BlueSwetRenderer;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +15,11 @@ import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.client.renderer.*;
+import teamrazor.deepaether.client.renderer.AetherFishRenderer;
+import teamrazor.deepaether.client.renderer.DABoatRenderer;
+import teamrazor.deepaether.client.renderer.DeepAetherModelLayers;
+import teamrazor.deepaether.client.renderer.QuailRenderer;
+import teamrazor.deepaether.client.renderer.swet.AercloudSwetRenderer;
 import teamrazor.deepaether.entity.DABoatEntity;
 
 
@@ -29,7 +36,9 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.BOAT.get(), context -> new DABoatRenderer<>(context, false));
 		event.registerEntityRenderer(DAEntities.CHEST_BOAT.get(), context -> new DABoatRenderer<>(context, true));
 		event.registerEntityRenderer(DAEntities.QUAIL_EGG.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(DAEntities.AERCLOUD_SWET.get(), AercloudSwetRenderer::new);
 	}
+
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(DeepAetherModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);

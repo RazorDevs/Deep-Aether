@@ -1,10 +1,15 @@
 package teamrazor.deepaether.init;
 
 
+import com.aetherteam.aether.data.resources.AetherMobCategory;
+import com.aetherteam.aether.entity.monster.Swet;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -18,6 +23,7 @@ import teamrazor.deepaether.entity.DAChestBoatEntity;
 import teamrazor.deepaether.entity.Steer;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
+import teamrazor.deepaether.entity.swet.AercloudSwet;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -49,6 +55,12 @@ public class DAEntities {
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Quail::new)
 					.sized(0.35F, 0.7f));
 
+	public static final RegistryObject<EntityType<AercloudSwet>> AERCLOUD_SWET = ENTITY_TYPES.register("aercloud_swet",
+			() -> EntityType.Builder.of(AercloudSwet::new, AetherMobCategory.AETHER_SURFACE_MONSTER)
+					.sized(0.9F, 0.95F)
+					.clientTrackingRange(10)
+					.build("aercloud_swet"));
+
 
 	public static final RegistryObject<EntityType<Steer>> STEER = register("steer",
 			EntityType.Builder.<Steer>of(Steer::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
@@ -72,5 +84,11 @@ public class DAEntities {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(STEER.get(), Steer.createAttributes().build());
+		event.put(AERCLOUD_SWET.get(), AercloudSwet.createMobAttributes().build());
+	}
+
+	@SubscribeEvent
+	public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
+		event.register(DAEntities.AERCLOUD_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AercloudSwet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
 	}
 }

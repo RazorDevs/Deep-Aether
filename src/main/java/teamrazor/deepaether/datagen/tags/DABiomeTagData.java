@@ -42,5 +42,8 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.BLUE_AERGLOW_FOREST,
                 DABiomes.GOLDEN_HEIGHTS
         );
+        this.tag(DATags.Biomes.SPAWN_YELLOW_QUAILS).add(
+                DABiomes.GOLDEN_HEIGHTS
+        );
     }
 }

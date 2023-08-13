@@ -35,6 +35,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
+    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_SKYJADE = createKey("aerglow_forest_skyjade_ore");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
     public static final ResourceKey<PlacedFeature> AETHER_MOSS_PATCHES = createKey("aether_moss");
@@ -123,6 +124,8 @@ public class DAPlacedFeatures {
                 AetherPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
                 AetherPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
+        register(context, AERGLOW_FOREST_SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
+                AetherPlacedFeatureBuilders.commonOrePlacement(4, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
         register(context, GOLDEN_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
         register(context, SACRED_LANDS_VEGETATION, configuredFeatures.getOrThrow(DAConfiguredFeatures.SACRED_LANDS_VEGETATION), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());

@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -36,6 +37,7 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DASounds;
@@ -215,14 +217,23 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         tag.putInt("Variant", this.getTypeVariant());
     }
 
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746_, DifficultyInstance p_146747_,
-                                        MobSpawnType p_146748_, @Nullable SpawnGroupData p_146749_,
-                                        @Nullable CompoundTag p_146750_) {
-        QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance p_146747_,
+                                        MobSpawnType type, @Nullable SpawnGroupData data,
+                                        @Nullable CompoundTag tag) {
+        QuailVariants variant;
+        if(level.getBiome(this.blockPosition()).containsTag(DATags.Biomes.SPAWN_YELLOW_QUAILS)) {
+            variant = this.getRandomVariantExtra(QuailVariants.values(), this.random, QuailVariants.FADED_YELLOW);
+        }
+        else variant = Util.getRandom(QuailVariants.values(), this.random);
         setVariant(variant);
-        return super.finalizeSpawn(p_146746_, p_146747_, p_146748_, p_146749_, p_146750_);
+        return super.finalizeSpawn(level, p_146747_, type, data, tag);
     }
 
+    private QuailVariants getRandomVariantExtra(QuailVariants[] p_214671_, RandomSource random, QuailVariants variant) {
+        if(random.nextInt(16) == 10)
+            return p_214671_[random.nextInt(p_214671_.length)];
+        else return variant;
+    }
     public QuailVariants getVariant() {
         return QuailVariants.byId(this.getTypeVariant() & 255);
     }

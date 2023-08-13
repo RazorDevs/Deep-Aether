@@ -35,6 +35,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+import teamrazor.aeroblender.AeroBlenderConfig;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
@@ -59,6 +60,7 @@ import teamrazor.deepaether.world.features.tree.trunk.DaTrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
+import terrablender.config.Config;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
@@ -86,8 +88,6 @@ public class DeepAetherMod {
 
 
 	public DeepAetherMod() {
-
-
 		// Register the setup method for modloading
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		// Register the enqueueIMC method for modloading

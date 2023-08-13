@@ -3,10 +3,9 @@
   "package": "teamrazor.deepaether.mixin",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_17",
-  "plugin": "com.aetherteam.aether.mixin.AetherMixinPlugin",
   "refmap": "deep_aether.refmap.json",
   "mixins": [
-
+    "AercloudBlockMixin"
   ],
   "client": [
 

@@ -48,9 +48,7 @@ public class CloudPillarFeature  extends Feature<CloudPillarConfiguration> {
                     else
                         blockpos = blockpos.relative(MainDirection.getCounterClockWise());
                 }
-
                 placeCircle(blockpos, worldgenlevel, randomsource, state);
-                blockpos = blockpos.above(1);
             }
         }
         placeTopCircle(blockpos, worldgenlevel, randomsource, state);
