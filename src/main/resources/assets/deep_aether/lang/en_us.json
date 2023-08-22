@@ -415,6 +415,7 @@
   "item.deep_aether.cooked_aerglow_fish": "Cooked Aerglow Fish",
   "lore.item.deep_aether.cooked_aerglow_fish": "Obtained after cooking Raw Aerglow Fish. Restores more hunger than the raw version too!",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
+  "block.deep_aether.holystone_chiseled": "Holystone Chiseled",
   "block.deep_aether.aether_cattails": "Aether Cattails",
   "lore.block.deep_aether.aether_cattails": "A cyan flower found in Yagroot Swamps. Can be potted and used for decoration or to craft Cyan dye.",
   "block.deep_aether.tall_aether_cattails": "Tall Aether Cattails",
@@ -582,7 +583,7 @@
   "block.deep_aether.lunar_mint": "Lunar Mint",
   "block.deep_aether.golden_aspess":"Golden Aspess",
   "block.deep_aether.achroyn_violets":"Achroyn Violets",
-  "block.deep_aether.scunorn_roses":"Scunorn_roses",
+  "block.deep_aether.scuborn_roses":"Scuborn_roses",
 
   "lore.block.deep_aether.enchanted_blossom": "This flower spawns in the Golden Heights biome. It can be crafted into White Dye.",
   "item.deep_aether.goldenleaf_berries": "Goldenleaf Berries",
