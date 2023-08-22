@@ -35,7 +35,6 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
-import teamrazor.aeroblender.AeroBlenderConfig;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
@@ -50,8 +49,9 @@ import teamrazor.deepaether.datagen.tags.DAEntityTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
-import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
+import teamrazor.deepaether.world.biomes.regions.DARegion;
+import teamrazor.deepaether.world.biomes.regions.SkyRegion;
 import teamrazor.deepaether.world.features.feature.DAFeatures;
 import teamrazor.deepaether.world.features.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.features.tree.decorators.DARootPlacers;
@@ -60,7 +60,6 @@ import teamrazor.deepaether.world.features.tree.trunk.DaTrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
-import terrablender.config.Config;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
@@ -176,6 +175,7 @@ public class DeepAetherMod {
 		{
 			// Weights are kept intentionally low as we add minimal biomes
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
+			Regions.register(new SkyRegion(new ResourceLocation(MODID, "sky"), DeepAetherConfig.COMMON.deep_aether_sky_biome_weight.get()));
 
 			// Register our surface rules
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());

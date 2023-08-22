@@ -102,6 +102,8 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> STERLING_AERCLOUD_CONFIGURATION = createKey("sterling_aercloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_BASE = createKey("aercloud_base");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_PILLAR = createKey("aercloud_pillar");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_BASE_EDGE = createKey("aercloud_base_edge");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_PILLAR_EDGE = createKey("aercloud_pillar_edge");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OLD_SKYROOT_TREE_CONFIGURATION = createKey("old_skyroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYROOT_TREE_PLACEMENT = createKey("holyroot_tree_placement");
 
@@ -115,7 +117,6 @@ public class DAConfiguredFeatures {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> holdergetter = context.lookup(Registries.BLOCK);
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
-        RuleTest AERCLOUD = new TagMatchTest(AetherTags.Blocks.AERCLOUDS);
 
         register(context, POISON_LAKE_CONFIGURATION, AetherFeatures.LAKE.get(), AetherConfiguredFeatureBuilders.lake(BlockStateProvider.simple(DABlocks.POISON_BLOCK.get()),
                 BlockStateProvider.simple(DABlocks.AETHER_MUD.get())));
@@ -276,6 +277,14 @@ public class DAConfiguredFeatures {
 
         register(context, AERCLOUD_PILLAR, DAFeatures.AERCLOUD_PILLAR.get(),
                 new CloudPillarConfiguration(aerclouds)
+        );
+
+        register(context, AERCLOUD_BASE_EDGE, DAFeatures.MODIFIED_AERCLOUD.get(),
+                new AercloudConfiguration(16, BlockStateProvider.simple(AetherFeatureStates.COLD_AERCLOUD))
+        );
+
+        register(context, AERCLOUD_PILLAR_EDGE, DAFeatures.AERCLOUD_PILLAR.get(),
+                new CloudPillarConfiguration(BlockStateProvider.simple(AetherFeatureStates.COLD_AERCLOUD))
         );
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,

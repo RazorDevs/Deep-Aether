@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:scuborn_roses"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_dye"
+  }
+}

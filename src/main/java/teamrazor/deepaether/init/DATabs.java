@@ -210,6 +210,7 @@ public class DATabs {
                             output.accept(DABlocks.HOLYSTONE_TILE_STAIRS.get());
                             output.accept(DABlocks.HOLYSTONE_TILE_SLAB.get());
                             output.accept(DABlocks.HOLYSTONE_TILE_WALL.get());
+                            output.accept(DABlocks.CHISELED_HOLYSTONE.get());
                             output.accept(DABlocks.MOSSY_HOLYSTONE_TILES.get());
                             output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
                             output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
@@ -232,10 +233,16 @@ public class DATabs {
                             output.accept(DABlocks.AETHER_CATTAILS.get());
                             output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
 
+                            output.accept(DABlocks.LUNAR_MINT.get());
+                            output.accept(DABlocks.GOLDEN_ASPESS.get());
+                            output.accept(DABlocks.ACHROYN_VIOLETS.get());
+                            output.accept(DABlocks.SCUBORN_ROSES.get());
+                            output.accept(DABlocks.ENCHANTED_BLOSSOM.get());
+                            output.accept(DABlocks.GOLDEN_FLOWER.get());
+
                             output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
                             output.accept(DABlocks.GOLDEN_DIRT_PATH.get());
-                            output.accept(DABlocks.GOLDEN_FLOWER.get());
-                            output.accept(DABlocks.ENCHANTED_BLOSSOM.get());
+
                             output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                             output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());
                             output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());

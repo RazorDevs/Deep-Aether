@@ -231,6 +231,12 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.crossBlock(DABlocks.SHORT_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
         this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
+        this.crossBlock(DABlocks.LUNAR_MINT.get());
+        this.crossBlock(DABlocks.GOLDEN_ASPESS.get());
+        this.crossBlock(DABlocks.ACHROYN_VIOLETS.get());
+        this.crossBlock(DABlocks.SCUBORN_ROSES.get());
+
+
 
 
 
@@ -254,6 +260,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.stairs((StairBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
         this.slab((SlabBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
         this.wallBlock((WallBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+
+        this.block(DABlocks.CHISELED_HOLYSTONE.get());
 
         //MISC
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());

@@ -217,6 +217,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
         this.itemWallBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
 
+        this.itemBlock(DABlocks.CHISELED_HOLYSTONE.get());
 
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());
@@ -322,6 +323,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());
         this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
+        this.itemBlockFlat(DABlocks.LUNAR_MINT.get());
+        this.itemBlockFlat(DABlocks.GOLDEN_ASPESS.get());
+        this.itemBlockFlat(DABlocks.ACHROYN_VIOLETS.get());
+        this.itemBlockFlat(DABlocks.SCUBORN_ROSES.get());
         this.itemBlockFlat(DABlocks.ENCHANTED_BLOSSOM.get());
 
         this.item(DAItems.GOLDEN_GRASS_SEEDS.get());

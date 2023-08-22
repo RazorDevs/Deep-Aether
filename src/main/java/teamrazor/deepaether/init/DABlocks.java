@@ -238,7 +238,7 @@ public class DABlocks {
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_WALL = registerBlock("holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_WALL = registerBlock("mossy_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
-
+	public static final RegistryObject<Block> CHISELED_HOLYSTONE = registerBlock("chiseled_holystone", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
 	//AERCLOUDS
 	public static final RegistryObject<Block> AERSMOG = registerBlock("aersmog", () -> new AersmogBlock((Block.Properties.of(Material.ICE, MaterialColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never))));
@@ -246,15 +246,20 @@ public class DABlocks {
 	public static final RegistryObject<Block> STERLING_AERCLOUD = registerBlock("sterling_aercloud", () -> new SterlingAercloudBlock(Block.Properties.of(Material.ICE, MaterialColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).noCollission().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
 	public static final RegistryObject<Block> RAIN_AERCLOUD = registerBlock("rain_aercloud", () -> new RainAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get())));
 
-	//MISC
+	//FLOWER
 	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
 	public static final RegistryObject<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new FlowerBlock(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> TALL_AETHER_CATTAILS = registerBlock("tall_aether_cattails", () ->  new TallFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> ACHROYN_VIOLETS = registerBlock("achroyn_violets", () ->  new FlowerBlock(MobEffects.REGENERATION,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_ASPESS = registerBlock("golden_aspess", () ->  new FlowerBlock(MobEffects.WEAKNESS,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> LUNAR_MINT = registerBlock("lunar_mint", () ->  new FlowerBlock(MobEffects.LEVITATION,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> SCUBORN_ROSES = registerBlock("scuborn_roses", () ->  new FlowerBlock(MobEffects.POISON,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
+
+	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> MOA_TOTEM = registerBlock("moa_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
 	public static final RegistryObject<Block> ZEPHYR_TOTEM = registerBlock("zephyr_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));
 	public static final RegistryObject<Block> AERWHALE_TOTEM = registerBlock("aerwhale_totem", () -> new TotemBlock(Block.Properties.of(Material.WOOD).noOcclusion()));

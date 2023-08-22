@@ -1,0 +1,14 @@
+{
+  "type": "deep_aether:aercloud_pillar",
+  "config": {
+    "blockstate": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:cold_aercloud",
+        "Properties": {
+          "double_drops": "true"
+        }
+      }
+    }
+  }
+}

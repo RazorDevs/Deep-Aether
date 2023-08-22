@@ -20,6 +20,8 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> skyjade_enchant;
         public final ConfigValue<Integer> deep_aether_biome_weight;
 
+        public final ConfigValue<Integer> deep_aether_sky_biome_weight;
+
         public Common(ForgeConfigSpec.Builder builder) {
 
             /*builder.push("World Generation");
@@ -72,6 +74,13 @@ public class DeepAetherConfig {
                     .comment("The weighting of Deep Aether regions in the aether")
                     .translation("config.deep_aether.common.gameplay.deep_aether_region_weight")
                     .define("Deep Aether Region Weight", 3);
+            builder.pop();
+
+            builder.push("Gameplay");
+            deep_aether_sky_biome_weight = builder
+                    .comment("The weighting of Deep Aether Sky regions in the aether")
+                    .translation("config.deep_aether.common.gameplay.deep_aether_sky_region_weight")
+                    .define("Deep Aether Sky Region Weight", 1);
             builder.pop();
         }
     }

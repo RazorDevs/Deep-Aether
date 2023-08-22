@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:achroyn_violets"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

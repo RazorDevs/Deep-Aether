@@ -49,6 +49,10 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERCLOUD_BASE_LAYER_2 = createKey("aercloud_base_2");
     public static final ResourceKey<PlacedFeature> AERCLOUD_PILLAR = createKey("aercloud_pillar");
 
+    public static final ResourceKey<PlacedFeature> AERCLOUD_BASE_EDGE = createKey("aercloud_base_edge");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_BASE_LAYER_2_EDGE = createKey("aercloud_base_2_edge");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_PILLAR_EDGE = createKey("aercloud_pillar_edge");
+
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -150,6 +154,24 @@ public class DAPlacedFeatures {
         register(context, AERCLOUD_PILLAR, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_PILLAR),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(249), VerticalAnchor.absolute(255)),
                 RarityFilter.onAverageOnceEvery(10),
+                InSquarePlacement.spread(),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
+
+        register(context, AERCLOUD_BASE_EDGE, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_BASE_EDGE),
+                NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(250), VerticalAnchor.absolute(250)),
+                BiomeFilter.biome());
+
+        register(context, AERCLOUD_BASE_LAYER_2_EDGE, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_BASE_EDGE),
+                NoiseThresholdCountPlacement.of(-0.5D, 3, 2), InSquarePlacement.spread(),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(248), VerticalAnchor.absolute(249)),
+                BiomeFilter.biome());
+
+        register(context, AERCLOUD_PILLAR_EDGE, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_PILLAR_EDGE),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(249), VerticalAnchor.absolute(255)),
+                RarityFilter.onAverageOnceEvery(5),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());

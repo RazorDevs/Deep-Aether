@@ -1,0 +1,30 @@
+{
+  "feature": "deep_aether:aercloud_pillar_edge",
+  "placement": [
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "absolute": 255
+        },
+        "min_inclusive": {
+          "absolute": 249
+        }
+      }
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 5
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    }
+  ]
+}

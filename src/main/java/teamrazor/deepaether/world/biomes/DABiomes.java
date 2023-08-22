@@ -14,7 +14,9 @@ public class DABiomes {
     public static final ResourceKey<Biome> YAGROOT_SWAMP = createKey("yagroot_swamp");
     public static final ResourceKey<Biome> GOLDEN_HEIGHTS = createKey("golden_heights");
     public static final ResourceKey<Biome> SACRED_LANDS = createKey("sacred_lands");
-    public static final ResourceKey<Biome> AERCLOUD = createKey("aercloud");
+    public static final ResourceKey<Biome> STORMCLOUD_SEA = createKey("stormcloud_sea");
+    public static final ResourceKey<Biome> STORMCLOUD_SEA_EDGE = createKey("stormcloud_sea_edge");
+
 
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));

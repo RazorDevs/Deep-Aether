@@ -257,6 +257,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
 
+        this.dropSelf(DABlocks.CHISELED_HOLYSTONE.get());
+
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
         this.dropSelf(DABlocks.TALL_AERLAVENDER.get());
@@ -292,6 +294,10 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
 
         this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
+        this.dropSelf(DABlocks.LUNAR_MINT.get());
+        this.dropSelf(DABlocks.GOLDEN_ASPESS.get());
+        this.dropSelf(DABlocks.ACHROYN_VIOLETS.get());
+        this.dropSelf(DABlocks.SCUBORN_ROSES.get());
         this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
 
         this.add(DABlocks.GOLDEN_VINES.get(), (vines) -> this.createGoldenVinesDrop(vines));
