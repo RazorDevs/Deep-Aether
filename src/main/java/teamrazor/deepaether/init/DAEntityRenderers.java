@@ -1,13 +1,11 @@
 package teamrazor.deepaether.init;
 
-import com.aetherteam.aether.client.renderer.entity.BlueSwetRenderer;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,10 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.client.renderer.*;
-import teamrazor.deepaether.client.renderer.AetherFishRenderer;
-import teamrazor.deepaether.client.renderer.DABoatRenderer;
-import teamrazor.deepaether.client.renderer.DeepAetherModelLayers;
-import teamrazor.deepaether.client.renderer.QuailRenderer;
+import teamrazor.deepaether.client.renderer.boss.EOTSRenderer;
 import teamrazor.deepaether.client.renderer.swet.AercloudSwetRenderer;
 import teamrazor.deepaether.entity.DABoatEntity;
 
@@ -30,6 +25,11 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.STEER.get(), SteerRenderer::new);
+
+		//BOSSES
+
+		event.registerEntityRenderer(DAEntities.EOTS.get(), EOTSRenderer::new);
+
 
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 

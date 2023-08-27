@@ -2,7 +2,6 @@ package teamrazor.deepaether.init;
 
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
-import com.aetherteam.aether.entity.monster.Swet;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -21,6 +20,7 @@ import teamrazor.deepaether.entity.AerglowFish;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.entity.DAChestBoatEntity;
 import teamrazor.deepaether.entity.Steer;
+import teamrazor.deepaether.entity.boss.EOTSEntity;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 import teamrazor.deepaether.entity.swet.AercloudSwet;
@@ -66,6 +66,11 @@ public class DAEntities {
 			EntityType.Builder.<Steer>of(Steer::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Steer::new));
 
+	//BOSSES
+	public static final RegistryObject<EntityType<EOTSEntity>> EOTS = register("eots",
+			EntityType.Builder.<EOTSEntity>of(EOTSEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EOTSEntity::new));
+
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));
 	}
@@ -76,6 +81,7 @@ public class DAEntities {
 			AerglowFish.createAttributes();
 			Quail.init();
 			Steer.init();
+			EOTSEntity.init();
 		});
 	}
 
@@ -85,6 +91,7 @@ public class DAEntities {
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(STEER.get(), Steer.createAttributes().build());
 		event.put(AERCLOUD_SWET.get(), AercloudSwet.createMobAttributes().build());
+		event.put(EOTS.get(), EOTSEntity.createAttributes().build());
 	}
 
 	@SubscribeEvent
