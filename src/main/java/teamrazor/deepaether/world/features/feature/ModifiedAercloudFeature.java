@@ -25,7 +25,7 @@ public class ModifiedAercloudFeature extends Feature<AercloudConfiguration> {
 
         for (int amount = 0; amount < config.bounds(); ++amount) {
             int xOffset = rand.nextInt(2);
-            int yOffset = (rand.nextBoolean() ? rand.nextInt(3) - 1 : 0);
+            int yOffset = (rand.nextBoolean() ? rand.nextInt(2) - 1 : 0);
             int zOffset = rand.nextInt(2);
 
             if (direction) {
@@ -34,9 +34,9 @@ public class ModifiedAercloudFeature extends Feature<AercloudConfiguration> {
                 position = position.offset(xOffset, yOffset, zOffset);
             }
 
-            for (int x = position.getX(); x < position.getX() + rand.nextInt(15) + 9; ++x) {
-                for (int y = position.getY(); y < position.getY() + rand.nextInt(1)+2; ++y) {
-                    for (int z = position.getZ(); z < position.getZ() + rand.nextInt(15) + 9; ++z) {
+            for (int x = position.getX(); x < position.getX() + rand.nextInt(15) + 10; ++x) {
+                for (int y = position.getY(); y < position.getY() + rand.nextInt(1)+1; ++y) {
+                    for (int z = position.getZ(); z < position.getZ() + rand.nextInt(15) + 10; ++z) {
                         BlockPos newPosition = new BlockPos(x, y, z);
 
                         if (reader.isEmptyBlock(newPosition)) {
