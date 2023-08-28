@@ -29,8 +29,6 @@ public class YagrootFoliagePlacer extends FoliagePlacer {
     }
 
 
-
-
     @Override
     protected void createFoliage(LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration configuration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         this.placeTreeLeavesRows(random.nextInt(1,3), level,foliageSetter,random,configuration,foliageAttachment);
