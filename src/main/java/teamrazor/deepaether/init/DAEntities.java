@@ -81,7 +81,6 @@ public class DAEntities {
 			AerglowFish.createAttributes();
 			Quail.init();
 			Steer.init();
-			EOTSEntity.init();
 		});
 	}
 
