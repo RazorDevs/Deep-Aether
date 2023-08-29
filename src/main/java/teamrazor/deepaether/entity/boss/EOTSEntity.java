@@ -8,6 +8,7 @@ import com.aetherteam.aether.entity.monster.dungeon.boss.slider.Slider;
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.client.BossInfoPacket;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -145,6 +146,18 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         this.entityData.define(DATA_BOSS_NAME_ID, Component.literal("Eye of the Storm"));
     }
 
+    @Override
+    public void tick() {
+        this.setNoGravity(true);
+        super.tick();
+        if (this.getHealth() > 0) {
+            double x = this.getX() + (this.random.nextFloat() - 0.5F) * this.random.nextFloat();
+            double y = this.getBoundingBox().minY + this.random.nextFloat() - 0.5;
+            double z = this.getZ() + (this.random.nextFloat() - 0.5F) * this.random.nextFloat();
+            this.level.addParticle(ParticleTypes.FLAME, x, y, z, 0, -0.07500000298023224, 0);
+        }
+        this.setYRot(Mth.rotateIfNecessary(this.getYRot(), this.yHeadRot, 20));
+    }
 
     protected SoundEvent getAmbientSound() {
         return DASounds.QUAIL_AMBIENT.get();
