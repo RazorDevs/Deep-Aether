@@ -5,6 +5,9 @@ import com.aetherteam.aether.api.BossRoomTracker;
 import com.aetherteam.aether.entity.BossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
 import com.aetherteam.aether.entity.monster.dungeon.boss.slider.Slider;
+import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
+import com.aetherteam.aether.entity.projectile.crystal.FireCrystal;
+import com.aetherteam.aether.entity.projectile.crystal.IceCrystal;
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.client.BossInfoPacket;
 import net.minecraft.core.BlockPos;
@@ -24,7 +27,6 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -71,7 +73,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         super(type, world);
         this.moveControl = new BlankMoveControl(this);
         this.bossFight = new ServerBossEvent(this.getBossName(), BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
-        this.setBossFight(false);
+        this.setBossFight(true);
         this.xpReward = XP_REWARD_BOSS;
         this.noPhysics = true;
         this.velocity =  1 - this.getHealth() / 700;
@@ -89,13 +91,14 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FlyAroundGoal(this));
+        this.goalSelector.addGoal(2, new ShootAirBall(this));
     }
 
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 400.0)
-                .add(Attributes.FOLLOW_RANGE, 64.0);
+                .add(Attributes.KNOCKBACK_RESISTANCE, 10.0D);
     }
 
 
@@ -121,9 +124,6 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         }
     }
 
-    /**
-     * Removes the given player from the list of players tracking this entity.
-     */
     @Override
     public void stopSeenByPlayer(@Nonnull ServerPlayer pPlayer) {
         super.stopSeenByPlayer(pPlayer);
@@ -137,7 +137,6 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         super.customServerAiStep();
         this.bossFight.setProgress(this.getHealth() / this.getMaxHealth());
         this.trackDungeon();
-        Brain<Slider> brain = (Brain<Slider>) this.getBrain();
     }
 
     @Override
@@ -312,6 +311,11 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         return super.self();
     }
 
+    @Override
+    public boolean canDisableShield() {
+        return true;
+    }
+
 
     public static class FlyAroundGoal extends Goal {
         private final EOTSEntity eots;
@@ -359,6 +363,40 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         @Override
         public boolean canUse() {
             return this.eots.isBossFight();
+        }
+
+        @Override
+        public boolean requiresUpdateEveryTick() {
+            return true;
+        }
+    }
+
+    public static class ShootAirBall extends Goal {
+        private final EOTSEntity eots;
+        private int shootInterval;
+        private int crystalCount = 3;
+
+        public ShootAirBall(EOTSEntity eots) {
+            this.eots = eots;
+            this.shootInterval = (int) (55 + eots.getHealth() / 2);
+        }
+
+        @Override
+        public boolean canUse() {
+            return this.eots.isBossFight() && --this.shootInterval <= 0;
+        }
+
+        @Override
+        public void start() {
+            AbstractCrystal crystal;
+            if (--this.crystalCount <= 0) {
+                crystal = new IceCrystal(this.eots.level, this.eots);
+                this.crystalCount = 4 + this.eots.random.nextInt(4);
+            } else {
+                crystal = new FireCrystal(this.eots.level, this.eots);
+            }
+            this.eots.level.addFreshEntity(crystal);
+            this.shootInterval = (int) (15 + eots.getHealth() / 2);
         }
 
         @Override
