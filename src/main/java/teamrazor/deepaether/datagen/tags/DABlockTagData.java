@@ -361,6 +361,16 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.HOLYSTONE_TILE_STAIRS.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
 
+                DABlocks.POLISHED_HOLYSTONE.get(),
+                DABlocks.POLISHED_HOLYSTONE_SLAB.get(),
+                DABlocks.POLISHED_HOLYSTONE_STAIRS.get(),
+                DABlocks.POLISHED_HOLYSTONE_WALL.get(),
+
+                DABlocks.LARGE_HOLYSTONE_BRICKS.get(),
+                DABlocks.LARGE_HOLYSTONE_BRICK_SLAB.get(),
+                DABlocks.LARGE_HOLYSTONE_BRICK_STAIRS.get(),
+                DABlocks.LARGE_HOLYSTONE_BRICK_WALL.get(),
+
                 DABlocks.MOSSY_HOLYSTONE_BRICKS.get(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(),

@@ -247,6 +247,16 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.slab((SlabBlock) DABlocks.HOLYSTONE_TILE_SLAB.get(), DABlocks.HOLYSTONE_TILES.get());
         this.wallBlock((WallBlock) DABlocks.HOLYSTONE_TILE_WALL.get(), DABlocks.HOLYSTONE_TILES.get());
 
+        this.block(DABlocks.POLISHED_HOLYSTONE.get());
+        this.stairs((StairBlock) DABlocks.POLISHED_HOLYSTONE_STAIRS.get(), DABlocks.POLISHED_HOLYSTONE.get());
+        this.slab((SlabBlock) DABlocks.POLISHED_HOLYSTONE_SLAB.get(), DABlocks.POLISHED_HOLYSTONE.get());
+        this.wallBlock((WallBlock) DABlocks.POLISHED_HOLYSTONE_WALL.get(), DABlocks.POLISHED_HOLYSTONE.get());
+
+        this.block(DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.LARGE_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.LARGE_HOLYSTONE_BRICK_SLAB.get(), DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.LARGE_HOLYSTONE_BRICK_WALL.get(), DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+
         this.block(DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
         this.stairs((StairBlock) DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
         this.slab((SlabBlock) DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());

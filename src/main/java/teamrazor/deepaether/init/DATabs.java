@@ -215,6 +215,14 @@ public class DATabs {
                             output.accept(DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get());
                             output.accept(DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get());
                             output.accept(DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get());
+                            output.accept(DABlocks.POLISHED_HOLYSTONE.get());
+                            output.accept(DABlocks.POLISHED_HOLYSTONE_STAIRS.get());
+                            output.accept(DABlocks.POLISHED_HOLYSTONE_SLAB.get());
+                            output.accept(DABlocks.POLISHED_HOLYSTONE_WALL.get());
+                            output.accept(DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+                            output.accept(DABlocks.LARGE_HOLYSTONE_BRICK_STAIRS.get());
+                            output.accept(DABlocks.LARGE_HOLYSTONE_BRICK_SLAB.get());
+                            output.accept(DABlocks.LARGE_HOLYSTONE_BRICK_WALL.get());
 
                             if(ModList.get().isLoaded("aether_redux")){
                                 output.accept(DABlocks.GILDED_HOLYSTONE_BRICKS.get());

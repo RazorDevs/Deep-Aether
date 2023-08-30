@@ -240,6 +240,16 @@ public class DABlocks {
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_WALL = registerBlock("mossy_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 	public static final RegistryObject<Block> CHISELED_HOLYSTONE = registerBlock("chiseled_holystone", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
+	public static final RegistryObject<Block> POLISHED_HOLYSTONE = registerBlock("polished_holystone", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> POLISHED_HOLYSTONE_STAIRS = registerBlock("polished_holystone_stairs", () -> new StairBlock(DABlocks.POLISHED_HOLYSTONE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> POLISHED_HOLYSTONE_SLAB = registerBlock("polished_holystone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> POLISHED_HOLYSTONE_WALL = registerBlock("polished_holystone_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> LARGE_HOLYSTONE_BRICKS = registerBlock("large_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LARGE_HOLYSTONE_BRICK_STAIRS = registerBlock("large_holystone_brick_stairs", () -> new StairBlock(DABlocks.LARGE_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LARGE_HOLYSTONE_BRICK_SLAB = registerBlock("large_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LARGE_HOLYSTONE_BRICK_WALL = registerBlock("large_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
 	//AERCLOUDS
 	public static final RegistryObject<Block> AERSMOG = registerBlock("aersmog", () -> new AersmogBlock((Block.Properties.of(Material.ICE, MaterialColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never))));
 	public static final RegistryObject<Block> CHROMATIC_AERCLOUD = registerBlock("chromatic_aercloud", () -> new ChromaticAercloudBlock(Block.Properties.of(Material.ICE, MaterialColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).noCollission()));

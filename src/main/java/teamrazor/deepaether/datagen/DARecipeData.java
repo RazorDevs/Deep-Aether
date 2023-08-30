@@ -350,6 +350,56 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
 
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_STAIRS.get(), DABlocks.POLISHED_HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_SLAB.get(), DABlocks.POLISHED_HOLYSTONE.get(),2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_WALL.get(), DABlocks.POLISHED_HOLYSTONE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_STAIRS.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_SLAB.get(), AetherBlocks.HOLYSTONE.get(),2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_WALL.get(), AetherBlocks.HOLYSTONE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE.get(), AetherBlocks.HOLYSTONE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_STAIRS.get(), AetherBlocks.HOLYSTONE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_SLAB.get(), AetherBlocks.HOLYSTONE_BRICKS.get(),2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_WALL.get(), AetherBlocks.HOLYSTONE_BRICKS.get());
+
+
+        stairs(DABlocks.POLISHED_HOLYSTONE_STAIRS, DABlocks.POLISHED_HOLYSTONE).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE_SLAB.get(), DABlocks.POLISHED_HOLYSTONE.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.POLISHED_HOLYSTONE_WALL.get(), DABlocks.POLISHED_HOLYSTONE.get());
+
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_HOLYSTONE.get(), AetherBlocks.HOLYSTONE_BRICKS.get(), 2.0F, 2000).save(consumer, name("polished_holystone_enchanting"));
+
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_STAIRS.get(), DABlocks.HOLYSTONE_TILES.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_SLAB.get(), DABlocks.HOLYSTONE_TILES.get(),2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_WALL.get(), DABlocks.HOLYSTONE_TILES.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILES.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_STAIRS.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_SLAB.get(), AetherBlocks.HOLYSTONE.get(),2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_WALL.get(), AetherBlocks.HOLYSTONE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILES.get(), AetherBlocks.HOLYSTONE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_STAIRS.get(), AetherBlocks.HOLYSTONE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_SLAB.get(), AetherBlocks.HOLYSTONE_BRICKS.get(),2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_WALL.get(), AetherBlocks.HOLYSTONE_BRICKS.get());
+
+
+        stairs(DABlocks.LARGE_HOLYSTONE_BRICK_STAIRS, DABlocks.LARGE_HOLYSTONE_BRICKS).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LARGE_HOLYSTONE_BRICK_SLAB.get(), DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.LARGE_HOLYSTONE_BRICK_WALL.get(), DABlocks.LARGE_HOLYSTONE_BRICKS.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.LARGE_HOLYSTONE_BRICKS.get(), 4)
+                .define('A', DABlocks.POLISHED_HOLYSTONE.get().asItem())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy(getHasName(DABlocks.LARGE_HOLYSTONE_BRICKS.get()), has(DABlocks.LARGE_HOLYSTONE_BRICKS.get()))
+                .save(consumer);
+
+
+
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get(),2);
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());

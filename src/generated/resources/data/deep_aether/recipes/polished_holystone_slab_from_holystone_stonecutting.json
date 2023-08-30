@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "aether:holystone"
+  },
+  "result": "deep_aether:polished_holystone_slab"
+}
