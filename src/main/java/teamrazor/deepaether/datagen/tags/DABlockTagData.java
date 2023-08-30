@@ -136,9 +136,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId())
+                DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.getId())
+                .addOptional(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.getId())
                 .addOptional(DABlocks.ROSEROOT_LOG_WALL.getId())
                 .addOptional(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.getId())
                 .addOptional(DABlocks.YAGROOT_LOG_WALL.getId())
@@ -360,10 +361,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.HOLYSTONE_TILE_STAIRS.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
 
-                DABlocks.MOSSY_HOLYSTONE_TILES.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.MOSSY_HOLYSTONE_BRICKS.get(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get(),
 
                 DABlocks.PACKED_AETHER_MUD.get(),
                 DABlocks.AETHER_MUD_BRICKS.get(),
@@ -371,15 +372,20 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get())
 
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILES.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_BRICKS.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.getId())
 
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId()
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.getId())
+
+                .addOptional(DABlocks.FROSTED_HOLYSTONE_BRICKS.getId())
+                .addOptional(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.getId())
+                .addOptional(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.getId())
+                .addOptional(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.getId()
 
                 );
     }

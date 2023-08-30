@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "deep_aether:block/blightmoss_holystone_bricks",
+    "side": "deep_aether:block/blightmoss_holystone_bricks",
+    "top": "deep_aether:block/blightmoss_holystone_bricks"
+  }
+}
