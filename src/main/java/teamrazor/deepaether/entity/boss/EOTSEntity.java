@@ -6,14 +6,13 @@ import com.aetherteam.aether.entity.BossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
 import com.aetherteam.aether.entity.monster.dungeon.boss.slider.Slider;
 import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
-import com.aetherteam.aether.entity.projectile.crystal.FireCrystal;
-import com.aetherteam.aether.entity.projectile.crystal.IceCrystal;
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.client.BossInfoPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -43,11 +42,11 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import teamrazor.deepaether.entity.WindCharge;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
 
 import javax.annotation.Nonnull;
-import java.util.EnumSet;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
 @Mod.EventBusSubscriber
@@ -84,14 +83,13 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
     @Override
     public SpawnGroupData finalizeSpawn(@Nonnull ServerLevelAccessor pLevel, @Nonnull DifficultyInstance pDifficulty, @Nonnull MobSpawnType pReason, @javax.annotation.Nullable SpawnGroupData pSpawnData, @javax.annotation.Nullable CompoundTag pDataTag) {
         SpawnGroupData data = super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
-        this.setBossName(BossNameGenerator.generateSunSpiritName());
+        this.setBossName(generateEOTSName());
         this.origin = this.position();
         return data;
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new FlyAroundGoal(this));
-        this.goalSelector.addGoal(2, new ShootAirBall(this));
+        this.goalSelector.addGoal(1, new ShootAirBall(this));
     }
 
 
@@ -316,65 +314,15 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         return true;
     }
 
-
-    public static class FlyAroundGoal extends Goal {
-        private final EOTSEntity eots;
-        private float rotation;
-        private int courseChangeTimer;
-
-        public FlyAroundGoal(EOTSEntity eots) {
-            this.eots = eots;
-            this.rotation = eots.random.nextFloat() * 360;
-            this.setFlags(EnumSet.of(Flag.MOVE));
-        }
-
-        @Override
-        public void tick() {
-            boolean changedCourse = this.outOfBounds();
-            double x = Mth.sin(rotation * Mth.PI / 180F) * this.eots.getAttributeValue(Attributes.MOVEMENT_SPEED) * this.eots.velocity;
-            double z = -Mth.cos(rotation * Mth.PI / 180F) * this.eots.getAttributeValue(Attributes.MOVEMENT_SPEED) * this.eots.velocity;
-            this.eots.setDeltaMovement(x,
-                    0,
-                    z);
-            if (changedCourse || ++this.courseChangeTimer >= 20) {
-                if (this.eots.random.nextInt(3) == 0) {
-                    this.rotation += this.eots.random.nextFloat() - this.eots.random.nextFloat() * 60;
-                }
-                this.rotation = Mth.wrapDegrees(this.rotation);
-                this.courseChangeTimer = 0;
-            }
-        }
-
-        protected boolean outOfBounds() {
-            boolean flag = false;
-            if ((this.eots.getDeltaMovement().x >= 0 && this.eots.getX() >= this.eots.origin.x + this.eots.xMax) ||
-                    (this.eots.getDeltaMovement().x <= 0 && this.eots.getX() <= this.eots.origin.x - this.eots.xMax)) {
-                this.rotation = 360 - this.rotation;
-                flag = true;
-            }
-            if ((this.eots.getDeltaMovement().z >= 0 && this.eots.getZ() >= this.eots.origin.z + this.eots.zMax) ||
-                    (this.eots.getDeltaMovement().z <= 0 && this.eots.getZ() <= this.eots.origin.z - this.eots.zMax)) {
-                this.rotation = 180 - this.rotation;
-                flag = true;
-            }
-            return flag;
-        }
-
-        @Override
-        public boolean canUse() {
-            return this.eots.isBossFight();
-        }
-
-        @Override
-        public boolean requiresUpdateEveryTick() {
-            return true;
-        }
+    public static MutableComponent generateEOTSName() {
+        MutableComponent result = BossNameGenerator.generateBossName();
+        return result.append(Component.translatable("gui.aether.slider.title"));
     }
+
 
     public static class ShootAirBall extends Goal {
         private final EOTSEntity eots;
         private int shootInterval;
-        private int crystalCount = 3;
 
         public ShootAirBall(EOTSEntity eots) {
             this.eots = eots;
@@ -389,12 +337,8 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         @Override
         public void start() {
             AbstractCrystal crystal;
-            if (--this.crystalCount <= 0) {
-                crystal = new IceCrystal(this.eots.level, this.eots);
-                this.crystalCount = 4 + this.eots.random.nextInt(4);
-            } else {
-                crystal = new FireCrystal(this.eots.level, this.eots);
-            }
+            crystal = new WindCharge(this.eots.level, this.eots);
+            //crystal.setDeltaMovement(0, 0.05, 0);
             this.eots.level.addFreshEntity(crystal);
             this.shootInterval = (int) (15 + eots.getHealth() / 2);
         }

@@ -16,10 +16,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.entity.AerglowFish;
-import teamrazor.deepaether.entity.DABoatEntity;
-import teamrazor.deepaether.entity.DAChestBoatEntity;
-import teamrazor.deepaether.entity.Steer;
+import teamrazor.deepaether.entity.*;
 import teamrazor.deepaether.entity.boss.EOTSEntity;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
@@ -70,6 +67,15 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<EOTSEntity>> EOTS = register("eots",
 			EntityType.Builder.<EOTSEntity>of(EOTSEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EOTSEntity::new));
+
+	//MISC
+
+	public static final RegistryObject<EntityType<WindCharge>> WIND_CHARGE = ENTITY_TYPES.register("wind_charge",
+			() -> {
+				return EntityType.Builder.<WindCharge>of(WindCharge::new, MobCategory.MISC).sized(0.85F, 0.85F)
+						.clientTrackingRange(4).updateInterval(10).fireImmune().build("wind_charge");
+			});
+
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));

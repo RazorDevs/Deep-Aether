@@ -14,6 +14,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.client.renderer.*;
 import teamrazor.deepaether.client.renderer.boss.EOTSRenderer;
+import teamrazor.deepaether.client.renderer.boss.WindChargeRenderer;
 import teamrazor.deepaether.client.renderer.swet.AercloudSwetRenderer;
 import teamrazor.deepaether.entity.DABoatEntity;
 
@@ -22,6 +23,8 @@ import teamrazor.deepaether.entity.DABoatEntity;
 public class DAEntityRenderers {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+		//MOBS
+
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.STEER.get(), SteerRenderer::new);
@@ -30,13 +33,19 @@ public class DAEntityRenderers {
 
 		event.registerEntityRenderer(DAEntities.EOTS.get(), EOTSRenderer::new);
 
+		//MISC
 
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 
 		event.registerEntityRenderer(DAEntities.BOAT.get(), context -> new DABoatRenderer<>(context, false));
 		event.registerEntityRenderer(DAEntities.CHEST_BOAT.get(), context -> new DABoatRenderer<>(context, true));
+
+		//PROJECTILES
+
 		event.registerEntityRenderer(DAEntities.QUAIL_EGG.get(), ThrownItemRenderer::new);
 		event.registerEntityRenderer(DAEntities.AERCLOUD_SWET.get(), AercloudSwetRenderer::new);
+
+		event.registerEntityRenderer(DAEntities.WIND_CHARGE.get(), WindChargeRenderer::new);
 	}
 
 	@SubscribeEvent
