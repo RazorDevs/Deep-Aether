@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.client.renderer.*;
+import teamrazor.deepaether.client.renderer.boss.EOTSCloudRenderer;
 import teamrazor.deepaether.client.renderer.boss.EOTSRenderer;
 import teamrazor.deepaether.client.renderer.boss.WindChargeRenderer;
 import teamrazor.deepaether.client.renderer.swet.AercloudSwetRenderer;
@@ -32,6 +33,7 @@ public class DAEntityRenderers {
 		//BOSSES
 
 		event.registerEntityRenderer(DAEntities.EOTS.get(), EOTSRenderer::new);
+		event.registerEntityRenderer(DAEntities.EOTS_CLOUD.get(), EOTSCloudRenderer::new);
 
 		//MISC
 

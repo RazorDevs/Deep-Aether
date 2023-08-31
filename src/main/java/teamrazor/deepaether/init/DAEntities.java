@@ -17,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.*;
+import teamrazor.deepaether.entity.boss.EOTSCloud;
 import teamrazor.deepaether.entity.boss.EOTSEntity;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
@@ -67,6 +68,10 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<EOTSEntity>> EOTS = register("eots",
 			EntityType.Builder.<EOTSEntity>of(EOTSEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EOTSEntity::new));
+
+	public static final RegistryObject<EntityType<EOTSCloud>> EOTS_CLOUD = register("eots_cloud",
+			EntityType.Builder.<EOTSCloud>of(EOTSCloud::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EOTSCloud::new));
 
 	//MISC
 

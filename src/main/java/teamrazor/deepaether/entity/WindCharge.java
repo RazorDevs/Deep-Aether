@@ -66,9 +66,13 @@ public class WindCharge extends AbstractCrystal {
                 level.addFreshEntity(c4);
                 break;
         }
+        this.level.explode(this, this.getX(), this.getY(), this.getZ(), 0, false, Level.ExplosionInteraction.MOB);
 
-        this.discard();
+        if (!this.level.isClientSide) {
+            this.discard();
+        }
     }
+
 
     protected SoundEvent getImpactExplosionSoundEvent() {
         return (SoundEvent) AetherSoundEvents.ENTITY_FIRE_CRYSTAL_EXPLODE.get();

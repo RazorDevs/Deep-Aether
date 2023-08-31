@@ -85,6 +85,17 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         SpawnGroupData data = super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
         this.setBossName(generateEOTSName());
         this.origin = this.position();
+        Entity c1 = new EOTSCloud(DAEntities.EOTS_CLOUD.get(), level);
+        Entity c2 = new EOTSCloud(DAEntities.EOTS_CLOUD.get(), level);
+        Entity c3 = new EOTSCloud(DAEntities.EOTS_CLOUD.get(), level);
+
+        c1.setPos(this.origin.x + 1, this.origin.y + 0.4, this.origin.z + 1);
+        c2.setPos(this.origin.x, this.origin.y + 0.4, this.origin.z - 1.1);
+        c3.setPos(this.origin.x - 1, this.origin.y + 0.4, this.origin.z +1);
+
+        level.addFreshEntity(c1);
+        level.addFreshEntity(c2);
+        level.addFreshEntity(c3);
         return data;
     }
 
@@ -95,7 +106,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 400.0)
+                .add(Attributes.MAX_HEALTH, 200.0)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 10.0D);
     }
 

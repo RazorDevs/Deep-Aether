@@ -13,7 +13,7 @@ import teamrazor.deepaether.entity.boss.EOTSEntity;
 
 public class EOTSRenderer extends GeoEntityRenderer<EOTSEntity> {
 
-    private static final ResourceLocation EOTS_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/eots.png");
+    private static final ResourceLocation EOTS_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/eots/eots.png");
 
     public EOTSRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new EOTSModel());
