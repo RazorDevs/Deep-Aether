@@ -19,6 +19,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.*;
 import teamrazor.deepaether.entity.boss.EOTSCloud;
 import teamrazor.deepaether.entity.boss.EOTSEntity;
+import teamrazor.deepaether.entity.boss.EOTSTornado;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 import teamrazor.deepaether.entity.swet.AercloudSwet;
@@ -73,13 +74,15 @@ public class DAEntities {
 			EntityType.Builder.<EOTSCloud>of(EOTSCloud::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EOTSCloud::new));
 
+	public static final RegistryObject<EntityType<EOTSTornado>> EOTS_TORNADO = ENTITY_TYPES.register("eots_tornado",
+			 ()-> EntityType.Builder.of(EOTSTornado::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).build("eots_tornado"));
+
 	//MISC
 
 	public static final RegistryObject<EntityType<WindCharge>> WIND_CHARGE = ENTITY_TYPES.register("wind_charge",
-			() -> {
-				return EntityType.Builder.<WindCharge>of(WindCharge::new, MobCategory.MISC).sized(0.85F, 0.85F)
-						.clientTrackingRange(4).updateInterval(10).fireImmune().build("wind_charge");
-			});
+			() -> EntityType.Builder.<WindCharge>of(WindCharge::new, MobCategory.MISC).sized(0.85F, 0.85F)
+					.clientTrackingRange(4).updateInterval(10).fireImmune().build("wind_charge"));
 
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {

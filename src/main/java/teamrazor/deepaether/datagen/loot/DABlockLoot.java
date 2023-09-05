@@ -334,20 +334,19 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
             this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
         }
 
-        if (ModList.get().isLoaded("aether_genesis")) {
-            this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.YAGROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
-            this.dropSelf(DABlocks.HOLYROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());        }
-    }
+        this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.YAGROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
+        this.dropSelf(DABlocks.HOLYROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_HOLYROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());        }
+
 
     protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(DAItems.GOLDEN_BERRIES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_251070_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenVines.BERRIES, true))));

@@ -25,6 +25,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -42,11 +44,16 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import teamrazor.deepaether.effect.PullEffect;
 import teamrazor.deepaether.entity.WindCharge;
+import teamrazor.deepaether.init.DAEffects;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
 
 import javax.annotation.Nonnull;
+import java.util.Collection;
+import java.util.List;
+import java.util.UUID;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
 @Mod.EventBusSubscriber
@@ -101,6 +108,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new ShootAirBall(this));
+        this.goalSelector.addGoal(2, new ApplyStormEffectGoal(this));
     }
 
 
@@ -352,6 +360,75 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
             //crystal.setDeltaMovement(0, 0.05, 0);
             this.eots.level.addFreshEntity(crystal);
             this.shootInterval = (int) (15 + eots.getHealth() / 2);
+        }
+
+        @Override
+        public boolean requiresUpdateEveryTick() {
+            return true;
+        }
+    }
+
+    public static class ApplyStormEffectGoal extends Goal {
+        private final EOTSEntity eots;
+        private int shootInterval;
+
+        public ApplyStormEffectGoal(EOTSEntity eots) {
+            this.eots = eots;
+            this.shootInterval = (int) (55 + eots.getHealth() / 2);
+        }
+
+        @Override
+        public boolean canUse() {
+            return this.eots.isBossFight() && --this.shootInterval <= 0;
+        }
+
+        @Override
+        public void start() {
+            Player[] players  = this.eots.bossFight.getPlayers().toArray(Player[]::new);
+            Level level = eots.getLevel();
+            for(int i = 0; i < players.length; i++) {
+                if(players[i] != null) {
+                    PullEffect effect = DAEffects.PULL.get();
+                    effect.setPos(this.eots);
+                    players[i].addEffect(new MobEffectInstance(effect, 100), this.eots);
+                }
+            }
+
+
+            level.addParticle(ParticleTypes.BUBBLE, eots.position().x, eots.position().y, eots.position().z, 1, 0.07, 10);
+
+
+
+            this.shootInterval = (int) (15 + eots.getHealth() / 2);
+        }
+
+        @Override
+        public boolean requiresUpdateEveryTick() {
+            return true;
+        }
+    }
+
+    public static class SummonTornadoGoal extends Goal {
+        private final EOTSEntity eots;
+        private int shootInterval;
+
+        public SummonTornadoGoal(EOTSEntity eots) {
+            this.eots = eots;
+            this.shootInterval = (int) (150 + eots.getHealth() / 2);
+        }
+
+        @Override
+        public boolean canUse() {
+            return this.eots.isBossFight() && --this.shootInterval <= 0;
+        }
+
+        @Override
+        public void start() {
+            AbstractCrystal crystal;
+            crystal = new WindCharge(this.eots.level, this.eots);
+            //crystal.setDeltaMovement(0, 0.05, 0);
+            this.eots.level.addFreshEntity(crystal);
+            this.shootInterval = (int) (150 + eots.getHealth() / 2);
         }
 
         @Override

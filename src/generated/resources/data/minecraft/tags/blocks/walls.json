@@ -16,13 +16,17 @@
     "deep_aether:aseterite_wall",
     "deep_aether:aether_mud_bricks_wall",
     "deep_aether:holystone_tile_wall",
-    "deep_aether:mossy_holystone_tile_wall",
+    "deep_aether:mossy_holystone_brick_wall",
     {
-      "id": "deep_aether:gilded_holystone_tile_wall",
+      "id": "deep_aether:gilded_holystone_brick_wall",
       "required": false
     },
     {
-      "id": "deep_aether:blightmoss_holystone_tile_wall",
+      "id": "deep_aether:blightmoss_holystone_brick_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:frosted_holystone_brick_wall",
       "required": false
     },
     {

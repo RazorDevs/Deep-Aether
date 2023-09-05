@@ -55,10 +55,12 @@ public class WindCharge extends AbstractCrystal {
                 Entity c3 = new WindCharge(level, this);
                 Entity c4 = new WindCharge(level, this);
 
-                c1.setDeltaMovement(0.2, 0, 0.2);
-                c2.setDeltaMovement(-0.2, 0, 0.2);
-                c3.setDeltaMovement(0.2, 0, -0.2);
-                c4.setDeltaMovement(-0.2, 0, -0.2);
+                float offset = (float) random.nextInt(200)/1000;
+                System.out.println(offset);
+                c1.setDeltaMovement(0.2+offset, 0, 0.2-offset);
+                c2.setDeltaMovement(-0.2+offset, 0, 0.2+offset);
+                c3.setDeltaMovement(0.2-offset, 0, -0.2-offset);
+                c4.setDeltaMovement(-0.2-offset, 0, -0.2+offset);
 
                 level.addFreshEntity(c1);
                 level.addFreshEntity(c2);
@@ -75,7 +77,7 @@ public class WindCharge extends AbstractCrystal {
 
 
     protected SoundEvent getImpactExplosionSoundEvent() {
-        return (SoundEvent) AetherSoundEvents.ENTITY_FIRE_CRYSTAL_EXPLODE.get();
+        return AetherSoundEvents.ENTITY_FIRE_CRYSTAL_EXPLODE.get();
     }
 
     public boolean isPickable() {

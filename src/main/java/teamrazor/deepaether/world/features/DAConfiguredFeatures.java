@@ -1,9 +1,7 @@
 package teamrazor.deepaether.world.features;
 
 
-import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.data.generators.tags.AetherBlockTagData;
 import com.aetherteam.aether.data.resources.AetherFeatureRules;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
@@ -45,8 +43,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
@@ -55,8 +51,6 @@ import teamrazor.deepaether.world.features.feature.DAFeatures;
 import teamrazor.deepaether.world.features.tree.decorators.YagrootRootPlacer;
 import teamrazor.deepaether.world.features.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.features.tree.foliage.*;
-import teamrazor.deepaether.world.features.tree.trunk.HolyrootTrunkPlacer;
-import teamrazor.deepaether.world.features.tree.trunk.SunrootHookedTrunkPlacer;
 import teamrazor.deepaether.world.features.tree.trunk.TwinTrunkPlacer;
 import teamrazor.deepaether.world.features.tree.trunk.YagrootTrunkPlacer;
 import java.util.List;
@@ -215,10 +209,10 @@ public class DAConfiguredFeatures {
         register(context, SUNROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DABlocks.SUNROOT_LOG.get()),
-                        new SunrootHookedTrunkPlacer(8, 14, 14),
+                        new StraightTrunkPlacer(9,13,0),
                         BlockStateProvider.simple(DABlocks.SUNROOT_LEAVES.get()),
-                        new SunrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
-                        new TwoLayersFeatureSize(2, 1, 4)
+                        new SunrootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 
         register(context, OLD_SKYROOT_TREE_CONFIGURATION, Feature.TREE,

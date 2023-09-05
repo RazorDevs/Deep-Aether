@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frosted_holystone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:frosted_holystone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:frosted_holystone_brick_wall_from_frosted_holystone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_frosted_holystone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:frosted_holystone_brick_wall_from_frosted_holystone_stonecutting"
+    ]
+  }
+}
