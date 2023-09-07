@@ -2,6 +2,8 @@ package teamrazor.deepaether.init;
 
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
+import com.aetherteam.aether.entity.monster.AbstractWhirlwind;
+import com.aetherteam.aether.entity.monster.PassiveWhirlwind;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -75,8 +77,10 @@ public class DAEntities {
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(EOTSCloud::new));
 
 	public static final RegistryObject<EntityType<EOTSTornado>> EOTS_TORNADO = ENTITY_TYPES.register("eots_tornado",
-			 ()-> EntityType.Builder.of(EOTSTornado::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3).build("eots_tornado"));
+			 ()-> EntityType.Builder.<EOTSTornado>of(EOTSTornado::new, AetherMobCategory.AETHER_SURFACE_MONSTER)
+					 .fireImmune().sized(0.6F, 0.8F).clientTrackingRange(8).fireImmune().build("eots_tornado"));
+
+
 
 	//MISC
 
@@ -105,6 +109,7 @@ public class DAEntities {
 		event.put(STEER.get(), Steer.createAttributes().build());
 		event.put(AERCLOUD_SWET.get(), AercloudSwet.createMobAttributes().build());
 		event.put(EOTS.get(), EOTSEntity.createAttributes().build());
+		event.put(EOTS_TORNADO.get(), AbstractWhirlwind.createMobAttributes().build());
 	}
 
 	@SubscribeEvent

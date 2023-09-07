@@ -74,7 +74,7 @@ public class DeepAetherMod {
 	//TODO: shorten DeepAether to DA in classes
 	//TODO: clean up armor code
 
-	private static final Logger LOGGER = LogUtils.getLogger();
+	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
 

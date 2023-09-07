@@ -109,6 +109,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new ShootAirBall(this));
         this.goalSelector.addGoal(2, new ApplyStormEffectGoal(this));
+        this.goalSelector.addGoal(2, new SummonTornadoGoal(this));
     }
 
 
@@ -414,7 +415,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
         public SummonTornadoGoal(EOTSEntity eots) {
             this.eots = eots;
-            this.shootInterval = (int) (150 + eots.getHealth() / 2);
+            this.shootInterval = (int) (1 + eots.getHealth() / 2);
         }
 
         @Override
@@ -424,11 +425,13 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
         @Override
         public void start() {
-            AbstractCrystal crystal;
-            crystal = new WindCharge(this.eots.level, this.eots);
-            //crystal.setDeltaMovement(0, 0.05, 0);
-            this.eots.level.addFreshEntity(crystal);
-            this.shootInterval = (int) (150 + eots.getHealth() / 2);
+            EOTSTornado tornado;
+            tornado = new EOTSTornado(this.eots.level, this.eots.position().add(eots.random.nextInt(5), 0, eots.random.nextInt(5)));
+            tornado.setEots(eots);
+            tornado.setTime(1000);
+            tornado.setInvisible(true);
+            this.eots.level.addFreshEntity(tornado);
+            this.shootInterval = (int) (10 + eots.getHealth() / 2);
         }
 
         @Override

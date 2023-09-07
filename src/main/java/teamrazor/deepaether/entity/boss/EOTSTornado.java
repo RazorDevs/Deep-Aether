@@ -17,6 +17,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -47,12 +49,14 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.effect.PullEffect;
 import teamrazor.deepaether.entity.WindCharge;
 import teamrazor.deepaether.init.DAEffects;
@@ -60,43 +64,53 @@ import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
 
 import javax.annotation.Nonnull;
+import java.io.Console;
 import java.util.Iterator;
 import java.util.List;
 
-@SuppressWarnings({"unchecked", "SameReturnValue"})
-@Mod.EventBusSubscriber
+
 public class EOTSTornado extends AbstractWhirlwind {
 
     EOTSEntity eots;
-    public EOTSTornado(EntityType<? extends EOTSTornado> type, Level level) {
-        super(type, level);
+
+    public EOTSTornado(EntityType<EOTSTornado> entityEntityType, Level level) {
+        super(entityEntityType, level);
     }
 
-    public EOTSTornado(Level level, EOTSEntity eots) {
-        this(DAEntities.EOTS_TORNADO.get(), level);
-        this.setPos(eots.getX(), eots.getY(), eots.getZ());
+    public void setEots(EOTSEntity eots) {
         this.eots = eots;
     }
 
+    public void setTime(int time) {
+        this.lifeLeft = time;
+    }
+
+    public EOTSTornado(Level level, Vec3 position) {
+        this(DAEntities.EOTS_TORNADO.get(), level);
+        this.setPos(position.add(0, 1,0));
+    }
+
+
+    @Nonnull
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new ShootAirBall(this));
         this.goalSelector.addGoal(2, new MoveGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, false));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
     }
 
     @Override
     public void tick() {
+        DeepAetherMod.LOGGER.info(String.valueOf(lifeLeft));
+        DeepAetherMod.LOGGER.info(String.valueOf(eots == null));
         super.tick();
         --this.lifeLeft;
-        if (!this.level.isClientSide && (this.lifeLeft <= 0 || this.isInFluidType())) {
+        if (!this.level.isClientSide && (this.lifeLeft <= 0)) {
             this.discard();
         }
-
-        if(!eots.isAlive() || eots == null) {
-            this.discard();
-        }
-
     }
 
     @Override
@@ -127,7 +141,13 @@ public class EOTSTornado extends AbstractWhirlwind {
 
     @Override
     public int getDefaultColor() {
-        return 16777215;
+        return 2129985;
+    }
+
+
+    @Override
+    public void setColorData(int color) {
+        this.entityData.set(DATA_COLOR_ID, 2129985);
     }
 
     @Override
@@ -199,12 +219,12 @@ public class EOTSTornado extends AbstractWhirlwind {
 
         public ShootAirBall(EOTSTornado tornado) {
             this.tornado = tornado;
-            this.shootInterval = 200 + tornado.random.nextInt(50);
+            this.shootInterval = 10 + tornado.random.nextInt(50);
         }
 
         @Override
         public boolean canUse() {
-            return this.tornado.eots.isBossFight() && --this.shootInterval <= 0;
+            return --this.shootInterval <= 0;
         }
 
         @Override
@@ -213,7 +233,7 @@ public class EOTSTornado extends AbstractWhirlwind {
             crystal = new WindCharge(this.tornado.level, this.tornado);
             //crystal.setDeltaMovement(0, 0.05, 0);
             this.tornado.level.addFreshEntity(crystal);
-            this.shootInterval = 200 + tornado.random.nextInt(50);
+            this.shootInterval = 10 + tornado.random.nextInt(50);
         }
 
         @Override

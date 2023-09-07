@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
+import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
@@ -29,6 +30,9 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
         tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(
                 DAEntities.QUAIL.get(),
                 DAEntities.STEER.get()
+        );
+        tag(AetherTags.Entities.WHIRLWIND_UNAFFECTED).add(
+                DAEntities.WIND_CHARGE.get()
         );
     }
 }
