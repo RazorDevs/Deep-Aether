@@ -17,8 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.ModList;
-import net.zepalesque.aether.block.ReduxBlocks;
-import org.jetbrains.annotations.NotNull;
+//import net.zepalesque.aether.block.ReduxBlocks;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
@@ -429,71 +428,70 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
 
-        if (ModList.get().isLoaded("lost_aether_content")) {
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 2);
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
 
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), 2);
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), 2);
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
 
             stairs(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS).save(consumer);
             slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
             wall(consumer, RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
 
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 4)
-                    .define('A', ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get().asItem())
-                    .pattern("AA")
-                    .pattern("AA")
-                    .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
-                    .save(consumer);
+            //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 4)
+            //        .define('A', ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get().asItem())
+            //        .pattern("AA")
+            //        .pattern("AA")
+            //        .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
+            //        .save(consumer);
 
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get(), 2);
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
 
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICKS.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), 2);
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICKS.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), 2);
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
 
             stairs(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS, DABlocks.GILDED_HOLYSTONE_BRICKS).save(consumer);
             slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
             wall(consumer, RecipeCategory.DECORATIONS, DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
 
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.GILDED_HOLYSTONE_BRICKS.get(), 4)
-                    .define('A', ReduxBlocks.GILDED_HOLYSTONE.get().asItem())
-                    .pattern("AA")
-                    .pattern("AA")
-                    .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
-                    .save(consumer);
+            //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.GILDED_HOLYSTONE_BRICKS.get(), 4)
+            //        .define('A', ReduxBlocks.GILDED_HOLYSTONE.get().asItem())
+            //        .pattern("AA")
+            //        .pattern("AA")
+            //        .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
+            //        .save(consumer);
 
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get(), 2);
             stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
 
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICKS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), 2);
-            stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICKS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), 2);
+            //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
 
             stairs(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS, DABlocks.FROSTED_HOLYSTONE_BRICKS).save(consumer);
             slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
             wall(consumer, RecipeCategory.DECORATIONS, DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
 
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.FROSTED_HOLYSTONE_BRICKS.get(), 4)
-                    .define('A', ReduxBlocks.FROSTED_HOLYSTONE.get().asItem())
-                    .pattern("AA")
-                    .pattern("AA")
-                    .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
-                    .save(consumer);
+            //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.FROSTED_HOLYSTONE_BRICKS.get(), 4)
+            //        .define('A', ReduxBlocks.FROSTED_HOLYSTONE.get().asItem())
+            //        .pattern("AA")
+            //        .pattern("AA")
+            //        .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
+            //        .save(consumer);
 
-        }
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, AetherBlocks.MOSSY_HOLYSTONE.get(), 1)
                 .group("mossy_holystone")
@@ -598,17 +596,17 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
 
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SHOVEL.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HOE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_BOOTS.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
-        legacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
-        legacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SHOVEL.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HOE.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_BOOTS.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
+        DAlegacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
+        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.CHROMATIC_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
 
@@ -753,7 +751,7 @@ public class DARecipeData extends AetherRecipeProvider {
                     .unlockedBy("has_skyjade_gemstone", has(DAItems.SKYJADE.get()))
                     .save(consumer, name("skyjade_shield"));
 
-            legacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get());
+            DAlegacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get());
 
             repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 2250).group("altar_shield_repair").save(consumer, name("skyjade_shield_repairing"));
             repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("stratus_shield_repairing"));
@@ -765,18 +763,18 @@ public class DARecipeData extends AetherRecipeProvider {
     //TODO: REMOVE WHEN 1.20 RELEASES - BACKPORT TO 1.19.2
     //ignore warnings
     @Deprecated(forRemoval = true)
-    protected static void legacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
+    protected void DAlegacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
         LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.STRATUS_INGOT.get()), p_266966_, p_267096_).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(p_267010_, name(getItemName(p_267096_)) + "_stratus_smithing");
     }
 
-    protected static void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {
+    protected void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {
         stonecuttingRecipe(consumer, category, item, ingredient, 1);
     }
 
-    protected static void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient, int count) {
+    protected void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient, int count) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), category, item, count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, name(getConversionRecipeName(item, ingredient) + "_stonecutting"));
     }
-    protected static void stratusSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
+    protected void stratusSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(ingredient), Ingredient.of(DAItems.STRATUS_INGOT.get()), category, item).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(consumer, name(getItemName(item)) + "_smithing");
     }
     protected static SimpleCookingRecipeBuilder smeltingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
@@ -818,7 +816,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(Tags.Items.CHESTS_WOODEN)
                 .unlockedBy(getHasName(boat), has(boat));
     }
-    protected static ResourceLocation name(String name) {
+    protected ResourceLocation name(String name) {
         return new ResourceLocation(DeepAetherMod.MODID, name);
     }
 

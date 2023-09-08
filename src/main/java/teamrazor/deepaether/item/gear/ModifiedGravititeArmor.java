@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 
 public interface ModifiedGravititeArmor {
     static void BoostedJump(LivingEntity entity) {
-        if (com.aetherteam.aether.util.EquipmentUtil.hasFullGravititeSet(entity)) {
+        if (com.aetherteam.aether.item.EquipmentUtil.hasFullGravititeSet(entity)) {
             if (entity instanceof Player player) {
                 AetherPlayer.get(player).ifPresent(aetherPlayer -> {
                     if (aetherPlayer.isGravititeJumpActive()) {

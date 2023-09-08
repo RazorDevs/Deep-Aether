@@ -1,6 +1,6 @@
 package teamrazor.deepaether.entity;
 
-import com.aetherteam.aether.entity.SkyrootBoatBehavior;
+import com.aetherteam.aether.entity.miscellaneous.SkyrootBoatBehavior;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;

@@ -1,13 +1,15 @@
 package teamrazor.deepaether.entity.boss;
 
-import com.aetherteam.aether.api.BossNameGenerator;
-import com.aetherteam.aether.api.BossRoomTracker;
-import com.aetherteam.aether.entity.BossMob;
+
+import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
-import com.aetherteam.aether.entity.monster.dungeon.boss.slider.Slider;
+import com.aetherteam.aether.entity.monster.dungeon.boss.BossNameGenerator;
+import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
 import com.aetherteam.aether.network.AetherPacketHandler;
-import com.aetherteam.aether.network.packet.client.BossInfoPacket;
+import com.aetherteam.aether.network.packet.serverbound.BossInfoPacket;
+import com.aetherteam.nitrogen.entity.BossRoomTracker;
+import com.aetherteam.nitrogen.network.PacketRelay;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -57,7 +59,7 @@ import java.util.UUID;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
 @Mod.EventBusSubscriber
-public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity> {
+public class EOTSEntity extends Monster implements GeoEntity, AetherBossMob<EOTSEntity> {
     public static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(Slider.class, EntityDataSerializers.COMPONENT);
 
     private BossRoomTracker<EOTSEntity> brassdungeon;
@@ -136,7 +138,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
     @Override
     public void startSeenByPlayer(@Nonnull ServerPlayer pPlayer) {
         super.startSeenByPlayer(pPlayer);
-        AetherPacketHandler.sendToPlayer(new BossInfoPacket.Display(this.bossFight.getId()), pPlayer);
+        PacketRelay.sendToPlayer(AetherPacketHandler.INSTANCE, new BossInfoPacket.Display(this.bossFight.getId()), pPlayer);
         if (this.getDungeon() == null || this.getDungeon().isPlayerTracked(pPlayer)) {
             this.bossFight.addPlayer(pPlayer);
         }
@@ -145,7 +147,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
     @Override
     public void stopSeenByPlayer(@Nonnull ServerPlayer pPlayer) {
         super.stopSeenByPlayer(pPlayer);
-        AetherPacketHandler.sendToPlayer(new BossInfoPacket.Remove(this.bossFight.getId()), pPlayer);
+        PacketRelay.sendToPlayer(AetherPacketHandler.INSTANCE, new BossInfoPacket.Remove(this.bossFight.getId()), pPlayer);
         this.bossFight.removePlayer(pPlayer);
     }
 
@@ -265,22 +267,22 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
     @Override
     public void trackDungeon() {
-        BossMob.super.trackDungeon();
+        AetherBossMob.super.trackDungeon();
     }
 
     @Override
     public void displayTooFarMessage(Player player) {
-        BossMob.super.displayTooFarMessage(player);
+        AetherBossMob.super.displayTooFarMessage(player);
     }
 
     @Override
     public void onDungeonPlayerAdded(@Nullable Player player) {
-        BossMob.super.onDungeonPlayerAdded(player);
+        AetherBossMob.super.onDungeonPlayerAdded(player);
     }
 
     @Override
     public void onDungeonPlayerRemoved(@Nullable Player player) {
-        BossMob.super.onDungeonPlayerRemoved(player);
+        AetherBossMob.super.onDungeonPlayerRemoved(player);
     }
 
     @Override
@@ -290,17 +292,17 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
     @Override
     public void tearDownRoom() {
-        BossMob.super.tearDownRoom();
+        AetherBossMob.super.tearDownRoom();
     }
 
     @Override
     public void closeRoom() {
-        BossMob.super.closeRoom();
+        AetherBossMob.super.closeRoom();
     }
 
     @Override
     public void openRoom() {
-        BossMob.super.openRoom();
+        AetherBossMob.super.openRoom();
     }
 
     @org.jetbrains.annotations.Nullable
@@ -311,12 +313,12 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
 
     @Override
     public void addBossSaveData(CompoundTag tag) {
-        BossMob.super.addBossSaveData(tag);
+        AetherBossMob.super.addBossSaveData(tag);
     }
 
     @Override
     public void readBossSaveData(CompoundTag tag) {
-        BossMob.super.readBossSaveData(tag);
+        AetherBossMob.super.readBossSaveData(tag);
     }
 
     @Override
@@ -334,8 +336,8 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
         return true;
     }
 
-    public static MutableComponent generateEOTSName() {
-        MutableComponent result = BossNameGenerator.generateBossName();
+    public MutableComponent generateEOTSName() {
+        MutableComponent result = BossNameGenerator.generateBossName(this.random);
         return result.append(Component.translatable("gui.aether.slider.title"));
     }
 
@@ -428,7 +430,7 @@ public class EOTSEntity extends Monster implements GeoEntity, BossMob<EOTSEntity
             EOTSTornado tornado;
             tornado = new EOTSTornado(this.eots.level, this.eots.position().add(eots.random.nextInt(5), 0, eots.random.nextInt(5)));
             tornado.setEots(eots);
-            tornado.setTime(1000);
+            tornado.setLifeLeft(1000);
             tornado.setInvisible(true);
             this.eots.level.addFreshEntity(tornado);
             this.shootInterval = (int) (10 + eots.getHealth() / 2);

@@ -81,8 +81,8 @@ public class AercloudSwet extends Swet {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new ConsumeGoal(this));
         this.goalSelector.addGoal(1, new HuntAndDashGoal(this));
-        this.goalSelector.addGoal(2, new RandomFacingGoal(this));
-        this.goalSelector.addGoal(4, new HopGoal(this));
+        this.goalSelector.addGoal(2, new SwetRandomDirectionGoal(this));
+        this.goalSelector.addGoal(4, new SwetKeepOnJumpingGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true, (target) -> !this.isFriendlyTowardEntity(target) && !(target.getRootVehicle() instanceof Swet)));
     }
 
@@ -130,7 +130,7 @@ public class AercloudSwet extends Swet {
             if (this.swet.hasPrey() || target == null || !target.isAlive() || this.swet.isFriendlyTowardEntity(target) || (target instanceof Player player && player.getAbilities().invulnerable)) {
                 return false;
             } else {
-                return this.swet.getMoveControl() instanceof Swet.MoveHelperController;
+                return this.swet.getMoveControl() instanceof SwetMoveControl;
             }
         }
 
@@ -151,7 +151,7 @@ public class AercloudSwet extends Swet {
             LivingEntity target = this.swet.getTarget();
             if (target != null) {
                 this.swet.lookAt(target, 10.0F, 10.0F);
-                ((Swet.MoveHelperController) this.swet.getMoveControl()).setDirection(this.swet.getYRot(), true);
+                ((SwetMoveControl) this.swet.getMoveControl()).setDirection(this.swet.getYRot(), true);
 
 
                 if (swet.dashTimer <= 0) {
@@ -179,7 +179,7 @@ public class AercloudSwet extends Swet {
                 }
 
                 if (this.swet.getBoundingBox().intersects(target.getBoundingBox())) {
-                    this.swet.capturePrey(target);
+                    this.swet.consumePassenger(target);
                 }
 
             }
