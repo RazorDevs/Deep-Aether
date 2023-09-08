@@ -19,12 +19,7 @@ public class StratusAxeItem extends AxeItem implements GravititeTool {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
-        BlockPos blockPos = context.getClickedPos();
-        ItemStack itemStack = context.getItemInHand();
-        BlockState blockState = level.getBlockState(blockPos);
-        Player player = context.getPlayer();
-        InteractionHand hand = context.getHand();
-        if (!this.floatBlock(level, blockPos, itemStack, blockState, player, hand)) {
+        if (!this.floatBlock(context)) {
             return super.useOn(context);
         } else {
             return InteractionResult.sidedSuccess(level.isClientSide());

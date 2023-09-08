@@ -109,7 +109,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
 
 
-
         this.dropSelf(DABlocks.CRUDEROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.CRUDEROOT_LOG.get());
@@ -264,30 +263,30 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.GOLDEN_VINES_PLANT.get(), (vines) -> this.createGoldenVinesDrop(vines));
 
 
-        if (ModList.get().isLoaded("lost_aether_content")) {
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
+        //Lost content
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
 
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
-        }
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
 
-        if (ModList.get().isLoaded("aether_genesis")) {
-            this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.YAGROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
-            this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());        }
+        //Aether genesis
+        this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.YAGROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
+        this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
     }
+
 
     protected static LootTable.Builder createGoldenVinesDrop(Block p_251070_) {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(DAItems.GOLDEN_BERRIES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_251070_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenVines.BERRIES, true))));

@@ -4,7 +4,6 @@ import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.materials.SwetBallItem;
-import com.aetherteam.aether.item.miscellaneous.AetherRecordItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.Foods;
@@ -112,9 +111,9 @@ public class DAItems {
 			() -> new QuailEggItem(new Item.Properties().stacksTo(16)));
 
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru",
-			() -> new AetherRecordItem(7, DASounds.NABOORU, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));
+			() -> new RecordItem(7, DASounds.NABOORU, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));
 	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = ITEMS.register("music_disc_a_morning_wish",
-			() -> new AetherRecordItem(8, DASounds.A_MORNING_WISH, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 5660));
+			() -> new RecordItem(8, DASounds.A_MORNING_WISH, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 5660));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID, new Item.Properties().stacksTo(1)));
@@ -146,7 +145,7 @@ public class DAItems {
 	}
 
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
-		if(ModList.get().isLoaded("lost_aether_content")) {
+		if(ModList.get().isLoaded("deep_aether")) {
 			return ITEMS.register(name, item);
 		}
 		return null;

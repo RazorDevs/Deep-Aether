@@ -2,17 +2,18 @@ package teamrazor.deepaether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
-import com.legacy.lost_aether.data.LCTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.ModList;
-import net.zepalesque.aether.item.ReduxItems;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -229,16 +230,15 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
-                ReduxItems.GOLDEN_SWET_BALL.getKey().location()
+                new ResourceLocation("aether_redux:golden_swet_ball")
         ).addOptional(
                 new ResourceLocation("aether_genesis:golden_swet_ball")
         );
 
-        if(ModList.get().isLoaded("lost_aether_content")) {
-            tag(LCTags.Items.AETHER_SHIELDS).add(
-                    DAItems.SKYJADE_SHIELD.get(),
-                    DAItems.STRATUS_SHIELD.get()
-            );
-        }
+
+        tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields"))).add(
+                DAItems.SKYJADE_SHIELD.get(),
+                DAItems.STRATUS_SHIELD.get()
+        );
     }
 }

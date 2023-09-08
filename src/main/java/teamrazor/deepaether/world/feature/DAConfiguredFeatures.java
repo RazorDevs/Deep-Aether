@@ -9,6 +9,7 @@ import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
+import com.aetherteam.nitrogen.data.resources.builders.NitrogenConfiguredFeatureBuilders;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -199,7 +200,7 @@ public class DAConfiguredFeatures {
 
 
         register(context, GOLDEN_GRASS_PATCH, Feature.FLOWER,
-                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 32)
                         .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(), 32)
                         .add(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState(), 16)
@@ -216,7 +217,7 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(),1))));
 
         register(context, GOLDEN_HEIGHTS_FLOWERS,  Feature.FLOWER,
-                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 3)
                         .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)), 64));
 
@@ -233,7 +234,7 @@ public class DAConfiguredFeatures {
                                BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.wouldSurvive(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), BlockPos.ZERO), BlockPredicate.not(BlockPredicate.matchesBlocks(DABlocks.GOLDEN_VINES.get())))))));
 
         register(context, AERLAVENDER_PATCH, Feature.FLOWER,
-                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.AERLAVENDER, 64)
                         .add(DAFeatureStates.TALL_AERLAVENDER, 32)
                         .add(Blocks.TALL_GRASS.defaultBlockState(), 16)
@@ -242,13 +243,13 @@ public class DAConfiguredFeatures {
 
 
         register(context, AETHER_CATTAILS_PATCH, Feature.FLOWER,
-                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.AETHER_CATTAILS, 5)
                         .add(Blocks.GRASS.defaultBlockState(), 5)
                         .add(DAFeatureStates.TALL_AETHER_CATTAILS, 3)), 15));
 
         register(context, ROSEROOT_FOREST_VEGETATION, Feature.FLOWER,
-                AetherConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.RADIANT_ORCHID, 6)
                         .add(AetherFeatureStates.PURPLE_FLOWER, 3)
                         .add(AetherFeatureStates.WHITE_FLOWER, 3)

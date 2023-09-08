@@ -30,7 +30,7 @@ public class DaAbilityListener {
         LivingEntity livingEntity = event.getEntity();
 
 
-        if (com.aetherteam.aether.util.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
+        if (com.aetherteam.aether.item.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
             if (livingEntity instanceof Player player) {
                 AetherPlayer.get(player).ifPresent(aetherPlayer -> {
                     if (aetherPlayer.isGravititeJumpActive()) {
