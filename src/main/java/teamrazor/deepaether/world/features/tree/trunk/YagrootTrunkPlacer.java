@@ -28,7 +28,7 @@ public class YagrootTrunkPlacer extends TrunkPlacer {
     }
 
     protected TrunkPlacerType<?> type() {
-        return DaTrunkPlacerTypes.YAGROOT_TRUNK_PLACER.get();
+        return DATrunkPlacerTypes.YAGROOT_TRUNK_PLACER.get();
     }
 
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> posState, RandomSource random, int int1, BlockPos pos, TreeConfiguration config) {

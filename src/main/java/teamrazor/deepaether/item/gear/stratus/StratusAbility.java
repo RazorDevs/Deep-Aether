@@ -12,7 +12,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import teamrazor.deepaether.client.keys.DeepAetherKeys;
+import teamrazor.deepaether.client.keys.DAKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
@@ -58,7 +58,7 @@ public class StratusAbility extends DaArmorItem {
             coolDown -= 0.02;
         if (world.isClientSide() && hasFullStratusSet(player)) {
 
-            if (DeepAetherKeys.STRATUS_DASH_ABILITY.isDown()) {
+            if (DAKeys.STRATUS_DASH_ABILITY.isDown()) {
                 dash(player, strength);
             }
         }

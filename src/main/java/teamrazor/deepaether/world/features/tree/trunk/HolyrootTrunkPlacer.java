@@ -25,7 +25,7 @@ public class HolyrootTrunkPlacer extends TrunkPlacer {
     }
 
     protected TrunkPlacerType<?> type() {
-        return DaTrunkPlacerTypes.HOLYROOT_TRUNK_PLACER.get();
+        return DATrunkPlacerTypes.HOLYROOT_TRUNK_PLACER.get();
     }
 
     List<FoliagePlacer.FoliageAttachment> list = Lists.newArrayList();

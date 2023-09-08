@@ -2,7 +2,7 @@ package teamrazor.deepaether.util;
 
 import com.google.gson.JsonSyntaxException;
 import net.minecraftforge.common.ForgeConfigSpec;
-import teamrazor.deepaether.DeepAetherConfig;
+import teamrazor.deepaether.DAConfig;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +19,6 @@ public class ConfigUtil {
 
     public static ForgeConfigSpec.ConfigValue<Boolean> deserialize(String string) {
         List<String> path = Arrays.asList(string.replace("[", "").replace("]", "").split(", "));
-        return DeepAetherConfig.COMMON_SPEC.getValues().get(path);
+        return DAConfig.COMMON_SPEC.getValues().get(path);
     }
 }

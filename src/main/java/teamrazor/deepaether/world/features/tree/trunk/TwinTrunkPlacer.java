@@ -28,7 +28,7 @@ public class TwinTrunkPlacer extends TrunkPlacer {
     }
 
     protected TrunkPlacerType<?> type() {
-        return DaTrunkPlacerTypes.TWIN_TRUNK_PLACER.get();
+        return DATrunkPlacerTypes.TWIN_TRUNK_PLACER.get();
     }
 
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> posState, RandomSource random, int p_226082_, BlockPos pos, TreeConfiguration config) {

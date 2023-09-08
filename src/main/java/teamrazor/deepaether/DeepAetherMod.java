@@ -56,7 +56,7 @@ import teamrazor.deepaether.world.features.feature.DAFeatures;
 import teamrazor.deepaether.world.features.tree.decorators.DADecoratorType;
 import teamrazor.deepaether.world.features.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.features.tree.foliage.DAFoliagePlacers;
-import teamrazor.deepaether.world.features.tree.trunk.DaTrunkPlacerTypes;
+import teamrazor.deepaether.world.features.tree.trunk.DATrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
@@ -71,7 +71,6 @@ public class DeepAetherMod {
 
 	//TODO: en_lang and code cleanup
 	//TODO: add it_lang translation
-	//TODO: shorten DeepAether to DA in classes
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
@@ -121,12 +120,12 @@ public class DeepAetherMod {
 		DABlocks.registerWoodTypes();
 		DAFoliagePlacers.FOLIAGE_PLACERS.register(bus);
 		DARootPlacers.ROOT_PLACERS.register(bus);
-		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
+		DATrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 
 
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DAConfig.COMMON_SPEC);
 	}
 	public void dataSetup(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
@@ -163,8 +162,8 @@ public class DeepAetherMod {
 		event.enqueueWork(() ->
 		{
 			// Weights are kept intentionally low as we add minimal biomes
-			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
-			Regions.register(new SkyRegion(new ResourceLocation(MODID, "sky"), DeepAetherConfig.COMMON.deep_aether_sky_biome_weight.get()));
+			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DAConfig.COMMON.deep_aether_biome_weight.get()));
+			Regions.register(new SkyRegion(new ResourceLocation(MODID, "sky"), DAConfig.COMMON.deep_aether_sky_biome_weight.get()));
 
 			// Register our surface rules
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());

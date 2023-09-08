@@ -1,7 +1,7 @@
 package teamrazor.deepaether.item.mods.lost_content;
 
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAetherConfig;
+import teamrazor.deepaether.DAConfig;
 
 public class SkyjadeShieldItem extends LCDAShieldItem {
     public SkyjadeShieldItem(Properties pProperties) {
@@ -10,11 +10,11 @@ public class SkyjadeShieldItem extends LCDAShieldItem {
 
     @Override
     public boolean isEnchantable(ItemStack itemStack) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get();
+        return DAConfig.COMMON.skyjade_enchant.get();
     }
 
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get();
+        return DAConfig.COMMON.skyjade_enchant.get();
     }
 }

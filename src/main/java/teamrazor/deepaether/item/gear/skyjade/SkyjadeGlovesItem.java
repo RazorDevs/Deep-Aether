@@ -8,7 +8,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAetherConfig;
+import teamrazor.deepaether.DAConfig;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import top.theillusivec4.curios.api.SlotContext;
 
@@ -46,11 +46,11 @@ public class SkyjadeGlovesItem extends DAGlovesItem {
 
     @Override
     public boolean isEnchantable(ItemStack itemStack) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get();
+        return DAConfig.COMMON.skyjade_enchant.get();
     }
 
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get();
+        return DAConfig.COMMON.skyjade_enchant.get();
     }
 }

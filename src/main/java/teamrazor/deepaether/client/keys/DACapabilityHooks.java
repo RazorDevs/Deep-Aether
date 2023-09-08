@@ -4,7 +4,7 @@ import com.aetherteam.aether.capability.player.AetherPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 
-public class DeepAetherCapabilityHooks {
+public class DACapabilityHooks {
 
     //TODO: Reorganize abilities.
 
@@ -15,8 +15,8 @@ public class DeepAetherCapabilityHooks {
         Player player = Minecraft.getInstance().player;
         if (player != null) {
             AetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-                if (input == DeepAetherKeys.STRATUS_DASH_ABILITY.getKey().getValue()) {
-                    aetherPlayer.setGravititeJumpActive(DeepAetherKeys.STRATUS_DASH_ABILITY.isDown());
+                if (input == DAKeys.STRATUS_DASH_ABILITY.getKey().getValue()) {
+                    aetherPlayer.setGravititeJumpActive(DAKeys.STRATUS_DASH_ABILITY.isDown());
                 }
             });
         }

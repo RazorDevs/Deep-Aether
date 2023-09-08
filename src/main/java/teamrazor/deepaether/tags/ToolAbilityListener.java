@@ -18,7 +18,7 @@ public class ToolAbilityListener {
         Player player = event.getEntity();
         ItemStack itemStack = player.getMainHandItem();
         if (!event.isCanceled()) {
-            event.setNewSpeed(DeepAetherAbilityHooks.ToolHooks.handleSkyjadeToolAbility(itemStack, event.getNewSpeed()));
+            event.setNewSpeed(DAAbilityHooks.ToolHooks.handleSkyjadeToolAbility(itemStack, event.getNewSpeed()));
         }
     }
 
@@ -28,7 +28,7 @@ public class ToolAbilityListener {
         BlockPos pos = event.getPos();
         BlockState oldState = event.getState();
         ToolAction toolAction = event.getToolAction();
-        BlockState newState = DeepAetherAbilityHooks.ToolHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
+        BlockState newState = DAAbilityHooks.ToolHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
         if (newState != oldState && !event.isSimulated()) {
             event.setFinalState(newState);
         }

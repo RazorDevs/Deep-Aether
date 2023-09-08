@@ -1,14 +1,12 @@
 package teamrazor.deepaether.init;
 
 import com.aetherteam.aether.client.renderer.entity.WhirlwindRenderer;
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,7 +27,7 @@ public class DAEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		//MOBS
 
-		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
+		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AerglowFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.STEER.get(), SteerRenderer::new);
 
@@ -56,7 +54,7 @@ public class DAEntityRenderers {
 
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-		event.registerLayerDefinition(DeepAetherModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);
 		for (DABoatEntity.Type type : DABoatEntity.Type.values()) {
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, type.getModelLocation()), "main"), BoatModel::createBodyModel);
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);

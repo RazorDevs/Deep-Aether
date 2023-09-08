@@ -9,7 +9,7 @@ import org.lwjgl.glfw.GLFW;
 import teamrazor.deepaether.DeepAetherMod;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DeepAetherKeys {
+public class DAKeys {
     public final static KeyMapping STRATUS_DASH_ABILITY = new KeyMapping("key.deep_aether.stratus_dash_ability.desc", GLFW.GLFW_KEY_R, "key.aether.category");
 
     @SubscribeEvent

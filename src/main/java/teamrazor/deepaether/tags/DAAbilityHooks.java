@@ -12,7 +12,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 import java.util.Map;
 
-public class DeepAetherAbilityHooks {
+public class DAAbilityHooks {
     public static class AccessoryHooks {
     }
     public static class ArmorHooks {

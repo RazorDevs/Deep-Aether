@@ -3,7 +3,7 @@ package teamrazor.deepaether.item.gear.skyjade;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAetherConfig;
+import teamrazor.deepaether.DAConfig;
 import teamrazor.deepaether.init.DAItems;
 
 
@@ -19,11 +19,11 @@ public class SkyjadeRingItem extends RingItem implements SkyjadeAccessory {
 
     @Override
     public boolean isEnchantable(ItemStack itemStack) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get();
+        return DAConfig.COMMON.skyjade_enchant.get();
     }
 
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get();
+        return DAConfig.COMMON.skyjade_enchant.get();
     }
 }
