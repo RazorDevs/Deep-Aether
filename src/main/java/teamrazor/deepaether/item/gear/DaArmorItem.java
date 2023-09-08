@@ -19,7 +19,4 @@ public class DaArmorItem extends ArmorItem {
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         return String.format("%s:textures/models/armor/%s_layer_%s.png", DeepAetherMod.MODID, this.getMaterial().getName(), slot == EquipmentSlot.LEGS ? 2 : 1);
     }
-
-
-
 }

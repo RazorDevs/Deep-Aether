@@ -72,8 +72,6 @@ public class DeepAetherMod {
 	//TODO: en_lang and code cleanup
 	//TODO: add it_lang translation
 	//TODO: shorten DeepAether to DA in classes
-	//TODO: clean up armor code
-
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";

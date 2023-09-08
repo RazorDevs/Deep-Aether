@@ -47,8 +47,6 @@ public class DaAbilityListener {
     public static boolean fallCancellation(LivingEntity entity) {
         return EquipmentUtil.hasFullStratusSet(entity);
     }
-
-
     @SubscribeEvent
     public static void onMiningSpeed(PlayerEvent.BreakSpeed event) {
         Player player = event.getEntity();
@@ -56,7 +54,6 @@ public class DaAbilityListener {
             event.setNewSpeed(EquipmentUtil.handleSkyjadeRingAbility(player, event.getNewSpeed()));
         }
     }
-
 
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
