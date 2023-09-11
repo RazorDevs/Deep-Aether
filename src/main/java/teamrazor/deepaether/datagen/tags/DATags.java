@@ -3,6 +3,8 @@ package teamrazor.deepaether.datagen.tags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -48,6 +50,13 @@ public class DATags {
 
     }
 
+    public static class Entities {
+        public static final TagKey<EntityType<?>> WIND_CHARGE_BLACKLIST = tag("wind_charge_blacklist");
+
+        private static TagKey<EntityType<?>> tag(String name) {
+            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DeepAetherMod.MODID, name));
+        }
+    }
     public static class Fluids {
         public static final TagKey<Fluid> POISON = tag("poison");
 

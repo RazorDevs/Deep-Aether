@@ -34,5 +34,11 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
         tag(AetherTags.Entities.WHIRLWIND_UNAFFECTED).add(
                 DAEntities.WIND_CHARGE.get()
         );
+
+        tag(DATags.Entities.WIND_CHARGE_BLACKLIST).add(
+                DAEntities.AERCLOUD_SWET.get(),
+                DAEntities.EOTS.get(),
+                DAEntities.EOTS_CLOUD.get()
+        );
     }
 }

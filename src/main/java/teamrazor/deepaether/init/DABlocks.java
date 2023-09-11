@@ -532,7 +532,7 @@ public class DABlocks {
 		return p_235441_3_ == EntityType.OCELOT || p_235441_3_ == EntityType.PARROT;
 	}
 
-	//TODO: Add Quark support back in 1.19.2 backporting
+	//TODO: Add Quark support back in 1.19.2 and 1.20.1 backporting
 
 	//QUARK SUPPORT
 /*
