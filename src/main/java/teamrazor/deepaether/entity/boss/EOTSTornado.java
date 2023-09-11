@@ -110,7 +110,7 @@ public class EOTSTornado extends AbstractWhirlwind {
         @Override
         public void start() {
             AbstractCrystal crystal;
-            crystal = new WindCharge(this.tornado.level, this.tornado);
+            crystal = new WindCharge(this.tornado.level, this.tornado, WindCharge.AttackPatterns.FOUR);
             //crystal.setDeltaMovement(0, 0.05, 0);
             this.tornado.level.addFreshEntity(crystal);
             this.shootInterval = 10 + tornado.random.nextInt(50);
