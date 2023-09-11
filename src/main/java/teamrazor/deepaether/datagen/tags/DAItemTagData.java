@@ -230,9 +230,9 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
-                new ResourceLocation("aether_redux:golden_swet_ball")
+                new ResourceLocation(DeepAetherMod.AETHER_REDUX, "golden_swet_ball")
         ).addOptional(
-                new ResourceLocation("aether_genesis:golden_swet_ball")
+                new ResourceLocation(DeepAetherMod.AETHER_GENESIS,"golden_swet_ball")
         );
 
 
