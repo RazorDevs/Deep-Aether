@@ -359,7 +359,7 @@ public class EOTSEntity extends Monster implements GeoEntity, AetherBossMob<EOTS
         @Override
         public void start() {
             AbstractCrystal crystal;
-            crystal = new WindCharge(this.eots.level, this.eots);
+            crystal = new WindCharge(this.eots.level, this.eots, WindCharge.AttackPatterns.FOUR);
             //crystal.setDeltaMovement(0, 0.05, 0);
             this.eots.level.addFreshEntity(crystal);
             this.shootInterval = (int) (15 + eots.getHealth() / 2);

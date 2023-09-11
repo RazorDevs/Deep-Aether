@@ -91,11 +91,14 @@ public class WindCharge extends AbstractCrystal {
                     level.addFreshEntity(c3);
                     level.addFreshEntity(c4);
                 }
+
                 else if(this.pattern == AttackPatterns.RAPID_RANDOM) {
                     Entity c1 = new WindCharge(level, this, null);
                     float offset = (float) random.nextInt(-2, 3) /10;
-                    float offset2;
-                    c1.setDeltaMovement(offset, 0, offset);
+                    float offset2 = 4.0F - Math.abs(offset);
+                    if(random.nextBoolean())
+                        offset2 = offset *-1;
+                    c1.setDeltaMovement(offset, 0, offset2);
 
                     level.addFreshEntity(c1);
                 }
