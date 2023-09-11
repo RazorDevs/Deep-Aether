@@ -1,6 +1,7 @@
 package teamrazor.deepaether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
@@ -39,6 +40,14 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
                 DAEntities.AERCLOUD_SWET.get(),
                 DAEntities.EOTS.get(),
                 DAEntities.EOTS_CLOUD.get()
+        );
+        tag(DATags.Entities.STERLING_AERCLOUD_BLACKLIST).add(
+                AetherEntityTypes.AERWHALE.get(),
+                AetherEntityTypes.EVIL_WHIRLWIND.get(),
+                AetherEntityTypes.WHIRLWIND.get(),
+                AetherEntityTypes.ZEPHYR.get(),
+                AetherEntityTypes.ZEPHYR_SNOWBALL.get(),
+                DAEntities.AERCLOUD_SWET.get()
         );
     }
 }
