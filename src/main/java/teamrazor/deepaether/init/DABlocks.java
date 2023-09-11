@@ -50,6 +50,9 @@ public class DABlocks {
 	public static final RegistryObject<Block> SHORT_GOLDEN_GRASS = registerBlock("short_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)));
 	public static final RegistryObject<Block> MEDIUM_GOLDEN_GRASS = registerBlock("medium_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)));
 	public static final RegistryObject<Block> TALL_GOLDEN_GRASS = registerBlock("tall_golden_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GLOSSOM_AETHER_NYLIUM_BLOCK = registerBlock("glossom_forest_grass_block", () -> new GlossomAetherNyliumBlock(Block.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> GLOSSOM_GRASS = registerBlock("glossom_grass", ()-> new GlossomGrassPlant(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GLOSSOM_ROOTS = registerBlock("glossom_roots", ()-> new GlossomGrassPlant(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
 
 	// WOOD
@@ -314,6 +317,8 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_HOLYROOT_SAPLING = BLOCKS.register("potted_holyroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, HOLYROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_SUNROOT_SAPLING = BLOCKS.register("potted_sunroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_GLOSSOM_GRASS = BLOCKS.register("potted_glossom_grass", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLOSSOM_GRASS, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_GLOSSOM_ROOTS = BLOCKS.register("potted_glossom_roots", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLOSSOM_ROOTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	//REDUX COMPATIBILITY
 
@@ -364,6 +369,8 @@ public class DABlocks {
 		pot.addPlant(DABlocks.CONBERRY_SAPLING.getId(), DABlocks.POTTED_CONBERRY_SAPLING);
 		pot.addPlant(DABlocks.HOLYROOT_SAPLING.getId(), DABlocks.POTTED_HOLYROOT_SAPLING);
 		pot.addPlant(DABlocks.SUNROOT_SAPLING.getId(), DABlocks.POTTED_SUNROOT_SAPLING);
+		pot.addPlant(DABlocks.SUNROOT_SAPLING.getId(), DABlocks.POTTED_GLOSSOM_GRASS);
+		pot.addPlant(DABlocks.SUNROOT_SAPLING.getId(), DABlocks.POTTED_GLOSSOM_ROOTS);
 
 	}
 
@@ -469,6 +476,8 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.SHORT_GOLDEN_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.MEDIUM_GOLDEN_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.TALL_GOLDEN_GRASS.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.GLOSSOM_GRASS.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.GLOSSOM_ROOTS.get(), 60, 100);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_FENCE_GATE.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_FENCE.get(), 5, 20);

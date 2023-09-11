@@ -255,6 +255,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
+        this.itemBlockFlat(DABlocks.GLOSSOM_GRASS.get());
+        this.itemBlockFlat(DABlocks.GLOSSOM_ROOTS.get());
 
         this.itemLogWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
         this.itemLogWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
@@ -333,7 +335,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
+        this.itemBlockFlat(DABlocks.GLOSSOM_GRASS.get());
+        this.itemBlockFlat(DABlocks.GLOSSOM_ROOTS.get());
         this.itemBlock(DABlocks.GOLDEN_GRASS_BLOCK.get());
+        this.itemBlock(DABlocks.GLOSSOM_AETHER_NYLIUM_BLOCK.get());
 
         this.item(DAItems.GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());

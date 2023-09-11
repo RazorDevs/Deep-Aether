@@ -254,11 +254,14 @@ public class DATabs {
 
                             output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
                             output.accept(DABlocks.GOLDEN_DIRT_PATH.get());
+                            output.accept(DABlocks.GLOSSOM_AETHER_NYLIUM_BLOCK.get());
 
                             output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                             output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());
                             output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());
                             output.accept(DABlocks.TALL_GOLDEN_GRASS.get());
+                            output.accept(DABlocks.GLOSSOM_GRASS.get());
+                            output.accept(DABlocks.GLOSSOM_ROOTS.get());
 
                             output.accept(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
                             output.accept(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());

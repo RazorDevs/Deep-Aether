@@ -43,6 +43,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GOLDEN_GRASS_PATCH = createKey("golden_grass_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
     public static final ResourceKey<PlacedFeature>  GOLDEN_GRASS_BONEMEAL = createKey("golden_grass_bonemeal");
+    public static final ResourceKey<PlacedFeature>  GLOSSOM_GRASS_BONEMEAL = createKey("glossom_grass_bonemeal");
     public static final ResourceKey<PlacedFeature>  VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
     public static final ResourceKey<PlacedFeature>  GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
     public static final ResourceKey<PlacedFeature> STERLING_AERCLOUD_PLACEMENT = createKey("sterling_aercloud");
@@ -107,6 +108,7 @@ public class DAPlacedFeatures {
 
 
         register(context, GOLDEN_GRASS_BONEMEAL, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH), PlacementUtils.isEmpty());
+        register(context, GLOSSOM_GRASS_BONEMEAL, configuredFeatures.getOrThrow(DAConfiguredFeatures.GLOSSOM_AETHER_NYLIUM_BLOCK_BONEMEAL_PATCH), PlacementUtils.isEmpty());
         register(context, BLUE_AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.BLUE_ROSEROOT_TREES_PLACEMENT),
                 DAPlacedFeatureBuilder.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
 

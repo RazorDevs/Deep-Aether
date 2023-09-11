@@ -302,6 +302,11 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
 
+        this.dropDoubleWithSilk(DABlocks.GLOSSOM_AETHER_NYLIUM_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
+
+        this.add(DABlocks.GLOSSOM_GRASS.get(), (grass) -> this.createGlossomAetherNyliumDrops(grass));
+        this.add(DABlocks.GLOSSOM_ROOTS.get(), (grass) -> this.createGlossomAetherNyliumDrops(grass));
+
 
         this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
         this.dropSelf(DABlocks.LUNAR_MINT.get());
@@ -377,6 +382,16 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                         .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.1F))
                         .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)).add(LootItem.lootTableItem(DAItems.GOLDEN_GRASS_SEEDS.get())))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.01F))
+                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)).add(LootItem.lootTableItem(AetherItems.AMBROSIUM_SHARD.get())));
+
+    }
+
+
+    protected LootTable.Builder createGlossomAetherNyliumDrops(Block block) {
+        return createShearsDispatchTable(block, this.applyExplosionDecay(block,
+                LootItem.lootTableItem(Items.WHEAT_SEEDS).when(LootItemRandomChanceCondition.randomChance(0.125F))
+                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.01F))
                         .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)).add(LootItem.lootTableItem(AetherItems.AMBROSIUM_SHARD.get())));
 

@@ -90,6 +90,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_TREE = createKey("sunroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH = createKey("golden_grass_block_bonemeal_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLOSSOM_AETHER_NYLIUM_BLOCK_BONEMEAL_PATCH = createKey("glossom_aether_nylium_block_bonemeal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
 
@@ -240,6 +241,11 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 1)
                         .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(),1)
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(),1))));
+
+        register(context, GLOSSOM_AETHER_NYLIUM_BLOCK_BONEMEAL_PATCH,  Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DABlocks.GLOSSOM_GRASS.get().defaultBlockState(),1)
+                        .add(DABlocks.GLOSSOM_ROOTS.get().defaultBlockState(),1))));
 
         register(context, GOLDEN_HEIGHTS_FLOWERS,  Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()

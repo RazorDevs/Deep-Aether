@@ -42,7 +42,8 @@ public class DABlockTagData extends BlockTagsProvider {
         { tag.add(block.get()); }
 
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
-                DABlocks.GOLDEN_GRASS_BLOCK.get()
+                DABlocks.GOLDEN_GRASS_BLOCK.get(),
+                DABlocks.GLOSSOM_AETHER_NYLIUM_BLOCK.get()
         );
         tag(DATags.Blocks.CAN_GOLDEN_VINES_SURVIVE_ON).add(
                 AetherBlocks.QUICKSOIL.get(),
@@ -191,7 +192,8 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.DIRT).add(
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.GOLDEN_GRASS_BLOCK.get()
+                DABlocks.GOLDEN_GRASS_BLOCK.get(),
+                DABlocks.GLOSSOM_AETHER_NYLIUM_BLOCK.get()
         );
         tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(
                 DABlocks.AETHER_MOSS_BLOCK.get(),
@@ -222,7 +224,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                 DABlocks.GOLDEN_GRASS_BLOCK.get(),
-                DABlocks.GOLDEN_DIRT_PATH.get()
+                DABlocks.GOLDEN_DIRT_PATH.get(),
+                DABlocks.GLOSSOM_AETHER_NYLIUM_BLOCK.get()
         );
         tag(BlockTags.MINEABLE_WITH_HOE).add(
                 DABlocks.YAGROOT_LEAVES.get(),
