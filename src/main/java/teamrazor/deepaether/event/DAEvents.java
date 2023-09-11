@@ -1,9 +1,11 @@
 package teamrazor.deepaether.event;
 
-import com.legacy.lost_aether.data.LCTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -46,9 +48,8 @@ public class DAEvents {
     {
         var blocker = event.getEntity();
         DamageSource source = event.getDamageSource();
-        if(ModList.get().isLoaded("lost_aether_content")) {
-            if (blocker.getUseItem().is(LCTags.Items.AETHER_SHIELDS)) {
-                blocker.level.playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level.random.nextFloat() * 0.4F);
+        if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+            if (blocker.getUseItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields")))) {                blocker.level.playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level.random.nextFloat() * 0.4F);
 
                 if (blocker.getUseItem().getItem() == DAItems.STRATUS_SHIELD.get() && source.getDirectEntity() instanceof LivingEntity attacker) {
                     attacker.knockback(1.5F, blocker.getX() - attacker.getX(), blocker.getZ() - attacker.getZ());

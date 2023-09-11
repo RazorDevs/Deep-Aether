@@ -4,7 +4,6 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.item.AetherItems;
-import com.legacy.lost_aether.registry.LCItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -750,8 +749,6 @@ public class DARecipeData extends AetherRecipeProvider {
                     .pattern(" G ")
                     .unlockedBy("has_skyjade_gemstone", has(DAItems.SKYJADE.get()))
                     .save(consumer, name("skyjade_shield"));
-
-            DAlegacyNetheriteSmithing(consumer, LCItems.gravitite_shield, RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get());
 
             repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 2250).group("altar_shield_repair").save(consumer, name("skyjade_shield_repairing"));
             repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("stratus_shield_repairing"));

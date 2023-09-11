@@ -378,9 +378,8 @@ public class DABlocks {
 		return DAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
 	}
 
-	//Temporarily disabled
 	private static <T extends Block> RegistryObject<T> registerAetherReduxBlock(String name, Supplier<T> block) {
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {
+		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) || DeepAetherMod.LOGGER.isDebugEnabled()) {
 			RegistryObject<T> toReturn = BLOCKS.register(name, block);
 			registerBlockItem(name, toReturn);
 			return toReturn;

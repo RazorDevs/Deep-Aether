@@ -2,7 +2,6 @@ package teamrazor.deepaether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
-import com.legacy.lost_aether.data.LCTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -251,12 +250,5 @@ public class DAItemTagData extends ItemTagsProvider {
         ).addOptional(
                 new ResourceLocation("aether_genesis:golden_swet_ball")
         );
-
-        if(ModList.get().isLoaded("lost_aether_content")) {
-            tag(LCTags.Items.AETHER_SHIELDS).add(
-                    DAItems.SKYJADE_SHIELD.get(),
-                    DAItems.STRATUS_SHIELD.get()
-            );
-        }
     }
 }

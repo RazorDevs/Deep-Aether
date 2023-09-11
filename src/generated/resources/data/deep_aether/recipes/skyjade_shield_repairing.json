@@ -1,8 +1,0 @@
-{
-  "type": "aether:repairing",
-  "group": "altar_shield_repair",
-  "ingredient": {
-    "item": "deep_aether:skyjade_shield"
-  },
-  "repairTime": 2250
-}

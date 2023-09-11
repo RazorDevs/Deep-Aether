@@ -317,23 +317,24 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.ZEPHYR_TOTEM.get());
         this.dropSelf(DABlocks.AERWHALE_TOTEM.get());
 
-        if (ModList.get().isLoaded("lost_aether_content")) {
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICKS.get());
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get());
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get());
-            this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get());
+        //Redux support
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get());
 
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get());
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get());
-            this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get());
 
-            this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
-            this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get());
-            this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get());
-            this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
-        }
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get());
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get());
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
 
+
+        //Genesis Support
         this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
         this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
