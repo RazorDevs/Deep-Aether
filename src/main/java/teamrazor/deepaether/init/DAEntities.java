@@ -3,7 +3,6 @@ package teamrazor.deepaether.init;
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.entity.monster.AbstractWhirlwind;
-import com.aetherteam.aether.entity.monster.PassiveWhirlwind;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -44,7 +43,7 @@ public class DAEntities {
 					.updateInterval(10)
 					.build("quail_egg"));
 
-	public static final RegistryObject<EntityType<AerglowFish>> AETHER_FISH = register("aerglow_fish",
+	public static final RegistryObject<EntityType<AerglowFish>> AERGLOW_FISH = register("aerglow_fish",
 			EntityType.Builder.of(AerglowFish::new, MobCategory.WATER_CREATURE)
 					.setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3)
@@ -104,7 +103,7 @@ public class DAEntities {
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
+		event.put(AERGLOW_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(STEER.get(), Steer.createAttributes().build());
 		event.put(AERCLOUD_SWET.get(), AercloudSwet.createMobAttributes().build());

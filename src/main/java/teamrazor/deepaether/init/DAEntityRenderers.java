@@ -27,7 +27,7 @@ public class DAEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		//MOBS
 
-		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AerglowFishRenderer::new);
+		event.registerEntityRenderer(DAEntities.AERGLOW_FISH.get(), AerglowFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.STEER.get(), SteerRenderer::new);
 

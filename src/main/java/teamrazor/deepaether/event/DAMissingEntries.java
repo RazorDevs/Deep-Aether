@@ -84,6 +84,7 @@ public class DAMissingEntries {
         event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_shield")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SHIELD.get()));
         event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_shovel")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SHOVEL.get()));
         event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_sword")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SWORD.get()));
+        event.getMappings(ForgeRegistries.Keys.ITEMS, DeepAetherMod.MODID).stream().filter(mapping -> mapping.getKey().getPath().contains("cloudium_sword")).forEach(blockMapping -> blockMapping.remap(DAItems.STRATUS_SWORD.get()));
 
     }
 }

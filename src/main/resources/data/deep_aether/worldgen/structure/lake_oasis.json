@@ -47,7 +47,7 @@
       "bounding_box": "full",
       "spawns": [
         {
-          "type": "deep_aether:aether_fish",
+          "type": "deep_aether:aerglow_fish",
           "weight": 1,
           "minCount": 4,
           "maxCount": 10
