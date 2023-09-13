@@ -50,7 +50,6 @@ public class DALogBlock extends AetherLogBlock {
                 return DABlocks.STRIPPED_SUNROOT_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }
-
         return super.getToolModifiedState(state, context, toolAction, simulate);
     }
 }

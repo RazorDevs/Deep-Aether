@@ -17,14 +17,12 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class TwinTrunkPlacer extends TrunkPlacer {
-    public static final Codec<TwinTrunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_) -> {
-        return trunkPlacerParts(p_70261_).apply(p_70261_, TwinTrunkPlacer::new);
-    });
+    public static final Codec<TwinTrunkPlacer> CODEC = RecordCodecBuilder.create((parts) -> trunkPlacerParts(parts).apply(parts, TwinTrunkPlacer::new));
 
 
 
-    public TwinTrunkPlacer(int p_161770_, int p_161771_, int p_161772_) {
-        super(p_161770_, p_161771_, p_161772_);
+    public TwinTrunkPlacer(int i, int i1, int i2) {
+        super(i, i1, i2);
     }
 
     protected TrunkPlacerType<?> type() {

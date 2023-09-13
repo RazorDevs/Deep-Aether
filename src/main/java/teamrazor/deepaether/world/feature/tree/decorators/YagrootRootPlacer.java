@@ -7,7 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
@@ -21,17 +20,12 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 
 public class YagrootRootPlacer extends RootPlacer {
-    public static final Codec<YagrootRootPlacer> CODEC = RecordCodecBuilder.create((p_225856_) -> {
-        return rootPlacerParts(p_225856_).and(MangroveRootPlacement.CODEC.fieldOf("yagroot_root_placer").forGetter((p_225849_) -> {
-            return p_225849_.yagrootRootPlacement;
-        })).apply(p_225856_, YagrootRootPlacer::new);
-    });
+    public static final Codec<YagrootRootPlacer> CODEC = RecordCodecBuilder.create((provider) -> rootPlacerParts(provider).and(MangroveRootPlacement.CODEC.fieldOf("yagroot_root_placer").forGetter((rootPlacer) -> rootPlacer.yagrootRootPlacement)).apply(provider, YagrootRootPlacer::new));
     private final MangroveRootPlacement yagrootRootPlacement;
 
-    public YagrootRootPlacer(IntProvider p_225817_, BlockStateProvider p_225818_, Optional<AboveRootPlacement> p_225819_, MangroveRootPlacement p_225820_) {
-        super(p_225817_, p_225818_, p_225819_);
-        this.yagrootRootPlacement = p_225820_;
-
+    public YagrootRootPlacer(IntProvider intProvider, BlockStateProvider stateProvider, Optional<AboveRootPlacement> aboveRootPlacement, MangroveRootPlacement mangroveRootPlacement) {
+        super(intProvider, stateProvider, aboveRootPlacement);
+        this.yagrootRootPlacement = mangroveRootPlacement;
     }
 
 
@@ -78,11 +72,5 @@ public class YagrootRootPlacer extends RootPlacer {
             }
         }
         return true;
-    }
-
-
-
-    private boolean isEmpty(LevelSimulatedReader level, BlockPos pos) {
-        return level.isStateAtPosition(pos, state -> state.getBlock() == Blocks.AIR || state.getBlock() == Blocks.CAVE_AIR);
     }
 }

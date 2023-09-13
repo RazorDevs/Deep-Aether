@@ -27,7 +27,6 @@ import java.util.function.Supplier;
 
 public class DASkyrootBucketItem extends SkyrootMobBucketItem {
 
-
     private final Supplier<? extends EntityType<?>> fishType;
 
     public DASkyrootBucketItem(Supplier<? extends EntityType<?>> entityType, Properties properties) {

@@ -246,7 +246,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.STRATUS_RING.get());
         this.item(DAItems.STRATUS_GLOVES.get());
 
-        this.item(DAItems.GRAVITIE_RING.get());
+        this.item(DAItems.GRAVITITE_RING.get());
 
         this.item(DAItems.RAW_AERGLOW_FISH.get());
         this.item(DAItems.COOKED_AERGLOW_FISH.get());

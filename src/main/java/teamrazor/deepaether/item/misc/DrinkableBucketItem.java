@@ -8,7 +8,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,7 +25,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.RegistryObject;
 
 public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
-
     boolean CAN_CONSUME = false;
     public DrinkableBucketItem(RegistryObject<FlowingFluid> fluid, Properties properties) {
         super(fluid, properties);
@@ -51,16 +49,6 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
     public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.DRINK;
     }
-
-   // BlockHitResult blockhitresult1 = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
-   //     if (blockhitresult1.getType() == HitResult.Type.MISS) {
-   //     CAN_CONSUME = true;
-   //     return ItemUtils.startUsingInstantly(world, player, hand);
-   // }
-   //     else {
-   //     CAN_CONSUME = false;
-   //     return new InteractionResultHolder<>(InteractionResult.PASS, player.getItemInHand(hand));
-   // }
 
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);

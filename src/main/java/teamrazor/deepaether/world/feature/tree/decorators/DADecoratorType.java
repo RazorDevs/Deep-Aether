@@ -17,13 +17,13 @@ public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<
 
     private final Codec<P> codec;
 
-    private static <P extends TreeDecorator> RegistryObject<TreeDecoratorType<P>> register(String p_70053_, Codec<P> p_70054_) {
-        return REGISTRY.register(p_70053_, () -> new TreeDecoratorType<>(p_70054_));
+    private static <P extends TreeDecorator> RegistryObject<TreeDecoratorType<P>> register(String s, Codec<P> codec) {
+        return REGISTRY.register(s, () -> new TreeDecoratorType<>(codec));
     }
 
-    public DADecoratorType(Codec<P> p_70050_) {
-        super(p_70050_);
-        this.codec = p_70050_;
+    public DADecoratorType(Codec<P> codec) {
+        super(codec);
+        this.codec = codec;
     }
 
     public Codec<P> codec() {

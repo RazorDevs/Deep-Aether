@@ -249,7 +249,7 @@ public class DATabs {
                             output.accept(DAItems.STRATUS_RING.get());
                             output.accept(DAItems.STRATUS_GLOVES.get());
 
-                            output.accept(DAItems.GRAVITIE_RING.get());
+                            output.accept(DAItems.GRAVITITE_RING.get());
 
                             output.accept(DAItems.RAW_AERGLOW_FISH.get());
                             output.accept(DAItems.COOKED_AERGLOW_FISH.get());

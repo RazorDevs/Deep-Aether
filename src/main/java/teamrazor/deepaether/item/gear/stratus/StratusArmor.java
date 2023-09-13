@@ -8,6 +8,8 @@ import net.minecraft.world.entity.player.Player;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 
 public interface StratusArmor {
+
+    // Stratus Armor Ability
     static void moreBoostedJump(LivingEntity entity) {
         if (EquipmentUtil.hasFullStratusSet(entity)) {
             if (entity instanceof Player player) {

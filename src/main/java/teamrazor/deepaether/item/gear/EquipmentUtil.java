@@ -16,7 +16,6 @@ public class EquipmentUtil {
         return hasArmorSet(entity, DAItems.STRATUS_HELMET.get(), DAItems.STRATUS_CHESTPLATE.get(), DAItems.STRATUS_LEGGINGS.get(), DAItems.STRATUS_BOOTS.get(), DAItems.STRATUS_GLOVES.get());
     }
 
-
     private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots, Item gloves) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
@@ -37,19 +36,18 @@ public class EquipmentUtil {
     }
 
     public static double handleStratusRingBoost(LivingEntity entity) {
-        EquipmentUtil.damageRing(entity, (RingItem) DAItems.GRAVITIE_RING.get());
+        EquipmentUtil.damageRing(entity, (RingItem) DAItems.GRAVITITE_RING.get());
         EquipmentUtil.damageRing(entity, (RingItem) DAItems.STRATUS_RING.get());
         double multiplier = 1;
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.STRATUS_RING.get()).isPresent())
             multiplier = multiplier+1.25*(EquipmentUtil.getCurios(entity, DAItems.STRATUS_RING.get()).toArray().length);
 
-        if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.GRAVITIE_RING.get()).isPresent())
-            multiplier = multiplier+1.15*(EquipmentUtil.getCurios(entity, DAItems.GRAVITIE_RING.get()).toArray().length);
+        if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.GRAVITITE_RING.get()).isPresent())
+            multiplier = multiplier+1.15*(EquipmentUtil.getCurios(entity, DAItems.GRAVITITE_RING.get()).toArray().length);
 
-        System.out.println(multiplier);
         return multiplier;
-
     }
+
     public static float handleSkyjadeRingAbility(LivingEntity entity, float speed) {
         float newSpeed = speed;
         List<SlotResult> slotResults = getCurios(entity, DAItems.SKYJADE_RING.get());

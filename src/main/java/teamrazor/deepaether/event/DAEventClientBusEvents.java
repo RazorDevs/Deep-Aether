@@ -40,12 +40,7 @@ public class DAEventClientBusEvents {
                 AddonItemModelPredicates.init();
             }
         });
-
-
     }
-
-
-
 
     @SubscribeEvent
     public static  void registerParticleFactories(final RegisterParticleProvidersEvent event) {
@@ -56,11 +51,7 @@ public class DAEventClientBusEvents {
     public static void registerCuriosRenderers() {
         CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
-
     }
-
-
-
 }
 
 

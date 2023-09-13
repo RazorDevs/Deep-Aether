@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-public abstract class DaBaseHookedTrunkPlacer extends TrunkPlacer {
+public abstract class DABaseHookedTrunkPlacer extends TrunkPlacer {
 
     //This code was written by the Aether Team and not by Team Razor
-    public DaBaseHookedTrunkPlacer(int height, int heightRandA, int heightRandB) {
+    public DABaseHookedTrunkPlacer(int height, int heightRandA, int heightRandB) {
         super(height, heightRandA, heightRandB);
     }
 

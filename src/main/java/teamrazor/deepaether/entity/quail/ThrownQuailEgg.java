@@ -15,16 +15,12 @@ import teamrazor.deepaether.init.DAItems;
 
 public class ThrownQuailEgg extends ThrowableItemProjectile {
 
-    public ThrownQuailEgg(EntityType<ThrownQuailEgg> p_37473_, Level p_37474_) {
-        super(p_37473_, p_37474_);
+    public ThrownQuailEgg(EntityType<ThrownQuailEgg> entityType, Level level) {
+        super(entityType, level);
     }
 
     public ThrownQuailEgg(Level p_37481_, LivingEntity p_37482_) {
         super(DAEntities.QUAIL_EGG.get(), p_37482_, p_37481_);
-    }
-
-    public ThrownQuailEgg(Level p_37476_, double p_37477_, double p_37478_, double p_37479_) {
-        super(DAEntities.QUAIL_EGG.get(), p_37477_, p_37478_, p_37479_, p_37476_);
     }
 
     public void handleEntityEvent(byte b) {

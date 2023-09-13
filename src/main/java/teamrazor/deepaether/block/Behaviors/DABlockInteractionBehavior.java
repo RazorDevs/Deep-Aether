@@ -35,7 +35,6 @@ import teamrazor.deepaether.init.DABlocks;
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {
 
-
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
         ItemStack itemstack = event.getItemStack();
@@ -136,9 +135,6 @@ public class DABlockInteractionBehavior {
             }
         }
     }
-
-
-
 }
 
 

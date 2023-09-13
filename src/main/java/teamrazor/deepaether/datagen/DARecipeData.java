@@ -9,11 +9,12 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.Tags;
@@ -26,7 +27,6 @@ import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
-import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -484,7 +484,7 @@ public class DARecipeData extends AetherRecipeProvider {
         makeRing(DAItems.SKYJADE_RING, DAItems.SKYJADE.get()).save(consumer);
         makeGloves(DAItems.SKYJADE_GLOVES, DAItems.SKYJADE).save(consumer);
 
-        makeRing(DAItems.GRAVITIE_RING, AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()).save(consumer);
+        makeRing(DAItems.GRAVITITE_RING, AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()).save(consumer);
 
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_sword_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_axe_repairing"));
@@ -508,7 +508,7 @@ public class DARecipeData extends AetherRecipeProvider {
         stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
         stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
         stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
-        stratusSmithingRecipe(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
+        stratusSmithingRecipe(consumer, DAItems.GRAVITITE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
         stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
 
@@ -522,7 +522,7 @@ public class DARecipeData extends AetherRecipeProvider {
         DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
         DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
         DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
-        DAlegacyNetheriteSmithing(consumer, DAItems.GRAVITIE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
+        DAlegacyNetheriteSmithing(consumer, DAItems.GRAVITITE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
         DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.CHROMATIC_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
@@ -656,7 +656,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
     //TODO: REMOVE WHEN 1.20 RELEASES - BACKPORT TO 1.19.2
-    //ignore warnings
+    //Ignore Warnings
     @Deprecated(forRemoval = true)
     protected void DAlegacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
         LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.STRATUS_INGOT.get()), p_266966_, p_267096_).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(p_267010_, name(getItemName(p_267096_)) + "_stratus_smithing");

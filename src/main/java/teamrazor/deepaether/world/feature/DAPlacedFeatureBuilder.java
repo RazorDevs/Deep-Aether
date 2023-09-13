@@ -5,7 +5,9 @@ import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModif
 import com.google.common.collect.ImmutableList;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
 
 import java.util.List;
 
@@ -14,7 +16,6 @@ public class DAPlacedFeatureBuilder {
         return treePlacementBase(count).build();
     }
 
-
     private static ImmutableList.Builder<PlacementModifier> treePlacementBase(PlacementModifier count) {
         return ImmutableList.<PlacementModifier>builder()
                 .add(count)
@@ -22,21 +23,6 @@ public class DAPlacedFeatureBuilder {
                 .add(SurfaceWaterDepthFilter.forMaxDepth(0))
                 .add(BiomeFilter.biome())
                 .add(new DungeonBlacklistFilter());
-    }
-
-
-
-    public static List<PlacementModifier> commonOrePlacement(int count, PlacementModifier heightRange) {
-        return orePlacement(CountPlacement.of(count), heightRange);
-    }
-
-
-    private static List<PlacementModifier> orePlacement(PlacementModifier count, PlacementModifier heightRange) {
-        return List.of(count, InSquarePlacement.spread(), heightRange, BiomeFilter.biome());
-    }
-
-    private static List<PlacementModifier> VegetationPlacement(PlacementModifier count, PlacementModifier heightRange) {
-        return List.of(count, InSquarePlacement.spread(), heightRange, BiomeFilter.biome());
     }
 }
 

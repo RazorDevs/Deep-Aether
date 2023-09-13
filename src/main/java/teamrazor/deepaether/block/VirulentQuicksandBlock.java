@@ -32,13 +32,14 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
     public VirulentQuicksandBlock(Properties properties) {
         super(properties);
     }
-    public void onPlace(BlockState p_53233_, Level p_53234_, BlockPos p_53235_, BlockState p_53236_, boolean p_53237_) {
-        p_53234_.scheduleTick(p_53235_, this, this.getDelayAfterPlace());
-    }
 
-    public BlockState updateShape(BlockState p_53226_, Direction p_53227_, BlockState p_53228_, LevelAccessor p_53229_, BlockPos p_53230_, BlockPos p_53231_) {
-        p_53229_.scheduleTick(p_53230_, this, this.getDelayAfterPlace());
-        return super.updateShape(p_53226_, p_53227_, p_53228_, p_53229_, p_53230_, p_53231_);
+    public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState state, boolean b) {
+        level.scheduleTick(blockPos, this, this.getDelayAfterPlace());
+    }
+    @NotNull
+    public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState1, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos1) {
+        levelAccessor.scheduleTick(blockPos, this, this.getDelayAfterPlace());
+        return super.updateShape(blockState, direction, blockState1, levelAccessor, blockPos, blockPos1);
     }
 
     @SuppressWarnings("SameReturnValue")
@@ -78,11 +79,6 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                     level.addParticle(ParticleTypes.ASH, entity.getX(), (double) (pos.getY() + 1), entity.getZ(), (double) (Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F), (double) 0.05F, (double) (Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F));
                 }
             }
-            /*int h = (int) entity.getEyeHeight();
-            if((entity.getY()+h) == pos.getY() && entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 4, false, false, false));
-                entity.hurt(level.damageSources().inWall(), 1.5f);
-            }*/
         }
     }
 

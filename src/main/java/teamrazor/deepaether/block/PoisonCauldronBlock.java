@@ -21,8 +21,6 @@ public class PoisonCauldronBlock extends AbstractCauldronBlock {
         return super.getMapColor(state, level, pos, defaultColor);
     }
 
-
-
     public PoisonCauldronBlock(BlockBehaviour.Properties p_153498_) {
         super(p_153498_, DaCauldronInteraction.POISON);
     }

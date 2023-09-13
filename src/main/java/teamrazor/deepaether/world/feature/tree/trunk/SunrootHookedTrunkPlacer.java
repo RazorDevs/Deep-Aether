@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-public class SunrootHookedTrunkPlacer extends DaBaseHookedTrunkPlacer {
+public class SunrootHookedTrunkPlacer extends DABaseHookedTrunkPlacer {
 
     //This code was written by the Aether Team and not by Team Razor
     public static final Codec<SunrootHookedTrunkPlacer> CODEC = RecordCodecBuilder.create((codec) -> trunkPlacerParts(codec).apply(codec, SunrootHookedTrunkPlacer::new));

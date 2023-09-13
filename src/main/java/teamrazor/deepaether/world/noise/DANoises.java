@@ -7,9 +7,6 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DANoises {
-
-
-
     public static final ResourceKey<NormalNoise.NoiseParameters> GOLDEN_HEIGHTS = createKey("golden_heights");
 
     private static ResourceKey<NormalNoise.NoiseParameters> createKey(String name) {

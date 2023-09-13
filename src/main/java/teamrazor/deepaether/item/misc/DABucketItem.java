@@ -25,8 +25,6 @@ import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public class DABucketItem extends MobBucketItem {
-
-
     private final Supplier<? extends EntityType<?>> fishType;
 
     public DABucketItem(Supplier<? extends EntityType<?>> entityType, Properties properties) {

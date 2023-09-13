@@ -25,10 +25,10 @@ public class DaAbilityListener {
         }
     }
 
+    // Gravitite Ability check for Ring boost
     @SubscribeEvent
     public static void onEntityJump(LivingEvent.LivingJumpEvent event) {
         LivingEntity livingEntity = event.getEntity();
-
 
         if (com.aetherteam.aether.item.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
             if (livingEntity instanceof Player player) {
@@ -48,7 +48,6 @@ public class DaAbilityListener {
         return EquipmentUtil.hasFullStratusSet(entity);
     }
 
-
     @SubscribeEvent
     public static void onMiningSpeed(PlayerEvent.BreakSpeed event) {
         Player player = event.getEntity();
@@ -56,7 +55,6 @@ public class DaAbilityListener {
             event.setNewSpeed(EquipmentUtil.handleSkyjadeRingAbility(player, event.getNewSpeed()));
         }
     }
-
 
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {

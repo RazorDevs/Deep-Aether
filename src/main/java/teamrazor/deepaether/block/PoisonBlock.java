@@ -29,8 +29,8 @@ import java.util.function.Supplier;
 
 public class PoisonBlock extends LiquidBlock {
 
-    public PoisonBlock(Supplier<? extends FlowingFluid> p_54694_, Properties p_54695_) {
-        super(p_54694_, p_54695_);
+    public PoisonBlock(Supplier<? extends FlowingFluid> supplier, Properties properties) {
+        super(supplier, properties);
     }
 
     boolean COUNT = false;
@@ -81,12 +81,6 @@ public class PoisonBlock extends LiquidBlock {
 
                 CAN_TRANSFORM = false;
 
-                //MUSIC DISC LEGACY REMOVED
-
-                //if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_LEGACY.get()) {
-                //    TRANSFORM_ITEM = Items.MUSIC_DISC_CAT;
-                //    CAN_TRANSFORM = true;
-                //}
                 if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
                     TRANSFORM_ITEM = AetherItems.GOLDEN_DART.get();
                     CAN_TRANSFORM = true;

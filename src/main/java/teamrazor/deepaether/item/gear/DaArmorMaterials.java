@@ -11,7 +11,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.datagen.tags.DATags;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.EnumMap;
 import java.util.function.Supplier;
@@ -43,8 +42,8 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
     private final int enchantability;
     private final Supplier<SoundEvent> soundEvent;
     private final float toughness;
-    private final float knockbackResistance;
     private final Supplier<Ingredient> repairMaterial;
+
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
 
 
@@ -55,7 +54,6 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
         this.enchantability = enchantability;
         this.soundEvent = soundEvent;
         this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
         this.repairMaterial = repairMaterial;
     }
 
