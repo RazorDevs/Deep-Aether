@@ -84,7 +84,7 @@ public class DAChestBoatEntity extends DABoatEntity implements HasCustomInventor
 
     @Override
     public InteractionResult interact(Player pPlayer, InteractionHand pHand) {
-        return this.canAddPassenger(pPlayer) && !pPlayer.isSecondaryUseActive() ? super.interact(pPlayer, pHand) : this.interactWithContainerVehicle(pPlayer);
+        return this.canAddPassenger(pPlayer) && !pPlayer.isSecondaryUseActive() ? super.interact(pPlayer, pHand) : this.interact(pPlayer, pHand);
     }
 
     @Override

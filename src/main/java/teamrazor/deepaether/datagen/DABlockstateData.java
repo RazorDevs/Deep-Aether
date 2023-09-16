@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen;
-
+/*
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
@@ -432,3 +432,5 @@ public class DABlockstateData extends AetherBlockStateProvider {
                 .condition(entry.getValue(), height).condition(WallBlock.UP, hasPost);
     }
 }
+
+ */

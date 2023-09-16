@@ -1,6 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
-
+/*
 import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -44,3 +44,5 @@ public class DABiomeTagData extends BiomeTagsProvider {
         );
     }
 }
+
+ */

@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen;
-
+/*
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
@@ -715,3 +715,5 @@ public class DARecipeData extends AetherRecipeProvider {
         return new ResourceLocation(DeepAetherMod.MODID, name);
     }
 }
+
+ */

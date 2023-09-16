@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen;
-
+/*
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -351,3 +351,5 @@ public class DAItemModelData extends AetherItemModelProvider {
                 .face(Direction.EAST).uvs(0.0F, 3.0F, 16.0F, 16.0F).texture("#side").end().end();
     }
 }
+
+ */

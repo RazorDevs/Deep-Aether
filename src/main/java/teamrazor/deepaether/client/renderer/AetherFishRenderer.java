@@ -40,6 +40,5 @@ public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishMode
 			p_115829_.translate(0.2F, 0.1F, 0.0F);
 			p_115829_.mulPose(Axis.ZP.rotationDegrees(90.0F));
 		}
-
 	}
 }

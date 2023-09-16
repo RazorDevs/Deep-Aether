@@ -1,6 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -23,14 +23,14 @@ public class DATags {
         public static final TagKey<Item> IS_GOLDEN_SWET_BALL = tag("is_golden_swet_ball");
 
         private static TagKey<Item> tag(String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
         }
     }
     public static class Blocks {
 
         public static final TagKey<Block> CAN_GOLDEN_VINES_SURVIVE_ON = tag("can_golden_vines_survive_on");
         private static TagKey<Block> tag(String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
         }
     }
 
@@ -40,7 +40,7 @@ public class DATags {
         public static final TagKey<Biome> CAN_QUAIL_SPAWN = tag("can_quail_spawn");
 
         private static TagKey<Biome> tag(String name) {
-            return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
         }
 
     }
@@ -49,7 +49,7 @@ public class DATags {
         public static final TagKey<Fluid> POISON = tag("poison");
 
         private static TagKey<Fluid> tag(String name) {
-            return TagKey.create(Registries.FLUID, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registry.FLUID_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
         }
     }
 }

@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen;
-
+/*
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
@@ -22,3 +22,5 @@ public class DAWorldGenData extends DatapackBuiltinEntriesProvider {
         super(output, registries, BUILDER, Collections.singleton(DeepAetherMod.MODID));
     }
 }
+
+ */

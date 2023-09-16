@@ -1,5 +1,5 @@
 package teamrazor.deepaether.init;
-
+/*
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import teamrazor.deepaether.DeepAetherMod;
@@ -17,3 +17,4 @@ public class DAWoodTypes {
     public static final BlockSetType SUNROOT_BLOCK_SET = new BlockSetType(DeepAetherMod.MODID + ":sunroot");
     public static final WoodType SUNROOT = new WoodType(DeepAetherMod.MODID + ":sunroot", SUNROOT_BLOCK_SET);
 }
+*/

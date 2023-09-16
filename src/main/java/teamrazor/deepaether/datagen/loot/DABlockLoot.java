@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen.loot;
-
+/*
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherBlockLootSubProvider;
 import com.aetherteam.aether.item.AetherItems;
@@ -340,10 +340,11 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
     public void createDeepAetherTallFlowerDrop(Block block, Block block1) {
         this.add(block, (result) -> this.deepAetherTallFlowerDrop(block, block1));
-    }*/
+    }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return DABlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }
+*/

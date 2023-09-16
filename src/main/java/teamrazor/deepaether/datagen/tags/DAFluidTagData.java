@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen.tags;
-
+/*
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
@@ -31,3 +31,5 @@ public class DAFluidTagData extends FluidTagsProvider {
         );
     }
 }
+
+ */

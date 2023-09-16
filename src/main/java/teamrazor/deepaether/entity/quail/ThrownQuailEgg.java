@@ -3,6 +3,7 @@ package teamrazor.deepaether.entity.quail;
 import net.minecraft.Util;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
@@ -36,7 +37,7 @@ public class ThrownQuailEgg extends ThrowableItemProjectile {
 
     protected void onHitEntity(EntityHitResult hitResult) {
         super.onHitEntity(hitResult);
-        hitResult.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), 0.0F);
+        hitResult.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 0.0F);
     }
 
     protected void onHit(HitResult hitResult) {

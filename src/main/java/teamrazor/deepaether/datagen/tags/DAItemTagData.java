@@ -1,5 +1,5 @@
 package teamrazor.deepaether.datagen.tags;
-
+/*
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.HolderLookup;
@@ -242,3 +242,5 @@ public class DAItemTagData extends ItemTagsProvider {
         );
     }
 }
+
+ */
