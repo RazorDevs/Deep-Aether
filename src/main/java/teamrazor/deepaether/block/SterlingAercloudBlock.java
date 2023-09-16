@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HalfTransparentBlock;
@@ -13,20 +14,20 @@ import net.minecraft.world.phys.Vec3;
 
 public class SterlingAercloudBlock extends HalfTransparentBlock {
 
-
     public SterlingAercloudBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
-        if (lightningbolt != null) {
-            lightningbolt.moveTo(Vec3.atBottomCenterOf(pos));
-            level.addFreshEntity(lightningbolt);
+        if (entity instanceof LivingEntity) {
+            LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
+            if (lightningbolt != null) {
+                lightningbolt.moveTo(Vec3.atBottomCenterOf(pos));
+                level.addFreshEntity(lightningbolt);
+            }
+            level.setBlockAndUpdate(pos, AetherBlocks.COLD_AERCLOUD.get().defaultBlockState());
         }
-        level.setBlockAndUpdate(pos, AetherBlocks.COLD_AERCLOUD.get().defaultBlockState());
-
         super.entityInside(state, level, pos, entity);
     }
 
