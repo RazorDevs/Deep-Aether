@@ -75,8 +75,11 @@ You will also need:
 __Q: Do you plan on backporting to version 1.19.2 once the Aether Mod does?__
 - A: Yes, we plan on doing so, as it shouldn't be *too* difficult and 1.19.2 has more mods than 1.19.4.
 
+__Q: What about 1.20 and forward?__
+- A: Since Aether will move to the NeoForge modloader, we're going to do the same and update following NeoForge. So we recommend you start using it!
+
 __Q: Do you plan on adding cross-compatibility with other mods and Aether addons?__
-- A: Yes, we plan on doing that as well, Aether Lost Content, Aether Redux, and Quark are just a few examples!
+- A: Yes, we plan on doing that as well, Aether Lost Content and Aether Redux for example!
 
 __Q: I am interested in joining your team to help with the development of the mod! How can I do so?__
 - A: We are always open to accepting new members, especially testers, developers, and texture artists. You can join our Discord Server and follow the directions for filling out an application in #recruitment-info! __BE PREPARED TO SHOW PROOF OF YOUR SKILLS.__
@@ -87,13 +90,6 @@ __Q: I am interested in joining your team to help with the development of the mo
 The rights to this mod belong to The Aether Team and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo and background by Aethyus. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
 
 
-# Former Members
-
-bagu_chan: https://github.com/baguchan
-- Role: Developer
-- Reason for leaving: Real life and health stuff getting in the way
-
-
 # License
 
 GNU Lesser General Public License v3.0 only
@@ -101,8 +97,8 @@ GNU Lesser General Public License v3.0 only
 
 # Our Links
 
-CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
-
 Modrinth: https://modrinth.com/mod/deep-aether
+
+CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
 
 Discord: https://discord.gg/xB6gaUv66t
