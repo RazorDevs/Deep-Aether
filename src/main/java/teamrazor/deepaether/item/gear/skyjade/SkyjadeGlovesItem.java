@@ -10,13 +10,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
+import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.UUID;
 
 public class SkyjadeGlovesItem extends DAGlovesItem {
     public SkyjadeGlovesItem(double punchDamage, Item.Properties properties) {
-        super(punchDamage, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, properties);
+        super(DaArmorMaterials.SKYJADE, punchDamage, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, properties);
     }
 
     @Override

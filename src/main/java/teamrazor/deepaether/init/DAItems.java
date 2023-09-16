@@ -61,7 +61,7 @@ public class DAItems {
 	public static final RegistryObject<Item> STRATUS_CHESTPLATE = ITEMS.register("stratus_chestplate", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 	public static final RegistryObject<Item> STRATUS_LEGGINGS = ITEMS.register("stratus_leggings", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
 	public static final RegistryObject<Item> STRATUS_BOOTS = ITEMS.register("stratus_boots", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.BOOTS, new Item.Properties()));
-	public static final RegistryObject<Item> STRATUS_GLOVES = ITEMS.register("stratus_gloves", () -> new DAGlovesItem(1.0, "stratus_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
+	public static final RegistryObject<Item> STRATUS_GLOVES = ITEMS.register("stratus_gloves", () -> new DAGlovesItem(DaArmorMaterials.STRATUS, 1.0,"stratus_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> STRATUS_RING = ITEMS.register("stratus_ring", () -> new RingItem(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(100)));
 
 	public static final RegistryObject<Item> STRATUS_SWORD = ITEMS.register("stratus_sword", () -> new StratusSwordItem(DATiers.STRATUS, 3, -2.4F, (new Item.Properties())));
