@@ -69,7 +69,6 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	//TODO: clean up armor code
 
 	private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -88,9 +87,6 @@ public class DeepAetherMod {
 
 	public DeepAetherMod() {
 
-
-		// Register the setup method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		// Register the enqueueIMC method for modloading
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 		// Register the processIMC method for modloading
@@ -130,15 +126,6 @@ public class DeepAetherMod {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 	}
 
-
-
-	private void setup(final FMLCommonSetupEvent event)
-	{
-		event.enqueueWork(() ->
-		{
-
-		});
-	}
 
 	public void dataSetup(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
@@ -233,6 +220,7 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_BERRIES.get(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);
 	}
+
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {

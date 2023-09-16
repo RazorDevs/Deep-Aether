@@ -22,6 +22,4 @@ public class DAFluids {
     public static final ForgeFlowingFluid.Properties POISON_PROPERTIES = new ForgeFlowingFluid.Properties(DAFluidTypes.POISON_FLUID_TYPE, POISON_FLUID, POISON_FLOWING)
             .slopeFindDistance(2).levelDecreasePerBlock(2)
             .block(DABlocks.POISON_BLOCK).bucket(DAItems.PLACEABLE_POISON_BUCKET);
-
-
 }

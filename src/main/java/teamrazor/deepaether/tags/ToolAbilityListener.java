@@ -1,9 +1,7 @@
 package teamrazor.deepaether.tags;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -24,11 +22,9 @@ public class ToolAbilityListener {
 
     @SubscribeEvent
     public static void setupToolModifications(BlockEvent.BlockToolModificationEvent event) {
-        LevelAccessor levelAccessor = event.getLevel();
-        BlockPos pos = event.getPos();
         BlockState oldState = event.getState();
         ToolAction toolAction = event.getToolAction();
-        BlockState newState = DAAbilityHooks.ToolHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
+        BlockState newState = DAAbilityHooks.ToolHooks.setupToolActions(oldState, toolAction);
         if (newState != oldState && !event.isSimulated()) {
             event.setFinalState(newState);
         }

@@ -3,17 +3,14 @@ package teamrazor.deepaether.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import teamrazor.deepaether.init.DABlocks;
 
 public class GoldenGrassPlant extends TallGrassBlock {
-    public GoldenGrassPlant(Properties p_57318_) {
-        super(p_57318_);
+    public GoldenGrassPlant(Properties properties) {
+        super(properties);
     }
 
     @Override

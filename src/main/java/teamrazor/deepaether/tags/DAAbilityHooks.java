@@ -1,9 +1,7 @@
 package teamrazor.deepaether.tags;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
@@ -13,11 +11,6 @@ import teamrazor.deepaether.init.DABlocks;
 import java.util.Map;
 
 public class DAAbilityHooks {
-    public static class AccessoryHooks {
-    }
-    public static class ArmorHooks {
-    }
-
 
     public static class ToolHooks {
         public static final Map<Block, Block> STRIPPABLES = (new ImmutableMap.Builder<Block, Block>())
@@ -27,7 +20,7 @@ public class DAAbilityHooks {
                 .put(DABlocks.YAGROOT_WOOD.get(), DABlocks.STRIPPED_YAGROOT_WOOD.get())
                 .build();
 
-        public static BlockState setupToolActions(LevelAccessor accessor, BlockPos pos, BlockState old, ToolAction action) {
+        public static BlockState setupToolActions(BlockState old, ToolAction action) {
             Block oldBlock = old.getBlock();
             if (action == ToolActions.AXE_STRIP) {
                 if (STRIPPABLES.containsKey(oldBlock)) {

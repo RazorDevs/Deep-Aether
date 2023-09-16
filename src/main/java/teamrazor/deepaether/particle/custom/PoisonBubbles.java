@@ -35,12 +35,12 @@ public class PoisonBubbles extends TextureSheetParticle {
     public static class Provider implements ParticleProvider<SimpleParticleType> {
         protected static SpriteSet sprite = null;
 
-        public Provider(SpriteSet p_105753_) {
-            this.sprite = p_105753_;
+        public Provider(SpriteSet spriteSet) {
+            this.sprite = spriteSet;
         }
 
-        public Particle createParticle(SimpleParticleType p_105764_, ClientLevel p_105765_, double p_105766_, double p_105767_, double p_105768_, double p_105769_, double p_105770_, double p_105771_) {
-            PoisonBubbles poisonBubbles = new PoisonBubbles(p_105765_, p_105766_, p_105767_, p_105768_, p_105769_, p_105770_, p_105771_);
+        public Particle createParticle(SimpleParticleType particleType, ClientLevel clientLevel, double v, double v1, double v2, double v3, double v4, double v5) {
+            PoisonBubbles poisonBubbles = new PoisonBubbles(clientLevel, v, v1, v2, v3, v4, v5);
             poisonBubbles.setSpriteFromAge(this.sprite);
             return poisonBubbles;
         }

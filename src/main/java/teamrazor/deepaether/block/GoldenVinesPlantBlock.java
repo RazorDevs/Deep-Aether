@@ -35,11 +35,11 @@ public class GoldenVinesPlantBlock extends GrowingPlantBodyBlock implements Bone
         return (GrowingPlantHeadBlock) DABlocks.GOLDEN_VINES.get();
     }
     @NotNull
-    protected BlockState updateHeadAfterConvertedFromBody(BlockState value, BlockState p_153029_) {
-        return p_153029_.setValue(BERRIES, value.getValue(BERRIES));
+    protected BlockState updateHeadAfterConvertedFromBody(BlockState value, BlockState blockState) {
+        return blockState.setValue(BERRIES, value.getValue(BERRIES));
     }
     @NotNull
-    public ItemStack getCloneItemStack(BlockGetter p_153007_, BlockPos p_153008_, BlockState p_153009_) {
+    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
         return new ItemStack(DAItems.GOLDEN_BERRIES.get());
     }
 
@@ -52,16 +52,16 @@ public class GoldenVinesPlantBlock extends GrowingPlantBodyBlock implements Bone
         stateBuilder.add(BERRIES);
     }
 
-    public boolean isValidBonemealTarget(LevelReader p_255942_, BlockPos p_153012_, BlockState value, boolean p_153014_) {
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState value, boolean b) {
         return !value.getValue(BERRIES);
     }
 
-    public boolean isBonemealSuccess(Level p_220943_, RandomSource p_220944_, BlockPos p_220945_, BlockState p_220946_) {
+    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState p_220941_) {
-        serverLevel.setBlock(blockPos, p_220941_.setValue(BERRIES, Boolean.valueOf(true)), 2);
+    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+        serverLevel.setBlock(blockPos, blockState.setValue(BERRIES, Boolean.valueOf(true)), 2);
     }
 
     @Override
