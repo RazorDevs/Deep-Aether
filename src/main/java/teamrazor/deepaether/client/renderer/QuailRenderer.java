@@ -2,13 +2,11 @@ package teamrazor.deepaether.client.renderer;
 
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.QuailModel;
 import teamrazor.deepaether.entity.quail.Quail;
@@ -46,13 +44,9 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
     public ResourceLocation getTextureLocation(Quail instance) {
         return LOCATION_BY_VARIANT.get(instance.getVariant());
     }
-    @Override
-    public void preRender(PoseStack poseStack, Quail animatable,
-                          BakedGeoModel model, MultiBufferSource bufferSource,
-                          VertexConsumer buffer, boolean isReRender,
-                          float partialTick, int packedLight, int packedOverlay,
-                          float red, float green, float blue, float alpha) {
 
+    @Override
+    public void render(Quail animatable, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (animatable.isBaby()){
             poseStack.scale(0.6f, 0.6f, 0.6f);
         }else{
@@ -61,7 +55,6 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
         if (animatable.isSitting()){
             poseStack.translate(0.0, -0.35, 0.0);
         }
-
-        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+        super.render(animatable, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }

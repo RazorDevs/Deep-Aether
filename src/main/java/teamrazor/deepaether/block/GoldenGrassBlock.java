@@ -3,15 +3,14 @@ package teamrazor.deepaether.block;
 import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
@@ -34,7 +33,8 @@ public class GoldenGrassBlock extends AetherGrassBlock {
     public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_) {
         BlockPos blockpos = p_221272_.above();
         BlockState blockstate = DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState();
-        Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(DAPlacedFeatures.GOLDEN_GRASS_BONEMEAL);
+        Optional<Holder<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registry.PLACED_FEATURE_REGISTRY)
+                .getHolder(DAPlacedFeatures.GOLDEN_GRASS_BONEMEAL);
 
         label49:
         for(int i = 0; i < 128; ++i) {

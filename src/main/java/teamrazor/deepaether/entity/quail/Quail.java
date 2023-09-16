@@ -30,12 +30,15 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.builder.ILoopType;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DASounds;
@@ -44,16 +47,11 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
 @Mod.EventBusSubscriber
-public class Quail extends SittingAetherAnimal implements GeoEntity {
-
-    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
+public class Quail extends SittingAetherAnimal implements IAnimatable {
+    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(Quail.class, EntityDataSerializers.INT);
-
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(
-            Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
-    );
-
+    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);
 
     public float flap;
     public float flapSpeed;
@@ -132,41 +130,6 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
         baby.setVariant(variant);
         return baby;
-    }
-
-
-    private PlayState predicate(AnimationState animationState) {
-
-        if(animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.walk"));
-            return PlayState.CONTINUE;
-        }
-
-        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
-        return PlayState.CONTINUE;
-
-    }
-
-    private PlayState flap(AnimationState animationState) {
-        if(!this.onGround) {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlayXTimes("animation.quail.flap_start", 1).then("animation.quail.flap", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        } else {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
-            return PlayState.CONTINUE;
-        }
-    }
-
-    @Override
-    public boolean isFood(ItemStack pStack) {
-        return pStack.getItem() == DAItems.GOLDEN_GRASS_SEEDS.get();
-    }
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
-                0, this::predicate));
-        controllers.add(new AnimationController(this, "flap_controller",
-                0, this::flap));
     }
 
     @Override
@@ -257,8 +220,46 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
 
     }
 
+    private <E extends Quail> PlayState predicate(final AnimationEvent<E> event) {
+
+        if(event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.walk",
+                    ILoopType.EDefaultLoopTypes.LOOP));
+            return PlayState.CONTINUE;
+        }
+
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.idle",
+                ILoopType.EDefaultLoopTypes.LOOP));
+        return PlayState.CONTINUE;
+
+    }
+
+    private <E extends Quail> PlayState flap(final AnimationEvent<E> event) {
+        if(!this.onGround) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.flap_start", ILoopType.EDefaultLoopTypes.PLAY_ONCE).loop("animation.quail.flap"));
+            return PlayState.CONTINUE;
+        } else {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.quail.idle",
+                    ILoopType.EDefaultLoopTypes.LOOP));
+            return PlayState.CONTINUE;
+        }
+    }
+
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
+    public boolean isFood(ItemStack pStack) {
+        return pStack.getItem() == DAItems.GOLDEN_GRASS_SEEDS.get();
+    }
+
+    @Override
+    public void registerControllers(AnimationData animationData) {
+        animationData.addAnimationController(new AnimationController(this, "controller",
+                0, this::predicate));
+        animationData.addAnimationController(new AnimationController(this, "flap_controller",
+                0, this::flap));
+    }
+
+    @Override
+    public AnimationFactory getFactory() {
         return factory;
     }
 }
