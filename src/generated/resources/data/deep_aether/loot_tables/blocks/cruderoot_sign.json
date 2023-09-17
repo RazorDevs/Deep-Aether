@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:cruderoot_hanging_sign"
+          "name": "deep_aether:cruderoot_sign"
         }
       ],
       "rolls": 1.0

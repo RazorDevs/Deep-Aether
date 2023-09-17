@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:roseroot_hanging_sign"
+          "name": "deep_aether:roseroot_sign"
         }
       ],
       "rolls": 1.0

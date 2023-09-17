@@ -273,5 +273,15 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_BOOTS.get(),
                 DAItems.STRATUS_GLOVES.get()
         );
+
+        tag(AetherTags.Items.ACCESSORIES_GLOVES).add(
+                DAItems.SKYJADE_GLOVES.get(),
+                DAItems.STRATUS_GLOVES.get()
+        );
+
+        tag(AetherTags.Items.ACCESSORIES_RINGS).add(
+                DAItems.SKYJADE_RING.get(),
+                DAItems.STRATUS_RING.get()
+        );
     }
 }

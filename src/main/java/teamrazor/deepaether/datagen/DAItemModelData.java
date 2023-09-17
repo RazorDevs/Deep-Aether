@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import com.aetherteam.nitrogen.data.providers.NitrogenItemModelProvider;
 import net.minecraft.core.Direction;
@@ -51,7 +52,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.AERGLOW_PETAL_BLOCK.get());
-        this.item(DABlocks.ROSEROOT_SIGN.get().asItem());
+        this.item(DAItems.ROSEROOT_SIGN.get());
         this.item(DAItems.ROSEROOT_HANGING_SIGN.get());
 
         this.itemBlock(DABlocks.YAGROOT_WOOD.get());
@@ -71,7 +72,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_YAGROOT_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.itemBlockFlat(DABlocks.YAGROOT_SAPLING.get());
         this.itemBlock(DABlocks.YAGROOT_LEAVES.get());
-        this.item(DABlocks.YAGROOT_SIGN.get().asItem());
+        this.item(DAItems.YAGROOT_SIGN.get());
         this.itemBlock(DABlocks.YAGROOT_ROOTS.get());
         this.itemBlock(DABlocks.MUDDY_YAGROOT_ROOTS.get());
         this.item(DAItems.YAGROOT_HANGING_SIGN.get());
@@ -94,7 +95,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.CRUDEROOT_SAPLING.get());
         this.itemBlock(DABlocks.CRUDEROOT_LEAVES.get());
-        this.item(DABlocks.CRUDEROOT_SIGN.get().asItem());
+        this.item(DAItems.CRUDEROOT_SIGN.get());
         this.item(DAItems.CRUDEROOT_HANGING_SIGN.get());
 
         this.itemBlock(DABlocks.CONBERRY_WOOD.get());
@@ -114,7 +115,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
         this.itemBlockFlat(DABlocks.CONBERRY_SAPLING.get());
         this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
-        this.item(DABlocks.CONBERRY_SIGN.get().asItem());
+        this.item(DAItems.CONBERRY_SIGN.get());
         this.item(DAItems.CONBERRY_HANGING_SIGN.get());
 
         this.itemBlock(DABlocks.SUNROOT_WOOD.get());
@@ -134,7 +135,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
         this.itemBlockFlat(DABlocks.SUNROOT_SAPLING.get());
         this.itemBlock(DABlocks.SUNROOT_LEAVES.get());
-        this.item(DABlocks.SUNROOT_SIGN.get().asItem());
+        this.item(DAItems.SUNROOT_SIGN.get());
         this.item(DAItems.SUNROOT_HANGING_SIGN.get());
 
 
@@ -392,7 +393,7 @@ public class DAItemModelData extends AetherItemModelProvider {
     }
 
     public void glovesItem(Item item) {
-        ItemModelBuilder builder = this.withExistingParent(this.itemName(item), this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item)));
+        ItemModelBuilder builder = this.withExistingParent(this.itemName(item), this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/"  + this.itemName(item)));
         double index = 0.1;
 
         for(Iterator var6 = NitrogenItemModelProvider.VANILLA_TRIM_MATERIALS.iterator(); var6.hasNext(); index += 0.1) {
@@ -400,7 +401,7 @@ public class DAItemModelData extends AetherItemModelProvider {
             String material = trimMaterial.location().getPath();
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
-            this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/"  + this.itemName(item))).texture("layer1", this.modLoc("trims/items/gloves_trim_" + material));
+            this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", new ResourceLocation(Aether.MODID,"trims/items/gloves_trim_" + material));
             builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
 

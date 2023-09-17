@@ -121,7 +121,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlant(DABlocks.POTTED_CONBERRY_SAPLING.get(), DABlocks.CONBERRY_SAPLING.get());
         this.block(DABlocks.CONBERRY_LEAVES.get());
         this.signBlock((StandingSignBlock) DABlocks.CONBERRY_SIGN.get(), (WallSignBlock) DABlocks.CONBERRY_WALL_SIGN.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
-        this.hangingSignBlock(DABlocks.CONBERRY_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.CONBERRY_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_CONBERRY_WALL.get())));
+        this.hangingSignBlock(DABlocks.CONBERRY_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.CONBERRY_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_CONBERRY_LOG.get())));
 
 
         //WOOD SUNROOT

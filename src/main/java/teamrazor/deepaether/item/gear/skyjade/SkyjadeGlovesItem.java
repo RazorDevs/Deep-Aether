@@ -1,23 +1,25 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
+import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherConfig;
-import teamrazor.deepaether.item.gear.DAGlovesItem;
+import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.UUID;
 
-public class SkyjadeGlovesItem extends DAGlovesItem {
+public class SkyjadeGlovesItem extends GlovesItem {
     public SkyjadeGlovesItem(double punchDamage, Item.Properties properties) {
-        super(DaArmorMaterials.SKYJADE, punchDamage, "skyjade_gloves", AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, properties);
+        super(DaArmorMaterials.SKYJADE, punchDamage, new ResourceLocation(DeepAetherMod.MODID,"skyjade_gloves"), AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, properties);
     }
 
     @Override

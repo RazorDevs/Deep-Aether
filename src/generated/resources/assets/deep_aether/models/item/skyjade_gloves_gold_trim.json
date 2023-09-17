@@ -2,6 +2,6 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "deep_aether:item/skyjade_gloves",
-    "layer1": "deep_aether:trims/items/gloves_trim_gold"
+    "layer1": "aether:trims/items/gloves_trim_gold"
   }
 }

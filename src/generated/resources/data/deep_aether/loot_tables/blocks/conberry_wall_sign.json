@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:conberry_hanging_sign"
+          "name": "deep_aether:conberry_sign"
         }
       ],
       "rolls": 1.0
