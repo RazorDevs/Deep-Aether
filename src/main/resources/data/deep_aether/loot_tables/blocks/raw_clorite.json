@@ -1,5 +1,10 @@
 {
   "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "aether:double_drops"
+    }
+  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
@@ -11,10 +16,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:clorite"
+          "name": "deep_aether:raw_clorite"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "deep_aether:blocks/raw_clorite"
 }

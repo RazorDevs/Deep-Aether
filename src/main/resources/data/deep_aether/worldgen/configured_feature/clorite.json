@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "deep_aether:clorite",
+          "Name": "deep_aether:raw_clorite",
           "Properties": {
             "double_drops": "true"
           }
