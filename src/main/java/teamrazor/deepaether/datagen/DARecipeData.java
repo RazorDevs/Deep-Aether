@@ -655,7 +655,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
 
-    //TODO: REMOVE WHEN 1.20 RELEASES - BACKPORT TO 1.19.2
+    //TODO: BACKPORT TO 1.19.2
     //Ignore Warnings
     @Deprecated(forRemoval = true)
     protected void DAlegacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
