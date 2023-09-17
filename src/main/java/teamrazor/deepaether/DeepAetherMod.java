@@ -46,6 +46,10 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
+	//TODO: Missing Tab entries in en_lang
+	//TODO: Trees not growing manually
+	//TODO: Addon Items/Recipies check
+	//TODO: Quail texture bugged
 
 	private static final Logger LOGGER = LogUtils.getLogger();
 

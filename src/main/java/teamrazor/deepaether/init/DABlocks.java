@@ -312,7 +312,7 @@ public class DABlocks {
 	}
 
 	private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-		return DAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+		return DAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	}
 
 	private static <T extends Block> RegistryObject<T> registerAetherReduxBlock(String name, Supplier<T> block) {
@@ -339,7 +339,7 @@ public class DABlocks {
 		return toReturn;
 	}
 	private static <T extends Block> RegistryObject<Item> registerBurnableBlockItem(int burnTime, String name, RegistryObject<T> block) {
-		return DAItems.ITEMS.register(name, () -> new BurnableBlockItem(burnTime, block.get(), new Item.Properties()));
+		return DAItems.ITEMS.register(name, () -> new BurnableBlockItem(burnTime, block.get(), new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	}
 
 
