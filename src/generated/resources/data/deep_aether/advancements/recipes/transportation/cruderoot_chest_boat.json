@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:cruderoot_chest_boat"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

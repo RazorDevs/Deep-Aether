@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:sunroot_boat"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

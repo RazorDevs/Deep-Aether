@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:skyjade_hoe"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

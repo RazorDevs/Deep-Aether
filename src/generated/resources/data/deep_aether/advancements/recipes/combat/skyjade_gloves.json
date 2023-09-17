@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:skyjade_gloves"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

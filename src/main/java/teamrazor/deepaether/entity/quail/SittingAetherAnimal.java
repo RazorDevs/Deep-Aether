@@ -54,7 +54,7 @@ public abstract class SittingAetherAnimal extends AetherAnimal {
     }
 
     public void tryToSit() {
-        if (!this.isInWaterOrBubble() && this.isOnGround() && this.isEffectiveAi()) {
+        if (!this.isInWaterOrBubble() && this.onGround() && this.isEffectiveAi()) {
             this.setZza(0.0F);
             this.getNavigation().stop();
             this.setSitting(true);

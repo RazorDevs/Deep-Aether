@@ -101,5 +101,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "deep_aether:blocks/short_golden_grass"
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:polished_clorite_stairs_from_polished_clorite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

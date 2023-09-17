@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:aether_moss_carpet"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

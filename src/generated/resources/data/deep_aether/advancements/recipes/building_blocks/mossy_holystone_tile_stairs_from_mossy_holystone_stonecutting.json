@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:mossy_holystone_tile_stairs_from_mossy_holystone_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

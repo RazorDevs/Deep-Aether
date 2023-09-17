@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:cooked_aerglow_fish"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

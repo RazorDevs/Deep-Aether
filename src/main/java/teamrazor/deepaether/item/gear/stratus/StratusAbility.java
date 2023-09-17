@@ -36,7 +36,7 @@ public class StratusAbility extends DaArmorItem {
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
                 && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
                 && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
-                && CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent();
+                && com.aetherteam.aether.item.EquipmentUtil.findFirstCurio(entity, gloves).isPresent();
     }
 
     private static boolean isStratusDashActive(Player player) {
@@ -49,7 +49,7 @@ public class StratusAbility extends DaArmorItem {
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if(player.isOnGround()) {
+        if(player.onGround()) {
             hasBeenOnGround = true;
         }
 

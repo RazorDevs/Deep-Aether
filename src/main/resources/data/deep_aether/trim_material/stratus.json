@@ -5,8 +5,8 @@
     "translate": "trim_material.deep_aether.stratus"
   },
   "ingredient": "deep_aether:stratus_ingot",
-  "item_model_index": 1.1,
+  "item_model_index": 1.0,
   "override_armor_materials": {
-    "diamond": "stratus_darker"
+    "stratus_ingot": "stratus_darker"
   }
 }

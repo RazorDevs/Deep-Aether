@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:sunroot_fence_gate"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

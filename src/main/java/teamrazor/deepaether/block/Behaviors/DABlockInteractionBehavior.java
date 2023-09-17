@@ -96,7 +96,7 @@ public class DABlockInteractionBehavior {
                         itemstack.shrink(1);
                         ItemStack bucketStack = new ItemStack(AetherItems.SKYROOT_BUCKET.get());
                         if (!player.addItem(bucketStack)) {
-                            Containers.dropItemStack(player.level, player.getX(), player.getY(), player.getZ(), bucketStack);
+                            Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bucketStack);
                         }
                     }
                     world.setBlockAndUpdate(relativePos, DABlocks.POISON_BLOCK.get().defaultBlockState());
@@ -125,7 +125,7 @@ public class DABlockInteractionBehavior {
                         itemstack.shrink(1);
                         ItemStack bucketStack = new ItemStack(AetherItems.SKYROOT_POISON_BUCKET.get());
                         if (!player.addItem(bucketStack)) {
-                            Containers.dropItemStack(player.level, player.getX(), player.getY(), player.getZ(), bucketStack);
+                            Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bucketStack);
                         }
                     }
                     world.setBlockAndUpdate(relativePos, Blocks.AIR.defaultBlockState());

@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:cooked_quail"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:stripped_cruderoot_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

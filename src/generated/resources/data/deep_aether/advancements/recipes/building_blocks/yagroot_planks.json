@@ -28,5 +28,6 @@
     "recipes": [
       "deep_aether:yagroot_planks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

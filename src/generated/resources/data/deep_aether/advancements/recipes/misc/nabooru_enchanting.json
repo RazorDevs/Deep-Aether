@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:nabooru_enchanting"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

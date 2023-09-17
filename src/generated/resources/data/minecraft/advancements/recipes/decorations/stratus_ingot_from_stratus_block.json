@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:stratus_ingot_from_stratus_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

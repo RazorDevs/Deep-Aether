@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:skyjade_from_skyjade_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

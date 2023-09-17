@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:mossy_holystone_tiles_from_vines"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,10 +33,10 @@ public class DARecipeData extends AetherRecipeProvider {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "aether_redux");
     public static RegistryObject<Block> BLIGHTMOSS_HOLYSTONE = BLOCKS.register("gilded_holystone", () ->
-            new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).color(MaterialColor.SAND)));
+            new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get())));
 
     public static RegistryObject<Block> GILDED_HOLYSTONE = BLOCKS.register("blightmoss_holystone", () ->
-            new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).color(MaterialColor.TERRACOTTA_PURPLE).sound(SoundType.NETHER_GOLD_ORE)));
+            new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).sound(SoundType.NETHER_GOLD_ORE)));
 
     public DARecipeData(PackOutput output) {
         super(output, DeepAetherMod.MODID);
@@ -465,10 +464,10 @@ public class DARecipeData extends AetherRecipeProvider {
         repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_PICKAXE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_pickaxe_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_SHOVEL.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_shovel_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_TOOLS_HOE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_hoe_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_BOOTS.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_boots_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_LEGGINGS.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_leggings_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_CHESTPLATE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_chestplate_repairing"));
-        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_ARMOR_HELMET.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_helmet_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_BOOTS.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_boots_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_LEGGINGS.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_leggings_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_CHESTPLATE.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_chestplate_repairing"));
+        repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_HELMET.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_helmet_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_GLOVES.get(), 750).group("altar_sword_repair").save(consumer, name("skyjade_gloves_repairing"));
 
         makeSword(DAItems.SKYJADE_TOOLS_SWORD, DAItems.SKYJADE).save(consumer);
@@ -477,10 +476,10 @@ public class DARecipeData extends AetherRecipeProvider {
         makeShovel(DAItems.SKYJADE_TOOLS_SHOVEL, DAItems.SKYJADE).save(consumer);
         makeHoe(DAItems.SKYJADE_TOOLS_HOE, DAItems.SKYJADE).save(consumer);
 
-        makeBoots(DAItems.SKYJADE_ARMOR_BOOTS, DAItems.SKYJADE).save(consumer);
-        makeLeggings(DAItems.SKYJADE_ARMOR_LEGGINGS, DAItems.SKYJADE).save(consumer);
-        makeChestplate(DAItems.SKYJADE_ARMOR_CHESTPLATE, DAItems.SKYJADE).save(consumer);
-        makeHelmet(DAItems.SKYJADE_ARMOR_HELMET, DAItems.SKYJADE).save(consumer);
+        makeBoots(DAItems.SKYJADE_BOOTS, DAItems.SKYJADE).save(consumer);
+        makeLeggings(DAItems.SKYJADE_LEGGINGS, DAItems.SKYJADE).save(consumer);
+        makeChestplate(DAItems.SKYJADE_CHESTPLATE, DAItems.SKYJADE).save(consumer);
+        makeHelmet(DAItems.SKYJADE_HELMET, DAItems.SKYJADE).save(consumer);
         makeRing(DAItems.SKYJADE_RING, DAItems.SKYJADE.get()).save(consumer);
         makeGloves(DAItems.SKYJADE_GLOVES, DAItems.SKYJADE).save(consumer);
 
@@ -512,19 +511,6 @@ public class DARecipeData extends AetherRecipeProvider {
         stratusSmithingRecipe(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
 
 
-
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SWORD.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_AXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_PICKAXE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_SHOVEL.get(), RecipeCategory.COMBAT, DAItems.STRATUS_SHOVEL.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HOE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HOE.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_BOOTS.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STRATUS_LEGGINGS.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STRATUS_CHESTPLATE.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STRATUS_HELMET.get());
-        DAlegacyNetheriteSmithing(consumer, DAItems.GRAVITITE_RING.get(), RecipeCategory.COMBAT, DAItems.STRATUS_RING.get());
-        DAlegacyNetheriteSmithing(consumer, AetherItems.GRAVITITE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STRATUS_GLOVES.get());
-
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.CHROMATIC_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
@@ -553,6 +539,12 @@ public class DARecipeData extends AetherRecipeProvider {
         makeChestBoat(DAItems.CRUDEROOT_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.CONBERRY_CHEST_BOAT.get()).save(consumer);
         makeChestBoat(DAItems.SUNROOT_CHEST_BOAT.get()).save(consumer);
+
+        makeHangingSign(consumer, DAItems.ROSEROOT_HANGING_SIGN.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
+        makeHangingSign(consumer, DAItems.YAGROOT_HANGING_SIGN.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
+        makeHangingSign(consumer, DAItems.CRUDEROOT_HANGING_SIGN.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
+        makeHangingSign(consumer, DAItems.CONBERRY_HANGING_SIGN.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
+        makeHangingSign(consumer, DAItems.SUNROOT_HANGING_SIGN.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
 
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
@@ -634,7 +626,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
         //LOST CONTENT
-        //if(ModList.get().isLoaded("lost_aether_content")){
+
             ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 1)
                     .group("minecraft:shield")
                     .define('G', DAItems.SKYJADE.get())
@@ -645,21 +637,8 @@ public class DARecipeData extends AetherRecipeProvider {
                     .unlockedBy("has_skyjade_gemstone", has(DAItems.SKYJADE.get()))
                     .save(consumer, name("skyjade_shield"));
 
-            //DAlegacyNetheriteSmithing(consumer, "lost_aether_content:aether_shields", RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get());
-
             repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 2250).group("altar_shield_repair").save(consumer, name("skyjade_shield_repairing"));
             repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("stratus_shield_repairing"));
-        //}
-    }
-
-
-
-
-    //TODO: REMOVE WHEN 1.20 RELEASES - BACKPORT TO 1.19.2
-    //Ignore Warnings
-    @Deprecated(forRemoval = true)
-    protected void DAlegacyNetheriteSmithing(Consumer<FinishedRecipe> p_267010_, Item p_267129_, RecipeCategory p_266966_, Item p_267096_) {
-        LegacyUpgradeRecipeBuilder.smithing(Ingredient.of(p_267129_), Ingredient.of(DAItems.STRATUS_INGOT.get()), p_266966_, p_267096_).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(p_267010_, name(getItemName(p_267096_)) + "_stratus_smithing");
     }
 
     protected void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {
@@ -710,6 +689,18 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(boat)
                 .requires(Tags.Items.CHESTS_WOODEN)
                 .unlockedBy(getHasName(boat), has(boat));
+    }
+
+    protected void makeHangingSign(Consumer<FinishedRecipe> consumer, Item sign, Block log) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, sign, 6)
+                .group("hanging_sign")
+                .define('#', log)
+                .define('X', Items.CHAIN)
+                .pattern("X X")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_stripped_logs", has(log))
+                .save(consumer, name(sign.toString()+"1"));
     }
     protected ResourceLocation name(String name) {
         return new ResourceLocation(DeepAetherMod.MODID, name);

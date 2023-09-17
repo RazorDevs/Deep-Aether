@@ -11,10 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:cruderoot_sign"
+          "name": "deep_aether:cruderoot_hanging_sign"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "deep_aether:blocks/cruderoot_wall_sign"
 }

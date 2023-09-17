@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:polished_clorite_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

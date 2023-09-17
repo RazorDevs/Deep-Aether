@@ -11,10 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:sunroot_sign"
+          "name": "deep_aether:sunroot_hanging_sign"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "deep_aether:blocks/sunroot_wall_sign"
 }

@@ -77,6 +77,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropOther(DABlocks.ROSEROOT_WALL_SIGN.get(), DABlocks.ROSEROOT_SIGN.get());
         this.dropSelf(DABlocks.ROSEROOT_SIGN.get());
+        this.dropOther(DABlocks.ROSEROOT_WALL_HANGING_SIGN.get(), DABlocks.ROSEROOT_HANGING_SIGN.get());
+        this.dropSelf(DABlocks.ROSEROOT_HANGING_SIGN.get());
         this.add(DABlocks.BLUE_ROSEROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
@@ -104,6 +106,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.YAGROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.YAGROOT_WALL_SIGN.get(), DABlocks.YAGROOT_SIGN.get());
         this.dropSelf(DABlocks.YAGROOT_SIGN.get());
+        this.dropOther(DABlocks.YAGROOT_WALL_HANGING_SIGN.get(), DABlocks.YAGROOT_HANGING_SIGN.get());
+        this.dropSelf(DABlocks.YAGROOT_HANGING_SIGN.get());
 
         this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
@@ -130,7 +134,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CRUDEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.CRUDEROOT_WALL_SIGN.get(), DABlocks.CRUDEROOT_SIGN.get());
         this.dropSelf(DABlocks.CRUDEROOT_SIGN.get());
-
+        this.dropOther(DABlocks.CRUDEROOT_WALL_HANGING_SIGN.get(), DABlocks.CRUDEROOT_HANGING_SIGN.get());
+        this.dropSelf(DABlocks.CRUDEROOT_HANGING_SIGN.get());
 
         this.dropSelf(DABlocks.CONBERRY_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_CONBERRY_WOOD.get());
@@ -153,7 +158,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CONBERRY_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.CONBERRY_WALL_SIGN.get(), DABlocks.CONBERRY_SIGN.get());
         this.dropSelf(DABlocks.CONBERRY_SIGN.get());
-
+        this.dropOther(DABlocks.CONBERRY_WALL_HANGING_SIGN.get(), DABlocks.CONBERRY_HANGING_SIGN.get());
+        this.dropSelf(DABlocks.CONBERRY_HANGING_SIGN.get());
 
         this.dropSelf(DABlocks.SUNROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_SUNROOT_WOOD.get());
@@ -176,6 +182,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.SUNROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.SUNROOT_WALL_SIGN.get(), DABlocks.SUNROOT_SIGN.get());
         this.dropSelf(DABlocks.SUNROOT_SIGN.get());
+        this.dropOther(DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), DABlocks.SUNROOT_HANGING_SIGN.get());
+        this.dropSelf(DABlocks.SUNROOT_HANGING_SIGN.get());
 
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());

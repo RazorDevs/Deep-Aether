@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:yagroot_door"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

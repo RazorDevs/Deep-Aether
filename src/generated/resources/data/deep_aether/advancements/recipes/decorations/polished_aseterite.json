@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:polished_aseterite"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:polished_aseterite_slab_from_aseterite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

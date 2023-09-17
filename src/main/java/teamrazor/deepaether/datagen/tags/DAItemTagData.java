@@ -7,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -239,6 +240,38 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
+        );
+
+        tag(ItemTags.MUSIC_DISCS).add(
+                DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
+                DAItems.MUSIC_DISC_NABOORU.get()
+        );
+
+        tag(ItemTags.SAPLINGS).add(
+                DABlocks.SUNROOT_SAPLING.get().asItem(),
+                DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(),
+                DABlocks.CONBERRY_SAPLING.get().asItem(),
+                DABlocks.CRUDEROOT_SAPLING.get().asItem(),
+                DABlocks.ROSEROOT_SAPLING.get().asItem(),
+                DABlocks.YAGROOT_ROOTS.get().asItem()
+        );
+
+        tag(ItemTags.TRIM_MATERIALS).add(
+                DAItems.SKYJADE.get(),
+                DAItems.STRATUS_INGOT.get()
+        );
+
+        tag(ItemTags.TRIMMABLE_ARMOR).add(
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.SKYJADE_GLOVES.get(),
+                DAItems.STRATUS_HELMET.get(),
+                DAItems.STRATUS_CHESTPLATE.get(),
+                DAItems.STRATUS_LEGGINGS.get(),
+                DAItems.STRATUS_BOOTS.get(),
+                DAItems.STRATUS_GLOVES.get()
         );
     }
 }

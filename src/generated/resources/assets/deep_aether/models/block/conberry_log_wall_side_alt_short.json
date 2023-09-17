@@ -1,8 +1,0 @@
-{
-  "parent": "deep_aether:block/wooden_side_alt_short",
-  "textures": {
-    "particle": "deep_aether:block/conberry_log",
-    "side": "deep_aether:block/conberry_log",
-    "top": "deep_aether:block/conberry_log"
-  }
-}

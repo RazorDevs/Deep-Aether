@@ -70,13 +70,13 @@ public class DAChestBoatEntity extends DABoatEntity implements HasCustomInventor
     @Override
     public void destroy(DamageSource source) {
         super.destroy(source);
-        this.chestVehicleDestroyed(source, this.level, this);
+        this.chestVehicleDestroyed(source, this.level(), this);
     }
 
     @Override
     public void remove(RemovalReason pReason) {
-        if (!this.level.isClientSide && pReason.shouldDestroy()) {
-            Containers.dropContents(this.level, this, this);
+        if (!this.level().isClientSide && pReason.shouldDestroy()) {
+            Containers.dropContents(this.level(), this, this);
         }
 
         super.remove(pReason);
@@ -90,7 +90,7 @@ public class DAChestBoatEntity extends DABoatEntity implements HasCustomInventor
     @Override
     public void openCustomInventoryScreen(Player player) {
         player.openMenu(this);
-        if (!player.level.isClientSide) {
+        if (!player.level().isClientSide) {
             this.gameEvent(GameEvent.CONTAINER_OPEN, player);
             PiglinAi.angerNearbyPiglins(player, true);
         }

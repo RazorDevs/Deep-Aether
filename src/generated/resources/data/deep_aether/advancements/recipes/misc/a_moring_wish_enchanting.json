@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:a_moring_wish_enchanting"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

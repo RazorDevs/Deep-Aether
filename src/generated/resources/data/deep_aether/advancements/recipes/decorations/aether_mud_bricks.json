@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:aether_mud_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

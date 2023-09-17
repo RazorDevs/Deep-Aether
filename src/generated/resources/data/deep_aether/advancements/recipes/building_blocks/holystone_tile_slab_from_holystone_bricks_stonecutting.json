@@ -30,5 +30,6 @@
     "recipes": [
       "deep_aether:holystone_tile_slab_from_holystone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

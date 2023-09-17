@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:cooked_aerglow_fish_from_smoker"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

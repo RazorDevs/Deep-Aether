@@ -11,10 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:roseroot_sign"
+          "name": "deep_aether:roseroot_hanging_sign"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "deep_aether:blocks/roseroot_wall_sign"
 }
