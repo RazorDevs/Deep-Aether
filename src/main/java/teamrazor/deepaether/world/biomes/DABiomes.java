@@ -1,6 +1,6 @@
 package teamrazor.deepaether.world.biomes;
 
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -19,6 +19,6 @@ public class DABiomes {
     public static final ResourceKey<Biome> GOLDEN_HEIGHTS = createKey("golden_heights");
 
     private static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
+        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
     }
 }

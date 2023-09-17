@@ -10,7 +10,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import javax.annotation.Nullable;
 
 public class DaArmorItem extends ArmorItem {
-    public DaArmorItem(ArmorMaterial material, ArmorItem.Type type, Properties properties) {
+    public DaArmorItem(ArmorMaterial material, EquipmentSlot type, Properties properties) {
         super(material, type, properties);
     }
 

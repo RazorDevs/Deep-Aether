@@ -1,23 +1,10 @@
 package teamrazor.deepaether.world.feature;
 
-import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
-import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
-import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
-import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.world.placementmodifier.ImprovedRarityFilter;
-
-import java.util.List;
 
 
 public class DAPlacedFeatures {
@@ -45,10 +32,10 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> STERLING_AERCLOUD_PLACEMENT = createKey("sterling_aercloud");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
+        return ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
     }
 
-
+/*
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -132,7 +119,7 @@ public class DAPlacedFeatures {
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
         register(context, key, configuration, List.of(modifiers));
-    }
+    }*/
 }
 
 

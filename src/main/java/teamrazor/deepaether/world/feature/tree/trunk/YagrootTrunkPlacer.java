@@ -9,16 +9,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
-import java.util.function.Function;
 
 public class YagrootTrunkPlacer extends TrunkPlacer {
     public static final Codec<YagrootTrunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_) -> {
@@ -64,9 +61,9 @@ public class YagrootTrunkPlacer extends TrunkPlacer {
                 y = Math.round(Math.round(Math.sqrt(Math.pow(a,2)-Math.pow(x-a,2))));
                 System.out.println(y);
                 if(z == 0 || z == 1)
-                    this.placeLog(level, posState, random, pos.relative(direction, x).above(i+y-3), config, (state) -> state.trySetValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
+                    this.placeLog(level, posState, random, pos.relative(direction, x).above(i+y-3), config, (state) -> state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
                 if(z == 2 || z == 3)
-                    this.placeLog(level, posState, random, pos.relative(direction, x).above(i+y-3), config, (p_161826_) -> p_161826_.trySetValue(RotatedPillarBlock.AXIS, Direction.Axis.X));
+                    this.placeLog(level, posState, random, pos.relative(direction, x).above(i+y-3), config, (p_161826_) -> p_161826_.setValue(RotatedPillarBlock.AXIS, Direction.Axis.X));
                 list.add(new FoliagePlacer.FoliageAttachment(pos.relative(direction, x).above(i+y-3), 0, false));
             }
         }

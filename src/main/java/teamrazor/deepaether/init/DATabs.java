@@ -2,13 +2,7 @@
 
 package teamrazor.deepaether.init;
 
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 
@@ -16,7 +10,7 @@ import teamrazor.deepaether.DeepAetherMod;
 public class DATabs {
     public static CreativeModeTab TAB_DEEP_AETHER_BLOCKS_TAB;
     public static CreativeModeTab TAB_DEEP_AETHER_ITEMS_TAB;
-
+/*
     @SubscribeEvent
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         TAB_DEEP_AETHER_BLOCKS_TAB = event.registerCreativeModeTab(
@@ -286,5 +280,5 @@ public class DATabs {
                                 output.accept(DAItems.STRATUS_SHIELD.get());
                             }
                         }));
-    }
+    }*/
 }

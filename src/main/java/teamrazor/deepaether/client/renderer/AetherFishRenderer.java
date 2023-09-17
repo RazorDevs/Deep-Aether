@@ -1,13 +1,13 @@
 package teamrazor.deepaether.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import software.bernie.geckolib3.core.util.Axis;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.entity.AerglowFish;
@@ -34,11 +34,11 @@ public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishMode
 		}
 
 		float f2 = f * 4.3F * Mth.sin(f1 * 0.6F * p_115830_);
-		p_115829_.mulPose(Axis.YP.rotationDegrees(f2));
+		p_115829_.mulPose(Vector3f.YP.rotationDegrees(f2));
 		p_115829_.translate(0.0F, 0.0F, -0.4F);
 		if (!p_115828_.isInWater()) {
 			p_115829_.translate(0.2F, 0.1F, 0.0F);
-			p_115829_.mulPose(Axis.ZP.rotationDegrees(90.0F));
+			p_115829_.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
 		}
 	}
 }

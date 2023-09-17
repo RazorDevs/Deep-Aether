@@ -2,7 +2,6 @@ package teamrazor.deepaether.init;
 
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +16,6 @@ import teamrazor.deepaether.client.renderer.DABoatRenderer;
 import teamrazor.deepaether.client.renderer.DeepAetherModelLayers;
 import teamrazor.deepaether.client.renderer.QuailRenderer;
 import teamrazor.deepaether.entity.DABoatEntity;
-
-import java.util.function.Supplier;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -37,8 +34,8 @@ public class DAEntityRenderers {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(DeepAetherModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);
 		for (DABoatEntity.Type type : DABoatEntity.Type.values()) {
-			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, type.getModelLocation()), "main"), (Supplier<LayerDefinition>) BoatModel.createBodyModel(false));
-			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, type.getChestModelLocation()), "main"), (Supplier<LayerDefinition>) BoatModel.createBodyModel(true));
+			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, type.getModelLocation()), "main"), () -> BoatModel.createBodyModel(false));
+			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAetherMod.MODID, type.getChestModelLocation()), "main"), () -> BoatModel.createBodyModel(true));
 		}
 
 	}

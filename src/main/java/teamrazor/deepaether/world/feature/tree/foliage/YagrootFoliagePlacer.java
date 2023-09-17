@@ -1,26 +1,22 @@
 package teamrazor.deepaether.world.feature.tree.foliage;
 
-import com.mojang.math.Axis;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.minecraft.world.phys.Vec3;
-import org.joml.Vector3f;
+
+import java.util.function.BiConsumer;
 
 
 public class YagrootFoliagePlacer extends FoliagePlacer {
-    public static final Codec<YagrootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> {
-        return foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer) -> {
-            return foliagePlacer.trunkHeight;
-        })).apply(p2, YagrootFoliagePlacer::new);
-    });
+    public static final Codec<YagrootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> foliagePlacerParts(p2).and(IntProvider.codec(0, 24)
+            .fieldOf("trunk_height").forGetter((foliagePlacer) -> foliagePlacer.trunkHeight)).apply(p2, YagrootFoliagePlacer::new));
     private final IntProvider trunkHeight;
 
     public YagrootFoliagePlacer(IntProvider intProvider, IntProvider intProvider1, IntProvider intProvider2) {
@@ -36,11 +32,11 @@ public class YagrootFoliagePlacer extends FoliagePlacer {
 
 
     @Override
-    protected void createFoliage(LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration configuration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
+    protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource random, TreeConfiguration configuration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         this.placeTreeLeavesRows(random.nextInt(1,3), level,foliageSetter,random,configuration,foliageAttachment);
     }
 
-    private void placeTreeLeavesRows(int size, LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration configuration, FoliageAttachment foliageAttachment) {
+    private void placeTreeLeavesRows(int size, LevelSimulatedReader level, BiConsumer<BlockPos, BlockState>  foliageSetter, RandomSource random, TreeConfiguration configuration, FoliageAttachment foliageAttachment) {
         int size2;
         if(size != 1)
             size2 = size-1;
@@ -61,7 +57,7 @@ public class YagrootFoliagePlacer extends FoliagePlacer {
         return a == d && c == d && d > 0;
     }
     @Override
-    protected void placeLeavesRow(LevelSimulatedReader simulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration configuration, BlockPos blockPos, int i1, int i2, boolean b) {
+    protected void placeLeavesRow(LevelSimulatedReader simulatedReader, BiConsumer<BlockPos, BlockState>  foliageSetter, RandomSource randomSource, TreeConfiguration configuration, BlockPos blockPos, int i1, int i2, boolean b) {
         int i = b ? 1 : 0;
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 

@@ -6,7 +6,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.quail.Quail;
 
 public class QuailModel extends AnimatedGeoModel<Quail> {
-    private static final ResourceLocation modelResource = new ResourceLocation(DeepAetherMod.MODID, "geo/quail.geo.json");
+    private static final ResourceLocation modelResource = new ResourceLocation(DeepAetherMod.MODID, "geo/entity/quail.geo.json");
     private static final ResourceLocation textureResource = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/quail/quail_copper.png");
     private static final ResourceLocation animationResource = new ResourceLocation(DeepAetherMod.MODID, "animations/entity/quail.animation.json");
 

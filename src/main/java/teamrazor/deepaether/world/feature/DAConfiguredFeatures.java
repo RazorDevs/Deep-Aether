@@ -1,64 +1,11 @@
 package teamrazor.deepaether.world.feature;
 
 
-import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.data.resources.AetherFeatureRules;
-import com.aetherteam.aether.data.resources.AetherFeatureStates;
-import com.aetherteam.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
-import com.aetherteam.aether.world.configuration.AercloudConfiguration;
-import com.aetherteam.aether.world.configuration.ShelfConfiguration;
-import com.aetherteam.aether.world.feature.AetherFeatures;
-import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
-import com.aetherteam.nitrogen.data.resources.builders.NitrogenConfiguredFeatureBuilders;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.HolderSet;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mth;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CaveVines;
-import net.minecraft.world.level.block.CaveVinesBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
-import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
-import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.block.Behaviors.GoldenVines;
-import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
-import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
-import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.foliage.SunrootFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.foliage.YagrootFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.trunk.SunrootHookedTrunkPlacer;
-import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
-import teamrazor.deepaether.world.feature.tree.trunk.YagrootTrunkPlacer;
-
-import java.util.List;
-import java.util.Optional;
-
 
 
 public class DAConfiguredFeatures {
@@ -96,10 +43,10 @@ public class DAConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> STERLING_AERCLOUD_CONFIGURATION = createKey("sterling_aercloud");
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
+        return ResourceKey.create(Registry.CONFIGURED_FEATURE_REGISTRY, new ResourceLocation(DeepAetherMod.MODID, name));
     }
 
-
+/*
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> holdergetter = context.lookup(Registries.BLOCK);
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -292,5 +239,5 @@ public class DAConfiguredFeatures {
     static RandomizedIntStateProvider randomizedintstateprovider = new RandomizedIntStateProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(CaveVines.BERRIES, Boolean.valueOf(true)), 1)), CaveVinesBlock.AGE, UniformInt.of(23, 25));
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
-    }
+    }*/
 }
