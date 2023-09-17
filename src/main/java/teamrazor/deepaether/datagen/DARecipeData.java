@@ -75,7 +75,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("PPP")
                 .pattern(" / ")
                 .unlockedBy(getHasName(DABlocks.ROSEROOT_PLANKS.get()), has(DABlocks.ROSEROOT_PLANKS.get()))
-                .save(consumer);
+                .save(consumer, name("roseroot_sign"));
 
         woodFromLogs(consumer, DABlocks.YAGROOT_WOOD.get(), DABlocks.YAGROOT_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_YAGROOT_WOOD.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
@@ -105,7 +105,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("PPP")
                 .pattern(" / ")
                 .unlockedBy(getHasName(DABlocks.YAGROOT_PLANKS.get()), has(DABlocks.YAGROOT_PLANKS.get()))
-                .save(consumer);
+                .save(consumer, name("yagroot_sign"));
 
         woodFromLogs(consumer, DABlocks.CRUDEROOT_WOOD.get(), DABlocks.CRUDEROOT_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_CRUDEROOT_WOOD.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
@@ -135,7 +135,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("PPP")
                 .pattern(" / ")
                 .unlockedBy(getHasName(DABlocks.CRUDEROOT_PLANKS.get()), has(DABlocks.CRUDEROOT_PLANKS.get()))
-                .save(consumer);
+                .save(consumer, name("cruderoot_sign"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.CRAFTING_TABLE, 1)
                 .group("minecraft:crafting_table")
@@ -173,7 +173,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("PPP")
                 .pattern(" / ")
                 .unlockedBy(getHasName(DABlocks.CONBERRY_PLANKS.get()), has(DABlocks.CONBERRY_PLANKS.get()))
-                .save(consumer);
+                .save(consumer, name("conberry_sign"));
 
         woodFromLogs(consumer, DABlocks.SUNROOT_WOOD.get(), DABlocks.SUNROOT_LOG.get());
         woodFromLogs(consumer, DABlocks.STRIPPED_SUNROOT_WOOD.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
@@ -203,7 +203,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("PPP")
                 .pattern(" / ")
                 .unlockedBy(getHasName(DABlocks.SUNROOT_PLANKS.get()), has(DABlocks.SUNROOT_PLANKS.get()))
-                .save(consumer);
+                .save(consumer, name("sunroot_sign"));
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_PETAL_BLOCK.get(), 1)
@@ -700,7 +700,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("###")
                 .pattern("###")
                 .unlockedBy("has_stripped_logs", has(log))
-                .save(consumer, name(sign.toString()+"1"));
+                .save(consumer, name(sign.toString()));
     }
     protected ResourceLocation name(String name) {
         return new ResourceLocation(DeepAetherMod.MODID, name);

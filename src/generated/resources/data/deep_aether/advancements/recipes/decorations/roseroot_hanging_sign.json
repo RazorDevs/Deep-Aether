@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_roseroot_planks": {
+    "has_stripped_logs": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:roseroot_planks"
+              "deep_aether:stripped_roseroot_log"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_roseroot_planks",
+      "has_stripped_logs",
       "has_the_recipe"
     ]
   ],

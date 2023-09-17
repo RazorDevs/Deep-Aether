@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "hanging_sign",
+  "group": "wooden_sign",
   "key": {
-    "#": {
-      "item": "deep_aether:stripped_cruderoot_log"
+    "/": {
+      "tag": "forge:rods/wooden"
     },
-    "X": {
-      "item": "minecraft:chain"
+    "P": {
+      "item": "deep_aether:cruderoot_planks"
     }
   },
   "pattern": [
-    "X X",
-    "###",
-    "###"
+    "PPP",
+    "PPP",
+    " / "
   ],
   "result": {
-    "count": 6,
+    "count": 3,
     "item": "deep_aether:cruderoot_hanging_sign"
   },
   "show_notification": true

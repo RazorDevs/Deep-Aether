@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_logs": {
+    "has_conberry_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:stripped_conberry_log"
+              "deep_aether:conberry_planks"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:conberry_hanging_sign1"
+        "recipe": "deep_aether:conberry_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stripped_logs",
+      "has_conberry_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:conberry_hanging_sign1"
+      "deep_aether:conberry_sign"
     ]
   },
   "sends_telemetry_event": false
