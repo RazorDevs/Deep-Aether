@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:clorite"
+          "name": "deep_aether:raw_clorite_slab"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "deep_aether:blocks/clorite"
+  "random_sequence": "deep_aether:blocks/raw_clorite_slab"
 }

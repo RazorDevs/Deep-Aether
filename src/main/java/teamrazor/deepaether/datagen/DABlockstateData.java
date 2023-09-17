@@ -176,8 +176,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
     
         //CLORITE        
-        
-        this.blockDoubleDrops(DABlocks.CLORITE.get());
+
+        this.blockDoubleDrops(DABlocks.RAW_CLORITE.get());
+        this.stairs((StairBlock) DABlocks.RAW_CLORITE_STAIRS.get(), DABlocks.RAW_CLORITE.get());
+        this.slab((SlabBlock) DABlocks.RAW_CLORITE_SLAB.get(), DABlocks.RAW_CLORITE.get());
+        this.block(DABlocks.CLORITE.get());
         this.stairs((StairBlock) DABlocks.CLORITE_STAIRS.get(), DABlocks.CLORITE.get());
         this.slab((SlabBlock) DABlocks.CLORITE_SLAB.get(), DABlocks.CLORITE.get());
         this.wallBlock((WallBlock) DABlocks.CLORITE_WALL.get(), DABlocks.CLORITE.get());

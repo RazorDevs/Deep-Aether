@@ -311,8 +311,19 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_SAPLING.get(),
                 DABlocks.SUNROOT_FENCE_GATE.get(),
                 DABlocks.SUNROOT_SIGN.get(),
-                DABlocks.SUNROOT_WALL_SIGN.get()
-        );
+                DABlocks.SUNROOT_WALL_SIGN.get(),
+
+                DABlocks.ROSEROOT_HANGING_SIGN.get(),
+                DABlocks.YAGROOT_HANGING_SIGN.get(),
+                DABlocks.CRUDEROOT_HANGING_SIGN.get(),
+                DABlocks.CONBERRY_HANGING_SIGN.get(),
+                DABlocks.SUNROOT_HANGING_SIGN.get(),
+                DABlocks.ROSEROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.YAGROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.CRUDEROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.CONBERRY_WALL_HANGING_SIGN.get(),
+                DABlocks.SUNROOT_WALL_HANGING_SIGN.get()
+                );
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 DABlocks.ASETERITE.get(),
                 DABlocks.POLISHED_ASETERITE.get(),
@@ -321,6 +332,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE_SLAB.get(),
                 DABlocks.POLISHED_ASETERITE_SLAB.get(),
                 DABlocks.ASETERITE_WALL.get(),
+
+                DABlocks.RAW_CLORITE.get(),
+                DABlocks.RAW_CLORITE_SLAB.get(),
+                DABlocks.RAW_CLORITE_STAIRS.get(),
 
                 DABlocks.CLORITE.get(),
                 DABlocks.POLISHED_CLORITE.get(),

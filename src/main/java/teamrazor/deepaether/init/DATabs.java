@@ -163,6 +163,9 @@ public class DATabs {
                 output.accept(DABlocks.POLISHED_ASETERITE_STAIRS.get());
                 output.accept(DABlocks.POLISHED_ASETERITE_SLAB.get());
 
+                output.accept(DABlocks.RAW_CLORITE.get());
+                output.accept(DABlocks.RAW_CLORITE_STAIRS.get());
+                output.accept(DABlocks.RAW_CLORITE_SLAB.get());
                 output.accept(DABlocks.CLORITE.get());
                 output.accept(DABlocks.CLORITE_STAIRS.get());
                 output.accept(DABlocks.CLORITE_SLAB.get());
