@@ -346,7 +346,7 @@ public class DABlocks {
 	}
 
 	private static <T extends Block> RegistryObject<T> registerAetherReduxBlock(String name, Supplier<T> block) {
-		if(ModList.get().isLoaded(DeepAetherMod.MODID)) {
+		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) || DeepAetherMod.LOGGER.isDebugEnabled()) {
 			RegistryObject<T> toReturn = BLOCKS.register(name, block);
 			registerBlockItem(name, toReturn);
 			return toReturn;
@@ -355,7 +355,7 @@ public class DABlocks {
 	}
 
 	private static <T extends Block> RegistryObject<T> registerAetherGenesisBlock(String name, Supplier<T> block) {
-		if(ModList.get().isLoaded(DeepAetherMod.MODID)) {
+		if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) || DeepAetherMod.LOGGER.isDebugEnabled()) {
 			RegistryObject<T> toReturn = BLOCKS.register(name, block);
 			registerBlockItem(name, toReturn);
 			return toReturn;

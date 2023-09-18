@@ -70,7 +70,7 @@ public class DeepAetherMod {
 
 	//TODO: add it_lang translation
 
-	private static final Logger LOGGER = LogUtils.getLogger();
+	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
