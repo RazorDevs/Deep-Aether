@@ -46,9 +46,7 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	//TODO: Missing Tab and biome entries in en_lang
-	//TODO: Trees not growing manually
-	//TODO: Addon Items/Recipies check
+	//TODO: Missing Biome entries in en_lang
 	//TODO: Quail texture bugged
 
 	public static final Logger LOGGER = LogUtils.getLogger();
@@ -75,11 +73,7 @@ public class DeepAetherMod {
 
 		//FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
 
-
-
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-
 
 		bus.addListener(this::commonSetup);
 
