@@ -125,11 +125,6 @@ dependencies {
 
 }
 
-mixin {
-    config "deep_aether.mixins.json"
-    add sourceSets.main, "deep_aether.refmap.json"
-}
-
 jar {
     manifest {
         attributes([
