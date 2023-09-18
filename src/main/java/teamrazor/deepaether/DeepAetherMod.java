@@ -46,12 +46,12 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	//TODO: Missing Tab entries in en_lang
+	//TODO: Missing Tab and biome entries in en_lang
 	//TODO: Trees not growing manually
 	//TODO: Addon Items/Recipies check
 	//TODO: Quail texture bugged
 
-	private static final Logger LOGGER = LogUtils.getLogger();
+	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
