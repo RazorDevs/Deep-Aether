@@ -56,7 +56,6 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	//TODO: Missing Biome entries in en_lang
 	//TODO: Quail texture bugged
 
 	public static final Logger LOGGER = LogUtils.getLogger();
