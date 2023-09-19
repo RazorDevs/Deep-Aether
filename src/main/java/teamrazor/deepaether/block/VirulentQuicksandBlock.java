@@ -8,7 +8,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -84,7 +83,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
         if (!entity.isSpectator() && hasEntityMoved(entity)) {
             if (entity instanceof LivingEntity living)
             {
-                living.hurt(DamageSource.IN_WALL, 2f);
+                living.hurt(level.damageSources().inWall(), 2f);
             }
         }
     }
