@@ -8,10 +8,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +18,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PowderSnowBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -62,13 +57,13 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                 double d0 = (double)blockPos.getX() + randomSource.nextDouble();
                 double d1 = (double)blockPos.getY() - 0.05D;
                 double d2 = (double)blockPos.getZ() + randomSource.nextDouble();
-                //level.addParticle(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), d0, d1, d2, 0.0D, 0.0D, 0.0D);
                 level.addParticle(ParticleTypes.WHITE_ASH, d0, d1, d2, 0.1, 0, 0.2);
                 level.addParticle(ParticleTypes.WHITE_ASH, d0, d1, d2, 0.2, 0,  0.1);
             }
         }
 
     }
+
 
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
