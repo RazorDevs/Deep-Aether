@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -59,7 +60,6 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                 double d0 = (double)blockPos.getX() + randomSource.nextDouble();
                 double d1 = (double)blockPos.getY() - 0.05D;
                 double d2 = (double)blockPos.getZ() + randomSource.nextDouble();
-                //level.addParticle(new BlockParticleOption(ParticleTypes.FALLING_DUST, blockState), d0, d1, d2, 0.0D, 0.0D, 0.0D);
                 level.addParticle(ParticleTypes.WHITE_ASH, d0, d1, d2, 0.1, 0, 0.2);
                 level.addParticle(ParticleTypes.WHITE_ASH, d0, d1, d2, 0.2, 0,  0.1);
             }
@@ -80,6 +80,18 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                 }
             }
         }
+        if (!entity.isSpectator() && hasEntityMoved(entity)) {
+            if (entity instanceof LivingEntity living)
+            {
+                living.hurt(DamageSource.IN_WALL, 2f);
+            }
+        }
+    }
+
+    public boolean hasEntityMoved(Entity entity) {
+        return entity.xOld - entity.getX() >= 0.001 ||
+                entity.yOld - entity.getY() >= 0.001 ||
+                entity.zOld - entity.getZ() >= 0.001;
     }
 
     @Override
@@ -109,5 +121,4 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
     public @NotNull Optional<SoundEvent> getPickupSound() {
         return Optional.of(SoundEvents.SAND_BREAK);
     }
-
 }
