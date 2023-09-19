@@ -66,7 +66,6 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
 
     }
 
-
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
         if (!(entity instanceof LivingEntity) || entity.getFeetBlockState().is(this)) {
@@ -79,6 +78,18 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                 }
             }
         }
+        if (!entity.isSpectator() && hasEntityMoved(entity)) {
+            if (entity instanceof LivingEntity living)
+            {
+                living.hurt(DamageSource.IN_WALL, 2f);
+            }
+        }
+    }
+
+    public boolean hasEntityMoved(Entity entity) {
+        return entity.xOld - entity.getX() >= 0.001 ||
+                entity.yOld - entity.getY() >= 0.001 ||
+                entity.zOld - entity.getZ() >= 0.001;
     }
 
     @Override
