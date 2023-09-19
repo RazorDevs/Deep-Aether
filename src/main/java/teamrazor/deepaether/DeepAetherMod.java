@@ -3,13 +3,22 @@ package teamrazor.deepaether;
 
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
+import net.minecraft.SharedConstants;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -20,6 +29,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraftforge.resource.PathPackResources;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
@@ -146,22 +156,25 @@ public class DeepAetherMod {
 		});
 	}
 
-	private void enqueueIMC(final InterModEnqueueEvent event)
-	{
-		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+	private void enqueueIMC(final InterModEnqueueEvent event) {
+		InterModComms.sendTo(MODID, "helloworld", () -> {
+			LOGGER.info("Hello world from the MDK");
+			return "Hello world";
+		});
 	}
 
-	private void processIMC(final InterModProcessEvent event)
-	{
+	private void processIMC(final InterModProcessEvent event) {
 		LOGGER.info("Got IMC {}", event.getIMCStream().
-				map(m->m.messageSupplier().get()).
+				map(m -> m.messageSupplier().get()).
 				collect(Collectors.toList()));
 	}
+
 	private void registerDispenserBehaviors() {
 		DispenserBlock.registerBehavior(Items.POTION, DADispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DAItems.PLACEABLE_POISON_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DAItems.VIRULENT_QUICKSAND_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
 	}
+
 	public void registerCompostable() {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_LEAVES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.BLUE_ROSEROOT_LEAVES.get().asItem(), 0.3F);
@@ -198,39 +211,76 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);
 	}
 
-	/*
+
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
 			var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/deep_aether_additional_assets");
-			var pack = Pack.create("builtin/deep_aether_additional_assets", Component.literal("Deep Aether Additional Assets"), false,
-					path -> new PathPackResources(path, resourcePath, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
-			event.addRepositorySource(consumer -> consumer.accept(pack));
+
+			PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
+			PackMetadataSection metadata = new PackMetadataSection(Component.literal("Deep Aether Additional Assets"), PackType.CLIENT_RESOURCES.getVersion(SharedConstants.getCurrentVersion()));
+			event.addRepositorySource((packConsumer, packConstructor) ->
+					packConsumer.accept(packConstructor.create(
+							"builtin/deep_aether_additional_assets",
+							Component.literal("Deep Aether Additional Assets"),
+							false,
+							() -> pack,
+							metadata,
+							Pack.Position.TOP,
+							PackSource.BUILT_IN,
+							false)
+					));
 
 
-			if(ModList.get().isLoaded("aether_genesis") || ModList.get().isLoaded("aether_redux")) {
+			if (ModList.get().isLoaded("aether_genesis") || ModList.get().isLoaded("aether_redux")) {
 				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallFixClient");
-				var pack1 = Pack.create("builtin/DAGoldenSwetBallFixClient", Component.literal("Deep Aether Golden Swet Ball Texture Fix"), false,
-						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.DEFAULT);
-				event.addRepositorySource(consumer -> consumer.accept(pack1));
-
+				PathPackResources pack1 = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath1, resourcePath1);
+				PackMetadataSection metadata1 = new PackMetadataSection(Component.literal("Deep Aether Golden Swet Ball Texture Fix"), PackType.CLIENT_RESOURCES.getVersion(SharedConstants.getCurrentVersion()));
+				event.addRepositorySource((packConsumer, packConstructor) ->
+						packConsumer.accept(packConstructor.create(
+								"builtin/DAGoldenSwetBallFixClient",
+								Component.literal("Deep Aether Golden Swet Ball Texture Fix"),
+								false,
+								() -> pack1,
+								metadata1,
+								Pack.Position.TOP,
+								PackSource.DEFAULT,
+								true)
+						));
 			}
-		}
-		if(ModList.get().isLoaded("aether_genesis") && event.getPackType() == PackType.SERVER_DATA) {
-			if (event.getPackType() == PackType.SERVER_DATA) {
+
+		} else if (event.getPackType() == PackType.SERVER_DATA) {
+			if (ModList.get().isLoaded("aether_genesis")) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData");
-				var pack = Pack.create("builtin/DAGoldenSwetBallAetherGenesisFix", Component.literal("Deep Aether Golden Swet Ball Aether Genesis Fix"), true,
-						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
-				event.addRepositorySource(consumer -> consumer.accept(pack));
-			}
-		} else if(ModList.get().isLoaded("aether_redux") && event.getPackType() == PackType.SERVER_DATA) {
-			if (event.getPackType() == PackType.SERVER_DATA) {
+				PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
+				PackMetadataSection metadata = new PackMetadataSection(Component.literal("Deep Aether Golden Swet Ball Aether Genesis Fix"), PackType.SERVER_DATA.getVersion(SharedConstants.getCurrentVersion()));
+				event.addRepositorySource((packConsumer, packConstructor) ->
+						packConsumer.accept(packConstructor.create(
+								"builtin/DAGoldenSwetBallAetherGenesisFix",
+								Component.literal("Deep Aether Golden Swet Ball Aether Genesis Fix"),
+								false,
+								() -> pack,
+								metadata,
+								Pack.Position.TOP,
+								PackSource.SERVER,
+								true)
+						));
+			} else if (ModList.get().isLoaded("aether_redux")) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData");
-				var pack = Pack.create("builtin/DAGoldenSwetBallAetherReduxFix", Component.literal("Deep Aether Golden Swet Ball Aether Redux Fix"), true,
-						path -> new PathPackResources(path, resourcePath), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
-
-				event.addRepositorySource(consumer -> consumer.accept(pack));
+				PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
+				PackMetadataSection metadata = new PackMetadataSection(Component.literal("Deep Aether Golden Swet Ball Aether Redux Fix"), PackType.SERVER_DATA.getVersion(SharedConstants.getCurrentVersion()));
+				event.addRepositorySource((packConsumer, packConstructor) ->
+						packConsumer.accept(packConstructor.create(
+								"builtin/DAGoldenSwetBallAetherReduxFix",
+								Component.literal("Deep Aether Golden Swet Ball Aether Redux Fix"),
+								false,
+								() -> pack,
+								metadata,
+								Pack.Position.TOP,
+								PackSource.SERVER,
+								true)
+						));
 			}
 		}
-	}*/
+	}
 }
