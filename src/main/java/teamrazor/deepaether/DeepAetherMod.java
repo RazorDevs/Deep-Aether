@@ -75,7 +75,6 @@ public class DeepAetherMod {
 	public static final String MODID = "deep_aether";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
 	public static final String AETHER_REDUX = "aether_redux";
-
 	private static final String PROTOCOL_VERSION = "1";
 
 	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(MODID);
@@ -119,7 +118,6 @@ public class DeepAetherMod {
 		DARootPlacers.ROOT_PLACERS.register(bus);
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
-
 
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);

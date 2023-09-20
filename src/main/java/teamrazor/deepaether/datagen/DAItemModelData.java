@@ -153,6 +153,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.POLISHED_ASETERITE_STAIRS.get());
         this.itemBlock(DABlocks.POLISHED_ASETERITE_SLAB.get());
 
+        this.itemBlock(DABlocks.RAW_CLORITE.get());
+        this.itemBlock(DABlocks.RAW_CLORITE_STAIRS.get());
+        this.itemBlock(DABlocks.RAW_CLORITE_SLAB.get());
+        this.itemWallBlock(DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
         this.itemBlock(DABlocks.CLORITE.get());
         this.itemBlock(DABlocks.CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.CLORITE_SLAB.get());

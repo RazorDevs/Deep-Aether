@@ -11,6 +11,7 @@
     "deep_aether:sunroot_wall",
     "deep_aether:stripped_sunroot_wall",
     "deep_aether:clorite_wall",
+    "deep_aether:raw_clorite_wall",
     "deep_aether:aseterite_wall",
     "deep_aether:aether_mud_bricks_wall",
     "deep_aether:holystone_tile_wall",
@@ -21,46 +22,6 @@
     },
     {
       "id": "deep_aether:blightmoss_holystone_tile_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:roseroot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:stripped_roseroot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:yagroot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:stripped_yagroot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:cruderoot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:stripped_cruderoot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:conberry_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:stripped_conberry_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:sunroot_log_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:stripped_sunroot_log_wall",
       "required": false
     }
   ]

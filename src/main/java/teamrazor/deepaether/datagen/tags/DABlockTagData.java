@@ -119,6 +119,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_WALL.get(),
                 DABlocks.STRIPPED_SUNROOT_WALL.get(),
                 DABlocks.CLORITE_WALL.get(),
+                DABlocks.RAW_CLORITE_WALL.get(),
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
@@ -177,7 +178,7 @@ public class DABlockTagData extends BlockTagsProvider {
         );
         tag(BlockTags.SCULK_REPLACEABLE).add(
                 DABlocks.ASETERITE.get(),
-                DABlocks.CLORITE.get()
+                DABlocks.RAW_CLORITE.get()
         );
         tag(BlockTags.WOODEN_FENCES).add(
                 DABlocks.ROSEROOT_FENCE.get(),
@@ -320,6 +321,11 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.POLISHED_CLORITE_SLAB.get(),
                 DABlocks.CLORITE_WALL.get(),
                 DABlocks.CLORITE_PILLAR.get(),
+
+                DABlocks.RAW_CLORITE.get(),
+                DABlocks.RAW_CLORITE_STAIRS.get(),
+                DABlocks.RAW_CLORITE_SLAB.get(),
+                DABlocks.RAW_CLORITE_WALL.get(),
 
                 DABlocks.SKYJADE_ORE.get(),
                 DABlocks.SKYJADE_BLOCK.get(),

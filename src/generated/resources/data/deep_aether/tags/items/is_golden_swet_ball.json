@@ -4,10 +4,6 @@
     {
       "id": "aether_redux:golden_swet_ball",
       "required": false
-    },
-    {
-      "id": "aether_genesis:golden_swet_ball",
-      "required": false
     }
   ]
 }

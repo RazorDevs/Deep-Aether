@@ -140,6 +140,11 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        name "Modding Legacy Maven"
+        url "https://maven.moddinglegacy.com/maven"
+    }
+
     maven githubPackage.invoke("The-Aether-Team/The-Aether")
     maven githubPackage.invoke("The-Aether-Team/Nitrogen")
     maven githubPackage.invoke("The-Aether-Team/Cumulus")
@@ -147,7 +152,7 @@ repositories {
 
 dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
+    minecraft 'net.minecraftforge:forge:1.19.4-45.1.19'
 
     //Dependencies
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.4:4.1.3')
@@ -160,9 +165,9 @@ dependencies {
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3:api")
 
     //Optional Dependencies
-    implementation fg.deobf("curse.maven:aether-lost-content-318602:4756827")
-    implementation fg.deobf("curse.maven:structure-gel-api-378802:4489758")
-    //implementation fg.deobf("curse.maven:aether-redux-867237:4755143")
+    //implementation fg.deobf("curse.maven:aether-lost-content-318602:4756827")
+    //implementation fg.deobf("com.legacy:structure-gel:1.19.4-2.12.0")
+    implementation fg.deobf("curse.maven:aether-redux-867237:4755143")
     implementation fg.deobf("local:aether_genesis:1.19.4-0.0.1-forge")
 }
 

@@ -147,6 +147,10 @@ public class DATabs {
                             output.accept(DABlocks.POLISHED_ASETERITE_STAIRS.get());
                             output.accept(DABlocks.POLISHED_ASETERITE_SLAB.get());
 
+                            output.accept(DABlocks.RAW_CLORITE.get());
+                            output.accept(DABlocks.RAW_CLORITE_STAIRS.get());
+                            output.accept(DABlocks.RAW_CLORITE_SLAB.get());
+                            output.accept(DABlocks.RAW_CLORITE_WALL.get());
                             output.accept(DABlocks.CLORITE.get());
                             output.accept(DABlocks.CLORITE_STAIRS.get());
                             output.accept(DABlocks.CLORITE_SLAB.get());
@@ -267,7 +271,7 @@ public class DATabs {
                             output.accept(DAItems.QUAIL_SPAWN_EGG.get());
 
                             output.accept(DAItems.AERGLOW_PETAL.get());
-                            if(ModList.get().isLoaded("lost_aether_content")){
+                            if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)){
                                 output.accept(DAItems.SKYJADE_SHIELD.get());
                                 output.accept(DAItems.STRATUS_SHIELD.get());
                             }
