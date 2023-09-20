@@ -47,7 +47,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
     }
 
     public static boolean isFree(BlockState blockState) {;
-        return blockState.isAir() || blockState.is(BlockTags.FIRE) || blockState.liquid() || blockState.canBeReplaced();
+        return blockState.isAir() || blockState.is(BlockTags.FIRE) || blockState.getMaterial().isLiquid() || blockState.canBeReplaced();
     }
 
     public void animateTick(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, RandomSource randomSource) {

@@ -74,7 +74,6 @@ public class DeepAetherMod {
 
 	public static final String MODID = "deep_aether";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
-	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
 
 	private static final String PROTOCOL_VERSION = "1";
