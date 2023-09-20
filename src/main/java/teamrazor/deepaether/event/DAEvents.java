@@ -61,17 +61,33 @@ public class DAEvents {
         }
     }
 
+    public boolean mayflyChromatic = false;
     @SubscribeEvent
-    public static void playerTickEvent(TickEvent.PlayerTickEvent event) {
+    public void playerTickEvent(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        if(!player.isSpectator() && !player.isCreative()) {
-            if(player.getFeetBlockState().is(DABlocks.CHROMATIC_AERCLOUD.get()))
-                player.getAbilities().mayfly = true;
-            else {
-                player.getAbilities().flying = false;
-                player.getAbilities().mayfly = false;
-            }
+        mayflyChromatic = player.getFeetBlockState().is(DABlocks.CHROMATIC_AERCLOUD.get());
 
+        if(!isMayfly(player)) {
+            player.getAbilities().flying = false;
         }
+    }
+
+    public boolean isMayfly(Player player) {
+        if(player.getAbilities().mayfly) {
+            return true;
+        }
+        else return mayflyChromatic;
+    }
+
+
+    static private void startFlying(Player player) {
+        player.getAbilities().mayfly = true;
+        player.onUpdateAbilities();
+    }
+
+    static private void stopFlying(Player player) {
+        player.getAbilities().flying = false;
+        player.getAbilities().mayfly = false;
+        player.onUpdateAbilities();
     }
 }
