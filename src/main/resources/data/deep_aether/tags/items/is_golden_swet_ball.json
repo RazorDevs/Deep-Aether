@@ -2,7 +2,7 @@
   "values": [
     "deep_aether:golden_swet_ball",
     {
-      "id": "aether_redux:golden_swet_ball",
+      "id": "deep_aether:golden_swet_ball",
       "required": false
     },
     {
