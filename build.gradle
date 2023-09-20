@@ -102,6 +102,17 @@ repositories {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
+    maven {
+        name "Modding Legacy Maven"
+        url "https://maven.moddinglegacy.com/maven"
+    }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
     flatDir {
         dir 'libs'
     }
@@ -110,18 +121,24 @@ repositories {
 dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     minecraft "net.neoforged:forge:${project.mc_version}-${project.neoforge_version}"
+
+    //Dependencies
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
-    implementation fg.deobf("local:aeroblender:${project.aeroblender_version}")
-    //implementation fg.deobf('local:lost_aether_content:1.19.4-1.1.0')
-    //implementation fg.deobf('local:structure_gel:1.19.4-2.12.0')
-    //implementation fg.deobf('local:aether_genesis:1.19.4-0.0.1-forge')
+    implementation fg.deobf("curse.maven:aeroblender-879879:${project.aeroblender_version}")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")
-    //implementation fg.deobf('local:aether_redux:a1.0.1-mc1.19.4')
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
     implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
+
+    //Optional Dependencies
+    implementation fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
+    implementation fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
+    //implementation fg.deobf('local:aether_genesis:1.19.4-0.0.1-forge')
+
+    //implementation fg.deobf('local:aether_redux:a1.0.1-mc1.19.4')
+
 
 }
 

@@ -366,21 +366,21 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
                 .requires(Blocks.MOSS_BLOCK.asItem())
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
-                .save(consumer,"mossy_holystone_tiles_from_moss");
+                .save(consumer,name("mossy_holystone_tiles_from_moss"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
                 .group("mossy_holystone_tiles")
                 .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
                 .requires(DABlocks.AETHER_MOSS_BLOCK.get().asItem())
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
-                .save(consumer, "mossy_holystone_tiles_from_aether_moss");
+                .save(consumer, name("mossy_holystone_tiles_from_aether_moss"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
                 .group("mossy_holystone_tiles")
                 .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
                 .requires(Blocks.VINE.asItem())
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
-                .save(consumer, "mossy_holystone_tiles_from_vines");
+                .save(consumer, name("mossy_holystone_tiles_from_vines"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 4)
                 .define('A', AetherBlocks.MOSSY_HOLYSTONE.get().asItem())
@@ -441,7 +441,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .define('B', DABlocks.AETHER_MOSS_BLOCK.get().asItem())
                 .pattern("AB")
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get().asItem()))
-                .save(consumer, "mossy_holystone_from_aether_moss");
+                .save(consumer, name("mossy_holystone_from_aether_moss"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
                 .define('A', DAItems.SKYJADE.get())
@@ -463,12 +463,12 @@ public class DARecipeData extends AetherRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get(), 9)
                 .requires(DABlocks.STRATUS_BLOCK.get())
                 .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
-                .save(consumer, "stratus_ingot_from_stratus_block");
+                .save(consumer, name("stratus_ingot_from_stratus_block"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
                 .requires(DABlocks.SKYJADE_BLOCK.get())
                 .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
-                .save(consumer, "skyjade_from_skyjade_block");
+                .save(consumer, name("skyjade_from_skyjade_block"));
 
 
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
@@ -540,8 +540,8 @@ public class DARecipeData extends AetherRecipeProvider {
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);
         smeltingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer);
 
-        SmokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, "cooked_quail_from_smoker");
-        SmokingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer, "cooked_aerglow_fish_from_smoker");
+        SmokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, name("cooked_quail_from_smoker"));
+        SmokingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer, name("cooked_aerglow_fish_from_smoker"));
 
         makeBoat(DAItems.ROSEROOT_BOAT, DABlocks.ROSEROOT_PLANKS.get()).save(consumer);
         makeBoat(DAItems.YAGROOT_BOAT, DABlocks.YAGROOT_PLANKS.get()).save(consumer);
@@ -567,38 +567,38 @@ public class DARecipeData extends AetherRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE)
                 .requires(DABlocks.AETHER_CATTAILS.get(),1)
                 .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
-                .save(consumer, "cyan_dye_from_aether_cattails");
+                .save(consumer, name("cyan_dye_from_aether_cattails"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE,2)
                 .requires(DABlocks.TALL_AETHER_CATTAILS.get(),1)
                 .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
-                .save(consumer, "cyan_dye_from_tall_aether_cattails");
+                .save(consumer, name("cyan_dye_from_tall_aether_cattails"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PINK_DYE)
                 .requires(DABlocks.AERLAVENDER.get(),1)
                 .unlockedBy(getHasName(DABlocks.AERLAVENDER.get()), has(DABlocks.AERLAVENDER.get()))
-                .save(consumer, "cyan_dye_from_aerlavender");
+                .save(consumer, name("cyan_dye_from_aerlavender"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PINK_DYE,2)
                 .requires(DABlocks.TALL_AERLAVENDER.get(),1)
                 .unlockedBy(getHasName(DABlocks.AERLAVENDER.get()), has(DABlocks.AERLAVENDER.get()))
-                .save(consumer, "cyan_dye_from_tall_aerlavender");
+                .save(consumer, name("cyan_dye_from_tall_aerlavender"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.WHITE_DYE)
                 .requires(DABlocks.RADIANT_ORCHID.get(),1)
                 .unlockedBy(getHasName(DABlocks.RADIANT_ORCHID.get()), has(DABlocks.RADIANT_ORCHID.get()))
-                .save(consumer, "white_dye_from_radiant_orchid");
+                .save(consumer, name("white_dye_from_radiant_orchid"));
 
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.ORANGE_DYE)
                 .requires(DABlocks.GOLDEN_FLOWER.get(),1)
                 .unlockedBy(getHasName(DABlocks.GOLDEN_FLOWER.get()), has(DABlocks.GOLDEN_FLOWER.get()))
-                .save(consumer, "orange_dye_from_golden_flower");
+                .save(consumer, name("orange_dye_from_golden_flower"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.WHITE_DYE)
                 .requires(DABlocks.ENCHANTED_BLOSSOM.get(),1)
                 .unlockedBy(getHasName(DABlocks.ENCHANTED_BLOSSOM.get()), has(DABlocks.ENCHANTED_BLOSSOM.get()))
-                .save(consumer, "white_dye_from_enchanted_blossom");
+                .save(consumer, name("white_dye_from_enchanted_blossom"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, DAItems.GOLDEN_SWET_BALL.get())
                 .requires(DAItems.GOLDEN_GRASS_SEEDS.get())
@@ -612,7 +612,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(Items.PUMPKIN)
                 .requires(Items.SUGAR)
                 .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
-                .save(consumer);
+                .save(consumer, name("pumpkin_pie"));
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Items.CAKE)
@@ -625,7 +625,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("SOS")
                 .pattern("YYY")
                 .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
-                .save(consumer);
+                .save(consumer, name("cake"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Blocks.CAKE)
                 .group("minecraft:cake")

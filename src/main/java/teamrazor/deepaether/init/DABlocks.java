@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -355,7 +356,7 @@ public class DABlocks {
 	}
 
 	private static <T extends Block> RegistryObject<T> registerAetherGenesisBlock(String name, Supplier<T> block) {
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
+		if(/*ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)*/ false) {
 			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
 			RegistryObject<T> toReturn = BLOCKS.register(name, block);
 			registerBlockItem(name, toReturn);

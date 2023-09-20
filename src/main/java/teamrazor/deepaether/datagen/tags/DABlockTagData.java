@@ -125,17 +125,17 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get())
                 .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
                 .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId())
-                .addOptional(DABlocks.ROSEROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.YAGROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_YAGROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.CRUDEROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
-                .addOptional(DABlocks.SUNROOT_LOG_WALL.getId())
-                .addOptional(DABlocks.STRIPPED_SUNROOT_LOG_WALL.getId()
-                );
+                //.addOptional(DABlocks.ROSEROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.YAGROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.STRIPPED_YAGROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.CRUDEROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
+                //.addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
+                //.addOptional(DABlocks.SUNROOT_LOG_WALL.getId())
+                //.addOptional(DABlocks.STRIPPED_SUNROOT_LOG_WALL.getId()
+                ;
         tag(BlockTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get(),
                 DABlocks.YAGROOT_FENCE_GATE.get(),

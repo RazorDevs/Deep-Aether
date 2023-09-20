@@ -13,6 +13,7 @@ import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -214,7 +215,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
 
-        //Aether Genesis
+        if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
             this.itemLogWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
             this.itemLogWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
             this.itemLogWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
@@ -225,7 +226,7 @@ public class DAItemModelData extends AetherItemModelProvider {
             this.itemLogWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
             this.itemLogWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
             this.itemLogWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
-
+        }
 
 
         //ITEMS

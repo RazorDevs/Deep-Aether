@@ -30,6 +30,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -121,6 +122,9 @@ public class DeepAetherMod {
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 		DATabs.CREATIVE_MODE_TABS.register(bus);
+
+		DARecipeData.BLOCKS.register(bus);
+
 
 
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
