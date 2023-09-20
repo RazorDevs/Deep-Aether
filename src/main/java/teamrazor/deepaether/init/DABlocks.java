@@ -308,7 +308,6 @@ public class DABlocks {
 		return null;
 	}
 
-
 	private static <T extends Block> RegistryObject<T> registerBlock(int burnTime, String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
 		registerBurnableBlockItem(burnTime, name, toReturn);

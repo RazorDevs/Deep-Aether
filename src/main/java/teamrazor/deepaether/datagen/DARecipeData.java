@@ -539,7 +539,7 @@ public class DARecipeData extends AetherRecipeProvider {
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);
         smeltingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer);
 
-        SmokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, "cooked_quail_from_smoker");
+        SmokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, name("cooked_quail_from_smoker"));
         SmokingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer, "cooked_aerglow_fish_from_smoker");
 
         makeBoat(DAItems.ROSEROOT_BOAT, DABlocks.ROSEROOT_PLANKS.get()).save(consumer);
@@ -560,12 +560,12 @@ public class DARecipeData extends AetherRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE)
                 .requires(DABlocks.AETHER_CATTAILS.get(),1)
                 .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
-                .save(consumer, "cyan_dye_from_aether_cattails");
+                .save(consumer, name("cyan_dye_from_aether_cattails"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.CYAN_DYE,2)
                 .requires(DABlocks.TALL_AETHER_CATTAILS.get(),1)
                 .unlockedBy(getHasName(DABlocks.AETHER_CATTAILS.get()), has(DABlocks.AETHER_CATTAILS.get()))
-                .save(consumer, "cyan_dye_from_tall_aether_cattails");
+                .save(consumer, name("cyan_dye_from_tall_aether_cattails"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PINK_DYE)
                 .requires(DABlocks.AERLAVENDER.get(),1)
@@ -618,7 +618,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("SOS")
                 .pattern("YYY")
                 .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
-                .save(consumer);
+                .save(consumer, name("cake"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Blocks.CAKE)
                 .group("minecraft:cake")

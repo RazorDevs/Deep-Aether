@@ -62,7 +62,7 @@ side="BOTH"
 [[dependencies.deep_aether]]
 modId="aether"
 mandatory=true
-versionRange="1.0.0-beta.6,)"
+versionRange="1.0.0-beta.6.2,)"
 ordering="AFTER"
 side="BOTH"
 
