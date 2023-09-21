@@ -135,11 +135,7 @@ dependencies {
     //Optional Dependencies
     implementation fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     implementation fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
-    //implementation fg.deobf('local:aether_genesis:1.19.4-0.0.1-forge')
-
-    //implementation fg.deobf('local:aether_redux:a1.0.1-mc1.19.4')
-
-
+    implementation fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
 }
 
 jar {

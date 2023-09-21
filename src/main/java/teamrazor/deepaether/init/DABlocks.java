@@ -324,6 +324,7 @@ public class DABlocks {
 		pot.addPlant(DABlocks.TALL_AERLAVENDER.getId(), DABlocks.POTTED_TALL_AERLAVENDER);
 		pot.addPlant(DABlocks.AETHER_CATTAILS.getId(), DABlocks.POTTED_AETHER_CATTAILS);
 		pot.addPlant(DABlocks.RADIANT_ORCHID.getId(), DABlocks.POTTED_RADIANT_ORCHID);
+		pot.addPlant(DABlocks.ENCHANTED_BLOSSOM.getId(), DABlocks.POTTED_ENCHANTED_BLOSSOM);
 
 		pot.addPlant(DABlocks.ROSEROOT_SAPLING.getId(), DABlocks.POTTED_ROSEROOT_SAPLING);
 		pot.addPlant(DABlocks.BLUE_ROSEROOT_SAPLING.getId(), DABlocks.POTTED_BLUE_ROSEROOT_SAPLING);

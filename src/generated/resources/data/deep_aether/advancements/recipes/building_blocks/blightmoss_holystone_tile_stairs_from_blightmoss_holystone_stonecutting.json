@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_air": {
+    "has_blightmoss_holystone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:air"
+              "aether_redux:blightmoss_holystone"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:gilded_holystone_tile_wall_from_air_stonecutting"
+        "recipe": "deep_aether:blightmoss_holystone_tile_stairs_from_blightmoss_holystone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_air",
+      "has_blightmoss_holystone",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:gilded_holystone_tile_wall_from_air_stonecutting"
+      "deep_aether:blightmoss_holystone_tile_stairs_from_blightmoss_holystone_stonecutting"
     ]
   },
   "sends_telemetry_event": false

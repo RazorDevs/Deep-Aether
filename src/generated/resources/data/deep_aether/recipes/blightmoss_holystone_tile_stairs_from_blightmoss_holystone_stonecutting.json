@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
   "count": 1,
-  "ingredient": [],
+  "ingredient": {
+    "item": "aether_redux:blightmoss_holystone"
+  },
   "result": "deep_aether:blightmoss_holystone_tile_stairs"
 }

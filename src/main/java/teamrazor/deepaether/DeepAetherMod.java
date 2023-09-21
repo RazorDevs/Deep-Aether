@@ -123,10 +123,6 @@ public class DeepAetherMod {
 		DAFeatures.FEATURES.register(bus);
 		DATabs.CREATIVE_MODE_TABS.register(bus);
 
-		DARecipeData.BLOCKS.register(bus);
-
-
-
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 	}
