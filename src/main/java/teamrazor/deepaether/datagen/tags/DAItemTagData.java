@@ -171,13 +171,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.CONBERRY_SIGN.get().asItem(),
                 DABlocks.SUNROOT_SIGN.get().asItem()
         );
-        tag(ItemTags.HANGING_SIGNS).add(
-                DABlocks.ROSEROOT_WALL_SIGN.get().asItem(),
-                DABlocks.YAGROOT_WALL_SIGN.get().asItem(),
-                DABlocks.CRUDEROOT_WALL_SIGN.get().asItem(),
-                DABlocks.CONBERRY_WALL_SIGN.get().asItem(),
-                DABlocks.SUNROOT_WALL_SIGN.get().asItem()
-        );
         tag(ItemTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get().asItem(),
                 DABlocks.STRIPPED_ROSEROOT_WALL.get().asItem(),
@@ -282,6 +275,14 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(AetherTags.Items.ACCESSORIES_RINGS).add(
                 DAItems.SKYJADE_RING.get(),
                 DAItems.STRATUS_RING.get()
+        );
+
+        tag(ItemTags.HANGING_SIGNS).add(
+                DAItems.CONBERRY_HANGING_SIGN.get(),
+                DAItems.CRUDEROOT_HANGING_SIGN.get(),
+                DAItems.ROSEROOT_HANGING_SIGN.get(),
+                DAItems.YAGROOT_HANGING_SIGN.get(),
+                DAItems.SUNROOT_HANGING_SIGN.get()
         );
     }
 }

@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -104,8 +105,59 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_SIGN.get(),
                 DABlocks.CRUDEROOT_SIGN.get(),
                 DABlocks.CONBERRY_SIGN.get(),
+                DABlocks.SUNROOT_SIGN.get(),
+                DABlocks.ROSEROOT_WALL_SIGN.get(),
+                DABlocks.YAGROOT_WALL_SIGN.get(),
+                DABlocks.CRUDEROOT_WALL_SIGN.get(),
+                DABlocks.CONBERRY_WALL_SIGN.get(),
+                DABlocks.SUNROOT_WALL_SIGN.get()
+        );
+
+        tag(BlockTags.WALL_SIGNS).add(
+                DABlocks.ROSEROOT_WALL_SIGN.get(),
+                DABlocks.YAGROOT_WALL_SIGN.get(),
+                DABlocks.CRUDEROOT_WALL_SIGN.get(),
+                DABlocks.CONBERRY_WALL_SIGN.get(),
+                DABlocks.SUNROOT_WALL_SIGN.get()
+        );
+
+        tag(BlockTags.STANDING_SIGNS).add(
+                DABlocks.ROSEROOT_SIGN.get(),
+                DABlocks.YAGROOT_SIGN.get(),
+                DABlocks.CRUDEROOT_SIGN.get(),
+                DABlocks.CONBERRY_SIGN.get(),
                 DABlocks.SUNROOT_SIGN.get()
         );
+
+        tag(BlockTags.CEILING_HANGING_SIGNS).add(
+                DABlocks.ROSEROOT_HANGING_SIGN.get(),
+                DABlocks.YAGROOT_HANGING_SIGN.get(),
+                DABlocks.CRUDEROOT_HANGING_SIGN.get(),
+                DABlocks.CONBERRY_HANGING_SIGN.get(),
+                DABlocks.SUNROOT_HANGING_SIGN.get()
+        );
+
+        tag(BlockTags.WALL_HANGING_SIGNS).add(
+                DABlocks.ROSEROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.YAGROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.CRUDEROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.CONBERRY_WALL_HANGING_SIGN.get(),
+                DABlocks.SUNROOT_WALL_HANGING_SIGN.get()
+        );
+
+        tag(BlockTags.ALL_HANGING_SIGNS).add(
+                DABlocks.ROSEROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.YAGROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.CRUDEROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.CONBERRY_WALL_HANGING_SIGN.get(),
+                DABlocks.SUNROOT_WALL_HANGING_SIGN.get(),
+                DABlocks.ROSEROOT_HANGING_SIGN.get(),
+                DABlocks.YAGROOT_HANGING_SIGN.get(),
+                DABlocks.CRUDEROOT_HANGING_SIGN.get(),
+                DABlocks.CONBERRY_HANGING_SIGN.get(),
+                DABlocks.SUNROOT_HANGING_SIGN.get()
+        );
+
 
         tag(BlockTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get(),
