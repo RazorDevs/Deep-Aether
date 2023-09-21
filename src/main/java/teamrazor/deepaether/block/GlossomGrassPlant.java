@@ -18,11 +18,7 @@ public class GlossomGrassPlant extends TallGrassBlock {
 
         if (state.is(DABlocks.GLOSSOM_GRASS.get()))
             level.setBlockAndUpdate(pos, DABlocks.GLOSSOM_GRASS.get().defaultBlockState());
-        }
-
         if (state.is(DABlocks.GLOSSOM_ROOTS.get()))
-                level.setBlockAndUpdate(pos, DABlocks.GLOSSOM_ROOTS.get().defaultBlockState());
-}
+            level.setBlockAndUpdate(pos, DABlocks.GLOSSOM_ROOTS.get().defaultBlockState());
+        }
     }
-
-}
