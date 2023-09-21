@@ -60,18 +60,4 @@ public class DAEvents {
             }
         }
     }
-
-    @SubscribeEvent
-    public static void playerTickEvent(TickEvent.PlayerTickEvent event) {
-        Player player = event.player;
-        if(!player.isSpectator() && !player.isCreative()) {
-            if(player.getFeetBlockState().is(DABlocks.CHROMATIC_AERCLOUD.get()))
-                player.getAbilities().mayfly = true;
-            else {
-                player.getAbilities().flying = false;
-                player.getAbilities().mayfly = false;
-            }
-
-        }
-    }
 }
