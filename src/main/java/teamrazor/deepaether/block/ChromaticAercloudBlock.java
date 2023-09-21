@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import teamrazor.deepaether.block.Behaviors.ChromaticBlockFlight;
 import teamrazor.deepaether.event.DAEvents;
 
 public class ChromaticAercloudBlock extends HalfTransparentBlock {
@@ -43,12 +44,14 @@ public class ChromaticAercloudBlock extends HalfTransparentBlock {
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 
         entity.resetFallDistance();
-        if (entity.getDeltaMovement().y < 0.0) {
-            entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.005, 1.0));
-        }
         if (entity instanceof Player player) {
-            player.getAbilities().flying = true;
+            ChromaticBlockFlight.handleFlight(player);
         }
-        else entity.setOnGround(true);
+        else {
+            if (entity.getDeltaMovement().y < 0.0) {
+                entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.005, 1.0));
+            }
+            entity.setOnGround(true);
+        }
     }
 }
