@@ -63,7 +63,6 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'mixin.env.remapRefMap', 'true'
@@ -71,7 +70,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
-                examplemod {
+                deepaether {
                     source sourceSets.main
                 }
             }
