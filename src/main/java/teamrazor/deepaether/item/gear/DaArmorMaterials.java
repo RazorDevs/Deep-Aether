@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
-import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -11,45 +10,28 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.datagen.tags.DATags;
 
-import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
-    STRATUS("stratus", 37, Util.make(new EnumMap<>(EquipmentSlot.class), map -> {
-        map.put(EquipmentSlot.FEET, 3);
-        map.put(EquipmentSlot.LEGS, 5);
-        map.put(EquipmentSlot.CHEST, 7);
-        map.put(EquipmentSlot.HEAD, 3);
-    }), 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 3.0F, 0.15F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
+    STRATUS("stratus", 37, new int[]{3,5,7,3}, 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 3.0F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
 
-    SKYJADE("skyjade", 3, Util.make(new EnumMap<>(EquipmentSlot.class), map -> {
-        map.put(EquipmentSlot.FEET, 3);
-        map.put(EquipmentSlot.LEGS, 6);
-        map.put(EquipmentSlot.CHEST, 8);
-        map.put(EquipmentSlot.HEAD, 3);
-    }), 0, AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, 0.0F, 0.0F, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING));
+    SKYJADE("skyjade", 3, new int[]{3,6,8,3}, 0, AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, 0.0F, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING));
 
-    private static final EnumMap<EquipmentSlot, Integer> DURABILITY_MAP = Util.make(new EnumMap<>(EquipmentSlot.class), map -> {
-        map.put(EquipmentSlot.FEET, 13);
-        map.put(EquipmentSlot.LEGS, 15);
-        map.put(EquipmentSlot.CHEST, 16);
-        map.put(EquipmentSlot.HEAD, 11);
-    });
+    private static final int[] DURABILITY_MAP = new int[]{13, 15, 16, 11};
 
     private final String name;
     private final int maxDamageFactor;
-    private final EnumMap<EquipmentSlot, Integer> protectionAmountMap;
+    private final int[] slotProtections;
     private final int enchantability;
     private final Supplier<SoundEvent> soundEvent;
     private final float toughness;
     private final Supplier<Ingredient> repairMaterial;
 
 
-
-    DaArmorMaterials(String name, int maxDamageFactor, EnumMap<EquipmentSlot, Integer> protectionAmountMap, int enchantability, Supplier<SoundEvent> soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterial) {
+    DaArmorMaterials(String name, int maxDamageFactor, int[] slotProtections, int enchantability, Supplier<SoundEvent> soundEvent, float toughness, Supplier<Ingredient> repairMaterial) {
         this.name = name;
         this.maxDamageFactor = maxDamageFactor;
-        this.protectionAmountMap = protectionAmountMap;
+        this.slotProtections = slotProtections;
         this.enchantability = enchantability;
         this.soundEvent = soundEvent;
         this.toughness = toughness;
@@ -58,12 +40,12 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
 
     @Override
     public int getDurabilityForSlot(EquipmentSlot slot) {
-        return DURABILITY_MAP.get(slot) * this.maxDamageFactor;
+        return DURABILITY_MAP[slot.getIndex()] * this.maxDamageFactor;
     }
 
     @Override
     public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.protectionAmountMap.get(slot);
+        return this.slotProtections[slot.getIndex()];
     }
 
 
