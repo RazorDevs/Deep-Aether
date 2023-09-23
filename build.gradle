@@ -33,7 +33,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'io.github.0ffz.github-packages'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.19.2-1.0.8'
+version = 'r1.19.2-r1.0.8'
 group = 'com.teamrazor.deep_aether'
 archivesBaseName = 'deep_aether'
 
