@@ -184,13 +184,77 @@
     "deep_aether:potted_cruderoot_sapling",
     "deep_aether:potted_conberry_sapling",
     "deep_aether:potted_sunroot_sapling",
-    "deep_aether:gilded_holystone_tiles",
-    "deep_aether:gilded_holystone_tile_stairs",
-    "deep_aether:gilded_holystone_tile_slab",
-    "deep_aether:gilded_holystone_tile_wall",
-    "deep_aether:blightmoss_holystone_tiles",
-    "deep_aether:blightmoss_holystone_tile_stairs",
-    "deep_aether:blightmoss_holystone_tile_slab",
-    "deep_aether:blightmoss_holystone_tile_wall"
+    {
+      "id": "deep_aether:roseroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_roseroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:cruderoot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_cruderoot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:yagroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_yagroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:conberry_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_conberry_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:sunroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:stripped_sunroot_log_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:gilded_holystone_tiles",
+      "required": false
+    },
+    {
+      "id": "deep_aether:gilded_holystone_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "deep_aether:gilded_holystone_tile_slab",
+      "required": false
+    },
+    {
+      "id": "deep_aether:gilded_holystone_tile_wall",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blightmoss_holystone_tiles",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blightmoss_holystone_tile_stairs",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blightmoss_holystone_tile_slab",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blightmoss_holystone_tile_wall",
+      "required": false
+    }
   ]
 }
