@@ -164,7 +164,7 @@ dependencies {
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3:api")
 
     //Optional Dependencies
-    //implementation fg.deobf("curse.maven:aether-lost-content-318602:4756827")
+    //implementation fg.deobf("curse.maven:aether-lost-content-318602:4756819")
     //implementation fg.deobf("com.legacy:structure-gel:1.19.4-2.12.0")
     implementation fg.deobf("curse.maven:aether-redux-867237:4755143")
     implementation fg.deobf("local:aether_genesis:1.19.4-0.0.1-forge")

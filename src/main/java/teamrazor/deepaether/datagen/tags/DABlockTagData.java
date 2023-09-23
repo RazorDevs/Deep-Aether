@@ -4,6 +4,7 @@ import  com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -16,7 +17,9 @@ import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class DABlockTagData extends BlockTagsProvider {
@@ -34,12 +37,38 @@ public class DABlockTagData extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
 
-        // Makes tool debuff work with all Deep Aether blocks. Commented code can be used to remove blocks if necessary
-        IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
+        List<ResourceLocation> compat_blocks = new ArrayList<>();
+        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILES.getId());
+        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.getId());
+        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.getId());
+        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId());
+
+        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.getId());
+        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId());
+        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId());
+        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId());
+
+        IntrinsicTagAppender<Block> aether_block_tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
         Collection<RegistryObject<Block>> blocks = DABlocks.BLOCKS.getEntries();
-        // blocks.remove(Blocks.DIRT);
+
+
         for (RegistryObject<Block> block : blocks)
-        { tag.add(block.get()); }
+        {
+            if(!compat_blocks.contains(block.getId()))
+                aether_block_tag.add(block.get());
+        }
+
+        aether_block_tag
+                .addOptional(DABlocks.GILDED_HOLYSTONE_TILES.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.getId())
+                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
+
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId())
+                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId());
+
 
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
                 DABlocks.GOLDEN_GRASS_BLOCK.get()
