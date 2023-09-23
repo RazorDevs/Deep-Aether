@@ -142,9 +142,8 @@ public class DAItems {
 	public static void setupBucketReplacements() {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
 	}
-
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
-		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT) || DeepAetherMod.LOGGER.isDebugEnabled()) {
+		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
 			return ITEMS.register(name, item);
 		}
 		return null;
