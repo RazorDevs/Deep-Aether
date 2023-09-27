@@ -1,5 +1,8 @@
 # Deep Aether
 ![](https://cdn.discordapp.com/attachments/1045643746089373747/1104824924520063126/image.png)
+
+**WE NEED HELP:** We are looking for more developers to help develop and release a stable version of Deep Aether for 1.19.2 that doesn't have server issues, and we can't figure out what the problem is.
+
 # What is this about?
 
 The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.4 and beyond.
