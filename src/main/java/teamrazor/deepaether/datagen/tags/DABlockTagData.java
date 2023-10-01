@@ -1,6 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
-import  com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
@@ -69,7 +68,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId())
                 .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId());
 
-
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
                 DABlocks.GOLDEN_GRASS_BLOCK.get()
         );
@@ -81,8 +79,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKYJADE_BLOCK.get(),
                 DABlocks.STRATUS_BLOCK.get()
         );
-
-
 
         tag(BlockTags.LOGS).add(
                 DABlocks.ROSEROOT_LOG.get(),
@@ -342,6 +338,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.POLISHED_ASETERITE_SLAB.get(),
                 DABlocks.ASETERITE_WALL.get(),
 
+                DABlocks.RAW_CLORITE.get(),
+                DABlocks.RAW_CLORITE_SLAB.get(),
+                DABlocks.RAW_CLORITE_STAIRS.get(),
+
                 DABlocks.CLORITE.get(),
                 DABlocks.POLISHED_CLORITE.get(),
                 DABlocks.CLORITE_STAIRS.get(),
@@ -349,12 +349,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CLORITE_SLAB.get(),
                 DABlocks.POLISHED_CLORITE_SLAB.get(),
                 DABlocks.CLORITE_WALL.get(),
-                DABlocks.CLORITE_PILLAR.get(),
-
-                DABlocks.RAW_CLORITE.get(),
-                DABlocks.RAW_CLORITE_STAIRS.get(),
-                DABlocks.RAW_CLORITE_SLAB.get(),
                 DABlocks.RAW_CLORITE_WALL.get(),
+                DABlocks.CLORITE_PILLAR.get(),
 
                 DABlocks.SKYJADE_ORE.get(),
                 DABlocks.SKYJADE_BLOCK.get(),
@@ -385,7 +381,32 @@ public class DABlockTagData extends BlockTagsProvider {
                 .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId())
                 .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId())
                 .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId()
-
                 );
+
+        tag(BlockTags.SNAPS_GOAT_HORN).add(
+                DABlocks.ROSEROOT_LOG.get(),
+                DABlocks.ROSEROOT_WOOD.get(),
+                DABlocks.STRIPPED_ROSEROOT_LOG.get(),
+                DABlocks.STRIPPED_ROSEROOT_WOOD.get(),
+                DABlocks.YAGROOT_LOG.get(),
+                DABlocks.YAGROOT_WOOD.get(),
+                DABlocks.STRIPPED_YAGROOT_LOG.get(),
+                DABlocks.STRIPPED_YAGROOT_WOOD.get(),
+                DABlocks.CRUDEROOT_LOG.get(),
+                DABlocks.CRUDEROOT_WOOD.get(),
+                DABlocks.STRIPPED_CRUDEROOT_LOG.get(),
+                DABlocks.STRIPPED_CRUDEROOT_WOOD.get(),
+                DABlocks.CONBERRY_LOG.get(),
+                DABlocks.CONBERRY_WOOD.get(),
+                DABlocks.STRIPPED_CONBERRY_LOG.get(),
+                DABlocks.STRIPPED_CONBERRY_WOOD.get(),
+                DABlocks.SUNROOT_LOG.get(),
+                DABlocks.SUNROOT_WOOD.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get(),
+                DABlocks.SKYJADE_ORE.get(),
+                DABlocks.RAW_CLORITE.get(),
+                DABlocks.ASETERITE.get()
+        );
     }
 }

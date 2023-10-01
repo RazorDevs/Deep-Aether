@@ -2,7 +2,6 @@ package teamrazor.deepaether.datagen;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.data.PackOutput;
@@ -14,14 +13,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.aether.block.ReduxBlocks;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
@@ -644,7 +637,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
 
         //LOST CONTENT
-        //if(ModList.get().isLoaded("lost_aether_content")){
+        if(ModList.get().isLoaded("lost_aether_content")){
             ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 1)
                     .group("minecraft:shield")
                     .define('G', DAItems.SKYJADE.get())
@@ -659,7 +652,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
             repairingRecipe(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 2250).group("altar_shield_repair").save(consumer, name("skyjade_shield_repairing"));
             repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SHIELD.get(), 5500).group("altar_shield_repair").save(consumer, name("stratus_shield_repairing"));
-        //}
+        }
     }
 
 
