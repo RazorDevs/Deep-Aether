@@ -184,6 +184,10 @@ jar {
     }
 }
 
+mixin {
+    config "deep_aether.mixins.json"
+    add sourceSets.main, "deep_aether.refmap.json"
+}
 
 jar.finalizedBy('reobfJar')
 
