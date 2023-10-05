@@ -1,6 +1,7 @@
 package teamrazor.deepaether;
 
 
+import com.aetherteam.aether.AetherConfig;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
