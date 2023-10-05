@@ -1,6 +1,7 @@
 package teamrazor.deepaether;
 
 
+import com.aetherteam.aether.AetherConfig;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
@@ -62,6 +63,7 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
+import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
@@ -79,6 +81,9 @@ public class DeepAetherMod {
 	public static final String AETHER_REDUX = "aether_redux";
 
 	private static final String PROTOCOL_VERSION = "1";
+
+	static Calendar CALENDER = Calendar.getInstance();
+	public static boolean IS_HALLOWEN = (CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER || CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER) || DeepAetherConfig.COMMON.always_enable_hallowen_slider.get();
 
 	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(MODID);
 

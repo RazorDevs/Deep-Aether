@@ -9,6 +9,7 @@ public class DeepAetherConfig {
     public static class Common {
         public final ConfigValue<Boolean> skyjade_enchant;
         public final ConfigValue<Integer> deep_aether_biome_weight;
+        public final ConfigValue<Boolean> always_enable_hallowen_slider;
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay");
@@ -23,6 +24,13 @@ public class DeepAetherConfig {
                     .comment("The weighting of Deep Aether regions in the aether")
                     .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
                     .define("Deep Aether Biome Weight", 15);
+            builder.pop();
+
+            builder.push("Gameplay");
+            always_enable_hallowen_slider = builder
+                    .comment("Always Enables the hallowen Slider")
+                    .translation("config.deep_aether.common.gameplay.always_enable_hallowen_slider")
+                    .define("Always Enable Hallowen Slider", false);
             builder.pop();
         }
     }
