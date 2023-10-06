@@ -131,7 +131,7 @@ public class DATabs {
                 output.accept(DABlocks.SUNROOT_SAPLING.get());
 
 
-                if (ModList.get().isLoaded("aether_genesis")) {
+                if (ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) && false) {
                     output.accept(DABlocks.ROSEROOT_LOG_WALL.get());
                     output.accept(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
                     output.accept(DABlocks.CRUDEROOT_LOG_WALL.get());

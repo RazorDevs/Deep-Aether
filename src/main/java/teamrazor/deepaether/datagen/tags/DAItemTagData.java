@@ -274,7 +274,8 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(AetherTags.Items.ACCESSORIES_RINGS).add(
                 DAItems.SKYJADE_RING.get(),
-                DAItems.STRATUS_RING.get()
+                DAItems.STRATUS_RING.get(),
+                DAItems.SPOOKY_RING.get()
         );
 
         tag(ItemTags.HANGING_SIGNS).add(
