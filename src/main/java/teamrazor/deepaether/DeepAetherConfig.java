@@ -12,6 +12,11 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> skyjade_enchant;
         public final ConfigValue<Integer> deep_aether_biome_weight;
         public final ConfigValue<Boolean> always_enable_halloween_content;
+        public final ConfigValue<Boolean> disable_roseroot_forest_biomes;
+        public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
+        public final ConfigValue<Boolean> disable_golden_heights_biomes;
+        public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
+
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay");
@@ -25,7 +30,7 @@ public class DeepAetherConfig {
             deep_aether_biome_weight = builder
                     .comment("The weighting of Deep Aether regions in the aether")
                     .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
-                    .define("Deep Aether Biome Weight", 15);
+                    .define("Deep Aether Biome Weight", 20);
             builder.pop();
 
             builder.push("Gameplay");
@@ -33,6 +38,34 @@ public class DeepAetherConfig {
                     .comment("Always Enable halloween content, excluding the halloween slider")
                     .translation("config.deep_aether.common.gameplay.always_enable_halloween_content")
                     .define("Always Enable Halloween Content", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            disable_roseroot_forest_biomes = builder
+                    .comment("Disables Roseroot Forest biomes from generating. Might make some content unobtainable")
+                    .translation("config.deep_aether.common.gameplay.disable_roseroot_forest_biomes")
+                    .define("Disable Roseroot Forest Biomes", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            disable_yagroot_swap_biomes = builder
+                    .comment("Disables Yagroot Swamp biomes from generating. Might make some content unobtainable")
+                    .translation("config.deep_aether.common.gameplay.disable_yagroot_swap_biomes")
+                    .define("Disable Yagroot Swamp Biomes", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            disable_golden_heights_biomes = builder
+                    .comment("Disables Golden Heights biomes from generating. Might make some content unobtainable")
+                    .translation("config.deep_aether.common.gameplay.disable_golden_heights_biomes")
+                    .define("Disable Golden Heights Biomes", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            disable_aerlavenender_field_biomes = builder
+                    .comment("Disables Aerlavender Fields biomes from generating. Might make some content unobtainable")
+                    .translation("config.deep_aether.common.gameplay.disable_aerlavenender_field_biomes")
+                    .define("Disable Aerlavender Fields Biomes", false);
             builder.pop();
         }
     }
