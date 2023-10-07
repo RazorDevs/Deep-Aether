@@ -1,5 +1,6 @@
 package teamrazor.deepaether.item.gear.other;
 
+import com.aetherteam.aether.client.renderer.level.AetherSkyRenderEffects;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMultimap;
@@ -20,8 +21,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
+import org.checkerframework.checker.units.qual.A;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
+import teamrazor.deepaether.mixin.AetherSkyRenderEffectsAccessor;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.Iterator;
@@ -50,6 +53,7 @@ public class SpookyRing extends RingItem {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         super.curioTick(slotContext, stack);
+        SpookyMoonConditions(slotContext);
         AttributeModifier attribute = slotContext.entity().getAttribute(Attributes.ATTACK_DAMAGE).getModifier(SPOOKY_RING_UUID);
         if (attribute != null) {
 
@@ -59,30 +63,18 @@ public class SpookyRing extends RingItem {
         }
         else
             attributes.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(SPOOKY_RING_UUID, "Gloves Damage Bonus", this.calculateIncrease(slotContext), AttributeModifier.Operation.ADDITION));
-
-        System.out.println(this.calculateIncrease(slotContext));
     }
-
-    @Override
-    public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
-        super.onEquip(slotContext, prevStack, stack);
-        SpookyMoonConditions(slotContext);
-    }
-
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
         super.onUnequip(slotContext, newStack, stack);
         SpookyMoonConditions(slotContext);
     }
 
+
     //Little easter egg
     public static void SpookyMoonConditions(SlotContext slotContext) {
-        Entity entity = slotContext.entity();
-        Level level = entity.level();
-        if(EquipmentUtil.hasTwoSpookyRings(slotContext) && DeepAetherMod.IS_HALLOWEEN_CONTENT_ENABLED /*level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN*/) {
-            LevelRenderer.MOON_LOCATION = new ResourceLocation(DeepAetherMod.MODID,"textures/environment/spooky_moon_phases.png");
-        }
-        else LevelRenderer.MOON_LOCATION = new ResourceLocation("textures/environment/moon_phases.png");
+        LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) && /*level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN*/ DeepAetherMod.IS_HALLOWEEN_CONTENT_ENABLED ? new ResourceLocation(DeepAetherMod.MODID,"textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png");
+        AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && /*level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN*/ DeepAetherMod.IS_HALLOWEEN_CONTENT_ENABLED ? new ResourceLocation(DeepAetherMod.MODID,"textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png"));
     }
 
     @Override

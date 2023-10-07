@@ -27,9 +27,7 @@ public class EquipmentUtil {
     }
 
     public static boolean hasTwoSpookyRings(SlotContext context) {
-        if(CuriosApi.getCuriosHelper().findCurios(context.entity(), DAItems.SPOOKY_RING.get()).size() == 2)
-            return true;
-        else return false;
+        return CuriosApi.getCuriosHelper().findCurios(context.entity(), DAItems.SPOOKY_RING.get()).size() == 2;
     }
 
     public static void damageRing(LivingEntity entity, RingItem ring) {
