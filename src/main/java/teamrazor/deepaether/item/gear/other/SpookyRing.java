@@ -1,33 +1,24 @@
 package teamrazor.deepaether.item.gear.other;
 
-import com.aetherteam.aether.client.renderer.level.AetherSkyRenderEffects;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
-import org.checkerframework.checker.units.qual.A;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.mixin.AetherSkyRenderEffectsAccessor;
 import top.theillusivec4.curios.api.SlotContext;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Supplier;

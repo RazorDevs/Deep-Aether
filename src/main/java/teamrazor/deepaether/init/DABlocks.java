@@ -79,6 +79,7 @@ public class DABlocks {
 			BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), DAWoodTypes.ROSEROOT));
 	public static final RegistryObject<Block> ROSEROOT_WALL_HANGING_SIGN = BLOCKS.register("roseroot_wall_hanging_sign", () -> new DAWallHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), DAWoodTypes.ROSEROOT));
+	public static final RegistryObject<Block> LIGHTCAP_MUSHROOM = registerBlock("lightcap_mushroom", () -> new LightCapMushroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM), null));
 
 
 
