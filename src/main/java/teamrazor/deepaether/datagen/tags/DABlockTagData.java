@@ -268,7 +268,8 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.DIRT).add(
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.GOLDEN_GRASS_BLOCK.get()
+                DABlocks.GOLDEN_GRASS_BLOCK.get(),
+                DABlocks.AETHER_COARSE_DIRT.get()
         );
         tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(
                 DABlocks.AETHER_MOSS_BLOCK.get(),
@@ -299,7 +300,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                 DABlocks.GOLDEN_GRASS_BLOCK.get(),
-                DABlocks.GOLDEN_DIRT_PATH.get()
+                DABlocks.GOLDEN_DIRT_PATH.get(),
+                DABlocks.AETHER_COARSE_DIRT.get()
         );
         tag(BlockTags.MINEABLE_WITH_HOE).add(
                 DABlocks.YAGROOT_LEAVES.get(),

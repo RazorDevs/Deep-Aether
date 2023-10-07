@@ -262,18 +262,19 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
         this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropSelfDouble(DABlocks.AETHER_COARSE_DIRT.get());
 
-        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
-        this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
-        this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), (grass) -> this.createGoldenGrassDrops(grass));
+        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
+        this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
+        this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
 
 
         this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
         this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
 
-        this.add(DABlocks.GOLDEN_VINES.get(), (vines) -> this.createGoldenVinesDrop(vines));
-        this.add(DABlocks.GOLDEN_VINES_PLANT.get(), (vines) -> this.createGoldenVinesDrop(vines));
+        this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);
+        this.add(DABlocks.GOLDEN_VINES_PLANT.get(), DABlockLoot::createGoldenVinesDrop);
 
 
         //Lost content
