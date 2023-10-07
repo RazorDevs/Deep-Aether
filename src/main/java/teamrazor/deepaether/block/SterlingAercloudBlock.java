@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import teamrazor.deepaether.datagen.tags.DATags;
 
 public class SterlingAercloudBlock extends HalfTransparentBlock {
 
@@ -20,7 +21,7 @@ public class SterlingAercloudBlock extends HalfTransparentBlock {
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (entity instanceof LivingEntity) {
+        if (entity instanceof LivingEntity && !entity.getType().is(DATags.Entities.STERLING_AERCLOUD_BLACKLIST)) {
             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
             if (lightningbolt != null) {
                 lightningbolt.moveTo(Vec3.atBottomCenterOf(pos));
