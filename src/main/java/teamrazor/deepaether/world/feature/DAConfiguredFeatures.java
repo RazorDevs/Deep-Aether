@@ -47,6 +47,7 @@ import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
@@ -79,6 +80,7 @@ public class DAConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_LARGE = createKey("roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_SMALL = createKey("roseroot_tree_small");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_ROSEROOT_TREE = createKey("fallen_roseroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREE_LARGE = createKey("blue_roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREE_SMALL = createKey("blue_roseroot_tree_small");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_VEGETATION = createKey("roseroot_forest_vegetation");
@@ -126,6 +128,20 @@ public class DAConfiguredFeatures {
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
+
+        register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
+                        new StraightTrunkPlacer(5,2,0),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
+                        new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)
+                ).ignoreVines().build());
+
+        register(context, FALLEN_ROSEROOT_TREE, DAFeatures.FALLEN_TREE.get(),
+                        new FallenTreeConfiguration(5, 15,
+                                BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
+                                BlockStateProvider.simple(Blocks.BROWN_MUSHROOM)));
 
         register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
