@@ -65,7 +65,7 @@ public class DAPlacedFeatures {
                 new DungeonBlacklistFilter());
 
         register(context, FALLEN_AERGLOW_FOREST, configuredFeatures.getOrThrow(DAConfiguredFeatures.FALLEN_AERGLOW_TREE),
-                CountPlacement.of(10),
+                CountPlacement.of(1),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome(),
