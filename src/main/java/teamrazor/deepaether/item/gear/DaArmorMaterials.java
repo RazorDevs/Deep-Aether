@@ -18,10 +18,10 @@ import java.util.function.Supplier;
 public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
     STRATUS("stratus", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
-        map.put(ArmorItem.Type.LEGGINGS, 5);
-        map.put(ArmorItem.Type.CHESTPLATE, 7);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 3.0F, 0.15F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
+    }), 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 2.5F, 0.1F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
 
     SKYJADE("skyjade", 3, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
