@@ -46,10 +46,10 @@ public class EquipmentUtil {
         EquipmentUtil.damageRing(entity, (RingItem) DAItems.STRATUS_RING.get());
         double multiplier = 1;
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.STRATUS_RING.get()).isPresent())
-            multiplier = multiplier+1.25*(EquipmentUtil.getCurios(entity, DAItems.STRATUS_RING.get()).toArray().length);
+            multiplier = multiplier+1.2*(EquipmentUtil.getCurios(entity, DAItems.STRATUS_RING.get()).toArray().length);
 
         if(CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.GRAVITITE_RING.get()).isPresent())
-            multiplier = multiplier+1.15*(EquipmentUtil.getCurios(entity, DAItems.GRAVITITE_RING.get()).toArray().length);
+            multiplier = multiplier+1.1*(EquipmentUtil.getCurios(entity, DAItems.GRAVITITE_RING.get()).toArray().length);
 
         return multiplier;
     }
