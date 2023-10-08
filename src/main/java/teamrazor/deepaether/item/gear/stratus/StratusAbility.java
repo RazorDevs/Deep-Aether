@@ -43,7 +43,7 @@ public class StratusAbility extends DaArmorItem {
         return hasFullStratusSet(player) && coolDown <= 0;
     }
 
-    private double strength = 1.3;
+    private final double strength = 1.3;
     private static boolean hasBeenOnGround = true;
 
 

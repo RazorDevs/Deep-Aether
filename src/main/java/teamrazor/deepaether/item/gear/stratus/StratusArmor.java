@@ -22,8 +22,10 @@ public interface StratusArmor {
                     }
                 });
             } else {
-                entity.push(0.0, 1.0, 0.0);
+                entity.push(0.0, 1.3, 0.0);
             }
         }
     }
+
+
 }
