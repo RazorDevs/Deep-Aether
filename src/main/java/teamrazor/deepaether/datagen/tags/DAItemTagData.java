@@ -285,5 +285,9 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.YAGROOT_HANGING_SIGN.get(),
                 DAItems.SUNROOT_HANGING_SIGN.get()
         );
+
+        tag(ItemTags.TRIM_TEMPLATES).add(
+                DAItems.STRATUS_SMITHING_TEMPLATE.get()
+        );
     }
 }

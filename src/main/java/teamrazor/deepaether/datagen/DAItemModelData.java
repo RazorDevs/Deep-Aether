@@ -262,6 +262,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.glovesItem(DAItems.STRATUS_GLOVES.get());
 
         this.item(DAItems.STRATUS_RING.get());
+        this.item(DAItems.STRATUS_SMITHING_TEMPLATE.get());
 
         this.item(DAItems.GRAVITITE_RING.get());
 

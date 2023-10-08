@@ -234,6 +234,13 @@
   "lore.item.deep_aether.stratus_ring": "An upgraded variant of the Gravitite Ring ",
   "item.deep_aether.stratus_gloves": "Stratus Gloves",
   "lore.item.deep_aether.stratus_gloves": "An upgrade to the Gravitite Gloves, needed to complete the stratus set.",
+
+  "item.deep_aether.smithing_template.stratus_upgrade.additions_slot_description": "Add Gravitite Ingot",
+  "item.deep_aether.smithing_template.stratus_upgrade.applies_to": "Gravitite Equipment",
+  "item.deep_aether.smithing_template.stratus_upgrade.base_slot_description": "Add gravitite armor, weapon, or tool",
+  "item.deep_aether.smithing_template.stratus_upgrade.ingredients": "Stratus Ingot",
+  "upgrade.deep_aether.stratus_upgrade": "Stratus Upgrade",
+
   "item.deep_aether.raw_oratie": "Raw Oratie",
   "item.deep_aether.oratie_ingot": "Oratie Ingot",
   "block.deep_Aether.clorite_pillar": "Clorite Pillar",

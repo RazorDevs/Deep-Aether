@@ -10,6 +10,6 @@
     "item": "deep_aether:stratus_ring"
   },
   "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
+    "item": "deep_aether:stratus_smithing_template"
   }
 }
