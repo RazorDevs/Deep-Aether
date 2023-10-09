@@ -20,6 +20,7 @@ public class DATabs {
             .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_blocks"))
             .displayItems((features, output) -> {
                 output.accept(DABlocks.ROSEROOT_LOG.get());
+                output.accept(DABlocks.ROSEROOT_EMPTY_LOG.get());
                 output.accept(DABlocks.ROSEROOT_WOOD.get());
                 output.accept(DABlocks.STRIPPED_ROSEROOT_LOG.get());
                 output.accept(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
@@ -206,6 +207,8 @@ public class DATabs {
                 output.accept(DABlocks.AETHER_CATTAILS.get());
                 output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
 
+                output.accept(DABlocks.LIGHTCAP_MUSHROOM.get());
+
                 output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
                 output.accept(DABlocks.GOLDEN_DIRT_PATH.get());
                 output.accept(DABlocks.GOLDEN_FLOWER.get());
@@ -287,6 +290,7 @@ public class DATabs {
                 output.accept(DAItems.QUAIL_SPAWN_EGG.get());
 
                 output.accept(DAItems.AERGLOW_PETAL.get());
+
                 if (ModList.get().isLoaded("lost_aether_content")) {
                     output.accept(DAItems.SKYJADE_SHIELD.get());
                     output.accept(DAItems.STRATUS_SHIELD.get());

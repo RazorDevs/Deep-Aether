@@ -133,8 +133,8 @@ dependencies {
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
 
     //Optional Dependencies
-    implementation fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
-    implementation fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
+    //implementation fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
+    //implementation fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
     implementation fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
 
      //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")

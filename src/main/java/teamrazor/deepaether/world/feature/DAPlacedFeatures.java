@@ -1,7 +1,5 @@
 package teamrazor.deepaether.world.feature;
 
-import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
-import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import net.minecraft.core.Holder;
@@ -26,6 +24,8 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> POISON_SPRING_PLACEMENT = createKey("poison_spring");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> FALLEN_AERGLOW_FOREST = createKey("fallen_aerglow_forest");
+
+    public static final ResourceKey<PlacedFeature> EMPTY_FALLEN_AERGLOW_FOREST = createKey("empty_fallen_aerglow_forest");
 
     public static final ResourceKey<PlacedFeature> YAGROOT_SWAMP_TREES_PLACEMENT = createKey("yagroot_swamp_trees_placement");
 
@@ -67,6 +67,13 @@ public class DAPlacedFeatures {
                 new DungeonBlacklistFilter());
 
         register(context, FALLEN_AERGLOW_FOREST, configuredFeatures.getOrThrow(DAConfiguredFeatures.FALLEN_AERGLOW_TREE),
+                CountPlacement.of(1),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
+        register(context, EMPTY_FALLEN_AERGLOW_FOREST, configuredFeatures.getOrThrow(DAConfiguredFeatures.EMPTY_FALLEN_AERGLOW_TREE),
                 CountPlacement.of(1),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
