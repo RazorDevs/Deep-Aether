@@ -71,8 +71,9 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
             BlockPos tempPos = pos;
 
             for (int i = 0; i < length; i++) {
+
                 //The log can fall down a maximum of tree blocks per block
-                if(CanPLace(reader, tempPos.relative(direction, i).below())) {
+                if(CanPLace(reader, tempPos.relative(direction, i).below()) && CanPLace(reader, tempPos.relative(direction, i))) {
                     boolean f = false;
                     for (int ii = 1; ii < MAX_DEPTH; ii++) {
                         if (!CanPLace(reader, tempPos.relative(direction, i).below(ii))) {
@@ -83,8 +84,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
                     if(!f)
                         return false;
                 }
-
-                if (!CanPLace(reader, tempPos.relative(direction, i)))
+                else if (!CanPLace(reader, tempPos.relative(direction, i)))
                     return false;
             }
         }
@@ -110,14 +110,15 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 
         if(follow_terrain) {
             for (int i = 0; i < length; i++) {
+                if(CanPLace(reader, pos.relative(direction, i).below())) {
 
-                //The log can fall down a maximum of tree blocks per block
-                for (int ii = 1; ii < MAX_DEPTH; ii++) {
-                    if (!CanPLace(reader, pos.relative(direction, i).below(ii))) {
-                        pos = pos.below(ii-1);
+                    //The log can fall down a maximum of tree blocks per block
+                    for (int ii = 1; ii < MAX_DEPTH; ii++) {
+                        if (!CanPLace(reader, pos.relative(direction, i).below(ii))) {
+                            pos = pos.below(ii - 1);
+                        }
                     }
                 }
-
                 this.setBlock(reader, pos.relative(direction, i), block.setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
                 AddDecorators(reader, pos, config.decorators().getState(context.random(), pos), context.random(), direction);
             }

@@ -47,6 +47,8 @@ import teamrazor.deepaether.datagen.DAItemModelData;
 import teamrazor.deepaether.datagen.DARecipeData;
 import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
+import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
+import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
 import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
 import teamrazor.deepaether.datagen.tags.DAEntityTagData;
@@ -131,7 +133,7 @@ public class DeepAetherMod {
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 		DATabs.CREATIVE_MODE_TABS.register(bus);
-
+		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
@@ -157,6 +159,7 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput));
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
