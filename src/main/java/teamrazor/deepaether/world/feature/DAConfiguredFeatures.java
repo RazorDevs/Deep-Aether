@@ -131,14 +131,14 @@ public class DAConfiguredFeatures {
                 ).ignoreVines().build());
 
         register(context, FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
-                        new FallenTreeConfiguration(3 + 4, 10 + 4,
-                                BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
+                        new FallenTreeConfiguration(4, 11,
+                                BlockStateProvider.simple(DAFeatureStates.ROSEROOT_EMPTY_LOG),
                                 BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));
 
-        register(context, EMPTY_FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
+        /*register(context, EMPTY_FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
                 new FallenTreeConfiguration(2 + 4, 4 + 4,
                         BlockStateProvider.simple(DAFeatureStates.ROSEROOT_EMPTY_LOG),
-                        BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));
+                        BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));*/
 
         register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
