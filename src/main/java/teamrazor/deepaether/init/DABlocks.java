@@ -354,6 +354,7 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_LEAVES.get(), 30, 60);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_EMPTY_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_LOG.get(), 5, 5);
