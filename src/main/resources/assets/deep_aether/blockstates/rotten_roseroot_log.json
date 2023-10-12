@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":  { "model": "deep_aether:block/rotten_roseroot_log" },
+    "axis=z":   { "model": "deep_aether:block/rotten_roseroot_log", "x": 90 },
+    "axis=x":   { "model": "deep_aether:block/rotten_roseroot_log", "x": 90, "y": 90 }
+  }
+}
