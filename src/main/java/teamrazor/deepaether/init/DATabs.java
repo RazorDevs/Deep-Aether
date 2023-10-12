@@ -20,7 +20,7 @@ public class DATabs {
             .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_blocks"))
             .displayItems((features, output) -> {
                 output.accept(DABlocks.ROSEROOT_LOG.get());
-                output.accept(DABlocks.ROSEROOT_EMPTY_LOG.get());
+                output.accept(DABlocks.ROTTEN_ROSEROOT_LOG.get());
                 output.accept(DABlocks.ROSEROOT_WOOD.get());
                 output.accept(DABlocks.STRIPPED_ROSEROOT_LOG.get());
                 output.accept(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
