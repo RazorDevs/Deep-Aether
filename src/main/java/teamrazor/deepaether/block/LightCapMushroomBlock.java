@@ -13,7 +13,6 @@ import java.util.function.Supplier;
 
 public class LightCapMushroomBlock extends MushroomBlock {
 
-
     public LightCapMushroomBlock(Properties properties, Supplier<Holder<? extends ConfiguredFeature<?, ?>>> supplier) {
         super(properties, supplier);
     }
@@ -27,7 +26,7 @@ public class LightCapMushroomBlock extends MushroomBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos pos, BlockState blockState, boolean b) {
+    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean b) {
         return false;
     }
 }
