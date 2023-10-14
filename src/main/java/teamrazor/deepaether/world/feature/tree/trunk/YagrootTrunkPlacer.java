@@ -59,7 +59,6 @@ public class YagrootTrunkPlacer extends TrunkPlacer {
             int a = random.nextInt(3, 5);
             for (int x = 0; (x/2)+1 <= a; x++) {
                 y = Math.round(Math.round(Math.sqrt(Math.pow(a,2)-Math.pow(x-a,2))));
-                System.out.println(y);
                 if(z == 0 || z == 1)
                     this.placeLog(level, posState, random, pos.relative(direction, x).above(i+y-3), config, (state) -> state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z));
                 if(z == 2 || z == 3)
