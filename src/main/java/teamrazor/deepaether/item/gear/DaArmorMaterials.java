@@ -13,7 +13,7 @@ import teamrazor.deepaether.datagen.tags.DATags;
 import java.util.function.Supplier;
 
 public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
-    STRATUS("stratus", 37, new int[]{3,5,7,3}, 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 3.0F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
+    STRATUS("stratus", 37, new int[]{3,6,8,3}, 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 2.5F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
 
     SKYJADE("skyjade", 3, new int[]{3,6,8,3}, 0, AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, 0.0F, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING));
 
