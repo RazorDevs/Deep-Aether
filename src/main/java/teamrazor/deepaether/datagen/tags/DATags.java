@@ -3,10 +3,12 @@ package teamrazor.deepaether.datagen.tags;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DATags {
@@ -34,6 +36,12 @@ public class DATags {
         }
     }
 
+    public static class Entities {
+        public static final TagKey<EntityType<?>> STERLING_AERCLOUD_BLACKLIST = tag("sterling_aercloud_blacklist");
+        private static TagKey<EntityType<?>> tag(String name) {
+            return TagKey.create(ForgeRegistries.ENTITY_TYPES.getRegistryKey(), new ResourceLocation(DeepAetherMod.MODID, name));
+        }
+    }
     public static class Biomes {
 
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
