@@ -237,7 +237,7 @@ public class DeepAetherMod {
 
 			if(ModList.get().isLoaded("aether_genesis") || ModList.get().isLoaded("aether_redux")) {
 				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallFixClient");
-				var pack1 = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallFixClient", Component.literal("Deep Aether Golden Swet Ball Texture Fix"), false,
+				var pack1 = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallFixClient", Component.literal("Deep Aether Golden Swet Ball Texture Fix"), true,
 						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.DEFAULT);
 				event.addRepositorySource(consumer -> consumer.accept(pack1));
 

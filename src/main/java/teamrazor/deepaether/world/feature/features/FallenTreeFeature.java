@@ -1,21 +1,16 @@
 package teamrazor.deepaether.world.feature.features;
 
-import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.mojang.serialization.Codec;
-import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import teamrazor.deepaether.block.DALogBlock;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 
 public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
@@ -58,7 +53,12 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
         //Adds the gap
         pos = pos.relative(direction, gap);
 
-        //The log has a chance to follow the terrain downwards
+
+        //First block after the gap should have a block below it.
+        if(CanPLace(reader, pos.below()))
+            return false;
+
+            //The log has a chance to follow the terrain downwards
         boolean follow_terrain = rand.nextBoolean();
 
         //Giant Check:
@@ -95,7 +95,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
                     posWithoutBlockBelow++;
                 else posWithoutBlockBelow = 0;
 
-                if(posWithoutBlockBelow > 5)
+                if(posWithoutBlockBelow > 4)
                     return false;
             }
         }
@@ -128,7 +128,8 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
     }
 
     public boolean CanPLace(LevelReader reader, BlockPos pos) {
-        if(reader.isEmptyBlock(pos) || reader.getBlockState(pos).is(BlockTags.LEAVES) || reader.getBlockState(pos).canBeReplaced())
+        BlockState state = reader.getBlockState(pos);
+        if(reader.isEmptyBlock(pos) || state.is(BlockTags.LEAVES) || state.canBeReplaced() || !state.isCollisionShapeFullBlock(reader, pos))
             return true;
         else return false;
     }

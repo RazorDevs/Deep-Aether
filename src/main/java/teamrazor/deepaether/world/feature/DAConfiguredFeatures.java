@@ -80,7 +80,7 @@ public class DAConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_LARGE = createKey("roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_SMALL = createKey("roseroot_tree_small");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_ROSEROOT_TREE = createKey("fallen_roseroot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_AERGLOW_TREE = createKey("fallen_aerglow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREE_LARGE = createKey("blue_roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREE_SMALL = createKey("blue_roseroot_tree_small");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_VEGETATION = createKey("roseroot_forest_vegetation");
@@ -138,10 +138,10 @@ public class DAConfiguredFeatures {
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 
-        register(context, FALLEN_ROSEROOT_TREE, DAFeatures.FALLEN_TREE.get(),
+        register(context, FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
                         new FallenTreeConfiguration(5, 15,
                                 BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
-                                BlockStateProvider.simple(Blocks.BROWN_MUSHROOM)));
+                                BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));
 
         register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
