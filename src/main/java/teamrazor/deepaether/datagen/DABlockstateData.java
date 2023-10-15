@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -144,6 +143,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         //MUD
 
         this.blockDoubleDrops(DABlocks.AETHER_MUD.get());
+        this.blockDoubleDrops(DABlocks.AETHER_COARSE_DIRT.get());
         this.block(DABlocks.PACKED_AETHER_MUD.get());
         this.block(DABlocks.AETHER_MUD_BRICKS.get());
         this.slab((SlabBlock) DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get());

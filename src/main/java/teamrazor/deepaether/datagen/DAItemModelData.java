@@ -131,7 +131,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DABlocks.SUNROOT_SIGN.get().asItem());
 
 
-
+        this.itemBlock(DABlocks.AETHER_COARSE_DIRT.get());
         this.itemBlock(DABlocks.AETHER_MUD.get());
         this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS.get());
