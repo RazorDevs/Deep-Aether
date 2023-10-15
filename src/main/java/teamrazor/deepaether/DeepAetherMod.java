@@ -1,7 +1,6 @@
 package teamrazor.deepaether;
 
 
-import com.aetherteam.aether.AetherConfig;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
@@ -226,7 +225,6 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_BERRIES.get(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);
 	}
-
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
