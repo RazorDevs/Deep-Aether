@@ -137,7 +137,7 @@ public class DAConfiguredFeatures {
 
         register(context, EMPTY_FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
                 new FallenTreeConfiguration(2, 4,
-                        BlockStateProvider.simple(DAFeatureStates.ROSEROOT_EMPTY_LOG),
+                        BlockStateProvider.simple(DAFeatureStates.ROTTEN_ROSEROOT_LOG),
                         BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));
 
         register(context, ROSEROOT_TREE_SMALL, Feature.TREE,

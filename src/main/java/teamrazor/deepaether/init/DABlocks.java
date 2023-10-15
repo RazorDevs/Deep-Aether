@@ -53,7 +53,7 @@ public class DABlocks {
 
 	// WOOD
 	public static final RegistryObject<Block> ROSEROOT_WOOD = registerBlock("roseroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> ROSEROOT_EMPTY_LOG = registerBlock("roseroot_empty_log", () -> new EmptyLog(Block.Properties.copy(Blocks.OAK_LOG)));
+	public static final RegistryObject<Block> ROTTEN_ROSEROOT_LOG = registerBlock("roseroot_empty_log", () -> new EmptyLog(Block.Properties.copy(Blocks.OAK_LOG)));
 
 	public static final RegistryObject<Block> ROSEROOT_LOG = registerBlock("roseroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> ROSEROOT_WALL = registerBlock(300, "roseroot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -354,7 +354,7 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_LEAVES.get(), 30, 60);
 
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LOG.get(), 5, 5);
-		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_EMPTY_LOG.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.ROTTEN_ROSEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LOG.get(), 5, 5);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_LOG.get(), 5, 5);

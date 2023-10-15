@@ -4,7 +4,7 @@
     "block": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "deep_aether:roseroot_empty_log",
+        "Name": "deep_aether:rotten_roseroot_log",
         "Properties": {
           "axis": "y",
           "double_drops": "true",

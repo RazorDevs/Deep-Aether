@@ -73,6 +73,8 @@
   "lore.item.deep_aether.skyjade_pickaxe": "One of Aether's mid-tier tools, you can mine stone faster than diamond, but the tool mines slower as the tool is worn down.",
   "block.deep_aether.roseroot_log": "Roseroot Log",
   "lore.block.deep_aether.roseroot_log": "These spawn with Roseroot Trees. They can be double dropped with Roseroot Axes. When put in a crafting table they will provide 4 Roseroot Planks.",
+  "block.deep_aether.rotten_roseroot_log": "Rotten Roseroot Log",
+  "lore.block.deep_aether.rotten_roseroot_log": "A fallen and rotten Roseroot log found in forests, home to mushrooms. It can't be used for crafting, but might be a nice decorative option.",
   "block.deep_aether.roseroot_sign": "Roseroot Sign",
   "lore.block.deep_aether.roseroot_sign": "Crafted from Roseroot Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
   "item.deep_aether.skyjade_boots": "Skyjade Boots",

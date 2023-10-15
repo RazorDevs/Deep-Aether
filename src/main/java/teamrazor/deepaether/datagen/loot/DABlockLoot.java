@@ -48,6 +48,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
     @Override
     public void generate() {
         this.dropSelf(DABlocks.ROSEROOT_WOOD.get());
+        this.dropSelf(DABlocks.ROTTEN_ROSEROOT_LOG.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.ROSEROOT_LOG.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG.get());

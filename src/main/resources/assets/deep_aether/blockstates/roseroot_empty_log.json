@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "axis=y":  { "model": "deep_aether:block/roseroot_empty_log" },
-    "axis=z":   { "model": "deep_aether:block/roseroot_empty_log", "x": 90 },
-    "axis=x":   { "model": "deep_aether:block/roseroot_empty_log", "x": 90, "y": 90 }
-  }
-}
