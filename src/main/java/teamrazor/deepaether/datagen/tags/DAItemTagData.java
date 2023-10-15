@@ -9,11 +9,9 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -170,13 +168,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.CONBERRY_SIGN.get().asItem(),
                 DABlocks.SUNROOT_SIGN.get().asItem()
         );
-        tag(ItemTags.HANGING_SIGNS).add(
-                DABlocks.ROSEROOT_WALL_SIGN.get().asItem(),
-                DABlocks.YAGROOT_WALL_SIGN.get().asItem(),
-                DABlocks.CRUDEROOT_WALL_SIGN.get().asItem(),
-                DABlocks.CONBERRY_WALL_SIGN.get().asItem(),
-                DABlocks.SUNROOT_WALL_SIGN.get().asItem()
-        );
         tag(ItemTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get().asItem(),
                 DABlocks.STRIPPED_ROSEROOT_WALL.get().asItem(),
@@ -231,12 +222,65 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
                 new ResourceLocation(DeepAetherMod.AETHER_REDUX, "golden_swet_ball")
-        );
+        )/*.addOptional(
+                new ResourceLocation(DeepAetherMod.AETHER_GENESIS,"golden_swet_ball")
+        )*/;
 
 
         tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
         );
+
+        tag(ItemTags.MUSIC_DISCS).add(
+                DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
+                DAItems.MUSIC_DISC_NABOORU.get()
+        );
+
+        tag(ItemTags.SAPLINGS).add(
+                DABlocks.SUNROOT_SAPLING.get().asItem(),
+                DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(),
+                DABlocks.CONBERRY_SAPLING.get().asItem(),
+                DABlocks.CRUDEROOT_SAPLING.get().asItem(),
+                DABlocks.ROSEROOT_SAPLING.get().asItem(),
+                DABlocks.YAGROOT_ROOTS.get().asItem()
+        );
+
+        tag(ItemTags.TRIM_MATERIALS).add(
+                DAItems.SKYJADE.get(),
+                DAItems.STRATUS_INGOT.get()
+        );
+
+        tag(ItemTags.TRIMMABLE_ARMOR).add(
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.SKYJADE_GLOVES.get(),
+                DAItems.STRATUS_HELMET.get(),
+                DAItems.STRATUS_CHESTPLATE.get(),
+                DAItems.STRATUS_LEGGINGS.get(),
+                DAItems.STRATUS_BOOTS.get(),
+                DAItems.STRATUS_GLOVES.get()
+        );
+
+        tag(AetherTags.Items.ACCESSORIES_GLOVES).add(
+                DAItems.SKYJADE_GLOVES.get(),
+                DAItems.STRATUS_GLOVES.get()
+        );
+
+        tag(AetherTags.Items.ACCESSORIES_RINGS).add(
+                DAItems.SKYJADE_RING.get(),
+                DAItems.STRATUS_RING.get(),
+                DAItems.SPOOKY_RING.get()
+        );
+
+        /*tag(ItemTags.HANGING_SIGNS).add(
+                DAItems.CONBERRY_HANGING_SIGN.get(),
+                DAItems.CRUDEROOT_HANGING_SIGN.get(),
+                DAItems.ROSEROOT_HANGING_SIGN.get(),
+                DAItems.YAGROOT_HANGING_SIGN.get(),
+                DAItems.SUNROOT_HANGING_SIGN.get()
+        );*/
     }
 }

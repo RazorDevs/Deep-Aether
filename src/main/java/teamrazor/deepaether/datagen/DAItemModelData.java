@@ -1,17 +1,24 @@
 package teamrazor.deepaether.datagen;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
+import com.aetherteam.nitrogen.data.providers.NitrogenItemModelProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
+
+import java.util.Iterator;
 
 public class DAItemModelData extends AetherItemModelProvider {
     public DAItemModelData(PackOutput output, ExistingFileHelper helper) {
@@ -46,8 +53,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.AERGLOW_PETAL_BLOCK.get());
-        this.item(DABlocks.ROSEROOT_SIGN.get().asItem());
-
+        this.item(DAItems.ROSEROOT_SIGN.get());
+        this.item(DAItems.ROSEROOT_HANGING_SIGN.get());
 
         this.itemBlock(DABlocks.YAGROOT_WOOD.get());
         this.itemBlock(DABlocks.YAGROOT_LOG.get());
@@ -66,10 +73,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_YAGROOT_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.itemBlockFlat(DABlocks.YAGROOT_SAPLING.get());
         this.itemBlock(DABlocks.YAGROOT_LEAVES.get());
-        this.item(DABlocks.YAGROOT_SIGN.get().asItem());
+        this.item(DAItems.YAGROOT_SIGN.get());
         this.itemBlock(DABlocks.YAGROOT_ROOTS.get());
         this.itemBlock(DABlocks.MUDDY_YAGROOT_ROOTS.get());
-
+        this.item(DAItems.YAGROOT_HANGING_SIGN.get());
 
 
         this.itemBlock(DABlocks.CRUDEROOT_WOOD.get());
@@ -89,8 +96,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.CRUDEROOT_SAPLING.get());
         this.itemBlock(DABlocks.CRUDEROOT_LEAVES.get());
-        this.item(DABlocks.CRUDEROOT_SIGN.get().asItem());
-
+        this.item(DAItems.CRUDEROOT_SIGN.get());
+        this.item(DAItems.CRUDEROOT_HANGING_SIGN.get());
 
         this.itemBlock(DABlocks.CONBERRY_WOOD.get());
         this.itemBlock(DABlocks.CONBERRY_LOG.get());
@@ -109,8 +116,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
         this.itemBlockFlat(DABlocks.CONBERRY_SAPLING.get());
         this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
-        this.item(DABlocks.CONBERRY_SIGN.get().asItem());
-
+        this.item(DAItems.CONBERRY_SIGN.get());
+        this.item(DAItems.CONBERRY_HANGING_SIGN.get());
 
         this.itemBlock(DABlocks.SUNROOT_WOOD.get());
         this.itemBlock(DABlocks.SUNROOT_LOG.get());
@@ -129,8 +136,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
         this.itemBlockFlat(DABlocks.SUNROOT_SAPLING.get());
         this.itemBlock(DABlocks.SUNROOT_LEAVES.get());
-        this.item(DABlocks.SUNROOT_SIGN.get().asItem());
-
+        this.item(DAItems.SUNROOT_SIGN.get());
+        this.item(DAItems.SUNROOT_HANGING_SIGN.get());
 
 
         this.itemBlock(DABlocks.AETHER_MUD.get());
@@ -156,11 +163,11 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.RAW_CLORITE.get());
         this.itemBlock(DABlocks.RAW_CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.RAW_CLORITE_SLAB.get());
-        this.itemWallBlock(DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
         this.itemBlock(DABlocks.CLORITE.get());
         this.itemBlock(DABlocks.CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.CLORITE_SLAB.get());
         this.itemWallBlock(DABlocks.CLORITE_WALL.get(), DABlocks.CLORITE.get());
+        this.itemWallBlock(DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE_SLAB.get());
@@ -209,6 +216,19 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
 
+        if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
+            this.itemLogWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.YAGROOT_LOG_WALL.get(), DABlocks.YAGROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.CONBERRY_LOG_WALL.get(), DABlocks.CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
+            this.itemLogWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
+        }
+
 
         //ITEMS
         this.item(DAItems.SKYJADE.get());
@@ -217,12 +237,15 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.handheldItem(DAItems.SKYJADE_TOOLS_PICKAXE.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_SHOVEL.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_HOE.get());
-        this.item(DAItems.SKYJADE_ARMOR_BOOTS.get());
-        this.item(DAItems.SKYJADE_ARMOR_LEGGINGS.get());
-        this.item(DAItems.SKYJADE_ARMOR_CHESTPLATE.get());
-        this.item(DAItems.SKYJADE_ARMOR_HELMET.get());
+
+        this.bootsItem(DAItems.SKYJADE_BOOTS.get());
+        this.leggingsItem(DAItems.SKYJADE_LEGGINGS.get());
+        this.chestplateItem(DAItems.SKYJADE_CHESTPLATE.get());
+        this.helmetItem(DAItems.SKYJADE_HELMET.get());
+        this.glovesItem(DAItems.SKYJADE_GLOVES.get());
+
         this.item(DAItems.SKYJADE_RING.get());
-        this.item(DAItems.SKYJADE_GLOVES.get());
+        this.item(DAItems.SPOOKY_RING.get());
 
         this.item(DAItems.STRATUS_INGOT.get());
         this.handheldItem(DAItems.STRATUS_SWORD.get());
@@ -230,12 +253,14 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.handheldItem(DAItems.STRATUS_PICKAXE.get());
         this.handheldItem(DAItems.STRATUS_SHOVEL.get());
         this.handheldItem(DAItems.STRATUS_HOE.get());
-        this.item(DAItems.STRATUS_BOOTS.get());
-        this.item(DAItems.STRATUS_LEGGINGS.get());
-        this.item(DAItems.STRATUS_CHESTPLATE.get());
-        this.item(DAItems.STRATUS_HELMET.get());
+
+        this.bootsItem(DAItems.STRATUS_BOOTS.get());
+        this.leggingsItem(DAItems.STRATUS_LEGGINGS.get());
+        this.chestplateItem(DAItems.STRATUS_CHESTPLATE.get());
+        this.helmetItem(DAItems.STRATUS_HELMET.get());
+        this.glovesItem(DAItems.STRATUS_GLOVES.get());
+
         this.item(DAItems.STRATUS_RING.get());
-        this.item(DAItems.STRATUS_GLOVES.get());
 
         this.item(DAItems.GRAVITITE_RING.get());
 
@@ -340,5 +365,51 @@ public class DAItemModelData extends AetherItemModelProvider {
                 .face(Direction.SOUTH).uvs(5.0F, 3.0F, 11.0F, 16.0F).texture("#side").cullface(Direction.SOUTH).end()
                 .face(Direction.WEST).uvs(0.0F, 3.0F, 16.0F, 16.0F).texture("#side").end()
                 .face(Direction.EAST).uvs(0.0F, 3.0F, 16.0F, 16.0F).texture("#side").end().end();
+    }
+
+    public void helmetItem(Item item) {
+        this.armorItem(item, "helmet");
+    }
+
+    public void chestplateItem(Item item) {
+        this.armorItem(item, "chestplate");
+    }
+
+    public void leggingsItem(Item item) {
+        this.armorItem(item, "leggings");
+    }
+
+    public void bootsItem(Item item) {
+        this.armorItem(item, "boots");
+    }
+
+    public void armorItem(Item item, String type) {
+        ItemModelBuilder builder = this.withExistingParent(this.itemName(item), this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item)));
+        double index = 0.1;
+
+        for(Iterator var7 = VANILLA_TRIM_MATERIALS.iterator(); var7.hasNext(); index += 0.1) {
+            ResourceKey<TrimMaterial> trimMaterial = (ResourceKey)var7.next();
+            String material = trimMaterial.location().getPath();
+            String var10000 = this.itemName(item);
+            String name = var10000 + "_" + material + "_trim";
+            this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", this.mcLoc("trims/items/" + type + "_trim_" + material));
+            builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
+        }
+
+    }
+
+    public void glovesItem(Item item) {
+        ItemModelBuilder builder = this.withExistingParent(this.itemName(item), this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/"  + this.itemName(item)));
+        double index = 0.1;
+
+        for(Iterator var6 = NitrogenItemModelProvider.VANILLA_TRIM_MATERIALS.iterator(); var6.hasNext(); index += 0.1) {
+            ResourceKey<TrimMaterial> trimMaterial = (ResourceKey)var6.next();
+            String material = trimMaterial.location().getPath();
+            String var10000 = this.itemName(item);
+            String name = var10000 + "_" + material + "_trim";
+            this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", new ResourceLocation(Aether.MODID,"trims/items/gloves_trim_" + material));
+            builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
+        }
+
     }
 }
