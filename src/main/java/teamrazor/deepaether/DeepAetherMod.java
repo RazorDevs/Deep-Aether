@@ -71,17 +71,17 @@ public class DeepAetherMod {
 
 	//TODO: add it_lang translation
 
-	private static final Logger LOGGER = LogUtils.getLogger();
+	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
+	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
+
 	private static final String PROTOCOL_VERSION = "1";
 
 	static Calendar CALENDER = Calendar.getInstance();
-	public static boolean IS_HALLOWEEN = (CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER || CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER);
-
-	public static boolean IS_HALLOWEEN_CONTENT_ENABLED = IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
+	public static boolean IS_HALLOWEN = (CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER || CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER) || DeepAetherConfig.COMMON.always_enable_hallowen_slider.get();
 
 	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(MODID);
 
@@ -223,6 +223,7 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_BERRIES.get(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);
 	}
+
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {

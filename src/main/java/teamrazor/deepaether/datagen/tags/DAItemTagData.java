@@ -222,9 +222,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
                 new ResourceLocation(DeepAetherMod.AETHER_REDUX, "golden_swet_ball")
-        )/*.addOptional(
-                new ResourceLocation(DeepAetherMod.AETHER_GENESIS,"golden_swet_ball")
-        )*/;
+        );
 
 
         tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields"))).add(
@@ -252,10 +250,10 @@ public class DAItemTagData extends ItemTagsProvider {
         );
 
         tag(ItemTags.TRIMMABLE_ARMOR).add(
-                DAItems.SKYJADE_HELMET.get(),
-                DAItems.SKYJADE_CHESTPLATE.get(),
-                DAItems.SKYJADE_LEGGINGS.get(),
-                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.SKYJADE_ARMOR_HELMET.get(),
+                DAItems.SKYJADE_ARMOR_CHESTPLATE.get(),
+                DAItems.SKYJADE_ARMOR_LEGGINGS.get(),
+                DAItems.SKYJADE_ARMOR_BOOTS.get(),
                 DAItems.SKYJADE_GLOVES.get(),
                 DAItems.STRATUS_HELMET.get(),
                 DAItems.STRATUS_CHESTPLATE.get(),
@@ -274,13 +272,5 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_RING.get(),
                 DAItems.SPOOKY_RING.get()
         );
-
-        /*tag(ItemTags.HANGING_SIGNS).add(
-                DAItems.CONBERRY_HANGING_SIGN.get(),
-                DAItems.CRUDEROOT_HANGING_SIGN.get(),
-                DAItems.ROSEROOT_HANGING_SIGN.get(),
-                DAItems.YAGROOT_HANGING_SIGN.get(),
-                DAItems.SUNROOT_HANGING_SIGN.get()
-        );*/
     }
 }
