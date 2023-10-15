@@ -5,9 +5,9 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "deepaether.refmap.json",
   "mixins": [
-
   ],
   "client": [
+    "AetherSkyRenderEffectsAccessor",
     "SliderRendererMixin"
   ],
   "injectors": {
