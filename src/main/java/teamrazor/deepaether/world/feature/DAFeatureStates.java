@@ -6,6 +6,8 @@ import teamrazor.deepaether.init.DABlocks;
 
 public class DAFeatureStates {
     public static final BlockState ROSEROOT_LOG = DABlocks.ROSEROOT_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
+
+    public static final BlockState ROSEROOT_EMPTY_LOG = DABlocks.ROSEROOT_EMPTY_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState ROSEROOT_LEAVES = DABlocks.ROSEROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState BLUE_ROSEROOT_LEAVES = DABlocks.BLUE_ROSEROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
 

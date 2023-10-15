@@ -34,20 +34,10 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
         final int MAX_DEPTH = 4;
 
         //Chooses a random position
-        Direction direction;
-        int temDirection = rand.nextInt(4);
-        if(temDirection == 0)
-            direction = Direction.NORTH;
-        else if(temDirection == 1)
-            direction = Direction.SOUTH;
-        else if(temDirection == 2)
-            direction = Direction.WEST;
-        else
-            direction = Direction.EAST;
-
+        Direction direction = Direction.getRandom(rand);
 
         //Checks if the feature can be placed first.
-        if(!CanPLace(reader, pos))
+        if(!canPLace(reader, pos))
             return false;
 
         //Adds the gap
@@ -55,7 +45,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 
 
         //First block after the gap should have a block below it.
-        if(CanPLace(reader, pos.below()))
+        if(canPLace(reader, pos.below()))
             return false;
 
             //The log has a chance to follow the terrain downwards
@@ -66,11 +56,12 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
             BlockPos tempPos = pos;
 
             for (int i = 0; i < length; i++) {
-                //The log can fall down a maximum of tree blocks per block
-                if(CanPLace(reader, tempPos.relative(direction, i).below())) {
+
+                //The log can fall down a maximum of three blocks per block
+                if(canPLace(reader, tempPos.relative(direction, i).below()) && canPLace(reader, tempPos.relative(direction, i))) {
                     boolean f = false;
                     for (int ii = 1; ii < MAX_DEPTH; ii++) {
-                        if (!CanPLace(reader, tempPos.relative(direction, i).below(ii))) {
+                        if (!canPLace(reader, tempPos.relative(direction, i).below(ii))) {
                             tempPos = tempPos.below(ii - 1);
                             f = true;
                         }
@@ -78,8 +69,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
                     if(!f)
                         return false;
                 }
-
-                if (!CanPLace(reader, tempPos.relative(direction, i)))
+                else if (!canPLace(reader, tempPos.relative(direction, i)))
                     return false;
             }
         }
@@ -88,14 +78,14 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 
 
             for (int i = 0; i < length; i++) {
-                if (!CanPLace(reader, pos.relative(direction, i)))
+                if (!canPLace(reader, pos.relative(direction, i)))
                     return false;
 
-                if (CanPLace(reader, pos.relative(direction, i).below()))
+                if (canPLace(reader, pos.relative(direction, i).below()))
                     posWithoutBlockBelow++;
                 else posWithoutBlockBelow = 0;
 
-                if(posWithoutBlockBelow > 4)
+                if(posWithoutBlockBelow > 2)
                     return false;
             }
         }
@@ -105,47 +95,48 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 
         if(follow_terrain) {
             for (int i = 0; i < length; i++) {
+                if(canPLace(reader, pos.relative(direction, i).below())) {
 
-                //The log can fall down a maximum of tree blocks per block
-                for (int ii = 1; ii < MAX_DEPTH; ii++) {
-                    if (!CanPLace(reader, pos.relative(direction, i).below(ii))) {
-                        pos = pos.below(ii-1);
+                    //The log can fall down a maximum of tree blocks per block
+                    for (int ii = 1; ii < MAX_DEPTH; ii++) {
+                        if (!canPLace(reader, pos.relative(direction, i).below(ii))) {
+                            pos = pos.below(ii - 1);
+                        }
                     }
                 }
-
                 this.setBlock(reader, pos.relative(direction, i), block.setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
-                AddDecorators(reader, pos, config.decorators().getState(context.random(), pos), context.random(), direction);
+                addDecorators(reader, pos, config.decorators().getState(context.random(), pos), context.random(), direction);
             }
         }
         else {
             for (int i = 0; i < length; i++) {
                 this.setBlock(reader, pos.relative(direction, i), block.setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
-                AddDecorators(reader, pos, config.decorators().getState(context.random(), pos), context.random(), direction);
+                addDecorators(reader, pos, config.decorators().getState(context.random(), pos), context.random(), direction);
             }
         }
 
         return true;
     }
 
-    public boolean CanPLace(LevelReader reader, BlockPos pos) {
+    public boolean canPLace(LevelReader reader, BlockPos pos) {
         BlockState state = reader.getBlockState(pos);
         if(reader.isEmptyBlock(pos) || state.is(BlockTags.LEAVES) || state.canBeReplaced() || !state.isCollisionShapeFullBlock(reader, pos))
             return true;
         else return false;
     }
-    public void AddDecorators(WorldGenLevel reader, BlockPos pos, BlockState block, RandomSource random, Direction direction) {
+    public void addDecorators(WorldGenLevel reader, BlockPos pos, BlockState block, RandomSource random, Direction direction) {
         if(random.nextInt(7) == 1) {
-            if (CanPLace(reader, pos.above()))
+            if (canPLace(reader, pos.above()))
                 this.setBlock(reader, pos.above(), block);
         }
 
         if(random.nextInt(7) == 1) {
-            if (CanPLace(reader, pos.relative(direction.getClockWise())) && !CanPLace(reader, pos.relative(direction.getClockWise()).below()))
+            if (canPLace(reader, pos.relative(direction.getClockWise())) && !canPLace(reader, pos.relative(direction.getClockWise()).below()))
                 this.setBlock(reader, pos.relative(direction.getClockWise()), block);
         }
 
         if(random.nextInt(7) == 1) {
-            if (CanPLace(reader, pos.relative(direction.getCounterClockWise())) && !CanPLace(reader, pos.relative(direction.getCounterClockWise()).below()))
+            if (canPLace(reader, pos.relative(direction.getCounterClockWise())) && !canPLace(reader, pos.relative(direction.getCounterClockWise()).below()))
                 this.setBlock(reader, pos.relative(direction.getClockWise()), block);
         }
     }
