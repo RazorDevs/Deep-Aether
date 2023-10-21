@@ -242,10 +242,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
 
         //GENESIS COMPATIBILITY
-        if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
-            this.makeLogWalls();
-        }
-
+        this.makeLogWalls();
     }
 
     public ResourceLocation texture(String name, String suffix) {

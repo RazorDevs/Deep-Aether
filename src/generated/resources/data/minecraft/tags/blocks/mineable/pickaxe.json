@@ -35,37 +35,13 @@
     "deep_aether:aether_mud_bricks_slab",
     "deep_aether:aether_mud_bricks_stairs",
     "deep_aether:aether_mud_bricks_wall",
-    {
-      "id": "deep_aether:gilded_holystone_tiles",
-      "required": false
-    },
-    {
-      "id": "deep_aether:gilded_holystone_tile_slab",
-      "required": false
-    },
-    {
-      "id": "deep_aether:gilded_holystone_tile_stairs",
-      "required": false
-    },
-    {
-      "id": "deep_aether:gilded_holystone_tile_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tiles",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_slab",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_stairs",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_wall",
-      "required": false
-    }
+    "deep_aether:gilded_holystone_tiles",
+    "deep_aether:gilded_holystone_tile_slab",
+    "deep_aether:gilded_holystone_tile_stairs",
+    "deep_aether:gilded_holystone_tile_wall",
+    "deep_aether:blightmoss_holystone_tiles",
+    "deep_aether:blightmoss_holystone_tile_slab",
+    "deep_aether:blightmoss_holystone_tile_stairs",
+    "deep_aether:blightmoss_holystone_tile_wall"
   ]
 }

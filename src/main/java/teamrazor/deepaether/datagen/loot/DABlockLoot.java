@@ -28,9 +28,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -292,18 +290,17 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
 
         //Aether genesis
-        if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
-            this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.YAGROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
-            this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
-            this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
-        }
+        this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.YAGROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.CONBERRY_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get());
+        this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
+        this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
+
     }
 
 

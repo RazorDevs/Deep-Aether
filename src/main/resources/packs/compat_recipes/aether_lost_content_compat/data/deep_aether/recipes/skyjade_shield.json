@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "minecraft:shield",
+  "key": {
+    "G": {
+      "item": "deep_aether:skyjade"
+    },
+    "R": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "GRG",
+    "GGG",
+    " G "
+  ],
+  "result": {
+    "item": "deep_aether:skyjade_shield"
+  },
+  "show_notification": true
+}

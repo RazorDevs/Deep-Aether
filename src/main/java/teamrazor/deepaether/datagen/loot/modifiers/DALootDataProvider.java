@@ -22,7 +22,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("silver_loot_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/gold/silver_dungeon_loot")).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/silver/silver_dungeon_loot")).build() },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 1), 80),
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 20)
@@ -33,7 +33,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
         ));
 
         add("silver_loot_reward_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/gold/silver_dungeon_reward")).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/silver/silver_dungeon_reward")).build() },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 80),
                         WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_INGOT.get(), 1), 20)
@@ -60,18 +60,6 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                 new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/gold/gold_dungeon_reward")).build() },
                     new ItemStack(DAItems.STRATUS_SMITHING_TEMPLATE.get(), 1),
                 0.0f
-        ));
-
-        add("gold_loot_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/gold/gold_dungeon_reward")).build() },
-                List.of(
-                        WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 30),
-                        WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 5), 10),
-                        WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_INGOT.get(), 1), 60)
-
-                ),
-                30,
-                0.5f
         ));
     }
 }

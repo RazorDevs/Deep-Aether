@@ -35,59 +35,15 @@ public class DABlockTagData extends BlockTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
-
-        List<ResourceLocation> compat_blocks = new ArrayList<>();
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "roseroot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "stripped_roseroot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "cruderoot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "stripped_cruderoot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "yagroot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "stripped_yagroot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "conberry_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "stripped_conberry_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "sunroot_log_wall"));
-        compat_blocks.add(new ResourceLocation(DeepAetherMod.MODID,  "stripped_sunroot_log_wall"));
-        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILES.getId());
-        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.getId());
-        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.getId());
-        compat_blocks.add(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId());
-
-        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.getId());
-        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId());
-        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId());
-        compat_blocks.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId());
-
         IntrinsicTagAppender<Block> aether_block_tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
         Collection<RegistryObject<Block>> blocks = DABlocks.BLOCKS.getEntries();
 
 
         for (RegistryObject<Block> block : blocks)
         {
-            if(!compat_blocks.contains(block.getId()))
-                aether_block_tag.add(block.get());
+            aether_block_tag.add(block.get());
         }
 
-        aether_block_tag
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "roseroot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "stripped_roseroot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "cruderoot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "stripped_cruderoot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "yagroot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "stripped_yagroot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "conberry_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "stripped_conberry_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "sunroot_log_wall"))
-                .addOptional(new ResourceLocation(DeepAetherMod.MODID,  "stripped_sunroot_log_wall"))
-
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILES.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
-
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId());
 
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
                 DABlocks.GOLDEN_GRASS_BLOCK.get()
@@ -220,20 +176,21 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId())
-                //.addOptional(DABlocks.ROSEROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.YAGROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.STRIPPED_YAGROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.CRUDEROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.CONBERRY_LOG_WALL.getId())
-                //.addOptional(DABlocks.STRIPPED_CONBERRY_LOG_WALL.getId())
-                //.addOptional(DABlocks.SUNROOT_LOG_WALL.getId())
-                //.addOptional(DABlocks.STRIPPED_SUNROOT_LOG_WALL.getId()
-                ;
+                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.ROSEROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(),
+                DABlocks.YAGROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(),
+                DABlocks.CRUDEROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(),
+                DABlocks.CONBERRY_LOG_WALL.get(),
+                DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(),
+                DABlocks.SUNROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG_WALL.get()
+        );
+
         tag(BlockTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get(),
                 DABlocks.YAGROOT_FENCE_GATE.get(),
@@ -465,17 +422,16 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MUD_BRICKS.get(),
                 DABlocks.AETHER_MUD_BRICKS_SLAB.get(),
                 DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
-                DABlocks.AETHER_MUD_BRICKS_WALL.get())
+                DABlocks.AETHER_MUD_BRICKS_WALL.get(),
 
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILES.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.getId())
-                .addOptional(DABlocks.GILDED_HOLYSTONE_TILE_WALL.getId())
-
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.getId())
-                .addOptional(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.getId()
+                DABlocks.GILDED_HOLYSTONE_TILES.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get()
                 );
 
         tag(BlockTags.SNAPS_GOAT_HORN).add(

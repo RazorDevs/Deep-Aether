@@ -20,6 +20,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.block.DisabledBlockItem;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
@@ -158,9 +159,8 @@ public class DAItems {
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
 		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
 			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
-			return ITEMS.register(name, item);
 		}
-		return null;
+		return ITEMS.register(name, item);
 	}
 
 	//For Stratus Template
