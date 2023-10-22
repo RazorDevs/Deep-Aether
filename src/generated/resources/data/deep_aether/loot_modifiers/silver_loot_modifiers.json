@@ -1,6 +1,6 @@
 {
   "type": "deep_aether:aether_dungeon_loot_no_replacement",
-  "chanceToSpawn": 0.5,
+  "chanceToSpawn": 0.8,
   "conditions": [
     {
       "condition": "forge:loot_table_id",
@@ -13,14 +13,14 @@
         "Count": 1,
         "id": "deep_aether:skyjade"
       },
-      "weight": 80
+      "weight": 90
     },
     {
       "data": {
         "Count": 2,
         "id": "deep_aether:skyjade"
       },
-      "weight": 20
+      "weight": 10
     }
   ],
   "totalWeight": 100
