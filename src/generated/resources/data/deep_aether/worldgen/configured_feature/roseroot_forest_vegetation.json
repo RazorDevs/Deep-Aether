@@ -16,6 +16,30 @@
               },
               {
                 "data": {
+                  "Name": "deep_aether:sky_tulips"
+                },
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:iaspove"
+                },
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:golden_aspess"
+                },
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:echaisy"
+                },
+                "weight": 5
+              },
+              {
+                "data": {
                   "Name": "aether:purple_flower"
                 },
                 "weight": 3
@@ -48,7 +72,7 @@
                 "data": {
                   "Name": "minecraft:grass"
                 },
-                "weight": 64
+                "weight": 60
               }
             ]
           }

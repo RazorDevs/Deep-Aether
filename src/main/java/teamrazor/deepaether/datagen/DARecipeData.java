@@ -4,9 +4,6 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.item.AetherItems;
-import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +14,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.fml.ModList;
-import net.zepalesque.aether.block.ReduxBlocks;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
@@ -306,6 +301,32 @@ public class DARecipeData extends AetherRecipeProvider {
 
         stairs(DABlocks.POLISHED_CLORITE_STAIRS, DABlocks.POLISHED_CLORITE).save(consumer);
         slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_CLORITE_SLAB.get(), DABlocks.POLISHED_CLORITE.get());
+
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BIG_HOLYSTONE_BRICKS.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_PILLAR.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.CHISELED_HOLYSTONE.get(), AetherBlocks.HOLYSTONE.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.BIG_HOLYSTONE_BRICKS.get(), 4)
+                .define('A', DABlocks.HOLYSTONE_TILES.get().asItem())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy(getHasName(DABlocks.BIG_HOLYSTONE_BRICKS.get()), has(DABlocks.BIG_HOLYSTONE_BRICKS.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR.get(), 2)
+                .define('A', AetherBlocks.HOLYSTONE.get().asItem())
+                .pattern("A")
+                .pattern("A")
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR.get()), has(DABlocks.HOLYSTONE_PILLAR.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CHISELED_HOLYSTONE.get(), 1)
+                .define('A', AetherBlocks.HOLYSTONE_SLAB.get().asItem())
+                .pattern("A")
+                .pattern("A")
+                .unlockedBy(getHasName(DABlocks.CHISELED_HOLYSTONE.get()), has(DABlocks.CHISELED_HOLYSTONE.get()))
+                .save(consumer);
 
 
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILE_STAIRS.get(), DABlocks.HOLYSTONE_TILES.get());

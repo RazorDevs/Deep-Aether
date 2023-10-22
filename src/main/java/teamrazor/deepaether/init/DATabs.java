@@ -222,7 +222,7 @@ public class DATabs {
                 output.accept(DABlocks.TALL_FEATHER_GRASS.get());
                 output.accept(DABlocks.SKY_TULIPS.get());
                 output.accept(DABlocks.IASPOVE.get());
-                output.accept(DABlocks.GOLDBLOOM.get());
+                output.accept(DABlocks.GOLDEN_ASPESS.get());
                 output.accept(DABlocks.ECHAISY.get());
                 output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                 output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());

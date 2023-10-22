@@ -248,7 +248,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.RADIANT_ORCHID.get());
         this.dropSelf(DABlocks.SKY_TULIPS.get());
         this.dropSelf(DABlocks.IASPOVE.get());
-        this.dropSelf(DABlocks.GOLDBLOOM.get());
+        this.dropSelf(DABlocks.GOLDEN_ASPESS.get());
         this.dropSelf(DABlocks.ECHAISY.get());
 
         this.dropPottedContents(DABlocks.POTTED_AERLAVENDER.get());
@@ -258,7 +258,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_ENCHANTED_BLOSSOM.get());
         this.dropPottedContents(DABlocks.POTTED_SKY_TULIPS.get());
         this.dropPottedContents(DABlocks.POTTED_IASPOVE.get());
-        this.dropPottedContents(DABlocks.POTTED_GOLDBLOOM.get());
+        this.dropPottedContents(DABlocks.POTTED_GOLDEN_ASPESS.get());
         this.dropPottedContents(DABlocks.POTTED_ECHAISY.get());
 
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());

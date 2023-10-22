@@ -260,7 +260,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> SKY_TULIPS = registerBlock("sky_tulips", () ->  new FlowerBlock(MobEffects.HEALTH_BOOST,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> IASPOVE = registerBlock("iaspove", () ->  new FlowerBlock(MobEffects.MOVEMENT_SPEED,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> GOLDBLOOM = registerBlock("goldbloom", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_ASPESS = registerBlock("golden_aspess", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final RegistryObject<Block> ECHAISY = registerBlock("echaisy", () ->  new FlowerBlock(MobEffects.DAMAGE_RESISTANCE,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
 
@@ -298,7 +298,7 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_ENCHANTED_BLOSSOM = BLOCKS.register("potted_enchanted_blossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ENCHANTED_BLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_SKY_TULIPS = BLOCKS.register("potted_sky_tulips", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKY_TULIPS, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_IASPOVE = BLOCKS.register("potted_iaspove", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IASPOVE, Block.Properties.copy(Blocks.FLOWER_POT)));
-	public static final RegistryObject<FlowerPotBlock> POTTED_GOLDBLOOM = BLOCKS.register("potted_goldbloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_GOLDEN_ASPESS = BLOCKS.register("potted_golden_aspess", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDEN_ASPESS, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_ECHAISY = BLOCKS.register("potted_echaisy", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ECHAISY, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 

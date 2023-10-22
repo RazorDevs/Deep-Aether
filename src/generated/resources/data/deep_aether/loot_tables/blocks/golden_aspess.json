@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:goldbloom"
+          "name": "deep_aether:golden_aspess"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "deep_aether:blocks/goldbloom"
+  "random_sequence": "deep_aether:blocks/golden_aspess"
 }

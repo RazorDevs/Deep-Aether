@@ -311,7 +311,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.ENCHANTED_BLOSSOM.get());
         this.itemBlockFlat(DABlocks.SKY_TULIPS.get());
         this.itemBlockFlat(DABlocks.IASPOVE.get());
-        this.itemBlockFlat(DABlocks.GOLDBLOOM.get());
+        this.itemBlockFlat(DABlocks.GOLDEN_ASPESS.get());
         this.itemBlockFlat(DABlocks.ECHAISY.get());
 
 

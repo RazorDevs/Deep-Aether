@@ -8,7 +8,6 @@ import com.aetherteam.aether.data.resources.builders.AetherConfiguredFeatureBuil
 import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
-import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenConfiguredFeatureBuilders;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -52,9 +51,7 @@ import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfi
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.foliage.SunrootFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.foliage.YagrootFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.trunk.SunrootHookedTrunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.YagrootTrunkPlacer;
 
@@ -126,7 +123,7 @@ public class DAConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
                         new StraightTrunkPlacer(9,10,0),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 4).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -145,7 +142,7 @@ public class DAConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
                         new StraightTrunkPlacer(5,2,0),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.ROSEROOT_LEAVES, 4).add(DAFeatureStates.FLOWERING_ROSEROOT_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -162,7 +159,7 @@ public class DAConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
                         new StraightTrunkPlacer(9,10,0),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.BLUE_ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_BLUE_ROSEROOT_LEAVES,1)),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.BLUE_ROSEROOT_LEAVES, 4).add(DAFeatureStates.FLOWERING_BLUE_ROSEROOT_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -171,7 +168,7 @@ public class DAConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
                         new StraightTrunkPlacer(5,2,0),
-                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.BLUE_ROSEROOT_LEAVES, 2).add(DAFeatureStates.FLOWERING_BLUE_ROSEROOT_LEAVES,1)),
+                        new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DAFeatureStates.BLUE_ROSEROOT_LEAVES, 4).add(DAFeatureStates.FLOWERING_BLUE_ROSEROOT_LEAVES,1)),
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -264,12 +261,16 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_VEGETATION, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.RADIANT_ORCHID, 6)
+                        .add(DAFeatureStates.RADIANT_ORCHID,6)
+                        .add(DAFeatureStates.SKY_TULIPS,5)
+                        .add(DAFeatureStates.IASPOVE,5)
+                        .add(DAFeatureStates.GOLDEN_ASPESS,5)
+                        .add(DAFeatureStates.ECHAISY,5)
                         .add(AetherFeatureStates.PURPLE_FLOWER, 3)
                         .add(AetherFeatureStates.WHITE_FLOWER, 3)
                         .add(Blocks.TALL_GRASS.defaultBlockState(), 32)
                         .add(AetherFeatureStates.BERRY_BUSH, 1)
-                        .add(Blocks.GRASS.defaultBlockState(), 64)), 400));
+                        .add(Blocks.GRASS.defaultBlockState(), 60)), 400));
 
         register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
