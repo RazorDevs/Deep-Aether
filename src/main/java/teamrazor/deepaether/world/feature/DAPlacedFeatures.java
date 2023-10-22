@@ -95,7 +95,7 @@ public class DAPlacedFeatures {
                 new DungeonBlacklistFilter());
 
         register(context, AETHER_COARSE_DIRT_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_COARSE_DIRT_PATCH),
-                CountPlacement.of(2),
+                CountPlacement.of(1),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),

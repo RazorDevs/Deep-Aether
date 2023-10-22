@@ -33,22 +33,19 @@ public class DAAddFlatDungeonLootModifier extends LootModifier {
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 
-        ObjectArrayList<ItemStack> list = new ObjectArrayList<>();
-
         // size of the loots
         int size = generatedLoot.size();
 
         // is the loot full?
         boolean isFull = size == 27;
-        list.addAll(generatedLoot);
 
         if (isFull) {
-            list.remove(context.getRandom().nextInt(27));
-            list.add(items);
-        } else list.add(items);
+            generatedLoot.remove(context.getRandom().nextInt(27));
+            generatedLoot.add(items);
+        } else generatedLoot.add(items);
 
-        System.out.println(list);
-        return list;
+        System.out.println(generatedLoot);
+        return generatedLoot;
     }
 
     @Override

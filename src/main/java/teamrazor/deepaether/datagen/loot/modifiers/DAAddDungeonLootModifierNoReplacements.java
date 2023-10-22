@@ -39,8 +39,6 @@ public class DAAddDungeonLootModifierNoReplacements extends LootModifier {
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 
-        ObjectArrayList<ItemStack> list = new ObjectArrayList<>();
-
         // size of the loots
         int size = generatedLoot.size();
 
@@ -54,12 +52,12 @@ public class DAAddDungeonLootModifierNoReplacements extends LootModifier {
         if(!isFull) {
             for(int i = 0; i<= sizeDiff; i++) {
                 if(context.getRandom().nextFloat() > chance) {
-                    WeightedRandom.getRandomItem(context.getRandom(), this.items, totalWeight).ifPresent(e -> list.add(e.getData()));
+                    WeightedRandom.getRandomItem(context.getRandom(), this.items, totalWeight).ifPresent(e -> generatedLoot.add(e.getData()));
                 }
             }
         }
 
-        return list;
+        return generatedLoot;
     }
 
     @Override
