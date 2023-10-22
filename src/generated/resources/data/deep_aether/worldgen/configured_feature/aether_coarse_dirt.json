@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "deep_aether:lightcap_mushroom"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "minecraft:air"
+          },
+          "weight": 7
+        }
+      ]
+    }
+  }
+}

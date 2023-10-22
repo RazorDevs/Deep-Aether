@@ -44,6 +44,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature>  VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
     public static final ResourceKey<PlacedFeature>  GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
     public static final ResourceKey<PlacedFeature> STERLING_AERCLOUD_PLACEMENT = createKey("sterling_aercloud");
+    public static final ResourceKey<PlacedFeature> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -88,6 +89,13 @@ public class DAPlacedFeatures {
 
         register(context, AETHER_MOSS_PATCHES, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_MOSS_PATCH_BONEMEAL),
                 CountPlacement.of(5),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                InSquarePlacement.spread(),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
+        register(context, AETHER_COARSE_DIRT_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_COARSE_DIRT_PATCH),
+                CountPlacement.of(2),
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),

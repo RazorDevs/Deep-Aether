@@ -132,7 +132,7 @@ public class DATabs {
                 output.accept(DABlocks.SUNROOT_SAPLING.get());
 
 
-                if (ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) && false) {
+                if (ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
                     output.accept(DABlocks.ROSEROOT_LOG_WALL.get());
                     output.accept(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
                     output.accept(DABlocks.CRUDEROOT_LOG_WALL.get());
@@ -190,7 +190,7 @@ public class DATabs {
                 output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
                 output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
 
-                if (ModList.get().isLoaded("aether_redux")) {
+                if (ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {
                     output.accept(DABlocks.GILDED_HOLYSTONE_TILES.get());
                     output.accept(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
                     output.accept(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
@@ -208,6 +208,7 @@ public class DATabs {
                 output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
 
                 output.accept(DABlocks.LIGHTCAP_MUSHROOM.get());
+                output.accept(DABlocks.AETHER_COARSE_DIRT.get());
 
                 output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
                 output.accept(DABlocks.GOLDEN_DIRT_PATH.get());

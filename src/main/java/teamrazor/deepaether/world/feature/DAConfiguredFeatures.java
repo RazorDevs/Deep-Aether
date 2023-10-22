@@ -95,9 +95,9 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH = createKey("golden_grass_block_bonemeal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
-
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> STERLING_AERCLOUD_CONFIGURATION = createKey("sterling_aercloud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_COARSE_DIRT = createKey("aether_coarse_dirt");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -292,6 +292,9 @@ public class DAConfiguredFeatures {
         register(context, AETHER_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DABlocks.AETHER_MOSS_BLOCK.get()),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AETHER_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 
+        register(context, AETHER_COARSE_DIRT, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.LIGHTCAP_MUSHROOM.get().defaultBlockState(), 1).add(Blocks.AIR.defaultBlockState(), 7))));
+        register(context, AETHER_COARSE_DIRT_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DABlocks.AETHER_COARSE_DIRT.get()),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AETHER_COARSE_DIRT)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 
         register(context, ORE_SKYJADE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.SKYJADE_ORE, 6, 0.65F));
         register(context, ASETERITE_CONFIGURATION, Feature.ORE, new OreConfiguration(AetherFeatureRules.HOLYSTONE, DAFeatureStates.ASETERITE, 64));
