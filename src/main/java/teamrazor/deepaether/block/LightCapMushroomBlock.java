@@ -2,6 +2,7 @@ package teamrazor.deepaether.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.LevelReader;
@@ -19,10 +20,13 @@ public class LightCapMushroomBlock extends MushroomBlock {
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        if(state.is(DABlocks.ROSEROOT_LOG.get())) {
+        BlockPos blockpos = pos.below();
+        BlockState blockstate = level.getBlockState(blockpos);
+        if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
             return true;
+        } else {
+            return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, this);
         }
-        return super.canSurvive(state, level, pos);
     }
 
     @Override
