@@ -1,6 +1,6 @@
 {
   "type": "deep_aether:aether_dungeon_loot_no_replacement",
-  "chanceToSpawn": 0.5,
+  "chanceToSpawn": 0.55,
   "conditions": [
     {
       "condition": "forge:loot_table_id",
@@ -13,7 +13,7 @@
         "Count": 2,
         "id": "deep_aether:skyjade"
       },
-      "weight": 30
+      "weight": 60
     },
     {
       "data": {
@@ -27,15 +27,22 @@
         "Count": 1,
         "id": "deep_aether:stratus_ingot"
       },
-      "weight": 60
+      "weight": 10
+    },
+    {
+      "data": {
+        "Count": 2,
+        "id": "deep_aether:sterling_aercloud"
+      },
+      "weight": 5
     },
     {
       "data": {
         "Count": 1,
-        "id": "deep_aether:stratus_ingot"
+        "id": "deep_aether:sterling_aercloud"
       },
-      "weight": 10
+      "weight": 15
     }
   ],
-  "totalWeight": 120
+  "totalWeight": 110
 }
