@@ -6,6 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -38,12 +39,16 @@ public class TwinTrunkPlacer extends TrunkPlacer {
         float m = random.nextFloat() + 1.5F;
         int i;
         int oldX = 0, oldY = 0;
-        int x = 0, y = 0;
+        int x = 0, y;
+
+        this.PlaceBaseTrunk(random, direction, level, posState, pos1.above(1), config);
+
         this.placeLog(level, posState, random, pos1.above(1), config);
         this.placeLog(level, posState, random, pos1.above(1).mutable().move(direction.getOpposite(), 1), config);
+
         for(i = 2; i < p_226082_; ++i) {
-            x = Math.round(Math.round((Math.log10(i+1) / Math.log10(m))));
-            y = Math.round(Math.round((Math.log10(i-1) / Math.log10(m))));
+            x = Math.round(Math.round((Math.log(i+1) / Math.log(m))));
+            y = Math.round(Math.round((Math.log(i-1) / Math.log(m))));
 
             if(x > oldX+1) {
                 x = oldX + 1;
@@ -63,4 +68,18 @@ public class TwinTrunkPlacer extends TrunkPlacer {
         list.add(new FoliagePlacer.FoliageAttachment(pos1.above(i).mutable().move(direction.getOpposite(), x+1), 0, false));
         return list;
     }
+
+     private void PlaceBaseTrunk(RandomSource random, Direction direction, LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> posState, BlockPos pos, TreeConfiguration configuration) {
+        for(int y = 0; y < 2; y++) {
+            for(int x = 0; x < 2; x++) {
+                int a = x == 1 ? 3 : 1;
+
+                for(int z = 0; z < a; z++) {
+                    this.placeLog(level, posState, random, pos.above(y).relative(direction, z-(a/2)).relative(direction.getClockWise(), x-1), configuration);
+                }
+            }
+        }
+
+         this.placeLog(level, posState, random, pos.above(2), configuration);
+     }
 }

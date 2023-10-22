@@ -35,6 +35,7 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -199,15 +200,15 @@ public class DAConfiguredFeatures {
                         BlockStateProvider.simple(DAFeatureStates.CONBERRY_LOG),
                         new TwinTrunkPlacer(7, 6, 3),
                         BlockStateProvider.simple(DAFeatureStates.CONBERRY_LEAVES),
-                        new GoldenOakFoliagePlacer(ConstantInt.of(0), ConstantInt.ZERO, ConstantInt.of(1)),
+                        new CherryFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0), ConstantInt.of(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F),
                         new TwoLayersFeatureSize(1, 0, 2)).build());
 
         register(context, SUNROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DABlocks.SUNROOT_LOG.get()),
-                        new SunrootHookedTrunkPlacer(8, 14, 14),
+                        new StraightTrunkPlacer(5, 7, 3),
                         BlockStateProvider.simple(DABlocks.SUNROOT_LEAVES.get()),
-                        new SunrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new CherryFoliagePlacer(ConstantInt.of(5), ConstantInt.of(1), ConstantInt.of(4), 0.2F, 0.3F, 0.5F, 0.5F),
                         new TwoLayersFeatureSize(2, 1, 4)
                 ).ignoreVines().build());
 
