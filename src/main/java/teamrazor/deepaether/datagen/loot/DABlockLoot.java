@@ -234,19 +234,32 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
 
+        this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.dropSelf(DABlocks.HOLYSTONE_PILLAR.get());
+        this.dropSelf(DABlocks.CHISELED_HOLYSTONE.get());
+
+        //FLOWERS
+
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
         this.dropSelf(DABlocks.TALL_AERLAVENDER.get());
         this.add(DABlocks.TALL_AETHER_CATTAILS.get(),
                 (flower) -> createSinglePropConditionTable(DABlocks.TALL_AETHER_CATTAILS.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
-
         this.dropSelf(DABlocks.RADIANT_ORCHID.get());
+        this.dropSelf(DABlocks.SKY_TULIPS.get());
+        this.dropSelf(DABlocks.IASPOVE.get());
+        this.dropSelf(DABlocks.GOLDBLOOM.get());
+        this.dropSelf(DABlocks.ECHAISY.get());
+
         this.dropPottedContents(DABlocks.POTTED_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_TALL_AERLAVENDER.get());
         this.dropPottedContents(DABlocks.POTTED_AETHER_CATTAILS.get());
-        //this.dropPottedContents(DABlocks.POTTED_TALL_AETHER_CATTAILS.get());
         this.dropPottedContents(DABlocks.POTTED_RADIANT_ORCHID.get());
         this.dropPottedContents(DABlocks.POTTED_ENCHANTED_BLOSSOM.get());
+        this.dropPottedContents(DABlocks.POTTED_SKY_TULIPS.get());
+        this.dropPottedContents(DABlocks.POTTED_IASPOVE.get());
+        this.dropPottedContents(DABlocks.POTTED_GOLDBLOOM.get());
+        this.dropPottedContents(DABlocks.POTTED_ECHAISY.get());
 
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
 
@@ -268,9 +281,14 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
 
+        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
+
+        this.dropNone(DABlocks.FEATHER_GRASS.get());
+        this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
 
         this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
         this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
+
 
         this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);
         this.add(DABlocks.GOLDEN_VINES_PLANT.get(), DABlockLoot::createGoldenVinesDrop);

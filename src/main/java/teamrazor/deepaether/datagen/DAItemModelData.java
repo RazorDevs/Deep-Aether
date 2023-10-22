@@ -192,6 +192,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
         this.itemWallBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
 
+        this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.itemBlock(DABlocks.HOLYSTONE_PILLAR.get());
+        this.itemBlock(DABlocks.CHISELED_HOLYSTONE.get());
+
 
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());
@@ -298,10 +302,18 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
         this.itemBlock(DABlocks.GOLDEN_GRASS_BLOCK.get());
 
+        this.itemBlockFlat(DABlocks.FEATHER_GRASS.get());
+        this.itemBlockFlatName(DABlocks.TALL_FEATHER_GRASS.get(), "tall_feather_grass_top");
+
         this.item(DAItems.GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());
         this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
         this.itemBlockFlat(DABlocks.ENCHANTED_BLOSSOM.get());
+        this.itemBlockFlat(DABlocks.SKY_TULIPS.get());
+        this.itemBlockFlat(DABlocks.IASPOVE.get());
+        this.itemBlockFlat(DABlocks.GOLDBLOOM.get());
+        this.itemBlockFlat(DABlocks.ECHAISY.get());
+
 
         this.item(DAItems.GOLDEN_GRASS_SEEDS.get());
         this.item(DAItems.GOLDEN_SWET_BALL.get());

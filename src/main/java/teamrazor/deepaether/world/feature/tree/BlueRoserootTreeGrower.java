@@ -7,7 +7,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 
-public class BlueRosewoodTreeGrower extends AbstractTreeGrower {
+public class BlueRoserootTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {

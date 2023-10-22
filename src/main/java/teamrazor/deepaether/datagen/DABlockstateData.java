@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -206,6 +205,10 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.crossBlock(DABlocks.SHORT_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
         this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
+        this.crossBlock(DABlocks.SKY_TULIPS.get());
+        this.crossBlock(DABlocks.IASPOVE.get());
+        this.crossBlock(DABlocks.GOLDBLOOM.get());
+        this.crossBlock(DABlocks.ECHAISY.get());
         this.crossBlock(DABlocks.LIGHTCAP_MUSHROOM.get());
 
 
@@ -230,6 +233,10 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.stairs((StairBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
         this.slab((SlabBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
         this.wallBlock((WallBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+
+        this.block(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.log((RotatedPillarBlock) DABlocks.HOLYSTONE_PILLAR.get());
+        this.block(DABlocks.CHISELED_HOLYSTONE.get());
 
         //MISC
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());

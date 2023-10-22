@@ -190,6 +190,10 @@ public class DATabs {
                 output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
                 output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
 
+                output.accept(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+                output.accept(DABlocks.HOLYSTONE_PILLAR.get());
+                output.accept(DABlocks.CHISELED_HOLYSTONE.get());
+
                 if (ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {
                     output.accept(DABlocks.GILDED_HOLYSTONE_TILES.get());
                     output.accept(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
@@ -214,6 +218,12 @@ public class DATabs {
                 output.accept(DABlocks.GOLDEN_DIRT_PATH.get());
                 output.accept(DABlocks.GOLDEN_FLOWER.get());
                 output.accept(DABlocks.ENCHANTED_BLOSSOM.get());
+                output.accept(DABlocks.FEATHER_GRASS.get());
+                output.accept(DABlocks.TALL_FEATHER_GRASS.get());
+                output.accept(DABlocks.SKY_TULIPS.get());
+                output.accept(DABlocks.IASPOVE.get());
+                output.accept(DABlocks.GOLDBLOOM.get());
+                output.accept(DABlocks.ECHAISY.get());
                 output.accept(DABlocks.MINI_GOLDEN_GRASS.get());
                 output.accept(DABlocks.SHORT_GOLDEN_GRASS.get());
                 output.accept(DABlocks.MEDIUM_GOLDEN_GRASS.get());

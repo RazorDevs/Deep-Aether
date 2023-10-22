@@ -6,8 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -15,11 +13,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 
 public class RoserootFoliagePlacer extends FoliagePlacer {
-    public static final Codec<RoserootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> {
-        return foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer) -> {
-            return foliagePlacer.trunkHeight;
-        })).apply(p2, RoserootFoliagePlacer::new);
-    });
+    public static final Codec<RoserootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer) -> foliagePlacer.trunkHeight)).apply(p2, RoserootFoliagePlacer::new));
     private final IntProvider trunkHeight;
 
     public RoserootFoliagePlacer(IntProvider intProvider, IntProvider intProvider1, IntProvider intProvider2) {
