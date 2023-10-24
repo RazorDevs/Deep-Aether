@@ -194,6 +194,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS.get());
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR.get());
+        this.itemBlock(DABlocks.HOLYSTONE_PILLAR_UP.get());
+        this.itemBlock(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
         this.itemBlock(DABlocks.CHISELED_HOLYSTONE.get());
 
 

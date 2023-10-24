@@ -192,6 +192,8 @@ public class DATabs {
 
                 output.accept(DABlocks.BIG_HOLYSTONE_BRICKS.get());
                 output.accept(DABlocks.HOLYSTONE_PILLAR.get());
+                output.accept(DABlocks.HOLYSTONE_PILLAR_UP.get());
+                output.accept(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
                 output.accept(DABlocks.CHISELED_HOLYSTONE.get());
 
                 if (ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {

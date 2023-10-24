@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:golden_aspess"
+    }
+  ],
+  "result": {
+    "item": "minecraft:orange_dye"
+  }
+}

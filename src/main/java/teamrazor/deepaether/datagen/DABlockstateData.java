@@ -200,18 +200,22 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlantFix(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
         this.pottedPlantFix(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
+        this.crossBlock(DABlocks.FEATHER_GRASS.get());
         this.crossBlock(DABlocks.MINI_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.SHORT_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
         this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
+        this.pottedPlant(DABlocks.POTTED_ENCHANTED_BLOSSOM.get(), DABlocks.ENCHANTED_BLOSSOM.get());
         this.crossBlock(DABlocks.SKY_TULIPS.get());
+        this.pottedPlant(DABlocks.POTTED_SKY_TULIPS.get(), DABlocks.SKY_TULIPS.get());
         this.crossBlock(DABlocks.IASPOVE.get());
+        this.pottedPlant(DABlocks.POTTED_IASPOVE.get(), DABlocks.IASPOVE.get());
         this.crossBlock(DABlocks.GOLDEN_ASPESS.get());
+        this.pottedPlant(DABlocks.POTTED_GOLDEN_ASPESS.get(), DABlocks.GOLDEN_ASPESS.get());
         this.crossBlock(DABlocks.ECHAISY.get());
+        this.pottedPlant(DABlocks.POTTED_ECHAISY.get(), DABlocks.ECHAISY.get());
         this.crossBlock(DABlocks.LIGHTCAP_MUSHROOM.get());
-
-
 
 
         //TILES

@@ -305,6 +305,8 @@ public class DARecipeData extends AetherRecipeProvider {
 
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BIG_HOLYSTONE_BRICKS.get(), AetherBlocks.HOLYSTONE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_PILLAR.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_PILLAR_UP.get(), AetherBlocks.HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_PILLAR_DOWN.get(), AetherBlocks.HOLYSTONE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.CHISELED_HOLYSTONE.get(), AetherBlocks.HOLYSTONE.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.BIG_HOLYSTONE_BRICKS.get(), 4)
@@ -319,6 +321,20 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR.get()), has(DABlocks.HOLYSTONE_PILLAR.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR_UP.get(), 2)
+                .define('A', DABlocks.HOLYSTONE_PILLAR.get().asItem())
+                .pattern("A")
+                .pattern("A")
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR_UP.get()), has(DABlocks.HOLYSTONE_PILLAR_UP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR_DOWN.get(), 2)
+                .define('A', DABlocks.HOLYSTONE_PILLAR_UP.get().asItem())
+                .pattern("A")
+                .pattern("A")
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR_DOWN.get()), has(DABlocks.HOLYSTONE_PILLAR_DOWN.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CHISELED_HOLYSTONE.get(), 1)
@@ -609,6 +625,26 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(DABlocks.ENCHANTED_BLOSSOM.get(), 1)
                 .unlockedBy(getHasName(DABlocks.ENCHANTED_BLOSSOM.get()), has(DABlocks.ENCHANTED_BLOSSOM.get()))
                 .save(consumer, name("white_dye_from_enchanted_blossom"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.RED_DYE)
+                .requires(DABlocks.SKY_TULIPS.get(), 2)
+                .unlockedBy(getHasName(DABlocks.SKY_TULIPS.get()), has(DABlocks.SKY_TULIPS.get()))
+                .save(consumer, name("red_dye_from_sky_tulips"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.BLUE_DYE)
+                .requires(DABlocks.IASPOVE.get(), 1)
+                .unlockedBy(getHasName(DABlocks.IASPOVE.get()), has(DABlocks.IASPOVE.get()))
+                .save(consumer, name("blue_dye_from_iaspove"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.ORANGE_DYE)
+                .requires(DABlocks.GOLDEN_ASPESS.get(), 1)
+                .unlockedBy(getHasName(DABlocks.GOLDEN_ASPESS.get()), has(DABlocks.GOLDEN_ASPESS.get()))
+                .save(consumer, name("orange_dye_from_golden_aspess"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.PURPLE_DYE)
+                .requires(DABlocks.ECHAISY.get(), 2)
+                .unlockedBy(getHasName(DABlocks.ECHAISY.get()), has(DABlocks.ECHAISY.get()))
+                .save(consumer, name("purple_dye_from_echaisy"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, DAItems.GOLDEN_SWET_BALL.get())
                 .requires(DAItems.GOLDEN_GRASS_SEEDS.get())

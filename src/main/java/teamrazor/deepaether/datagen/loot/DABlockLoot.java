@@ -236,6 +236,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.HOLYSTONE_PILLAR.get());
+        this.dropSelf(DABlocks.HOLYSTONE_PILLAR_UP.get());
+        this.dropSelf(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
         this.dropSelf(DABlocks.CHISELED_HOLYSTONE.get());
 
         //FLOWERS

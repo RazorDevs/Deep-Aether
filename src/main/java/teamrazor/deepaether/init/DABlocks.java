@@ -242,6 +242,8 @@ public class DABlocks {
 	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS = registerBlock("big_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> CHISELED_HOLYSTONE = registerBlock("chiseled_holystone", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> HOLYSTONE_PILLAR = registerBlock("holystone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> HOLYSTONE_PILLAR_UP = registerBlock("holystone_pillar_up", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> HOLYSTONE_PILLAR_DOWN = registerBlock("holystone_pillar_down", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f, 10f).requiresCorrectToolForDrops()));
 
 
 	//AERCLOUDS
@@ -345,6 +347,10 @@ public class DABlocks {
 		pot.addPlant(DABlocks.AETHER_CATTAILS.getId(), DABlocks.POTTED_AETHER_CATTAILS);
 		pot.addPlant(DABlocks.RADIANT_ORCHID.getId(), DABlocks.POTTED_RADIANT_ORCHID);
 		pot.addPlant(DABlocks.ENCHANTED_BLOSSOM.getId(), DABlocks.POTTED_ENCHANTED_BLOSSOM);
+		pot.addPlant(DABlocks.SKY_TULIPS.getId(), DABlocks.POTTED_SKY_TULIPS);
+		pot.addPlant(DABlocks.IASPOVE.getId(), DABlocks.POTTED_IASPOVE);
+		pot.addPlant(DABlocks.GOLDEN_ASPESS.getId(), DABlocks.POTTED_GOLDEN_ASPESS);
+		pot.addPlant(DABlocks.ECHAISY.getId(), DABlocks.POTTED_ECHAISY);
 
 		pot.addPlant(DABlocks.ROSEROOT_SAPLING.getId(), DABlocks.POTTED_ROSEROOT_SAPLING);
 		pot.addPlant(DABlocks.BLUE_ROSEROOT_SAPLING.getId(), DABlocks.POTTED_BLUE_ROSEROOT_SAPLING);
@@ -463,6 +469,12 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.RADIANT_ORCHID.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.GOLDEN_FLOWER.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.ENCHANTED_BLOSSOM.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.SKY_TULIPS.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.IASPOVE.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.GOLDEN_ASPESS.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.ECHAISY.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.FEATHER_GRASS.get(), 60, 100);
+		fireBlockAccessor.callSetFlammable(DABlocks.TALL_FEATHER_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.MINI_GOLDEN_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.SHORT_GOLDEN_GRASS.get(), 60, 100);
 		fireBlockAccessor.callSetFlammable(DABlocks.MEDIUM_GOLDEN_GRASS.get(), 60, 100);

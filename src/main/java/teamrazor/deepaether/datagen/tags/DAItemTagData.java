@@ -117,7 +117,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.AERLAVENDER.get().asItem(),
                 DABlocks.AETHER_CATTAILS.get().asItem(),
                 DABlocks.GOLDEN_FLOWER.get().asItem(),
-                DABlocks.RADIANT_ORCHID.get().asItem()
+                DABlocks.RADIANT_ORCHID.get().asItem(),
+                DABlocks.ENCHANTED_BLOSSOM.get().asItem(),
+                DABlocks.SKY_TULIPS.get().asItem(),
+                DABlocks.IASPOVE.get().asItem(),
+                DABlocks.GOLDEN_ASPESS.get().asItem(),
+                DABlocks.ECHAISY.get().asItem()
         );
 
         tag(ItemTags.LOGS).add(
