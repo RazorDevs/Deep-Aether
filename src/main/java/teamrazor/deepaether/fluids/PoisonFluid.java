@@ -62,16 +62,16 @@ public abstract class PoisonFluid extends ForgeFlowingFluid {
             super(properties);
         }
 
-        protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> p_76476_) {
-            super.createFluidStateDefinition(p_76476_);
-            p_76476_.add(LEVEL);
+        protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> fluidStateBuilder) {
+            super.createFluidStateDefinition(fluidStateBuilder);
+            fluidStateBuilder.add(LEVEL);
         }
 
-        public int getAmount(FluidState p_76480_) {
-            return p_76480_.getValue(LEVEL);
+        public int getAmount(FluidState fluidState) {
+            return fluidState.getValue(LEVEL);
         }
 
-        public boolean isSource(FluidState p_76478_) {
+        public boolean isSource(FluidState fluidState) {
             return false;
         }
     }
@@ -81,11 +81,11 @@ public abstract class PoisonFluid extends ForgeFlowingFluid {
             super(properties);
         }
 
-        public int getAmount(FluidState p_76485_) {
+        public int getAmount(FluidState fluidState) {
             return 8;
         }
 
-        public boolean isSource(FluidState p_76483_) {
+        public boolean isSource(FluidState fluidState) {
             return true;
         }
     }
