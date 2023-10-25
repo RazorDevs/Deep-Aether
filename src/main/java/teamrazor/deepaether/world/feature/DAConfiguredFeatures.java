@@ -131,12 +131,12 @@ public class DAConfiguredFeatures {
         register(context, FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
                         new FallenTreeConfiguration(2, 12,
                                 BlockStateProvider.simple(DAFeatureStates.ROSEROOT_LOG),
-                                BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));
+                                BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOMS.get())));
 
         register(context, EMPTY_FALLEN_AERGLOW_TREE, DAFeatures.FALLEN_TREE.get(),
                 new FallenTreeConfiguration(2, 9,
                         BlockStateProvider.simple(DAFeatureStates.ROTTEN_ROSEROOT_LOG),
-                        BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM.get())));
+                        BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOMS.get())));
 
         register(context, ROSEROOT_TREE_SMALL, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -294,7 +294,7 @@ public class DAConfiguredFeatures {
         register(context, AETHER_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DABlocks.AETHER_MOSS_BLOCK.get()),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AETHER_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 
-        register(context, AETHER_COARSE_DIRT, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.LIGHTCAP_MUSHROOM.get().defaultBlockState(), 1).add(Blocks.AIR.defaultBlockState(), 10))));
+        register(context, AETHER_COARSE_DIRT, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.LIGHTCAP_MUSHROOMS.get().defaultBlockState(), 1).add(Blocks.AIR.defaultBlockState(), 10))));
         register(context, AETHER_COARSE_DIRT_PATCH, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DABlocks.AETHER_COARSE_DIRT.get()),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AETHER_COARSE_DIRT)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 

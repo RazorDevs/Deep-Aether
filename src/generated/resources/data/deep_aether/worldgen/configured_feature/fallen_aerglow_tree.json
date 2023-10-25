@@ -14,7 +14,7 @@
     "decorators": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "deep_aether:lightcap_mushroom"
+        "Name": "deep_aether:lightcap_mushrooms"
       }
     },
     "max": 12,

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:block/lightcap_mushroom"
+    "layer0": "deep_aether:block/lightcap_mushrooms"
   }
 }

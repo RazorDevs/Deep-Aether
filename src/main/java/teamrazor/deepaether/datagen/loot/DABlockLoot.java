@@ -295,7 +295,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);
         this.add(DABlocks.GOLDEN_VINES_PLANT.get(), DABlockLoot::createGoldenVinesDrop);
 
-        this.dropSelf(DABlocks.LIGHTCAP_MUSHROOM.get());
+        this.dropSelf(DABlocks.LIGHTCAP_MUSHROOMS.get());
 
 
         //Lost content

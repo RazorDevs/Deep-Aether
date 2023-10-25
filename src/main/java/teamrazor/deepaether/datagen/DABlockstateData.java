@@ -215,7 +215,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.pottedPlant(DABlocks.POTTED_GOLDEN_ASPESS.get(), DABlocks.GOLDEN_ASPESS.get());
         this.crossBlock(DABlocks.ECHAISY.get());
         this.pottedPlant(DABlocks.POTTED_ECHAISY.get(), DABlocks.ECHAISY.get());
-        this.crossBlock(DABlocks.LIGHTCAP_MUSHROOM.get());
+        this.crossBlock(DABlocks.LIGHTCAP_MUSHROOMS.get());
 
 
         //TILES

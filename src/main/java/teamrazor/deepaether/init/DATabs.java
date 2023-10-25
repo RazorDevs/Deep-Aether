@@ -213,7 +213,7 @@ public class DATabs {
                 output.accept(DABlocks.AETHER_CATTAILS.get());
                 output.accept(DABlocks.TALL_AETHER_CATTAILS.get());
 
-                output.accept(DABlocks.LIGHTCAP_MUSHROOM.get());
+                output.accept(DABlocks.LIGHTCAP_MUSHROOMS.get());
                 output.accept(DABlocks.AETHER_COARSE_DIRT.get());
 
                 output.accept(DABlocks.GOLDEN_GRASS_BLOCK.get());
