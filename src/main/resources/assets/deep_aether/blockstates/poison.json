@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "minecraft:deep_aether/poison"
+      "model": "deep_aether:block/poison"
     }
   }
 }
