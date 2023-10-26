@@ -33,7 +33,9 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MYSTIC_AERGLOW_FOREST_TREES_PLACEMENT = createKey("mystic_aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
-    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
+    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_FLOWERS = createKey("aerglow_forest_flowers");
+    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_GRASS = createKey("aerglow_forest_grass");
+
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
@@ -129,7 +131,9 @@ public class DAPlacedFeatures {
 
         register(context, AETHER_CATTAIL_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_CATTAILS_PATCH), CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
-        register(context, AERGLOW_FOREST_VEGETATION, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_FOREST_VEGETATION), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, AERGLOW_FOREST_FLOWERS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_FOREST_FLOWERS), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+        register(context, AERGLOW_FOREST_GRASS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_FOREST_GRASS), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
         register(context, ASETERITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ASETERITE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));

@@ -27,6 +27,8 @@ public class DAFeatureStates {
     public static final BlockState AETHER_CATTAILS = DABlocks.AETHER_CATTAILS.get().defaultBlockState();
     public static final BlockState TALL_AETHER_CATTAILS = DABlocks.TALL_AETHER_CATTAILS.get().defaultBlockState();
     public static final BlockState RADIANT_ORCHID = DABlocks.RADIANT_ORCHID.get().defaultBlockState();
+    public static final BlockState FEATHER_GRASS = DABlocks.FEATHER_GRASS.get().defaultBlockState();
+    public static final BlockState TALL_FEATHER_GRASS = DABlocks.TALL_FEATHER_GRASS.get().defaultBlockState();
     public static final BlockState SKY_TULIPS = DABlocks.SKY_TULIPS.get().defaultBlockState();
     public static final BlockState IASPOVE = DABlocks.IASPOVE.get().defaultBlockState();
     public static final BlockState GOLDEN_ASPESS = DABlocks.GOLDEN_ASPESS.get().defaultBlockState();

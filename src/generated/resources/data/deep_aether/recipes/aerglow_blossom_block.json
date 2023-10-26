@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "deep_aether:aerglow_petal"
+      "item": "deep_aether:aerglow_blossom"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "AA"
   ],
   "result": {
-    "item": "deep_aether:aerglow_petal_block"
+    "item": "deep_aether:aerglow_blossom_block"
   },
   "show_notification": true
 }

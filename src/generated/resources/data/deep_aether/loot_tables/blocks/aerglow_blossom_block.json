@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:aerglow_petal_block"
+          "name": "deep_aether:aerglow_blossom_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "deep_aether:blocks/aerglow_petal_block"
+  "random_sequence": "deep_aether:blocks/aerglow_blossom_block"
 }

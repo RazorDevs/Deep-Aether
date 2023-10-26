@@ -191,11 +191,11 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer, name("sunroot_sign"));
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_PETAL_BLOCK.get(), 1)
-                .define('A', DAItems.AERGLOW_PETAL.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_BLOSSOM_BLOCK.get(), 1)
+                .define('A', DAItems.AERGLOW_BLOSSOM.get())
                 .pattern("AA")
                 .pattern("AA")
-                .unlockedBy(getHasName(DAItems.AERGLOW_PETAL.get()), has(DAItems.AERGLOW_PETAL.get()))
+                .unlockedBy(getHasName(DAItems.AERGLOW_BLOSSOM.get()), has(DAItems.AERGLOW_BLOSSOM.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_MOSS_CARPET.get(), 3)
@@ -206,7 +206,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.PACKED_AETHER_MUD.get())
                 .requires(DABlocks.AETHER_MUD.get())
-                .requires(DAItems.AERGLOW_PETAL.get())
+                .requires(DAItems.AERGLOW_BLOSSOM.get())
                 .unlockedBy(getHasName(DABlocks.AETHER_MUD.get()), has(DABlocks.AETHER_MUD.get()))
                 .save(consumer);
 

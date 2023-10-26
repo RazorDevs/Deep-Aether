@@ -4,7 +4,6 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -16,9 +15,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class DABlockTagData extends BlockTagsProvider {
@@ -269,7 +266,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CRUDEROOT_LEAVES.get(),
                 DABlocks.AETHER_MOSS_BLOCK.get(),
                 DABlocks.AETHER_MOSS_CARPET.get(),
-                DABlocks.AERGLOW_PETAL_BLOCK.get(),
+                DABlocks.AERGLOW_BLOSSOM_BLOCK.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
                 DABlocks.SUNROOT_LEAVES.get()
         );

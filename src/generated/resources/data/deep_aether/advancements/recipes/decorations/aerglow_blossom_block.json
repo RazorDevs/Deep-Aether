@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_aerglow_petal": {
+    "has_aerglow_blossom": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:aerglow_petal"
+              "deep_aether:aerglow_blossom"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:aerglow_petal_block"
+        "recipe": "deep_aether:aerglow_blossom_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_aerglow_petal",
+      "has_aerglow_blossom",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:aerglow_petal_block"
+      "deep_aether:aerglow_blossom_block"
     ]
   },
   "sends_telemetry_event": false

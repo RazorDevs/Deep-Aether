@@ -40,7 +40,7 @@ public class DATabs {
 
                 output.accept(DABlocks.ROSEROOT_LEAVES.get());
                 output.accept(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
-                output.accept(DABlocks.AERGLOW_PETAL_BLOCK.get());
+                output.accept(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
                 output.accept(DABlocks.ROSEROOT_SAPLING.get());
 
                 output.accept(DABlocks.BLUE_ROSEROOT_LEAVES.get());
@@ -302,7 +302,7 @@ public class DATabs {
                 output.accept(DAItems.AETHER_FISH_SPAWN_EGG.get());
                 output.accept(DAItems.QUAIL_SPAWN_EGG.get());
 
-                output.accept(DAItems.AERGLOW_PETAL.get());
+                output.accept(DAItems.AERGLOW_BLOSSOM.get());
 
                 if (ModList.get().isLoaded("lost_aether_content")) {
                     output.accept(DAItems.SKYJADE_SHIELD.get());

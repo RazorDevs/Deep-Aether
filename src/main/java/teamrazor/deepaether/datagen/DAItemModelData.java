@@ -51,7 +51,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
-        this.itemBlock(DABlocks.AERGLOW_PETAL_BLOCK.get());
+        this.itemBlock(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
         this.item(DAItems.ROSEROOT_SIGN.get());
         this.item(DAItems.ROSEROOT_HANGING_SIGN.get());
 
@@ -296,7 +296,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.eggItem(DAItems.AETHER_FISH_SPAWN_EGG.get());
         this.eggItem(DAItems.QUAIL_SPAWN_EGG.get());
 
-        this.item(DAItems.AERGLOW_PETAL.get());
+        this.item(DAItems.AERGLOW_BLOSSOM.get());
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());

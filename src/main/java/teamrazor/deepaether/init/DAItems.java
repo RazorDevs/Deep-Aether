@@ -20,7 +20,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.block.DisabledBlockItem;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
@@ -31,7 +30,6 @@ import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 
@@ -136,7 +134,7 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = ITEMS.register("skyroot_virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1)));
 
-	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new Item(new Item.Properties()));
+	public static final RegistryObject<Item> AERGLOW_BLOSSOM = ITEMS.register("aerglow_blossom", () -> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("goldenleaf_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new Item(new Item.Properties()));

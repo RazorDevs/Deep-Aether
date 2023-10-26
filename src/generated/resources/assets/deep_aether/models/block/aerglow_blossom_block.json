@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "deep_aether:block/aerglow_petal_block"
+    "all": "deep_aether:block/aerglow_blossom_block"
   }
 }

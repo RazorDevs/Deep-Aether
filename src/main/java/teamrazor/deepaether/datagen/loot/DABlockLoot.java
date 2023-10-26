@@ -82,7 +82,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.BLUE_ROSEROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-        this.dropSelf(DABlocks.AERGLOW_PETAL_BLOCK.get());
+        this.dropSelf(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
 
 
         this.dropSelf(DABlocks.YAGROOT_WOOD.get());
@@ -365,7 +365,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                                 LootItem.lootTableItem(AetherItems.SKYROOT_STICK.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                         .when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F))))
                         .add(this.applyExplosionDecay(block,
-                                LootItem.lootTableItem(DAItems.AERGLOW_PETAL.get()).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))))
+                                LootItem.lootTableItem(DAItems.AERGLOW_BLOSSOM.get()).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))))
                 .apply(DoubleDrops.builder());
     }
 

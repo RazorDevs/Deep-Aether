@@ -12,67 +12,43 @@
                 "data": {
                   "Name": "deep_aether:radiant_orchid"
                 },
-                "weight": 6
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "deep_aether:sky_tulips"
                 },
-                "weight": 5
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "deep_aether:iaspove"
                 },
-                "weight": 5
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "deep_aether:golden_aspess"
                 },
-                "weight": 5
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "deep_aether:echaisy"
                 },
-                "weight": 5
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "aether:purple_flower"
                 },
-                "weight": 3
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "aether:white_flower"
                 },
-                "weight": 3
-              },
-              {
-                "data": {
-                  "Name": "minecraft:tall_grass",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                },
-                "weight": 32
-              },
-              {
-                "data": {
-                  "Name": "aether:berry_bush",
-                  "Properties": {
-                    "double_drops": "true"
-                  }
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "minecraft:grass"
-                },
-                "weight": 60
+                "weight": 2
               }
             ]
           }
@@ -88,7 +64,7 @@
         }
       ]
     },
-    "tries": 400,
+    "tries": 100,
     "xz_spread": 7,
     "y_spread": 3
   }
