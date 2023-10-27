@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "teamrazor.deepaether.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "deepaether.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "AetherSkyRenderEffectsAccessor",
+    "SliderGlowLayerMixin",
+    "SliderRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
