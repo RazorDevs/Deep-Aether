@@ -33,11 +33,17 @@ public abstract class SliderRendererMixin extends MobRenderer<Slider, SliderMode
 
     @Inject(at = @At("HEAD"), method = "getTextureLocation(Lcom/aetherteam/aether/entity/monster/dungeon/boss/Slider;)Lnet/minecraft/resources/ResourceLocation;", cancellable = true)
     public void getTextureLocation(Slider slider, CallbackInfoReturnable<ResourceLocation> cir) {
-        if(((DeepAetherMod.IS_HALLOWEEN || DeepAetherConfig.CLIENT.always_enable_halloween_slider.get()) && (!DeepAetherConfig.CLIENT.never_enable_halloween_slider.get()))) {
+        if (((DeepAetherMod.IS_HALLOWEEN || DeepAetherConfig.CLIENT.always_enable_halloween_slider.get()) && (!DeepAetherConfig.CLIENT.never_enable_halloween_slider.get()))) {
             if (!slider.isAwake()) {
-                cir.setReturnValue(!slider.isCritical() ? HALLOWEEN_SLIDER_ASLEEP_TEXTURE : HALLOWEEN_SLIDER_ASLEEP_CRITICAL_TEXTURE);
-            } else {
-                cir.setReturnValue(!slider.isCritical() ? HALLOWEEN_SLIDER_AWAKE_TEXTURE : HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE);
+                if (!slider.isCritical())
+                    cir.setReturnValue(HALLOWEEN_SLIDER_ASLEEP_TEXTURE);
+                else cir.setReturnValue(HALLOWEEN_SLIDER_ASLEEP_CRITICAL_TEXTURE);
+            }
+
+            else {
+                if (!slider.isCritical())
+                    cir.setReturnValue(HALLOWEEN_SLIDER_AWAKE_TEXTURE);
+                else cir.setReturnValue(HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE);
             }
         }
     }
