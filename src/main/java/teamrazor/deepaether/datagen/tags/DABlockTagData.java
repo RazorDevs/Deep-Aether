@@ -171,6 +171,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CLORITE_WALL.get(),
                 DABlocks.RAW_CLORITE_WALL.get(),
                 DABlocks.ASETERITE_WALL.get(),
+                DABlocks.COBBLED_ASETERITE_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
@@ -380,13 +381,19 @@ public class DABlockTagData extends BlockTagsProvider {
                 );
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                DABlocks.COBBLED_ASETERITE.get(),
+                DABlocks.COBBLED_ASETERITE_SLAB.get(),
+                DABlocks.COBBLED_ASETERITE_STAIRS.get(),
+                DABlocks.COBBLED_ASETERITE_WALL.get(),
+
                 DABlocks.ASETERITE.get(),
-                DABlocks.POLISHED_ASETERITE.get(),
-                DABlocks.ASETERITE_STAIRS.get(),
-                DABlocks.POLISHED_ASETERITE_STAIRS.get(),
                 DABlocks.ASETERITE_SLAB.get(),
-                DABlocks.POLISHED_ASETERITE_SLAB.get(),
+                DABlocks.ASETERITE_STAIRS.get(),
                 DABlocks.ASETERITE_WALL.get(),
+
+                DABlocks.POLISHED_ASETERITE.get(),
+                DABlocks.POLISHED_ASETERITE_STAIRS.get(),
+                DABlocks.POLISHED_ASETERITE_SLAB.get(),
 
                 DABlocks.RAW_CLORITE.get(),
                 DABlocks.RAW_CLORITE_SLAB.get(),
@@ -462,7 +469,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRIPPED_SUNROOT_WOOD.get(),
                 DABlocks.SKYJADE_ORE.get(),
                 DABlocks.RAW_CLORITE.get(),
-                DABlocks.ASETERITE.get()
+                DABlocks.ASETERITE.get(),
+                DABlocks.COBBLED_ASETERITE.get()
         );
     }
 }

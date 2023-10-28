@@ -156,10 +156,16 @@ public class DATabs {
                 output.accept(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
                 output.accept(DABlocks.AETHER_MUD_BRICKS_WALL.get());
 
+                output.accept(DABlocks.COBBLED_ASETERITE.get());
+                output.accept(DABlocks.COBBLED_ASETERITE_STAIRS.get());
+                output.accept(DABlocks.COBBLED_ASETERITE_SLAB.get());
+                output.accept(DABlocks.COBBLED_ASETERITE_WALL.get());
+
                 output.accept(DABlocks.ASETERITE.get());
                 output.accept(DABlocks.ASETERITE_STAIRS.get());
                 output.accept(DABlocks.ASETERITE_SLAB.get());
                 output.accept(DABlocks.ASETERITE_WALL.get());
+                
                 output.accept(DABlocks.POLISHED_ASETERITE.get());
                 output.accept(DABlocks.POLISHED_ASETERITE_STAIRS.get());
                 output.accept(DABlocks.POLISHED_ASETERITE_SLAB.get());

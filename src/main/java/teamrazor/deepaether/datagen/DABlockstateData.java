@@ -165,11 +165,16 @@ public class DABlockstateData extends AetherBlockStateProvider {
     
         //STONE
         //ASETERITE
-    
+        this.block(DABlocks.COBBLED_ASETERITE.get());
+        this.stairs((StairBlock) DABlocks.COBBLED_ASETERITE_STAIRS.get(), DABlocks.COBBLED_ASETERITE.get());
+        this.slab((SlabBlock) DABlocks.COBBLED_ASETERITE_SLAB.get(), DABlocks.COBBLED_ASETERITE.get());
+        this.wallBlock((WallBlock) DABlocks.COBBLED_ASETERITE_WALL.get(), DABlocks.COBBLED_ASETERITE.get());
+
         this.blockDoubleDrops(DABlocks.ASETERITE.get());
         this.stairs((StairBlock) DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
         this.slab((SlabBlock) DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get());
         this.wallBlock((WallBlock) DABlocks.ASETERITE_WALL.get(), DABlocks.ASETERITE.get());
+
         this.block(DABlocks.POLISHED_ASETERITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_ASETERITE_SLAB.get(), DABlocks.POLISHED_ASETERITE.get());

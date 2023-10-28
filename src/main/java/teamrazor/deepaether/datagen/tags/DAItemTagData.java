@@ -189,6 +189,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_SUNROOT_WALL.get().asItem(),
                 DABlocks.CLORITE_WALL.get().asItem(),
                 DABlocks.ASETERITE_WALL.get().asItem(),
+                DABlocks.COBBLED_ASETERITE_WALL.get().asItem(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get().asItem(),
                 DABlocks.HOLYSTONE_TILE_WALL.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get().asItem(),

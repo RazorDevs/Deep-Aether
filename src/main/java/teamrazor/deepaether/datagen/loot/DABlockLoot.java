@@ -203,7 +203,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         //STONES
 
-        this.dropSelfDouble(DABlocks.ASETERITE.get());
+
+        this.dropSelf(DABlocks.COBBLED_ASETERITE.get());
+        this.dropSelf(DABlocks.COBBLED_ASETERITE_SLAB.get());
+        this.dropSelf(DABlocks.COBBLED_ASETERITE_STAIRS.get());
+        this.dropSelf(DABlocks.COBBLED_ASETERITE_WALL.get());
+
+        this.dropDoubleWithSilk(DABlocks.ASETERITE.get(), DABlocks.COBBLED_ASETERITE.get());
         this.dropSelf(DABlocks.ASETERITE_SLAB.get());
         this.dropSelf(DABlocks.ASETERITE_STAIRS.get());
         this.dropSelf(DABlocks.ASETERITE_WALL.get());
