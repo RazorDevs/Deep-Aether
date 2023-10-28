@@ -244,6 +244,22 @@ public class DARecipeData extends AetherRecipeProvider {
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_ASETERITE_SLAB.get(), DABlocks.POLISHED_ASETERITE.get(), 2);
 
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS.get(), DABlocks.ASETERITE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS.get(), DABlocks.POLISHED_ASETERITE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.ASETERITE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_WALL.get(), DABlocks.ASETERITE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.POLISHED_ASETERITE.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_WALL.get(), DABlocks.POLISHED_ASETERITE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.ASETERITE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE_BRICKS.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_WALL.get(), DABlocks.ASETERITE_BRICKS.get());
+
         stairs(DABlocks.ASETERITE_STAIRS, DABlocks.ASETERITE).save(consumer);
         slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.ASETERITE_WALL.get(), DABlocks.ASETERITE.get());
@@ -252,8 +268,19 @@ public class DARecipeData extends AetherRecipeProvider {
         slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.COBBLED_ASETERITE_SLAB.get(), DABlocks.COBBLED_ASETERITE.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.COBBLED_ASETERITE_WALL.get(), DABlocks.COBBLED_ASETERITE.get());
 
+        stairs(DABlocks.ASETERITE_BRICKS_STAIRS, DABlocks.ASETERITE_BRICKS).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE_BRICKS.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.ASETERITE_BRICKS_WALL.get(), DABlocks.ASETERITE_BRICKS.get());
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.POLISHED_ASETERITE.get(), 4)
                 .define('A', DABlocks.ASETERITE.get().asItem())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy(getHasName(DABlocks.ASETERITE.get()), has(DABlocks.ASETERITE.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.ASETERITE_BRICKS.get(), 4)
+                .define('A', DABlocks.POLISHED_ASETERITE.get().asItem())
                 .pattern("AA")
                 .pattern("AA")
                 .unlockedBy(getHasName(DABlocks.ASETERITE.get()), has(DABlocks.ASETERITE.get()))

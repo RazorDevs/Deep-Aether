@@ -179,6 +179,10 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.stairs((StairBlock) DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_ASETERITE_SLAB.get(), DABlocks.POLISHED_ASETERITE.get());
 
+        this.block(DABlocks.ASETERITE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.ASETERITE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.ASETERITE_BRICKS_WALL.get(), DABlocks.ASETERITE_BRICKS.get());
     
         //CLORITE        
 

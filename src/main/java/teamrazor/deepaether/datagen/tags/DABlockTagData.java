@@ -172,6 +172,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.RAW_CLORITE_WALL.get(),
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.COBBLED_ASETERITE_WALL.get(),
+                DABlocks.ASETERITE_BRICKS_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
@@ -394,6 +395,11 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.POLISHED_ASETERITE.get(),
                 DABlocks.POLISHED_ASETERITE_STAIRS.get(),
                 DABlocks.POLISHED_ASETERITE_SLAB.get(),
+
+                DABlocks.ASETERITE_BRICKS.get(),
+                DABlocks.ASETERITE_BRICKS_SLAB.get(),
+                DABlocks.ASETERITE_BRICKS_STAIRS.get(),
+                DABlocks.ASETERITE_BRICKS_WALL.get(),
 
                 DABlocks.RAW_CLORITE.get(),
                 DABlocks.RAW_CLORITE_SLAB.get(),
