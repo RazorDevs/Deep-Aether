@@ -44,7 +44,6 @@ public class DAAddFlatDungeonLootModifier extends LootModifier {
             generatedLoot.add(items);
         } else generatedLoot.add(items);
 
-        System.out.println(generatedLoot);
         return generatedLoot;
     }
 

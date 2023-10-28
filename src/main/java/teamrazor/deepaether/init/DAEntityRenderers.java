@@ -13,10 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerglowFishModel;
-import teamrazor.deepaether.client.renderer.AetherFishRenderer;
-import teamrazor.deepaether.client.renderer.DABoatRenderer;
-import teamrazor.deepaether.client.renderer.DeepAetherModelLayers;
-import teamrazor.deepaether.client.renderer.QuailRenderer;
+import teamrazor.deepaether.client.renderer.*;
 import teamrazor.deepaether.entity.DABoatEntity;
 
 
@@ -26,6 +23,8 @@ public class DAEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
+		event.registerEntityRenderer(DAEntities.VENOMITE.get(), VenomiteRenderer::new);
+
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
 
