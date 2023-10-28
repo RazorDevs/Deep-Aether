@@ -205,6 +205,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
 
         this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get());
+        this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get());
+        this.itemWallBlock(DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get(), DABlocks.BIG_HOLYSTONE_BRICKS.get());
+
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR.get());
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_UP.get());
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_DOWN.get());

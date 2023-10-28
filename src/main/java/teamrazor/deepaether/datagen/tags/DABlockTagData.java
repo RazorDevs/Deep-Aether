@@ -173,6 +173,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE_WALL.get(),
                 DABlocks.COBBLED_ASETERITE_WALL.get(),
                 DABlocks.ASETERITE_BRICKS_WALL.get(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get(),
                 DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
@@ -382,6 +383,11 @@ public class DABlockTagData extends BlockTagsProvider {
                 );
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                DABlocks.BIG_HOLYSTONE_BRICKS.get(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get(),
+
                 DABlocks.COBBLED_ASETERITE.get(),
                 DABlocks.COBBLED_ASETERITE_SLAB.get(),
                 DABlocks.COBBLED_ASETERITE_STAIRS.get(),

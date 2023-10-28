@@ -252,6 +252,11 @@ public class DABlocks {
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_WALL = registerBlock("mossy_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS = registerBlock("big_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_SLAB = registerBlock("big_holystone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
+	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_STAIRS = registerBlock("big_holystone_bricks_stairs", () -> new StairBlock(BIG_HOLYSTONE_BRICKS.get().defaultBlockState(),  BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
+ 	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_WALL = registerBlock("big_holystone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
+
+
 	public static final RegistryObject<Block> CHISELED_HOLYSTONE = registerBlock("chiseled_holystone", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> HOLYSTONE_PILLAR = registerBlock("holystone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> HOLYSTONE_PILLAR_UP = registerBlock("holystone_pillar_up", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(1f, 10f).requiresCorrectToolForDrops()));

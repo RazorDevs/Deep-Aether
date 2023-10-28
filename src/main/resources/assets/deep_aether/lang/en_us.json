@@ -410,6 +410,10 @@
   "lore.item.deep_aether.cooked_aerglow_fish": "Obtained after cooking Raw Aerglow Fish. Restores more hunger than the raw version too!",
   "block.deep_aether.holystone_bricks": "Holystone Bricks",
   "block.deep_aether.big_holystone_bricks": "Big Holystone Bricks",
+  "block.deep_aether.big_holystone_bricks_slab": "Big Holystone Brick Slab",
+  "block.deep_aether.big_holystone_bricks_stairs": "Big Holystone Brick Stairs",
+  "block.deep_aether.big_holystone_bricks_wall": "Big Holystone Brick Wall",
+
   "block.deep_aether.chiseled_holystone": "Chiseled Holystone",
   "block.deep_aether.holystone_pillar": "Holystone Pillar",
   "block.deep_aether.holystone_pillar_up": "Holystone Pillar Top",

@@ -213,6 +213,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.ASETERITE_SLAB.get());
         this.dropSelf(DABlocks.ASETERITE_STAIRS.get());
         this.dropSelf(DABlocks.ASETERITE_WALL.get());
+
         this.dropSelf(DABlocks.POLISHED_ASETERITE.get());
         this.dropSelf(DABlocks.POLISHED_ASETERITE_SLAB.get());
         this.dropSelf(DABlocks.POLISHED_ASETERITE_STAIRS.get());
@@ -245,7 +246,12 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
 
+
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get());
+        this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get());
+        this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get());
+
         this.dropSelf(DABlocks.HOLYSTONE_PILLAR.get());
         this.dropSelf(DABlocks.HOLYSTONE_PILLAR_UP.get());
         this.dropSelf(DABlocks.HOLYSTONE_PILLAR_DOWN.get());

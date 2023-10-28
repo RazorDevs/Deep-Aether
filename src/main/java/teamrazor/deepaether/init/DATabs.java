@@ -202,6 +202,9 @@ public class DATabs {
                 output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
 
                 output.accept(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+                output.accept(DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get());
+                output.accept(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get());
+                output.accept(DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get());
                 output.accept(DABlocks.HOLYSTONE_PILLAR.get());
                 output.accept(DABlocks.HOLYSTONE_PILLAR_UP.get());
                 output.accept(DABlocks.HOLYSTONE_PILLAR_DOWN.get());

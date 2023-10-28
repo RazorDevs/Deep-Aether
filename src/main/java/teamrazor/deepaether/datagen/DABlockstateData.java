@@ -248,6 +248,10 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.wallBlock((WallBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
 
         this.block(DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get(), DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get(), DABlocks.BIG_HOLYSTONE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get(), DABlocks.BIG_HOLYSTONE_BRICKS.get());
+
         this.log((RotatedPillarBlock) DABlocks.HOLYSTONE_PILLAR.get());
         this.block(DABlocks.CHISELED_HOLYSTONE.get());
 
