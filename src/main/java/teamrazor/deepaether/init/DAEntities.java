@@ -15,6 +15,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.AerglowFish;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.entity.DAChestBoatEntity;
+import teamrazor.deepaether.entity.Venomite;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 
@@ -48,7 +49,10 @@ public class DAEntities {
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Quail::new)
 					.sized(0.35F, 0.7f));
 
-
+	public static final RegistryObject<EntityType<Venomite>> VENOMITE = register("venomite",
+			EntityType.Builder.<Venomite>of(Venomite::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Venomite::new)
+					.sized(1F, 1F));
 
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
@@ -60,6 +64,7 @@ public class DAEntities {
 		event.enqueueWork(() -> {
 			AerglowFish.createAttributes();
 			Quail.init();
+			Venomite.init();
 		});
 	}
 
@@ -67,5 +72,6 @@ public class DAEntities {
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
+		event.put(VENOMITE.get(), Venomite.createAttributes().build());
 	}
 }

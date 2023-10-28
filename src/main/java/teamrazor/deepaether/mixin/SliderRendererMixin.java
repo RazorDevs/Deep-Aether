@@ -27,8 +27,8 @@ public abstract class SliderRendererMixin extends MobRenderer<Slider, SliderMode
     private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/slider/halloween_slider_awake_critical.png");
 
 
-    public SliderRendererMixin(EntityRendererProvider.Context p_174304_, SliderModel p_174305_, float p_174306_) {
-        super(p_174304_, p_174305_, p_174306_);
+    public SliderRendererMixin(EntityRendererProvider.Context context, SliderModel sliderModel, float v) {
+        super(context, sliderModel, v);
     }
 
     @Inject(at = @At("HEAD"), method = "getTextureLocation(Lcom/aetherteam/aether/entity/monster/dungeon/boss/Slider;)Lnet/minecraft/resources/ResourceLocation;", cancellable = true)
