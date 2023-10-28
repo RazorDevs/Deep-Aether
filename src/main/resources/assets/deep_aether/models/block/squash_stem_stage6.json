@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/stem_growth6",
+  "render_type": "cutout",
+  "textures": {
+    "stem": "deep_aether:block/squash_stem"
+  }
+}

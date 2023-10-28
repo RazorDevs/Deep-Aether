@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "deep_aether:block/attached_squash_stem",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "deep_aether:block/attached_squash_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "deep_aether:block/attached_squash_stem",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "deep_aether:block/attached_squash_stem"
+    }
+  }
+}

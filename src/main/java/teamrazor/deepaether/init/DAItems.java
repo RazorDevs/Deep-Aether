@@ -117,6 +117,9 @@ public class DAItems {
 	public static final RegistryObject<Item> QUAIL_SPAWN_EGG = ITEMS.register("quail_spawn_egg",
 			() -> new ForgeSpawnEggItem(DAEntities.QUAIL,6373632,16776960, new Item.Properties()));
 
+	public static final RegistryObject<Item> VENOMITE_SPAWN_EGG = ITEMS.register("venomite_spawn_egg",
+			() -> new ForgeSpawnEggItem(DAEntities.VENOMITE,7372435,17402760, new Item.Properties()));
+
 	public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_egg",
 			() -> new QuailEggItem(new Item.Properties().stacksTo(16)));
 
@@ -138,6 +141,8 @@ public class DAItems {
 	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("goldenleaf_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new Item(new Item.Properties()));
+
+	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new Item(new Item.Properties()));
 
 
 	//LOST CONTENT
