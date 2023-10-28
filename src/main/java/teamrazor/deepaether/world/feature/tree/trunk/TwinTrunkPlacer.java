@@ -78,9 +78,5 @@ public class TwinTrunkPlacer extends TrunkPlacer {
                 }
             }
         }
-
-         this.placeLog(level, posState, random, pos.above(2), configuration);
-
-
      }
 }
