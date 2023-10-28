@@ -69,16 +69,18 @@ public class TwinTrunkPlacer extends TrunkPlacer {
     }
 
      private void PlaceBaseTrunk(RandomSource random, Direction direction, LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> posState, BlockPos pos, TreeConfiguration configuration) {
-        for(int y = 0; y < 2; y++) {
-            for(int x = 0; x < 2; x++) {
+        for(int y = 0; y < 3; y++) {
+            for(int x = 0; x < 3; x++) {
                 int a = x == 1 ? 3 : 1;
 
                 for(int z = 0; z < a; z++) {
-                    this.placeLog(level, posState, random, pos.above(y).relative(direction, z-(a/2)).relative(direction.getClockWise(), x-1), configuration);
+                    this.placeLog(level, posState, random, pos.above(y-1).relative(direction, z-(a/2)).relative(direction.getClockWise(), x-1), configuration);
                 }
             }
         }
 
          this.placeLog(level, posState, random, pos.above(2), configuration);
+
+
      }
 }
