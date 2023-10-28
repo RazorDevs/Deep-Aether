@@ -1,12 +1,20 @@
 {
   "values": [
+    "deep_aether:cobbled_aseterite",
+    "deep_aether:cobbled_aseterite_slab",
+    "deep_aether:cobbled_aseterite_stairs",
+    "deep_aether:cobbled_aseterite_wall",
     "deep_aether:aseterite",
-    "deep_aether:polished_aseterite",
-    "deep_aether:aseterite_stairs",
-    "deep_aether:polished_aseterite_stairs",
     "deep_aether:aseterite_slab",
-    "deep_aether:polished_aseterite_slab",
+    "deep_aether:aseterite_stairs",
     "deep_aether:aseterite_wall",
+    "deep_aether:polished_aseterite",
+    "deep_aether:polished_aseterite_stairs",
+    "deep_aether:polished_aseterite_slab",
+    "deep_aether:aseterite_bricks",
+    "deep_aether:aseterite_bricks_slab",
+    "deep_aether:aseterite_bricks_stairs",
+    "deep_aether:aseterite_bricks_wall",
     "deep_aether:raw_clorite",
     "deep_aether:raw_clorite_slab",
     "deep_aether:raw_clorite_stairs",
@@ -26,6 +34,11 @@
     "deep_aether:holystone_tile_slab",
     "deep_aether:holystone_tile_stairs",
     "deep_aether:holystone_tile_wall",
+    "deep_aether:big_holystone_bricks",
+    "deep_aether:chiseled_holystone",
+    "deep_aether:holystone_pillar",
+    "deep_aether:holystone_pillar_up",
+    "deep_aether:holystone_pillar_down",
     "deep_aether:mossy_holystone_tiles",
     "deep_aether:mossy_holystone_tile_slab",
     "deep_aether:mossy_holystone_tile_stairs",
@@ -35,37 +48,13 @@
     "deep_aether:aether_mud_bricks_slab",
     "deep_aether:aether_mud_bricks_stairs",
     "deep_aether:aether_mud_bricks_wall",
-    {
-      "id": "deep_aether:gilded_holystone_tiles",
-      "required": false
-    },
-    {
-      "id": "deep_aether:gilded_holystone_tile_slab",
-      "required": false
-    },
-    {
-      "id": "deep_aether:gilded_holystone_tile_stairs",
-      "required": false
-    },
-    {
-      "id": "deep_aether:gilded_holystone_tile_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tiles",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_slab",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_stairs",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_wall",
-      "required": false
-    }
+    "deep_aether:gilded_holystone_tiles",
+    "deep_aether:gilded_holystone_tile_slab",
+    "deep_aether:gilded_holystone_tile_stairs",
+    "deep_aether:gilded_holystone_tile_wall",
+    "deep_aether:blightmoss_holystone_tiles",
+    "deep_aether:blightmoss_holystone_tile_slab",
+    "deep_aether:blightmoss_holystone_tile_stairs",
+    "deep_aether:blightmoss_holystone_tile_wall"
   ]
 }

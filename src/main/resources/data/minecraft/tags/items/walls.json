@@ -12,16 +12,12 @@
     "deep_aether:stripped_sunroot_wall",
     "deep_aether:clorite_wall",
     "deep_aether:aseterite_wall",
+    "deep_aether:cobbled_aseterite_wall",
+    "deep_aether:aseterite_bricks_wall",
     "deep_aether:aether_mud_bricks_wall",
     "deep_aether:holystone_tile_wall",
     "deep_aether:mossy_holystone_tile_wall",
-    {
-      "id": "deep_aether:gilded_holystone_tile_wall",
-      "required": false
-    },
-    {
-      "id": "deep_aether:blightmoss_holystone_tile_wall",
-      "required": false
-    }
+    "deep_aether:gilded_holystone_tile_wall",
+    "deep_aether:blightmoss_holystone_tile_wall"
   ]
 }
