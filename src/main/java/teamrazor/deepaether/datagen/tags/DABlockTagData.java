@@ -478,5 +478,22 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ASETERITE.get(),
                 DABlocks.COBBLED_ASETERITE.get()
         );
+
+        tag(BlockTags.REPLACEABLE_BY_TREES).add(
+                DABlocks.MINI_GOLDEN_GRASS.get(),
+                DABlocks.MEDIUM_GOLDEN_GRASS.get(),
+                DABlocks.SHORT_GOLDEN_GRASS.get(),
+                DABlocks.TALL_GOLDEN_GRASS.get(),
+                DABlocks.GOLDEN_ASPESS.get(),
+                DABlocks.GOLDEN_FLOWER.get(),
+                DABlocks.GOLDEN_VINES_PLANT.get(),
+                DABlocks.GOLDEN_VINES.get(),
+                DABlocks.ENCHANTED_BLOSSOM.get(),
+                DABlocks.RADIANT_ORCHID.get(),
+                DABlocks.SKY_TULIPS.get(),
+                DABlocks.IASPOVE.get(),
+                DABlocks.FEATHER_GRASS.get(),
+                DABlocks.TALL_FEATHER_GRASS.get()
+        );
     }
 }
