@@ -311,13 +311,14 @@ public class DATabs {
                 output.accept(DAItems.SUNROOT_BOAT.get());
                 output.accept(DAItems.SUNROOT_CHEST_BOAT.get());
 
+                output.accept(DAItems.AERGLOW_BLOSSOM.get());
+
                 output.accept(DAItems.MUSIC_DISC_NABOORU.get());
                 output.accept(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
 
                 output.accept(DAItems.AETHER_FISH_SPAWN_EGG.get());
                 output.accept(DAItems.QUAIL_SPAWN_EGG.get());
-
-                output.accept(DAItems.AERGLOW_BLOSSOM.get());
+                output.accept(DAItems.VENOMITE_SPAWN_EGG.get());
 
                 if (ModList.get().isLoaded("lost_aether_content")) {
                     output.accept(DAItems.SKYJADE_SHIELD.get());

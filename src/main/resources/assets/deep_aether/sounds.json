@@ -35,5 +35,23 @@
       "deep_aether:entity/quail/hurt2"
     ],
     "subtitle": "Quail hurts"
+  },
+  "entity.venomite.ambient": {
+    "sounds": [
+      "deep_aether:entity/venomite/ambient"
+    ],
+    "subtitle": "Venomite buzzes"
+  },
+  "entity.venomite.hurt": {
+    "sounds": [
+      "deep_aether:entity/venomite/hurt"
+    ],
+    "subtitle": "Venomite hurts"
+  },
+  "entity.venomite.death": {
+    "sounds": [
+      "deep_aether:entity/venomite/death"
+    ],
+    "subtitle": "Venomite dies"
   }
 }

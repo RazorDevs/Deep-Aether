@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity;
 
+import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -7,9 +8,12 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -43,6 +47,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.entity.goals.FollowPlayerGoal;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DASounds;
 
 import java.util.UUID;
 
@@ -63,11 +68,13 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     public Venomite(PlayMessages.SpawnEntity spawnEntity, Level level) {
         super(DAEntities.VENOMITE.get(), level);
         this.moveControl = new FlyingMoveControl(this, 20, true);
+        this.xpReward = 3;
     }
 
     public Venomite(EntityType<? extends Animal> type, Level level) {
         super(type, level);
         this.moveControl = new FlyingMoveControl(this, 20, true);
+        this.xpReward = 3;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -79,7 +86,7 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     }
 
     public static void init() {
-        SpawnPlacements.register(DAEntities.VENOMITE.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+        SpawnPlacements.register(DAEntities.VENOMITE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, world, reason, pos,
                  random) -> (world.getBlockState(pos.above()).is(Blocks.AIR)));
     }
@@ -116,8 +123,23 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
         this.readPersistentAngerSaveData(this.level(), compoundTag);
     }
 
+    protected void playStepSound(BlockPos blockPos, BlockState blockState) {
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return DASounds.VENOMITE_AMBIENT.get();
+    }
+
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
+        return DASounds.VENOMITE_HURT.get();
+    }
+
+    protected SoundEvent getDeathSound() {
+        return DASounds.VENOMITE_DEATH.get();
+    }
+
     @Override
-    protected void checkFallDamage(double p_20990_, boolean p_20991_, BlockState p_20992_, BlockPos p_20993_) {
+    protected void checkFallDamage(double v, boolean b, BlockState blockState, BlockPos blockPos) {
     }
 
     public MobType getMobType() {
@@ -137,7 +159,10 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
         return flyingpathnavigation;
     }
 
-
+    @Override
+    public boolean canBeAffected(MobEffectInstance effectInstance) {
+        return !effectInstance.getEffect().equals(AetherEffects.INEBRIATION.get());
+    }
 
     private boolean getFlag(int p_27922_) {
         return (this.entityData.get(DATA_FLAGS_ID) & p_27922_) != 0;
