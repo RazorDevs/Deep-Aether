@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "deep_aether:block/mossy_holystone_tiles",
-    "side": "deep_aether:block/mossy_holystone_tiles",
-    "top": "deep_aether:block/mossy_holystone_tiles"
-  }
-}

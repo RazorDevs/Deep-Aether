@@ -232,19 +232,23 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.slab((SlabBlock) DABlocks.HOLYSTONE_TILE_SLAB.get(), DABlocks.HOLYSTONE_TILES.get());
         this.wallBlock((WallBlock) DABlocks.HOLYSTONE_TILE_WALL.get(), DABlocks.HOLYSTONE_TILES.get());
 
-        this.block(DABlocks.MOSSY_HOLYSTONE_TILES.get());
-        this.stairs((StairBlock) DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
-        this.slab((SlabBlock) DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
-        this.wallBlock((WallBlock) DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        this.block(DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
 
-        this.block(DABlocks.GILDED_HOLYSTONE_TILES.get());
-        this.stairs((StairBlock) DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
-        this.slab((SlabBlock) DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
-        this.wallBlock((WallBlock) DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
-        this.block(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
-        this.stairs((StairBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
-        this.slab((SlabBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
-        this.wallBlock((WallBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        this.block(DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        this.block(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        this.block(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        this.stairs((StairBlock) DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        this.slab((SlabBlock) DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        this.wallBlock((WallBlock) DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
 
         this.block(DABlocks.BIG_HOLYSTONE_BRICKS.get());
         this.stairs((StairBlock) DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get(), DABlocks.BIG_HOLYSTONE_BRICKS.get());
