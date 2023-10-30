@@ -466,6 +466,55 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
 
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), AetherBlocks.MOSSY_HOLYSTONE.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
+
+
+        stairs(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS, DABlocks.MOSSY_HOLYSTONE_TILES).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
+
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
+                .group("mossy_holystone_tiles")
+                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
+                .requires(Blocks.MOSS_BLOCK.asItem())
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+                .save(consumer, name("mossy_holystone_tiles_from_moss"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
+                .group("mossy_holystone_tiles")
+                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
+                .requires(DABlocks.AETHER_MOSS_BLOCK.get().asItem())
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+                .save(consumer, name("mossy_holystone_tiles_from_aether_moss"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
+                .group("mossy_holystone_tiles")
+                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
+                .requires(Blocks.VINE.asItem())
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+                .save(consumer, name("mossy_holystone_tiles_from_vines"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 4)
+                .define('A', DABlocks.MOSSY_HOLYSTONE_BRICKS.get().asItem())
+                .pattern("AA")
+                .pattern("AA")
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+                .save(consumer);
+
+
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 2);
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
@@ -473,12 +522,12 @@ public class DARecipeData extends AetherRecipeProvider {
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), 2);
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
-//
+        //
         //stairs(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS).save(consumer);
         //slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
         //wall(consumer, RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
-//
-//
+        //
+        //
         //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 4)
         //        .define('A', ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get().asItem())
         //        .pattern("AA")
@@ -526,6 +575,80 @@ public class DARecipeData extends AetherRecipeProvider {
         //        .pattern("AA")
         //        .pattern("AA")
         //        .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
+        //        .save(consumer);
+
+
+
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+        //
+        //stairs(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILES).save(consumer);
+        //slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        //wall(consumer, RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        //
+        //
+        //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(), 4)
+        //        .define('A', ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get().asItem())
+        //        .pattern("AA")
+        //        .pattern("AA")
+        //        .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+        //        .save(consumer);
+
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(), DABlocks.GILDED_HOLYSTONE_TILES.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILES.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(), DABlocks.GILDED_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILES.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+
+        //stairs(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS, DABlocks.GILDED_HOLYSTONE_TILES).save(consumer);
+        //slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
+        //wall(consumer, RecipeCategory.DECORATIONS, DABlocks.GILDED_HOLYSTONE_TILE_WALL.get(), DABlocks.GILDED_HOLYSTONE_TILES.get());
+
+
+        //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.GILDED_HOLYSTONE_TILES.get(), 4)
+        //        .define('A', ReduxBlocks.GILDED_HOLYSTONE.get().asItem())
+        //        .pattern("AA")
+        //        .pattern("AA")
+        //        .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+        //        .save(consumer);
+
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get(), DABlocks.FROSTED_HOLYSTONE_TILES.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get(), DABlocks.FROSTED_HOLYSTONE_TILES.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get(), DABlocks.FROSTED_HOLYSTONE_TILES.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILES.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILES.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), 2);
+        //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+
+        //stairs(DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS, DABlocks.FROSTED_HOLYSTONE_TILES).save(consumer);
+        //slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get(), DABlocks.FROSTED_HOLYSTONE_TILES.get());
+        //wall(consumer, RecipeCategory.DECORATIONS, DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get(), DABlocks.FROSTED_HOLYSTONE_TILES.get());
+
+
+        //ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.FROSTED_HOLYSTONE_TILES.get(), 4)
+        //        .define('A', ReduxBlocks.FROSTED_HOLYSTONE.get().asItem())
+        //        .pattern("AA")
+        //        .pattern("AA")
+        //        .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
         //        .save(consumer);
 
 

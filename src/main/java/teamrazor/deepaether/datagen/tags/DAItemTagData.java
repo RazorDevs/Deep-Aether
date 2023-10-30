@@ -195,9 +195,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.AETHER_MUD_BRICKS_WALL.get().asItem(),
                 DABlocks.HOLYSTONE_TILE_WALL.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get().asItem(),
+                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get().asItem(),
                 DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get().asItem(),
+                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get().asItem(),
                 DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get().asItem(),
-                DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get().asItem()
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get().asItem(),
+                DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get().asItem(),
+                DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get().asItem()
         );
         tag(ItemTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get().asItem(),

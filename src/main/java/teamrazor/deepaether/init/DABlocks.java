@@ -243,15 +243,19 @@ public class DABlocks {
 
 	public static final RegistryObject<Block> HOLYSTONE_TILES = registerBlock("holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICKS = registerBlock("mossy_holystone_bricks", () -> new Block(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILES = registerBlock("mossy_holystone_tiles", () -> new Block(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_STAIRS = registerBlock("holystone_tile_stairs", () -> new StairBlock(DABlocks.HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_STAIRS = registerBlock("mossy_holystone_brick_stairs", () -> new StairBlock(DABlocks.MOSSY_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_STAIRS = registerBlock("mossy_holystone_tile_stairs", () -> new StairBlock(DABlocks.MOSSY_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_SLAB = registerBlock("holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_SLAB = registerBlock("mossy_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_SLAB = registerBlock("mossy_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_WALL = registerBlock("holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_WALL = registerBlock("mossy_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_WALL = registerBlock("mossy_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS = registerBlock("big_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_SLAB = registerBlock("big_holystone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
@@ -351,6 +355,21 @@ public class DABlocks {
 	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICK_STAIRS = registerAetherReduxBlock("frosted_holystone_brick_stairs", () -> new StairBlock(DABlocks.FROSTED_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICK_SLAB = registerAetherReduxBlock("frosted_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICK_WALL = registerAetherReduxBlock("frosted_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILES = registerAetherReduxBlock("gilded_holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILE_STAIRS = registerAetherReduxBlock("gilded_holystone_tile_stairs", () -> new StairBlock(DABlocks.GILDED_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("gilded_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("gilded_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILES = registerAetherReduxBlock("blightmoss_holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_STAIRS = registerAetherReduxBlock("blightmoss_holystone_tile_stairs", () -> new StairBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("blightmoss_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("blightmoss_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILES = registerAetherReduxBlock("frosted_holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_STAIRS = registerAetherReduxBlock("frosted_holystone_tile_stairs", () -> new StairBlock(DABlocks.FROSTED_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("frosted_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("frosted_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
 
 	//GENESIS COMPATIBILITY

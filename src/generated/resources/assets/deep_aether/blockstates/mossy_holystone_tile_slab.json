@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "deep_aether:block/mossy_holystone_tile_slab"
+    },
+    "type=double": {
+      "model": "deep_aether:block/mossy_holystone_tiles"
+    },
+    "type=top": {
+      "model": "deep_aether:block/mossy_holystone_tile_slab_top"
+    }
+  }
+}

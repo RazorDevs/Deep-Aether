@@ -200,6 +200,10 @@ public class DATabs {
                 output.accept(DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get());
                 output.accept(DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get());
                 output.accept(DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get());
+                output.accept(DABlocks.MOSSY_HOLYSTONE_TILES.get());
+                output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
+                output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
+                output.accept(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
 
                 output.accept(DABlocks.BIG_HOLYSTONE_BRICKS.get());
                 output.accept(DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get());
@@ -215,14 +219,26 @@ public class DATabs {
                     output.accept(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get());
                     output.accept(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get());
                     output.accept(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get());
+                    output.accept(DABlocks.GILDED_HOLYSTONE_TILES.get());
+                    output.accept(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
+                    output.accept(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
+                    output.accept(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
                     output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
                     output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get());
                     output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get());
                     output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get());
+                    output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+                    output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
+                    output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
+                    output.accept(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
                     output.accept(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
                     output.accept(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
                     output.accept(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get());
                     output.accept(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get());
+                    output.accept(DABlocks.FROSTED_HOLYSTONE_TILES.get());
+                    output.accept(DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get());
+                    output.accept(DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get());
+                    output.accept(DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get());
                 }
 
                 output.accept(DABlocks.RADIANT_ORCHID.get());

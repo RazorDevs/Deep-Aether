@@ -250,6 +250,11 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get());
 
+        this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
+
 
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get());
@@ -325,10 +330,25 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get());
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get());
 
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
+
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get());
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get());
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get());
+
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
+
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILES.get());
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get());
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get());
+        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get());
 
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get());
