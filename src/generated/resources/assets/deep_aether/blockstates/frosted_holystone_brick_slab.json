@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "deep_aether:block/frosted_holystone_brick_slab"
+    },
+    "type=double": {
+      "model": "deep_aether:block/frosted_holystone_bricks"
+    },
+    "type=top": {
+      "model": "deep_aether:block/frosted_holystone_brick_slab_top"
+    }
+  }
+}

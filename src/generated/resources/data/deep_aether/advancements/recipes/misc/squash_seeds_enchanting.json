@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pumpkin_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pumpkin_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:squash_seeds_enchanting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pumpkin_seeds",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:squash_seeds_enchanting"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "deep_aether:blightmoss_holystone_tiles"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "deep_aether:blightmoss_holystone_tile_slab"
+  },
+  "show_notification": true
+}

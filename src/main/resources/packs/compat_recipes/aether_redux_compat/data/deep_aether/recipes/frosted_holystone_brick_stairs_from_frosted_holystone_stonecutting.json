@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "aether_redux:frosted_holystone"
+  },
+  "result": "deep_aether:frosted_holystone_brick_stairs"
+}

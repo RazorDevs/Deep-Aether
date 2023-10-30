@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frosted_holystone_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "deep_aether:frosted_holystone_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:frosted_holystone_tile_wall_from_frosted_holystone_tiles_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_frosted_holystone_tiles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:frosted_holystone_tile_wall_from_frosted_holystone_tiles_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

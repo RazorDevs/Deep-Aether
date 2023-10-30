@@ -114,8 +114,8 @@ public class DeepAetherMod {
 		DARootPlacers.ROOT_PLACERS.register(bus);
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
-
-
+		DATabs.CREATIVE_MODE_TABS.register(bus);
+		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
@@ -291,6 +291,26 @@ public class DeepAetherMod {
 								PackSource.SERVER,
 								true)
 						));
+			}
+		}
+
+		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT) && event.getPackType() == PackType.SERVER_DATA) {
+			if (event.getPackType() == PackType.SERVER_DATA) {
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_lost_content_compat");
+				var pack = Pack.readMetaAndCreate("builtin/lost_aether_content_compat", Component.literal("Lost Aether Content Compat"), true,
+						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
+
+				event.addRepositorySource(consumer -> consumer.accept(pack));
+			}
+		}
+
+		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
+			if (event.getPackType() == PackType.SERVER_DATA) {
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_redux_compat");
+				var pack = Pack.readMetaAndCreate("builtin/aether_redux_compat", Component.literal("Aether Redux Compat"), true,
+						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
+
+				event.addRepositorySource(consumer -> consumer.accept(pack));
 			}
 		}
 	}
