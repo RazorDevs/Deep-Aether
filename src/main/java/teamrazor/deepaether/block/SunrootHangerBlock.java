@@ -106,4 +106,11 @@ public class SunrootHangerBlock extends Block {
         }
         else return SHAPE_2;
     }
+
+    @Override
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        if(state.getValue(THREE_SHAPES) == 0)
+            return 0;
+        else return 10;
+    }
 }

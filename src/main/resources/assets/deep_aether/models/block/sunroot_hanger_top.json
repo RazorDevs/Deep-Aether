@@ -1,7 +1,9 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "deep_aether:block/vine_top",
   "render_type": "cutout",
   "textures": {
-    "cross": "deep_aether:block/sunroot_hanger_top"
+    "0": "deep_aether:block/sunroot_hanger",
+    "1": "deep_aether:block/sunroot_hanger_top",
+    "particle": "deep_aether:block/sunroot_hanger"
   }
 }
