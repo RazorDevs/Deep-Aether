@@ -5,7 +5,8 @@
         "model": "deep_aether:block/yagroot_vine"
       },
       "when": {
-        "north": "true"
+        "north": "true",
+        "bottom":"false"
       }
     },
     {
@@ -17,7 +18,8 @@
         "north": "false",
         "south": "false",
         "up": "false",
-        "west": "false"
+        "west": "false",
+        "bottom":"false"
       }
     },
     {
@@ -27,7 +29,8 @@
         "y": 90
       },
       "when": {
-        "east": "true"
+        "east": "true",
+        "bottom":"false"
       }
     },
     {
@@ -41,7 +44,8 @@
         "north": "false",
         "south": "false",
         "up": "false",
-        "west": "false"
+        "west": "false",
+        "bottom":"false"
       }
     },
     {
@@ -51,7 +55,8 @@
         "y": 180
       },
       "when": {
-        "south": "true"
+        "south": "true",
+        "bottom":"false"
       }
     },
     {
@@ -65,7 +70,8 @@
         "north": "false",
         "south": "false",
         "up": "false",
-        "west": "false"
+        "west": "false",
+        "bottom":"false"
       }
     },
     {
@@ -75,7 +81,8 @@
         "y": 270
       },
       "when": {
-        "west": "true"
+        "west": "true",
+        "bottom":"false"
       }
     },
     {
@@ -89,7 +96,8 @@
         "north": "false",
         "south": "false",
         "up": "false",
-        "west": "false"
+        "west": "false",
+        "bottom":"false"
       }
     },
     {
@@ -99,7 +107,8 @@
         "x": 270
       },
       "when": {
-        "up": "true"
+        "up": "true",
+        "bottom":"false"
       }
     },
     {
@@ -113,7 +122,135 @@
         "north": "false",
         "south": "false",
         "up": "false",
-        "west": "false"
+        "west": "false",
+        "bottom":"false"
+      }
+    },
+
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip"
+      },
+      "when": {
+        "north": "true",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip"
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "true",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "up": "true",
+        "bottom":"true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/yagroot_vine_tip",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false",
+        "bottom":"true"
       }
     }
   ]

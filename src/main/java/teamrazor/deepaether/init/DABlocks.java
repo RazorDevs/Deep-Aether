@@ -138,7 +138,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> CRUDEROOT_SAPLING = registerBlock("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = BLOCKS.register("cruderoot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CRUDEROOT));
-	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new VineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
+	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new YagrootVineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 
 	public static final RegistryObject<CeilingHangingSignBlock> CRUDEROOT_HANGING_SIGN = BLOCKS.register("cruderoot_hanging_sign", () -> new DACeilingHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), DAWoodTypes.CRUDEROOT));

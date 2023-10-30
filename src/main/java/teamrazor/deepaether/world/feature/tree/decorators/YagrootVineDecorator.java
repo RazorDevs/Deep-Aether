@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import teamrazor.deepaether.block.YagrootVineBlock;
 import teamrazor.deepaether.init.DABlocks;
 
 
@@ -59,17 +60,17 @@ public class YagrootVineDecorator extends TreeDecorator {
     }
 
     private void addHangingVine(BlockPos blockPos, BooleanProperty property, TreeDecorator.Context context) {
-        placeVine(blockPos, property, context);
+        placeVine(blockPos, property, context, !context.isAir(blockPos.below()));
         int i = 4;
 
         for(BlockPos blockpos = blockPos.below(); context.isAir(blockpos) && i > 0; --i) {
-            placeVine(blockpos, property, context);
+            placeVine(blockpos, property, context, !context.isAir(blockPos.below()));
             blockpos = blockpos.below();
         }
 
     }
-    public void placeVine(BlockPos blockPos, BooleanProperty property, TreeDecorator.Context context) {
-        context.setBlock(blockPos, DABlocks.YAGROOT_VINE.get().defaultBlockState().setValue(property, Boolean.valueOf(true)));
+    public void placeVine(BlockPos blockPos, BooleanProperty property, TreeDecorator.Context context, Boolean isBottom) {
+        context.setBlock(blockPos, DABlocks.YAGROOT_VINE.get().defaultBlockState().setValue(property, Boolean.TRUE).setValue(YagrootVineBlock.BOTTOM, isBottom));
     }
 }
 
