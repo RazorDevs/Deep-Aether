@@ -300,7 +300,7 @@ public class DAConfiguredFeatures {
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(YAGROOT_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(DABlocks.YAGROOT_SAPLING.get()))));
 
         register(context, SUNROOT_AND_CONBERRY_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SUNROOT_TREE), PlacementUtils.filteredByBlockSurvival(DABlocks.SUNROOT_SAPLING.get())), 0.25F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SUNROOT_TREE), PlacementUtils.filteredByBlockSurvival(DABlocks.SUNROOT_SAPLING.get())), 0.5F)),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CONBERRY_TREE), PlacementUtils.filteredByBlockSurvival(DABlocks.CONBERRY_SAPLING.get()))));
 
         register(context, AETHER_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.AETHER_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
