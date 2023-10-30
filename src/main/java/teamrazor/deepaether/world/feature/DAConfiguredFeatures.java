@@ -208,7 +208,7 @@ public class DAConfiguredFeatures {
         register(context, SUNROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DABlocks.SUNROOT_LOG.get()),
-                        new SunrootTunkPlacer(5, 7, 3),
+                        new SunrootTunkPlacer(4, 6, 3),
                         BlockStateProvider.simple(DABlocks.SUNROOT_LEAVES.get()),
                         new RandomSpreadFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), ConstantInt.of(2), 100),
                         new TwoLayersFeatureSize(2, 1, 4)

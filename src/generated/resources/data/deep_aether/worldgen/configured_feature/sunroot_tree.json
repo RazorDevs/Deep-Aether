@@ -25,6 +25,7 @@
       "state": {
         "Name": "deep_aether:sunroot_leaves",
         "Properties": {
+          "bottom": "false",
           "distance": "7",
           "double_drops": "false",
           "persistent": "false",
@@ -42,8 +43,8 @@
     },
     "trunk_placer": {
       "type": "deep_aether:sunroot_trunk_placer",
-      "base_height": 5,
-      "height_rand_a": 7,
+      "base_height": 4,
+      "height_rand_a": 6,
       "height_rand_b": 3
     },
     "trunk_provider": {

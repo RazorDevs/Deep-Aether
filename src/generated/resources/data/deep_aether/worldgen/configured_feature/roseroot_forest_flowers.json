@@ -12,43 +12,31 @@
                 "data": {
                   "Name": "deep_aether:radiant_orchid"
                 },
-                "weight": 2
+                "weight": 4
               },
               {
                 "data": {
                   "Name": "deep_aether:sky_tulips"
                 },
-                "weight": 2
+                "weight": 1
               },
               {
                 "data": {
                   "Name": "deep_aether:iaspove"
                 },
-                "weight": 2
+                "weight": 1
               },
               {
                 "data": {
                   "Name": "deep_aether:golden_aspess"
                 },
-                "weight": 2
+                "weight": 1
               },
               {
                 "data": {
                   "Name": "deep_aether:echaisy"
                 },
-                "weight": 2
-              },
-              {
-                "data": {
-                  "Name": "aether:purple_flower"
-                },
-                "weight": 2
-              },
-              {
-                "data": {
-                  "Name": "aether:white_flower"
-                },
-                "weight": 2
+                "weight": 1
               }
             ]
           }
