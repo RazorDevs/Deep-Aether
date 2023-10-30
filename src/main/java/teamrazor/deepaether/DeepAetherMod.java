@@ -268,7 +268,7 @@ public class DeepAetherMod {
 
 		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
-				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/lost_aether_content_compat");
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_lost_content_compat");
 				var pack = Pack.readMetaAndCreate("builtin/lost_aether_content_compat", Component.literal("Lost Aether Content Compat"), true,
 						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
 
