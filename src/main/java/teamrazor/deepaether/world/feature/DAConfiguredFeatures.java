@@ -270,11 +270,11 @@ public class DAConfiguredFeatures {
                         .add(AetherFeatureStates.PURPLE_FLOWER, 2)
                         .add(AetherFeatureStates.WHITE_FLOWER, 2)), 100));
 
-        register(context, ROSEROOT_FOREST_GRASS, Feature.FLOWER,
+        register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.FEATHER_GRASS,30)
-                        .add(DAFeatureStates.TALL_FEATHER_GRASS,25)
-                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 256));
+                        .add(DAFeatureStates.FEATHER_GRASS,20)
+                        .add(DAFeatureStates.TALL_FEATHER_GRASS,5)
+                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 32));
 
         register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
