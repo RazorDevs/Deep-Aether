@@ -15,7 +15,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -23,7 +22,10 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CaveVines;
+import net.minecraft.world.level.block.CaveVinesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -36,14 +38,10 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePl
 import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
-import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
-import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
@@ -268,18 +266,18 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.RADIANT_ORCHID,2)
-                        .add(DAFeatureStates.SKY_TULIPS,2)
-                        .add(DAFeatureStates.IASPOVE,2)
-                        .add(DAFeatureStates.GOLDEN_ASPESS,2)
-                        .add(DAFeatureStates.ECHAISY,2)
-                        .add(AetherFeatureStates.PURPLE_FLOWER, 2)
-                        .add(AetherFeatureStates.WHITE_FLOWER, 2)), 100));
+                        .add(DAFeatureStates.RADIANT_ORCHID,4)
+                        .add(DAFeatureStates.SKY_TULIPS,1)
+                        .add(DAFeatureStates.IASPOVE,1)
+                        .add(DAFeatureStates.GOLDEN_ASPESS,1)
+                        .add(DAFeatureStates.ECHAISY,1)), 100));
 
         register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.FEATHER_GRASS,20)
                         .add(DAFeatureStates.TALL_FEATHER_GRASS,5)
+                        .add(AetherFeatureStates.PURPLE_FLOWER, 1)
+                        .add(AetherFeatureStates.WHITE_FLOWER, 1)
                         .add(AetherFeatureStates.BERRY_BUSH, 1)), 32));
 
         register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
