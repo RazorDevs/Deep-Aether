@@ -187,6 +187,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.SUNROOT_SIGN.get());
         this.dropOther(DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), DABlocks.SUNROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.SUNROOT_HANGING_SIGN.get());
+        this.dropSelf(DABlocks.SUNROOT_HANGER.get());
 
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());

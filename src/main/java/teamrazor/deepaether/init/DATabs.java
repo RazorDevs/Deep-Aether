@@ -130,7 +130,7 @@ public class DATabs {
                 output.accept(DAItems.SUNROOT_HANGING_SIGN.get());
                 output.accept(DABlocks.SUNROOT_LEAVES.get());
                 output.accept(DABlocks.SUNROOT_SAPLING.get());
-
+                output.accept(DABlocks.SUNROOT_HANGER.get());
 
                 if (ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
                     output.accept(DABlocks.ROSEROOT_LOG_WALL.get());

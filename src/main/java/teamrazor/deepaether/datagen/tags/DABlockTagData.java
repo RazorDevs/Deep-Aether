@@ -219,7 +219,8 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.CLIMBABLE).add(
                 DABlocks.YAGROOT_VINE.get(),
                 DABlocks.GOLDEN_VINES.get(),
-                DABlocks.GOLDEN_VINES_PLANT.get()
+                DABlocks.GOLDEN_VINES_PLANT.get(),
+                DABlocks.SUNROOT_HANGER.get()
         );
 
         tag(BlockTags.DIRT).add(
@@ -271,7 +272,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MOSS_CARPET.get(),
                 DABlocks.AERGLOW_BLOSSOM_BLOCK.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
-                DABlocks.SUNROOT_LEAVES.get()
+                DABlocks.SUNROOT_LEAVES.get(),
+                DABlocks.SUNROOT_HANGER.get()
         );
         tag(BlockTags.MINEABLE_WITH_AXE).add(
                 DABlocks.ROSEROOT_WOOD.get(),

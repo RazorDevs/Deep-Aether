@@ -1,7 +1,12 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "deep_aether:sunroot_hanger",
+        "probability": 0.2
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -9,14 +14,11 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:cherry_foliage_placer",
-      "corner_hole_chance": 0.2,
-      "hanging_leaves_chance": 0.5,
-      "hanging_leaves_extension_chance": 0.5,
-      "height": 4,
-      "offset": 1,
-      "radius": 5,
-      "wide_bottom_layer_hole_chance": 0.2
+      "type": "minecraft:random_spread_foliage_placer",
+      "foliage_height": 2,
+      "leaf_placement_attempts": 100,
+      "offset": 0,
+      "radius": 3
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
@@ -39,7 +41,7 @@
       "upper_size": 4
     },
     "trunk_placer": {
-      "type": "minecraft:straight_trunk_placer",
+      "type": "deep_aether:sunroot_trunk_placer",
       "base_height": 5,
       "height_rand_a": 7,
       "height_rand_b": 3
