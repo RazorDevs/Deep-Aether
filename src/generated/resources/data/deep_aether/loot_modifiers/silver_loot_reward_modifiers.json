@@ -28,7 +28,14 @@
         "id": "deep_aether:sterling_aercloud"
       },
       "weight": 10
+    },
+    {
+      "data": {
+        "Count": 1,
+        "id": "deep_aether:stratus_smithing_template"
+      },
+      "weight": 50
     }
   ],
-  "totalWeight": 105
+  "totalWeight": 155
 }
