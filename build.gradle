@@ -137,7 +137,7 @@ dependencies {
     compileOnly fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
 
-     //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")
+    //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")
 }
 
 jar {

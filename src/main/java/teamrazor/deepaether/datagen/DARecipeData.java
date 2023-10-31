@@ -881,6 +881,21 @@ public class DARecipeData extends AetherRecipeProvider {
 
         enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DAItems.BLUE_SQUASH_SLICE.get(), 4)
+                .requires(DABlocks.BLUE_SQUASH.get(), 1)
+                .unlockedBy(getHasName(DABlocks.BLUE_SQUASH.get()), has(DABlocks.BLUE_SQUASH.get()))
+                .save(consumer, name("slice_from_blue_squash"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DAItems.GREEN_SQUASH_SLICE.get(), 4)
+                .requires(DABlocks.GREEN_SQUASH.get(), 1)
+                .unlockedBy(getHasName(DABlocks.GREEN_SQUASH.get()), has(DABlocks.GREEN_SQUASH.get()))
+                .save(consumer, name("slice_from_green_squash"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DAItems.PURPLE_SQUASH_SLICE.get(), 4)
+                .requires(DABlocks.PURPLE_SQUASH.get(), 1)
+                .unlockedBy(getHasName(DABlocks.PURPLE_SQUASH.get()), has(DABlocks.PURPLE_SQUASH.get()))
+                .save(consumer, name("slice_from_purple_squash"));
+
         //LOST CONTENT
         //ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.SKYJADE_SHIELD.get(), 1)
         //        .group("minecraft:shield")

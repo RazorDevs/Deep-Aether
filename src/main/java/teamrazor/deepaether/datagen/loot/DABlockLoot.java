@@ -84,7 +84,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelf(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
 
-        this.dropSelf(DABlocks.SQUASH.get());
+        this.dropSelf(DABlocks.BLUE_SQUASH.get());
+        this.dropSelf(DABlocks.GREEN_SQUASH.get());
+        this.dropSelf(DABlocks.PURPLE_SQUASH.get());
         this.dropNone(DABlocks.SQUASH_STEM.get());
         this.dropNone(DABlocks.ATTACHED_SQUASH_STEM.get());
 

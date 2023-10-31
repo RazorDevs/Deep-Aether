@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    []
+  ],
+  "result": {
+    "count": 4,
+    "item": "deep_aether:purple_squash_slice"
+  }
+}

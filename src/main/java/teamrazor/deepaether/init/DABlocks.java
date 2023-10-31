@@ -313,11 +313,16 @@ public class DABlocks {
 	public static final RegistryObject<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final RegistryObject<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
 
-	public static final RegistryObject<Block> SQUASH = BLOCKS.register("squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new StemBlock((StemGrownBlock)SQUASH.get(), DAItems.SQUASH_SEEDS,
+	public static final RegistryObject<SquashBlock> BLUE_SQUASH = BLOCKS.register("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> GREEN_SQUASH = BLOCKS.register("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = BLOCKS.register("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
+
+	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(DAItems.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedStemBlock((StemGrownBlock)SQUASH.get(), DAItems.SQUASH_SEEDS,
+	public static final RegistryObject<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedSquashStemBlock(DAItems.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
 
 	//POTS
 	public static final RegistryObject<FlowerPotBlock> POTTED_AERLAVENDER = BLOCKS.register("potted_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -448,7 +453,6 @@ public class DABlocks {
 		else
 			registerBlockItemDisabled(name, toReturn);
 
-
 		return  toReturn;
 	}
 
@@ -473,6 +477,7 @@ public class DABlocks {
 		WoodType.register(DAWoodTypes.CONBERRY);
 		WoodType.register(DAWoodTypes.SUNROOT);
 	}
+
 	public static void registerFlammability() {
 		FireBlockAccessor fireBlockAccessor = (FireBlockAccessor) Blocks.FIRE;
 		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LEAVES.get(), 30, 60);
@@ -576,9 +581,11 @@ public class DABlocks {
 	private static <A> boolean never(BlockState p_test_1_, BlockGetter p_test_2_, BlockPos p_test_3_, A p_test_4_) {
 		return false;
 	}
-	private static boolean ocelotOrParrot(BlockState p_235441_0_, BlockGetter p_235441_1_, BlockPos p_235441_2_, EntityType<?> p_235441_3_) {
-		return p_235441_3_ == EntityType.OCELOT || p_235441_3_ == EntityType.PARROT;
+	private static boolean ocelotOrParrot(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
+		return entityType == EntityType.OCELOT || entityType == EntityType.PARROT;
 	}
+
+
 }
 
 
