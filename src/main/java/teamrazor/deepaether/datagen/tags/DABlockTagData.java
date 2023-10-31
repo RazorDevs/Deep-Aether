@@ -300,6 +300,9 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ROSEROOT_FENCE_GATE.get(),
                 DABlocks.ROSEROOT_SIGN.get(),
                 DABlocks.ROSEROOT_WALL_SIGN.get(),
+                DABlocks.BLUE_SQUASH.get(),
+                DABlocks.GREEN_SQUASH.get(),
+                DABlocks.PURPLE_SQUASH.get(),
 
                 DABlocks.STRIPPED_YAGROOT_WOOD.get(),
                 DABlocks.STRIPPED_YAGROOT_LOG.get(),

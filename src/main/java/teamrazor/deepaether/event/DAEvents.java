@@ -47,31 +47,4 @@ public class DAEvents {
             }
         }
     }
-
-
-    @SubscribeEvent
-    public static void onShieldBlock(ShieldBlockEvent event)
-    {
-        var blocker = event.getEntity();
-        DamageSource source = event.getDamageSource();
-        if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-            if (blocker.getUseItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields")))) {
-                blocker.level().playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level().random.nextFloat() * 0.4F);
-
-                if (blocker.getUseItem().getItem() == DAItems.STRATUS_SHIELD.get() && source.getDirectEntity() instanceof LivingEntity attacker) {
-                    attacker.knockback(1.5F, blocker.getX() - attacker.getX(), blocker.getZ() - attacker.getZ());
-                    attacker.setPos(attacker.getX(), attacker.getY() + 1D, attacker.getZ());
-                    attacker.hasImpulse = true;
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onLivingEntityDeath(LivingDeathEvent event) {
-        LivingEntity entity = event.getEntity();
-        if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAetherMod.IS_HALLOWEEN_CONTENT_ENABLED) {
-            entity.spawnAtLocation(new ItemStack(DAItems.SPOOKY_RING.get(), 1));
-        }
-    }
 }
