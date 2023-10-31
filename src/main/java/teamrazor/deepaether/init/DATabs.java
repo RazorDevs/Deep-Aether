@@ -145,6 +145,10 @@ public class DATabs {
                     output.accept(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
                 }
 
+                output.accept(DABlocks.BLUE_SQUASH.get());
+                output.accept(DABlocks.GREEN_SQUASH.get());
+                output.accept(DABlocks.PURPLE_SQUASH.get());
+
                 output.accept(DABlocks.AETHER_MOSS_BLOCK.get());
                 output.accept(DABlocks.AETHER_MOSS_CARPET.get());
 

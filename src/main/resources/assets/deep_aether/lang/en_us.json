@@ -642,6 +642,11 @@
   "block.deep_aether.echaisy": "Echaisy",
   "lore.block.deep_aether.echaisy": "One of many Aether flowers. It is said to have good effects when eaten.",
 
+  "item.deep_aether.squash_seeds": "Squash Seeds",
+  "block.deep_aether.blue_squash": "Blue Squash",
+  "block.deep_aether.green_squash": "Green Squash",
+  "block.deep_aether.purple_squash": "Purple Squash",
+
   "item.deep_aether.golden_grass_seeds": "Golden Grass Seeds",
   "lore.item.deep_aether.golden_grass_seeds": "These seeds come from Golden Grass. Combine it with a Swet Ball to make Golden Swet Balls.",
   "item.deep_aether.golden_swet_ball": "Golden Swet Ball",

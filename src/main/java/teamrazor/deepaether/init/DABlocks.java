@@ -313,9 +313,9 @@ public class DABlocks {
 	public static final RegistryObject<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final RegistryObject<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
 
-	public static final RegistryObject<SquashBlock> BLUE_SQUASH = BLOCKS.register("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<SquashBlock> GREEN_SQUASH = BLOCKS.register("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = BLOCKS.register("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> BLUE_SQUASH = registerBlock("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 
 
 	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(DAItems.SQUASH_SEEDS,

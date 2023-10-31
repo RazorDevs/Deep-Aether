@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
+import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAParticles;
 
 import java.util.function.Supplier;
@@ -111,6 +112,15 @@ public class PoisonBlock extends LiquidBlock {
                 }
                 if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_CHINCHILLA.get()) {
                     TRANSFORM_ITEM = Items.MUSIC_DISC_STRAD;
+                    CAN_TRANSFORM = true;
+                }
+
+                if (itemEntity.getItem().getItem() == DABlocks.BLUE_SQUASH.get().asItem()) {
+                    TRANSFORM_ITEM = DABlocks.PURPLE_SQUASH.get().asItem();
+                    CAN_TRANSFORM = true;
+                }
+                if (itemEntity.getItem().getItem() == DABlocks.GREEN_SQUASH.get().asItem()) {
+                    TRANSFORM_ITEM = DABlocks.PURPLE_SQUASH.get().asItem();
                     CAN_TRANSFORM = true;
                 }
 
