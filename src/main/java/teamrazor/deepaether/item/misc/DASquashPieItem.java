@@ -11,12 +11,13 @@ public class DASquashPieItem extends Item {
     MobEffect[] effects;
     public DASquashPieItem(Properties properties, MobEffect[] effects) {
         super(properties);
-        effects = effects;
+        this.effects = effects;
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity player) {
-        player.addEffect(new MobEffectInstance(effects[level.random.nextInt(effects.length)], 300));
+        if(!level.isClientSide())
+            player.addEffect(new MobEffectInstance(effects[level.random.nextInt(effects.length)], 900));
 
         return super.finishUsingItem(stack, level, player);
     }

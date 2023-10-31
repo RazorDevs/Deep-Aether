@@ -317,6 +317,10 @@ public class DATabs {
                 output.accept(DAItems.GOLDEN_BERRIES.get());
                 output.accept(DAItems.GOLDEN_GRASS_SEEDS.get());
                 output.accept(DAItems.SQUASH_SEEDS.get());
+                output.accept(DAItems.BLUE_SQUASH_SLICE.get());
+                output.accept(DAItems.GREEN_SQUASH_SLICE.get());
+                output.accept(DAItems.PURPLE_SQUASH_SLICE.get());
+
                 if (!ModList.get().isLoaded("aether_redux") && !ModList.get().isLoaded("aether_genesis")) {
                     output.accept(DAItems.GOLDEN_SWET_BALL.get());
                 }

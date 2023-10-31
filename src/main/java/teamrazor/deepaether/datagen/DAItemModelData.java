@@ -363,6 +363,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SQUASH_SEEDS.get());
         this.item(DAItems.GOLDEN_SWET_BALL.get());
 
+        this.item(DAItems.GREEN_SQUASH_SLICE.get());
+        this.item(DAItems.BLUE_SQUASH_SLICE.get());
+        this.item(DAItems.PURPLE_SQUASH_SLICE.get());
+
         this.itemWallBlock(DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
     }
 

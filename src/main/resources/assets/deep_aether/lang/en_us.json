@@ -677,6 +677,11 @@
   "block.deep_aether.conberry_log_wall": "Conberry Log Wall",
   "block.deep_aether.stripped_conberry_log_wall": "Stripped Conberry Log Wall",
   "block.deep_aether.sunroot_log_wall": "Sunroot Log Wall",
-  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall"
+  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall",
+
+  "item.deep_aether.blue_squash_slice": "Blue Squash Slice",
+  "item.deep_aether.green_squash_slice": "Green Squash Slice",
+  "item.deep_aether.purple_squash_slice": "Purple Squash slice"
 }
+
 
