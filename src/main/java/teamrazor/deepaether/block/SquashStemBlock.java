@@ -26,7 +26,7 @@ public class SquashStemBlock extends StemBlock {
         if (!level.isAreaLoaded(blockPos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
         if (level.getRawBrightness(blockPos, 0) >= 9) {
             float f = CropBlock.getGrowthSpeed(this, level, blockPos);
-            if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, blockPos, blockState, randomSource.nextInt((int)(25.0F / f) + 1) == 0)) {
+            if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, blockPos, blockState, randomSource.nextInt((int)(40.0F / f) + 1) == 0)) {
                 int i = blockState.getValue(AGE);
                 if (i < 7) {
                     level.setBlock(blockPos, blockState.setValue(AGE, Integer.valueOf(i + 1)), 2);
