@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    []
+    {
+      "item": "deep_aether:green_squash"
+    }
   ],
   "result": {
     "count": 4,

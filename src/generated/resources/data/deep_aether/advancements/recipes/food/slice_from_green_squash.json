@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_air": {
+    "has_green_squash": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:air"
+              "deep_aether:green_squash"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_air",
+      "has_green_squash",
       "has_the_recipe"
     ]
   ],
