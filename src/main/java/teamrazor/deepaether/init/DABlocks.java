@@ -28,10 +28,7 @@ import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
-import teamrazor.deepaether.world.feature.tree.ConberryTreeGrower;
-import teamrazor.deepaether.world.feature.tree.CruderootTreeGrower;
-import teamrazor.deepaether.world.feature.tree.SunrootTreeGrower;
-import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.*;
 
 import java.util.function.Supplier;
 
@@ -53,13 +50,12 @@ public class DABlocks {
 	public static final RegistryObject<Block> MEDIUM_GOLDEN_GRASS = registerBlock("medium_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XYZ)));
 	public static final RegistryObject<Block> TALL_GOLDEN_GRASS = registerBlock("tall_golden_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 
+	public static final RegistryObject<Block> FEATHER_GRASS = registerBlock("feather_grass", ()-> new FeatherGrassPlant(BlockBehaviour.Properties.copy(Blocks.GRASS)));
+	public static final RegistryObject<Block> TALL_FEATHER_GRASS = registerBlock("tall_feather_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)));
 
 	// WOOD
 	public static final RegistryObject<Block> ROSEROOT_WOOD = registerBlock("roseroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
-
 	public static final RegistryObject<Block> ROTTEN_ROSEROOT_LOG = registerBlock("rotten_roseroot_log", () -> new EmptyLog(Block.Properties.copy(Blocks.OAK_LOG)));
-
-
 	public static final RegistryObject<Block> ROSEROOT_LOG = registerBlock("roseroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> ROSEROOT_WALL = registerBlock(300, "roseroot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> STRIPPED_ROSEROOT_WOOD = registerBlock("stripped_roseroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
@@ -76,10 +72,10 @@ public class DABlocks {
 	public static final RegistryObject<Block> ROSEROOT_TRAPDOOR = registerBlock("roseroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR)));
 	public static final RegistryObject<Block> ROSEROOT_LEAVES = registerBlock("roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> FLOWERING_ROSEROOT_LEAVES = registerBlock("flowering_roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(DABlocks::ocelotOrParrot).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).lightLevel(s -> 5)));
-	public static final RegistryObject<Block> ROSEROOT_SAPLING = registerBlock("roseroot_sapling", () -> new SaplingBlock( new RosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+	public static final RegistryObject<Block> ROSEROOT_SAPLING = registerBlock("roseroot_sapling", () -> new SaplingBlock(new RoserootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> BLUE_ROSEROOT_LEAVES = registerBlock("blue_roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> FLOWERING_BLUE_ROSEROOT_LEAVES = registerBlock("flowering_blue_roseroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(DABlocks.FLOWERING_ROSEROOT_LEAVES.get())));
-	public static final RegistryObject<Block> BLUE_ROSEROOT_SAPLING = registerBlock("blue_roseroot_sapling", () -> new SaplingBlock( new BlueRosewoodTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+	public static final RegistryObject<Block> BLUE_ROSEROOT_SAPLING = registerBlock("blue_roseroot_sapling", () -> new SaplingBlock(new BlueRoserootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 	public static final RegistryObject<Block> ROSEROOT_WALL_SIGN = BLOCKS.register("roseroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.ROSEROOT));
 	public static final RegistryObject<Block> ROSEROOT_SIGN = BLOCKS.register("roseroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.ROSEROOT));
 
@@ -110,7 +106,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> YAGROOT_SIGN = BLOCKS.register("yagroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.YAGROOT));
 
 
-	//CRUDEROOOT
+	//CRUDEROOT
 	public static final RegistryObject<Block> CRUDEROOT_WOOD = registerBlock("cruderoot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> CRUDEROOT_LOG = registerBlock("cruderoot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL = registerBlock(300,"cruderoot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -182,13 +178,25 @@ public class DABlocks {
 	public static final RegistryObject<Block> STRATUS_BLOCK = registerBlock("stratus_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(10f, 10f)));
 
 	//STONE TYPES
+	public static final RegistryObject<Block> COBBLED_ASETERITE = registerBlock("cobbled_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+	public static final RegistryObject<Block> COBBLED_ASETERITE_STAIRS = registerBlock("cobbled_aseterite_stairs", () -> new StairBlock(() -> DABlocks.COBBLED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
+	public static final RegistryObject<Block> COBBLED_ASETERITE_SLAB = registerBlock("cobbled_aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+	public static final RegistryObject<Block> COBBLED_ASETERITE_WALL = registerBlock("cobbled_aseterite_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()));
+
 	public static final RegistryObject<Block> ASETERITE = registerBlock("aseterite", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-	public static final RegistryObject<Block> POLISHED_ASETERITE = registerBlock("polished_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
-	public static final RegistryObject<Block> POLISHED_ASETERITE_STAIRS = registerBlock("polished_aseterite_stairs", () -> new StairBlock(() -> DABlocks.POLISHED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> ASETERITE_STAIRS = registerBlock("aseterite_stairs", () -> new StairBlock(() -> DABlocks.ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> ASETERITE_STAIRS = registerBlock("aseterite_stairs", () -> new StairBlock(() -> DABlocks.ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
 	public static final RegistryObject<Block> ASETERITE_SLAB = registerBlock("aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
-	public static final RegistryObject<Block> POLISHED_ASETERITE_SLAB = registerBlock("polished_aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
 	public static final RegistryObject<Block> ASETERITE_WALL = registerBlock("aseterite_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> POLISHED_ASETERITE = registerBlock("polished_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
+	public static final RegistryObject<Block> POLISHED_ASETERITE_STAIRS = registerBlock("polished_aseterite_stairs", () -> new StairBlock(() -> DABlocks.POLISHED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.POLISHED_ANDESITE)));
+
+	public static final RegistryObject<Block> POLISHED_ASETERITE_SLAB = registerBlock("polished_aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
+
+	public static final RegistryObject<Block> ASETERITE_BRICKS= registerBlock("aseterite_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+	public static final RegistryObject<Block> ASETERITE_BRICKS_STAIRS = registerBlock("aseterite_bricks_stairs", () -> new StairBlock(() -> DABlocks.ASETERITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+	public static final RegistryObject<Block> ASETERITE_BRICKS_SLAB = registerBlock("aseterite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+	public static final RegistryObject<Block> ASETERITE_BRICKS_WALL = registerBlock("aseterite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops()));
 
 	public static final RegistryObject<Block> RAW_CLORITE = registerBlock("raw_clorite", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
@@ -208,36 +216,41 @@ public class DABlocks {
 	public static final RegistryObject<Block> CLORITE_PILLAR = registerBlock("clorite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILES = registerBlock("holystone_tiles", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICKS = registerBlock("mossy_holystone_bricks", () -> new Block(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILES = registerBlock("mossy_holystone_tiles", () -> new Block(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_STAIRS = registerBlock("holystone_tile_stairs", () -> new StairBlock(DABlocks.HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_STAIRS = registerBlock("mossy_holystone_brick_stairs", () -> new StairBlock(DABlocks.MOSSY_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_STAIRS = registerBlock("mossy_holystone_tile_stairs", () -> new StairBlock(DABlocks.MOSSY_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_SLAB = registerBlock("holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_SLAB = registerBlock("mossy_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_SLAB = registerBlock("mossy_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 
 	public static final RegistryObject<Block> HOLYSTONE_TILE_WALL = registerBlock("holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> MOSSY_HOLYSTONE_BRICK_WALL = registerBlock("mossy_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
 	public static final RegistryObject<Block> MOSSY_HOLYSTONE_TILE_WALL = registerBlock("mossy_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(MOSSY_STONE_BRICKS)));
+
+	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS = registerBlock("big_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_SLAB = registerBlock("big_holystone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
+	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_STAIRS = registerBlock("big_holystone_bricks_stairs", () -> new StairBlock(BIG_HOLYSTONE_BRICKS.get().defaultBlockState(),  BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
+	public static final RegistryObject<Block> BIG_HOLYSTONE_BRICKS_WALL = registerBlock("big_holystone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(DABlocks.BIG_HOLYSTONE_BRICKS.get())));
+
+
+	public static final RegistryObject<Block> CHISELED_HOLYSTONE = registerBlock("chiseled_holystone", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> HOLYSTONE_PILLAR = registerBlock("holystone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> HOLYSTONE_PILLAR_UP = registerBlock("holystone_pillar_up", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> HOLYSTONE_PILLAR_DOWN = registerBlock("holystone_pillar_down", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
 
 	//AERCLOUDS
-	public static final RegistryObject<Block> AERSMOG = registerBlock("aersmog", () -> new AersmogBlock((Block.Properties.of(Material.ICE, MaterialColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never))));
-	public static final RegistryObject<Block> CHROMATIC_AERCLOUD = registerBlock("chromatic_aercloud", () -> new ChromaticAercloudBlock(Block.Properties.of(Material.ICE, MaterialColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).noCollission()));
-	public static final RegistryObject<Block> STERLING_AERCLOUD = registerBlock("sterling_aercloud", () -> new SterlingAercloudBlock(Block.Properties.of(Material.ICE, MaterialColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).noCollission().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
+	public static final RegistryObject<Block> AERSMOG = registerBlock("aersmog", () -> new AersmogBlock((Block.Properties.of(Material.WOOL).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never))));
+	public static final RegistryObject<Block> CHROMATIC_AERCLOUD = registerBlock("chromatic_aercloud", () -> new ChromaticAercloudBlock(Block.Properties.of(Material.WOOL).strength(0.3F).sound(SoundType.WOOL).dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).noCollission()));
+	public static final RegistryObject<Block> STERLING_AERCLOUD = registerBlock("sterling_aercloud", () -> new SterlingAercloudBlock(Block.Properties.of(Material.WOOL).strength(0.3F).sound(SoundType.WOOL).noCollission().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
 	public static final RegistryObject<Block> RAIN_AERCLOUD = registerBlock("rain_aercloud", () -> new RainAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get())));
 
 	//MISC
-	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
-	public static final RegistryObject<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> TALL_AETHER_CATTAILS = registerBlock("tall_aether_cattails", () ->  new TallFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> LIGHTCAP_MUSHROOM = registerBlock("lightcap_mushroom", () -> new LightCapMushroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM), null));
-
-
-	public static final RegistryObject<Block> AERGLOW_BLOSSOM_BLOCK = registerBlock("aerglow_blossom_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
+	public static final RegistryObject<Block> AERGLOW_BLOSSOM_BLOCK = registerBlock("aerglow_blossom_block", () -> new Block(BlockBehaviour.Properties.of(Material.WOOL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = registerBlock("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
 	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = registerBlock("aether_moss_block", () -> new DAMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
 
@@ -248,18 +261,40 @@ public class DABlocks {
 	public static final RegistryObject<Block> PACKED_AETHER_MUD = registerBlock("packed_aether_mud", () -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_MUD)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS = registerBlock("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_SLAB = registerBlock("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICK_SLAB)));
-	public static final RegistryObject<Block> AETHER_MUD_BRICKS_STAIRS = registerBlock("aether_mud_bricks_stairs", () -> new StairBlock(() -> DABlocks.AETHER_MUD_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> AETHER_MUD_BRICKS_WALL = registerBlock("aether_mud_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
-
-	public static final RegistryObject<Block>  GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
-	public static final RegistryObject<Block>  GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
-
-	public static final RegistryObject<LiquidBlock> POISON_BLOCK = BLOCKS.register("poison", () -> new PoisonBlock(DAFluids.POISON_FLUID, BlockBehaviour.Properties.of(Material.LAVA)
+	public static final RegistryObject<Block> AETHER_MUD_BRICKS_STAIRS = registerBlock("aether_mud_bricks_stairs", () -> new StairBlock(() -> DABlocks.AETHER_MUD_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> AETHER_MUD_BRICKS_WALL = registerBlock("aether_mud_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<LiquidBlock> POISON_BLOCK = BLOCKS.register("poison", () -> new PoisonBlock(DAFluids.POISON_FLUID, BlockBehaviour.Properties.of(Material.WATER)
 			.noCollission()
 			.strength(100f)
 			.noLootTable()));
 	public static final RegistryObject<Block> POISON_CAULDRON = BLOCKS.register("poison_cauldron", () -> new PoisonCauldronBlock(BlockBehaviour.Properties.copy(CAULDRON)));
 
+
+	//PLANTS
+	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
+	public static final RegistryObject<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> TALL_AETHER_CATTAILS = registerBlock("tall_aether_cattails", () ->  new TallFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> SKY_TULIPS = registerBlock("sky_tulips", () ->  new FlowerBlock(MobEffects.HEALTH_BOOST,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> IASPOVE = registerBlock("iaspove", () ->  new FlowerBlock(MobEffects.MOVEMENT_SPEED,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_ASPESS = registerBlock("golden_aspess", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> ECHAISY = registerBlock("echaisy", () ->  new FlowerBlock(MobEffects.DAMAGE_RESISTANCE,6, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
+	public static final RegistryObject<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
+	public static final RegistryObject<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.CAVE_VINES)));
+
+	public static final RegistryObject<SquashBlock> BLUE_SQUASH = registerBlock("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of(Material.PLANT).strength(1.0F).sound(SoundType.WOOD)));
+	public static final RegistryObject<SquashBlock> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of(Material.PLANT).strength(1.0F).sound(SoundType.WOOD)));
+	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of(Material.PLANT).strength(1.0F).sound(SoundType.WOOD)));
+
+
+	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(DAItems.SQUASH_SEEDS,
+			BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP)));
+	public static final RegistryObject<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedSquashStemBlock(DAItems.SQUASH_SEEDS,
+			BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.WOOD)));
 
 
 	//POTS
@@ -268,6 +303,11 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_AETHER_CATTAILS = BLOCKS.register("potted_aether_cattails", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AETHER_CATTAILS, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_RADIANT_ORCHID = BLOCKS.register("potted_radiant_orchid", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, RADIANT_ORCHID, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_ENCHANTED_BLOSSOM = BLOCKS.register("potted_enchanted_blossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ENCHANTED_BLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_SKY_TULIPS = BLOCKS.register("potted_sky_tulips", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKY_TULIPS, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_IASPOVE = BLOCKS.register("potted_iaspove", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IASPOVE, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_GOLDEN_ASPESS = BLOCKS.register("potted_golden_aspess", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDEN_ASPESS, Block.Properties.copy(Blocks.FLOWER_POT)));
+	public static final RegistryObject<FlowerPotBlock> POTTED_ECHAISY = BLOCKS.register("potted_echaisy", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ECHAISY, Block.Properties.copy(Blocks.FLOWER_POT)));
+
 
 	public static final RegistryObject<FlowerPotBlock> POTTED_ROSEROOT_SAPLING = BLOCKS.register("potted_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_ROSEROOT_SAPLING = BLOCKS.register("potted_blue_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -279,6 +319,21 @@ public class DABlocks {
 
 	//REDUX COMPATIBILITY
 
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_BRICKS = registerAetherReduxBlock("gilded_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_BRICK_STAIRS = registerAetherReduxBlock("gilded_holystone_brick_stairs", () -> new StairBlock(DABlocks.GILDED_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_BRICK_SLAB = registerAetherReduxBlock("gilded_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> GILDED_HOLYSTONE_BRICK_WALL = registerAetherReduxBlock("gilded_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_BRICKS = registerAetherReduxBlock("blightmoss_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS = registerAetherReduxBlock("blightmoss_holystone_brick_stairs", () -> new StairBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_BRICK_SLAB = registerAetherReduxBlock("blightmoss_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_BRICK_WALL = registerAetherReduxBlock("blightmoss_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICKS = registerAetherReduxBlock("frosted_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICK_STAIRS = registerAetherReduxBlock("frosted_holystone_brick_stairs", () -> new StairBlock(DABlocks.FROSTED_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICK_SLAB = registerAetherReduxBlock("frosted_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_BRICK_WALL = registerAetherReduxBlock("frosted_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+
 	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILES = registerAetherReduxBlock("gilded_holystone_tiles", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILE_STAIRS = registerAetherReduxBlock("gilded_holystone_tile_stairs", () -> new StairBlock(DABlocks.GILDED_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> GILDED_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("gilded_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
@@ -289,20 +344,10 @@ public class DABlocks {
 	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("blightmoss_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("blightmoss_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
-
-	//GENESIS COMPATIBILITY
-
-	public static final RegistryObject<WallBlock> ROSEROOT_LOG_WALL = registerAetherGenesisBlock("roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> STRIPPED_ROSEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> STRIPPED_CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> YAGROOT_LOG_WALL = registerAetherGenesisBlock("yagroot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> STRIPPED_YAGROOT_LOG_WALL = registerAetherGenesisBlock("stripped_yagroot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> CONBERRY_LOG_WALL = registerAetherGenesisBlock("conberry_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> STRIPPED_CONBERRY_LOG_WALL = registerAetherGenesisBlock("stripped_conberry_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> SUNROOT_LOG_WALL = registerAetherGenesisBlock("sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final RegistryObject<WallBlock> STRIPPED_SUNROOT_LOG_WALL = registerAetherGenesisBlock("stripped_sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILES = registerAetherReduxBlock("frosted_holystone_tiles", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_STAIRS = registerAetherReduxBlock("frosted_holystone_tile_stairs", () -> new StairBlock(DABlocks.FROSTED_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("frosted_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("frosted_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
 
 	public static void registerPots() {
@@ -312,6 +357,10 @@ public class DABlocks {
 		pot.addPlant(DABlocks.AETHER_CATTAILS.getId(), DABlocks.POTTED_AETHER_CATTAILS);
 		pot.addPlant(DABlocks.RADIANT_ORCHID.getId(), DABlocks.POTTED_RADIANT_ORCHID);
 		pot.addPlant(DABlocks.ENCHANTED_BLOSSOM.getId(), DABlocks.POTTED_ENCHANTED_BLOSSOM);
+		pot.addPlant(DABlocks.SKY_TULIPS.getId(), DABlocks.POTTED_SKY_TULIPS);
+		pot.addPlant(DABlocks.IASPOVE.getId(), DABlocks.POTTED_IASPOVE);
+		pot.addPlant(DABlocks.GOLDEN_ASPESS.getId(), DABlocks.POTTED_GOLDEN_ASPESS);
+		pot.addPlant(DABlocks.ECHAISY.getId(), DABlocks.POTTED_ECHAISY);
 
 		pot.addPlant(DABlocks.ROSEROOT_SAPLING.getId(), DABlocks.POTTED_ROSEROOT_SAPLING);
 		pot.addPlant(DABlocks.BLUE_ROSEROOT_SAPLING.getId(), DABlocks.POTTED_BLUE_ROSEROOT_SAPLING);

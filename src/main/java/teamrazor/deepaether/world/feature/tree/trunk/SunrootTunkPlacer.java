@@ -47,12 +47,12 @@ public class SunrootTunkPlacer extends TrunkPlacer {
         BlockPos pos2;
 
         pos2 = pos.relative(direction, random.nextInt(2,4)).above(i+random.nextInt(0,3));
-        this.placeLog(level, posState, random, pos2, config, (log) -> log.trySetValue(RotatedPillarBlock.AXIS, direction.getAxis()));
+        this.placeLog(level, posState, random, pos2, config, (log) -> log.setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
         list.add(new FoliagePlacer.FoliageAttachment(pos2, 0, false));
 
         if(random.nextBoolean()) {
             pos2 = pos.relative(direction.getClockWise(), random.nextInt(2,4)).above(i+random.nextInt(0,3));
-            this.placeLog(level, posState, random, pos2, config, (log) -> log.trySetValue(RotatedPillarBlock.AXIS, direction.getClockWise().getAxis()));
+            this.placeLog(level, posState, random, pos2, config, (log) -> log.setValue(RotatedPillarBlock.AXIS, direction.getClockWise().getAxis()));
             list.add(new FoliagePlacer.FoliageAttachment(pos2, 0, false));
         }
 

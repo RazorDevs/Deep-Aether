@@ -1,9 +1,0 @@
-{
-  "type": "aether:repairing",
-  "category": "enchanting_repair",
-  "group": "altar_sword_repair",
-  "ingredient": {
-    "item": "deep_aether:stratus_gloves"
-  },
-  "repairTime": 1500
-}

@@ -37,13 +37,15 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PlayMessages;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.builder.ILoopType;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 import teamrazor.deepaether.entity.goals.FollowPlayerGoal;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
@@ -51,9 +53,9 @@ import teamrazor.deepaether.init.DASounds;
 import java.util.UUID;
 
 @Mod.EventBusSubscriber
-public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, FlyingAnimal {
+public class Venomite extends AetherAnimal implements IAnimatable, NeutralMob, FlyingAnimal {
 
-    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
+    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     public static final int TICKS_PER_FLAP = Mth.ceil(1.4959966F);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Venomite.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> DATA_REMAINING_ANGER_TIME = SynchedEntityData.defineId(Venomite.class, EntityDataSerializers.INT);
@@ -119,7 +121,7 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
 
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
-        this.readPersistentAngerSaveData(this.level(), compoundTag);
+        this.readPersistentAngerSaveData(this.getLevel(), compoundTag);
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {
@@ -178,7 +180,7 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     }
 
     public boolean isFlying() {
-        return !this.onGround();
+        return !this.isOnGround();
     }
 
     public int getRemainingPersistentAngerTime() {
@@ -241,11 +243,11 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
         }
 
         if (this.underWaterTicks > 20) {
-            this.hurt(this.damageSources().drown(), 1.0F);
+            this.hurt(DamageSource.DROWN, 1.0F);
         }
 
-        if (!this.level().isClientSide) {
-            this.updatePersistentAnger((ServerLevel)this.level(), false);
+        if (!this.getLevel().isClientSide) {
+            this.updatePersistentAnger((ServerLevel)this.getLevel(), false);
         }
 
     }
@@ -260,29 +262,29 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
 
     public void aiStep() {
         super.aiStep();
-        if (!this.level().isClientSide) {
+        if (!this.getLevel().isClientSide) {
             boolean flag = this.isAngry() && this.getTarget() != null && this.getTarget().distanceToSqr(this) < 4.0D;
             this.setRolling(flag);
         }
     }
 
 
-    private PlayState predicate(AnimationState animationState) {
-        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.venomite.flying"));
+    private <E extends Venomite> PlayState predicate(final AnimationEvent<E> event) {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.venomite.flying",
+                ILoopType.EDefaultLoopTypes.LOOP));
         return PlayState.CONTINUE;
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller",
+    public void registerControllers(AnimationData animationData) {
+        animationData.addAnimationController(new AnimationController(this, "controller",
                 0, this::predicate));
     }
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
+    public AnimationFactory getFactory() {
         return factory;
     }
-
 
 
     class VenomiteAttackGoal extends MeleeAttackGoal {

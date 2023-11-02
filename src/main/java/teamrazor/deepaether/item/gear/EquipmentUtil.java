@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.skyjade.SkyjadeAccessory;
 import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.List;
@@ -22,6 +23,10 @@ public class EquipmentUtil {
                 && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
                 && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
                 && CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent();
+    }
+
+    public static boolean hasTwoSpookyRings(SlotContext context) {
+        return CuriosApi.getCuriosHelper().findCurios(context.entity(), DAItems.SPOOKY_RING.get()).size() == 2;
     }
 
     public static void damageRing(LivingEntity entity, RingItem ring) {

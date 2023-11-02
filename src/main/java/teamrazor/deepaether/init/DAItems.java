@@ -20,6 +20,7 @@ import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.gear.DAGlovesItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
+import teamrazor.deepaether.item.gear.other.SpookyRing;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
@@ -56,7 +57,7 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = ITEMS.register("skyjade_boots", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.FEET, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new SkyjadeGlovesItem(0.5, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).defaultDurability(75)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new SkyjadeRingItem(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).durability(30)));
-
+	public static final RegistryObject<Item> SPOOKY_RING = ITEMS.register("spooky_ring", () -> new SpookyRing(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(500)));
 	public static final RegistryObject<Item> GRAVITITE_RING = ITEMS.register("gravitite_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).durability(50)));
 	public static final RegistryObject<Item> STRATUS_HELMET = ITEMS.register("stratus_helmet", () -> new StratusAbility(DaArmorMaterials.STRATUS, EquipmentSlot.HEAD, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> STRATUS_CHESTPLATE = ITEMS.register("stratus_chestplate", () -> new DaArmorItem(DaArmorMaterials.STRATUS, EquipmentSlot.CHEST, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
@@ -128,6 +129,7 @@ public class DAItems {
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new Item(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
+	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new ItemNameBlockItem(DABlocks.SQUASH_STEM.get(), new Item.Properties()));
 
 	//LOST CONTENT
 

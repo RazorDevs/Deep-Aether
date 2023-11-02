@@ -33,7 +33,7 @@ public class SpookyRing extends RingItem {
     Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
 
     private int calculateIncrease(SlotContext context) {
-        Level level = context.entity().level();
+        Level level = context.entity().getLevel();
         int a = (int) level.getDayTime();
         if (level.isNight() && a < 13000) {
             return Mth.abs(a - 18000) / 2000;
@@ -64,7 +64,7 @@ public class SpookyRing extends RingItem {
 
     //Little easter egg
     public static void SpookyMoonConditions(SlotContext slotContext) {
-        Level level = slotContext.entity().level();
+        Level level = slotContext.entity().getLevel();
         if (level.isClientSide()) {
             LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) & level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN ? new ResourceLocation(DeepAetherMod.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png");
             AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN ? new ResourceLocation(DeepAetherMod.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png"));

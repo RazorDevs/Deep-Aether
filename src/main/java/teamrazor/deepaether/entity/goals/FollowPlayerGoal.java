@@ -38,7 +38,7 @@ public class FollowPlayerGoal extends Goal {
             --this.calmDown;
             return false;
         } else {
-            this.player = this.mob.level().getNearestPlayer(targetingConditions, this.mob);
+            this.player = this.mob.getLevel().getNearestPlayer(targetingConditions, this.mob);
             return this.player != null && !this.player.isCreative();
         }
     }
