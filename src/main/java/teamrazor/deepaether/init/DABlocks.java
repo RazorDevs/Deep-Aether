@@ -28,7 +28,10 @@ import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
-import teamrazor.deepaether.world.feature.tree.*;
+import teamrazor.deepaether.world.feature.tree.ConberryTreeGrower;
+import teamrazor.deepaether.world.feature.tree.CruderootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.SunrootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.YagrootTreeGrower;
 
 import java.util.function.Supplier;
 
@@ -234,7 +237,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> LIGHTCAP_MUSHROOM = registerBlock("lightcap_mushroom", () -> new LightCapMushroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM), null));
 
 
-	public static final RegistryObject<Block> AERGLOW_PETAL_BLOCK = registerBlock("aerglow_petal_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
+	public static final RegistryObject<Block> AERGLOW_BLOSSOM_BLOCK = registerBlock("aerglow_blossom_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
 	public static final RegistryObject<Block> AETHER_MOSS_CARPET = registerBlock("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET)));
 	public static final RegistryObject<Block> AETHER_MOSS_BLOCK = registerBlock("aether_moss_block", () -> new DAMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK)));
 

@@ -123,7 +123,7 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = ITEMS.register("skyroot_virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 
-	public static final RegistryObject<Item> AERGLOW_PETAL = ITEMS.register("aerglow_petal", () -> new Item(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> AERGLOW_BLOSSOM = ITEMS.register("aerglow_blossom", () -> new Item(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("goldenleaf_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)).food(DAFoods.GOLDEN_BERRIES)));
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new Item(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
