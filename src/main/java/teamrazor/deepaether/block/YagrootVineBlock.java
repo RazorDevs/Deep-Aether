@@ -17,7 +17,7 @@ public class YagrootVineBlock extends VineBlock {
 
     public YagrootVineBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, true).setValue(UP, false).setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, false).setValue(UP, false).setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false));
     }
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState p_57877_, LevelAccessor level, BlockPos pos, BlockPos p_57880_) {
