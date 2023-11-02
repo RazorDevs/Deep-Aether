@@ -1,0 +1,230 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_post_short"
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "low",
+            "up": "false",
+            "west": "low"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_post_tall"
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "tall",
+            "up": "false",
+            "west": "tall"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_post_short",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "none",
+            "north": "low",
+            "south": "low",
+            "up": "false",
+            "west": "none"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_post_tall",
+        "y": 90
+      },
+      "when": {
+        "AND": [
+          {
+            "east": "none",
+            "north": "tall",
+            "south": "tall",
+            "up": "false",
+            "west": "none"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side",
+        "y": 90
+      },
+      "when": {
+        "east": "low",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall",
+        "y": 90
+      },
+      "when": {
+        "east": "tall",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side"
+      },
+      "when": {
+        "north": "low",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall"
+      },
+      "when": {
+        "north": "tall",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_alt",
+        "y": 180
+      },
+      "when": {
+        "south": "low",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall_alt",
+        "y": 180
+      },
+      "when": {
+        "south": "tall",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_alt",
+        "y": 270
+      },
+      "when": {
+        "up": "false",
+        "west": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall_alt",
+        "y": 270
+      },
+      "when": {
+        "up": "false",
+        "west": "tall"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_post"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_short",
+        "y": 90
+      },
+      "when": {
+        "east": "low",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall_short",
+        "y": 90
+      },
+      "when": {
+        "east": "tall",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_short"
+      },
+      "when": {
+        "north": "low",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall_short"
+      },
+      "when": {
+        "north": "tall",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_alt_short",
+        "y": 180
+      },
+      "when": {
+        "south": "low",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall_alt_short",
+        "y": 180
+      },
+      "when": {
+        "south": "tall",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_alt_short",
+        "y": 270
+      },
+      "when": {
+        "up": "true",
+        "west": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "deep_aether:block/stripped_cruderoot_log_wall_side_tall_alt_short",
+        "y": 270
+      },
+      "when": {
+        "up": "true",
+        "west": "tall"
+      }
+    }
+  ]
+}

@@ -330,23 +330,35 @@ public class DABlocks {
 		return DAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
 	}
 
+	private static <T extends Block> RegistryObject<Item> registerBlockItemDisabled(String name, RegistryObject<T> block) {
+		return DAItems.ITEMS.register(name, () -> new DisabledBlockItem(block.get(), new Item.Properties()));
+	}
 	private static <T extends Block> RegistryObject<T> registerAetherReduxBlock(String name, Supplier<T> block) {
+		RegistryObject<T> toReturn = BLOCKS.register(name, block);
+
 		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {
-			RegistryObject<T> toReturn = BLOCKS.register(name, block);
+			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
 			registerBlockItem(name, toReturn);
-			return toReturn;
 		}
-		return null;
+		else
+			registerBlockItemDisabled(name, toReturn);
+
+		return toReturn;
+
 	}
 
 	private static <T extends Block> RegistryObject<T> registerAetherGenesisBlock(String name, Supplier<T> block) {
-		if(//ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) || DeepAetherMod.LOGGER.isDebugEnabled()
-		 false) {
-			RegistryObject<T> toReturn = BLOCKS.register(name, block);
+		RegistryObject<T> toReturn = BLOCKS.register(name, block);
+
+		if(//ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)
+		false) {
+			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
 			registerBlockItem(name, toReturn);
-			return toReturn;
 		}
-		return null;
+		else
+			registerBlockItemDisabled(name, toReturn);
+
+		return  toReturn;
 	}
 
 	private static <T extends Block> RegistryObject<T> registerBlock(int burnTime, String name, Supplier<T> block) {

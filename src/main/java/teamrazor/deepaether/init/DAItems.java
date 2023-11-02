@@ -144,8 +144,8 @@ public class DAItems {
 	}
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
 		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-			return ITEMS.register(name, item);
+			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
 		}
-		return null;
+		return ITEMS.register(name, item);
 	}
 }
