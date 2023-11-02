@@ -39,7 +39,7 @@ public class FollowPlayerGoal extends Goal {
             return false;
         } else {
             this.player = this.mob.level().getNearestPlayer(targetingConditions, this.mob);
-            return this.player != null;
+            return this.player != null && !this.player.isCreative();
         }
     }
 
