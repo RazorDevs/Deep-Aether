@@ -52,7 +52,7 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<Venomite>> VENOMITE = register("venomite",
 			EntityType.Builder.<Venomite>of(Venomite::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Venomite::new)
-					.sized(1F, 1F));
+					.sized(0.7F, 0.6F));
 
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {

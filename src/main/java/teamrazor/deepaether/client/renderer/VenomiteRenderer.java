@@ -20,7 +20,8 @@ public class VenomiteRenderer extends GeoEntityRenderer<Venomite> {
 
     @Override
     public ResourceLocation getTextureLocation(Venomite instance) {
-        return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/venomite.png");
+        if (instance.isAngry()) return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/venomite/venomite_angry.png");
+        return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/venomite/venomite.png");
     }
 
     @Override
