@@ -13,7 +13,7 @@ import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class RosewoodTreeGrower extends AbstractTreeGrower {
+public class RoserootTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(ServerLevel level, ChunkGenerator chunkGenerator, BlockPos pos, BlockState state, RandomSource random, boolean hasFlowers) {
