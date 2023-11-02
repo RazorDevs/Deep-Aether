@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stem_fruit",
+  "render_type": "cutout",
+  "textures": {
+    "stem": "deep_aether:block/squash_stem",
+    "upperstem": "deep_aether:block/attached_squash_stem"
+  }
+}
