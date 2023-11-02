@@ -292,25 +292,39 @@ public class DeepAetherMod {
 								true)
 						));
 			}
-		}
 
-		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT) && event.getPackType() == PackType.SERVER_DATA) {
-			if (event.getPackType() == PackType.SERVER_DATA) {
+			if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_lost_content_compat");
-				var pack = Pack.readMetaAndCreate("builtin/lost_aether_content_compat", Component.literal("Lost Aether Content Compat"), true,
-						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
-
-				event.addRepositorySource(consumer -> consumer.accept(pack));
+				PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
+				PackMetadataSection metadata = new PackMetadataSection(Component.literal("Lost Aether Content Compat"), PackType.SERVER_DATA.getVersion(SharedConstants.getCurrentVersion()));
+				event.addRepositorySource((packConsumer, packConstructor) ->
+						packConsumer.accept(packConstructor.create(
+								"builtin/lost_aether_content_compat",
+								Component.literal("Lost Aether Content Compat"),
+								true,
+								() -> pack,
+								metadata,
+								Pack.Position.TOP,
+								PackSource.SERVER,
+								true)
+						));
 			}
-		}
 
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
-			if (event.getPackType() == PackType.SERVER_DATA) {
+			if (ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) ) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_redux_compat");
-				var pack = Pack.readMetaAndCreate("builtin/aether_redux_compat", Component.literal("Aether Redux Compat"), true,
-						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
-
-				event.addRepositorySource(consumer -> consumer.accept(pack));
+				PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
+				PackMetadataSection metadata = new PackMetadataSection(Component.literal("Aether Redux Compat"), PackType.SERVER_DATA.getVersion(SharedConstants.getCurrentVersion()));
+				event.addRepositorySource((packConsumer, packConstructor) ->
+						packConsumer.accept(packConstructor.create(
+								"builtin/aether_redux_compat",
+								Component.literal("Aether Redux Compat"),
+								true,
+								() -> pack,
+								metadata,
+								Pack.Position.TOP,
+								PackSource.SERVER,
+								true)
+						));
 			}
 		}
 	}
