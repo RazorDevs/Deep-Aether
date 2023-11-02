@@ -41,9 +41,8 @@ public class SunrootHangerDecorator extends TreeDecorator {
         int i = 4;
 
         for(BlockPos blockpos = blockPos.below(); context.isAir(blockpos) && i > 0; --i) {
-            if(i != 1 && !context.isAir(blockpos.below())) {
+            if(i != 1 && context.isAir(blockpos.below())) {
                 placeVine(blockPos.below(i), context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.THREE_SHAPES, 1));
-                blockpos = blockpos.below();
             }
             else placeVine(blockPos.below(i), context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.THREE_SHAPES, 2));
         }

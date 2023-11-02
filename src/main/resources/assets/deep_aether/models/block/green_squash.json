@@ -8,7 +8,7 @@
         }
     },
     "textures": {
-        "end": "deep_aether:block/squash_top",
-        "side": "deep_aether:block/squash_side"
+        "end": "deep_aether:block/green_squash_top",
+        "side": "deep_aether:block/green_squash_side"
     }
 }
