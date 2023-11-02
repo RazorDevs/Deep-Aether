@@ -14,6 +14,7 @@ public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<
 
     public static final RegistryObject<TreeDecoratorType<FlowerDecorator>> FLOWERS = register("flowers", FlowerDecorator.CODEC);
     public static final RegistryObject<TreeDecoratorType<YagrootVineDecorator>> YAGVINES = register("yagvines", YagrootVineDecorator.CODEC);
+    public static final RegistryObject<TreeDecoratorType<SunrootHangerDecorator>> SUNROOT_HANGER = register("sunroot_hanger", SunrootHangerDecorator.CODEC);
 
     private final Codec<P> codec;
 

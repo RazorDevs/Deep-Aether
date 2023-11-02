@@ -2,14 +2,14 @@
   "type": "minecraft:random_selector",
   "config": {
     "default": {
-      "feature": "aether:golden_oak_tree",
+      "feature": "deep_aether:conberry_tree",
       "placement": [
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "aether:golden_oak_sapling",
+              "Name": "deep_aether:conberry_sapling",
               "Properties": {
                 "stage": "0"
               }
@@ -20,27 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.66,
-        "feature": {
-          "feature": "deep_aether:conberry_tree",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "deep_aether:conberry_sapling",
-                  "Properties": {
-                    "stage": "0"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "chance": 0.4,
+        "chance": 0.25,
         "feature": {
           "feature": "deep_aether:sunroot_tree",
           "placement": [

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:flower",
+  "type": "minecraft:random_patch",
   "config": {
     "feature": {
       "feature": {
@@ -12,7 +12,7 @@
                 "data": {
                   "Name": "deep_aether:feather_grass"
                 },
-                "weight": 30
+                "weight": 20
               },
               {
                 "data": {
@@ -21,7 +21,7 @@
                     "half": "lower"
                   }
                 },
-                "weight": 25
+                "weight": 5
               },
               {
                 "data": {
@@ -46,7 +46,7 @@
         }
       ]
     },
-    "tries": 256,
+    "tries": 32,
     "xz_spread": 7,
     "y_spread": 3
   }
