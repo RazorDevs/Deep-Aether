@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "deep_aether:radiant_orchid"
+                },
+                "weight": 4
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:sky_tulips"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:iaspove"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:golden_aspess"
+                },
+                "weight": 1
+              },
+              {
+                "data": {
+                  "Name": "deep_aether:echaisy"
+                },
+                "weight": 1
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 100,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

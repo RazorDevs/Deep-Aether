@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobbled_aseterite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "deep_aether:cobbled_aseterite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:cobbled_aseterite_stairs_from_cobbled_aseterite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cobbled_aseterite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:cobbled_aseterite_stairs_from_cobbled_aseterite_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -2,7 +2,6 @@
   "carvers": {},
   "creature_spawn_probability": 0.25,
   "downfall": 0.0,
-  "precipitation": "none",
   "effects": {
     "fog_color": 9671612,
     "foliage_color": 11665355,

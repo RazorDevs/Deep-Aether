@@ -1,0 +1,23 @@
+{
+  "type": "deep_aether:fallen_tree",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:roseroot_log",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "true"
+        }
+      }
+    },
+    "decorators": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:lightcap_mushrooms"
+      }
+    },
+    "max": 12,
+    "min": 2
+  }
+}

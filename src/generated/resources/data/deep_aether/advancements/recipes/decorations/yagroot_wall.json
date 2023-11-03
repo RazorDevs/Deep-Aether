@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:yagroot_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yagroot_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "deep_aether:yagroot_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yagroot_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:yagroot_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}

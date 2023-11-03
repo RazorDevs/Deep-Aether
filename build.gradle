@@ -118,6 +118,20 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven githubPackage.invoke("The-Aether-Team/The-Aether")
+    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
+    maven githubPackage.invoke("The-Aether-Team/Cumulus")
+
+    maven { url = "https://maven.theillusivec4.top/" }
+    maven { url = 'https://maven.minecraftforge.net/' }
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
+    maven {
+        name "Modding Legacy Maven"
+        url "https://maven.moddinglegacy.com/maven"
+    }
     maven {
         url "https://cursemaven.com"
         content {
@@ -157,11 +171,6 @@ dependencies {
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
 }
 
-mixin {
-    config "deep_aether.mixins.json"
-    add sourceSets.main, "deep_aether.refmap.json"
-}
-
 jar {
     manifest {
         attributes([
@@ -176,6 +185,10 @@ jar {
     }
 }
 
+mixin {
+    config "deep_aether.mixins.json"
+    add sourceSets.main, "deep_aether.refmap.json"
+}
 
 jar.finalizedBy('reobfJar')
 

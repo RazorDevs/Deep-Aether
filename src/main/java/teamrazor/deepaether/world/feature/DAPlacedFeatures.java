@@ -12,6 +12,9 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> POISON_LAKE_PLACEMENT = createKey("poison_lake");
     public static final ResourceKey<PlacedFeature> POISON_SPRING_PLACEMENT = createKey("poison_spring");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
+    public static final ResourceKey<PlacedFeature> FALLEN_AERGLOW_FOREST = createKey("fallen_aerglow_forest");
+
+    public static final ResourceKey<PlacedFeature> EMPTY_FALLEN_AERGLOW_FOREST = createKey("empty_fallen_aerglow_forest");
 
     public static final ResourceKey<PlacedFeature> YAGROOT_SWAMP_TREES_PLACEMENT = createKey("yagroot_swamp_trees_placement");
 
@@ -19,7 +22,9 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MYSTIC_AERGLOW_FOREST_TREES_PLACEMENT = createKey("mystic_aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
-    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_VEGETATION = createKey("aerglow_forest_vegetation");
+    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_FLOWERS = createKey("aerglow_forest_flowers");
+    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_GRASS = createKey("aerglow_forest_grass");
+
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");

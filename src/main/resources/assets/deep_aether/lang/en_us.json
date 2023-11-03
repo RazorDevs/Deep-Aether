@@ -36,6 +36,7 @@
   "lore.block.deep_aether.roseroot_fence": "Crafted from Roseroot planks and Skyroot Sticks. Great for keeping your livestock safe from wandering predators!",
   "block.deep_aether.roseroot_fence_gate": "Roseroot Fence Gate",
   "lore.block.deep_aether.roseroot_fence_gate": "Crafted from Skyroot Sticks and Roseroot planks. Gives a homely entrance and exit to your precious enclosures.",
+  "itemGroup.tabdeep_aether_blocks_tab": "Deep Aether - Blocks",
   "item.deep_aether.music_disc_nabooru": "Music Disc",
   "lore.item.deep_aether.music_disc_nabooru":"A music disc that plays Nabooru by Emile van Krieken.",
   "item.deep_aether.skyjade": "Skyjade Gemstone",
@@ -80,6 +81,8 @@
   "lore.block.deep_aether.rotten_roseroot_log": "A fallen and rotten Roseroot log found in forests, home to mushrooms. It can't be used for crafting, but might be a nice decorative option.",
   "block.deep_aether.roseroot_sign": "Roseroot Sign",
   "lore.block.deep_aether.roseroot_sign": "Crafted from Roseroot Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
+  "block.deep_aether.roseroot_hanging_sign": "Roseroot Hanging Sign",
+  "lore.block.deep_aether.roseroot_hanging_sign": "A helpful hanging sign perfect for writing messages and directions on.",
   "item.deep_aether.skyjade_boots": "Skyjade Boots",
   "lore.item.deep_aether.skyjade_boots": "Part of the Skyjade Armor set, has a very high protection value, but low durability and gives less protection when the durability goes down.",
   "subtitles.music_disc_nabooru": "",
@@ -165,6 +168,8 @@
   "lore.block.deep_aether.yagroot_button": "Crafted from Yagroot Planks, a button used to activate mechanisms and redstone.",
   "block.deep_aether.yagroot_sign": "Yagroot Sign",
   "lore.block.deep_aether.yagroot_sign": "Crafted from Yagroot Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
+  "block.deep_aether.yagroot_hanging_sign": "Yagroot Hanging Sign",
+  "lore.block.deep_aether.yagroot_hanging_sign": "A helpful hanging sign perfect for writing messages and directions on.",
   "block.deep_aether.aether_mud": "Aether Mud",
   "lore.block.deep_aether.aether_mud": "This block spawns primarily in the Yagroot Forest, but can also be obtained by combining Aether Dirt and a Water Bottle in a crafting table.",
   "block.deep_aether.clorite_pillar": "Clorite Pillar",
@@ -243,6 +248,13 @@
   "lore.item.deep_aether.stratus_ring": "An upgraded variant of the Gravitite Ring ",
   "item.deep_aether.stratus_gloves": "Stratus Gloves",
   "lore.item.deep_aether.stratus_gloves": "An upgrade to the Gravitite Gloves, needed to complete the stratus set.",
+
+  "item.deep_aether.smithing_template.stratus_upgrade.additions_slot_description": "Add Gravitite Ingot",
+  "item.deep_aether.smithing_template.stratus_upgrade.applies_to": "Gravitite Equipment",
+  "item.deep_aether.smithing_template.stratus_upgrade.base_slot_description": "Add gravitite armor, weapon, or tool",
+  "item.deep_aether.smithing_template.stratus_upgrade.ingredients": "Stratus Ingot",
+  "upgrade.deep_aether.stratus_upgrade": "Stratus Upgrade",
+
   "item.deep_aether.raw_oratie": "Raw Oratie",
   "item.deep_aether.oratie_ingot": "Oratie Ingot",
   "block.deep_Aether.clorite_pillar": "Clorite Pillar",
@@ -293,6 +305,8 @@
   "lore.block.deep_aether.cruderoot_button": "Crafted from Cruderoot Planks, a button used to activate mechanisms and redstone.",
   "block.deep_aether.cruderoot_sign": "Cruderoot Sign",
   "lore.block.deep_aether.cruderoot_sign": "Crafted from Cruderoot Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
+  "block.deep_aether.cruderoot_hanging_sign": "Cruderoot Hanging Sign",
+  "lore.block.deep_aether.cruderoot_hanging_sign": "A helpful hanging sign perfect for writing messages and directions on.",
   "item.deep_aether.yagroot_boat": "Yagroot Boat",
   "lore.item.deep_aether.yagroot_boat": "While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
   "item.deep_aether.yagroot_chest_boat": "Yagroot Chest Boat",
@@ -339,6 +353,8 @@
   "lore.block.deep_aether.conberry_button": "Crafted from Conberry Planks, a button used to activate mechanisms and redstone.",
   "block.deep_aether.conberry_sign": "Conberry Sign",
   "lore.block.deep_aether.conberry_sign": "Crafted from Conberry Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
+  "block.deep_aether.conberry_hanging_sign": "Conberry Hanging Sign",
+  "lore.block.deep_aether.conberry_hanging_sign": "A helpful hanging sign perfect for writing messages and directions on.",
   "item.deep_aether.conberry_boat": "Conberry Boat",
   "lore.item.deep_aether.conberry_boat": "While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
   "item.deep_aether.conberry_chest_boat": "Conberry Chest Boat",
@@ -380,6 +396,8 @@
   "lore.block.deep_aether.sunroot_button": "Crafted from Sunroot Planks, a button used to activate mechanisms and redstone.",
   "block.deep_aether.sunroot_sign": "Sunroot Sign",
   "lore.block.deep_aether.sunroot_sign": "Crafted from Sunroot Planks and Skyroot Sticks. A helpful sign perfect for writing messages and directions on.",
+  "block.deep_aether.sunroot_hanging_sign": "Sunroot Hanging Sign",
+  "lore.block.deep_aether.sunroot_hanging_sign": "A helpful hanging sign perfect for writing messages and directions on.",
   "item.deep_aether.sunroot_boat": "Sunroot Boat",
   "lore.item.deep_aether.sunroot_boat": "While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
   "item.deep_aether.sunroot_chest_boat": "Sunroot Chest Boat",
@@ -500,8 +518,8 @@
   "item.deep_aether.skyroot_aerglow_fish_bucket": "Skyroot Aerglow Fish Bucket",
   "lore.item.deep_aether.skyroot_aerglow_fish_bucket": "A bucket with a Aerglow Fish in it. Make sure to keep the water topped up or your new friend won't survive the journey home.",
 
-  "itemGroup.deep_aether_blocks": "Deep Aether Blocks",
-  "itemGroup.deep_aether_items": "Deep Aether Items",
+  "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks",
+  "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",
   "item.deep_aether.roseroot_boat": "Roseroot Boat",
   "lore.item.deep_aether.roseroot_boat": "While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
   "item.deep_aether.roseroot_chest_boat": "Roseroot Chest Boat",
@@ -643,7 +661,6 @@
   "biomes.deep_aether.aerlavender_fields": "Aerlavender Fields",
   "biomes.deep_aether.yagroot_swamp": "Yagroot Swamp",
   "biomes.deep_aether.golden_heights": "Golden Heights",
-
   "biome.deep_aether.aerglow_forest": "Aerglow Forest",
   "biome.deep_aether.blue_aerglow_forest": "Blue Aerglow Forest",
   "biome.deep_aether.mystic_aerglow_forest": "Mystic Aerglow Forest",
@@ -652,6 +669,8 @@
   "biome.deep_aether.golden_heights": "Golden Heights",
 
   "fluid_type.deep_aether.poison_fluid": "Poison",
+
+
 
 
   "item.deep_aether.skyjade_shield": "Skyjade Shield",
@@ -666,11 +685,7 @@
   "block.deep_aether.conberry_log_wall": "Conberry Log Wall",
   "block.deep_aether.stripped_conberry_log_wall": "Stripped Conberry Log Wall",
   "block.deep_aether.sunroot_log_wall": "Sunroot Log Wall",
-  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall",
-
-  "item.deep_aether.blue_squash_slice": "Blue Squash Slice",
-  "item.deep_aether.green_squash_slice": "Green Squash Slice",
-  "item.deep_aether.purple_squash_slice": "Purple Squash slice"
+  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall"
 }
 
 

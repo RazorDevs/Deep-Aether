@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "decorators": [
+      {
+        "type": "deep_aether:sunroot_hanger",
+        "probability": 0.2
+      }
+    ],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "foliage_placer": {
+      "type": "minecraft:random_spread_foliage_placer",
+      "foliage_height": 2,
+      "leaf_placement_attempts": 100,
+      "offset": 0,
+      "radius": 3
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:sunroot_leaves",
+        "Properties": {
+          "bottom": "false",
+          "distance": "7",
+          "double_drops": "false",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 2,
+      "lower_size": 1,
+      "upper_size": 4
+    },
+    "trunk_placer": {
+      "type": "deep_aether:sunroot_trunk_placer",
+      "base_height": 4,
+      "height_rand_a": 6,
+      "height_rand_b": 3
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:sunroot_log",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "false"
+        }
+      }
+    }
+  }
+}

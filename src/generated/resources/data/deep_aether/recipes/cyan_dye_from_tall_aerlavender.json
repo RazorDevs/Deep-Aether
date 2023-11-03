@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:tall_aerlavender"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:pink_dye"
+  }
+}
