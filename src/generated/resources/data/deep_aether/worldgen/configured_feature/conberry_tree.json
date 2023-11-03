@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:cherry_foliage_placer",
+      "type": "deep_aether:conberry_foliage_placer",
       "corner_hole_chance": 0.25,
       "hanging_leaves_chance": 0.16666667,
       "hanging_leaves_extension_chance": 0.33333334,
