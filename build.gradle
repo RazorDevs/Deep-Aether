@@ -26,6 +26,7 @@ plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'io.github.0ffz.github-packages' version '[1,2)'
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
@@ -33,7 +34,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'io.github.0ffz.github-packages'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '${project.mc_version}-${project.mod_version}'
+version = "${project.mc_version}-${project.mod_version}"
 group = 'com.teamrazor.deep_aether'
 archivesBaseName = 'deep_aether'
 
@@ -41,7 +42,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'official', version: mc_version
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -53,6 +54,7 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
+
 
             mods {
                 deepaether {
@@ -148,9 +150,6 @@ repositories {
     flatDir {
         dir 'libs'
     }
-    maven githubPackage.invoke("The-Aether-Team/The-Aether")
-    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
-    maven githubPackage.invoke("The-Aether-Team/Cumulus")
 }
 
 dependencies {
@@ -180,14 +179,14 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "razordevs",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
         ])
     }
 }
 
 mixin {
-    config "deep_aether.mixins.json"
-    add sourceSets.main, "deep_aether.refmap.json"
+    add sourceSets.main, 'deep_aether.refmap.json'
+    config 'deep_aether.mixins.json'
 }
 
 jar.finalizedBy('reobfJar')
