@@ -57,7 +57,10 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	//TODO: Quail texture bugged
+	//TODO: Quail and Venomite texture bugged
+	//TODO: Squashes recipes not working and possibly others
+	//TODO: Readd lang entries for Creative Tabs
+	//TODO: Loot tables functionality unknown
 
 	public static final Logger LOGGER = LogUtils.getLogger();
 
