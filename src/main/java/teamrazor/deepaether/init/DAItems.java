@@ -48,16 +48,16 @@ public class DAItems {
 
 
 	// EQUIPMENT
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
-	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = ITEMS.register("skyjade_axe", () -> new SkyjadeToolsAxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_SHOVEL = ITEMS.register("skyjade_shovel", () -> new SkyjadeToolsShovelItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_TOOLS_HOE = ITEMS.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem(DATiers.SKYJADE, 0, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
+	public static final RegistryObject<Item> SKYJADE_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_AXE = ITEMS.register("skyjade_axe", () -> new SkyjadeToolsAxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_SHOVEL = ITEMS.register("skyjade_shovel", () -> new SkyjadeToolsShovelItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_HOE = ITEMS.register("skyjade_hoe", () -> new SkyjadeToolsHoeItem(DATiers.SKYJADE, 0, -3f, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 
-	public static final RegistryObject<Item> SKYJADE_ARMOR_HELMET = ITEMS.register("skyjade_helmet", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.HEAD, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_ARMOR_CHESTPLATE = ITEMS.register("skyjade_chestplate", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.CHEST, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_ARMOR_LEGGINGS = ITEMS.register("skyjade_leggings", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.LEGS, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
-	public static final RegistryObject<Item> SKYJADE_ARMOR_BOOTS = ITEMS.register("skyjade_boots", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.FEET, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_HELMET = ITEMS.register("skyjade_helmet", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.HEAD, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_CHESTPLATE = ITEMS.register("skyjade_chestplate", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.CHEST, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_LEGGINGS = ITEMS.register("skyjade_leggings", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.LEGS, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
+	public static final RegistryObject<Item> SKYJADE_BOOTS = ITEMS.register("skyjade_boots", () -> new SkyjadeArmorItem(DaArmorMaterials.SKYJADE, EquipmentSlot.FEET, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));
 	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new SkyjadeGlovesItem(0.5, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).defaultDurability(75)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new SkyjadeRingItem(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).durability(30)));
 	public static final RegistryObject<Item> SPOOKY_RING = ITEMS.register("spooky_ring", () -> new SpookyRing(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(500)));
@@ -104,9 +104,9 @@ public class DAItems {
 	public static final RegistryObject<Item> SUNROOT_CHEST_BOAT = ITEMS.register("sunroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1), DABoatEntity.Type.SUNROOT));
 
 	// MISC
-	public static final RegistryObject<Item> BLUE_SQUASH_SLICE = ITEMS.register("blue_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES), new MobEffect[]{MobEffects.MOVEMENT_SPEED, MobEffects.NIGHT_VISION, MobEffects.DIG_SLOWDOWN}));
-	public static final RegistryObject<Item> GREEN_SQUASH_SLICE = ITEMS.register("green_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES), new MobEffect[]{MobEffects.JUMP, MobEffects.LEVITATION, MobEffects.LUCK}));
-	public static final RegistryObject<Item> PURPLE_SQUASH_SLICE = ITEMS.register("purple_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES), new MobEffect[]{MobEffects.LEVITATION, MobEffects.DAMAGE_RESISTANCE, AetherEffects.INEBRIATION.get()}));
+	public static final RegistryObject<Item> BLUE_SQUASH_SLICE = ITEMS.register("blue_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB), new MobEffect[]{MobEffects.MOVEMENT_SPEED, MobEffects.NIGHT_VISION, MobEffects.DIG_SLOWDOWN}));
+	public static final RegistryObject<Item> GREEN_SQUASH_SLICE = ITEMS.register("green_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB), new MobEffect[]{MobEffects.JUMP, MobEffects.LEVITATION, MobEffects.LUCK}));
+	public static final RegistryObject<Item> PURPLE_SQUASH_SLICE = ITEMS.register("purple_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB), new MobEffect[]{MobEffects.LEVITATION, MobEffects.DAMAGE_RESISTANCE, AetherEffects.INEBRIATION.get()}));
 
 	public static final RegistryObject<Item> AETHER_FISH_SPAWN_EGG = ITEMS.register("aether_fish_spawn_egg",
 			() -> new ForgeSpawnEggItem(DAEntities.AETHER_FISH, 698060, 16776960, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB)));

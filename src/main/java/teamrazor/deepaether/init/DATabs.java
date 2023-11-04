@@ -18,7 +18,7 @@ public class DATabs {
     public static final CreativeModeTab TAB_DEEP_AETHER_ITEMS_TAB = new CreativeModeTab("deep_aether_items") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(DAItems.SKYJADE_TOOLS_SWORD.get());
+            return new ItemStack(DAItems.SKYJADE_SWORD.get());
         }
     };
 }
