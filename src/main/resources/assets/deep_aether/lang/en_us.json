@@ -36,7 +36,6 @@
   "lore.block.deep_aether.roseroot_fence": "Crafted from Roseroot planks and Skyroot Sticks. Great for keeping your livestock safe from wandering predators!",
   "block.deep_aether.roseroot_fence_gate": "Roseroot Fence Gate",
   "lore.block.deep_aether.roseroot_fence_gate": "Crafted from Skyroot Sticks and Roseroot planks. Gives a homely entrance and exit to your precious enclosures.",
-  "itemGroup.tabdeep_aether_blocks_tab": "Deep Aether - Blocks",
   "item.deep_aether.music_disc_nabooru": "Music Disc",
   "lore.item.deep_aether.music_disc_nabooru":"A music disc that plays Nabooru by Emile van Krieken.",
   "item.deep_aether.skyjade": "Skyjade Gemstone",
@@ -518,8 +517,8 @@
   "item.deep_aether.skyroot_aerglow_fish_bucket": "Skyroot Aerglow Fish Bucket",
   "lore.item.deep_aether.skyroot_aerglow_fish_bucket": "A bucket with a Aerglow Fish in it. Make sure to keep the water topped up or your new friend won't survive the journey home.",
 
-  "itemGroup.deep_aether.deep_aether_blocks": "Deep Aether Blocks",
-  "itemGroup.deep_aether.deep_aether_items": "Deep Aether Items",
+  "itemGroup.deep_aether_blocks": "Deep Aether Blocks",
+  "itemGroup.deep_aether_items": "Deep Aether Items",
   "item.deep_aether.roseroot_boat": "Roseroot Boat",
   "lore.item.deep_aether.roseroot_boat": "While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
   "item.deep_aether.roseroot_chest_boat": "Roseroot Chest Boat",
