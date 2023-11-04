@@ -1,23 +1,28 @@
 package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.init.DAMobEffects;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
 
     @SubscribeEvent
@@ -43,6 +48,16 @@ public class DAGeneralEvents {
                     attacker.hasImpulse = true;
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEffectRemoved(MobEffectEvent.Remove effectEvent) {
+        LivingEntity entity = effectEvent.getEntity();
+        MobEffect effect = effectEvent.getEffect();
+        if(entity instanceof Moa moa && effect.equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
+            MoaBonusJump moaBonusJump = (MoaBonusJump) moa;
+            moaBonusJump.deep_Aether$setBonusJumps(0);
         }
     }
 }

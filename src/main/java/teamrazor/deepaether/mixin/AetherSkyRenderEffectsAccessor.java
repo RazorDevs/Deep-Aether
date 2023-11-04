@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(AetherSkyRenderEffects.class)
+@Mixin(value = AetherSkyRenderEffects.class, remap = false)
 public interface AetherSkyRenderEffectsAccessor {
     @Mutable
     @Accessor
