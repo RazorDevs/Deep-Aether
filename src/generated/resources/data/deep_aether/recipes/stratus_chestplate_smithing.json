@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing_transform",
+  "type": "minecraft:smithing",
   "addition": {
     "item": "deep_aether:stratus_ingot"
   },
@@ -8,8 +8,5 @@
   },
   "result": {
     "item": "deep_aether:stratus_chestplate"
-  },
-  "template": {
-    "item": "deep_aether:stratus_smithing_template"
   }
 }
