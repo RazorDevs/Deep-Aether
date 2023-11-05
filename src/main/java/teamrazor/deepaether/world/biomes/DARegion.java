@@ -52,7 +52,7 @@ public class DARegion extends Region {
                 AerlavenderFields);
         // Row 3
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
-                GoldenHeights);
+                AetherBiomes.SKYROOT_FOREST);
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.3F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
                 AerlavenderFields);
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
@@ -63,11 +63,11 @@ public class DARegion extends Region {
                 AerglowForest);
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.3F, 0.1F), fullRange, fullRange, fullRange, fullRange, 0),
                 MysticAerglowForest);
-        this.addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(0.1F, 0.4F), fullRange, fullRange, fullRange, fullRange, 0),
-                BlueAerglowForest);
+        this.addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(0.1F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+                GoldenHeights);
         // Row 5
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(-1.0F, 0.7F), fullRange, fullRange, fullRange, fullRange, 0),
-                GoldenHeights);
+                BlueAerglowForest);
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(0.7F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_FOREST);
 
