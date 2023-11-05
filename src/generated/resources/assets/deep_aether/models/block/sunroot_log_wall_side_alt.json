@@ -1,8 +1,0 @@
-{
-  "parent": "deep_aether:block/wooden_side_alt",
-  "textures": {
-    "particle": "deep_aether:block/sunroot_log",
-    "side": "deep_aether:block/sunroot_log",
-    "top": "deep_aether:block/sunroot_log"
-  }
-}

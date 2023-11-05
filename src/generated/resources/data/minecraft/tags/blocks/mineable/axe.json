@@ -93,16 +93,6 @@
     "deep_aether:sunroot_sapling",
     "deep_aether:sunroot_fence_gate",
     "deep_aether:sunroot_sign",
-    "deep_aether:sunroot_wall_sign",
-    "deep_aether:roseroot_hanging_sign",
-    "deep_aether:yagroot_hanging_sign",
-    "deep_aether:cruderoot_hanging_sign",
-    "deep_aether:conberry_hanging_sign",
-    "deep_aether:sunroot_hanging_sign",
-    "deep_aether:roseroot_wall_hanging_sign",
-    "deep_aether:yagroot_wall_hanging_sign",
-    "deep_aether:cruderoot_wall_hanging_sign",
-    "deep_aether:conberry_wall_hanging_sign",
-    "deep_aether:sunroot_wall_hanging_sign"
+    "deep_aether:sunroot_wall_sign"
   ]
 }

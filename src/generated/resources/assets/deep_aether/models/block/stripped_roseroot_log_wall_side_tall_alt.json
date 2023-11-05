@@ -1,8 +1,0 @@
-{
-  "parent": "deep_aether:block/wooden_side_tall_alt",
-  "textures": {
-    "particle": "deep_aether:block/stripped_roseroot_log",
-    "side": "deep_aether:block/stripped_roseroot_log",
-    "top": "deep_aether:block/stripped_roseroot_log"
-  }
-}
