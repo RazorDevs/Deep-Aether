@@ -21,6 +21,9 @@ public class DASurfaceData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.GOLDEN_HEIGHTS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                         SurfaceRules.state(DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
 
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.GOLDEN_GROVE), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
+                        SurfaceRules.state(DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
+
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.YAGROOT_SWAMP),
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
