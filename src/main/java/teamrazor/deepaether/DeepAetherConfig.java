@@ -25,17 +25,17 @@ public class DeepAetherConfig {
             builder.pop();
 
             builder.push("Gameplay");
-            deep_aether_biome_weight = builder
-                    .comment("The weighting of Deep Aether regions in the aether")
-                    .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
-                    .define("Deep Aether Biome Weight", 20);
-            builder.pop();
-
-            builder.push("Gameplay");
             always_enable_halloween_content = builder
                     .comment("Always Enable halloween content, excluding the halloween slider")
                     .translation("config.deep_aether.common.gameplay.always_enable_halloween_content")
                     .define("Always Enable Halloween Content", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            deep_aether_biome_weight = builder
+                    .comment("The weighting of Deep Aether regions in the aether")
+                    .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
+                    .define("Deep Aether Biome Weight", 20);
             builder.pop();
 
             builder.push("Biomes");
