@@ -25,16 +25,6 @@
     "deep_aether:blightmoss_holystone_brick_wall",
     "deep_aether:blightmoss_holystone_tile_wall",
     "deep_aether:frosted_holystone_brick_wall",
-    "deep_aether:frosted_holystone_tile_wall",
-    "deep_aether:roseroot_log_wall",
-    "deep_aether:stripped_roseroot_log_wall",
-    "deep_aether:yagroot_log_wall",
-    "deep_aether:stripped_yagroot_log_wall",
-    "deep_aether:cruderoot_log_wall",
-    "deep_aether:stripped_cruderoot_log_wall",
-    "deep_aether:conberry_log_wall",
-    "deep_aether:stripped_conberry_log_wall",
-    "deep_aether:sunroot_log_wall",
-    "deep_aether:stripped_sunroot_log_wall"
+    "deep_aether:frosted_holystone_tile_wall"
   ]
 }
