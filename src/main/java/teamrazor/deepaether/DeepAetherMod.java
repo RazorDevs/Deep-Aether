@@ -79,6 +79,7 @@ public class DeepAetherMod {
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
+	public static final String ANCIENT_AETHER = "ancient_aether";
 
 	private static final String PROTOCOL_VERSION = "1";
 
@@ -281,6 +282,16 @@ public class DeepAetherMod {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_redux_compat");
 				var pack = Pack.readMetaAndCreate("builtin/aether_redux_compat", Component.literal("Aether Redux Compat"), true,
+						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
+
+				event.addRepositorySource(consumer -> consumer.accept(pack));
+			}
+		}
+
+		if(ModList.get().isLoaded(DeepAetherMod.ANCIENT_AETHER) && event.getPackType() == PackType.SERVER_DATA) {
+			if (event.getPackType() == PackType.SERVER_DATA) {
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/ancient_aether_compat");
+				var pack = Pack.readMetaAndCreate("builtin/aether_redux_compat", Component.literal("Ancient Aether Compat"), true,
 						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
 
 				event.addRepositorySource(consumer -> consumer.accept(pack));
