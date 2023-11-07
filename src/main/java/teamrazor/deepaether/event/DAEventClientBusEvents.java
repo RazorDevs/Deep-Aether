@@ -17,6 +17,7 @@ import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.init.DAWoodTypes;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
+import teamrazor.deepaether.particle.custom.MysticalParticle;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -46,6 +47,9 @@ public class DAEventClientBusEvents {
     public static  void registerParticleFactories(final RegisterParticleProvidersEvent event) {
         Minecraft.getInstance().particleEngine.register(DAParticles.POISON_BUBBLES.get(),
                 PoisonBubbles.Provider::new);
+
+        Minecraft.getInstance().particleEngine.register(DAParticles.MYTHICAL_PARTICLE.get(),
+                MysticalParticle.Provider::new);
     }
 
     public static void registerCuriosRenderers() {

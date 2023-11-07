@@ -12,4 +12,7 @@ public class DAParticles {
 
     public static final RegistryObject<SimpleParticleType> POISON_BUBBLES = PARTICLE_TYPES.register("poison_bubbles",
             () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> MYTHICAL_PARTICLE = PARTICLE_TYPES.register("mythical_particle",
+            () -> new SimpleParticleType(true));
 }

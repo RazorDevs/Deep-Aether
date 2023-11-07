@@ -14,9 +14,9 @@
     },
     "particle": {
       "options": {
-        "type": "minecraft:end_rod"
+        "type": "deep_aether:mythical_particle"
       },
-      "probability": 0.002
+      "probability": 0.0003
     },
     "sky_color": 12632319,
     "water_color": 4159204,
