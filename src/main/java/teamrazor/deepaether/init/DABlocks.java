@@ -167,7 +167,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> SUNROOT_BUTTON = registerBlock("sunroot_button", () -> new WoodButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON)));
 	public static final RegistryObject<Block> SUNROOT_DOOR = registerBlock("sunroot_door", () ->  new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR)));
 	public static final RegistryObject<Block> SUNROOT_TRAPDOOR = registerBlock("sunroot_trapdoor", () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR)));
-	public static final RegistryObject<Block> SUNROOT_LEAVES = registerBlock("sunroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+	public static final RegistryObject<Block> SUNROOT_LEAVES = registerBlock("sunroot_leaves", () -> new SunrootLeaves(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
 	public static final RegistryObject<Block> SUNROOT_SAPLING = registerBlock("sunroot_sapling", () -> new SaplingBlock( new SunrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
 	public static final RegistryObject<Block> SUNROOT_WALL_SIGN = BLOCKS.register("sunroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.SUNROOT));
 	public static final RegistryObject<Block> SUNROOT_SIGN = BLOCKS.register("sunroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.SUNROOT));

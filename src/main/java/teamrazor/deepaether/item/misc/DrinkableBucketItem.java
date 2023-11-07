@@ -1,6 +1,7 @@
 package teamrazor.deepaether.item.misc;
 
 import com.aetherteam.aether.effect.AetherEffects;
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.miscellaneous.ConsumableItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;

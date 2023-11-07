@@ -31,6 +31,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {
@@ -73,7 +74,7 @@ public class DABlockInteractionBehavior {
                 event.setCanceled(true);
             }
         }
-        if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
+        if (itemstack.is(AetherItems.SKYROOT_POISON_BUCKET.get()) || itemstack.is(DAItems.PLACEABLE_POISON_BUCKET.get())) {
             final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockRayTraceResult.getType() == HitResult.Type.MISS) {

@@ -5,6 +5,7 @@ import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootPoisonBucketItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
@@ -123,7 +124,7 @@ public class DAItems {
 			() -> new RecordItem(8, DASounds.A_MORNING_WISH, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1).rarity(Rarity.RARE), 5660));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
-			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
+			() -> new SkyrootPoisonBucketItem(new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
 
 	public static final RegistryObject<Item> VIRULENT_QUICKSAND_BUCKET = ITEMS.register("virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_ITEMS_TAB).stacksTo(1)));
