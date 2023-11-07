@@ -23,7 +23,8 @@ import java.util.Map;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAColorResolvers {
-    private static final ColorResolver GOLDEN_GRASS = (biome, x, z) -> 0xfff080;
+    /*
+    private static final ColorResolver GOLDEN_GRASS = (biome, x, z) -> 16575076;
 
     @SubscribeEvent
     static void registerColorResolver(RegisterColorHandlersEvent.ColorResolvers event) {
@@ -52,4 +53,5 @@ public class DAColorResolvers {
             }), entry.getKey());
         }
     }
+    */
 }
