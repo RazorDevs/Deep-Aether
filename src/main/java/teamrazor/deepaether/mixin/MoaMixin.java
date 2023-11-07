@@ -41,7 +41,6 @@ public abstract class MoaMixin extends MountableAnimal implements WingedBird, Mo
             int jumps = moaType != null ? moaType.getMaxJumps() : AetherMoaTypes.BLUE.get().getMaxJumps();
 
             jumps += deep_Aether$bonusJumps;
-            System.out.println(deep_Aether$bonusJumps);
             cir.setReturnValue(jumps);
         }
     }
