@@ -45,9 +45,9 @@ public class DARegion extends Region {
         // Row 2
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-1.0F, -0.6F), fullRange, fullRange, fullRange, fullRange, 0),
                 BlueAerglowForest);
-        this.addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-0.6F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
+        this.addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-0.6F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 AerglowForest);
-        this.addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(0.2F, 0.7F), fullRange, fullRange, fullRange, fullRange, 0),
+        this.addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(0.0F, 0.7F), fullRange, fullRange, fullRange, fullRange, 0),
                 MysticAerglowForest);
         this.addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(0.7F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 AerlavenderFields);
