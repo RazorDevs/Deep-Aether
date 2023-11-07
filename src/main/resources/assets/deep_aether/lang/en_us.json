@@ -16,6 +16,7 @@
   "entity.deep_aether.aerglow_fish": "Aerglow Fish",
   "entity.deep_aether.venomite": "Venomite",
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
+  "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "lore.block.deep_aether.aerglow_grass_path": "This block is the result of using a shovel on an Aerglow Grass Block.",
   "block.deep_aether.aersmog": "Aersmog",
   "lore.block.deep_aether.aersmog": "This venomous block has similar properties to Aerclouds, and is the product of Water and Poison mixing together.",
@@ -668,9 +669,7 @@
   "biome.deep_aether.golden_heights": "Golden Heights",
 
   "fluid_type.deep_aether.poison_fluid": "Poison",
-
-
-
+  "block.deep_aether.poison": "Poison",
 
   "item.deep_aether.skyjade_shield": "Skyjade Shield",
   "item.deep_aether.stratus_shield": "Stratus Shield",
