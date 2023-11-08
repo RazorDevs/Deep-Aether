@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "category" : "skyroot_poison_bucket",
+  "ingredient": {
+    "item": "aether:skyroot_remedy_bucket"
+  },
+  "result": {
+    "item": "aether:skyroot_poison_bucket"
+  }
+}

@@ -112,7 +112,16 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
     flatDir {
         dir 'libs'
     }
@@ -138,6 +147,11 @@ dependencies {
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
     implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
     //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")
+
+    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
 }
 
 jar {

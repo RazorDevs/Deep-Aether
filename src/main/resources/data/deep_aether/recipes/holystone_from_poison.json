@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "category" : "poison_misc_blocks",
+  "ingredient": {
+    "item": "aether:healing_stone"
+  },
+  "result": {
+    "item": "aether:holystone"
+  }
+}

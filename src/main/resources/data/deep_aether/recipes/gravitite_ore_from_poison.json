@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "category" : "gravitite_ore",
+  "ingredient": {
+    "item": "aether:enchanted_gravitite"
+  },
+  "result": {
+    "item": "aether:gravitite_ore"
+  }
+}
