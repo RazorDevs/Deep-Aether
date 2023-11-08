@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "category" : "poison_misc_blocks",
+  "ingredient": {
+    "item": "aether:quicksoil_glass"
+  },
+  "result": {
+    "item": "aether:quicksoil"
+  }
+}
