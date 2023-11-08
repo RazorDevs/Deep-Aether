@@ -15,6 +15,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -25,6 +26,8 @@ import net.minecraft.world.level.material.FluidState;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAParticles;
+import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.PoisonRecipe;
 
 import java.util.function.Supplier;
 
@@ -51,6 +54,7 @@ public class PoisonBlock extends LiquidBlock {
         return true;
     }
 
+
     @Override
         public void animateTick (BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource){
             double d0 = blockPos.getX();
@@ -64,7 +68,7 @@ public class PoisonBlock extends LiquidBlock {
 
 
             if (COUNT && TIME < 100) {
-                TIME += 0.05;
+                TIME += 0.05F;
             } else {
                 TIME = 0;
                 COUNT = false;
@@ -82,47 +86,22 @@ public class PoisonBlock extends LiquidBlock {
 
                 CAN_TRANSFORM = false;
 
-                if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
-                    TRANSFORM_ITEM = AetherItems.GOLDEN_DART.get();
-                    CAN_TRANSFORM = true;
+                if (!level.isClientSide()) {
+                    for (Recipe<?> recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
+                        if (recipe instanceof PoisonRecipe poisonRecipe) {
+                            if (poisonRecipe.getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
+                                TRANSFORM_ITEM = poisonRecipe.getResult().getItem();
+                                CAN_TRANSFORM = true;
+                                COUNT = true;
+                            }
+                        }
+                    }
                 }
-                if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART_SHOOTER.get()) {
-                    TRANSFORM_ITEM = AetherItems.GOLDEN_DART_SHOOTER.get();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == AetherItems.HEALING_STONE.get()) {
-                    TRANSFORM_ITEM = AetherBlocks.HOLYSTONE.get().asItem();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()) {
-                    TRANSFORM_ITEM = AetherBlocks.GRAVITITE_ORE.get().asItem();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_BERRY.get()) {
-                    TRANSFORM_ITEM = AetherItems.BLUE_BERRY.get();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == AetherBlocks.QUICKSOIL_GLASS.get().asItem()) {
-                    TRANSFORM_ITEM = AetherBlocks.QUICKSOIL.get().asItem();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == AetherItems.SKYROOT_REMEDY_BUCKET.get()) {
-                    TRANSFORM_ITEM = AetherItems.SKYROOT_POISON_BUCKET.get();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == AetherItems.MUSIC_DISC_CHINCHILLA.get()) {
-                    TRANSFORM_ITEM = Items.MUSIC_DISC_STRAD;
-                    CAN_TRANSFORM = true;
-                }
-
-                if (itemEntity.getItem().getItem() == DABlocks.BLUE_SQUASH.get().asItem()) {
-                    TRANSFORM_ITEM = DABlocks.PURPLE_SQUASH.get().asItem();
-                    CAN_TRANSFORM = true;
-                }
-                if (itemEntity.getItem().getItem() == DABlocks.GREEN_SQUASH.get().asItem()) {
-                    TRANSFORM_ITEM = DABlocks.PURPLE_SQUASH.get().asItem();
-                    CAN_TRANSFORM = true;
-                }
+                System.out.println(TRANSFORM_ITEM);
+                //if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
+                //    TRANSFORM_ITEM = AetherItems.GOLDEN_DART.get();
+                //    CAN_TRANSFORM = true;
+                //}
 
                 if (!level.isClientSide && CAN_TRANSFORM) {
                     assert TRANSFORMED_ITEM_ENTITY != null;
@@ -136,8 +115,7 @@ public class PoisonBlock extends LiquidBlock {
                     }
                 }
 
-                COUNT = true;
-                if ((TIME > 90) && itemEntity.isAlive() && CAN_TRANSFORM) {
+                if ((TIME > 5) && itemEntity.isAlive() && CAN_TRANSFORM) {
                     CAN_TRANSFORM = false;
                     COUNT = false;
                     itemEntity.discard();

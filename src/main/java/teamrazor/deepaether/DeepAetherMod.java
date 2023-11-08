@@ -37,6 +37,8 @@ import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
+import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeSerializers;
 import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
 import teamrazor.deepaether.world.feature.DAFeatures;
@@ -120,6 +122,9 @@ public class DeepAetherMod {
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
+		DARecipe.RECIPE_TYPES.register(bus);
+		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
+
 	}
 
 /*

@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "group": "poison_recipe",
+  "ingredient": {
+    "item": "deep_aether:blue_squash"
+  },
+  "result": {
+    "item": "deep_aether:purple_squash"
+  }
+}
