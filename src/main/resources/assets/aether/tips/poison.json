@@ -1,0 +1,12 @@
+{
+  "tip": {
+    "color": "blue",
+    "translate": "aether.pro_tips.line.deep_aether.deep_aether_tips"
+  },
+  "title": {
+    "bold": true,
+    "color": "blue",
+    "translate": "gui.deep_aether.pro_tip",
+    "underlined": true
+  }
+}
