@@ -92,6 +92,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREES_PLACEMENT = createKey("blue_roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_CATTAILS_PATCH =  createKey("aether_cattails_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_PATCH = createKey("golden_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GROVE_GRASS_PATCH = createKey("golden_grove_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CONBERRY_TREE = createKey("conberry_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_TREE = createKey("sunroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
@@ -228,6 +229,15 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 8)
                         .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(), 2)), 418));
+
+        register(context, GOLDEN_GROVE_GRASS_PATCH, Feature.FLOWER,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 16)
+                        .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(), 16)
+                        .add(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState(), 48)
+                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 12)
+                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)
+                        .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(), 8)), 218));
 
 
         register(context, GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH,  Feature.SIMPLE_BLOCK,
