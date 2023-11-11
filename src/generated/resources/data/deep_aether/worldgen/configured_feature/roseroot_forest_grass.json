@@ -12,7 +12,13 @@
                 "data": {
                   "Name": "deep_aether:feather_grass"
                 },
-                "weight": 20
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "minecraft:grass"
+                },
+                "weight": 15
               },
               {
                 "data": {
@@ -21,7 +27,16 @@
                     "half": "lower"
                   }
                 },
-                "weight": 5
+                "weight": 2
+              },
+              {
+                "data": {
+                  "Name": "minecraft:tall_grass",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                },
+                "weight": 3
               },
               {
                 "data": {

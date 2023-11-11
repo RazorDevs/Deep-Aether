@@ -296,8 +296,10 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.FEATHER_GRASS,20)
-                        .add(DAFeatureStates.TALL_FEATHER_GRASS,5)
+                        .add(DAFeatureStates.FEATHER_GRASS,5)
+                        .add(Blocks.GRASS.defaultBlockState(),15)
+                        .add(DAFeatureStates.TALL_FEATHER_GRASS,2)
+                        .add(Blocks.TALL_GRASS.defaultBlockState(),3)
                         .add(AetherFeatureStates.PURPLE_FLOWER, 1)
                         .add(AetherFeatureStates.WHITE_FLOWER, 1)
                         .add(AetherFeatureStates.BERRY_BUSH, 1)), 32));
