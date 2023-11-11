@@ -17,6 +17,7 @@ import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
@@ -28,7 +29,7 @@ public class DAGeneralEvents {
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAetherMod.IS_HALLOWEEN_CONTENT_ENABLED) {
+        if (entity.getType() == AetherEntityTypes.SLIDER.get() && (DeepAetherMod.IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get())) {
             entity.spawnAtLocation(new ItemStack(DAItems.SPOOKY_RING.get(), 1));
         }
     }
