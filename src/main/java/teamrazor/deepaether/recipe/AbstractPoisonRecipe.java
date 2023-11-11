@@ -1,25 +1,15 @@
 package teamrazor.deepaether.recipe;
 
 
-import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.Container;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
-
-import javax.annotation.Nullable;
-import java.util.function.Predicate;
 
 public abstract class AbstractPoisonRecipe implements Recipe<Container> {
     protected final RecipeType<?> type;
