@@ -15,4 +15,10 @@ public class DAParticles {
 
     public static final RegistryObject<SimpleParticleType> MYTHICAL_PARTICLE = PARTICLE_TYPES.register("mythical_particle",
             () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> ROSEROOT_LEAVES = PARTICLE_TYPES.register("roseroot_leaves",
+            () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> FLOWERING_ROSEROOT_LEAVES = PARTICLE_TYPES.register("flowering_roseroot_leaves",
+            () -> new SimpleParticleType(true));
 }

@@ -145,9 +145,8 @@ dependencies {
     compileOnly fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
-    implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
+    //implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
     //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")
-
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge

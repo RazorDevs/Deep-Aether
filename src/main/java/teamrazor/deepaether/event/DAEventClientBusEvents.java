@@ -2,9 +2,11 @@ package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.CherryParticle;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,6 +52,14 @@ public class DAEventClientBusEvents {
 
         Minecraft.getInstance().particleEngine.register(DAParticles.MYTHICAL_PARTICLE.get(),
                 MysticalParticle.Provider::new);
+
+        Minecraft.getInstance().particleEngine.register(DAParticles.ROSEROOT_LEAVES.get(), (p_277215_)
+                -> (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_)
+                -> new CherryParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_));
+
+        Minecraft.getInstance().particleEngine.register(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (p_277215_)
+                -> (p_277217_, p_277218_, p_277219_, p_277220_, p_277221_, p_277222_, p_277223_, p_277224_)
+                -> new CherryParticle(p_277218_, p_277219_, p_277220_, p_277221_, p_277215_));
     }
 
     public static void registerCuriosRenderers() {

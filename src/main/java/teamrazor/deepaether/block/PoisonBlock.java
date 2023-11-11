@@ -98,10 +98,6 @@ public class PoisonBlock extends LiquidBlock {
                     }
                 }
                 System.out.println(TRANSFORM_ITEM);
-                //if (itemEntity.getItem().getItem() == AetherItems.ENCHANTED_DART.get()) {
-                //    TRANSFORM_ITEM = AetherItems.GOLDEN_DART.get();
-                //    CAN_TRANSFORM = true;
-                //}
 
                 if (!level.isClientSide && CAN_TRANSFORM) {
                     assert TRANSFORMED_ITEM_ENTITY != null;
