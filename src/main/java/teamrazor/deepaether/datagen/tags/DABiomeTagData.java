@@ -2,6 +2,7 @@ package teamrazor.deepaether.datagen.tags;
 
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;

@@ -86,6 +86,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREE_LARGE = createKey("blue_roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREE_SMALL = createKey("blue_roseroot_tree_small");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_FLOWERS = createKey("roseroot_forest_flowers");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MYSTIC_ROSEROOT_FOREST_FLOWERS = createKey("mystic_roseroot_forest_flowers");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_FOREST_GRASS = createKey("roseroot_forest_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREES_PLACEMENT = createKey("roseroot_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ROSEROOT_TREES_PLACEMENT = createKey("blue_roseroot_trees_placement");
@@ -100,6 +101,10 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> STERLING_AERCLOUD_CONFIGURATION = createKey("sterling_aercloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_COARSE_DIRT = createKey("aether_coarse_dirt");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKY_TULIPS = createKey("sky_tulips");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_ASPESS = createKey("golden_aspess");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ECHAISY = createKey("echaisy");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -266,11 +271,28 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DAFeatureStates.RADIANT_ORCHID,10)
+                        .add(DAFeatureStates.IASPOVE,5)), 100));
+
+        register(context, MYSTIC_ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.RADIANT_ORCHID,4)
                         .add(DAFeatureStates.SKY_TULIPS,1)
                         .add(DAFeatureStates.IASPOVE,1)
                         .add(DAFeatureStates.GOLDEN_ASPESS,1)
                         .add(DAFeatureStates.ECHAISY,1)), 100));
+
+        register(context, SKY_TULIPS, Feature.FLOWER,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DAFeatureStates.SKY_TULIPS,1)), 20));
+
+        register(context, GOLDEN_ASPESS, Feature.FLOWER,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DAFeatureStates.GOLDEN_ASPESS,1)), 20));
+
+        register(context, ECHAISY, Feature.FLOWER,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(DAFeatureStates.ECHAISY,1)), 20));
 
         register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()

@@ -1,0 +1,15 @@
+{
+  "feature": "deep_aether:mystic_roseroot_forest_flowers",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 package teamrazor.deepaether.world.feature;
 
+import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
+import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -9,6 +11,8 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -34,6 +38,12 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<PlacedFeature> AETHER_CATTAIL_PATCH = createKey("aether_cattail_patch");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_FLOWERS = createKey("aerglow_forest_flowers");
+    public static final ResourceKey<PlacedFeature> MYSTIC_AERGLOW_FOREST_FLOWERS = createKey("mystic_aerglow_forest_flowers");
+
+    public static final ResourceKey<PlacedFeature> SKY_TULIPS = createKey("sky_tulips");
+    public static final ResourceKey<PlacedFeature> GOLDEN_ASPESS = createKey("golden_aspess");
+    public static final ResourceKey<PlacedFeature> ECHAISY = createKey("echaisy");
+
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_GRASS = createKey("aerglow_forest_grass");
 
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
@@ -136,6 +146,20 @@ public class DAPlacedFeatures {
         register(context, AETHER_CATTAIL_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_CATTAILS_PATCH), CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
         register(context, AERGLOW_FOREST_FLOWERS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_FOREST_FLOWERS), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+        register(context, MYSTIC_AERGLOW_FOREST_FLOWERS, configuredFeatures.getOrThrow(DAConfiguredFeatures.MYSTIC_ROSEROOT_FOREST_FLOWERS), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+        register(context, SKY_TULIPS, configuredFeatures.getOrThrow(DAConfiguredFeatures.SKY_TULIPS),
+                RarityFilter.onAverageOnceEvery(16),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome());
+
+        register(context, GOLDEN_ASPESS, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_ASPESS),
+                RarityFilter.onAverageOnceEvery(16),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome());
+
+        register(context, ECHAISY, configuredFeatures.getOrThrow(DAConfiguredFeatures.ECHAISY),
+                RarityFilter.onAverageOnceEvery(16),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome());
+
 
         register(context, AERGLOW_FOREST_GRASS, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_FOREST_GRASS), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
