@@ -29,7 +29,7 @@ public class DAGeneralEvents {
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.getType() == AetherEntityTypes.SLIDER.get() && (DeepAetherMod.IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get())) {
+        if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAetherMod.IsHalloweenContentEnabled()) {
             entity.spawnAtLocation(new ItemStack(DAItems.SPOOKY_RING.get(), 1));
         }
     }

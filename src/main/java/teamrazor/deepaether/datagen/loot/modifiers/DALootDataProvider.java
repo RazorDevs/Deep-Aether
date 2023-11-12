@@ -39,9 +39,9 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 90),
                         WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_INGOT.get(), 1), 5),
                         WeightedEntry.wrap(new ItemStack(DABlocks.STERLING_AERCLOUD.get(), 1), 10),
-                        WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_SMITHING_TEMPLATE.get(), 1), 50)
+                        WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_SMITHING_TEMPLATE.get(), 1), 25)
                 ),
-                155,
+                130,
                 0.65f
         ));
 
