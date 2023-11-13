@@ -96,8 +96,8 @@ public class DABlocks {
 	public static final RegistryObject<Block> STRIPPED_YAGROOT_WOOD = registerBlock("stripped_yagroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> STRIPPED_YAGROOT_LOG = registerBlock("stripped_yagroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> STRIPPED_YAGROOT_WALL = registerBlock(300,"stripped_yagroot_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
-	public static final RegistryObject<Block> YAGROOT_PLANKS = registerBlock(300, "yagroot_planks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2f, 3f)));
-	public static final RegistryObject<Block> YAGROOT_STAIRS = registerBlock("yagroot_stairs", () -> new StairBlock(() -> DABlocks.ROSEROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+	public static final RegistryObject<Block> YAGROOT_PLANKS = registerBlock(300, "yagroot_planks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2f, 3f).instrument(NoteBlockInstrument.BASS)));
+	public static final RegistryObject<Block> YAGROOT_STAIRS = registerBlock("yagroot_stairs", () -> new StairBlock(() -> DABlocks.YAGROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> YAGROOT_SLAB = registerBlock("yagroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
 	public static final RegistryObject<Block> YAGROOT_FENCE = registerBlock("yagroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2f, 3f)));
 	public static final RegistryObject<Block> YAGROOT_FENCE_GATE = registerBlock("yagroot_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.YAGROOT));
@@ -109,9 +109,10 @@ public class DABlocks {
 	public static final RegistryObject<Block> YAGROOT_SAPLING = registerBlock("yagroot_sapling", () -> new SaplingBlock( new YagrootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
 	public static final RegistryObject<Block> YAGROOT_ROOTS = registerBlock(300, "yagroot_roots", () -> new DADoubleDropRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(0.7F).randomTicks().sound(SoundType.MANGROVE_ROOTS).noOcclusion()));
 	public static final RegistryObject<Block> MUDDY_YAGROOT_ROOTS = registerBlock("muddy_yagroot_roots", () -> new DADoubleDropRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(0.7F).sound(SoundType.MUDDY_MANGROVE_ROOTS)));
-
 	public static final RegistryObject<Block> YAGROOT_WALL_SIGN = BLOCKS.register("yagroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.YAGROOT));
 	public static final RegistryObject<Block> YAGROOT_SIGN = BLOCKS.register("yagroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.YAGROOT));
+
+	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new YagrootVineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
 
 	public static final RegistryObject<CeilingHangingSignBlock> YAGROOT_HANGING_SIGN = BLOCKS.register("yagroot_hanging_sign", () -> new DACeilingHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), DAWoodTypes.YAGROOT));
@@ -138,8 +139,6 @@ public class DABlocks {
 	public static final RegistryObject<Block> CRUDEROOT_SAPLING = registerBlock("cruderoot_sapling", () -> new SaplingBlock( new CruderootTreeGrower(), BlockBehaviour.Properties.copy(Blocks.MANGROVE_PROPAGULE)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL_SIGN = BLOCKS.register("cruderoot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> CRUDEROOT_SIGN = BLOCKS.register("cruderoot_sign", () -> new DASignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), DAWoodTypes.CRUDEROOT));
-	public static final RegistryObject<Block> YAGROOT_VINE = registerBlock("yagroot_vine", () -> new YagrootVineBlock(BlockBehaviour.Properties.copy(Blocks.VINE)));
-
 	public static final RegistryObject<CeilingHangingSignBlock> CRUDEROOT_HANGING_SIGN = BLOCKS.register("cruderoot_hanging_sign", () -> new DACeilingHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), DAWoodTypes.CRUDEROOT));
 	public static final RegistryObject<Block> CRUDEROOT_WALL_HANGING_SIGN = BLOCKS.register("cruderoot_wall_hanging_sign", () -> new DAWallHangingSignBlock(
