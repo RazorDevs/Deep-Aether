@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#deep_aether:has_aether_extra_flowers",
+  "features": "deep_aether:echaisy",
+  "step": "vegetal_decoration"
+}
