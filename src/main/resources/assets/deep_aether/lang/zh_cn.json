@@ -36,7 +36,6 @@
   "lore.block.deep_aether.roseroot_fence": "由瑰根木板和木棍制成。非常适合保护你的牲畜免受游荡捕食者的侵害！",
   "block.deep_aether.roseroot_fence_gate": "瑰根木栅栏门",
   "lore.block.deep_aether.roseroot_fence_gate": "由木棍和瑰根木板制成。为你的珍贵围栏提供一个有效的入口和出口。",
-  "itemGroup.tabdeep_aether_blocks_tab": "深入天境 - 方块",
   "item.deep_aether.music_disc_nabooru": "音乐唱片",
   "lore.item.deep_aether.music_disc_nabooru": "播放由Emile van Krieken创作的Nabooru的音乐唱片。",
   "item.deep_aether.skyjade": "穹玉晶石",
@@ -518,8 +517,8 @@
   "item.deep_aether.skyroot_aerglow_fish_bucket": "天根鳞鱼桶",
   "lore.item.deep_aether.skyroot_aerglow_fish_bucket": "里面装有天鳞鱼的水桶。确保保持水分充足，否则你的新朋友将无法在回家的途中生存。",
 
-  "itemGroup.deep_aether.deep_aether_blocks": "深入天境 方块",
-  "itemGroup.deep_aether.deep_aether_items": "深入天境 物品",
+  "itemGroup.deep_aether_blocks": "深入天境 方块",
+  "itemGroup.deep_aether_items": "深入天境 物品",
   "item.deep_aether.roseroot_boat": "瑰根木船",
   "lore.item.deep_aether.roseroot_boat": "虽然天境没有太多的大水域，但船在穿越大片冰面时偶尔会是一个有用的工具！",
   "item.deep_aether.roseroot_chest_boat": "瑰根木运输船",
