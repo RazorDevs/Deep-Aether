@@ -72,10 +72,12 @@ public class DeepAetherMod {
 	private static final String PROTOCOL_VERSION = "1";
 
 	static Calendar CALENDER = Calendar.getInstance();
-	public static boolean IS_HALLOWEEN = (CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER || CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER);
+	public static boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
+			|| (CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER) && CALENDER.get(Calendar.DAY_OF_MONTH) < 10);
 
-	public static boolean IS_HALLOWEEN_CONTENT_ENABLED = IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
-
+	public static boolean IsHalloweenContentEnabled() {
+		return IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
+	}
 	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(MODID);
 
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
