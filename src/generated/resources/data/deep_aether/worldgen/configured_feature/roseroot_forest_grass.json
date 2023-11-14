@@ -12,13 +12,13 @@
                 "data": {
                   "Name": "deep_aether:feather_grass"
                 },
-                "weight": 5
+                "weight": 8
               },
               {
                 "data": {
                   "Name": "minecraft:grass"
                 },
-                "weight": 15
+                "weight": 12
               },
               {
                 "data": {
@@ -73,7 +73,7 @@
         }
       ]
     },
-    "tries": 32,
+    "tries": 40,
     "xz_spread": 7,
     "y_spread": 3
   }
