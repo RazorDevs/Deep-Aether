@@ -12,13 +12,13 @@
                 "data": {
                   "Name": "deep_aether:radiant_orchid"
                 },
-                "weight": 10
+                "weight": 8
               },
               {
                 "data": {
                   "Name": "deep_aether:iaspove"
                 },
-                "weight": 5
+                "weight": 4
               }
             ]
           }
@@ -34,7 +34,7 @@
         }
       ]
     },
-    "tries": 100,
+    "tries": 90,
     "xz_spread": 7,
     "y_spread": 3
   }

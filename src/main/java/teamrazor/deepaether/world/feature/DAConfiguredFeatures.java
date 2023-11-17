@@ -281,8 +281,8 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.RADIANT_ORCHID,10)
-                        .add(DAFeatureStates.IASPOVE,5)), 100));
+                        .add(DAFeatureStates.RADIANT_ORCHID,8)
+                        .add(DAFeatureStates.IASPOVE,4)), 90));
 
         register(context, MYSTIC_ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -306,13 +306,13 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.FEATHER_GRASS,5)
-                        .add(Blocks.GRASS.defaultBlockState(),15)
+                        .add(DAFeatureStates.FEATHER_GRASS,8)
+                        .add(Blocks.GRASS.defaultBlockState(),12)
                         .add(DAFeatureStates.TALL_FEATHER_GRASS,2)
                         .add(Blocks.TALL_GRASS.defaultBlockState(),3)
                         .add(AetherFeatureStates.PURPLE_FLOWER, 1)
                         .add(AetherFeatureStates.WHITE_FLOWER, 1)
-                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 32));
+                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 40));
 
         register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
