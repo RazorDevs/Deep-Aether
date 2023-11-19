@@ -1,0 +1,67 @@
+package teamrazor.deepaether.mixin.flawless;
+
+import com.aetherteam.aether.entity.AetherBossMob;
+import com.aetherteam.aether.entity.NpcDialogue;
+import com.aetherteam.aether.entity.monster.dungeon.AbstractValkyrie;
+import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
+import com.aetherteam.aether.entity.monster.dungeon.boss.ValkyrieQueen;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.entity.IEntityAdditionalSpawnData;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import teamrazor.deepaether.entity.IFlawlessBossDrop;
+
+import javax.annotation.Nullable;
+
+@Mixin(value = ValkyrieQueen.class, remap = false)
+public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements AetherBossMob<ValkyrieQueen>, NpcDialogue, IEntityAdditionalSpawnData, IFlawlessBossDrop{
+    @Unique
+    @Nullable
+    private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(ValkyrieQueen.class, EntityDataSerializers.BOOLEAN);
+
+    public ValkyrieQueenMixin(EntityType<? extends AbstractValkyrie> type, Level level) {
+        super(type, level);
+    }
+
+
+    @Inject(at = @At(("TAIL")), method = "setBossFight", remap = false)
+    private void start(CallbackInfo ci) {
+        deep_Aether$setHasBeenHurt(false);
+    }
+
+    @Inject(at = @At(("TAIL")), method = "defineSynchedData", remap = false)
+    private void defineSynchedData(CallbackInfo ci) {
+        this.getEntityData().define(DATA_HAS_BEEN_HIT_ID, false);
+    }
+
+    @Unique
+    @Override
+    public boolean deep_Aether$hasBeenHurt() {
+        return this.getEntityData().get(DATA_HAS_BEEN_HIT_ID);
+    }
+
+    @Unique
+    @Override
+    public void deep_Aether$setHasBeenHurt(boolean bool) {
+        this.getEntityData().set(DATA_HAS_BEEN_HIT_ID, bool);
+    }
+
+    @Inject(at = @At("HEAD"), method = "die", remap = false)
+    private void die(DamageSource source, CallbackInfo ci) {
+        if(!deep_Aether$hasBeenHurt()) {
+            this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
+        }
+    }
+}
