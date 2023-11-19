@@ -8,9 +8,13 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,12 +22,27 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
+
+    @SubscribeEvent
+    public static void onLivingEntityHurt(LivingHurtEvent event) {
+
+        Entity entity = event.getEntity();
+        Entity source = event.getSource().getEntity();
+
+        if(entity.getType() == EntityType.PLAYER) {
+            if (source instanceof IFlawlessBossDrop flawless) {
+                flawless.deep_Aether$setHasBeenHurt(true);
+            }
+        }
+    }
+
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {

@@ -6,7 +6,12 @@
   "refmap": "deep_aether.refmap.json",
   "mixins": [
     "MoaMixin",
-    "TriviaGeneratorMixin"
+    "TriviaGeneratorMixin",
+    "flawless.IceCrystalMixin",
+    "flawless.SliderMixin",
+    "flawless.SunSpiritMixin",
+    "flawless.ValkireQueenMixin",
+    "flawless.ValkyrieQueenMixin"
   ],
   "client": [
     "AetherSkyRenderEffectsAccessor",
