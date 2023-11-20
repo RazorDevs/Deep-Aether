@@ -1,5 +1,6 @@
 package teamrazor.deepaether.event;
 
+import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.core.Registry;
@@ -36,7 +37,7 @@ public class DAGeneralEvents {
         Entity entity = event.getEntity();
         Entity source = event.getSource().getEntity();
 
-        if(entity.getType() == EntityType.PLAYER) {
+        if(entity instanceof Player player) {
             if (source instanceof IFlawlessBossDrop flawless) {
                 flawless.deep_Aether$setHasBeenHurt(true);
             }

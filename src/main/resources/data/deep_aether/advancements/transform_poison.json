@@ -1,5 +1,5 @@
 {
-  "parent": "aether:obtain_egg",
+  "parent": "aether:enter_aether",
   "criteria": {
     "transform_poison": {
       "trigger": "deep_aether:poison_trigger"

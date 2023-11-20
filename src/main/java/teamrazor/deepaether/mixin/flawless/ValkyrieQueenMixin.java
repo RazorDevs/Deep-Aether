@@ -3,7 +3,6 @@ package teamrazor.deepaether.mixin.flawless;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.NpcDialogue;
 import com.aetherteam.aether.entity.monster.dungeon.AbstractValkyrie;
-import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import com.aetherteam.aether.entity.monster.dungeon.boss.ValkyrieQueen;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -12,9 +11,6 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -26,8 +22,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import teamrazor.deepaether.advancement.FlawlessBossTrigger;
-import teamrazor.deepaether.advancement.PoisonTrigger;
+import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 
 import javax.annotation.Nullable;
@@ -72,7 +67,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
-                FlawlessBossTrigger.INSTANCE.trigger(player, this.getType());
+                DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);
             }
         }
     }

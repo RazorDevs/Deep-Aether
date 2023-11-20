@@ -1,9 +1,7 @@
 package teamrazor.deepaether.mixin.flawless;
 
 import com.aetherteam.aether.entity.AetherBossMob;
-import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import com.aetherteam.aether.entity.monster.dungeon.boss.SunSpirit;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -16,7 +14,6 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,7 +22,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import teamrazor.deepaether.advancement.FlawlessBossTrigger;
+import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 
 import javax.annotation.Nullable;
@@ -69,7 +66,7 @@ public abstract class SunSpiritMixin extends PathfinderMob implements AetherBoss
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
-                FlawlessBossTrigger.INSTANCE.trigger(player, this.getType());
+                DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);
             }
         }
     }

@@ -1,6 +1,5 @@
 {
   "type": "deep_aether:poison_recipe",
-  "category" : "blueberry_poison",
   "ingredient": {
     "item": "aether:blue_berry"
   },
