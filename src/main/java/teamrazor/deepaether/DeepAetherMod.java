@@ -33,6 +33,7 @@ import net.minecraftforge.resource.PathPackResources;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
+import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 import teamrazor.deepaether.fluids.DAFluidTypes;
@@ -121,6 +122,7 @@ public class DeepAetherMod {
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		Reflection.initialize(DAPlacementModifiers.class);
+		DAAdvancementTriggers.init();
 		event.enqueueWork(() -> {
 			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();
