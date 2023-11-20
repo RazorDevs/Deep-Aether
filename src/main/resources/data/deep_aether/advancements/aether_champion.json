@@ -3,12 +3,12 @@
   "criteria": {
     "slider": {
       "conditions": {
-        "player": [
+        "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-                "entity": "aether:slider"
+              "type": "aether:slider"
             }
           }
         ]
@@ -17,12 +17,12 @@
     },
     "valkyrie_queen": {
       "conditions": {
-        "player": [
+        "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "entity": "aether:valkyrie_queen"
+              "type": "aether:valkyrie_queen"
             }
           }
         ]
@@ -31,12 +31,12 @@
     },
     "sun_spirit": {
       "conditions": {
-        "player": [
+        "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "entity": "aether:sun_spirit"
+              "type": "aether:sun_spirit"
             }
           }
         ]
@@ -47,16 +47,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.deep_aether.explore_aether.description"
+      "translate": "advancements.deep_aether.aether_champion.description"
     },
     "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "deep_aether:roseroot_sapling"
+      "item": "aether:aether_portal_frame"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.deep_aether.explore_aether.title"
+      "translate": "advancements.deep_aether.aether_champion.title"
     }
   },
   "requirements": [

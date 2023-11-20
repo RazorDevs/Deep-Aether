@@ -537,7 +537,10 @@
   "advancements.deep_aether.explore_aether.description": "Explore all Aether biomes",
   "advancements.deep_aether.stratus_armor.title": "Cover Me in Sunshine",
   "advancements.deep_aether.stratus_armor.description": "Get a full suit of Stratus Armor",
-
+  "advancement.deep_aether.transform_poison" : "Purple Magic",
+  "advancement.deep_aether.transform_poison.desc" : "Transform an item by throwing it into Poison",
+  "advancements.deep_aether.aether_champion.title": "Champion Of The Aether",
+  "advancements.deep_aether.aether_champion.description": "Defeat all Aether bosses without taking a single hit",
 
   "block.deep_aether.holystone_tiles": "Holystone Tiles",
   "lore.block.deep_aether.holystone_tiles": "A tile variant of Holystone. Can be used for decoration.",
