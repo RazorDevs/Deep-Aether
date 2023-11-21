@@ -5,8 +5,11 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
@@ -24,6 +27,7 @@ import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
+import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
@@ -33,17 +37,14 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onLivingEntityHurt(LivingHurtEvent event) {
+        if(event.getEntity() instanceof ServerPlayer player) {
+            Entity playerBossFight = ((IPlayerBossFight) player).deep_Aether$getBoss();
 
-        Entity entity = event.getEntity();
-        Entity source = event.getSource().getEntity();
-
-        if(entity instanceof Player player) {
-            if (source instanceof IFlawlessBossDrop flawless) {
+            if (playerBossFight instanceof IFlawlessBossDrop flawless) {
                 flawless.deep_Aether$setHasBeenHurt(true);
             }
         }
     }
-
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {

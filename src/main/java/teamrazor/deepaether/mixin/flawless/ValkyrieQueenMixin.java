@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -24,6 +25,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
+import teamrazor.deepaether.entity.IPlayerBossFight;
 
 import javax.annotation.Nullable;
 
@@ -60,7 +62,12 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
     public void deep_Aether$setHasBeenHurt(boolean bool) {
         this.getEntityData().set(DATA_HAS_BEEN_HIT_ID, bool);
     }
-
+    @Inject(at = @At("TAIL"), method = "onDungeonPlayerAdded", remap = false)
+    private void onDungeonPlayerAdded(Player player, CallbackInfo ci) {
+        if (player instanceof ServerPlayer serverPlayer) {
+            ((IPlayerBossFight) serverPlayer).deep_Aether$setBoss(this);
+        }
+    }
     @Inject(at = @At("HEAD"), method = "die", remap = false)
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt()) {
