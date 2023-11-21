@@ -70,7 +70,7 @@ public abstract class SunSpiritMixin extends PathfinderMob implements AetherBoss
     }
     @Inject(at = @At("HEAD"), method = "die", remap = false)
     private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt()) {
+        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null) {
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {

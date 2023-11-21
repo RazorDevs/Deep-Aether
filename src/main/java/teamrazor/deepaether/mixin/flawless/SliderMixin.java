@@ -32,6 +32,9 @@ import javax.annotation.Nullable;
 @Mixin(value = Slider.class, remap = false)
 public abstract class SliderMixin extends PathfinderMob implements AetherBossMob<Slider>, Enemy, IEntityAdditionalSpawnData, IFlawlessBossDrop {
     @Shadow @Final private ServerBossEvent bossFight;
+
+    @Shadow public abstract boolean isBossFight();
+
     @Unique
     @Nullable
     private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(Slider.class, EntityDataSerializers.BOOLEAN);
@@ -71,7 +74,7 @@ public abstract class SliderMixin extends PathfinderMob implements AetherBossMob
 
     @Inject(at = @At("HEAD"), method = "die", remap = false)
     private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt()) {
+        if(!deep_Aether$hasBeenHurt()  && this.getDungeon() != null) {
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
