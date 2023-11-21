@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.NpcDialogue;
 import com.aetherteam.aether.entity.monster.dungeon.AbstractValkyrie;
 import com.aetherteam.aether.entity.monster.dungeon.boss.ValkyrieQueen;
+import com.aetherteam.nitrogen.entity.BossRoomTracker;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -32,6 +33,9 @@ import javax.annotation.Nullable;
 @Mixin(value = ValkyrieQueen.class, remap = false)
 public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements AetherBossMob<ValkyrieQueen>, NpcDialogue, IEntityAdditionalSpawnData, IFlawlessBossDrop{
     @Shadow @Final private ServerBossEvent bossFight;
+
+    @Shadow @Nullable public abstract BossRoomTracker<ValkyrieQueen> getDungeon();
+
     @Unique
     @Nullable
     private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(ValkyrieQueen.class, EntityDataSerializers.BOOLEAN);
@@ -70,7 +74,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
     }
     @Inject(at = @At("HEAD"), method = "die", remap = false)
     private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt()) {
+        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null)  {
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
