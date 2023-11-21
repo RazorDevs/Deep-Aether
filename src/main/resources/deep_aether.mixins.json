@@ -7,11 +7,9 @@
   "mixins": [
     "MoaMixin",
     "TriviaGeneratorMixin",
-    "flawless.FireCrystalMixin",
-    "flawless.IceCrystalMixin",
+    "flawless.ServerPlayerMixin",
     "flawless.SliderMixin",
     "flawless.SunSpiritMixin",
-    "flawless.ThunderCrystalMixin",
     "flawless.ValkyrieQueenMixin"
   ],
   "client": [
