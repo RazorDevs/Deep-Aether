@@ -16,6 +16,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
         public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
+        public final ConfigValue<Boolean> use_aether_tabs;
 
 
         public Common(ForgeConfigSpec.Builder builder) {
@@ -31,6 +32,13 @@ public class DeepAetherConfig {
                     .comment("Always Enable halloween content, excluding the halloween slider")
                     .translation("config.deep_aether.common.gameplay.always_enable_halloween_content")
                     .define("Always Enable Halloween Content", false);
+            builder.pop();
+
+            builder.push("Gameplay");
+            use_aether_tabs = builder
+                    .comment("Enabling this removes Deep Aether's creative mode tab, and adds Deep Aether's items to Aether's tabs")
+                    .translation("config.deep_aether.common.gameplay.use_aether_tabs")
+                    .define("Use Aether's Creative Mode Tabs", false);
             builder.pop();
 
             builder.push("Biomes");
