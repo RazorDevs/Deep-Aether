@@ -30,12 +30,9 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 
 import javax.annotation.Nullable;
 
-@Mixin(value = ValkyrieQueen.class, remap = false)
+@Mixin(value = ValkyrieQueen.class)
 public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements AetherBossMob<ValkyrieQueen>, NpcDialogue, IEntityAdditionalSpawnData, IFlawlessBossDrop{
-    @Shadow @Final private ServerBossEvent bossFight;
-
-    @Shadow @Nullable public abstract BossRoomTracker<ValkyrieQueen> getDungeon();
-
+    @Shadow(remap = false) @Final private ServerBossEvent bossFight;
     @Unique
     @Nullable
     private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(ValkyrieQueen.class, EntityDataSerializers.BOOLEAN);
@@ -50,7 +47,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
         deep_Aether$setHasBeenHurt(false);
     }
 
-    @Inject(at = @At(("TAIL")), method = "defineSynchedData", remap = false)
+    @Inject(at = @At(("TAIL")), method = "defineSynchedData")
     private void defineSynchedData(CallbackInfo ci) {
         this.getEntityData().define(DATA_HAS_BEEN_HIT_ID, false);
     }
@@ -72,7 +69,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
             ((IPlayerBossFight) serverPlayer).deep_Aether$setBoss(this);
         }
     }
-    @Inject(at = @At("HEAD"), method = "die", remap = false)
+    @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null)  {
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));

@@ -29,9 +29,9 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 
 import javax.annotation.Nullable;
 
-@Mixin(value = SunSpirit.class, remap = false)
+@Mixin(value = SunSpirit.class)
 public abstract class SunSpiritMixin extends PathfinderMob implements AetherBossMob<SunSpirit>, Enemy, IEntityAdditionalSpawnData, IFlawlessBossDrop {
-    @Shadow @Final private ServerBossEvent bossFight;
+    @Shadow(remap = false) @Final private ServerBossEvent bossFight;
     @Unique
     @Nullable
     private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(SunSpirit.class, EntityDataSerializers.BOOLEAN);
@@ -45,7 +45,7 @@ public abstract class SunSpiritMixin extends PathfinderMob implements AetherBoss
         deep_Aether$setHasBeenHurt(false);
     }
 
-    @Inject(at = @At(("TAIL")), method = "defineSynchedData", remap = false)
+    @Inject(at = @At(("TAIL")), method = "defineSynchedData")
     private void defineSynchedData(CallbackInfo ci) {
         this.getEntityData().define(DATA_HAS_BEEN_HIT_ID, false);
     }
@@ -68,7 +68,7 @@ public abstract class SunSpiritMixin extends PathfinderMob implements AetherBoss
             ((IPlayerBossFight) serverPlayer).deep_Aether$setBoss(this);
         }
     }
-    @Inject(at = @At("HEAD"), method = "die", remap = false)
+    @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null) {
             this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
