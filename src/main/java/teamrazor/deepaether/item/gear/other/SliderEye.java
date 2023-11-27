@@ -2,6 +2,8 @@ package teamrazor.deepaether.item.gear.other;
 
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -15,6 +17,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
+import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
@@ -46,9 +50,13 @@ public class SliderEye extends RingItem {
                 }
             }
 
-            if (maxFallTime > 0) {
+            if (maxFallTime > 0 && !level.isClientSide()) {
                 maxFallTime--;
                 player.addDeltaMovement(new Vec3(0F, -0.5F, 0F));
+
+                if (player instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+                }
 
                 //Triggers the shockwave if the entity hits a block
                 if (!level.isEmptyBlock(player.getOnPos())) {
@@ -62,7 +70,9 @@ public class SliderEye extends RingItem {
                     //Pushes all entities within range
                     for (LivingEntity target : entities) {
                         target.hurt(level.damageSources().playerAttack(player), 1.4F);
-                        Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(2F, 2F, 2F);
+                        float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+
+                        Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
 
                         if (push.y < 0)
                             push.multiply(1, -1, 1);
@@ -74,9 +84,10 @@ public class SliderEye extends RingItem {
                     addSound = true;
 
                 }
-            } else if (mayUse(stack, player)) {
+            } else if (mayUse(stack, player) && !level.isClientSide()) {
                 maxFallTime = 200;
-                player.getCooldowns().addCooldown(stack.getItem(), 200);
+
+                player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
                 player.setDeltaMovement(0F, 0F, 0F);
             }
         }
