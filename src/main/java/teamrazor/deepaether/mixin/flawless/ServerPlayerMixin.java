@@ -3,11 +3,11 @@ package teamrazor.deepaether.mixin.flawless;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -16,6 +16,14 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
+/**
+ * Used in the flawless boss check
+ * See {@link teamrazor.deepaether.entity.IFlawlessBossDrop}
+ * See {@link teamrazor.deepaether.event.DAGeneralEvents}
+ * See {@link SliderMixin}
+ * See {@link ValkyrieQueenMixin}
+ * See {@link SunSpiritMixin}
+ */
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player implements IPlayerBossFight {
 
@@ -36,6 +44,9 @@ public abstract class ServerPlayerMixin extends Player implements IPlayerBossFig
         this.deep_Aether$setOwner(entity);
     }
 
+    /**
+     * From {@link Projectile}
+     */
     @Unique
     @Nullable
     private UUID deep_Aether$ownerUUID;
