@@ -309,55 +309,7 @@ public class DATabs {
                     DABlocks.SUNROOT_HANGING_SIGN.get(),
             }, event);
         }
-        if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.getKey()) {
-            addToTab(AetherBlocks.SKYROOT_BUTTON.get().asItem(), new Block[]{
-                    DABlocks.ROSEROOT_BUTTON.get(),
-                    DABlocks.YAGROOT_BUTTON.get(),
-                    DABlocks.CRUDEROOT_BUTTON.get(),
-                    DABlocks.CONBERRY_BUTTON.get(),
-                    DABlocks.SUNROOT_BUTTON.get()
-            }, event);
-
-            addToTab(AetherBlocks.SKYROOT_PRESSURE_PLATE.get().asItem(), new Block[]{
-                    DABlocks.ROSEROOT_PRESSURE_PLATE.get(),
-                    DABlocks.YAGROOT_PRESSURE_PLATE.get(),
-                    DABlocks.CRUDEROOT_PRESSURE_PLATE.get(),
-                    DABlocks.CONBERRY_PRESSURE_PLATE.get(),
-                    DABlocks.SUNROOT_PRESSURE_PLATE.get()
-            }, event);
-
-            addToTab(AetherItems.SKYROOT_CHEST_BOAT.get(), new Item[]{
-                    DAItems.ROSEROOT_CHEST_BOAT.get(),
-                    DAItems.YAGROOT_CHEST_BOAT.get(),
-                    DAItems.CRUDEROOT_CHEST_BOAT.get(),
-                    DAItems.CONBERRY_CHEST_BOAT.get(),
-                    DAItems.SUNROOT_CHEST_BOAT.get(),
-            }, event);
-
-            addToTab(AetherBlocks.SKYROOT_DOOR.get().asItem(), new Block[]{
-                    DABlocks.ROSEROOT_DOOR.get(),
-                    DABlocks.YAGROOT_DOOR.get(),
-                    DABlocks.CRUDEROOT_DOOR.get(),
-                    DABlocks.CONBERRY_DOOR.get(),
-                    DABlocks.SUNROOT_DOOR.get()
-            }, event);
-
-            addToTab(AetherBlocks.SKYROOT_FENCE_GATE.get().asItem(), new Block[]{
-                    DABlocks.ROSEROOT_FENCE_GATE.get(),
-                    DABlocks.YAGROOT_FENCE_GATE.get(),
-                    DABlocks.CRUDEROOT_FENCE_GATE.get(),
-                    DABlocks.CONBERRY_FENCE_GATE.get(),
-                    DABlocks.SUNROOT_FENCE_GATE.get()
-            }, event);
-
-            addToTab(AetherBlocks.SKYROOT_TRAPDOOR.get().asItem(), new Block[]{
-                    DABlocks.ROSEROOT_TRAPDOOR.get(),
-                    DABlocks.YAGROOT_TRAPDOOR.get(),
-                    DABlocks.CRUDEROOT_TRAPDOOR.get(),
-                    DABlocks.CONBERRY_TRAPDOOR.get(),
-                    DABlocks.SUNROOT_TRAPDOOR.get()
-            }, event);
-        }
+        
         if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.getKey()) {
             addToTab(AetherItems.ZANITE_HOE.get(), new Item[]{
                     DAItems.SKYJADE_TOOLS_SWORD.get(),

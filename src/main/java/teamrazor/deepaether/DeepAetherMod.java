@@ -134,7 +134,6 @@ public class DeepAetherMod {
 		DARootPlacers.ROOT_PLACERS.register(bus);
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
-		DATabs.CREATIVE_MODE_TABS.register(bus);
 		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
