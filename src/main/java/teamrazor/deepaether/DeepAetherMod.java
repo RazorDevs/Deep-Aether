@@ -60,7 +60,6 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	// TODO: Loot tables functionality unknown
 
 	public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -68,6 +67,7 @@ public class DeepAetherMod {
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
+	public static final String ANCIENT_AETHER = "ancient_aether";
 
 	private static final String PROTOCOL_VERSION = "1";
 
@@ -110,8 +110,7 @@ public class DeepAetherMod {
 		DARootPlacers.ROOT_PLACERS.register(bus);
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
-
-
+		DAMobEffects.EFFECTS.register(bus);
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
