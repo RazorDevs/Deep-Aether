@@ -38,6 +38,7 @@ import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
+import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
 import teamrazor.deepaether.world.biomes.DARegion;
@@ -116,7 +117,7 @@ public class DeepAetherMod {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 		DARecipe.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
-
+		DAPacketHandler.register();
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
