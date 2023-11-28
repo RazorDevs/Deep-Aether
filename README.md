@@ -77,11 +77,16 @@ You'll need of course:
  
 # FAQ
 
-__Q: Do you plan on backporting to version 1.19.2 once the Aether Mod does?__
-  - A: Yes, we plan on doing so, as it shouldn't be *too* difficult and 1.19.2 has more mods than 1.19.4.
+__Q: Do you plan on backporting to other versions?__
+  - A: No we don't. The Aether I Mod only plans releases from 1.19.2 and onwards, meaning this addon cannot reach versions that are prior to that.
+  - This also includes future unofficial backports and all the legacy versions: our team only disposes of 2 coders that work on Deep Aether as a hobby, and maintaining older versions with a completely different codebase, while also fixing and updating the newer ones in acceptable timescales would be impossible.
+  - We have no issues with people that want to backport Deep Aether by themselves, letting us know first, and reminding that the backport is not official nor maintained by us..
+
+__Q: Where can I get Sterling Aerclouds? I can't find any!__
+  - A: Sterling Aerclouds are found high up in the Aether skies, above Y = 200. If you're playing with a low render distance it might be harder to spot the clusters, but __they're there!__
 
 __Q: Do you plan on adding cross-compatibility with other mods and Aether addons?__
-  - A: Yes, we plan on doing that as well, Aether Lost Content, Aether Redux, and Quark are just a few examples!
+  - A: Yes, we have already done that with many of the popular addons: Aether Lost Content, Aether Redux, and more!
 
 __Q: I am interested in joining your team to help with the development of the mod! How can I do so?__
   - A: We are always open to accepting new members, especially testers, developers, and texture artists. You can join our Discord Server and follow the directions for filling out an application in #recruitment-info! __BE PREPARED TO SHOW PROOF OF YOUR SKILLS.__
