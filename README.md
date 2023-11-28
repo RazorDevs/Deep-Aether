@@ -26,6 +26,7 @@ New Trees and Wood Sets:
  - Yagroot (Yagroot Swamp)
  - Cruderoot (Yagroot Swamp)
  - Conberry (Golden Heights)
+ - Sunroot (Golden Heights)
  
 New Mobs:
  - Aerglow Fish
@@ -45,11 +46,15 @@ New Blocks:
  - Virulent Quicksand (functions like how quicksand does in real life, as well as Powdered Snow; immediate suffocation when fallen through)
  - Aersmog: A type of Aercloud that is created from the mixture of Water and Poison. Inflicts the Inebration effect when stepped on.
  - Sterling and Chromatic Aerclouds
+ - New variations of Holystone and Mossy Holystone
  
 New Items:
  - Golden Grass Seeds (drops from Golden Grass (not the block version); can be crafted with swet balls into a new swet ball type, which can turn Aether Dirt into Golden Grass)
  - Music Disks: "Nabooru" and "A Morning Wish" by Emile van Krieken (these tracks were originally meant for the Aether I mod a long time ago, but were never implemented)
- 
+
+New Dungeon Loot:
+ - Spooky Ring: Increases damage dealt during the nighttime.
+
 New Liquid:
  - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
 
@@ -57,7 +62,7 @@ Mod Cross Compat:
  - Aether Lost Content
     - Skyjade and Cloudium Shields
  - Aether Redux
-    - Tile variants for Gilded, Frosted, and Blightmoss Holystone
+    - Brick and Tile variants for Gilded, Frosted, and Blightmoss Holystone
 
 # Requirements
 
