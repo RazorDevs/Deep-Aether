@@ -2,10 +2,14 @@ package teamrazor.deepaether.client.renderer;
 
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.QuailModel;
@@ -55,5 +59,10 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
             poseStack.translate(0.0, -0.35, 0.0);
         }
         super.render(animatable, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    }
+
+    @Override
+    public RenderType getRenderType(Quail animatable, float partialTick, PoseStack poseStack, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, int packedLight, ResourceLocation texture) {
+        return RenderType.entityCutoutNoCull(texture);
     }
 }

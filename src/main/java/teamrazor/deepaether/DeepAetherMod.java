@@ -59,8 +59,7 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-	//TODO: Quail and Venomite texture bugged
-	//TODO: Loot tables functionality unknown
+	// TODO: Loot tables functionality unknown
 
 	public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -91,18 +90,9 @@ public class DeepAetherMod {
 		// Register the processIMC method for modloading
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
-		//FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
-
-
-
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-
-
 		bus.addListener(this::commonSetup);
-
 		MinecraftForge.EVENT_BUS.register(this);
-
 
 		GeckoLib.initialize();
 		DABlocks.BLOCKS.register(bus);
@@ -128,30 +118,6 @@ public class DeepAetherMod {
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 
 	}
-
-/*
-	public void dataSetup(GatherDataEvent event) {
-		DataGenerator generator = event.getGenerator();
-		ExistingFileHelper fileHelper = event.getExistingFileHelper();
-		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-		PackOutput packOutput = generator.getPackOutput();
-
-		// Client Data
-		generator.addProvider(event.includeClient(), new DABlockstateData(packOutput, fileHelper));
-		generator.addProvider(event.includeClient(), new DAItemModelData(packOutput, fileHelper));
-
-		// Server Data
-		generator.addProvider(event.includeServer(), new DAWorldGenData(packOutput, lookupProvider));
-		generator.addProvider(event.includeServer(), new DARecipeData(packOutput));
-		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput));
-		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
-		generator.addProvider(event.includeServer(), blockTags);
-		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
-		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
-	}
-
- */
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		Reflection.initialize(DAPlacementModifiers.class);
