@@ -283,6 +283,8 @@ public class DATabs {
             .icon(() -> new ItemStack(DAItems.SKYJADE_TOOLS_SWORD.get()))
             .title(Component.translatable("itemGroup." + DeepAetherMod.MODID + ".deep_aether_items"))
             .displayItems((features, output) -> {
+                output.accept(DAItems.FLAMETHROWER.get());
+
                 output.accept(DAItems.SKYJADE.get());
                 output.accept(DAItems.SKYJADE_TOOLS_SWORD.get());
                 output.accept(DAItems.SKYJADE_TOOLS_AXE.get());

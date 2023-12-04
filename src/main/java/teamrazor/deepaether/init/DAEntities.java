@@ -18,6 +18,7 @@ import teamrazor.deepaether.entity.DAChestBoatEntity;
 import teamrazor.deepaether.entity.Venomite;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
+import teamrazor.deepaether.item.misc.FireProjectile;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -53,6 +54,10 @@ public class DAEntities {
 			EntityType.Builder.<Venomite>of(Venomite::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Venomite::new)
 					.sized(0.7F, 0.6F));
+
+	public static final RegistryObject<EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",
+			() -> EntityType.Builder.<FireProjectile>of(FireProjectile::new, MobCategory.MISC).sized(0.35F, 0.35F).clientTrackingRange(4).updateInterval(10).build("fire_projectile"));
+
 
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
