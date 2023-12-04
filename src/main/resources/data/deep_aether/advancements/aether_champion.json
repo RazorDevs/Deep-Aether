@@ -1,0 +1,76 @@
+{
+  "parent": "aether:gold_dungeon",
+  "criteria": {
+    "slider": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "aether:slider"
+            }
+          }
+        ]
+      },
+      "trigger": "deep_aether:flawless_boss_trigger"
+    },
+    "valkyrie_queen": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "aether:valkyrie_queen"
+            }
+          }
+        ]
+      },
+      "trigger": "deep_aether:flawless_boss_trigger"
+    },
+    "sun_spirit": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "aether:sun_spirit"
+            }
+          }
+        ]
+      },
+      "trigger": "deep_aether:flawless_boss_trigger"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.deep_aether.aether_champion.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "aether:aether_portal_frame"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.deep_aether.aether_champion.title"
+    }
+  },
+  "requirements": [
+    [
+      "slider"
+    ],
+    [
+      "valkyrie_queen"
+    ],
+    [
+      "sun_spirit"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

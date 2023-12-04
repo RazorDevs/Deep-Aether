@@ -292,6 +292,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.GRAVITITE_RING.get()
         );
 
+        tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
+                DAItems.SLIDER_EYE.get()
+        );
+
         tag(ItemTags.HANGING_SIGNS).add(
                 DAItems.CONBERRY_HANGING_SIGN.get(),
                 DAItems.CRUDEROOT_HANGING_SIGN.get(),

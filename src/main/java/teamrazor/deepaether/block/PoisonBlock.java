@@ -5,6 +5,7 @@ import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -12,6 +13,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
+import teamrazor.deepaether.advancement.PoisonTrigger;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAParticles;
@@ -100,7 +103,6 @@ public class PoisonBlock extends LiquidBlock {
                 System.out.println(TRANSFORM_ITEM);
 
                 if (!level.isClientSide && CAN_TRANSFORM) {
-                    assert TRANSFORMED_ITEM_ENTITY != null;
                     if ((TRANSFORMED_ITEM_ENTITY.getFeetBlockState().getBlock() == this || level.getBlockState(TRANSFORMED_ITEM_ENTITY.getOnPos().below(1)).getBlock() == this) && TRANSFORMED_ITEM_ENTITY.isAlive()) {
                         BlockPos itemPos = TRANSFORMED_ITEM_ENTITY.getOnPos();
                         ServerLevel serverlevel = (ServerLevel) level;
@@ -114,6 +116,10 @@ public class PoisonBlock extends LiquidBlock {
                 if ((TIME > 5) && itemEntity.isAlive() && CAN_TRANSFORM) {
                     CAN_TRANSFORM = false;
                     COUNT = false;
+                    if(itemEntity.getOwner() instanceof ServerPlayer player) {
+                        PoisonTrigger.INSTANCE.trigger(player, itemEntity.getItem());
+                    }
+
                     itemEntity.discard();
                     entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
                     entity.setNoGravity(true);

@@ -36,6 +36,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
+import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
 import teamrazor.deepaether.datagen.DABlockstateData;
@@ -51,6 +52,7 @@ import teamrazor.deepaether.datagen.tags.DAEntityTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
+import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
 import teamrazor.deepaether.world.biomes.DARegion;
@@ -133,7 +135,6 @@ public class DeepAetherMod {
 		DARootPlacers.ROOT_PLACERS.register(bus);
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
-		DATabs.CREATIVE_MODE_TABS.register(bus);
 		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
@@ -141,7 +142,7 @@ public class DeepAetherMod {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 		DARecipe.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
-
+		DAPacketHandler.register();
 	}
 
 	public void dataSetup(GatherDataEvent event) {
@@ -168,6 +169,7 @@ public class DeepAetherMod {
 
 	public void commonSetup(FMLCommonSetupEvent event) {
 		Reflection.initialize(DAPlacementModifiers.class);
+		DAAdvancementTriggers.init();
 		event.enqueueWork(() -> {
 			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();

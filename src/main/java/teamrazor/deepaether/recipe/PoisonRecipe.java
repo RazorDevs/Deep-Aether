@@ -14,6 +14,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nullable;
 
@@ -23,11 +24,11 @@ public class PoisonRecipe extends AbstractPoisonRecipe {
     }
 
     public ItemStack getToastSymbol() {
-        return new ItemStack(AetherBlocks.FREEZER.get());
+        return new ItemStack(DAItems.PLACEABLE_POISON_BUCKET.get());
     }
 
     public RecipeSerializer<?> getSerializer() {
-        return AetherRecipeSerializers.FREEZING.get();
+        return DARecipeSerializers.POISON_RECIPE.get();
     }
 
     public static class Serializer extends PoisonRecipeSerializer<PoisonRecipe> {
