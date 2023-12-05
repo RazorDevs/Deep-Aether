@@ -3,16 +3,25 @@ package teamrazor.deepaether.item.misc;
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.HammerProjectileLaunchPacket;
 import com.aetherteam.nitrogen.network.PacketRelay;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.FlintAndSteelItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseFireBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -47,7 +56,7 @@ public class FireProjectile extends ThrowableProjectile {
             ++this.ticksInAir;
         }
 
-        if (this.ticksInAir > 100 && !this.level().isClientSide()) {
+        if (this.ticksInAir > 50 && !this.level().isClientSide()) {
             this.discard();
         }
 
@@ -76,7 +85,7 @@ public class FireProjectile extends ThrowableProjectile {
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
         if (!this.level().isClientSide()) {
-            this.launchTarget(target);
+            this.setTargetOnFire(target);
             this.level().broadcastEntityEvent(this, (byte) 70);
         } else {
             PacketRelay.sendToServer(AetherPacketHandler.INSTANCE, new HammerProjectileLaunchPacket(target.getId(), this.getId()));
@@ -86,6 +95,10 @@ public class FireProjectile extends ThrowableProjectile {
     }
 
     protected void onHitBlock(BlockHitResult result) {
+        if (BaseFireBlock.canBePlacedAt(this.level(), result.getBlockPos(), result.getDirection())) {
+            BlockState $$6 = BaseFireBlock.getState(level(), result.getBlockPos());
+            level().setBlock(result.getBlockPos(), $$6, 11);
+        }
         super.onHitBlock(result);
         List<Entity> list = this.level().getEntities(this, this.getBoundingBox().inflate(5.0));
         Iterator var3 = list.iterator();
@@ -93,7 +106,7 @@ public class FireProjectile extends ThrowableProjectile {
         while (var3.hasNext()) {
             Entity target = (Entity) var3.next();
             if (!this.level().isClientSide()) {
-                this.launchTarget(target);
+                this.setTargetOnFire(target);
             } else {
                 PacketRelay.sendToServer(AetherPacketHandler.INSTANCE, new HammerProjectileLaunchPacket(target.getId(), this.getId()));
             }
@@ -112,21 +125,22 @@ public class FireProjectile extends ThrowableProjectile {
             this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
             this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
             this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
             this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
 
     }
 
-    public void launchTarget(Entity target) {
+    public void setTargetOnFire(Entity target) {
         if (target != this.getOwner() && (this.getOwner() == null || target != this.getOwner().getVehicle()) && target instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().thrown(this, this.getOwner()), 7.0F);
-            livingEntity.push(this.getDeltaMovement().x(), 0.6, this.getDeltaMovement().z());
+            livingEntity.hurt(this.damageSources().onFire(), 3.0F);
+            livingEntity.setSecondsOnFire(4);
         }
 
     }
 
     protected float getGravity() {
-        return 0.0F;
+        return 0.1F;
     }
 
     public void handleEntityEvent(byte id) {

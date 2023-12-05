@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -26,6 +27,7 @@ public class FireProjectileRenderer extends EntityRenderer<FireProjectile> {
      */
     @Override
     public void render(FireProjectile hammer, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+        poseStack.scale(0.5f, 0.5f, 0.5f);
         poseStack.pushPose();
         poseStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
         poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
@@ -45,11 +47,6 @@ public class FireProjectileRenderer extends EntityRenderer<FireProjectile> {
         consumer.vertex(matrix, offsetX - 0.5F, offsetY - 0.25F, 0.0F).color(255, 255, 255, 255).uv(textureX, textureY).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(packedLight).normal(normals, 0.0F, 1.0F, 0.0F).endVertex();
     }
 
-    /**
-     * Checks whether the projectile should use the Kingbdogz or Jeb hammer texture.
-     * @param hammer The {@link FireProjectile} entity.
-     * @return The texture {@link ResourceLocation}.
-     */
     @Override
     public ResourceLocation getTextureLocation(FireProjectile hammer) {
         return FIRE_PROJECTILE_TEXTURE;
