@@ -1,9 +1,9 @@
 {
   "aether.pro_tips.line.deep_aether.deep_aether_tips": "§bTips from Deep Aether are light blue!",
   "aether.pro_tips.line.deep_aether.squashes": "§bHave you ever tried enchanting Pumpkin Seeds in an Altar?",
-  "aether.pro_tips.line.deep_aether.poison_squashes": "§bSquashes turns purple when dipped in Poison.",
+  "aether.pro_tips.line.deep_aether.poison_squashes": "§bSquashes become purple when thrown in Poison.",
   "aether.pro_tips.line.deep_aether.sterling_aercloud": "§bSterling Aerclouds can rarely be found near the build limit.",
-  "aether.pro_tips.line.deep_aether.poison": "§bPoison can be used to un-enchant blocks and items enchanted in the Altar.",
+  "aether.pro_tips.line.deep_aether.poison": "§bPoison can be used to un-enchant blocks and items from an Altar.",
   "gui.deep_aether.pro_tip": "§bPro Tip:",
   "gui.deep_aether.flawless_tier_1" : "§6F§6l§6a§6w§el§ee§es§es",
   "gui.deep_aether.flawless_tier_2" : "§eF§6l§6a§6w§6l§ee§es§es",
@@ -14,13 +14,14 @@
   "gui.deep_aether.flawless_tier_7" : "§6F§6l§ea§ew§el§ee§6s§6s",
   "gui.deep_aether.flawless_tier_8" : "§6F§6l§6a§ew§el§ee§es§6s",
 
-
   "deep_aether.item.disabled_item" : "Disabled",
   "gui.deep_aether.jei.poison_recipe" : "Poison Conversion",
   "gui.deep_aether.spooky_ring": "You deal more damage during night towards midnight, with up to a maximum of 2 extra damage \nMight have spooky consequences...",
   "gui.deep_aether.slider_ring": "Increases your speed when your health is low\nCurrent Increase: ",
-  "lore.item.deep_aether.slider_eye": "A powerful part of a Slider dropped when defeating a Slider without taking a single hit. It allows you to slam into the ground when you're two block or more above the ground dealing knockback and damage to nearby enemies. ",
+  "lore.item.deep_aether.slider_eye": "A powerful part of the Slider dropped when defeating a Slider without taking a single hit. It allows you to slam into the ground when you're two block or more above the ground dealing knockback and damage to nearby enemies. ",
   "item.deep_aether.slider_eye": "Eye Of The Slider",
+  "lore.item.deep_aether.flamethrower": "A powerful part of the Sun Spirit dropped when defeating a Sun Spirit without taking a single hit. It allows you to shoot fire to nearby enemies just like a flamethrower. ",
+  "item.deep_aether.flamethrower": "Afterburner",
 
   "item.deep_aether.spooky_ring" : "Spooky Ring",
   "item.deep_aether.skyjade_chestplate": "Skyjade Chestplate",

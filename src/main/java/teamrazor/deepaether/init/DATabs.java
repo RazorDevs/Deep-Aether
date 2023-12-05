@@ -389,7 +389,8 @@ public class DATabs {
             addToTab(AetherItems.ICE_PENDANT.get(), DAItems.SPOOKY_RING.get(), event);
 
             addToTab(AetherItems.SHIELD_OF_REPULSION.get(), new Item[]{
-                    DAItems.SLIDER_EYE.get()
+                    DAItems.SLIDER_EYE.get(),
+                    DAItems.FLAMETHROWER.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
