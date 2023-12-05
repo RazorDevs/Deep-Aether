@@ -16,9 +16,9 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.init.DATiers;
 
-public class FlamethrowerItem extends TieredItem implements Vanishable {
+public class FlamethrowerItem extends Item implements Vanishable {
     public FlamethrowerItem(Properties properties) {
-        super(DATiers.FIRE, properties);
+        super(properties);
     }
 
     @Override

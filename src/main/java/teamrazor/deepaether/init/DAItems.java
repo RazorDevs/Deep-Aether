@@ -28,6 +28,7 @@ import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.other.SliderEye;
 import teamrazor.deepaether.item.gear.other.SpookyRing;
+import teamrazor.deepaether.item.gear.other.SunCore;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
@@ -58,7 +59,8 @@ public class DAItems {
 
 	// EQUIPMENT
 
-	public static final RegistryObject<Item> FLAMETHROWER = ITEMS.register("flamethrower", () -> new FlamethrowerItem((new Item.Properties()).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> FLAMETHROWER = ITEMS.register("flamethrower", () -> new FlamethrowerItem((new Item.Properties().stacksTo(1).durability(200))));
+
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
 	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));
 	public static final RegistryObject<Item> SKYJADE_TOOLS_AXE = ITEMS.register("skyjade_axe", () -> new SkyjadeToolsAxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));
@@ -123,6 +125,9 @@ public class DAItems {
 	public static final RegistryObject<Item> PURPLE_SQUASH_SLICE = ITEMS.register("purple_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES), new MobEffect[]{MobEffects.LEVITATION, MobEffects.DAMAGE_RESISTANCE, AetherEffects.INEBRIATION.get()}));
 
 	// MISC
+
+	public static final RegistryObject<Item> SUN_CORE = ITEMS.register("sun_core", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT)));
+
 	public static final RegistryObject<Item> AETHER_FISH_SPAWN_EGG = ITEMS.register("aether_fish_spawn_egg",
 			() -> new ForgeSpawnEggItem(DAEntities.AETHER_FISH, 698060, 16776960, new Item.Properties()));
 
