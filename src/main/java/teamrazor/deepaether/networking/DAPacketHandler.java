@@ -12,6 +12,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import teamrazor.deepaether.DeepAetherMod;
 
+import java.util.Set;
 import java.util.function.Function;
 
 public class DAPacketHandler {
@@ -23,6 +24,7 @@ public class DAPacketHandler {
     public static synchronized void register() {
         //register(SetSliderSlamPacket.class, SetSliderSlamPacket::decode);
 
+        register(SetSliderSlamPacket.class, SetSliderSlamPacket::decode);
         register(DAPlayerSyncPacket.class, DAPlayerSyncPacket::decode);
     }
 

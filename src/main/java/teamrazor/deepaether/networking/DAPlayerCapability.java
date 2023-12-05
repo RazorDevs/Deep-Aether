@@ -52,14 +52,12 @@ public class DAPlayerCapability implements DeepAetherPlayer {
 
     @Override
     public SimpleChannel getPacketChannel() {
-
-        return AetherPacketHandler.INSTANCE;
-
+        return DAPacketHandler.INSTANCE;
     }
 
     @Override
     public CompoundTag serializeNBT() {
-        return null;
+         return new CompoundTag();
     }
 
     @Override
