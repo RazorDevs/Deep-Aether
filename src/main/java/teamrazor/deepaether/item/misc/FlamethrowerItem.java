@@ -34,7 +34,7 @@ public class FlamethrowerItem extends SimpleFoiledItem {
         Player player = (Player) livingEntity;
         if(player.getTicksUsingItem() > 20) {
             FireProjectile hammerProjectile = new FireProjectile(player, level);
-            hammerProjectile.shoot(player.getXRot(), player.getYRot(), 0.5F, 11.0F);
+            hammerProjectile.shoot(player.getXRot(), player.getYRot(), 1.5F, 11.0F);
             level.addFreshEntity(hammerProjectile);
             itemStack.setDamageValue(getDamage(itemStack) - 1);
             level.playLocalSound(player.getX(), player.getY(), player.getZ(), (SoundEvent) AetherSoundEvents.ITEM_HAMMER_OF_KINGBDOGZ_SHOOT.get(), SoundSource.PLAYERS, 1.0F, 1.0F / (livingEntity.getRandom().nextFloat() * 0.4F + 0.8F), false);
