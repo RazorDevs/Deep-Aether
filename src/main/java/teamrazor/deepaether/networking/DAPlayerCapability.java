@@ -1,6 +1,5 @@
 package teamrazor.deepaether.networking;
 
-import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;
@@ -51,14 +50,12 @@ public class DAPlayerCapability implements DeepAetherPlayer {
 
     @Override
     public SimpleChannel getPacketChannel() {
-
-        return AetherPacketHandler.INSTANCE;
-
+        return DAPacketHandler.INSTANCE;
     }
 
     @Override
     public CompoundTag serializeNBT() {
-        return null;
+         return new CompoundTag();
     }
 
     @Override

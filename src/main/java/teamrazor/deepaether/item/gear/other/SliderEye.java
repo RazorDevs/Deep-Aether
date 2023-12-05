@@ -1,7 +1,7 @@
 package teamrazor.deepaether.item.gear.other;
 
 import com.aetherteam.aether.item.accessories.ring.RingItem;
-import com.aetherteam.nitrogen.capability.INBTSynchable;
+import com.aetherteam.nitrogen.network.PacketRelay;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,7 +20,9 @@ import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
+import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
+import teamrazor.deepaether.networking.SetSliderSlamPacket;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
@@ -32,9 +34,9 @@ public class SliderEye extends RingItem {
         super(ringSound, properties);
     }
 
-    private int maxFallTime = 0;
+    public int maxFallTime = 0;
     private static TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
-        return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
+        return TargetingConditions.forCombat().selector((entity) ->  !entity.level().isClientSide() && !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
     }
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
@@ -51,14 +53,11 @@ public class SliderEye extends RingItem {
 
     private void HandleServer(Player player, Level level) {
         if (maxFallTime > 0) {
+
             maxFallTime--;
 
             //Triggers the shockwave if the entity hits a block
-            if (!level.isEmptyBlock(player.getOnPos())) {
-
-                DeepAetherPlayer.get(player).ifPresent((deepAetherPlayer) ->
-                        deepAetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false));
-
+            if (player.onGround()) {
                 maxFallTime = 0;
 
                 //Range of shockwave
@@ -85,8 +84,7 @@ public class SliderEye extends RingItem {
     }
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
-
-        if(maxFallTime > 0) {
+        if (maxFallTime > 0) {
             maxFallTime--;
 
             player.addDeltaMovement(new Vec3(0F, -0.5F, 0F));
@@ -94,24 +92,23 @@ public class SliderEye extends RingItem {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
 
-            DeepAetherPlayer.get(player).ifPresent((deepAetherPlayer) -> {
-                if (!deepAetherPlayer.isSliderSlamActivated()) {
-                    maxFallTime = 0;
-                    level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
-                }
-            });
+            if (player.onGround()) {
+                maxFallTime = 0;
+                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
+            }
         }
 
-        else if (mayUse(stack, player)) {
+        if (mayUse(stack, player)) {
             player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
             player.setDeltaMovement(0F, 0F, 0F);
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
-
-                DeepAetherPlayer.get(player).ifPresent((deepAetherPlayer) -> {
-                    deepAetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
-                });
             }
+
+            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
+                PacketRelay.sendToAll(DAPacketHandler.INSTANCE, new SetSliderSlamPacket(aetherPlayer.getPlayer().getId(), true));
+            });
+
             maxFallTime = 200;
         }
     }
