@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "O": {
+      "item": "deep_aether:sun_core"
+    },
+    "P": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    " P ",
+    "POP",
+    " P "
+  ],
+  "result": {
+    "item": "deep_aether:afterburner"
+  },
+  "show_notification": true
+}

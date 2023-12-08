@@ -9,13 +9,15 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.level.Level;
+import teamrazor.deepaether.entity.FireProjectile;
 
-public class FlamethrowerItem extends Item implements Vanishable {
-    public FlamethrowerItem(Properties properties) {
+public class AfterburnerItem extends Item implements Vanishable {
+    public AfterburnerItem(Properties properties) {
         super(properties);
     }
 
@@ -40,9 +42,6 @@ public class FlamethrowerItem extends Item implements Vanishable {
 
             level.addFreshEntity(fireProjectile);
             level.playLocalSound(player.getX(), player.getY(), player.getZ(), (SoundEvent) AetherSoundEvents.ITEM_HAMMER_OF_KINGBDOGZ_SHOOT.get(), SoundSource.PLAYERS, 1.0F, 1.0F / (livingEntity.getRandom().nextFloat() * 0.4F + 0.8F), false);
-
-            if(!player.isCreative())
-                itemStack.hurt(1, RandomSource.create(), null);
         }
         super.onUseTick(level, livingEntity, itemStack, i);
     }
@@ -52,8 +51,10 @@ public class FlamethrowerItem extends Item implements Vanishable {
         Player player = (Player) entity;
 
         if(count < stack.getUseDuration() - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
-            if(!player.isCreative())
+            if(!player.isCreative()) {
                 player.getCooldowns().addCooldown(this, 100);
+                stack.hurt(10, RandomSource.create(), null);
+            }
         }
         super.onStopUsing(stack, entity, count);
     }

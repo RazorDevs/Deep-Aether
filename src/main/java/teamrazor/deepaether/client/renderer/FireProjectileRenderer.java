@@ -5,18 +5,17 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.item.misc.FireProjectile;
+import teamrazor.deepaether.entity.FireProjectile;
 
 public class FireProjectileRenderer extends EntityRenderer<FireProjectile> {
-    public static final ResourceLocation FIRE_PROJECTILE_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/item/flamethrower.png");
+    public static final ResourceLocation FIRE_PROJECTILE_TEXTURE = new ResourceLocation("minecraft:textures/item/fire_charge.png");
+            //new ResourceLocation(DeepAetherMod.MODID, "textures/item/sun_core.png");
     public FireProjectileRenderer(EntityRendererProvider.Context context) {
         super(context);
         this.shadowRadius = 0.0F;

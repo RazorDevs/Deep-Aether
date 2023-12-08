@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.NpcDialogue;
 import com.aetherteam.aether.entity.monster.dungeon.AbstractValkyrie;
 import com.aetherteam.aether.entity.monster.dungeon.boss.ValkyrieQueen;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -13,7 +14,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.spongepowered.asm.mixin.Final;
@@ -71,7 +71,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null)  {
-            this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
+            this.spawnAtLocation(new ItemStack(AetherItems.HOLY_SWORD.get(), 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
                 DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);

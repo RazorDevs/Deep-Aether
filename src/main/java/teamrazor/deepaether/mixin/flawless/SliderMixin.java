@@ -36,8 +36,8 @@ public abstract class SliderMixin extends PathfinderMob implements AetherBossMob
     @Nullable
     private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(Slider.class, EntityDataSerializers.BOOLEAN);
 
-    protected SliderMixin(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
-        super(p_21683_, p_21684_);
+    protected SliderMixin(EntityType<? extends PathfinderMob> entityType, Level level) {
+        super(entityType, level);
     }
 
     @Inject(at = @At(("TAIL")), method = "start", remap = false)

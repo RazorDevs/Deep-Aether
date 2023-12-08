@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.misc;
+package teamrazor.deepaether.entity;
 
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.HammerProjectileLaunchPacket;
@@ -31,11 +31,11 @@ public class FireProjectile extends ThrowableProjectile {
     }
 
     public FireProjectile(LivingEntity owner, Level level) {
-        super((EntityType) DAEntities.FIRE_PROJECTILE.get(), owner, level);
+        super(DAEntities.FIRE_PROJECTILE.get(), owner, level);
     }
 
     public FireProjectile(Level level) {
-        super((EntityType) DAEntities.FIRE_PROJECTILE.get(), level);
+        super(DAEntities.FIRE_PROJECTILE.get(), level);
     }
 
     @Override
