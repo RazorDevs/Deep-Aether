@@ -13,7 +13,6 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.spongepowered.asm.mixin.Final;
@@ -26,6 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
+import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nullable;
 
@@ -36,8 +36,8 @@ public abstract class SunSpiritMixin extends PathfinderMob implements AetherBoss
     @Nullable
     private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(SunSpirit.class, EntityDataSerializers.BOOLEAN);
 
-    protected SunSpiritMixin(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
-        super(p_21683_, p_21684_);
+    protected SunSpiritMixin(EntityType<? extends PathfinderMob> entityType, Level level) {
+        super(entityType, level);
     }
 
     @Inject(at = @At(("TAIL")), method = "setBossFight", remap = false)
@@ -71,7 +71,7 @@ public abstract class SunSpiritMixin extends PathfinderMob implements AetherBoss
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null) {
-            this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
+            this.spawnAtLocation(new ItemStack(DAItems.SUN_CORE.get(), 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
                 DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);

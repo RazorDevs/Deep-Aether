@@ -5,11 +5,10 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -17,13 +16,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.DeepAetherMod;
-
-import java.util.List;
-import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT, modid = DeepAetherMod.MODID)
 public class DATabs {
@@ -390,7 +383,8 @@ public class DATabs {
 
             addToTab(AetherItems.SHIELD_OF_REPULSION.get(), new Item[]{
                     DAItems.SLIDER_EYE.get(),
-                    DAItems.FLAMETHROWER.get()
+                    DAItems.SUN_CORE.get(),
+                    DAItems.AFTERBURNER.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {

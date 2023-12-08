@@ -1,39 +1,27 @@
-package teamrazor.deepaether.item.misc;
+package teamrazor.deepaether.entity;
 
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.HammerProjectileLaunchPacket;
 import com.aetherteam.nitrogen.network.PacketRelay;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.FlintAndSteelItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.network.NetworkHooks;
 import teamrazor.deepaether.init.DAEntities;
-
-import java.util.Iterator;
-import java.util.List;
 
 public class FireProjectile extends ThrowableProjectile {
     private int ticksInAir = 0;
@@ -43,11 +31,11 @@ public class FireProjectile extends ThrowableProjectile {
     }
 
     public FireProjectile(LivingEntity owner, Level level) {
-        super((EntityType) DAEntities.FIRE_PROJECTILE.get(), owner, level);
+        super(DAEntities.FIRE_PROJECTILE.get(), owner, level);
     }
 
     public FireProjectile(Level level) {
-        super((EntityType) DAEntities.FIRE_PROJECTILE.get(), level);
+        super(DAEntities.FIRE_PROJECTILE.get(), level);
     }
 
     @Override

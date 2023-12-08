@@ -12,13 +12,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.entity.AerglowFish;
-import teamrazor.deepaether.entity.DABoatEntity;
-import teamrazor.deepaether.entity.DAChestBoatEntity;
-import teamrazor.deepaether.entity.Venomite;
+import teamrazor.deepaether.entity.*;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
-import teamrazor.deepaether.item.misc.FireProjectile;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

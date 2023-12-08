@@ -281,7 +281,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
 
         //ITEMS
-        this.item(DAItems.FLAMETHROWER.get());
+        this.item(DAItems.AFTERBURNER.get());
+        this.item(DAItems.SUN_CORE.get());
 
         this.item(DAItems.SKYJADE.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_SWORD.get());

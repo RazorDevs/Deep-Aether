@@ -191,6 +191,16 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer, name("sunroot_sign"));
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.AFTERBURNER.get(), 1)
+                .define('O', DAItems.SUN_CORE.get())
+                .define('P', Blocks.OBSIDIAN)
+                .pattern(" P ")
+                .pattern("POP")
+                .pattern(" P ")
+                .unlockedBy(getHasName(DAItems.SUN_CORE.get()), has(DAItems.SUN_CORE.get()))
+                .save(consumer, name("afterburner"));
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_BLOSSOM_BLOCK.get(), 1)
                 .define('A', DAItems.AERGLOW_BLOSSOM.get())
                 .pattern("AA")
@@ -513,7 +523,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("AA")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
                 .save(consumer);
-
 
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
         //stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get(), 2);

@@ -59,7 +59,7 @@ public class DAItems {
 
 	// EQUIPMENT
 
-	public static final RegistryObject<Item> FLAMETHROWER = ITEMS.register("flamethrower", () -> new FlamethrowerItem((new Item.Properties().stacksTo(1).durability(200))));
+	public static final RegistryObject<Item> AFTERBURNER = ITEMS.register("afterburner", () -> new AfterburnerItem((new Item.Properties().stacksTo(1).durability(200))));
 
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
 	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));

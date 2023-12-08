@@ -20,8 +20,10 @@
   "gui.deep_aether.slider_ring": "Increases your speed when your health is low\nCurrent Increase: ",
   "lore.item.deep_aether.slider_eye": "A powerful part of the Slider dropped when defeating a Slider without taking a single hit. It allows you to slam into the ground when you're two block or more above the ground dealing knockback and damage to nearby enemies. ",
   "item.deep_aether.slider_eye": "Eye Of The Slider",
-  "lore.item.deep_aether.flamethrower": "A powerful part of the Sun Spirit dropped when defeating a Sun Spirit without taking a single hit. It allows you to shoot fire to nearby enemies just like a flamethrower. ",
-  "item.deep_aether.flamethrower": "Afterburner",
+  "lore.item.deep_aether.sun_core": "A powerful part of the Sun Spirit dropped when defeating a Sun Spirit without taking a single hit. Maybe you can harness some of its power. ",
+  "item.deep_aether.sun_core": "Sun Core",
+  "lore.item.deep_aether.afterburner": "Crafted from a Sun Core, it's a weapon that allows you to shoot fire to nearby enemies just like a flamethrower. It doesn't break, but it's charges run out. ",
+  "item.deep_aether.afterburner": "Afterburner",
 
   "item.deep_aether.spooky_ring" : "Spooky Ring",
   "item.deep_aether.skyjade_chestplate": "Skyjade Chestplate",

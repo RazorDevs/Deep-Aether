@@ -11,9 +11,6 @@ public class SunCore extends SimpleFoiledItem implements ICurioItem {
     public SunCore(Properties properties) {
         super(properties);
     }
-
-
-
     int i = 0;
     @Override
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
@@ -37,7 +34,6 @@ public class SunCore extends SimpleFoiledItem implements ICurioItem {
         if(i < 80)
             i++;
         else i = 0;
-
 
         return ICurioItem.super.getAttributesTooltip(tagTooltips, stack);
     }
