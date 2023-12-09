@@ -16,20 +16,19 @@ import teamrazor.deepaether.DeepAetherMod;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DACapabilities {
-    public static final Capability<DeepAetherPlayer> DEEP_AETHER_PLAYER_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() { });
+    public static final Capability<DeepAetherPlayer> DEEP_AETHER_PLAYER_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {});
 
     @SubscribeEvent
-    public static void register(RegisterCapabilitiesEvent event) {
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.register(DeepAetherPlayer.class);
     }
 
     @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
     public static class Registration {
-
         @SubscribeEvent
-        public static void attachEntityCapabilities(AttachCapabilitiesEvent<Entity> event) {
-            if (event.getObject() instanceof Player player) {
-                event.addCapability(new ResourceLocation(DeepAetherMod.MODID, "deep_aether_player"), new CapabilityProvider(DACapabilities.DEEP_AETHER_PLAYER_CAPABILITY, new DAPlayerCapability(player)));            }
+        public static void attachPlayerCapabilities(AttachCapabilitiesEvent<Entity> event) {
+            if(event.getObject() instanceof Player player)
+                event.addCapability(new ResourceLocation(DeepAetherMod.MODID, "deep_aether_player"), new CapabilityProvider(DACapabilities.DEEP_AETHER_PLAYER_CAPABILITY, new DAPlayerCapability(player)));
         }
     }
 }

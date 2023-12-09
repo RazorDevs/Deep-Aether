@@ -1,7 +1,7 @@
 package teamrazor.deepaether.item.gear.other;
 
 import com.aetherteam.aether.item.accessories.ring.RingItem;
-import com.aetherteam.nitrogen.network.PacketRelay;
+import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,9 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
-import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
-import teamrazor.deepaether.networking.SetSliderSlamPacket;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
@@ -35,8 +33,8 @@ public class SliderEye extends RingItem {
     }
 
     public int maxFallTime = 0;
-    private static TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
-        return TargetingConditions.forCombat().selector((entity) ->  !entity.level().isClientSide() && !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
+    private TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
+        return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
     }
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
@@ -52,6 +50,14 @@ public class SliderEye extends RingItem {
     }
 
     private void HandleServer(Player player, Level level) {
+        DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
+            if(aetherPlayer.isSliderSlamActivated()) {
+                maxFallTime = 200;
+                aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
+            }
+        });
+
+
         if (maxFallTime > 0) {
 
             maxFallTime--;
@@ -64,11 +70,12 @@ public class SliderEye extends RingItem {
                 AABB aabb = player.getBoundingBox().inflate(3.0F);
 
                 List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
+                float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
 
                 //Pushes all entities within range
                 for (LivingEntity target : entities) {
                     target.hurt(level.damageSources().playerAttack(player), 1.4F);
-                    float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+
 
                     Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
 
@@ -84,6 +91,20 @@ public class SliderEye extends RingItem {
     }
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
+        if (mayUse(stack, player)) {
+            player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
+            player.setDeltaMovement(0F, 0F, 0F);
+            if (player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+            }
+
+            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
+                aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
+            });
+
+            maxFallTime = 200;
+        }
+
         if (maxFallTime > 0) {
             maxFallTime--;
 
@@ -96,20 +117,6 @@ public class SliderEye extends RingItem {
                 maxFallTime = 0;
                 level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
             }
-        }
-
-        if (mayUse(stack, player)) {
-            player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
-            player.setDeltaMovement(0F, 0F, 0F);
-            if (player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
-            }
-
-            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-                PacketRelay.sendToAll(DAPacketHandler.INSTANCE, new SetSliderSlamPacket(aetherPlayer.getPlayer().getId(), true));
-            });
-
-            maxFallTime = 200;
         }
     }
 
