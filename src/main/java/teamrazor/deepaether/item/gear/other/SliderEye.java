@@ -1,48 +1,29 @@
 package teamrazor.deepaether.item.gear.other;
 
-import com.aetherteam.aether.capability.player.AetherPlayer;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
-import com.aetherteam.aether.network.AetherPacketHandler;
-import com.aetherteam.aether.network.packet.clientbound.SetInvisibilityPacket;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
-import com.aetherteam.nitrogen.network.PacketRelay;
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.*;
-import net.minecraft.network.protocol.handshake.ClientIntentionPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.checkerframework.common.reflection.qual.ClassBound;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
-import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
-import teamrazor.deepaether.networking.SetSliderSlamPacket;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 public class SliderEye extends RingItem {
@@ -52,8 +33,8 @@ public class SliderEye extends RingItem {
     }
 
     public int maxFallTime = 0;
-    private static TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
-        return TargetingConditions.forCombat().selector((entity) ->  !entity.level().isClientSide() && !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
+    private TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
+        return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
     }
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
@@ -69,6 +50,14 @@ public class SliderEye extends RingItem {
     }
 
     private void HandleServer(Player player, Level level) {
+        DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
+            if(aetherPlayer.isSliderSlamActivated()) {
+                maxFallTime = 200;
+                aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
+            }
+        });
+
+
         if (maxFallTime > 0) {
 
             maxFallTime--;
@@ -81,11 +70,12 @@ public class SliderEye extends RingItem {
                 AABB aabb = player.getBoundingBox().inflate(3.0F);
 
                 List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
+                float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
 
                 //Pushes all entities within range
                 for (LivingEntity target : entities) {
                     target.hurt(level.damageSources().playerAttack(player), 1.4F);
-                    float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+
 
                     Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
 
@@ -101,6 +91,20 @@ public class SliderEye extends RingItem {
     }
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
+        if (mayUse(stack, player)) {
+            player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
+            player.setDeltaMovement(0F, 0F, 0F);
+            if (player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+            }
+
+            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
+                aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
+            });
+
+            maxFallTime = 200;
+        }
+
         if (maxFallTime > 0) {
             maxFallTime--;
 
@@ -113,20 +117,6 @@ public class SliderEye extends RingItem {
                 maxFallTime = 0;
                 level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
             }
-        }
-
-        if (mayUse(stack, player)) {
-            player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
-            player.setDeltaMovement(0F, 0F, 0F);
-            if (player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
-            }
-
-            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-                PacketRelay.sendToAll(DAPacketHandler.INSTANCE, new SetSliderSlamPacket(aetherPlayer.getPlayer().getId(), true));
-            });
-
-            maxFallTime = 200;
         }
     }
 

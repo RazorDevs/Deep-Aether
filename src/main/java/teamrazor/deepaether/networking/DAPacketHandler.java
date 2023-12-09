@@ -22,9 +22,6 @@ public class DAPacketHandler {
 
 
     public static synchronized void register() {
-        //register(SetSliderSlamPacket.class, SetSliderSlamPacket::decode);
-
-        register(SetSliderSlamPacket.class, SetSliderSlamPacket::decode);
         register(DAPlayerSyncPacket.class, DAPlayerSyncPacket::decode);
     }
 
