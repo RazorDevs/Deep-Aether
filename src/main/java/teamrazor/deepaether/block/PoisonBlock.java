@@ -1,8 +1,6 @@
 package teamrazor.deepaether.block;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.effect.AetherEffects;
-import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,7 +11,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -27,7 +24,6 @@ import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
 import teamrazor.deepaether.advancement.PoisonTrigger;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
-import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.PoisonRecipe;

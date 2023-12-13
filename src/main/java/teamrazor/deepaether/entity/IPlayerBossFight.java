@@ -1,6 +1,5 @@
 package teamrazor.deepaether.entity;
 
-import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Unique;
 
