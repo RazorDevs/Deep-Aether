@@ -22,7 +22,7 @@ import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DAEventClientBusEvents {
+public class DAClientModBusEvents {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
