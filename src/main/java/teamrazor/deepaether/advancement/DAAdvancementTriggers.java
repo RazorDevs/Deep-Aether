@@ -1,7 +1,6 @@
 package teamrazor.deepaether.advancement;
 
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.advancements.CriterionTrigger;
 import net.minecraft.advancements.critereon.KilledTrigger;
 import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.DeepAetherMod;

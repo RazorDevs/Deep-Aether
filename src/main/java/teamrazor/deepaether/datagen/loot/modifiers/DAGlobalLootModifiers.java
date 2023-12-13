@@ -1,7 +1,6 @@
 package teamrazor.deepaether.datagen.loot.modifiers;
 
 import com.mojang.serialization.Codec;
-
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

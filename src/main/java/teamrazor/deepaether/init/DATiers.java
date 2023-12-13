@@ -1,6 +1,5 @@
 package teamrazor.deepaether.init;
 
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import teamrazor.deepaether.datagen.tags.DATags;

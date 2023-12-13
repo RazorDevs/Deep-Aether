@@ -10,8 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 import teamrazor.deepaether.DeepAetherMod;
 
-import javax.swing.text.html.parser.Entity;
-
 public class DATags {
     public class Items {
         public static final TagKey<Item> CRAFTS_ROSEROOT_PLANKS = tag("crafts_roseroot_planks");

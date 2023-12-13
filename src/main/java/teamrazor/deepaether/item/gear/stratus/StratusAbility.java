@@ -15,7 +15,6 @@ import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
-import top.theillusivec4.curios.api.CuriosApi;
 
 
 public class StratusAbility extends DaArmorItem {

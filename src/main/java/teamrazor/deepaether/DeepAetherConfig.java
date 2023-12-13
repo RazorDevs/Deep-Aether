@@ -1,7 +1,5 @@
 package teamrazor.deepaether;
 
-import net.minecraftforge.common.ForgeConfig;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import org.apache.commons.lang3.tuple.Pair;

@@ -1,6 +1,5 @@
 package teamrazor.deepaether.world.placementmodifier;
 
-import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

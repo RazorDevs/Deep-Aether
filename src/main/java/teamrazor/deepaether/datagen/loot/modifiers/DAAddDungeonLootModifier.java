@@ -15,8 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Supplier;
-
-import java.util.List;
 //Code from: https://github.com/Mrthomas20121-Mods/Aether-Gravitation/blob/1.19.4/src/main/java/mrthomas20121/gravitation/data/loot/AetherDungeonLootModifiers.java
 public class DAAddDungeonLootModifier extends LootModifier {
 

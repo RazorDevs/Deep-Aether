@@ -1,6 +1,5 @@
 package teamrazor.deepaether.recipe;
 
-import com.aetherteam.aether.recipe.recipes.ban.BlockBanRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.DeferredRegister;

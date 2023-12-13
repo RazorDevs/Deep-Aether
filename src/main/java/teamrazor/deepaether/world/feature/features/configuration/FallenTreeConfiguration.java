@@ -5,8 +5,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-import java.util.List;
-
 public record FallenTreeConfiguration(int min, int max, BlockStateProvider block, BlockStateProvider decorators) implements FeatureConfiguration {
     public static final Codec<FallenTreeConfiguration> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
                     Codec.INT.fieldOf("min").forGetter(FallenTreeConfiguration::min),

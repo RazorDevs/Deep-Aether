@@ -3,7 +3,7 @@ package teamrazor.deepaether.item.gear.other;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.*;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

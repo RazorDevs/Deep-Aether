@@ -1,13 +1,11 @@
 package teamrazor.deepaether.block.Behaviors;
 
 import com.aetherteam.aether.capability.player.AetherPlayer;
-import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.aether.mixin.mixins.common.accessor.ServerGamePacketListenerImplAccessor;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import teamrazor.deepaether.init.DABlocks;
 public interface ChromaticBlockFlight {
     static void handleFlight(LivingEntity entity) {
         if (entity instanceof Player player && !player.getAbilities().flying) { // The player can't have creative flight enabled, otherwise it causes issues.

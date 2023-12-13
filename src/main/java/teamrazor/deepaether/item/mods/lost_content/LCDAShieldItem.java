@@ -5,10 +5,8 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.block.DisabledBlockItem;
 import teamrazor.deepaether.init.DAItems;
 
 public class LCDAShieldItem extends ShieldItem {

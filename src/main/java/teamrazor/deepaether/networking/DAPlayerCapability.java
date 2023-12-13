@@ -1,7 +1,5 @@
 package teamrazor.deepaether.networking;
 
-import com.aetherteam.aether.network.AetherPacketHandler;
-import com.aetherteam.aether.network.packet.AetherPlayerSyncPacket;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;

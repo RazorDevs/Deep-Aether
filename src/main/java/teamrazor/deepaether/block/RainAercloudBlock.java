@@ -1,17 +1,12 @@
 package teamrazor.deepaether.block;
 
-import com.aetherteam.aether.block.FrictionCapped;
 import com.aetherteam.aether.block.natural.AercloudBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
 public class RainAercloudBlock extends AercloudBlock {
     public RainAercloudBlock(Properties properties) {
