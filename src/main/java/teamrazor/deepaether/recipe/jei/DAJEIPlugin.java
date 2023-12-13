@@ -1,9 +1,7 @@
 package teamrazor.deepaether.recipe.jei;
 
-import com.aetherteam.nitrogen.recipe.BlockPropertyPair;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.helpers.IPlatformFluidHelper;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -11,11 +9,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.LiquidBlock;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipe;
 
