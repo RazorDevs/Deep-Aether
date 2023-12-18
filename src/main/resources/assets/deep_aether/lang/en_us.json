@@ -20,10 +20,14 @@
   "gui.deep_aether.slider_ring": "Increases your speed when your health is low\nCurrent Increase: ",
   "lore.item.deep_aether.slider_eye": "A powerful part of the Slider dropped when defeating a Slider without taking a single hit. It allows you to slam into the ground when you're two block or more above the ground dealing knockback and damage to nearby enemies. ",
   "item.deep_aether.slider_eye": "Eye Of The Slider",
-  "lore.item.deep_aether.sun_core": "A powerful part of the Sun Spirit dropped when defeating a Sun Spirit without taking a single hit. Maybe you can harness some of its power. ",
+  "lore.item.deep_aether.medal_of_honor": "A powerful pendant dropped when defeating a Valkyrie Queen without taking a single hit. Wearing it grants you the Valkyries' Grace, that gives resistance against unholy mobs. ",
+  "item.deep_aether.medal_of_honor": "Medal of Honor",
+  "lore.item.deep_aether.sun_core": "A powerful core of the Sun Spirit dropped when defeating a Sun Spirit without taking a single hit. Maybe you can harness some of its power. ",
   "item.deep_aether.sun_core": "Sun Core",
   "lore.item.deep_aether.afterburner": "Crafted from a Sun Core, it's a weapon that allows you to shoot fire to nearby enemies just like a flamethrower. It doesn't break, but it's charges run out. ",
   "item.deep_aether.afterburner": "Afterburner",
+
+  "effect.deep_aether.valkyrie_valor": "Valkyries' Grace",
 
   "item.deep_aether.spooky_ring" : "Spooky Ring",
   "item.deep_aether.skyjade_chestplate": "Skyjade Chestplate",
