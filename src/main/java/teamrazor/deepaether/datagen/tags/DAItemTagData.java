@@ -290,7 +290,8 @@ public class DAItemTagData extends ItemTagsProvider {
         );
 
         tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
-                DAItems.SLIDER_EYE.get()
+                DAItems.SLIDER_EYE.get(),
+                DAItems.MEDAL_OF_HONOR.get()
         );
 
         tag(ItemTags.HANGING_SIGNS).add(

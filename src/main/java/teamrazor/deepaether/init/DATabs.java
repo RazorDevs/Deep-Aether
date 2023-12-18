@@ -383,6 +383,7 @@ public class DATabs {
 
             addToTab(AetherItems.SHIELD_OF_REPULSION.get(), new Item[]{
                     DAItems.SLIDER_EYE.get(),
+                    DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.SUN_CORE.get(),
                     DAItems.AFTERBURNER.get()
             }, event);

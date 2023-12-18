@@ -300,6 +300,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SKYJADE_RING.get());
         this.item(DAItems.SPOOKY_RING.get());
         this.item(DAItems.SLIDER_EYE.get());
+        this.item(DAItems.MEDAL_OF_HONOR.get());
 
         this.item(DAItems.STRATUS_INGOT.get());
         this.handheldItem(DAItems.STRATUS_SWORD.get());
