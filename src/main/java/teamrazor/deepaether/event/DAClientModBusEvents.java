@@ -1,7 +1,9 @@
 package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
+import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.CherryParticle;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -50,11 +52,20 @@ public class DAClientModBusEvents {
 
         Minecraft.getInstance().particleEngine.register(DAParticles.MYTHICAL_PARTICLE.get(),
                 MysticalParticle.Provider::new);
+
+        Minecraft.getInstance().particleEngine.register(DAParticles.ROSEROOT_LEAVES.get(), (spriteSet)
+                -> (particleType, level, v, v1, v2, v3, v4, v5)
+                -> new CherryParticle(level, v, v1, v2, spriteSet));
+
+        Minecraft.getInstance().particleEngine.register(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (spriteSet)
+                -> (particleType, level, v, v1, v2, v3, v4, v5)
+                -> new CherryParticle(level, v, v1, v2, spriteSet));
     }
 
     public static void registerCuriosRenderers() {
         CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
+        CuriosRendererRegistry.register(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
     }
 }
 
