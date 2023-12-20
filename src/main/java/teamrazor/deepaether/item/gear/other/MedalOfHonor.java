@@ -26,6 +26,8 @@ public class MedalOfHonor extends PendantItem {
     @Override
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
 
+        tagTooltips.add(Component.literal("§c§l- Brísingamen -"));
+
         if(i > 70)
             tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_1"));
         else if(i > 60)
