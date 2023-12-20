@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.misc;
+package teamrazor.deepaether.item.gear.other;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
 import net.minecraft.sounds.SoundEvent;
@@ -16,8 +16,8 @@ import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.entity.FireProjectile;
 
-public class AfterburnerItem extends Item implements Vanishable {
-    public AfterburnerItem(Properties properties) {
+public class Afterburner extends Item implements Vanishable {
+    public Afterburner(Properties properties) {
         super(properties);
     }
 
