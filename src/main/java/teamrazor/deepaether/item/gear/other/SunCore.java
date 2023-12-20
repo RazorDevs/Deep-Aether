@@ -15,9 +15,33 @@ public class SunCore extends SimpleFoiledItem implements ICurioItem {
         super(properties);
     }
 
+    int i = 0;
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> components, TooltipFlag tooltipFlag) {
         components.add(Component.literal("§c§l- Sol -"));
+
+        if(i > 70)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_1"));
+        else if(i > 60)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_2"));
+        else if(i > 50)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_3"));
+        else if(i > 40)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_4"));
+        else if(i > 30)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_5"));
+        else if(i > 20)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_6"));
+        else if(i > 10)
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_7"));
+        else
+            components.add(Component.translatable("gui.deep_aether.flawless_tier_8"));
+
+        if(i < 80)
+            i++;
+        else i = 0;
+
+
         super.appendHoverText(itemStack, level, components, tooltipFlag);
     }
 }
