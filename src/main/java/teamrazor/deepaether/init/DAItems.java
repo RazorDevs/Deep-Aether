@@ -26,10 +26,11 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
+import teamrazor.deepaether.item.gear.other.Afterburner;
 import teamrazor.deepaether.item.gear.other.MedalOfHonor;
 import teamrazor.deepaether.item.gear.other.SliderEye;
 import teamrazor.deepaether.item.gear.other.SpookyRing;
-import teamrazor.deepaether.item.gear.other.SunCore;
+import teamrazor.deepaether.item.misc.SunCore;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
@@ -60,7 +61,7 @@ public class DAItems {
 
 	// EQUIPMENT
 
-	public static final RegistryObject<Item> AFTERBURNER = ITEMS.register("afterburner", () -> new AfterburnerItem((new Item.Properties().stacksTo(1).durability(200))));
+	public static final RegistryObject<Item> AFTERBURNER = ITEMS.register("afterburner", () -> new Afterburner((new Item.Properties().stacksTo(1).durability(200))));
 
 	public static final RegistryObject<Item> SKYJADE_TOOLS_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
 	public static final RegistryObject<Item> SKYJADE_TOOLS_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties()));

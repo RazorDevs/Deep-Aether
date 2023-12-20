@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.gear.other;
+package teamrazor.deepaether.item.misc;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
