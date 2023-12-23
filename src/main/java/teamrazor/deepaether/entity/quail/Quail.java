@@ -215,12 +215,12 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         tag.putInt("Variant", this.getTypeVariant());
     }
 
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746_, DifficultyInstance p_146747_,
-                                        MobSpawnType p_146748_, @Nullable SpawnGroupData p_146749_,
-                                        @Nullable CompoundTag p_146750_) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor levelAccessor, DifficultyInstance difficultyInstance,
+                                        MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData,
+                                        @Nullable CompoundTag compoundTag) {
         QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
         setVariant(variant);
-        return super.finalizeSpawn(p_146746_, p_146747_, p_146748_, p_146749_, p_146750_);
+        return super.finalizeSpawn(levelAccessor, difficultyInstance, spawnType, spawnGroupData, compoundTag);
     }
 
     public QuailVariants getVariant() {
@@ -244,9 +244,9 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
     }
 
+
     @Override
-    protected void positionRider(Entity entity, Entity.MoveFunction p_19958_) {
-        super.positionRider(entity);
+    protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
         float f = Mth.sin(this.yBodyRot * ((float)Math.PI / 180F));
         float f1 = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
         float f2 = 0.1F;
@@ -256,6 +256,7 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
             ((LivingEntity)entity).yBodyRot = this.yBodyRot;
         }
     }
+
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
