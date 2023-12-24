@@ -3,10 +3,10 @@
 
 # Check out our Discord and Download pages!
 
-[![Discord](https://img.shields.io/discord/118816101936267265.svg?label=discord&logoColor=FFFFFF&logo=discord&color=7289DA&style=flat-square)](https://discord.gg/mnGnZKRRK3)
-[![Modloader: Forge](https://img.shields.io/badge/mod%20loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
-[![Modrinth Downloads](https://img.shields.io/modrinth/dt/YhmgMVyu?color=00AF5C&logo=modrinth)](https://modrinth.com/mod/deep-aether)
-[![Modrinth Version](https://img.shields.io/modrinth/game-versions/YhmgMVyu?color=00AF5C&label=latest&logo=modrinth&last=true)](https://modrinth.com/mod/deep-aether)
+[![Discord](https://img.shields.io/discord/118816101936267265.svg?label=Discord&logoColor=FFFFFF&logo=discord&color=7289DA&style=flat-square)](https://discord.gg/mnGnZKRRK3)
+[![Modloader: Forge](https://img.shields.io/badge/Mod%20Loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/YhmgMVyu?color=00AF5C&logo=modrinth&label=Downloads)](https://modrinth.com/mod/deep-aether)
+[![Modrinth Version](https://img.shields.io/modrinth/game-versions/YhmgMVyu?color=00AF5C&label=Latest&logo=modrinth&last=true)](https://modrinth.com/mod/deep-aether)
 [![CurseForge Downloads](http://cf.way2muchnoise.eu/852465.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
 [![CurseForge Version](http://cf.way2muchnoise.eu/versions/852465_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
 
@@ -116,13 +116,5 @@ bagu_chan: https://github.com/baguchan
 
 # License
 
-GNU Lesser General Public License v3.0 only
+[![License (LGPL v3.0)](https://img.shields.io/badge/License-LGPL%20v3.0-green.svg?style=flat-square)](https://github.com/The-Aether-Team/The-Aether/blob/1.20.1-develop/LICENSE.txt)
 
-
-# Our Links
-
-CurseForge: https://legacy.curseforge.com/minecraft/mc-mods/deep-aether
-
-Modrinth: https://modrinth.com/mod/deep-aether
-
-Discord: https://discord.gg/xB6gaUv66t
