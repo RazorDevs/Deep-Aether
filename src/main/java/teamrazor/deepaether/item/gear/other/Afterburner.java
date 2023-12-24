@@ -47,7 +47,7 @@ public class Afterburner extends Item implements Vanishable {
     }
 
     @Override
-    public void onStopUsing(ItemStack stack, LivingEntity entity, int count) {
+    public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int count) {
         Player player = (Player) entity;
 
         if(count < stack.getUseDuration() - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
@@ -56,7 +56,7 @@ public class Afterburner extends Item implements Vanishable {
                 stack.hurt(10, RandomSource.create(), null);
             }
         }
-        super.onStopUsing(stack, entity, count);
+        super.releaseUsing(stack, level, entity, count);
     }
 
     public int getUseDuration(ItemStack itemStack) {

@@ -53,7 +53,6 @@ public class PoisonBlock extends LiquidBlock {
         return true;
     }
 
-
     @Override
         public void animateTick (BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource){
             double d0 = blockPos.getX();
@@ -116,7 +115,7 @@ public class PoisonBlock extends LiquidBlock {
                 if ((TIME > 5) && itemEntity.isAlive() && CAN_TRANSFORM) {
                     CAN_TRANSFORM = false;
                     COUNT = false;
-                    if(itemEntity.getOwner() instanceof ServerPlayer player) {
+                    if(level.getPlayerByUUID(itemEntity.getOwner()) instanceof ServerPlayer player) {
                         PoisonTrigger.INSTANCE.trigger(player, itemEntity.getItem());
                     }
 

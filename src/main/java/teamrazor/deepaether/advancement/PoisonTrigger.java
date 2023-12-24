@@ -17,7 +17,7 @@ public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance
     }
 
     @Override
-    public PoisonTrigger.Instance createInstance(JsonObject json, ContextAwarePredicate predicate, DeserializationContext context) {
+    protected Instance createInstance(JsonObject json, EntityPredicate.Composite predicate, DeserializationContext context) {
         ItemPredicate itemPredicate = ItemPredicate.fromJson(json.get("item"));
         return new PoisonTrigger.Instance(predicate, itemPredicate);
     }
@@ -29,13 +29,13 @@ public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance
     public static class Instance extends AbstractCriterionTriggerInstance {
         private final ItemPredicate item;
 
-        public Instance(ContextAwarePredicate predicate, ItemPredicate item) {
+        public Instance(EntityPredicate.Composite predicate, ItemPredicate item) {
             super(PoisonTrigger.ID, predicate);
             this.item = item;
         }
 
         public static PoisonTrigger.Instance forItem(ItemPredicate item) {
-            return new PoisonTrigger.Instance(ContextAwarePredicate.ANY, item);
+            return new PoisonTrigger.Instance(EntityPredicate.Composite.ANY, item);
         }
 
         public boolean test(ItemStack stack) {

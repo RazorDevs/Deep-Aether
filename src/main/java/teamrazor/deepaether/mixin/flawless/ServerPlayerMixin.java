@@ -5,11 +5,15 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.ProfilePublicKey;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 
@@ -28,10 +32,12 @@ import java.util.UUID;
 public abstract class ServerPlayerMixin extends Player implements IPlayerBossFight {
 
 
+    @Shadow public abstract void playNotifySound(SoundEvent p_9019_, SoundSource p_9020_, float p_9021_, float p_9022_);
 
-    public ServerPlayerMixin(Level p_250508_, BlockPos p_250289_, float p_251702_, GameProfile p_252153_) {
-        super(p_250508_, p_250289_, p_251702_, p_252153_);
+    public ServerPlayerMixin(Level level, BlockPos blockPos, float v, GameProfile gameProfile, @Nullable ProfilePublicKey publicKey) {
+        super(level, blockPos, v, gameProfile, publicKey);
     }
+
 
     @Override
     @Nullable
@@ -67,11 +73,10 @@ public abstract class ServerPlayerMixin extends Player implements IPlayerBossFig
     public Entity deep_Aether$getOwner() {
         if (this.deep_Aether$cachedOwner != null && !this.deep_Aether$cachedOwner.isRemoved()) {
             return this.deep_Aether$cachedOwner;
-        } else if (this.deep_Aether$ownerUUID != null && this.level() instanceof ServerLevel) {
-            this.deep_Aether$cachedOwner = ((ServerLevel)this.level()).getEntity(this.deep_Aether$ownerUUID);
+        } else if (this.deep_Aether$ownerUUID != null && this.level instanceof ServerLevel) {
+            this.deep_Aether$cachedOwner = ((ServerLevel)this.level).getEntity(this.deep_Aether$ownerUUID);
             return this.deep_Aether$cachedOwner;
-        } else {
+        } else
             return null;
-        }
     }
 }

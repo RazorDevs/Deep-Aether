@@ -2,7 +2,6 @@ package teamrazor.deepaether.mixin;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
@@ -24,7 +23,7 @@ public abstract class LivingEntityValorMixin {
     @Inject(at = @At("HEAD"), method = "getDamageAfterMagicAbsorb", cancellable = true, remap = false)
     private void checkValkValorEffect(DamageSource damageSource, float damage, CallbackInfoReturnable<Float> cir) {
         LivingEntity undead = ((LivingEntity) damageSource.getEntity());
-        if (((LivingEntity) (Object) this).hasEffect(DAMobEffects.VALKYRIE_VALOR.get()) && !damageSource.is(DamageTypeTags.BYPASSES_RESISTANCE) && undead.getMobType() == MobType.UNDEAD) {
+        if (((LivingEntity) (Object) this).hasEffect(DAMobEffects.VALKYRIE_VALOR.get())&& undead.getMobType() == MobType.UNDEAD) {
             int j = 15;
             float f = damage * (float)j;
             float f1 = damage;

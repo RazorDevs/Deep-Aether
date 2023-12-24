@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -44,16 +45,16 @@ public class FireProjectile extends ThrowableProjectile {
 
     public void tick() {
         super.tick();
-        if (!this.onGround()) {
+        if (!this.onGround) {
             ++this.ticksInAir;
         }
 
-        if (this.ticksInAir > 50 && !this.level().isClientSide()) {
+        if (this.ticksInAir > 50 && !this.level.isClientSide()) {
             this.discard();
         }
 
-        if (this.level().isClientSide()) {
-            this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY() + 0.2, this.getZ(), 0.0, 0.0, 0.0);
+        if (this.level.isClientSide()) {
+            this.level.addParticle(ParticleTypes.FLAME, this.getX(), this.getY() + 0.2, this.getZ(), 0.0, 0.0, 0.0);
         }
 
     }
@@ -67,8 +68,8 @@ public class FireProjectile extends ThrowableProjectile {
 
     protected void onHit(HitResult result) {
         super.onHit(result);
-        if (!this.level().isClientSide()) {
-            this.level().broadcastEntityEvent(this, (byte) 3);
+        if (!this.level.isClientSide()) {
+            this.level.broadcastEntityEvent(this, (byte) 3);
             this.discard();
         }
 
@@ -76,9 +77,9 @@ public class FireProjectile extends ThrowableProjectile {
 
     protected void onHitEntity(EntityHitResult result) {
         Entity target = result.getEntity();
-        if (!this.level().isClientSide()) {
+        if (!this.level.isClientSide()) {
             this.setTargetOnFire(target);
-            this.level().broadcastEntityEvent(this, (byte) 70);
+            this.level.broadcastEntityEvent(this, (byte) 70);
         } else {
             PacketRelay.sendToServer(AetherPacketHandler.INSTANCE, new HammerProjectileLaunchPacket(target.getId(), this.getId()));
             this.spawnParticles();
@@ -88,12 +89,12 @@ public class FireProjectile extends ThrowableProjectile {
 
     protected void onHitBlock(BlockHitResult result) {
         super.onHitBlock(result);
-        if (!this.level().isClientSide) {
+        if (!this.level.isClientSide) {
             Entity entity = this.getOwner();
-            if (!(entity instanceof Mob) || ForgeEventFactory.getMobGriefingEvent(this.level(), entity)) {
+            if (!(entity instanceof Mob) || ForgeEventFactory.getMobGriefingEvent(this.level, entity)) {
                 BlockPos blockpos = result.getBlockPos().relative(result.getDirection());
-                if (this.level().isEmptyBlock(blockpos)) {
-                    this.level().setBlockAndUpdate(blockpos, BaseFireBlock.getState(this.level(), blockpos));
+                if (this.level.isEmptyBlock(blockpos)) {
+                    this.level.setBlockAndUpdate(blockpos, BaseFireBlock.getState(this.level, blockpos));
                 }
             }
         }
@@ -101,21 +102,20 @@ public class FireProjectile extends ThrowableProjectile {
 
     private void spawnParticles() {
         for (int j = 0; j < 8; ++j) {
-            this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
-            this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
-            this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
-            this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
-            this.level().addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            this.level.addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            this.level.addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            this.level.addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            this.level.addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            this.level.addParticle(ParticleTypes.FLAME, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
 
     }
 
     public void setTargetOnFire(Entity target) {
         if (target != this.getOwner() && (this.getOwner() == null || target != this.getOwner().getVehicle()) && target instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().onFire(), 3.0F);
+            livingEntity.hurt(DamageSource.ON_FIRE, 3.0F);
             livingEntity.setSecondsOnFire(4);
         }
-
     }
 
     protected float getGravity() {
@@ -145,7 +145,7 @@ public class FireProjectile extends ThrowableProjectile {
     }
 
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
+        return (Packet<ClientGamePacketListener>) NetworkHooks.getEntitySpawningPacket(this);
     }
 }
 

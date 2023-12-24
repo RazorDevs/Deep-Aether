@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -34,12 +35,12 @@ public class SliderEye extends RingItem {
 
     public int maxFallTime = 0;
     private TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
-        return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
+        return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level.getWorldBorder().isWithinBounds(aabb));
     }
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
 
-        Level level = slotContext.entity().level();
+        Level level = slotContext.entity().level;
 
         if ((slotContext.entity() instanceof Player player)) {
             if(level.isClientSide()) {
@@ -63,7 +64,7 @@ public class SliderEye extends RingItem {
             maxFallTime--;
 
             //Triggers the shockwave if the entity hits a block
-            if (player.onGround()) {
+            if (player.isOnGround()) {
                 maxFallTime = 0;
 
                 //Range of shockwave
@@ -74,7 +75,7 @@ public class SliderEye extends RingItem {
 
                 //Pushes all entities within range
                 for (LivingEntity target : entities) {
-                    target.hurt(level.damageSources().playerAttack(player), 1.4F);
+                    target.hurt(DamageSource.playerAttack(player), 1.4F);
 
 
                     Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
@@ -84,7 +85,7 @@ public class SliderEye extends RingItem {
 
                     push.add(0F, 1, 0F);
 
-                    target.addDeltaMovement(push);
+                    target.getDeltaMovement().add(push);
                 }
             }
         }
@@ -108,20 +109,21 @@ public class SliderEye extends RingItem {
         if (maxFallTime > 0) {
             maxFallTime--;
 
-            player.addDeltaMovement(new Vec3(0F, -0.5F, 0F));
+
+            player.getDeltaMovement().add(new Vec3(0F, -0.5F, 0F));
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
 
-            if (player.onGround()) {
+            if (player.isOnGround()) {
                 maxFallTime = 0;
-                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
+                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS, 0.0f, 0.0f);
             }
         }
     }
 
     public boolean mayUse(ItemStack stack, Player player) {
-        return DeepAetherKeys.SLIDER_EYE_SLAM_ABILITY.isDown() && !player.getCooldowns().isOnCooldown(stack.getItem()) && !player.onGround();
+        return DeepAetherKeys.SLIDER_EYE_SLAM_ABILITY.isDown() && !player.getCooldowns().isOnCooldown(stack.getItem()) && !player.isOnGround();
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.aetherteam.aether.block.construction.AetherDirtPathBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.effect.AetherEffects;
+import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
@@ -369,7 +370,6 @@ public class DABlocks {
 		pot.addPlant(DABlocks.CRUDEROOT_SAPLING.getId(), DABlocks.POTTED_CRUDEROOT_SAPLING);
 		pot.addPlant(DABlocks.CONBERRY_SAPLING.getId(), DABlocks.POTTED_CONBERRY_SAPLING);
 		pot.addPlant(DABlocks.SUNROOT_SAPLING.getId(), DABlocks.POTTED_SUNROOT_SAPLING);
-
 	}
 
 
@@ -380,7 +380,7 @@ public class DABlocks {
 	}
 
 	private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-		return DAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+		return DAItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(AetherCreativeTabs.AETHER_BLOCKS)));
 	}
 
 	private static <T extends Block> RegistryObject<Item> registerBlockItemDisabled(String name, RegistryObject<T> block) {
@@ -420,7 +420,7 @@ public class DABlocks {
 		return toReturn;
 	}
 	private static <T extends Block> RegistryObject<Item> registerBurnableBlockItem(int burnTime, String name, RegistryObject<T> block) {
-		return DAItems.ITEMS.register(name, () -> new BurnableBlockItem(burnTime, block.get(), new Item.Properties().tab(DATabs.TAB_DEEP_AETHER_BLOCKS_TAB)));
+		return DAItems.ITEMS.register(name, () -> new BurnableBlockItem(burnTime, block.get(), new Item.Properties().tab(AetherCreativeTabs.AETHER_BLOCKS)));
 	}
 
 

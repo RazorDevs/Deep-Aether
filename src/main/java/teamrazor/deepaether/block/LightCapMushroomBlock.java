@@ -1,8 +1,9 @@
 package teamrazor.deepaether.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -10,9 +11,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import teamrazor.deepaether.init.DABlocks;
 
+import java.util.function.Supplier;
+
 public class LightCapMushroomBlock extends MushroomBlock {
-    public LightCapMushroomBlock(Properties p_256027_, ResourceKey<ConfiguredFeature<?, ?>> p_256049_) {
-        super(p_256027_, p_256049_);
+    public LightCapMushroomBlock(Properties properties, Supplier<Holder<? extends ConfiguredFeature<?, ?>>> resourceKey) {
+        super(properties, resourceKey);
     }
 
     @Override
@@ -30,7 +33,7 @@ public class LightCapMushroomBlock extends MushroomBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_255904_, BlockPos p_54871_, BlockState p_54872_, boolean p_54873_) {
+    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean b) {
         return false;
     }
 }
