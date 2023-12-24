@@ -5,8 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.DeepAetherMod;
 
 public class DeepAetherModelLayers {
-
-
     public static final ModelLayerLocation AERGLOW_FISH = register("aether_fish");
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

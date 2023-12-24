@@ -13,8 +13,14 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
 
+/**
+ * Abstract class inherited from {@code AetherAnimal}.
+ * <p>
+ * Handles a sitting behaviour specifically for Aether animals that can be overridden depending on the needed usage.
+ * <p>
+ * Used mainly for the Quail.
+ */
 public abstract class SittingAetherAnimal extends AetherAnimal {
-
     private static final EntityDataAccessor<Boolean> DATA_SITTING_ID = SynchedEntityData.defineId(SittingAetherAnimal.class, EntityDataSerializers.BOOLEAN);
     private int sitCounter;
 
@@ -83,21 +89,19 @@ public abstract class SittingAetherAnimal extends AetherAnimal {
         }
 
         public boolean canContinueToUse() {
-            if (!this.mob.isInWater() && this.mob.random.nextInt(reducedTickDelay(1000)) != 1) {
+            if (!this.mob.isInWater() && this.mob.random.nextInt(reducedTickDelay(1000)) != 1)
                 return this.mob.random.nextInt(reducedTickDelay(2500)) != 1;
-            } else {
+             else
                 return false;
-            }
+
         }
 
         public void tick() {
-            if (!this.mob.isSitting()) {
+            if (!this.mob.isSitting())
                 this.mob.tryToSit();
-            }
         }
 
         public void start() {
-
             this.mob.tryToSit();
             this.cooldown = 0;
         }

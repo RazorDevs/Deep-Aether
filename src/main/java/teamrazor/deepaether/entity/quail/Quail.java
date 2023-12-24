@@ -48,11 +48,9 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(Quail.class, EntityDataSerializers.INT);
-
     private static final Ingredient FOOD_ITEMS = Ingredient.of(
             Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
     );
-
 
     public float flap;
     public float flapSpeed;
@@ -61,6 +59,9 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
     public float flapping = 1.0F;
     private float nextFlap = 1.0F;
     public int eggTime = this.random.nextInt(6000) + 6000;
+
+
+    // Initialization
 
     public Quail(PlayMessages.SpawnEntity packet, Level world) {
         this(DAEntities.QUAIL.get(), world);
@@ -84,19 +85,30 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         this.goalSelector.addGoal(8, new RandomSittingGoal(this));
     }
 
-
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 6.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
+
+    // Spawn Handling
     public static void init() {
         SpawnPlacements.register(DAEntities.QUAIL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, world, reason, pos,
                  random) -> (world.getBlockState(pos.above()).is(Blocks.AIR)));
     }
 
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor levelAccessor, DifficultyInstance difficultyInstance,
+                                        MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData,
+                                        @Nullable CompoundTag compoundTag) {
+        QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
+        setVariant(variant);
+        return super.finalizeSpawn(levelAccessor, difficultyInstance, spawnType, spawnGroupData, compoundTag);
+    }
+
+
+    // Overall Mob definition
 
     public void aiStep() {
         super.aiStep();
@@ -121,7 +133,6 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
             this.gameEvent(GameEvent.ENTITY_PLACE);
             this.eggTime = this.random.nextInt(6000) + 6000;
         }
-
     }
 
     @Nullable
@@ -133,45 +144,9 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         return baby;
     }
 
-
-    private PlayState predicate(AnimationState animationState) {
-
-        if(animationState.isMoving()) {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.walk"));
-            return PlayState.CONTINUE;
-        }
-
-        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
-        return PlayState.CONTINUE;
-
-    }
-
-    private PlayState flap(AnimationState animationState) {
-        if(!this.onGround()) {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlayXTimes("animation.quail.flap_start", 1).then("animation.quail.flap", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        } else {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
-            return PlayState.CONTINUE;
-        }
-    }
-
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.getItem() == DAItems.GOLDEN_GRASS_SEEDS.get();
-    }
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
-                0, this::predicate));
-        controllers.add(new AnimationController(this, "flap_controller",
-                0, this::flap));
-    }
-
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
     }
 
     protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
@@ -203,8 +178,22 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
     }
 
     @Override
-    public boolean isInvulnerableTo(DamageSource p_20122_) {
-        return super.isInvulnerableTo(p_20122_);
+    protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
+        float f = Mth.sin(this.yBodyRot * ((float)Math.PI / 180F));
+        float f1 = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
+        float f2 = 0.1F;
+        float f3 = 0.0F;
+        entity.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + entity.getMyRidingOffset() + 0.0D, this.getZ() - (double)(0.1F * f1));
+        if (entity instanceof LivingEntity) {
+            ((LivingEntity)entity).yBodyRot = this.yBodyRot;
+        }
+    }
+
+    // Data handling
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
     }
 
     @Override
@@ -212,14 +201,6 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         super.addAdditionalSaveData(tag);
         tag.putInt("EggLayTime", this.eggTime);
         tag.putInt("Variant", this.getTypeVariant());
-    }
-
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor levelAccessor, DifficultyInstance difficultyInstance,
-                                        MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData,
-                                        @Nullable CompoundTag compoundTag) {
-        QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
-        setVariant(variant);
-        return super.finalizeSpawn(levelAccessor, difficultyInstance, spawnType, spawnGroupData, compoundTag);
     }
 
     public QuailVariants getVariant() {
@@ -244,18 +225,36 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
     }
 
 
-    @Override
-    protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
-        float f = Mth.sin(this.yBodyRot * ((float)Math.PI / 180F));
-        float f1 = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
-        float f2 = 0.1F;
-        float f3 = 0.0F;
-        entity.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + entity.getMyRidingOffset() + 0.0D, this.getZ() - (double)(0.1F * f1));
-        if (entity instanceof LivingEntity) {
-            ((LivingEntity)entity).yBodyRot = this.yBodyRot;
+    // Animation handling
+    private PlayState predicate(AnimationState animationState) {
+
+        if(animationState.isMoving()) {
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.walk"));
+            return PlayState.CONTINUE;
+        }
+
+        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
+        return PlayState.CONTINUE;
+
+    }
+
+    private PlayState flap(AnimationState animationState) {
+        if(!this.onGround()) {
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlayXTimes("animation.quail.flap_start", 1).then("animation.quail.flap", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        } else {
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.quail.idle"));
+            return PlayState.CONTINUE;
         }
     }
 
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController(this, "controller",
+                0, this::predicate));
+        controllers.add(new AnimationController(this, "flap_controller",
+                0, this::flap));
+    }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
