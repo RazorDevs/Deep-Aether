@@ -5,8 +5,8 @@
 [![Modloader: Forge](https://img.shields.io/badge/mod%20loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/YhmgMVyu?color=00AF5C&logo=modrinth)](https://modrinth.com/mod/deep-aether)
 [![Modrinth Version](https://img.shields.io/modrinth/game-versions/YhmgMVyu?color=00AF5C&label=latest&logo=modrinth&last=true)](https://modrinth.com/mod/deep-aether)
-[![CurseForge Downloads](http://cf.way2muchnoise.eu/255308.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
-[![CurseForge Version](http://cf.way2muchnoise.eu/versions/255308_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
+[![CurseForge Downloads](http://cf.way2muchnoise.eu/852465.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
+[![CurseForge Version](http://cf.way2muchnoise.eu/versions/852465_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
 
 # What is this about?
 
