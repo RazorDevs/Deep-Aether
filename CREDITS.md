@@ -15,3 +15,4 @@
 - A lot of Textures including:
   - Improved Leaves
   - Sunroot wood set
+  - Ancient Aether compat
