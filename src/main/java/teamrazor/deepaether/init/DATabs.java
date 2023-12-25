@@ -385,7 +385,8 @@ public class DATabs {
                     DAItems.SLIDER_EYE.get(),
                     DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.SUN_CORE.get(),
-                    DAItems.AFTERBURNER.get()
+                    DAItems.AFTERBURNER.get(),
+                    DAItems.MEDAL_OF_HONOR.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
