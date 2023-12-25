@@ -47,6 +47,19 @@ public class Afterburner extends Item implements Vanishable {
     }
 
     @Override
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
+        Player player = (Player) entity;
+
+        if(entity.getTicksUsingItem() > 20 && stack.getMaxDamage() > stack.getDamageValue()) {
+            if(!player.isCreative()) {
+                player.getCooldowns().addCooldown(this, 100);
+                stack.hurt(10, RandomSource.create(), null);
+            }
+        }
+        return super.finishUsingItem(stack, level, entity);
+    }
+
+    @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int count) {
         Player player = (Player) entity;
 
@@ -56,6 +69,7 @@ public class Afterburner extends Item implements Vanishable {
                 stack.hurt(10, RandomSource.create(), null);
             }
         }
+
         super.releaseUsing(stack, level, entity, count);
     }
 
