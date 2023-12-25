@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen.loot.modifiers;
 
+import com.aetherteam.aether.loot.AetherLoot;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.WeightedEntry;
@@ -23,7 +24,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
         add("silver_loot_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/silver/silver_dungeon_loot")).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON).build() },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 1), 90),
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 10)
@@ -34,7 +35,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
         ));
 
         add("silver_loot_reward_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/silver/silver_dungeon_reward")).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON).build() },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 90),
                         WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_INGOT.get(), 1), 5),
@@ -46,7 +47,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
         ));
 
         add("gold_loot_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/gold/gold_dungeon_reward")).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 60),
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 5), 20),
@@ -59,7 +60,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
         ));
 
         add("gold_loot_stratus_upgrade", new DAAddFlatDungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(new ResourceLocation("aether:chests/dungeon/gold/gold_dungeon_reward")).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() },
                     new ItemStack(DAItems.STRATUS_SMITHING_TEMPLATE.get(), 1),
                 0.0f
         ));
