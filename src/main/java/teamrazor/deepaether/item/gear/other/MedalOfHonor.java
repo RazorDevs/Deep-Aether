@@ -16,12 +16,14 @@ public class MedalOfHonor extends PendantItem {
     public MedalOfHonor(Properties properties) {
         super(new ResourceLocation(DeepAetherMod.MODID, "medal_of_honor"), AetherSoundEvents.ITEM_ACCESSORY_EQUIP_GOLD_PENDANT, properties);
     }
-
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         slotContext.entity().addEffect(new MobEffectInstance(DAMobEffects.VALKYRIE_VALOR.get(), 5, 0, true, false, true));
     }
 
-
+    @Override
+    public void setRenderTexture(String modId, String registryName) {
+        this.PENDANT_LOCATION = new ResourceLocation(modId, "textures/models/accessory/pendant/" + registryName + "_accessory.png");
+    }
     int i = 0;
     @Override
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
