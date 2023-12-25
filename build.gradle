@@ -1,3 +1,5 @@
+import net.minecraftforge.gradle.userdev.tasks.JarJar
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -167,15 +169,15 @@ jar {
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+    finalizedBy 'reobfJar'
+
+    archiveClassifier = 'no-embeds'
 }
 
 mixin {
     config "deep_aether.mixins.json"
     add sourceSets.main, "deep_aether.refmap.json"
 }
-
-jar.finalizedBy('reobfJar')
-
 
 publishing {
     publications {
@@ -190,6 +192,16 @@ publishing {
     }
 }
 
+tasks.named('jarJar', JarJar).configure {
+    archiveClassifier = ''
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+build {
+    dependsOn 'jarJar'
 }
