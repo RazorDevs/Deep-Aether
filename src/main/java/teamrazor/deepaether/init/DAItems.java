@@ -30,7 +30,6 @@ import teamrazor.deepaether.item.gear.other.Afterburner;
 import teamrazor.deepaether.item.gear.other.MedalOfHonor;
 import teamrazor.deepaether.item.gear.other.SliderEye;
 import teamrazor.deepaether.item.gear.other.SpookyRing;
-import teamrazor.deepaether.item.misc.SunCore;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
@@ -139,7 +138,7 @@ public class DAItems {
 			() -> new ForgeSpawnEggItem(DAEntities.QUAIL,6373632,16776960, new Item.Properties()));
 
 	public static final RegistryObject<Item> VENOMITE_SPAWN_EGG = ITEMS.register("venomite_spawn_egg",
-			() -> new ForgeSpawnEggItem(DAEntities.VENOMITE,7372435,17402760, new Item.Properties()));
+			() -> new ForgeSpawnEggItem(DAEntities.VENOMITE,0, 800080, new Item.Properties()));
 
 	public static final RegistryObject<Item> QUAIL_EGG = ITEMS.register("quail_egg",
 			() -> new QuailEggItem(new Item.Properties().stacksTo(16)));

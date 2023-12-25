@@ -53,7 +53,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.ROSEROOT_LOG.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.dropSelf(DABlocks.ROSEROOT_PLANKS.get());
-        this.dropSelf(DABlocks.ROSEROOT_SLAB.get());
+        this.add(DABlocks.ROSEROOT_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.ROSEROOT_STAIRS.get());
         this.dropSelf(DABlocks.ROSEROOT_FENCE.get());
         this.dropSelf(DABlocks.ROSEROOT_FENCE_GATE.get());
@@ -95,7 +95,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.YAGROOT_LOG.get());
         this.dropSelf(DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.dropSelf(DABlocks.YAGROOT_PLANKS.get());
-        this.dropSelf(DABlocks.YAGROOT_SLAB.get());
+        this.add(DABlocks.YAGROOT_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.YAGROOT_STAIRS.get());
         this.dropSelf(DABlocks.YAGROOT_FENCE.get());
         this.dropSelf(DABlocks.YAGROOT_FENCE_GATE.get());
@@ -123,7 +123,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.CRUDEROOT_LOG.get());
         this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.dropSelf(DABlocks.CRUDEROOT_PLANKS.get());
-        this.dropSelf(DABlocks.CRUDEROOT_SLAB.get());
+        this.add(DABlocks.CRUDEROOT_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.CRUDEROOT_STAIRS.get());
         this.dropSelf(DABlocks.CRUDEROOT_FENCE.get());
         this.dropSelf(DABlocks.CRUDEROOT_FENCE_GATE.get());
@@ -147,7 +147,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.CONBERRY_LOG.get());
         this.dropSelfDouble(DABlocks.STRIPPED_CONBERRY_LOG.get());
         this.dropSelf(DABlocks.CONBERRY_PLANKS.get());
-        this.dropSelf(DABlocks.CONBERRY_SLAB.get());
+        this.add(DABlocks.CONBERRY_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.CONBERRY_STAIRS.get());
         this.dropSelf(DABlocks.CONBERRY_FENCE.get());
         this.dropSelf(DABlocks.CONBERRY_FENCE_GATE.get());
@@ -171,7 +171,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.SUNROOT_LOG.get());
         this.dropSelfDouble(DABlocks.STRIPPED_SUNROOT_LOG.get());
         this.dropSelf(DABlocks.SUNROOT_PLANKS.get());
-        this.dropSelf(DABlocks.SUNROOT_SLAB.get());
+        this.add(DABlocks.SUNROOT_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.SUNROOT_STAIRS.get());
         this.dropSelf(DABlocks.SUNROOT_FENCE.get());
         this.dropSelf(DABlocks.SUNROOT_FENCE_GATE.get());
@@ -194,7 +194,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
-        this.dropSelf(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
+        this.add(DABlocks.AETHER_MUD_BRICKS_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_WALL.get());
 
@@ -211,55 +211,55 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
 
         this.dropSelf(DABlocks.COBBLED_ASETERITE.get());
-        this.dropSelf(DABlocks.COBBLED_ASETERITE_SLAB.get());
+        this.add(DABlocks.COBBLED_ASETERITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.COBBLED_ASETERITE_STAIRS.get());
         this.dropSelf(DABlocks.COBBLED_ASETERITE_WALL.get());
 
         this.dropDoubleWithSilk(DABlocks.ASETERITE.get(), DABlocks.COBBLED_ASETERITE.get());
-        this.dropSelf(DABlocks.ASETERITE_SLAB.get());
+        this.add(DABlocks.ASETERITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.ASETERITE_STAIRS.get());
         this.dropSelf(DABlocks.ASETERITE_WALL.get());
 
         this.dropSelf(DABlocks.POLISHED_ASETERITE.get());
-        this.dropSelf(DABlocks.POLISHED_ASETERITE_SLAB.get());
+        this.add(DABlocks.POLISHED_ASETERITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.POLISHED_ASETERITE_STAIRS.get());
 
         this.dropSelf(DABlocks.ASETERITE_BRICKS.get());
-        this.dropSelf(DABlocks.ASETERITE_BRICKS_SLAB.get());
+        this.add(DABlocks.ASETERITE_BRICKS_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.ASETERITE_BRICKS_STAIRS.get());
         this.dropSelf(DABlocks.ASETERITE_BRICKS_WALL.get());
 
         this.dropSelfDouble(DABlocks.RAW_CLORITE.get());
-        this.dropSelf(DABlocks.RAW_CLORITE_SLAB.get());
+        this.add(DABlocks.RAW_CLORITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.RAW_CLORITE_STAIRS.get());
         this.dropSelf(DABlocks.RAW_CLORITE_WALL.get());
         this.dropSelf(DABlocks.CLORITE.get());
-        this.dropSelf(DABlocks.CLORITE_SLAB.get());
+        this.add(DABlocks.CLORITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.CLORITE_STAIRS.get());
         this.dropSelf(DABlocks.CLORITE_WALL.get());
         this.dropSelf(DABlocks.POLISHED_CLORITE.get());
-        this.dropSelf(DABlocks.POLISHED_CLORITE_SLAB.get());
+        this.add(DABlocks.POLISHED_CLORITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.POLISHED_CLORITE_STAIRS.get());
         this.dropSelf(DABlocks.CLORITE_PILLAR.get());
 
         this.dropSelf(DABlocks.HOLYSTONE_TILES.get());
-        this.dropSelf(DABlocks.HOLYSTONE_TILE_SLAB.get());
+        this.add(DABlocks.HOLYSTONE_TILE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.HOLYSTONE_TILE_STAIRS.get());
         this.dropSelf(DABlocks.HOLYSTONE_TILE_WALL.get());
 
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get());
-        this.dropSelf(DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get());
+        this.add(DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get());
 
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILES.get());
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get());
-        this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get());
+        this.add(DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get());
 
 
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS.get());
-        this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get());
+        this.add(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get());
         this.dropSelf(DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get());
 
@@ -329,32 +329,32 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         //Lost content
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get());
-        this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get());
+        this.add(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get());
 
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILES.get());
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_WALL.get());
-        this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get());
+        this.add(DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get());
 
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get());
-        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get());
+        this.add(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get());
 
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get());
-        this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
+        this.add(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
 
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILES.get());
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get());
-        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get());
+        this.add(DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get());
 
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get());
-        this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get());
+        this.add(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
 
         //Aether genesis
