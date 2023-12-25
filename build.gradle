@@ -140,7 +140,9 @@ dependencies {
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
     implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
-
+    implementation(jarJar("io.github.llamalad7:mixinextras-neoforge:0.3.2")) {
+        jarJar.ranged(it, "[0.3.2,)")
+    }
     //Optional Dependencies
     compileOnly fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
