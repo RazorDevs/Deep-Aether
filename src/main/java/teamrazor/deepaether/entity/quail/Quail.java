@@ -130,15 +130,14 @@ public class Quail extends SittingAetherAnimal implements IAnimatable {
 
     }
 
-    public void positionRider(Entity p_28269_) {
-        super.positionRider(p_28269_);
+    public void positionRider(Entity entity) {
         float f = Mth.sin(this.yBodyRot * ((float)Math.PI / 180F));
         float f1 = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
         float f2 = 0.1F;
         float f3 = 0.0F;
-        p_28269_.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + p_28269_.getMyRidingOffset() + 0.0D, this.getZ() - (double)(0.1F * f1));
-        if (p_28269_ instanceof LivingEntity) {
-            ((LivingEntity)p_28269_).yBodyRot = this.yBodyRot;
+        entity.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + entity.getMyRidingOffset() + 0.0D, this.getZ() - (double)(0.1F * f1));
+        if (entity instanceof LivingEntity) {
+            ((LivingEntity)entity).yBodyRot = this.yBodyRot;
         }
 
     }
