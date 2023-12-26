@@ -45,7 +45,8 @@ public abstract class ServerPlayerMixin extends Player implements IPlayerBossFig
     }
 
     /**
-     * From {@link Projectile}
+     * Copied From {@link Projectile}
+     * Used to store and get a boss from a boss battle by its UUID.
      */
     @Unique
     @Nullable

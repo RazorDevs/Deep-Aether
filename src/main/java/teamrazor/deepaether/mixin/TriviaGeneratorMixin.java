@@ -10,6 +10,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
 
+/**
+ * Used to make th trivia component pro-tip string blue if the rest of the trivia component is blue.
+ * Used to make deep aether pro-tips blue to differ them from normal aether pro-tips
+ */
 @Mixin(value = TriviaGenerator.class, remap = false)
 public abstract class TriviaGeneratorMixin {
 
