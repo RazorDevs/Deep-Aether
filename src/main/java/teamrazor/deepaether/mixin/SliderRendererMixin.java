@@ -14,6 +14,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.DeepAetherMod;
 
+/**
+ * Used to change the slider texture during Halloween.
+ * Also see {@link SliderGlowLayerMixin}
+ */
 @Mixin(value = SliderRenderer.class, remap = false)
 public abstract class SliderRendererMixin extends MobRenderer<Slider, SliderModel> {
 
