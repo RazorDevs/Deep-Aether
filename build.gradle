@@ -173,7 +173,10 @@ dependencies {
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
     implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
-
+    //implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.2"))
+    //implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.3.2")) {
+    //    jarJar.ranged(it, "[0.3.2,)")
+    //}
     //Optional Dependencies
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
 

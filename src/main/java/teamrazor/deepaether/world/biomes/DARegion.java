@@ -75,7 +75,5 @@ public class DARegion extends Region {
         this.addBiome(mapper, new Climate.ParameterPoint(tempGold, Climate.Parameter.span(-1.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 YagrootSwamp);
 
-
-
     }
 }

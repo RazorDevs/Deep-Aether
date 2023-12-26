@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamrazor.deepaether.init.DAMobEffects;
 
-@Mixin(value = LivingEntity.class, remap = false)
+@Mixin(value = LivingEntity.class)
 public abstract class LivingEntityValorMixin {
 
     /**
@@ -20,7 +20,7 @@ public abstract class LivingEntityValorMixin {
      *  Partial copy of the Resistance check code.
      */
 
-    @Inject(at = @At("HEAD"), method = "getDamageAfterMagicAbsorb", cancellable = true, remap = false)
+    @Inject(at = @At("HEAD"), method = "getDamageAfterMagicAbsorb", cancellable = true)
     private void checkValkValorEffect(DamageSource damageSource, float damage, CallbackInfoReturnable<Float> cir) {
         LivingEntity undead = ((LivingEntity) damageSource.getEntity());
         if (((LivingEntity) (Object) this).hasEffect(DAMobEffects.VALKYRIE_VALOR.get())&& undead.getMobType() == MobType.UNDEAD) {
