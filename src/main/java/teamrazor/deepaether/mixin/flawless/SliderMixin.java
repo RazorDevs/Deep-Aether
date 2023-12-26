@@ -26,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
+import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nullable;
 
@@ -72,7 +73,7 @@ public abstract class SliderMixin extends PathfinderMob implements AetherBossMob
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt()  && this.getDungeon() != null) {
-            this.spawnAtLocation(new ItemStack(Items.DIRT, 1));
+            this.spawnAtLocation(new ItemStack(DAItems.SLIDER_EYE.get()));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
                 DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);

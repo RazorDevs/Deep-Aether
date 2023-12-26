@@ -26,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
+import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nullable;
 
@@ -71,7 +72,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
         if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null)  {
-            this.spawnAtLocation(new ItemStack(AetherItems.HOLY_SWORD.get(), 1));
+            this.spawnAtLocation(new ItemStack(DAItems.MEDAL_OF_HONOR.get(), 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
                 DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);
