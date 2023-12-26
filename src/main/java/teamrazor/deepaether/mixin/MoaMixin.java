@@ -16,6 +16,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamrazor.deepaether.entity.MoaBonusJump;
 
+/**
+ * Currently has no full implementation
+ * Used to increase the amount of times a moa can jump in the air through and effect.
+ * For the effect see {@link teamrazor.deepaether.effects.MoaBonusJumpEffect}
+ */
 @Mixin(value = Moa.class, remap = false)
 public abstract class MoaMixin extends MountableAnimal implements WingedBird, MoaBonusJump {
 

@@ -29,12 +29,21 @@ import teamrazor.deepaether.init.DAMobEffects;
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
 
+    /**
+     * Used to check if a player has been hurt during a boss fight
+     * See {@link IPlayerBossFight}
+     * See {@link IFlawlessBossDrop}
+     */
     @SubscribeEvent
     public static void onLivingEntityHurt(LivingHurtEvent event) {
         if(event.getEntity() instanceof ServerPlayer player) {
+            //Gets the stored boss from the player
             Entity playerBossFight = ((IPlayerBossFight) player).deep_Aether$getBoss();
 
+            //checks if the stored boss has a flawless boss drop
             if (playerBossFight instanceof IFlawlessBossDrop flawless) {
+
+                //Sets the deep_Aether$setHasBeenHurt to true. The flawless boss drop will not drop when the boss dies.
                 flawless.deep_Aether$setHasBeenHurt(true);
             }
         }

@@ -6,6 +6,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
+/**
+ * Used in an Easter egg to change the texture of the moon
+ * See {@link teamrazor.deepaether.item.gear.other.SpookyRing} for the full easter egg
+ */
 @Mixin(value = AetherSkyRenderEffects.class, remap = false)
 public interface AetherSkyRenderEffectsAccessor {
     @Mutable
