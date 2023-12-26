@@ -54,7 +54,7 @@ public class DAItems {
 
 	// EQUIPMENT
 
-	public static final RegistryObject<Item> AFTERBURNER = ITEMS.register("afterburner", () -> new Afterburner((new Item.Properties().stacksTo(1).durability(200).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES))));
+	public static final RegistryObject<Item> AFTERBURNER = ITEMS.register("afterburner", () -> new Afterburner((new Item.Properties().stacksTo(1).durability(200).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).fireResistant())));
 	public static final RegistryObject<Item> SKYJADE_SWORD = ITEMS.register("skyjade_sword", SkyjadeToolsSwordItem::new);
 	public static final RegistryObject<Item> SKYJADE_PICKAXE = ITEMS.register("skyjade_pickaxe", () -> new SkyjadeToolsPickaxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
 	public static final RegistryObject<Item> SKYJADE_AXE = ITEMS.register("skyjade_axe", () -> new SkyjadeToolsAxeItem(DATiers.SKYJADE, 1, -3f, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
@@ -68,8 +68,8 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_GLOVES = ITEMS.register("skyjade_gloves", () -> new SkyjadeGlovesItem(0.5, new Item.Properties().tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES).defaultDurability(75)));
 	public static final RegistryObject<Item> SKYJADE_RING = ITEMS.register("skyjade_ring", () -> new SkyjadeRingItem(new Item.Properties().tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES).stacksTo(1).durability(30)));
 	public static final RegistryObject<Item> SPOOKY_RING = ITEMS.register("spooky_ring", () -> new SpookyRing(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(500)));
-	public static final RegistryObject<Item> SLIDER_EYE = ITEMS.register("slider_eye", () -> new SliderEye(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(500).rarity(AetherItems.AETHER_LOOT)));
-	public static final RegistryObject<Item> MEDAL_OF_HONOR = ITEMS.register("medal_of_honor", () -> new MedalOfHonor(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> SLIDER_EYE = ITEMS.register("slider_eye", () -> new SliderEye(AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, new Item.Properties().stacksTo(1).durability(500).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final RegistryObject<Item> MEDAL_OF_HONOR = ITEMS.register("medal_of_honor", () -> new MedalOfHonor(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 	public static final RegistryObject<Item> GRAVITITE_RING = ITEMS.register("gravitite_ring", () -> new RingItem(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, new Item.Properties().tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES).stacksTo(1).durability(50)));
 	public static final RegistryObject<Item> STRATUS_HELMET = ITEMS.register("stratus_helmet", () -> new StratusAbility(DaArmorMaterials.STRATUS, EquipmentSlot.HEAD, new Item.Properties().tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
 	public static final RegistryObject<Item> STRATUS_CHESTPLATE = ITEMS.register("stratus_chestplate", () -> new DaArmorItem(DaArmorMaterials.STRATUS, EquipmentSlot.CHEST, new Item.Properties().tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
@@ -114,7 +114,7 @@ public class DAItems {
 
 	// MISC
 
-	public static final RegistryObject<Item> SUN_CORE = ITEMS.register("sun_core", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> SUN_CORE = ITEMS.register("sun_core", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 
 	public static final RegistryObject<Item> BLUE_SQUASH_SLICE = ITEMS.register("blue_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS), new MobEffect[]{MobEffects.MOVEMENT_SPEED, MobEffects.NIGHT_VISION, MobEffects.DIG_SLOWDOWN}));
 	public static final RegistryObject<Item> GREEN_SQUASH_SLICE = ITEMS.register("green_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS), new MobEffect[]{MobEffects.JUMP, MobEffects.LEVITATION, MobEffects.LUCK}));
