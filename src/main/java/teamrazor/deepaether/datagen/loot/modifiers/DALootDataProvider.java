@@ -35,7 +35,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
         ));
 
         add("silver_loot_reward_modifiers", new DAAddDungeonLootModifierNoReplacements(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON).build() },
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 90),
                         WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_INGOT.get(), 1), 5),
@@ -43,7 +43,7 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                         WeightedEntry.wrap(new ItemStack(DAItems.STRATUS_SMITHING_TEMPLATE.get(), 1), 25)
                 ),
                 130,
-                0.65f
+                0.5f
         ));
 
         add("gold_loot_modifiers", new DAAddDungeonLootModifierNoReplacements(

@@ -96,7 +96,6 @@ public class PoisonBlock extends LiquidBlock {
                         }
                     }
                 }
-                System.out.println(TRANSFORM_ITEM);
 
                 if (!level.isClientSide && CAN_TRANSFORM) {
                     if ((TRANSFORMED_ITEM_ENTITY.getFeetBlockState().getBlock() == this || level.getBlockState(TRANSFORMED_ITEM_ENTITY.getOnPos().below(1)).getBlock() == this) && TRANSFORMED_ITEM_ENTITY.isAlive()) {
