@@ -76,6 +76,8 @@ public class DARegion extends Region {
         addBiome(mapper, new Climate.ParameterPoint(tempGold, Climate.Parameter.span(-1.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                     YagrootSwamp);
 
+        /*
+
         if (ModList.get().isLoaded("ancient_aether")) {
             fullRange = Climate.Parameter.span(-1.5F, 1.5F);
             Climate.Parameter tempWyndcaps = Climate.Parameter.span(-1.5F, -0.5F);
@@ -124,5 +126,7 @@ public class DARegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(0, 1.5F), fullRange, erosionElevated, fullRange, fullRange, 0),
                     DABiomes.MYSTIC_AERGLOW_FOREST);
         }
+        
+         */
     }
 }
