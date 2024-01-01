@@ -8,6 +8,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -112,13 +113,15 @@ public class FireProjectile extends ThrowableProjectile {
 
     public void setTargetOnFire(Entity target) {
         if (target != this.getOwner() && (this.getOwner() == null || target != this.getOwner().getVehicle()) && target instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().onFire(), 3.0F);
+            livingEntity.hurt(this.damageSources().onFire(), 4.5F);
             livingEntity.setSecondsOnFire(4);
         }
 
     }
 
     protected float getGravity() {
+        if(this.level().dimension().location().equals(new ResourceLocation("aether:the_aether")))
+            return 0.0F;
         return 0.1F;
     }
 
