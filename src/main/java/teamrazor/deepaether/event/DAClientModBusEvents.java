@@ -54,14 +54,14 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
 
-            if(ModList.get().isLoaded("lost_aether_content")) {
+            if (ModList.get().isLoaded("lost_aether_content")) {
                 AddonItemModelPredicates.init();
             }
         });
     }
 
     @SubscribeEvent
-    public static  void registerParticleFactories(final RegisterParticleProvidersEvent event) {
+    public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
         Minecraft.getInstance().particleEngine.register(DAParticles.POISON_BUBBLES.get(),
                 PoisonBubbles.Provider::new);
 
