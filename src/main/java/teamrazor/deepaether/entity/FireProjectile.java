@@ -8,6 +8,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -119,6 +120,8 @@ public class FireProjectile extends ThrowableProjectile {
     }
 
     protected float getGravity() {
+        if(this.level.dimension().location().equals(new ResourceLocation("aether:the_aether")))
+            return 0.0F;
         return 0.1F;
     }
 

@@ -6,16 +6,15 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobType;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
-import net.minecraftforge.event.entity.living.ShieldBlockEvent;
+import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -82,6 +81,27 @@ public class DAGeneralEvents {
         if(entity instanceof Moa moa && effect.equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
             MoaBonusJump moaBonusJump = (MoaBonusJump) moa;
             moaBonusJump.deep_Aether$setBonusJumps(0);
+        }
+    }
+
+
+    @SubscribeEvent
+    public static void applyValkyrieValorRes(LivingDamageEvent event){
+        if(event.getSource().getEntity() instanceof LivingEntity undead) {
+            if (event.getEntity().hasEffect(DAMobEffects.VALKYRIE_VALOR.get())&& undead.getMobType() == MobType.UNDEAD) {
+                int j = 10;
+                float f = event.getAmount() * (float) j;
+                float f1 = event.getAmount();
+                event.setAmount(Math.max(f / 25.0F, 0.0F));
+                float f2 = f1 - event.getAmount();
+                if (f2 > 0.0F && f2 < 3.4028235E37F) {
+                    if (event.getEntity() instanceof ServerPlayer player) {
+                        player.awardStat(Stats.CUSTOM.get(Stats.DAMAGE_RESISTED), Math.round(f2 * 10.0F));
+                    } else if (event.getSource().getEntity() instanceof ServerPlayer player) {
+                        player.awardStat(Stats.CUSTOM.get(Stats.DAMAGE_DEALT_RESISTED), Math.round(f2 * 10.0F));
+                    }
+                }
+            }
         }
     }
 }
