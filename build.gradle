@@ -136,7 +136,7 @@ dependencies {
     //Dependencies
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
-    implementation fg.deobf("curse.maven:aeroblender-879879:${project.aeroblender_version}")
+    implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")

@@ -181,10 +181,7 @@ public class DeepAetherMod {
 
 		event.enqueueWork(() ->
 		{
-			// Weights are kept intentionally low as we add minimal biomes
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
-
-			// Register our surface rules
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 		});
 	}
