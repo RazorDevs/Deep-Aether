@@ -31,10 +31,11 @@ public class DARegion extends Region {
         ResourceKey<Biome> GoldenGrove = DeepAetherConfig.COMMON.disable_golden_heights_biomes.get() ? AetherBiomes.SKYROOT_GROVE : DABiomes.GOLDEN_GROVE;
         ResourceKey<Biome> AerlavenderFields = DeepAetherConfig.COMMON.disable_aerlavenender_field_biomes.get() ? AetherBiomes.SKYROOT_MEADOW : DABiomes.AERLAVENDER_FIELDS;
 
+
         Climate.Parameter fullRange = Climate.Parameter.span(-1.0F, 1.0F);
 
         Climate.Parameter tempDefault1 = Climate.Parameter.span(-1.0F, -0.8F);
-        Climate.Parameter tempGold = Climate.Parameter.span(-0.8F, -0.4F);
+        Climate.Parameter tempDefault0 = Climate.Parameter.span(-0.8F, -0.4F);
         Climate.Parameter tempDefault2 = Climate.Parameter.span(-0.4F, 0.0F);
         Climate.Parameter tempDefault3 = Climate.Parameter.span(0.0F, 0.4F);
         Climate.Parameter tempDefault4 = Climate.Parameter.span(0.4F, 0.8F);
@@ -45,26 +46,26 @@ public class DARegion extends Region {
         // Row 2
         addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-1.0F, -0.6F), fullRange, fullRange, fullRange, fullRange, 0),
                     BlueAerglowForest);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-0.6F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-0.6F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                     AerglowForest);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(0.0F, 0.7F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(-0.2F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                     MysticAerglowForest);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(0.7F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    AerlavenderFields);
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault2, Climate.Parameter.span(0.3F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+                AetherBiomes.SKYROOT_GROVE);
         // Row 3
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-1.0F, -0.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                    AetherBiomes.SKYROOT_FOREST);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.5F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                    AerlavenderFields);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-1.0F, -0.4F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_GROVE);
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.4F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
+                    AetherBiomes.SKYROOT_FOREST);
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+                AerlavenderFields);
 
         // Row 4
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-1.0F, -0.5F), fullRange, fullRange, fullRange, fullRange, 0),
                     AerglowForest);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.3F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.5F, -0.1F), fullRange, fullRange, fullRange, fullRange, 0),
                     GoldenGrove);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.1F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                     GoldenHeights);
         // Row 5
         addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(-1.0F, 0.7F), fullRange, fullRange, fullRange, fullRange, 0),
@@ -72,8 +73,10 @@ public class DARegion extends Region {
         addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(0.7F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_FOREST);
 
-        addBiome(mapper, new Climate.ParameterPoint(tempGold, Climate.Parameter.span(-1.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    YagrootSwamp);
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault0, Climate.Parameter.span(-1.0F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
+                AetherBiomes.SKYROOT_MEADOW);
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault0, Climate.Parameter.span(-0.2F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
+                YagrootSwamp);
 
     }
 }

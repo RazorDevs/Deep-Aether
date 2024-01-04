@@ -1,21 +1,12 @@
 package teamrazor.deepaether.event;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
-import com.aetherteam.aether.mixin.mixins.client.accessor.BlockColorsAccessor;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.world.level.ColorResolver;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoublePlantBlock;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -23,7 +14,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAFluids;
 import teamrazor.deepaether.init.DAItems;
@@ -33,10 +23,6 @@ import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
 import teamrazor.deepaether.particle.custom.MysticalParticle;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAClientModBusEvents {
@@ -90,33 +76,6 @@ public class DAClientModBusEvents {
     static void registerColorResolver(RegisterColorHandlersEvent.ColorResolvers event) {
         if(!ModList.get().isLoaded(DeepAetherMod.ANCIENT_AETHER)) {
             event.register(AETHER_GRASS);
-        }
-    }
-
-    @SubscribeEvent
-    static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
-        if(!ModList.get().isLoaded(DeepAetherMod.ANCIENT_AETHER)) {
-            Map<Block, BlockColor> map = new HashMap();
-            Map<Holder.Reference<Block>, BlockColor> blockColors = ((BlockColorsAccessor) event.getBlockColors()).aether$getBlockColors();
-            map.put(Blocks.GRASS, blockColors.get(ForgeRegistries.BLOCKS.getDelegateOrThrow(Blocks.GRASS)));
-            map.put(Blocks.FERN, blockColors.get(ForgeRegistries.BLOCKS.getDelegateOrThrow(Blocks.FERN)));
-            map.put(Blocks.TALL_GRASS, blockColors.get(ForgeRegistries.BLOCKS.getDelegateOrThrow(Blocks.TALL_GRASS)));
-            map.put(Blocks.LARGE_FERN, blockColors.get(ForgeRegistries.BLOCKS.getDelegateOrThrow(Blocks.LARGE_FERN)));
-            Iterator var3 = map.entrySet().iterator();
-
-            while (var3.hasNext()) {
-                Map.Entry<Block, BlockColor> blockBlockColorEntry = (Map.Entry) var3.next();
-                event.register((state, level, pos, tintIndex) -> {
-                    if (level != null && pos != null) {
-                        BlockPos newPos = state.hasProperty(DoublePlantBlock.HALF) ? (state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos) : pos;
-                        if (level.getBlockState(newPos.below()).is(AetherBlocks.AETHER_GRASS_BLOCK.get())) {
-                            return level.getBlockTint(newPos, AETHER_GRASS);
-                        }
-                    }
-
-                    return blockBlockColorEntry.getValue().getColor(state, level, pos, tintIndex);
-                }, blockBlockColorEntry.getKey());
-            }
         }
     }
 }
