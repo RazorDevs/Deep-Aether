@@ -43,7 +43,7 @@ public class DeepAetherConfig {
             deep_aether_biome_weight = builder
                     .comment("The weighting of Deep Aether regions in the aether")
                     .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
-                    .define("Deep Aether Biome Weight", 20);
+                    .define("Deep Aether Biome Weight", 15);
             builder.pop();
 
             builder.push("Biomes");

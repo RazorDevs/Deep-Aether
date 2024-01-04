@@ -137,6 +137,9 @@ dependencies {
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
     implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
+    jarJar fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge") {
+        jarJar.ranged(it, "[1.20.1-1.0.2-rc1,)")
+    }
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
@@ -149,8 +152,9 @@ dependencies {
     //Optional Dependencies
     compileOnly fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
-    compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
-    implementation fg.deobf("local:ancient_aether:0.8.0")
+    //compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
+    //compileOnly fg.deobf("local:aether-redux:1.3.4-1.20.1-neoforge")
+    //implementation fg.deobf("local:ancient_aether:0.8.0")
     //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
@@ -171,6 +175,8 @@ jar {
         ])
     }
     finalizedBy 'reobfJar'
+
+    archiveClassifier = 'no-embeds'
 }
 
 mixin {
