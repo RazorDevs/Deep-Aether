@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature.tree;
+package teamrazor.deepaether.world.feature.tree.grower;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;

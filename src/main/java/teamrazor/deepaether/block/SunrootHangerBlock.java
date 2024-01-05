@@ -99,12 +99,6 @@ public class SunrootHangerBlock extends Block {
         }
         else return SHAPE_2;
     }
-
-    @Override
-    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
-        return 10;
-    }
-
     @Override
     public void animateTick(BlockState p_221107_, Level p_221108_, BlockPos p_221109_, RandomSource p_221110_) {
         Direction direction = Direction.DOWN;

@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature.tree;
+package teamrazor.deepaether.world.feature.tree.grower;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
@@ -7,10 +7,10 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 
-public class SunrootTreeGrower extends AbstractTreeGrower {
+public class ConberryTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return DAConfiguredFeatures.SUNROOT_TREE;
+        return DAConfiguredFeatures.CONBERRY_TREE;
     }
 }
