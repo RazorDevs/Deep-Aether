@@ -103,13 +103,7 @@ public class DeepAetherMod {
 
 	public DeepAetherMod() {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
-
-
-
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-
-
 		bus.addListener(this::commonSetup);
 
 		MinecraftForge.EVENT_BUS.register(this);

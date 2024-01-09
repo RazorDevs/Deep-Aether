@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -532,5 +533,14 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.FEATHER_GRASS.get(),
                 DABlocks.TALL_FEATHER_GRASS.get()
         );
+
+
+        tag(BlockTags.SAPLINGS).add(
+                DABlocks.SUNROOT_SAPLING.get(),
+                DABlocks.BLUE_ROSEROOT_SAPLING.get(),
+                DABlocks.CONBERRY_SAPLING.get(),
+                DABlocks.CRUDEROOT_SAPLING.get(),
+                DABlocks.ROSEROOT_SAPLING.get()
+                );
     }
 }
