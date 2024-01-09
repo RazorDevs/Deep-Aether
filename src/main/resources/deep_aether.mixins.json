@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "deep_aether.refmap.json",
   "mixins": [
+    "AerwhaleMixin",
     "MoaMixin",
     "TriviaGeneratorMixin",
     "flawless.ServerPlayerMixin",
@@ -13,6 +14,7 @@
     "flawless.ValkyrieQueenMixin"
   ],
   "client": [
+    "AerwhaleModelMixin",
     "AetherSkyRenderEffectsAccessor",
     "SliderGlowLayerMixin",
     "SliderRendererMixin"
