@@ -76,7 +76,8 @@ import java.util.stream.Collectors;
 public class DeepAetherMod {
 
 	//TODO: add it_lang translation
-
+	//TODO: add se_lang translation
+	//TODO: clean up code
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
@@ -101,12 +102,6 @@ public class DeepAetherMod {
 
 
 	public DeepAetherMod() {
-
-		// Register the enqueueIMC method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-		// Register the processIMC method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::dataSetup);
 
 
@@ -184,18 +179,6 @@ public class DeepAetherMod {
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 		});
-	}
-
-	private void enqueueIMC(final InterModEnqueueEvent event)
-	{
-		InterModComms.sendTo(MODID, "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
-	}
-
-	private void processIMC(final InterModProcessEvent event)
-	{
-		LOGGER.info("Got IMC {}", event.getIMCStream().
-				map(m->m.messageSupplier().get()).
-				collect(Collectors.toList()));
 	}
 	private void registerDispenserBehaviors() {
 		DispenserBlock.registerBehavior(Items.POTION, DADispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
