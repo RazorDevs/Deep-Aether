@@ -16,6 +16,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
@@ -62,6 +63,13 @@ public class DABlockInteractionBehavior {
 
 
                 player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
+                if (!player.getAbilities().instabuild) {
+                    itemstack.shrink(1);
+                    ItemStack bottleStack = new ItemStack(Items.GLASS_BOTTLE);
+                    if (!player.addItem(bottleStack)) {
+                        Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bottleStack);
+                    }
+                }
                 if (!world.isClientSide) {
                     ServerLevel serverlevel = (ServerLevel) world;
                     for (int i = 0; i < 5; ++i) {
