@@ -1,6 +1,8 @@
 package teamrazor.deepaether.world.feature.tree.trunk;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -31,5 +33,18 @@ public class TrunkUtils {
         int m = b.getY()-(b.getX()*k);
 
         return (k*x) + m;
+    }
+
+    public static Direction getRandomDirectionButNotOnTheYAxis(RandomSource random) {
+        int a = random.nextInt(3);
+
+        if(a == 0)
+            return Direction.NORTH;
+        else if(a == 1)
+            return Direction.SOUTH;
+        else if(a == 2)
+            return Direction.EAST;
+        else return Direction.WEST;
+
     }
 }

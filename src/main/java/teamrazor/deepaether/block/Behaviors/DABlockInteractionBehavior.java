@@ -53,7 +53,7 @@ public class DABlockInteractionBehavior {
             }
         }
 
-        if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
+        else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
                 BlockState newState = DABlocks.AETHER_MUD.get().defaultBlockState();
 
@@ -81,7 +81,7 @@ public class DABlockInteractionBehavior {
                 event.setCanceled(true);
             }
         }
-        if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
+        else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockRayTraceResult.getType() == HitResult.Type.MISS) {
@@ -113,7 +113,7 @@ public class DABlockInteractionBehavior {
                 }
             }
         }
-        if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
+        else if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
             Player player = event.getEntity();
             BlockHitResult blockhitresult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockhitresult.getType() == HitResult.Type.MISS) {
