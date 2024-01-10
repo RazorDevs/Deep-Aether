@@ -241,15 +241,23 @@ public class DeepAetherMod {
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-			var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/deep_aether_additional_assets");
+			var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/deep_aether_additional_assets");
 			var pack = Pack.readMetaAndCreate("builtin/deep_aether_additional_assets", Component.literal("Deep Aether Additional Assets"), false,
 					path -> new PathPackResources(path, resourcePath, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
 			event.addRepositorySource(consumer -> consumer.accept(pack));
 
 
 			if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) || ModList.get().isLoaded("aether_redux")) {
-				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallFixClient");
+				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallFixClient");
 				var pack1 = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallFixClient", Component.literal("Deep Aether Golden Swet Ball Texture Fix"), true,
+						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.DEFAULT);
+				event.addRepositorySource(consumer -> consumer.accept(pack1));
+
+			}
+
+			{
+				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/deep_aether_aerwhale_override");
+				var pack1 = Pack.readMetaAndCreate("builtin/deep_aether_aerwhale_override", Component.literal("Deep Aether Mandatory Texture Overrides"), true,
 						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.DEFAULT);
 				event.addRepositorySource(consumer -> consumer.accept(pack1));
 
@@ -257,7 +265,7 @@ public class DeepAetherMod {
 		}
 		if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
-				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData");
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData");
 				var pack = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallAetherGenesisFix", Component.literal("Deep Aether Golden Swet Ball Aether Genesis Fix"), true,
 						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
 				event.addRepositorySource(consumer -> consumer.accept(pack));
@@ -266,7 +274,7 @@ public class DeepAetherMod {
 
 		else if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
-				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData");
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData");
 				var pack = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallAetherReduxFix", Component.literal("Deep Aether Golden Swet Ball Aether Redux Fix"), true,
 						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
 
