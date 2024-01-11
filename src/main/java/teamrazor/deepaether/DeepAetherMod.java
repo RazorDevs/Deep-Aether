@@ -17,14 +17,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
@@ -54,7 +51,6 @@ import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Calendar;
-import java.util.stream.Collectors;
 
 @Mod("deep_aether")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -86,12 +82,6 @@ public class DeepAetherMod {
 
 
 	public DeepAetherMod() {
-
-		// Register the enqueueIMC method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-		// Register the processIMC method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		bus.addListener(this::commonSetup);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -140,19 +130,6 @@ public class DeepAetherMod {
 			// Register our surface rules
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 		});
-	}
-
-	private void enqueueIMC(final InterModEnqueueEvent event) {
-		InterModComms.sendTo(MODID, "helloworld", () -> {
-			LOGGER.info("Hello world from the MDK");
-			return "Hello world";
-		});
-	}
-
-	private void processIMC(final InterModProcessEvent event) {
-		LOGGER.info("Got IMC {}", event.getIMCStream().
-				map(m -> m.messageSupplier().get()).
-				collect(Collectors.toList()));
 	}
 
 	private void registerDispenserBehaviors() {
