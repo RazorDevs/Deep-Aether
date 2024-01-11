@@ -22,13 +22,9 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.quail.Quail;
 
 public class AerwhaleModelLayer extends RenderLayer<Aerwhale, AerwhaleModel> {
-
-    RenderLayerParent<Aerwhale, AerwhaleModel> parent;
     private static final RenderType SLIDER_AWAKE_GLOW = RenderType.armorCutoutNoCull(new ResourceLocation(DeepAetherMod.MODID, "textures/entity/aerwhale_saddled.png"));
-
     public AerwhaleModelLayer(RenderLayerParent<Aerwhale, AerwhaleModel> parent) {
         super(parent);
-        this.parent = parent;
     }
 
     @Override

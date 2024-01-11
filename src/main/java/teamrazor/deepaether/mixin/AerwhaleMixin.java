@@ -32,11 +32,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import teamrazor.deepaether.entity.AerwhaleSaddleable;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.List;
 
 @Mixin(value = Aerwhale.class)
-public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, ContainerEntity, HasCustomInventoryScreen {
+public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddleable, ContainerEntity, HasCustomInventoryScreen {
     @Shadow(remap = false) public abstract void setYRotData(float rot);
 
     protected AerwhaleMixin(EntityType<? extends FlyingMob> p_20806_, Level p_20807_) {
@@ -372,7 +374,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
         super.dropEquipment();
         if (this.isSaddled()) {
             if (!this.level().isClientSide) {
-                this.spawnAtLocation(Items.SADDLE);
+                this.spawnAtLocation(DAItems.AERWHALE_SADDLE.get());
             }
             this.deep_Aether$setSaddled(false);
         }
