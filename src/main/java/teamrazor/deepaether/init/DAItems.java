@@ -15,7 +15,6 @@ import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,10 +31,6 @@ import teamrazor.deepaether.item.gear.other.SpookyRing;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
-import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
-import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
-
-import java.util.function.Supplier;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -115,6 +110,7 @@ public class DAItems {
 	// MISC
 
 	public static final RegistryObject<Item> SUN_CORE = ITEMS.register("sun_core", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final RegistryObject<Item> AERWHALE_SADDLE = ITEMS.register("aerwhale_saddle", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 
 	public static final RegistryObject<Item> BLUE_SQUASH_SLICE = ITEMS.register("blue_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS), new MobEffect[]{MobEffects.MOVEMENT_SPEED, MobEffects.NIGHT_VISION, MobEffects.DIG_SLOWDOWN}));
 	public static final RegistryObject<Item> GREEN_SQUASH_SLICE = ITEMS.register("green_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS), new MobEffect[]{MobEffects.JUMP, MobEffects.LEVITATION, MobEffects.LUCK}));
@@ -153,22 +149,11 @@ public class DAItems {
 
 	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new ItemNameBlockItem(DABlocks.SQUASH_STEM.get(), new Item.Properties()));
 
-	//LOST CONTENT
-
-	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).durability(672)));
-	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).durability(1344)));
-
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}
 
 	public static void setupBucketReplacements() {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
-	}
-	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
-		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
-		}
-		return ITEMS.register(name, item);
 	}
 }

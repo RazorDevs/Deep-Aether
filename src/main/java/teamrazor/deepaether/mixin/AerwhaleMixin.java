@@ -23,7 +23,6 @@ import net.minecraft.world.entity.vehicle.ContainerEntity;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
@@ -37,11 +36,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import teamrazor.deepaether.entity.AerwhaleSaddleable;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.List;
 
 @Mixin(value = Aerwhale.class)
-public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, ContainerEntity, HasCustomInventoryScreen {
+public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddleable, ContainerEntity, HasCustomInventoryScreen {
     @Shadow(remap = false) public abstract void setYRotData(float rot);
 
     protected AerwhaleMixin(EntityType<? extends FlyingMob> p_20806_, Level p_20807_) {
@@ -102,7 +103,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
                         f4 = 1.0F;
                     }
 
-                    this.walkAnimation.update(f4, 0.4F);
+                    //this.walkAnimation.update(f4, 0.4F);
                 }
             } else {
                 super.travel(vector);
@@ -138,7 +139,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
      */
     @Unique
     private InteractionResult chestInteract(Player player) {
-        InteractionResult interactionresult = this.interactWithContainerVehicle(player);
+        InteractionResult interactionresult = this.interactWithChestVehicle(this::gameEvent, player);
         if (interactionresult.consumesAction()) {
             this.gameEvent(GameEvent.CONTAINER_OPEN, player);
             PiglinAi.angerNearbyPiglins(player, true);
@@ -148,7 +149,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
     }
 
     /**
-     * We want the Aerwhale to be able to have two passengers or less
+     * We want the Aerwhale to be able to have two passengers or fewer
      */
     @Override
     protected boolean canAddPassenger(Entity entity) {
@@ -159,9 +160,8 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
      * Copied from {@link net.minecraft.world.entity.animal.horse.Llama}
      * offsets the players correctly from the center of the aerwhale. Allows multiple players to ride the aerwhale.
      */
-
     @Override
-    protected void positionRider(Entity entity, MoveFunction moveFunction) {
+    public void positionRider(Entity entity) {
         int i = this.getPassengers().indexOf(entity);
         if (i >= 0) {
             boolean flag = i == 0;
@@ -179,11 +179,12 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
 
             if(i == 0) {
                 f1 += 0.3F;
+                f-=0.1F;
             }
             else f = -2.1F;
 
             Vec3 vec3 = (new Vec3(0.0D, 0.0D, f)).yRot(-this.yBodyRot * ((float) Math.PI / 180F));
-            moveFunction.accept(entity, this.getX() + vec3.x, this.getY() + (double) f1, this.getZ() + vec3.z);
+            entity.setPos(this.getX() + vec3.x, this.getY() + (double) f1, this.getZ() + vec3.z);
             this.deep_Aether$clampRotation(entity);
         }
     }
@@ -192,15 +193,15 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
      * Copied from {@link net.minecraft.world.entity.animal.horse.Llama}
      */
     @Unique
-    private void deep_Aether$clampRotation(Entity p_252070_) {
-        p_252070_.setYBodyRot(this.getYRot());
-        float f = p_252070_.getYRot();
+    private void deep_Aether$clampRotation(Entity entity) {
+        entity.setYBodyRot(this.getYRot());
+        float f = entity.getYRot();
         float f1 = Mth.wrapDegrees(f - this.getYRot());
         float f2 = Mth.clamp(f1, -160.0F, 160.0F);
-        p_252070_.yRotO += f2 - f1;
+        entity.yRotO += f2 - f1;
         float f3 = f + f2 - f1;
-        p_252070_.setYRot(f3);
-        p_252070_.setYHeadRot(f3);
+        entity.setYRot(f3);
+        entity.setYHeadRot(f3);
     }
 
 
@@ -376,7 +377,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
         super.dropEquipment();
         if (this.isSaddled()) {
             if (!this.level.isClientSide) {
-                this.spawnAtLocation(Items.SADDLE);
+                this.spawnAtLocation(DAItems.AERWHALE_SADDLE.get());
             }
             this.deep_Aether$setSaddled(false);
         }

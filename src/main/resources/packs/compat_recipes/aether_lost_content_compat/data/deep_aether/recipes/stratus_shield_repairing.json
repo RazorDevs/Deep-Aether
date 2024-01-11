@@ -1,9 +1,0 @@
-{
-  "type": "aether:repairing",
-  "category": "enchanting_repair",
-  "group": "altar_shield_repair",
-  "ingredient": {
-    "item": "deep_aether:stratus_shield"
-  },
-  "repairTime": 5500
-}

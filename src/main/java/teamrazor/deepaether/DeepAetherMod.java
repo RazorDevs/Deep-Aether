@@ -61,10 +61,8 @@ public class DeepAetherMod {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
-	public static final String ANCIENT_AETHER = "ancient_aether";
 
 	private static final String PROTOCOL_VERSION = "1";
 
@@ -238,23 +236,6 @@ public class DeepAetherMod {
 								"builtin/DAGoldenSwetBallAetherReduxFix",
 								Component.literal("Deep Aether Golden Swet Ball Aether Redux Fix"),
 								false,
-								() -> pack,
-								metadata,
-								Pack.Position.TOP,
-								PackSource.SERVER,
-								true)
-						));
-			}
-
-			if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_lost_content_compat");
-				PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
-				PackMetadataSection metadata = new PackMetadataSection(Component.literal("Lost Aether Content Compat"), PackType.SERVER_DATA.getVersion(SharedConstants.getCurrentVersion()));
-				event.addRepositorySource((packConsumer, packConstructor) ->
-						packConsumer.accept(packConstructor.create(
-								"builtin/lost_aether_content_compat",
-								Component.literal("Lost Aether Content Compat"),
-								true,
 								() -> pack,
 								metadata,
 								Pack.Position.TOP,
