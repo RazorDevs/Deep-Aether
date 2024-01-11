@@ -48,14 +48,13 @@ public class Afterburner extends TieredItem {
 
     @Override
     public void onStopUsing(ItemStack stack, LivingEntity entity, int count) {
-        Player player = (Player) entity;
-
-        if(count < stack.getUseDuration() - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
-            if(!player.isCreative()) {
-                player.getCooldowns().addCooldown(this, 100);
-                stack.hurt(10, RandomSource.create(), null);
+        if(entity instanceof Player player)
+            if(count < stack.getUseDuration() - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
+                if(!player.isCreative()) {
+                    player.getCooldowns().addCooldown(this, 100);
+                    stack.hurt(10, RandomSource.create(), null);
+                }
             }
-        }
         super.onStopUsing(stack, entity, count);
     }
 
