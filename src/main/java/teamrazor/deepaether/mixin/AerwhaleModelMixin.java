@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
@@ -15,21 +16,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AerwhaleModel.class)
 public abstract class AerwhaleModelMixin extends EntityModel<Aerwhale> {
-    /*
-    @Shadow(remap = false)
-    @Final
-    public ModelPart head;
-    @Unique
-    private final ModelPart leftChest = this.head.getChild("left_chest");
-    @Unique
-    private final ModelPart rightChest = this.head.getChild("right_chest");
 
-     */
+    @Inject(at = @At("RETURN"), method = "createBodyLayer", remap = false)
+    private static void AerwhaleRenderer(CallbackInfoReturnable<LayerDefinition> cir, @Local(name = "head") PartDefinition head) {
 
-    @Inject(at = @At(value = "RETURN"), method = "createBodyLayer", remap = false)
-    private static void createBodyLayer(CallbackInfoReturnable<LayerDefinition> cir, @Local(ordinal = 1) PartDefinition head) {
-        CubeListBuilder chestBuilder = CubeListBuilder.create().texOffs(47, 49).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 8.0F, 3.0F);
-        head.addOrReplaceChild("left_chest", chestBuilder, PartPose.offsetAndRotation(6.0F, -8.0F, 0.0F, 0.0F, (-(float)Math.PI / 2F), 0.0F));
-        head.addOrReplaceChild("right_chest", chestBuilder, PartPose.offsetAndRotation(-6.0F, -8.0F, 0.0F, 0.0F, ((float)Math.PI / 2F), 0.0F));
+        CubeListBuilder cubelistbuilder = CubeListBuilder.create().texOffs(47, 46).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 8.0F, 3.0F, CubeDeformation.NONE);
+        head.getChild("middle_top").addOrReplaceChild("left_chest", cubelistbuilder, PartPose.offsetAndRotation(24.0F, 2.0F, 11.0F, 0.0F, (-(float)Math.PI / 2F), 0.0F));
+        head.getChild("middle_top").addOrReplaceChild("right_chest", cubelistbuilder, PartPose.offsetAndRotation(0.0F, 2.0F, 11.0F, 0.0F, ((float)Math.PI / 2F), 0.0F));
     }
 }

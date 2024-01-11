@@ -165,11 +165,11 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
         int i = this.getPassengers().indexOf(entity);
         if (i >= 0) {
             boolean flag = i == 0;
-            float f = 0.5F;
+            float f = 0.7F;
             float f1 = (float) (this.isRemoved() ? (double) 0.01F : this.getPassengersRidingOffset() + entity.getMyRidingOffset());
             if (this.getPassengers().size() > 1) {
                 if (!flag) {
-                    f = -0.7F;
+                    f = -1.2F;
                 }
 
                 if (entity instanceof Animal) {
@@ -177,8 +177,11 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
                 }
             }
 
-            if(getPassengers().size() > 1 && this.getControllingPassenger().is(entity))
-                f1 +=0.5F;
+            if(i == 0) {
+                f1 += 0.3F;
+            }
+            else f = -2.1F;
+
             Vec3 vec3 = (new Vec3(0.0D, 0.0D, f)).yRot(-this.yBodyRot * ((float) Math.PI / 180F));
             moveFunction.accept(entity, this.getX() + vec3.x, this.getY() + (double) f1, this.getZ() + vec3.z);
             this.deep_Aether$clampRotation(entity);
@@ -223,7 +226,6 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
     public void deep_Aether$setSaddled(boolean isSaddled) {
         this.getEntityData().set(DATA_SADDLE_ID, isSaddled);
     }
-
     /**
      * Save Data Code
      */

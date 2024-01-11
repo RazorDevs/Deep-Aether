@@ -1,0 +1,8 @@
+{
+  "pack": {
+    "description": "Mandatory override textures from Deep Aether",
+    "pack_format": 13,
+    "forge:resource_pack_format": 13,
+    "forge:data_pack_format": 12
+  }
+}

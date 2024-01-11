@@ -15,6 +15,7 @@
   ],
   "client": [
     "AerwhaleModelMixin",
+    "AerwhaleRendererMixin",
     "AetherSkyRenderEffectsAccessor",
     "SliderGlowLayerMixin",
     "SliderRendererMixin"
