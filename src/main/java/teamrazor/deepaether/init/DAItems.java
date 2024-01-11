@@ -109,8 +109,8 @@ public class DAItems {
 
 	// MISC
 
-	public static final RegistryObject<Item> SUN_CORE = ITEMS.register("sun_core", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
-	public static final RegistryObject<Item> AERWHALE_SADDLE = ITEMS.register("aerwhale_saddle", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final RegistryObject<Item> SUN_CORE = ITEMS.register("sun_core", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
+	public static final RegistryObject<Item> AERWHALE_SADDLE = ITEMS.register("aerwhale_saddle", () -> new SunCore((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
 
 	public static final RegistryObject<Item> BLUE_SQUASH_SLICE = ITEMS.register("blue_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS), new MobEffect[]{MobEffects.MOVEMENT_SPEED, MobEffects.NIGHT_VISION, MobEffects.DIG_SLOWDOWN}));
 	public static final RegistryObject<Item> GREEN_SQUASH_SLICE = ITEMS.register("green_squash_slice", () -> new DASquashPieItem(new Item.Properties().food(Foods.GLOW_BERRIES).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS), new MobEffect[]{MobEffects.JUMP, MobEffects.LEVITATION, MobEffects.LUCK}));
@@ -147,7 +147,7 @@ public class DAItems {
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_BLOCKS)));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
-	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new ItemNameBlockItem(DABlocks.SQUASH_STEM.get(), new Item.Properties()));
+	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new ItemNameBlockItem(DABlocks.SQUASH_STEM.get(), new Item.Properties().tab(AetherCreativeTabs.AETHER_BLOCKS)));
 
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
