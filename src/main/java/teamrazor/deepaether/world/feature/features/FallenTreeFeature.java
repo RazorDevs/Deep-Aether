@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
+import teamrazor.deepaether.world.feature.tree.trunk.TrunkUtils;
 
 public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
     public FallenTreeFeature(Codec<FallenTreeConfiguration> codec) {
@@ -33,8 +34,8 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
         int gap = rand.nextInt(2,4);
         final int MAX_DEPTH = 4;
 
-        //Chooses a random position
-        Direction direction = Direction.getRandom(rand);
+        //Chooses a random direction
+        Direction direction = TrunkUtils.getRandomDirectionButNotOnTheYAxis(rand);
 
         //Checks if the feature can be placed first.
         if(!canPlace(reader, pos))

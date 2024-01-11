@@ -32,7 +32,6 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {
@@ -54,7 +53,7 @@ public class DABlockInteractionBehavior {
             }
         }
 
-        if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
+        else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
                 BlockState newState = DABlocks.AETHER_MUD.get().defaultBlockState();
 
@@ -68,7 +67,7 @@ public class DABlockInteractionBehavior {
                     itemstack.shrink(1);
                     ItemStack bottleStack = new ItemStack(Items.GLASS_BOTTLE);
                     if (!player.addItem(bottleStack)) {
-                        Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bottleStack);
+                        Containers.dropItemStack(player.level, player.getX(), player.getY(), player.getZ(), bottleStack);
                     }
                 }
                 if (!world.isClientSide) {
@@ -82,7 +81,7 @@ public class DABlockInteractionBehavior {
                 event.setCanceled(true);
             }
         }
-        if (itemstack.is(AetherItems.SKYROOT_POISON_BUCKET.get()) || itemstack.is(DAItems.PLACEABLE_POISON_BUCKET.get())) {
+        else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockRayTraceResult.getType() == HitResult.Type.MISS) {
@@ -114,7 +113,7 @@ public class DABlockInteractionBehavior {
                 }
             }
         }
-        if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
+        else if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
             Player player = event.getEntity();
             BlockHitResult blockhitresult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockhitresult.getType() == HitResult.Type.MISS) {
