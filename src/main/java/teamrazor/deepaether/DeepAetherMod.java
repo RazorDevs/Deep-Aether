@@ -231,14 +231,6 @@ public class DeepAetherMod {
 				event.addRepositorySource(consumer -> consumer.accept(pack1));
 
 			}
-
-			{
-				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/deep_aether_aerwhale_override");
-				var pack1 = Pack.readMetaAndCreate("builtin/deep_aether_aerwhale_override", Component.literal("Deep Aether Mandatory Texture Overrides"), true,
-						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.DEFAULT);
-				event.addRepositorySource(consumer -> consumer.accept(pack1));
-
-			}
 		}
 		if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {

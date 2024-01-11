@@ -174,6 +174,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements Saddleable, Con
 
             if(i == 0) {
                 f1 += 0.3F;
+                f-=0.1F;
             }
             else f = -2.1F;
 
