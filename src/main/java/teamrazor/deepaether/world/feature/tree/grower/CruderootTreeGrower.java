@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature.tree;
+package teamrazor.deepaether.world.feature.tree.grower;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;

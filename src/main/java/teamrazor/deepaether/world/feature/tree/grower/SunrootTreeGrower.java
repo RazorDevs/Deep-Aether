@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature.tree;
+package teamrazor.deepaether.world.feature.tree.grower;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -13,13 +13,11 @@ import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class BlueRoserootTreeGrower extends AbstractTreeGrower {
+public class SunrootTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(ServerLevel level, ChunkGenerator chunkGenerator, BlockPos pos, BlockState state, RandomSource random, boolean hasFlowers) {
-        if(random.nextInt(4) == 0)
-            return level.registryAccess().registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).getOrCreateHolderOrThrow(DAConfiguredFeatures.BLUE_ROSEROOT_TREE_LARGE);
-        else return level.registryAccess().registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).getOrCreateHolderOrThrow(DAConfiguredFeatures.BLUE_ROSEROOT_TREE_SMALL);
+        return level.registryAccess().registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).getOrCreateHolderOrThrow(DAConfiguredFeatures.SUNROOT_TREE);
     }
 
     @Nullable
