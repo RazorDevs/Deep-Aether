@@ -19,6 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Saddleable;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.entity.AerwhaleSaddleable;
 import teamrazor.deepaether.entity.quail.Quail;
 
 public class AerwhaleModelLayer extends RenderLayer<Aerwhale, AerwhaleModel> {
@@ -29,7 +30,7 @@ public class AerwhaleModelLayer extends RenderLayer<Aerwhale, AerwhaleModel> {
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Aerwhale aerwhale, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (((Saddleable) aerwhale).isSaddled() && !aerwhale.isInvisible()) {
+        if (((AerwhaleSaddleable) aerwhale).isSaddled() && !aerwhale.isInvisible()) {
             VertexConsumer consumer = buffer.getBuffer(SLIDER_AWAKE_GLOW);
             this.getParentModel().renderToBuffer(poseStack, consumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }

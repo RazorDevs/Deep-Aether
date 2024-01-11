@@ -1,9 +1,11 @@
 package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.client.renderer.AetherModelLayers;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.mixin.mixins.client.accessor.BlockColorsAccessor;
+import com.legacy.lost_aether.client.models.AerwhaleModelOverride;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.particle.CherryParticle;
@@ -18,8 +20,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -27,6 +31,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.client.model.AerwhaleModelOverrideOverrideLCCompat;
 import teamrazor.deepaether.init.DAFluids;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAParticles;
@@ -42,6 +47,16 @@ import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAClientModBusEvents {
+
+    /**
+     * See {@link com.legacy.lost_aether.client.LCEntityRendering}
+     */
+    @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
+    public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
+    {
+        if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT))
+            event.registerLayerDefinition(AetherModelLayers.AERWHALE, AerwhaleModelOverrideOverrideLCCompat::createOverrideLayerButWithChest);
+    }
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
