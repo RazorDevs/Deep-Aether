@@ -17,9 +17,8 @@ public class DAFluidTypes {
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, DeepAetherMod.MODID);
 
     public static final RegistryObject<FluidType> POISON_FLUID_TYPE = register("poison_fluid", FluidType.Properties.create()
-            .density(10)
             .descriptionId("block.deep_aether.poison")
-            .viscosity(8));
+            .canSwim(false));
     
     private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
         return FLUID_TYPES.register(name, () -> new BaseFluidType(POISON_STILL_RL, POISON_FLOWING_RL, POISON_OVERLAY_RL,

@@ -1,8 +1,8 @@
 package teamrazor.deepaether.item.misc;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SimpleFoiledItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
@@ -10,7 +10,7 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.List;
 
-public class SunCore extends SimpleFoiledItem implements ICurioItem {
+public class SunCore extends Item implements ICurioItem {
     public SunCore(Properties properties) {
         super(properties);
     }
@@ -18,7 +18,6 @@ public class SunCore extends SimpleFoiledItem implements ICurioItem {
     int i = 0;
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> components, TooltipFlag tooltipFlag) {
-        components.add(Component.literal("§c§l- Sol -"));
 
         if(i > 70)
             components.add(Component.translatable("gui.deep_aether.flawless_tier_1"));

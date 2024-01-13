@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "O": {
+      "item": "deep_aether:sun_core"
+    },
+    "-": {
+      "item": "deep_aether:stratus_ingot"
+    },
+    "X": {
+      "tag": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "-O-"
+  ],
+  "result": {
+    "item": "deep_aether:aerwhale_saddle"
+  },
+  "show_notification": true
+}

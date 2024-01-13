@@ -26,6 +26,8 @@
   "item.deep_aether.sun_core": "Sun Core",
   "lore.item.deep_aether.afterburner": "Crafted from a Sun Core, it's a weapon that allows you to shoot fire to nearby enemies just like a flamethrower. It doesn't break, but its charges run out. ",
   "item.deep_aether.afterburner": "Afterburner",
+  "lore.item.deep_aether.aerwhale_saddle": "A saddle big enough to fit on an aerwhale. This legendary item is dropped from the Aerwhale King from the addon Lost Aether Content. However if Lost Aether Content isn't installed it's crafted with a sun core and a saddle.",
+  "item.deep_aether.aerwhale_saddle": "Aerwhale Saddle",
 
   "effect.deep_aether.valkyrie_valor": "Valkyries' Grace",
 
