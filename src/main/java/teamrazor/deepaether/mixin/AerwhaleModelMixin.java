@@ -24,7 +24,7 @@ import teamrazor.deepaether.entity.AerwhaleSaddleable;
 @Mixin(AerwhaleModel.class)
 public abstract class AerwhaleModelMixin extends EntityModel<Aerwhale> {
 
-    @Shadow @Final public ModelPart head;
+    @Shadow(remap = false) @Final public ModelPart head;
 
     @Unique
     ModelPart deep_Aether$leftChest;

@@ -76,6 +76,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.YAGROOT_ROOTS.get());
         this.itemBlock(DABlocks.MUDDY_YAGROOT_ROOTS.get());
         this.item(DAItems.YAGROOT_HANGING_SIGN.get());
+        this.item(DAItems.AERWHALE_SADDLE.get());
 
 
         this.itemBlock(DABlocks.CRUDEROOT_WOOD.get());

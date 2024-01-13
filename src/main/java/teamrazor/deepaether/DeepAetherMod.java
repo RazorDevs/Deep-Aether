@@ -78,6 +78,7 @@ public class DeepAetherMod {
 	//TODO: add it_lang translation
 	//TODO: add se_lang translation
 	//TODO: clean up code
+	//TODO: Add configs for flawless boss drops
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
@@ -260,6 +261,15 @@ public class DeepAetherMod {
 				event.addRepositorySource(consumer -> consumer.accept(pack));
 			}
 		}
+		//else {
+			if (event.getPackType() == PackType.SERVER_DATA) {
+				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_lost_content_not_compat");
+				var pack = Pack.readMetaAndCreate("builtin/aether_lost_content_not_compat", Component.literal("Deep Aether Aerwhale Saddle Recipe"), true,
+						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
+
+				event.addRepositorySource(consumer -> consumer.accept(pack));
+			}
+		//}
 
 		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {

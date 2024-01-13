@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "minecraft:shield",
+  "key": {
+    "G": {
+      "item": "deep_aether:sun_core"
+    },
+    "R": {
+      "tag": "minecraft:saddle"
+    }
+  },
+  "pattern": [
+    "GR"
+  ],
+  "result": {
+    "item": "deep_aether:aerwhale_saddle"
+  },
+  "show_notification": true
+}

@@ -8,8 +8,10 @@
     "AerwhaleMixin",
     "MoaMixin",
     "TriviaGeneratorMixin",
+    "flawless.AerwhaleKingMixin",
     "flawless.ServerPlayerMixin",
     "flawless.SliderMixin",
+    "flawless.SongstoneBlockMixin",
     "flawless.SunSpiritMixin",
     "flawless.ValkyrieQueenMixin"
   ],
