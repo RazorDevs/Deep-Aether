@@ -115,9 +115,8 @@ public class PoisonBlock extends LiquidBlock {
                 if ((TIME > 5) && itemEntity.isAlive() && CAN_TRANSFORM) {
                     CAN_TRANSFORM = false;
                     COUNT = false;
-                    if(level.getPlayerByUUID(itemEntity.getOwner()) instanceof ServerPlayer player) {
+                    if(itemEntity.getThrower() != null && level.getPlayerByUUID(itemEntity.getThrower()) instanceof ServerPlayer player)
                         PoisonTrigger.INSTANCE.trigger(player, itemEntity.getItem());
-                    }
 
                     itemEntity.discard();
                     entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
