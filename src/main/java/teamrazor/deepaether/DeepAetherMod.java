@@ -100,9 +100,11 @@ public class DeepAetherMod {
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
+
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
+
 		DARecipe.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 		DAPacketHandler.register();
