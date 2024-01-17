@@ -378,6 +378,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.PURPLE_SQUASH_SLICE.get());
 
         this.itemWallBlock(DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
+        this.item(DAItems.CHAOS_EMERALD.get());
     }
 
     public void handheldItem(Item item) {
