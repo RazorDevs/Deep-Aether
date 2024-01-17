@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/RazorDevs/Deep-Aether/issues"
 [[mods]]
 logoFile="deep_aether.png"
 modId="deep_aether"
-version="1.0.13.1"
+version="1.0"
 displayName="Deep Aether"
 displayURL="https://github.com/RazorDevs/Deep-Aether/wiki"
 credits="Unofficial Add-on to the Aether mod. Textures by 345boneshoss and Aethyus. Code by TunefulTurntip and darksonic300. A mod by the Team Razor." #optional
@@ -22,14 +22,14 @@ side="BOTH"
 [[dependencies.deep_aether]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.20.1,1.21)"
+versionRange="[1.20.1,1.20.2)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.deep_aether]]
 modId="aether"
 mandatory=true
-versionRange="[1.0.0-beta.6,)"
+versionRange="[1.0.0,)"
 ordering="AFTER"
 side="BOTH"
 
