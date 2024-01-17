@@ -146,6 +146,9 @@ public class DAItems {
 
 	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new ItemNameBlockItem(DABlocks.SQUASH_STEM.get(), new Item.Properties().tab(AetherCreativeTabs.AETHER_BLOCKS)));
 
+	public static final RegistryObject<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
+
+
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}

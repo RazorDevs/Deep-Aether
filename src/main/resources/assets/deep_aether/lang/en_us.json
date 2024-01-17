@@ -717,7 +717,9 @@
   "block.deep_aether.conberry_log_wall": "Conberry Log Wall",
   "block.deep_aether.stripped_conberry_log_wall": "Stripped Conberry Log Wall",
   "block.deep_aether.sunroot_log_wall": "Sunroot Log Wall",
-  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall"
+  "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall",
+
+  "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!"
 }
 
 
