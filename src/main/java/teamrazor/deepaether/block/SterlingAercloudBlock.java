@@ -33,7 +33,7 @@ public class SterlingAercloudBlock extends HalfTransparentBlock {
     }
 
     @Override
-    public boolean propagatesSkylightDown(BlockState p_49928_, BlockGetter p_49929_, BlockPos p_49930_) {
+    public boolean propagatesSkylightDown(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
         return true;
     }
 }

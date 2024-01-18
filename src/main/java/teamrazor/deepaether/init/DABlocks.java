@@ -402,15 +402,7 @@ public class DABlocks {
 
 	private static <T extends Block> RegistryObject<T> registerAetherGenesisBlock(String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
-
-		if(//ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)
-		false) {
-			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
-			registerBlockItem(name, toReturn);
-		}
-		else
 			registerBlockItemDisabled(name, toReturn);
-
 		return  toReturn;
 	}
 

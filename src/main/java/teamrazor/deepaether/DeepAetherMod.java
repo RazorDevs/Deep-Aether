@@ -61,7 +61,6 @@ public class DeepAetherMod {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
 
 	private static final String PROTOCOL_VERSION = "1";
