@@ -4,7 +4,6 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.NpcDialogue;
 import com.aetherteam.aether.entity.monster.dungeon.AbstractValkyrie;
 import com.aetherteam.aether.entity.monster.dungeon.boss.ValkyrieQueen;
-import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -23,6 +22,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
@@ -71,7 +71,7 @@ public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements Aet
     }
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null)  {
+        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null && !DeepAetherConfig.COMMON.disable_flawless_boss_drops.get())  {
             this.spawnAtLocation(new ItemStack(DAItems.MEDAL_OF_HONOR.get(), 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {

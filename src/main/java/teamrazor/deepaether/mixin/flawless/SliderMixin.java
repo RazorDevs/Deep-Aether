@@ -13,7 +13,6 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import org.spongepowered.asm.mixin.Final;
@@ -23,6 +22,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
@@ -72,7 +72,7 @@ public abstract class SliderMixin extends PathfinderMob implements AetherBossMob
 
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt()  && this.getDungeon() != null) {
+        if(!deep_Aether$hasBeenHurt()  && this.getDungeon() != null && !DeepAetherConfig.COMMON.disable_flawless_boss_drops.get()) {
             this.spawnAtLocation(new ItemStack(DAItems.SLIDER_EYE.get()));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {
