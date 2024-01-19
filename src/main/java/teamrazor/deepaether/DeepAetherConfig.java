@@ -14,7 +14,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
         public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
-        public final ConfigValue<Boolean> use_aether_tabs;
+        public final ConfigValue<Boolean> disable_flawless_boss_drops;
 
 
         public Common(ForgeConfigSpec.Builder builder) {
@@ -33,10 +33,10 @@ public class DeepAetherConfig {
             builder.pop();
 
             builder.push("Gameplay");
-            use_aether_tabs = builder
-                    .comment("Enabling this removes Deep Aether's creative mode tab, and adds Deep Aether's items to Aether's tabs")
-                    .translation("config.deep_aether.common.gameplay.use_aether_tabs")
-                    .define("Use Aether's Creative Mode Tabs", false);
+            disable_flawless_boss_drops = builder
+                    .comment("Disable Flawless Boss drops from dropping")
+                    .translation("config.deep_aether.common.gameplay.disable_flawless_boss_drops")
+                    .define("Disable Flawless Boss Drops", false);
             builder.pop();
 
             builder.push("Biomes");
@@ -45,6 +45,7 @@ public class DeepAetherConfig {
                     .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
                     .define("Deep Aether Biome Weight", 15);
             builder.pop();
+
 
             builder.push("Biomes");
             disable_roseroot_forest_biomes = builder
