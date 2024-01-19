@@ -128,7 +128,7 @@ public class DAItems {
 	public static final RegistryObject<Item> MUSIC_DISC_NABOORU = ITEMS.register("music_disc_nabooru",
 			() -> new RecordItem(7, DASounds.NABOORU, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).stacksTo(1).rarity(Rarity.RARE), 7280));
 	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = ITEMS.register("music_disc_a_morning_wish",
-			() -> new RecordItem(8, DASounds.A_MORNING_WISH, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).stacksTo(1).rarity(Rarity.RARE), 5660));
+			() -> new RecordItem(7, DASounds.A_MORNING_WISH, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).stacksTo(1).rarity(Rarity.RARE), 5660));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new SkyrootPoisonBucketItem(new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES).stacksTo(1)));
