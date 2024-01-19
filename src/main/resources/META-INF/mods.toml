@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/RazorDevs/Deep-Aether/issues"
 [[mods]]
 logoFile="deep_aether.png"
 modId="deep_aether"
-version="1.0"
+version="${file.jarVersion}"
 displayName="Deep Aether"
 displayURL="https://github.com/RazorDevs/Deep-Aether/wiki"
 credits="Unofficial Add-on to the Aether mod. Textures by 345boneshoss and Aethyus. Code by TunefulTurntip and darksonic300. A mod by the Team Razor." #optional
