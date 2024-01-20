@@ -22,6 +22,7 @@ import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
@@ -67,7 +68,7 @@ public abstract class AerwhaleKingMixin extends FlyingMob implements AetherBossM
     }
     @Inject(at = @At("HEAD"), method = "die")
     private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null) {
+        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null && !DeepAetherConfig.COMMON.disable_flawless_boss_drops.get()) {
             this.spawnAtLocation(new ItemStack(DAItems.AERWHALE_SADDLE.get(), 1));
 
             for (ServerPlayer player: this.bossFight.getPlayers()) {

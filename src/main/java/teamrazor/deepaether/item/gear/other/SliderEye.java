@@ -133,8 +133,6 @@ public class SliderEye extends RingItem {
     @Override
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
 
-        tagTooltips.add(Component.literal("§c§l- Jötunn -"));
-
         if(i > 70)
             tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_1"));
         else if(i > 60)

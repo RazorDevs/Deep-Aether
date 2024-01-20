@@ -422,9 +422,13 @@ public class DATabs {
             addToTab(AetherItems.SWET_BALL.get(), DAItems.QUAIL_EGG.get(), event);
         }
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {
-            addToTab(AetherItems.ZEPHYR_SPAWN_EGG.get(), new Item[]{
-                    DAItems.AETHER_FISH_SPAWN_EGG.get(),
-                    DAItems.QUAIL_SPAWN_EGG.get(),
+            addToTab(AetherItems.AERBUNNY_SPAWN_EGG.get(), new Item[]{
+                    DAItems.AETHER_FISH_SPAWN_EGG.get()
+            }, event);
+            addToTab(AetherItems.MOA_SPAWN_EGG.get(), new Item[]{
+                    DAItems.QUAIL_SPAWN_EGG.get()
+            }, event);
+            addToTab(AetherItems.VALKYRIE_SPAWN_EGG.get(), new Item[]{
                     DAItems.VENOMITE_SPAWN_EGG.get()
             }, event);
         }
