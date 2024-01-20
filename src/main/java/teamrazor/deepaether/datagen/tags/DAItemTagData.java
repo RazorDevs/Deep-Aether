@@ -255,7 +255,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(),
                 DABlocks.CONBERRY_SAPLING.get().asItem(),
                 DABlocks.CRUDEROOT_SAPLING.get().asItem(),
-                DABlocks.ROSEROOT_SAPLING.get().asItem()
+                DABlocks.ROSEROOT_SAPLING.get().asItem(),
+                DABlocks.YAGROOT_SAPLING.get().asItem()
         );
 
         tag(ItemTags.TRIM_MATERIALS).add(

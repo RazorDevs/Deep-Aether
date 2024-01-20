@@ -540,7 +540,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.BLUE_ROSEROOT_SAPLING.get(),
                 DABlocks.CONBERRY_SAPLING.get(),
                 DABlocks.CRUDEROOT_SAPLING.get(),
-                DABlocks.ROSEROOT_SAPLING.get()
+                DABlocks.ROSEROOT_SAPLING.get(),
+                DABlocks.YAGROOT_SAPLING.get()
                 );
     }
 }
