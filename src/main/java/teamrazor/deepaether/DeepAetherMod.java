@@ -1,17 +1,23 @@
 package teamrazor.deepaether;
 
 
+import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.item.AetherItems;
 import com.google.common.reflect.Reflection;
+import com.legacy.lost_aether.registry.LCEntityTypes;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.gametest.framework.GameTestRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -33,6 +39,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.GameData;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
@@ -50,6 +58,7 @@ import teamrazor.deepaether.datagen.tags.DABiomeTagData;
 import teamrazor.deepaether.datagen.tags.DABlockTagData;
 import teamrazor.deepaether.datagen.tags.DAEntityTagData;
 import teamrazor.deepaether.datagen.tags.DAItemTagData;
+import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.networking.DAPacketHandler;
@@ -167,6 +176,8 @@ public class DeepAetherMod {
 			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
 			this.registerCompostable();
+			registerFlawlessBossDrops();
+
 		});
 
 		event.enqueueWork(() ->
@@ -175,6 +186,31 @@ public class DeepAetherMod {
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 		});
 	}
+
+
+	private void registerFlawlessBossDrops() {
+		this.getFlawlessBossDrop(AetherEntityTypes.SLIDER.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.SLIDER_EYE.get());
+		this.getFlawlessBossDrop(AetherEntityTypes.VALKYRIE_QUEEN.get(), DeepAetherConfig.COMMON.valkyrie_queen_flawless_boss_drop.get(), DAItems.MEDAL_OF_HONOR.get());
+		this.getFlawlessBossDrop(AetherEntityTypes.SUN_SPIRIT.get(), DeepAetherConfig.COMMON.sun_spirit_flawless_boss_drop.get(), DAItems.SUN_CORE.get());
+		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT))
+			this.getFlawlessBossDrop(LCEntityTypes.AERWHALE_KING, DeepAetherConfig.COMMON.aerwhale_king_flawless_boss_drop.get(), DAItems.AERWHALE_SADDLE.get());
+	}
+
+	private void getFlawlessBossDrop(EntityType type, String string, Item fallBack) {
+		if(string.equals("null")) {
+			DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, null);
+		}
+		else {
+			String[] SliderItemId = string.split(":");
+			if (ForgeRegistries.ITEMS.containsKey(new ResourceLocation(SliderItemId[0], SliderItemId[1])))
+				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, ForgeRegistries.ITEMS.getValue(new ResourceLocation(SliderItemId[0], SliderItemId[1])));
+			else {
+				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, fallBack);
+				LOGGER.info("Config value " + string + " is referring to a missing item! Resolving to default value");
+			}
+		}
+	}
+
 	private void registerDispenserBehaviors() {
 		DispenserBlock.registerBehavior(Items.POTION, DADispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DAItems.PLACEABLE_POISON_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);

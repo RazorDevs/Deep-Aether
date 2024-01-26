@@ -1,8 +1,14 @@
 package teamrazor.deepaether;
 
+import com.aetherteam.aether.entity.AetherEntityTypes;
+import org.apache.commons.lang3.tuple.Pair;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import org.apache.commons.lang3.tuple.Pair;
+import teamrazor.deepaether.init.DAItems;
+
+import java.util.HashMap;
 
 public class DeepAetherConfig {
 
@@ -14,8 +20,10 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
         public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
-        public final ConfigValue<Boolean> disable_flawless_boss_drops;
-
+        public final ConfigValue<String> slider_flawless_boss_drop;
+        public final ConfigValue<String> valkyrie_queen_flawless_boss_drop;
+        public final ConfigValue<String> sun_spirit_flawless_boss_drop;
+        public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay");
@@ -33,10 +41,31 @@ public class DeepAetherConfig {
             builder.pop();
 
             builder.push("Gameplay");
-            disable_flawless_boss_drops = builder
-                    .comment("Disable Flawless Boss drops from dropping")
-                    .translation("config.deep_aether.common.gameplay.disable_flawless_boss_drops")
-                    .define("Disable Flawless Boss Drops", false);
+            slider_flawless_boss_drop = builder
+                    .comment("The item dropped when the Slider is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the slider")
+                    .translation("config.deep_aether.common.flawless.slider_flawless_boss_drop")
+                    .define("Slider Flawless Boss Drop", "deep_aether:slider_eye");
+            builder.pop();
+
+            builder.push("Gameplay");
+            valkyrie_queen_flawless_boss_drop = builder
+                    .comment("The item dropped when the Valkyrie Queen is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Valkyrie Queen")
+                    .translation("config.deep_aether.common.flawless.valkyrie_queen_flawless_boss_drop")
+                    .define("Valkyrie Queen Flawless Boss Drop", "deep_aether:medal_of_honor");
+            builder.pop();
+
+            builder.push("Gameplay");
+            sun_spirit_flawless_boss_drop = builder
+                    .comment("The item dropped when the Sun Spirit is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Sun Spirit")
+                    .translation("config.deep_aether.common.flawless.valkyrie_queen_flawless_boss_drop")
+                    .define("Sun Spirit Flawless Boss Drop", "deep_aether:sun_core");
+            builder.pop();
+
+            builder.push("Gameplay");
+            aerwhale_king_flawless_boss_drop = builder
+                    .comment("The item dropped when the Aerwhale King is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Aerwhale King. This Config Does nothing if Aether Lost Content isn't installed.")
+                    .translation("config.deep_aether.common.flawless.aerwhale_king_flawless_boss_drop")
+                    .define("Aerwhale King Flawless Boss Drop", "deep_aether:aerwhale_saddle");
             builder.pop();
 
             builder.push("Biomes");

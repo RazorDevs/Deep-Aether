@@ -9,9 +9,8 @@
     "MoaMixin",
     "TriviaGeneratorMixin",
     "flawless.AerwhaleKingMixin",
-    "flawless.ServerPlayerMixin",
+    "ServerPlayerMixin",
     "flawless.SliderMixin",
-    "flawless.SongstoneBlockMixin",
     "flawless.SunSpiritMixin",
     "flawless.ValkyrieQueenMixin"
   ],

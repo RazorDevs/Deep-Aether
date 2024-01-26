@@ -25,59 +25,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
-import teamrazor.deepaether.entity.IFlawlessBossDrop;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nullable;
 
 @Mixin(value = ValkyrieQueen.class)
-public abstract class ValkyrieQueenMixin extends AbstractValkyrie implements AetherBossMob<ValkyrieQueen>, NpcDialogue, IEntityAdditionalSpawnData, IFlawlessBossDrop{
-    @Shadow(remap = false) @Final private ServerBossEvent bossFight;
-    @Unique
-    @Nullable
-    private static final EntityDataAccessor<Boolean> DATA_HAS_BEEN_HIT_ID = SynchedEntityData.defineId(ValkyrieQueen.class, EntityDataSerializers.BOOLEAN);
-
-    public ValkyrieQueenMixin(EntityType<? extends AbstractValkyrie> type, Level level) {
-        super(type, level);
-    }
-
-
-    @Inject(at = @At(("TAIL")), method = "setBossFight", remap = false)
-    private void start(CallbackInfo ci) {
-        deep_Aether$setHasBeenHurt(false);
-    }
-
-    @Inject(at = @At(("TAIL")), method = "defineSynchedData")
-    private void defineSynchedData(CallbackInfo ci) {
-        this.getEntityData().define(DATA_HAS_BEEN_HIT_ID, false);
-    }
-
-    @Unique
-    @Override
-    public boolean deep_Aether$hasBeenHurt() {
-        return this.getEntityData().get(DATA_HAS_BEEN_HIT_ID);
-    }
-
-    @Unique
-    @Override
-    public void deep_Aether$setHasBeenHurt(boolean bool) {
-        this.getEntityData().set(DATA_HAS_BEEN_HIT_ID, bool);
-    }
+public abstract class ValkyrieQueenMixin implements AetherBossMob<ValkyrieQueen> {
     @Inject(at = @At("TAIL"), method = "onDungeonPlayerAdded", remap = false)
     private void onDungeonPlayerAdded(Player player, CallbackInfo ci) {
         if (player instanceof ServerPlayer serverPlayer) {
-            ((IPlayerBossFight) serverPlayer).deep_Aether$setBoss(this);
-        }
-    }
-    @Inject(at = @At("HEAD"), method = "die")
-    private void die(DamageSource source, CallbackInfo ci) {
-        if(!deep_Aether$hasBeenHurt() && this.getDungeon() != null && !DeepAetherConfig.COMMON.disable_flawless_boss_drops.get())  {
-            this.spawnAtLocation(new ItemStack(DAItems.MEDAL_OF_HONOR.get(), 1));
-
-            for (ServerPlayer player: this.bossFight.getPlayers()) {
-                DAAdvancementTriggers.FLAWLESS.trigger(player, this, source);
-            }
+            ((IPlayerBossFight) serverPlayer).deep_Aether$setHasBeenHurt(false);
         }
     }
 }

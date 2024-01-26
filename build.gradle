@@ -135,7 +135,9 @@ dependencies {
 
     //Dependencies
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
-    implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
+    //implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
+    implementation fg.deobf("local:aether:1.20.1-1.1.0-neoforge")
+
     implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
     jarJar fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge") {
         jarJar.ranged(it, "[1.20.1-1.0.2-rc1,)")
@@ -160,8 +162,8 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
-    implementation fg.deobf("curse.maven:itemphysic-258587:4914117")
-    implementation fg.deobf("curse.maven:creativecore-257814:5005088")
+    //implementation fg.deobf("curse.maven:itemphysic-258587:4914117")
+    //implementation fg.deobf("curse.maven:creativecore-257814:5005088")
 }
 
 jar {
