@@ -25,7 +25,6 @@
       "state": {
         "Name": "deep_aether:sunroot_leaves",
         "Properties": {
-          "bottom": "false",
           "distance": "7",
           "double_drops": "false",
           "persistent": "false",

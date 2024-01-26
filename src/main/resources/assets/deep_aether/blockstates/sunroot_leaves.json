@@ -1,10 +1,7 @@
 {
   "variants": {
-    "bottom=false": {
+    "": {
       "model": "deep_aether:block/sunroot_leaves"
-    },
-    "bottom=true": {
-      "model": "deep_aether:block/sunroot_leaves_bottom"
     }
   }
 }

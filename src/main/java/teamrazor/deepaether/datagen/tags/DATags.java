@@ -13,6 +13,12 @@ import teamrazor.deepaether.DeepAetherMod;
 
 public class DATags {
     public class Items {
+        public static final TagKey<Item> ROSEROOT_LOGS = tag("roseroot_logs");
+        public static final TagKey<Item> YAGROOT_LOGS = tag("yagroot_logs");
+        public static final TagKey<Item> CRUDEROOT_LOGS = tag("cruderoot_logs");
+        public static final TagKey<Item> CONBERRY_LOGS = tag("conberry_logs");
+        public static final TagKey<Item> SUNROOT_LOGS = tag("sunroot_logs");
+
         public static final TagKey<Item> CRAFTS_ROSEROOT_PLANKS = tag("crafts_roseroot_planks");
         public static final TagKey<Item> CRAFTS_YAGROOT_PLANKS = tag("crafts_yagroot_planks");
         public static final TagKey<Item> CRAFTS_CRUDEROOT_PLANKS = tag("crafts_cruderoot_planks");
@@ -29,6 +35,12 @@ public class DATags {
         }
     }
     public static class Blocks {
+
+        public static final TagKey<Block> ROSEROOT_LOGS = tag("roseroot_logs");
+        public static final TagKey<Block> YAGROOT_LOGS = tag("yagroot_logs");
+        public static final TagKey<Block> CRUDEROOT_LOGS = tag("cruderoot_logs");
+        public static final TagKey<Block> CONBERRY_LOGS = tag("conberry_logs");
+        public static final TagKey<Block> SUNROOT_LOGS = tag("sunroot_logs");
 
         public static final TagKey<Block> CAN_GOLDEN_VINES_SURVIVE_ON = tag("can_golden_vines_survive_on");
         private static TagKey<Block> tag(String name) {
