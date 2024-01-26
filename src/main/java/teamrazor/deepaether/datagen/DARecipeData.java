@@ -215,7 +215,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_MOSS_CARPET.get(), 3)
                 .define('A', DABlocks.AETHER_MOSS_BLOCK.get().asItem())
-                .pattern("AAA")
+                .pattern("AA")
                 .unlockedBy(getHasName(DABlocks.AETHER_MOSS_BLOCK.get()), has(DABlocks.AETHER_MOSS_BLOCK.get()))
                 .save(consumer);
 
