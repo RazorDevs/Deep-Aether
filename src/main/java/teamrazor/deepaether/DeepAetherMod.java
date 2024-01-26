@@ -27,14 +27,11 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
@@ -78,7 +75,6 @@ import terrablender.api.SurfaceRuleManager;
 import java.nio.file.Path;
 import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 @Mod("deep_aether")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -246,7 +242,14 @@ public class DeepAetherMod {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_CATTAILS.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.TALL_AETHER_CATTAILS.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.GOLDEN_FLOWER.get().asItem(), 0.3F);
-
+		ComposterBlock.COMPOSTABLES.put(DABlocks.SKY_TULIPS.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.IASPOVE.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.ENCHANTED_BLOSSOM.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.ECHAISY.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.LIGHTCAP_MUSHROOMS.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.GOLDEN_ASPESS.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.FEATHER_GRASS.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.TALL_FEATHER_GRASS.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_BLOSSOM.get(), 0.1F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_BERRIES.get(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);

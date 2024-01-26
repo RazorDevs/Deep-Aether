@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:white_dye_from_radiant_orchid"
+        "recipe": "deep_aether:purple_dye_from_radiant_orchid"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:white_dye_from_radiant_orchid"
+      "deep_aether:purple_dye_from_radiant_orchid"
     ]
   },
   "sends_telemetry_event": false

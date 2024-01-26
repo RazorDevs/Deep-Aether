@@ -196,7 +196,7 @@ public class DATabs {
                 }, event);
             }
 
-            addToTab(AetherBlocks.ICESTONE_STAIRS.get().asItem(), new Block[]{
+            addToTab(AetherBlocks.AETHER_DIRT.get().asItem(), new Block[]{
                     DABlocks.PACKED_AETHER_MUD.get(),
                     DABlocks.AETHER_MUD_BRICKS.get(),
                     DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
@@ -204,10 +204,11 @@ public class DATabs {
                     DABlocks.AETHER_MUD_BRICKS_WALL.get(),
             }, event);
 
-            addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), new Block[]{
-                    DABlocks.SKYJADE_BLOCK.get(),
-                    DABlocks.STRATUS_BLOCK.get()}, event);
+            addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(), DABlocks.SKYJADE_BLOCK.get().asItem(), event);
+
+            addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.STRATUS_BLOCK.get().asItem(), event);
         }
+
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
             addToTab(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().asItem(), DABlocks.GOLDEN_GRASS_BLOCK.get().asItem(), event);
             addToTab(AetherBlocks.AETHER_DIRT_PATH.get().asItem(), DABlocks.GOLDEN_DIRT_PATH.get().asItem(), event);
@@ -407,19 +408,22 @@ public class DATabs {
         }
 
         if (tab == AetherCreativeTabs.AETHER_INGREDIENTS.getKey()) {
-            addToTab(AetherItems.ZANITE_GEMSTONE.get(), new Item[]{
-                    DAItems.SKYJADE.get(),
+            addToTab(AetherItems.ZANITE_GEMSTONE.get(), DAItems.SKYJADE.get().asItem(), event);
+
+            addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), new Item[]{
                     DAItems.STRATUS_INGOT.get(),
-                    DAItems.STRATUS_SMITHING_TEMPLATE.get(),
+                    DABlocks.CHROMATIC_AERCLOUD.get().asItem(),
             }, event);
 
-            addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.CHROMATIC_AERCLOUD.get().asItem(), event);
             addToTab(AetherItems.GOLDEN_AMBER.get(), new Item[]{
                     DAItems.GOLDEN_GRASS_SEEDS.get(),
                     DAItems.GOLDEN_SWET_BALL.get()
             }, event);
             addToTab(AetherItems.AECHOR_PETAL.get(), DAItems.AERGLOW_BLOSSOM.get(), event);
-            addToTab(AetherItems.SWET_BALL.get(), DAItems.QUAIL_EGG.get(), event);
+            addToTab(AetherItems.SWET_BALL.get(), new Item[]{
+                    DAItems.QUAIL_EGG.get(),
+                    DAItems.STRATUS_SMITHING_TEMPLATE.get()
+            }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {
             addToTab(AetherItems.AERBUNNY_SPAWN_EGG.get(), new Item[]{

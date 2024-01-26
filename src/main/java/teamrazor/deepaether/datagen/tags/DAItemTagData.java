@@ -35,6 +35,13 @@ public class DAItemTagData extends ItemTagsProvider {
     @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
+        this.copy(DATags.Blocks.ROSEROOT_LOGS, DATags.Items.ROSEROOT_LOGS);
+        this.copy(DATags.Blocks.YAGROOT_LOGS, DATags.Items.YAGROOT_LOGS);
+        this.copy(DATags.Blocks.CRUDEROOT_LOGS, DATags.Items.CRUDEROOT_LOGS);
+        this.copy(DATags.Blocks.CONBERRY_LOGS, DATags.Items.CONBERRY_LOGS);
+        this.copy(DATags.Blocks.SUNROOT_LOGS, DATags.Items.SUNROOT_LOGS);
+
         tag(AetherTags.Items.PLANKS_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),

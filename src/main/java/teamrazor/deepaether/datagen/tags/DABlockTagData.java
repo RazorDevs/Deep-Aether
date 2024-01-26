@@ -5,7 +5,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
@@ -42,7 +41,6 @@ public class DABlockTagData extends BlockTagsProvider {
             aether_block_tag.add(block.get());
         }
 
-
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
                 DABlocks.GOLDEN_GRASS_BLOCK.get()
         );
@@ -54,6 +52,32 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKYJADE_BLOCK.get(),
                 DABlocks.STRATUS_BLOCK.get()
         );
+
+        this.tag(DATags.Blocks.ROSEROOT_LOGS).add(
+                DABlocks.ROSEROOT_LOG.get(),
+                DABlocks.ROSEROOT_WOOD.get(),
+                DABlocks.STRIPPED_ROSEROOT_LOG.get(),
+                DABlocks.STRIPPED_ROSEROOT_WOOD.get());
+        this.tag(DATags.Blocks.CRUDEROOT_LOGS).add(
+                DABlocks.CRUDEROOT_LOG.get(),
+                DABlocks.CRUDEROOT_WOOD.get(),
+                DABlocks.STRIPPED_CRUDEROOT_LOG.get(),
+                DABlocks.STRIPPED_CRUDEROOT_WOOD.get());
+        this.tag(DATags.Blocks.YAGROOT_LOGS).add(
+                DABlocks.YAGROOT_LOG.get(),
+                DABlocks.YAGROOT_WOOD.get(),
+                DABlocks.STRIPPED_YAGROOT_LOG.get(),
+                DABlocks.STRIPPED_YAGROOT_WOOD.get());
+        this.tag(DATags.Blocks.CONBERRY_LOGS).add(
+                DABlocks.CONBERRY_LOG.get(),
+                DABlocks.CONBERRY_WOOD.get(),
+                DABlocks.STRIPPED_CONBERRY_LOG.get(),
+                DABlocks.STRIPPED_CONBERRY_WOOD.get());
+        this.tag(DATags.Blocks.SUNROOT_LOGS).add(
+                DABlocks.SUNROOT_LOG.get(),
+                DABlocks.SUNROOT_WOOD.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD.get());
 
         tag(BlockTags.LOGS).add(
                 DABlocks.ROSEROOT_LOG.get(),
