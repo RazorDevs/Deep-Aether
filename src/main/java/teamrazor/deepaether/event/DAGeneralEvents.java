@@ -146,7 +146,7 @@ public class DAGeneralEvents {
     public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
     @SubscribeEvent
     public static void onLivingEntityHurt(LivingHurtEvent event) {
-        if(event.getEntity() instanceof ServerPlayer player) {
+        if(event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
             ((IPlayerBossFight) player).deep_Aether$setHasBeenHurt(true);
         }
     }
