@@ -8,11 +8,8 @@
     "AerwhaleMixin",
     "MoaMixin",
     "TriviaGeneratorMixin",
-    "flawless.AerwhaleKingMixin",
-    "ServerPlayerMixin",
-    "flawless.SliderMixin",
-    "flawless.SunSpiritMixin",
-    "flawless.ValkyrieQueenMixin"
+    "AerwhaleKingMixin",
+    "ServerPlayerMixin"
   ],
   "client": [
     "AerwhaleModelMixin",
