@@ -1,6 +1,5 @@
 package teamrazor.deepaether.item.gear.other;
 
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -8,14 +7,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
-
-import java.util.List;
 
 public class AerwhaleSaddle extends Item {
     public AerwhaleSaddle(Properties properties) {
@@ -24,23 +18,23 @@ public class AerwhaleSaddle extends Item {
 
     @Override
     @NotNull
-    public InteractionResult interactLivingEntity(ItemStack p_43055_, Player p_43056_, LivingEntity p_43057_, InteractionHand p_43058_) {
-        if (p_43057_ instanceof AerwhaleSaddleable saddleable && p_43057_.isAlive()) {
+    public InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity livingEntity, InteractionHand interactionHand) {
+        if (livingEntity instanceof AerwhaleSaddleable saddleable && livingEntity.isAlive()) {
             if (!saddleable.isSaddled() && saddleable.isSaddleable()) {
-                if (!p_43056_.level.isClientSide) {
+                if (!player.level.isClientSide) {
                     saddleable.equipSaddle(SoundSource.NEUTRAL);
-                    p_43057_.level.gameEvent(p_43057_, GameEvent.EQUIP, p_43057_.position());
-                    p_43055_.shrink(1);
+                    livingEntity.level.gameEvent(livingEntity, GameEvent.EQUIP, livingEntity.position());
+                    itemStack.shrink(1);
                 }
 
-                return InteractionResult.sidedSuccess(p_43056_.level.isClientSide);
+                return InteractionResult.sidedSuccess(player.level.isClientSide);
             }
         }
 
         return InteractionResult.PASS;
     }
 
-    int i = 0;
+    /*int i = 0;
     @Override
     public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag tooltipFlag) {
         if(i > 70)
@@ -66,5 +60,5 @@ public class AerwhaleSaddle extends Item {
 
 
         super.appendHoverText(itemStack, level, components, tooltipFlag);
-    }
+    }*/
 }
