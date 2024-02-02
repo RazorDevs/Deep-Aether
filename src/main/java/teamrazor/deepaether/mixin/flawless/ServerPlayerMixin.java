@@ -22,11 +22,7 @@ import java.util.UUID;
 
 /**
  * Used in the flawless boss check
- * See {@link teamrazor.deepaether.entity.IFlawlessBossDrop}
  * See {@link teamrazor.deepaether.event.DAGeneralEvents}
- * See {@link SliderMixin}
- * See {@link ValkyrieQueenMixin}
- * See {@link SunSpiritMixin}
  */
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player implements IPlayerBossFight {
