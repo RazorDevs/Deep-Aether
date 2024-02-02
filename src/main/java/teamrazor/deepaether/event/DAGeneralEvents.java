@@ -1,14 +1,19 @@
 package teamrazor.deepaether.event;
 
+import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -16,40 +21,65 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.entity.IFlawlessBossDrop;
+import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
+
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
-
-    /**
-     * Used to check if a player has been hurt during a boss fight
-     * See {@link IPlayerBossFight}
-     * See {@link IFlawlessBossDrop}
-     */
-    @SubscribeEvent
-    public static void onLivingEntityHurt(LivingHurtEvent event) {
-        if(event.getEntity() instanceof ServerPlayer player) {
-            //Gets the stored boss from the player
-            Entity playerBossFight = ((IPlayerBossFight) player).deep_Aether$getBoss();
-
-            //checks if the stored boss has a flawless boss drop
-            if (playerBossFight instanceof IFlawlessBossDrop flawless) {
-
-                //Sets the deep_Aether$setHasBeenHurt to true. The flawless boss drop will not drop when the boss dies.
-                flawless.deep_Aether$setHasBeenHurt(true);
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAetherMod.IsHalloweenContentEnabled()) {
             entity.spawnAtLocation(new ItemStack(DAItems.SPOOKY_RING.get(), 1));
+        }
+
+        //For flawless boss drop system
+        if(entity instanceof AetherBossMob<?> bossMob) {
+            Level level = entity.level;
+
+            //Checks if boss has been defeated
+            if (!event.getEntity().isAlive() && !level.isClientSide() && bossMob.getDungeon() != null) {
+                List<UUID> uuids = bossMob.getDungeon().dungeonPlayers();
+
+                List<Player> players = new ArrayList<>();
+
+                //Checks if any player has taken damage
+                for (UUID uuid : uuids) {
+                    Player player = level.getPlayerByUUID(uuid);
+                    if (player != null) {
+                        if (((IPlayerBossFight) player).deep_Aether$getHasBeenHurt())
+                            return;
+                        players.add(player);
+                    }
+                }
+
+
+
+                //For advancement
+                for (Player player : players) {
+                    DAAdvancementTriggers.FLAWLESS.trigger((ServerPlayer) player, entity, event.getSource());
+                }
+
+                //Checks if flawless boss drop has been disabled
+                if (FLAWLESS_BOSS_DROP.get(entity.getType()) != null) {
+
+
+                    //Spawns the flawless boss drop
+                    ItemStack stack = new ItemStack(FLAWLESS_BOSS_DROP.get(entity.getType()));
+                    ItemEntity itementity = new ItemEntity(level, entity.getX(), entity.getY() + 0.0, entity.getZ(), stack);
+                    itementity.setDefaultPickUpDelay();
+                    level.addFreshEntity(itementity);
+                }
+            }
         }
     }
 
@@ -62,7 +92,6 @@ public class DAGeneralEvents {
             moaBonusJump.deep_Aether$setBonusJumps(0);
         }
     }
-
 
     @SubscribeEvent
     public static void applyValkyrieValorRes(LivingDamageEvent event){
@@ -81,6 +110,19 @@ public class DAGeneralEvents {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Used to check if a player has been hurt during a boss fight
+     * See {@link IPlayerBossFight}
+     */
+
+    public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
+    @SubscribeEvent
+    public static void onLivingEntityHurt(LivingHurtEvent event) {
+        if(event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
+            ((IPlayerBossFight) player).deep_Aether$setHasBeenHurt(true);
         }
     }
 }
