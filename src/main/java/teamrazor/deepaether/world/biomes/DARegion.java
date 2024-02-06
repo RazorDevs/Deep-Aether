@@ -143,11 +143,11 @@ public class DARegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.1F, 1.5F), fullRange, erosionDefault, fullRange, forestDistSkyroot2, 0),
                     AetherBiomes.SKYROOT_GROVE);
 
-            addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(-1.5F, -0.1F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
+            addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.5F, -0.1F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
                     DABiomes.GOLDEN_HEIGHTS);
-            addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(-0.1F, 0.1F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
+            addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.1F, 0.1F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
                     DABiomes.GOLDEN_GROVE);
-            addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(0.1F, 1.5F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
+            addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.1F, 1.5F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
                     DABiomes.GOLDEN_HEIGHTS);
 
             //Sakura Jungle
