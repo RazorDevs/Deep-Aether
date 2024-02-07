@@ -155,7 +155,6 @@ dependencies {
     implementation fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
     //compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
     //compileOnly fg.deobf("local:aether-redux:1.3.4-1.20.1-neoforge")
-    //implementation fg.deobf("local:ancient_aether:0.8.0")
     //implementation fg.deobf("local:aether_genesis:1.20.1-0.0.1-neoforge")
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
@@ -163,6 +162,7 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
     //implementation fg.deobf("curse.maven:itemphysic-258587:4914117")
     //implementation fg.deobf("curse.maven:creativecore-257814:5005088")
+    implementation fg.deobf("curse.maven:ancient-aether-886751:5078007")
 }
 
 jar {
