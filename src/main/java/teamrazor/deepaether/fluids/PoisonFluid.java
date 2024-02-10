@@ -12,6 +12,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.init.DABlocks;
 
 public abstract class PoisonFluid extends ForgeFlowingFluid {
 
@@ -37,7 +38,7 @@ public abstract class PoisonFluid extends ForgeFlowingFluid {
 
             if (this.is(DATags.Fluids.POISON) && fluidstate.is(FluidTags.WATER)) {
                 if (blockState.getBlock() instanceof LiquidBlock) {
-                    levelAccessor.setBlock(blockPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(levelAccessor, blockPos, blockPos, Blocks.GOLD_BLOCK.defaultBlockState()), 3);
+                    levelAccessor.setBlock(blockPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(levelAccessor, blockPos, blockPos, DABlocks.AERSMOG.get().defaultBlockState()), 3);
                 }
 
                 this.fizz(levelAccessor, blockPos);

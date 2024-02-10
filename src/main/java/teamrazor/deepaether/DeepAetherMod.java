@@ -2,14 +2,12 @@ package teamrazor.deepaether;
 
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether.item.AetherItems;
 import com.google.common.reflect.Reflection;
 import com.legacy.lost_aether.registry.LCEntityTypes;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.gametest.framework.GameTestRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -37,7 +35,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.GameData;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
@@ -51,10 +48,7 @@ import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
-import teamrazor.deepaether.datagen.tags.DABiomeTagData;
-import teamrazor.deepaether.datagen.tags.DABlockTagData;
-import teamrazor.deepaether.datagen.tags.DAEntityTagData;
-import teamrazor.deepaether.datagen.tags.DAItemTagData;
+import teamrazor.deepaether.datagen.tags.*;
 import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -158,6 +152,7 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DAFluidTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput));
 	}
