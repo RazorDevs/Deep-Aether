@@ -211,7 +211,7 @@ public class DeepAetherMod {
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-			var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/deep_aether_additional_assets");
+			var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/deep_aether_additional_assets");
 
 			PathPackResources pack = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
 			PackMetadataSection metadata = new PackMetadataSection(Component.literal("Deep Aether Additional Assets"), PackType.CLIENT_RESOURCES.getVersion(SharedConstants.getCurrentVersion()));
