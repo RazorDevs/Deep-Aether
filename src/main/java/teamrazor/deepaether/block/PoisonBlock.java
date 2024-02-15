@@ -37,7 +37,7 @@ public class PoisonBlock extends LiquidBlock {
     }
 
     boolean COUNT = false;
-    float TIME = 0;
+    int TIME = 0;
     Item TRANSFORM_ITEM;
     boolean CAN_TRANSFORM = false;
 
@@ -64,17 +64,23 @@ public class PoisonBlock extends LiquidBlock {
                 level.playLocalSound(d0, d1, d2, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 0.2F + randomSource.nextFloat() * 0.2F, 0.9F + randomSource.nextFloat() * 0.15F, false);
             }
             super.animateTick(blockState, level, blockPos, randomSource);
-
-
-            if (COUNT && TIME < 100) {
-                TIME += 0.05F;
-            } else {
-                TIME = 0;
-                COUNT = false;
-            }
         }
 
-        @Override
+    public boolean isRandomlyTicking(BlockState p_54732_) {
+        return true;
+    }
+
+    public void randomTick(BlockState p_221410_, ServerLevel p_221411_, BlockPos p_221412_, RandomSource p_221413_) {
+        if (COUNT && TIME < 200) {
+            TIME += 1;
+        } else {
+            TIME = 0;
+            COUNT = false;
+        }
+    }
+
+
+    @Override
         public void entityInside (BlockState blockState, Level level, BlockPos pos, Entity entity) {
             if (entity instanceof LivingEntity) {
                 ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
@@ -108,7 +114,7 @@ public class PoisonBlock extends LiquidBlock {
                     }
                 }
 
-                if ((TIME > 5) && itemEntity.isAlive() && CAN_TRANSFORM) {
+                if ((TIME > 2) && itemEntity.isAlive() && CAN_TRANSFORM) {
                     CAN_TRANSFORM = false;
                     COUNT = false;
                     if(itemEntity.getOwner() instanceof ServerPlayer player) {
