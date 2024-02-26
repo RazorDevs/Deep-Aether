@@ -31,7 +31,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -66,7 +65,6 @@ import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
-import java.nio.file.Path;
 import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
 
@@ -95,7 +93,6 @@ public class DeepAetherMod {
 	public static boolean IsHalloweenContentEnabled() {
 		return IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
 	}
-	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(MODID);
 
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
@@ -126,7 +123,6 @@ public class DeepAetherMod {
 		DAFeatures.FEATURES.register(bus);
 		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
-		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 		DARecipe.RECIPE_TYPES.register(bus);
