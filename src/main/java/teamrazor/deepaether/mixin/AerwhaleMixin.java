@@ -1,5 +1,6 @@
 package teamrazor.deepaether.mixin;
 
+import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.capability.player.AetherPlayer;
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import net.minecraft.core.NonNullList;
@@ -103,7 +104,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
                         f4 = 1.0F;
                     }
 
-                    //this.walkAnimation.update(f4, 0.4F);
+                    this.walkAnimation.update(f4, 0.4F);
                 }
             } else {
                 super.travel(vector);
@@ -149,7 +150,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
     }
 
     /**
-     * We want the Aerwhale to be able to have two passengers or fewer
+     * We want the Aerwhale to be able to have two passengers or less
      */
     @Override
     protected boolean canAddPassenger(Entity entity) {
@@ -167,13 +168,17 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
             boolean flag = i == 0;
             float f = 0.7F;
             float f1 = (float) (this.isRemoved() ? (double) 0.01F : this.getPassengersRidingOffset() + entity.getMyRidingOffset());
+            float f2 = 0;
+
+            if(level.isClientSide && AetherConfig.CLIENT.legacy_models.get()) {
+                f1+=1.7F;
+                f-=1.9F;
+                f2 = 0.1F;
+            }
+
             if (this.getPassengers().size() > 1) {
                 if (!flag) {
                     f = -1.2F;
-                }
-
-                if (entity instanceof Animal) {
-                    f += 0.2F;
                 }
             }
 

@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "deep_aether.refmap.json",
   "mixins": [
+    "AerwhaleKingMixin",
     "AerwhaleMixin",
     "MoaMixin",
     "TriviaGeneratorMixin",
@@ -14,6 +15,7 @@
     "AerwhaleModelMixin",
     "AerwhaleRendererMixin",
     "AetherSkyRenderEffectsAccessor",
+    "ClassicAerwhaleModelMixin",
     "SliderGlowLayerMixin",
     "SliderRendererMixin"
   ],
