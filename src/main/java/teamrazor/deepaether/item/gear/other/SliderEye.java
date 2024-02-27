@@ -1,18 +1,24 @@
 package teamrazor.deepaether.item.gear.other;
 
+import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.EntityBasedExplosionDamageCalculator;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -64,13 +70,16 @@ public class SliderEye extends RingItem {
 
             //Triggers the shockwave if the entity hits a block
             if (player.onGround()) {
-                maxFallTime = 0;
+                if(!(player instanceof ServerPlayer)) {
+                    maxFallTime = 0;
+                }
 
                 //Range of shockwave
-                AABB aabb = player.getBoundingBox().inflate(3.0F);
+                AABB aabb = new AABB(player.position().add(-3,-1,-3), player.position().add(3,4,3));
 
                 List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
                 float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+
 
                 //Pushes all entities within range
                 for (LivingEntity target : entities) {
@@ -92,23 +101,23 @@ public class SliderEye extends RingItem {
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
         if (mayUse(stack, player)) {
-            player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
+            if(!player.isCreative())
+                player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
             player.setDeltaMovement(0F, 0F, 0F);
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
 
-            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-                aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
-            });
+            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true));
 
+            level.playSound(player, player.getOnPos(), AetherSoundEvents.ENTITY_SLIDER_MOVE.get(), SoundSource.PLAYERS);
             maxFallTime = 200;
         }
 
         if (maxFallTime > 0) {
             maxFallTime--;
 
-            player.addDeltaMovement(new Vec3(0F, -0.5F, 0F));
+            player.addDeltaMovement(new Vec3(0F, -0.3F, 0F));
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
@@ -116,6 +125,9 @@ public class SliderEye extends RingItem {
             if (player.onGround()) {
                 maxFallTime = 0;
                 level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
+
+                //Adds explosion
+                level.addParticle(ParticleTypes.EXPLOSION_EMITTER, player.getX(), player.getY(), player.getZ(), 1.0D, 0.0D, 0.0D);
             }
         }
     }
