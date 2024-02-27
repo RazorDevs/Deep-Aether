@@ -1,5 +1,6 @@
 package teamrazor.deepaether.mixin;
 
+import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.capability.player.AetherPlayer;
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import net.minecraft.core.NonNullList;
@@ -164,13 +165,17 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
             boolean flag = i == 0;
             float f = 0.7F;
             float f1 = (float) (this.isRemoved() ? (double) 0.01F : this.getPassengersRidingOffset() + entity.getMyRidingOffset());
+            float f2 = 0;
+
+            if(level().isClientSide && AetherConfig.CLIENT.legacy_models.get()) {
+                f1+=1.7F;
+                f-=1.9F;
+                f2 = 0.1F;
+            }
+
             if (this.getPassengers().size() > 1) {
                 if (!flag) {
                     f = -1.2F;
-                }
-
-                if (entity instanceof Animal) {
-                    f += 0.2F;
                 }
             }
 
@@ -181,7 +186,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
             else f = -2.1F;
 
             Vec3 vec3 = (new Vec3(0.0D, 0.0D, f)).yRot(-this.yBodyRot * ((float) Math.PI / 180F));
-            moveFunction.accept(entity, this.getX() + vec3.x, this.getY() + (double) f1, this.getZ() + vec3.z);
+            moveFunction.accept(entity, this.getX() + vec3.x, this.getY() + (double) f1, this.getZ() + vec3.z+f2);
             this.deep_Aether$clampRotation(entity);
         }
     }
