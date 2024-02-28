@@ -41,7 +41,7 @@ public class DADispenseBehaviors {
                 if (itemstack.isEmpty()) {
                     return super.execute(blockSource, itemStack);
                 } else {
-                    levelaccessor.gameEvent((Entity)null, GameEvent.FLUID_PICKUP, blockpos);
+                    levelaccessor.gameEvent(null, GameEvent.FLUID_PICKUP, blockpos);
                     Item item = itemstack.getItem();
                     itemStack.shrink(1);
                     if (itemStack.isEmpty()) {

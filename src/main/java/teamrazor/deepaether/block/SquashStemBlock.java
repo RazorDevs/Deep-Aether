@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 public class SquashStemBlock extends StemBlock {
 
     public SquashStemBlock(Supplier<Item> itemSupplier, Properties properties) {
-        super((StemGrownBlock) DABlocks.BLUE_SQUASH.get(), itemSupplier, properties);
+        super(DABlocks.BLUE_SQUASH.get(), itemSupplier, properties);
     }
 
     @Override

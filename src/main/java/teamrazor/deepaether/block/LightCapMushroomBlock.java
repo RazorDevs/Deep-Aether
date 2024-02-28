@@ -11,8 +11,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import teamrazor.deepaether.init.DABlocks;
 
 public class LightCapMushroomBlock extends MushroomBlock {
-    public LightCapMushroomBlock(Properties p_256027_, ResourceKey<ConfiguredFeature<?, ?>> p_256049_) {
-        super(p_256027_, p_256049_);
+    public LightCapMushroomBlock(Properties properties, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
+        super(properties, configuredFeature);
     }
 
     @Override

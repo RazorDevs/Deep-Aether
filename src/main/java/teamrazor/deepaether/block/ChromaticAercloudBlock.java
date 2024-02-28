@@ -39,6 +39,7 @@ public class ChromaticAercloudBlock extends HalfTransparentBlock {
     @Override
     public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) { }
 
+    //Allows players to fly if entity they're inside the Chromatic Aercloud Block. Floats other Entities upwards.
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 
@@ -47,9 +48,7 @@ public class ChromaticAercloudBlock extends HalfTransparentBlock {
             ChromaticBlockFlight.handleFlight(player);
         }
         else {
-            if (entity.getDeltaMovement().y < 0.0) {
-                entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.005, 1.0));
-            }
+            entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0, 0.005, 1.0));
             entity.setOnGround(true);
         }
     }

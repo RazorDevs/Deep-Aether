@@ -36,11 +36,6 @@ public class PoisonBlock extends LiquidBlock {
         super(supplier, properties);
     }
 
-    boolean COUNT = false;
-    int TIME = 0;
-    Item TRANSFORM_ITEM;
-    boolean CAN_TRANSFORM = false;
-
     @Override
     public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
         if (entity instanceof LivingEntity) {
@@ -53,24 +48,24 @@ public class PoisonBlock extends LiquidBlock {
         return true;
     }
 
-
     @Override
-        public void animateTick (BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource){
-            double d0 = blockPos.getX();
-            double d1 = blockPos.getY();
-            double d2 = blockPos.getZ();
-            level.addAlwaysVisibleParticle(DAParticles.POISON_BUBBLES.get(), d0 + (double) randomSource.nextFloat(), d1 + (double) randomSource.nextFloat(), d2 + (double) randomSource.nextFloat(), 0.0D, 0.04D, 0.0D);
-            if (randomSource.nextInt(10) == 0) {
-                level.playLocalSound(d0, d1, d2, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 0.2F + randomSource.nextFloat() * 0.2F, 0.9F + randomSource.nextFloat() * 0.15F, false);
-            }
-            super.animateTick(blockState, level, blockPos, randomSource);
+    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
+        double d0 = blockPos.getX();
+        double d1 = blockPos.getY();
+        double d2 = blockPos.getZ();
+        level.addAlwaysVisibleParticle(DAParticles.POISON_BUBBLES.get(), d0 + (double) randomSource.nextFloat(), d1 + (double) randomSource.nextFloat(), d2 + (double) randomSource.nextFloat(), 0.0D, 0.04D, 0.0D);
+        if (randomSource.nextInt(10) == 0) {
+            level.playLocalSound(d0, d1, d2, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 0.2F + randomSource.nextFloat() * 0.2F, 0.9F + randomSource.nextFloat() * 0.15F, false);
         }
-
-    public boolean isRandomlyTicking(BlockState p_54732_) {
-        return true;
+        super.animateTick(blockState, level, blockPos, randomSource);
     }
 
-    public void randomTick(BlockState p_221410_, ServerLevel p_221411_, BlockPos p_221412_, RandomSource p_221413_) {
+
+
+    //Used as a timer, to indicate when the position recipe is finished.
+    boolean COUNT = false;
+    int TIME = 0;
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (COUNT && TIME < 200) {
             TIME += 1;
         } else {
@@ -78,55 +73,73 @@ public class PoisonBlock extends LiquidBlock {
             COUNT = false;
         }
     }
+    public boolean isRandomlyTicking(BlockState state) {
+        return true;
+    }
 
-
+    /**
+     * Used to apply inebriation effect to entities and convert items if they have a recipe
+     * See {@link DARecipe} for poison recipe serializer
+     */
     @Override
-        public void entityInside (BlockState blockState, Level level, BlockPos pos, Entity entity) {
-            if (entity instanceof LivingEntity) {
-                ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
-            } else if (entity instanceof ItemEntity itemEntity) {
+    public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
 
-                ItemEntity TRANSFORMED_ITEM_ENTITY = (new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.DIRT, 1)));
-                int count = itemEntity.getItem().getCount();
+        //Applies inebriation effect to living entities
+        if (entity instanceof LivingEntity) {
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
+        }
 
-                CAN_TRANSFORM = false;
+        //Poison recipe code
+        else if (entity instanceof ItemEntity itemEntity) {
 
-                if (!level.isClientSide()) {
-                    for (Recipe<?> recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
-                        if (recipe instanceof PoisonRecipe poisonRecipe) {
-                            if (poisonRecipe.getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
-                                TRANSFORM_ITEM = poisonRecipe.getResult().getItem();
-                                CAN_TRANSFORM = true;
-                                COUNT = true;
-                            }
-                        }
+            //Temporary initialization for the result item of the poison recipe
+            Item TRANSFORM_ITEM = null;
+
+            int count = itemEntity.getItem().getCount();
+
+            //Checks if any poison recipe matches the ingredient
+            if (!level.isClientSide()) {
+                for (PoisonRecipe recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
+                    if (recipe.getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
+                        TRANSFORM_ITEM = recipe.getResult().getItem();
+
+                        //Starts the timer in the randomTick function.
+                        COUNT = true;
                     }
-                }
-
-                if (!level.isClientSide && CAN_TRANSFORM) {
-                    if ((TRANSFORMED_ITEM_ENTITY.getFeetBlockState().getBlock() == this || level.getBlockState(TRANSFORMED_ITEM_ENTITY.getOnPos().below(1)).getBlock() == this) && TRANSFORMED_ITEM_ENTITY.isAlive()) {
-                        BlockPos itemPos = TRANSFORMED_ITEM_ENTITY.getOnPos();
-                        ServerLevel serverlevel = (ServerLevel) level;
-                        serverlevel.sendParticles(DAParticles.POISON_BUBBLES.get(), (double) itemPos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) itemPos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.2D, 0.3D);
-                        if (level.random.nextInt(25) == 0) {
-                            serverlevel.playSound(itemEntity, itemPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 0.2F + level.random.nextFloat() * 0.2F, 0.9F + level.random.nextFloat() * 0.15F);
-                        }
-                    }
-                }
-
-                if ((TIME > 2) && itemEntity.isAlive() && CAN_TRANSFORM) {
-                    CAN_TRANSFORM = false;
-                    COUNT = false;
-                    if(itemEntity.getOwner() instanceof ServerPlayer player) {
-                        PoisonTrigger.INSTANCE.trigger(player, itemEntity.getItem());
-                    }
-
-                    itemEntity.discard();
-                    entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
-                    entity.setNoGravity(true);
                 }
             }
+
+            //No poison recipe was found, so we cancel the code.
+            if (TRANSFORM_ITEM == null)
+                return;
+
+            //We spawn particles around the ingredient to indicate that the ingredient is getting converted.
+            if (!level.isClientSide && itemEntity.isAlive()) {
+                BlockPos itemPos = itemEntity.getOnPos();
+                ServerLevel serverlevel = (ServerLevel) level;
+                serverlevel.sendParticles(DAParticles.POISON_BUBBLES.get(), (double) itemPos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) itemPos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.2D, 0.3D);
+                if (level.random.nextInt(25) == 0) {
+                    serverlevel.playSound(itemEntity, itemPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 0.2F + level.random.nextFloat() * 0.2F, 0.9F + level.random.nextFloat() * 0.15F);
+                }
+            }
+
+            //Converts the ingredient when enough time has passed and the entity still is alive.
+            if ((TIME > 2) && itemEntity.isAlive()) {
+
+                //Stops the timer
+                COUNT = false;
+                //Grants the "Purple Magic" advancement.
+                if (itemEntity.getOwner() instanceof ServerPlayer player) {
+                    PoisonTrigger.INSTANCE.trigger(player, itemEntity.getItem());
+                }
+
+                //Removes the ingredient item and spawns the result item
+                itemEntity.discard();
+                entity.spawnAtLocation(new ItemStack(TRANSFORM_ITEM, count), 0);
+                entity.setNoGravity(true);
+            }
         }
+    }
 
     public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState state, boolean b) {
         if (!DAFluidInteraction.canInteract(level, blockPos)) {

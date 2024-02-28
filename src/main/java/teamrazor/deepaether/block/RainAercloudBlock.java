@@ -8,12 +8,15 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+//For next update
 public class RainAercloudBlock extends AercloudBlock {
     public RainAercloudBlock(Properties properties) {
         super(properties);
     }
 
-    //From WerSpongeBlock
+    /**
+     * Coped from {@link net.minecraft.world.level.block.WetSpongeBlock}
+     */
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         Direction direction = Direction.getRandom(random);

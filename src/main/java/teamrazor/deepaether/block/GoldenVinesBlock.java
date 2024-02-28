@@ -26,60 +26,59 @@ import teamrazor.deepaether.init.DAItems;
 public class GoldenVinesBlock extends GrowingPlantHeadBlock implements BonemealableBlock, GoldenVines {
 
     private final double growPerTickProbability = 0.02D;
-    public GoldenVinesBlock(BlockBehaviour.Properties p_152959_) {
-        super(p_152959_, Direction.UP, SHAPE, false, 0.02D);
+    public GoldenVinesBlock(BlockBehaviour.Properties properties) {
+        super(properties, Direction.UP, SHAPE, false, 0.02D);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)).setValue(BERRIES, Boolean.valueOf(false)));
     }
 
-    protected int getBlocksToGrowWhenBonemealed(RandomSource p_220928_) {
+    protected int getBlocksToGrowWhenBonemealed(RandomSource random) {
         return 1;
     }
 
-    protected boolean canGrowInto(BlockState p_152998_) {
-        return p_152998_.isAir();
+    protected boolean canGrowInto(BlockState state) {
+        return state.isAir();
     }
 
     protected Block getBodyBlock() {
         return DABlocks.GOLDEN_VINES_PLANT.get();
     }
 
-    protected BlockState updateBodyAfterConvertedFromHead(BlockState p_152987_, BlockState p_152988_) {
-        return p_152988_.setValue(BERRIES, p_152987_.getValue(BERRIES));
+    protected BlockState updateBodyAfterConvertedFromHead(BlockState state, BlockState state2) {
+        return state2.setValue(BERRIES, state.getValue(BERRIES));
     }
 
-    protected BlockState getGrowIntoState(BlockState p_220935_, RandomSource p_220936_) {
-        return super.getGrowIntoState(p_220935_, p_220936_).setValue(BERRIES, Boolean.valueOf(p_220936_.nextFloat() < 0.5F));
+    protected BlockState getGrowIntoState(BlockState state, RandomSource random) {
+        return super.getGrowIntoState(state, random).setValue(BERRIES, Boolean.valueOf(random.nextFloat() < 0.5F));
     }
 
-    public ItemStack getCloneItemStack(BlockGetter p_152966_, BlockPos p_152967_, BlockState p_152968_) {
+    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos pos, BlockState state) {
         return new ItemStack(DAItems.GOLDEN_BERRIES.get());
     }
 
-    public InteractionResult use(BlockState p_152980_, Level p_152981_, BlockPos p_152982_, Player p_152983_, InteractionHand p_152984_, BlockHitResult p_152985_) {
-        return GoldenVines.use(p_152983_, p_152980_, p_152981_, p_152982_);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        return GoldenVines.use(player, state, level, pos);
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_152993_) {
-        super.createBlockStateDefinition(p_152993_);
-        p_152993_.add(BERRIES);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> state) {
+        super.createBlockStateDefinition(state);
+        state.add(BERRIES);
     }
 
-    public boolean isValidBonemealTarget(LevelReader p_256026_, BlockPos p_152971_, BlockState p_152972_, boolean p_152973_) {
-        return !p_152972_.getValue(BERRIES);
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
+        return !state.getValue(BERRIES);
     }
 
-    public boolean isBonemealSuccess(Level p_220930_, RandomSource p_220931_, BlockPos p_220932_, BlockState p_220933_) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel p_220923_, RandomSource p_220924_, BlockPos p_220925_, BlockState p_220926_) {
-        p_220923_.setBlock(p_220925_, p_220926_.setValue(BERRIES, Boolean.valueOf(true)), 2);
+    public void performBonemeal(ServerLevel p_220923_, RandomSource random, BlockPos pos, BlockState p_220926_) {
+        p_220923_.setBlock(pos, p_220926_.setValue(BERRIES, Boolean.valueOf(true)), 2);
     }
 
-
     @Override
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource p_221353_) {
-        if (state.getValue(AGE) < 25 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, pos.relative(this.growthDirection), level.getBlockState(pos.relative(this.growthDirection)),p_221353_.nextDouble() < this.growPerTickProbability) && this.canSurvive(state, level, pos.above(1))) {
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (state.getValue(AGE) < 25 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, pos.relative(this.growthDirection), level.getBlockState(pos.relative(this.growthDirection)),random.nextDouble() < this.growPerTickProbability) && this.canSurvive(state, level, pos.above(1))) {
             BlockPos blockpos = pos.relative(this.growthDirection);
             if (this.canGrowInto(level.getBlockState(blockpos))) {
                 level.setBlockAndUpdate(blockpos, this.getGrowIntoState(state, level.random));
@@ -88,7 +87,6 @@ public class GoldenVinesBlock extends GrowingPlantHeadBlock implements Bonemeala
         }
 
     }
-
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
