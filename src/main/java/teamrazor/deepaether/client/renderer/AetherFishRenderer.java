@@ -16,29 +16,29 @@ import teamrazor.deepaether.entity.AerglowFish;
 public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishModel<AerglowFish>> {
 	private static final ResourceLocation AERGLOW_FISH_LOCATION = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/aerglow_fish.png");
 
-	public AetherFishRenderer(EntityRendererProvider.Context p_174364_) {
-		super(p_174364_, new AerglowFishModel<>(p_174364_.bakeLayer(DeepAetherModelLayers.AERGLOW_FISH)), 0.4F);
+	public AetherFishRenderer(EntityRendererProvider.Context renderer) {
+		super(renderer, new AerglowFishModel<>(renderer.bakeLayer(DAModelLayers.AERGLOW_FISH)), 0.4F);
 	}
 
-	public ResourceLocation getTextureLocation(AerglowFish p_115826_) {
+	public ResourceLocation getTextureLocation(AerglowFish fish) {
 		return AERGLOW_FISH_LOCATION;
 	}
 
-	protected void setupRotations(AerglowFish p_115828_, PoseStack p_115829_, float p_115830_, float p_115831_, float p_115832_) {
-		super.setupRotations(p_115828_, p_115829_, p_115830_, p_115831_, p_115832_);
+	protected void setupRotations(AerglowFish fish, PoseStack pose, float p_115830_, float p_115831_, float p_115832_) {
+		super.setupRotations(fish, pose, p_115830_, p_115831_, p_115832_);
 		float f = 1.0F;
 		float f1 = 1.0F;
-		if (!p_115828_.isInWater()) {
+		if (!fish.isInWater()) {
 			f = 1.3F;
 			f1 = 1.7F;
 		}
 
 		float f2 = f * 4.3F * Mth.sin(f1 * 0.6F * p_115830_);
-		p_115829_.mulPose(Axis.YP.rotationDegrees(f2));
-		p_115829_.translate(0.0F, 0.0F, -0.4F);
-		if (!p_115828_.isInWater()) {
-			p_115829_.translate(0.2F, 0.1F, 0.0F);
-			p_115829_.mulPose(Axis.ZP.rotationDegrees(90.0F));
+		pose.mulPose(Axis.YP.rotationDegrees(f2));
+		pose.translate(0.0F, 0.0F, -0.4F);
+		if (!fish.isInWater()) {
+			pose.translate(0.2F, 0.1F, 0.0F);
+			pose.mulPose(Axis.ZP.rotationDegrees(90.0F));
 		}
 
 	}
