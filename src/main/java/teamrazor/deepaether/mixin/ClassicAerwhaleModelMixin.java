@@ -57,7 +57,7 @@ public abstract class ClassicAerwhaleModelMixin extends EntityModel<Aerwhale> {
         }
     }
 
-    @Inject(at = @At("TAIL"), method = "renderToBuffer", remap = false)
+    @Inject(at = @At("TAIL"), method = "renderToBuffer")
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
         this.deep_Aether$leftChest.render(poseStack, consumer, packedLight, packedOverlay, red, green, blue, alpha);
         this.deep_Aether$rightChest.render(poseStack, consumer, packedLight, packedOverlay, red, green, blue, alpha);

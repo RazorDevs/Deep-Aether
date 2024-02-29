@@ -14,6 +14,8 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -21,20 +23,15 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import teamrazor.deepaether.block.Behaviors.DABlockStateProperties;
 
 public class SunrootHangerBlock extends Block {
-
-    protected static final VoxelShape SHAPE_0 = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
-    protected static final VoxelShape SHAPE_1 = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
-    protected static final VoxelShape SHAPE_2 = Block.box(6.0D, 2.0D, 6.0D, 10.0D, 14.0D, 10.0D);
-
-
-    public static final IntegerProperty THREE_SHAPES = DABlockStateProperties.THREE_SHAPES;
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+    public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
     public SunrootHangerBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(THREE_SHAPES, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, false));
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_261641_) {
-        p_261641_.add(THREE_SHAPES);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> state) {
+        state.add(BOTTOM);
     }
 
 
@@ -51,35 +48,22 @@ public class SunrootHangerBlock extends Block {
             level.scheduleTick(pos, this, 1);
         }
 
-        if(level.getBlockState(pos.below()).is(this)) {
-            if(level.getBlockState(pos.above()).getBlock() != this) {
-                return state.setValue(SunrootHangerBlock.THREE_SHAPES, 0);
-            }
-            else return state.setValue(SunrootHangerBlock.THREE_SHAPES, 1);
-        }
-        else if(level.getBlockState(pos.below()).getBlock() != this && level.getBlockState(pos.above()).getBlock() != this) {
-            return state.setValue(SunrootHangerBlock.THREE_SHAPES, 0);
-        }
-        else return state.setValue(SunrootHangerBlock.THREE_SHAPES, 2);
+        if(level.getBlockState(pos.below()).is(this))
+            return state.setValue(SunrootHangerBlock.BOTTOM, false);
+
+        else return state.setValue(SunrootHangerBlock.BOTTOM, true);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-        if (!fluidstate.isEmpty()) {
-            return null;
-        } else {
-            BlockPos pos = context.getClickedPos();
-            BlockState blockstate = context.getLevel().getBlockState(pos.above());
+        BlockPos pos = context.getClickedPos();
+        BlockState blockstate = context.getLevel().getBlockState(pos.above());
 
-            if (blockstate.isFaceSturdy(context.getLevel(), pos, Direction.UP) || blockstate.is(BlockTags.LEAVES)) {
-                return this.defaultBlockState().setValue(THREE_SHAPES, 0);
-            } else if (blockstate.is(this)) {
-                return this.defaultBlockState().setValue(THREE_SHAPES, 2);
-            } else {
-                return null;
-            }
-        }
+        if (fluidstate.isEmpty() && (blockstate.isFaceSturdy(context.getLevel(), pos, Direction.UP) || blockstate.is(BlockTags.LEAVES) || blockstate.is(this)))
+            return this.defaultBlockState().setValue(BOTTOM, true);
+        else
+            return null;
     }
 
     @Override
@@ -91,23 +75,17 @@ public class SunrootHangerBlock extends Block {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state.getValue(THREE_SHAPES) == 0) {
-            return SHAPE_0;
-        }
-        else if(state.getValue(THREE_SHAPES) == 1) {
-            return SHAPE_1;
-        }
-        else return SHAPE_2;
+        return SHAPE;
     }
     @Override
-    public void animateTick(BlockState p_221107_, Level p_221108_, BlockPos p_221109_, RandomSource p_221110_) {
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         Direction direction = Direction.DOWN;
-        double d0 = (double)p_221109_.getX() + 0.55D - (double)(p_221110_.nextFloat() * 0.1F);
-        double d1 = (double)p_221109_.getY() + 0.55D - (double)(p_221110_.nextFloat() * 0.1F);
-        double d2 = (double)p_221109_.getZ() + 0.55D - (double)(p_221110_.nextFloat() * 0.1F);
-        double d3 = 0.4F - (p_221110_.nextFloat() + p_221110_.nextFloat()) * 0.4F;
-        if (p_221110_.nextInt(5) == 1) {
-            p_221108_.addParticle(ParticleTypes.END_ROD, d0 + (double)direction.getStepX() * d3, d1 + (double)direction.getStepY() * d3, d2 + (double)direction.getStepZ() * d3, p_221110_.nextGaussian() * 0.005D, p_221110_.nextGaussian() * 0.005D, p_221110_.nextGaussian() * 0.005D);
+        double d0 = (double)pos.getX() + 0.55D - (double)(random.nextFloat() * 0.1F);
+        double d1 = (double)pos.getY() + 0.55D - (double)(random.nextFloat() * 0.1F);
+        double d2 = (double)pos.getZ() + 0.55D - (double)(random.nextFloat() * 0.1F);
+        double d3 = 0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F;
+        if (random.nextInt(5) == 1) {
+            level.addParticle(ParticleTypes.END_ROD, d0 + (double)direction.getStepX() * d3, d1 + (double)direction.getStepY() * d3, d2 + (double)direction.getStepZ() * d3, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D, random.nextGaussian() * 0.005D);
         }
 
     }

@@ -1,12 +1,9 @@
 {
   "variants": {
-    "three_shapes=0": {
+    "bottom=false": {
       "model": "deep_aether:block/sunroot_hanger"
     },
-    "three_shapes=1": {
-      "model": "deep_aether:block/sunroot_hanger"
-    },
-    "three_shapes=2": {
+    "bottom=true": {
       "model": "deep_aether:block/sunroot_hanger_tip"
     }
   }
