@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.item.gear.stratus.StratusArmor;
+import teamrazor.deepaether.item.gear.stratus.StratusAbility;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class ArmorAbilityListener {
@@ -16,7 +16,7 @@ public class ArmorAbilityListener {
     @SubscribeEvent
     public static void onEntityJump(LivingEvent.LivingJumpEvent event) {
         LivingEntity livingEntity = event.getEntity();
-        StratusArmor.moreBoostedJump(livingEntity);
+        StratusAbility.moreBoostedJump(livingEntity);
     }
 
     @SubscribeEvent

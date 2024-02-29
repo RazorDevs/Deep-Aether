@@ -30,16 +30,16 @@ public class AerwhaleSaddle extends Item {
 
     @Override
     @NotNull
-    public InteractionResult interactLivingEntity(ItemStack p_43055_, Player p_43056_, LivingEntity p_43057_, InteractionHand p_43058_) {
-        if (p_43057_ instanceof AerwhaleSaddleable saddleable && p_43057_.isAlive()) {
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
+        if (entity instanceof AerwhaleSaddleable saddleable && entity.isAlive()) {
             if (!saddleable.isSaddled() && saddleable.isSaddleable()) {
-                if (!p_43056_.level().isClientSide) {
+                if (!player.level().isClientSide) {
                     saddleable.equipSaddle(SoundSource.NEUTRAL);
-                    p_43057_.level().gameEvent(p_43057_, GameEvent.EQUIP, p_43057_.position());
-                    p_43055_.shrink(1);
+                    entity.level().gameEvent(entity, GameEvent.EQUIP, entity.position());
+                    stack.shrink(1);
                 }
 
-                return InteractionResult.sidedSuccess(p_43056_.level().isClientSide);
+                return InteractionResult.sidedSuccess(player.level().isClientSide);
             }
         }
 

@@ -22,14 +22,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SunrootHangerBlock extends Block {
-
-    protected static final VoxelShape BOTTOM_SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
-    protected static final VoxelShape TOP_SHAPE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
-
+    protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
     public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
     public SunrootHangerBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, true));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BOTTOM, false));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> state) {
@@ -59,18 +56,13 @@ public class SunrootHangerBlock extends Block {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-        if (!fluidstate.isEmpty()) {
+        BlockPos pos = context.getClickedPos();
+        BlockState blockstate = context.getLevel().getBlockState(pos.above());
+
+        if (fluidstate.isEmpty() && (blockstate.isFaceSturdy(context.getLevel(), pos, Direction.UP) || blockstate.is(BlockTags.LEAVES) || blockstate.is(this)))
+            return this.defaultBlockState().setValue(BOTTOM, true);
+        else
             return null;
-        } else {
-            BlockPos pos = context.getClickedPos();
-            BlockState blockstate = context.getLevel().getBlockState(pos.above());
-
-            if (blockstate.isFaceSturdy(context.getLevel(), pos, Direction.UP) || blockstate.is(BlockTags.LEAVES))
-                return this.defaultBlockState().setValue(BOTTOM, true);
-            else
-                return null;
-
-        }
     }
 
     @Override
@@ -82,10 +74,7 @@ public class SunrootHangerBlock extends Block {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        if(state.getValue(BOTTOM)) {
-            return BOTTOM_SHAPE;
-        }
-        else return TOP_SHAPE;
+        return SHAPE;
     }
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
