@@ -5,11 +5,11 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
-
+//Used to indicate a disabled compat item.
 public class DisabledBlockItem extends BlockItem {
 
-    public DisabledBlockItem(Block p_40565_, Properties p_40566_) {
-        super(p_40565_, p_40566_);
+    public DisabledBlockItem(Block block, Properties properties) {
+        super(block, properties);
     }
 
     @Override

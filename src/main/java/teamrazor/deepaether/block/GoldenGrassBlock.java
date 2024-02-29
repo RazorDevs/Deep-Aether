@@ -30,31 +30,31 @@ public class GoldenGrassBlock extends AetherGrassBlock {
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_) {
-        BlockPos blockpos = p_221272_.above();
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        BlockPos blockpos = pos.above();
         BlockState blockstate = DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState();
-        Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(DAPlacedFeatures.GOLDEN_GRASS_BONEMEAL);
+        Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(DAPlacedFeatures.GOLDEN_GRASS_BONEMEAL);
 
         label49:
         for(int i = 0; i < 128; ++i) {
             BlockPos blockpos1 = blockpos;
 
             for(int j = 0; j < i / 16; ++j) {
-                blockpos1 = blockpos1.offset(p_221271_.nextInt(3) - 1, (p_221271_.nextInt(3) - 1) * p_221271_.nextInt(3) / 2, p_221271_.nextInt(3) - 1);
-                if (!p_221270_.getBlockState(blockpos1.below()).is(this) || p_221270_.getBlockState(blockpos1).isCollisionShapeFullBlock(p_221270_, blockpos1)) {
+                blockpos1 = blockpos1.offset(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+                if (!level.getBlockState(blockpos1.below()).is(this) || level.getBlockState(blockpos1).isCollisionShapeFullBlock(level, blockpos1)) {
                     continue label49;
                 }
             }
 
-            BlockState blockstate1 = p_221270_.getBlockState(blockpos1);
-            if (blockstate1.is(blockstate.getBlock()) && p_221271_.nextInt(10) == 0) {
-                ((BonemealableBlock)blockstate.getBlock()).performBonemeal(p_221270_, p_221271_, blockpos1, blockstate1);
+            BlockState blockstate1 = level.getBlockState(blockpos1);
+            if (blockstate1.is(blockstate.getBlock()) && random.nextInt(10) == 0) {
+                ((BonemealableBlock)blockstate.getBlock()).performBonemeal(level, random, blockpos1, blockstate1);
             }
 
             if (blockstate1.isAir()) {
                 Holder<PlacedFeature> holder;
-                if (p_221271_.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = p_221270_.getBiome(blockpos1).value().getGenerationSettings().getFlowerFeatures();
+                if (random.nextInt(8) == 0) {
+                    List<ConfiguredFeature<?, ?>> list = level.getBiome(blockpos1).value().getGenerationSettings().getFlowerFeatures();
                     if (list.isEmpty()) {
                         continue;
                     }
@@ -68,7 +68,7 @@ public class GoldenGrassBlock extends AetherGrassBlock {
                     holder = optional.get();
                 }
 
-                holder.value().place(p_221270_, p_221270_.getChunkSource().getGenerator(), p_221271_, blockpos1);
+                holder.value().place(level, level.getChunkSource().getGenerator(), random, blockpos1);
             }
         }
 

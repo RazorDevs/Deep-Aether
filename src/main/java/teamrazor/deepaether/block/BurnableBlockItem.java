@@ -7,10 +7,9 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 
 import javax.annotation.Nullable;
-
 public class BurnableBlockItem extends BlockItem {
 
-    private int BURN_TIME;
+    private final int BURN_TIME;
     public BurnableBlockItem(int burnTime, Block block, Item.Properties properties) {
         super(block, properties);
         this.BURN_TIME = burnTime;

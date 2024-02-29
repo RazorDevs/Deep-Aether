@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_aseterite": {
+    "has_polished_aseterite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:aseterite"
+              "deep_aether:polished_aseterite"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_aseterite",
+      "has_polished_aseterite",
       "has_the_recipe"
     ]
   ],

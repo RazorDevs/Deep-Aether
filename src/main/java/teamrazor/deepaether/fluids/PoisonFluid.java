@@ -2,6 +2,7 @@ package teamrazor.deepaether.fluids;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.init.DABlocks;
 
 public abstract class PoisonFluid extends ForgeFlowingFluid {
 
@@ -24,10 +26,14 @@ public abstract class PoisonFluid extends ForgeFlowingFluid {
     }
 
     protected void spreadTo(LevelAccessor levelAccessor, BlockPos blockPos, BlockState blockState, Direction direction, FluidState fluidState) {
+        levelAccessor.players().get(0).sendSystemMessage(Component.literal("Start of Method"));
         if (direction == Direction.DOWN) {
+            levelAccessor.players().get(0).sendSystemMessage(Component.literal("After DOWN check"));
             FluidState fluidstate = levelAccessor.getFluidState(blockPos);
             if (this.is(DATags.Fluids.POISON) && fluidstate.is(FluidTags.LAVA)) {
+                levelAccessor.players().get(0).sendSystemMessage(Component.literal("After LAVA check"));
                 if (blockState.getBlock() instanceof LiquidBlock) {
+                    levelAccessor.players().get(0).sendSystemMessage(Component.literal("After Liquid Check"));
                     levelAccessor.setBlock(blockPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(levelAccessor, blockPos, blockPos, Blocks.CRYING_OBSIDIAN.defaultBlockState()), 3);
                 }
 
@@ -37,7 +43,7 @@ public abstract class PoisonFluid extends ForgeFlowingFluid {
 
             if (this.is(DATags.Fluids.POISON) && fluidstate.is(FluidTags.WATER)) {
                 if (blockState.getBlock() instanceof LiquidBlock) {
-                    levelAccessor.setBlock(blockPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(levelAccessor, blockPos, blockPos, Blocks.GOLD_BLOCK.defaultBlockState()), 3);
+                    levelAccessor.setBlock(blockPos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(levelAccessor, blockPos, blockPos, DABlocks.AERSMOG.get().defaultBlockState()), 3);
                 }
 
                 this.fizz(levelAccessor, blockPos);

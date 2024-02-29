@@ -47,6 +47,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
     @Override
     public void generate() {
+        //Roseroot woodset
         this.dropSelf(DABlocks.ROSEROOT_WOOD.get());
         this.dropSelf(DABlocks.ROTTEN_ROSEROOT_LOG.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
@@ -67,29 +68,17 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_ROSEROOT_SAPLING.get());
         this.dropSelf(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.dropPottedContents(DABlocks.POTTED_BLUE_ROSEROOT_SAPLING.get());
-        this.add(DABlocks.ROSEROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-
-        this.add(DABlocks.FLOWERING_ROSEROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticksAndAerglowPetal(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-        this.add(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticksAndAerglowPetal(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-
+        this.add(DABlocks.ROSEROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.FLOWERING_ROSEROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticksAndAerglowPetal(leaves, DABlocks.ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticksAndAerglowPetal(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.ROSEROOT_WALL_SIGN.get(), DABlocks.ROSEROOT_SIGN.get());
         this.dropSelf(DABlocks.ROSEROOT_SIGN.get());
         this.dropOther(DABlocks.ROSEROOT_WALL_HANGING_SIGN.get(), DABlocks.ROSEROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.ROSEROOT_HANGING_SIGN.get());
-        this.add(DABlocks.BLUE_ROSEROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-
+        this.add(DABlocks.BLUE_ROSEROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.BLUE_ROSEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropSelf(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
 
-        this.dropSelf(DABlocks.BLUE_SQUASH.get());
-        this.dropSelf(DABlocks.GREEN_SQUASH.get());
-        this.dropSelf(DABlocks.PURPLE_SQUASH.get());
-        this.dropNone(DABlocks.SQUASH_STEM.get());
-        this.dropNone(DABlocks.ATTACHED_SQUASH_STEM.get());
-
+        //Yagroot woodset
         this.dropSelf(DABlocks.YAGROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_YAGROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.YAGROOT_LOG.get());
@@ -107,17 +96,16 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.STRIPPED_YAGROOT_WALL.get());
         this.dropSelf(DABlocks.YAGROOT_SAPLING.get());
         this.dropPottedContents(DABlocks.POTTED_YAGROOT_SAPLING.get());
-        this.add(DABlocks.YAGROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.YAGROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.YAGROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.YAGROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.YAGROOT_WALL_SIGN.get(), DABlocks.YAGROOT_SIGN.get());
         this.dropSelf(DABlocks.YAGROOT_SIGN.get());
         this.dropOther(DABlocks.YAGROOT_WALL_HANGING_SIGN.get(), DABlocks.YAGROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.YAGROOT_HANGING_SIGN.get());
-
         this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
+        this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createYagrootVinesDrop(DABlocks.YAGROOT_VINE.get()));
 
-
+        //Cruderoot woodset
         this.dropSelf(DABlocks.CRUDEROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.CRUDEROOT_LOG.get());
@@ -135,13 +123,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.STRIPPED_CRUDEROOT_WALL.get());
         this.dropSelf(DABlocks.CRUDEROOT_SAPLING.get());
         this.dropPottedContents(DABlocks.POTTED_CRUDEROOT_SAPLING.get());
-        this.add(DABlocks.CRUDEROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CRUDEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.CRUDEROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CRUDEROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.CRUDEROOT_WALL_SIGN.get(), DABlocks.CRUDEROOT_SIGN.get());
         this.dropSelf(DABlocks.CRUDEROOT_SIGN.get());
         this.dropOther(DABlocks.CRUDEROOT_WALL_HANGING_SIGN.get(), DABlocks.CRUDEROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.CRUDEROOT_HANGING_SIGN.get());
 
+        //Conberry woodset
         this.dropSelf(DABlocks.CONBERRY_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_CONBERRY_WOOD.get());
         this.dropSelfDouble(DABlocks.CONBERRY_LOG.get());
@@ -159,13 +147,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.STRIPPED_CONBERRY_WALL.get());
         this.dropSelf(DABlocks.CONBERRY_SAPLING.get());
         this.dropPottedContents(DABlocks.POTTED_CONBERRY_SAPLING.get());
-        this.add(DABlocks.CONBERRY_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CONBERRY_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.CONBERRY_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.CONBERRY_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.CONBERRY_WALL_SIGN.get(), DABlocks.CONBERRY_SIGN.get());
         this.dropSelf(DABlocks.CONBERRY_SIGN.get());
         this.dropOther(DABlocks.CONBERRY_WALL_HANGING_SIGN.get(), DABlocks.CONBERRY_HANGING_SIGN.get());
         this.dropSelf(DABlocks.CONBERRY_HANGING_SIGN.get());
 
+        //Sunroot woodet
         this.dropSelf(DABlocks.SUNROOT_WOOD.get());
         this.dropSelf(DABlocks.STRIPPED_SUNROOT_WOOD.get());
         this.dropSelfDouble(DABlocks.SUNROOT_LOG.get());
@@ -183,14 +171,14 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.STRIPPED_SUNROOT_WALL.get());
         this.dropSelf(DABlocks.SUNROOT_SAPLING.get());
         this.dropPottedContents(DABlocks.POTTED_SUNROOT_SAPLING.get());
-        this.add(DABlocks.SUNROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.SUNROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(DABlocks.SUNROOT_LEAVES.get(), (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, DABlocks.SUNROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropOther(DABlocks.SUNROOT_WALL_SIGN.get(), DABlocks.SUNROOT_SIGN.get());
         this.dropSelf(DABlocks.SUNROOT_SIGN.get());
         this.dropOther(DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), DABlocks.SUNROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.SUNROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.SUNROOT_HANGER.get());
 
+        //Aether Mud set
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());
         this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
@@ -198,18 +186,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
         this.dropSelf(DABlocks.AETHER_MUD_BRICKS_WALL.get());
 
-        this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
-        this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());
-
-        //ORES
+        //Ores
         this.add(DABlocks.SKYJADE_ORE.get(), (block) -> this.createOreDrop(block, DAItems.SKYJADE.get()));
         this.dropSelf(DABlocks.SKYJADE_BLOCK.get());
         this.dropSelf(DABlocks.STRATUS_BLOCK.get());
 
 
-        //STONES
-
-
+        //Stone types
         this.dropSelf(DABlocks.COBBLED_ASETERITE.get());
         this.add(DABlocks.COBBLED_ASETERITE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.COBBLED_ASETERITE_STAIRS.get());
@@ -268,13 +251,37 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
         this.dropSelf(DABlocks.CHISELED_HOLYSTONE.get());
 
-        //FLOWERS
+        //Plants
+        this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
+        this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());
 
+        this.dropSelf(DABlocks.BLUE_SQUASH.get());
+        this.dropSelf(DABlocks.GREEN_SQUASH.get());
+        this.dropSelf(DABlocks.PURPLE_SQUASH.get());
+        this.dropNone(DABlocks.SQUASH_STEM.get());
+        this.dropNone(DABlocks.ATTACHED_SQUASH_STEM.get());
+
+        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
+        this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
+        this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
+        this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
+
+        this.dropNone(DABlocks.FEATHER_GRASS.get());
+        this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
+
+        this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
+        this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
+
+        this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);
+        this.add(DABlocks.GOLDEN_VINES_PLANT.get(), DABlockLoot::createGoldenVinesDrop);
+
+        this.dropSelf(DABlocks.LIGHTCAP_MUSHROOMS.get());
+
+        //Flowers
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
         this.dropSelf(DABlocks.TALL_AERLAVENDER.get());
-        this.add(DABlocks.TALL_AETHER_CATTAILS.get(),
-                (flower) -> createSinglePropConditionTable(DABlocks.TALL_AETHER_CATTAILS.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+        this.add(DABlocks.TALL_AETHER_CATTAILS.get(), (flower) -> createSinglePropConditionTable(DABlocks.TALL_AETHER_CATTAILS.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         this.dropSelf(DABlocks.RADIANT_ORCHID.get());
         this.dropSelf(DABlocks.SKY_TULIPS.get());
         this.dropSelf(DABlocks.IASPOVE.get());
@@ -291,9 +298,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_GOLDEN_ASPESS.get());
         this.dropPottedContents(DABlocks.POTTED_ECHAISY.get());
 
+        //Misc
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
-
-        this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createYagrootVinesDrop(DABlocks.YAGROOT_VINE.get()));
 
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
 
@@ -306,27 +312,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
         this.dropSelfDouble(DABlocks.AETHER_COARSE_DIRT.get());
 
-        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
-        this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
-        this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
-        this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
 
-        this.add(DABlocks.MINI_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
-
-        this.dropNone(DABlocks.FEATHER_GRASS.get());
-        this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
-
-        this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
-        this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
-
-
-        this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);
-        this.add(DABlocks.GOLDEN_VINES_PLANT.get(), DABlockLoot::createGoldenVinesDrop);
-
-        this.dropSelf(DABlocks.LIGHTCAP_MUSHROOMS.get());
-
-
-        //Lost content
+        //Aether redux compat
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICKS.get());
         this.dropSelf(DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get());
         this.add(DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(), this::createSlabItemTable);
@@ -357,7 +344,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
 
-        //Aether genesis
+        //Aether genesis compat
         this.dropSelf(DABlocks.ROSEROOT_LOG_WALL.get());
         this.dropSelf(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get());
         this.dropSelf(DABlocks.CRUDEROOT_LOG_WALL.get());
@@ -416,15 +403,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                                 LootItem.lootTableItem(DAItems.AERGLOW_BLOSSOM.get()).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))))
                 .apply(DoubleDrops.builder());
     }
-
-    protected static final LootItemCondition.Builder HAS_NO_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).invert();
-    /*protected static LootTable.Builder deepAetherTallFlowerDrop(Block block, Block block1) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SILK_TOUCH).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block))).withPool(LootPool.lootPool().when(HAS_NO_SILK_TOUCH).when(HAS_NO_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block1)));
-    }
-
-    public void createDeepAetherTallFlowerDrop(Block block, Block block1) {
-        this.add(block, (result) -> this.deepAetherTallFlowerDrop(block, block1));
-    }*/
 
     @Override
     protected Iterable<Block> getKnownBlocks() {

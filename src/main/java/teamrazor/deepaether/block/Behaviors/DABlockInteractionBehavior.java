@@ -36,12 +36,17 @@ import teamrazor.deepaether.init.DABlocks;
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {
 
+    /**
+     * Used for Block and Item Interactions.
+     */
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
         ItemStack itemstack = event.getItemStack();
         BlockPos pos = event.getPos();
         Level world = event.getLevel();
         BlockState state = world.getBlockState(pos);
+
+        //Interactions for the Golden Swet Ball. Converts Aether Dirt Into Golden Grass Block on right click.
         if (itemstack.is(DATags.Items.IS_GOLDEN_SWET_BALL)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
                 BlockState newState = DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState();
@@ -53,16 +58,17 @@ public class DABlockInteractionBehavior {
             }
         }
 
+        //Interactions for Water Bottle and Aether Dirt. Converts Aether Dirt into Aether Mud.
         else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
-                BlockState newState = DABlocks.AETHER_MUD.get().defaultBlockState();
 
+                //Changes the Aether Dirt block into an Aether Mud Block.
+                BlockState newState = DABlocks.AETHER_MUD.get().defaultBlockState();
                 world.setBlockAndUpdate(pos, newState);
 
                 Player player = event.getEntity();
-
-
                 player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
+                //Shrinks stack
                 if (!player.getAbilities().instabuild) {
                     itemstack.shrink(1);
                     ItemStack bottleStack = new ItemStack(Items.GLASS_BOTTLE);
@@ -70,17 +76,21 @@ public class DABlockInteractionBehavior {
                         Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bottleStack);
                     }
                 }
+                //Spawns splash particles
                 if (!world.isClientSide) {
                     ServerLevel serverlevel = (ServerLevel) world;
                     for (int i = 0; i < 5; ++i) {
                         serverlevel.sendParticles(ParticleTypes.SPLASH, (double) pos.getX() + world.random.nextDouble(), (double) (pos.getY() + 1), (double) pos.getZ() + world.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
                     }
                 }
+
                 world.playSound(player, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.PLAYERS, 0.5F, 1F);
                 event.setCancellationResult(InteractionResult.SUCCESS);
                 event.setCanceled(true);
             }
         }
+
+        //Creates a Poison Liquid Block from a Skyroot bucket
         else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
@@ -113,6 +123,8 @@ public class DABlockInteractionBehavior {
                 }
             }
         }
+
+        //Fills a skyroot bucket with poison when interact with a Poison Block.
         else if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
             Player player = event.getEntity();
             BlockHitResult blockhitresult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);

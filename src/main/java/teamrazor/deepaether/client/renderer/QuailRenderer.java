@@ -23,7 +23,6 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
         this.shadowRadius = 0.3f;
     }
 
-
     public static final Map<QuailVariants, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(QuailVariants.class), (map) -> {
                 map.put(QuailVariants.OLD_GREEN,

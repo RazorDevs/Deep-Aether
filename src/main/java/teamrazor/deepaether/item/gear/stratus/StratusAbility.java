@@ -1,6 +1,8 @@
 package teamrazor.deepaether.item.gear.stratus;
 
 
+import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.capability.player.AetherPlayer;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,13 +18,15 @@ import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 
+import static com.aetherteam.aether.item.EquipmentUtil.findFirstCurio;
+
 
 public class StratusAbility extends DaArmorItem {
 
     static float coolDown = 0;
 
-    public StratusAbility(ArmorMaterial p_40386_, ArmorItem.Type p_40387_, Properties p_40388_) {
-        super(p_40386_, p_40387_, p_40388_);
+    public StratusAbility(ArmorMaterial armorMaterial, ArmorItem.Type type, Properties properties) {
+        super(armorMaterial, type, properties);
     }
 
     public static boolean hasFullStratusSet(LivingEntity entity) {
@@ -30,12 +34,22 @@ public class StratusAbility extends DaArmorItem {
     }
 
 
+    /**
+     * Checks if the player is wearing all armor pieces out of a set.
+     * @param entity The {@link LivingEntity} wearer.
+     * @param helmet The helmet {@link Item}.
+     * @param chestplate The chestplate {@link Item}.
+     * @param leggings The leggings {@link Item}.
+     * @param boots The boots {@link Item}.
+     * @param gloves The gloves {@link Item}.
+     * @return The result of the check, as a {@link Boolean}.
+     */
     private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots, Item gloves) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
                 && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
                 && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
-                && com.aetherteam.aether.item.EquipmentUtil.findFirstCurio(entity, gloves).isPresent();
+                && (!AetherConfig.SERVER.require_gloves.get() || findFirstCurio(entity, gloves).isPresent());
     }
 
     private static boolean isStratusDashActive(Player player) {
@@ -87,6 +101,21 @@ public class StratusAbility extends DaArmorItem {
             }
         }
     }
-
+    public static void moreBoostedJump(LivingEntity entity) {
+        if (EquipmentUtil.hasFullStratusSet(entity)) {
+            if (entity instanceof Player player) {
+                AetherPlayer.get(player).ifPresent(aetherPlayer -> {
+                    if (aetherPlayer.isGravititeJumpActive()) {
+                        player.push(0.0, 1.3 * (float) EquipmentUtil.handleStratusRingBoost(player), 0.0);
+                        if (player instanceof ServerPlayer serverPlayer) {
+                            serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+                        }
+                    }
+                });
+            } else {
+                entity.push(0.0, 1.3, 0.0);
+            }
+        }
+    }
 }
 

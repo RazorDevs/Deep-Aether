@@ -21,8 +21,8 @@ public class PoisonCauldronBlock extends AbstractCauldronBlock {
         return super.getMapColor(state, level, pos, defaultColor);
     }
 
-    public PoisonCauldronBlock(BlockBehaviour.Properties p_153498_) {
-        super(p_153498_, DaCauldronInteraction.POISON);
+    public PoisonCauldronBlock(BlockBehaviour.Properties properties) {
+        super(properties, DaCauldronInteraction.POISON);
     }
 
     protected double getContentHeight(BlockState p_153500_) {
@@ -33,15 +33,15 @@ public class PoisonCauldronBlock extends AbstractCauldronBlock {
         return true;
     }
 
-    public void entityInside(BlockState p_153506_, Level p_153507_, BlockPos p_153508_, Entity entity) {
-        if (this.isEntityInsideContent(p_153506_, p_153508_, entity)) {
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+        if (this.isEntityInsideContent(state, pos, entity)) {
             if (entity instanceof LivingEntity livingEntity)
                 livingEntity.addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
         }
 
     }
 
-    public int getAnalogOutputSignal(BlockState p_153502_, Level p_153503_, BlockPos p_153504_) {
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         return 14;
     }
 }

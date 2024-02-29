@@ -68,19 +68,19 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
         if (!(entity instanceof LivingEntity) || entity.getFeetBlockState().is(this)) {
-            entity.makeStuckInBlock(blockState, new Vec3((double) 0.9F, 1.5D, (double) 0.9F));
+            entity.makeStuckInBlock(blockState, new Vec3(0.9F, 1.5D, 0.9F));
             if (level.isClientSide) {
                 RandomSource randomsource = level.getRandom();
                 boolean flag = entity.xOld != entity.getX() || entity.zOld != entity.getZ();
                 if (flag && randomsource.nextBoolean()) {
-                    level.addParticle(ParticleTypes.ASH, entity.getX(), (double) (pos.getY() + 1), entity.getZ(), (double) (Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F), (double) 0.05F, (double) (Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F));
+                    level.addParticle(ParticleTypes.ASH, entity.getX(), pos.getY() + 1, entity.getZ(), Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F, (double) 0.05F, (double) (Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F));
                 }
             }
         }
         if (!entity.isSpectator() && hasEntityMoved(entity)) {
             if (entity instanceof LivingEntity living)
             {
-                living.hurt(level.damageSources().inWall(), 2f);
+                living.hurt(level.damageSources().inWall(), 1f);
             }
         }
     }

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:cyan_dye_from_tall_aerlavender"
+        "recipe": "deep_aether:pink_dye_from_aerlavender"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:cyan_dye_from_tall_aerlavender"
+      "deep_aether:pink_dye_from_aerlavender"
     ]
   },
   "sends_telemetry_event": false

@@ -34,10 +34,6 @@ public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance
             this.item = item;
         }
 
-        public static PoisonTrigger.Instance forItem(ItemPredicate item) {
-            return new PoisonTrigger.Instance(ContextAwarePredicate.ANY, item);
-        }
-
         public boolean test(ItemStack stack) {
             return this.item.matches(stack);
         }

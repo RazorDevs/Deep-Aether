@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_aerlavender": {
+    "has_tall_aerlavender": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:aerlavender"
+              "deep_aether:tall_aerlavender"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:cyan_dye_from_aerlavender"
+        "recipe": "deep_aether:pink_dye_from_tall_aerlavender"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_aerlavender",
+      "has_tall_aerlavender",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:cyan_dye_from_aerlavender"
+      "deep_aether:pink_dye_from_tall_aerlavender"
     ]
   },
   "sends_telemetry_event": false

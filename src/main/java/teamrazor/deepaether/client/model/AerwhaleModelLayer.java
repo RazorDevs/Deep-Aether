@@ -4,6 +4,7 @@ import com.aetherteam.aether.client.renderer.entity.model.AerwhaleModel;
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -13,9 +14,9 @@ import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
 
-public class AerwhaleModelLayer extends RenderLayer<Aerwhale, AerwhaleModel> {
+public class AerwhaleModelLayer extends RenderLayer<Aerwhale, EntityModel<Aerwhale>> {
     private static final RenderType SADDLED_AERWHALE = RenderType.armorCutoutNoCull(new ResourceLocation(DeepAetherMod.MODID, "textures/entity/aerwhale_saddled.png"));
-    public AerwhaleModelLayer(RenderLayerParent<Aerwhale, AerwhaleModel> parent) {
+    public AerwhaleModelLayer(RenderLayerParent<Aerwhale, EntityModel<Aerwhale>> parent) {
         super(parent);
     }
 

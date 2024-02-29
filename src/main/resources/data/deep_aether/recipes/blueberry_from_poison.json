@@ -1,9 +1,9 @@
 {
   "type": "deep_aether:poison_recipe",
   "ingredient": {
-    "item": "aether:blue_berry"
+    "item": "aether:enchanted_berry"
   },
   "result": {
-    "item": "aether:enchanted_berry"
+    "item": "aether:blue_berry"
   }
 }

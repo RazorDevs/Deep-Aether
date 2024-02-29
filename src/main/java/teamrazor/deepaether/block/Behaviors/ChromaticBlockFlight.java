@@ -15,7 +15,7 @@ public interface ChromaticBlockFlight {
                 }
                 Vec3 deltaMovement = player.getDeltaMovement();
                 // Updates the flight modifier and timer values.
-                if (aetherPlayer.isJumping() && !onGround(player)) { // Checks if the player is off the ground and holding the jump key (space bar by default).
+                if (aetherPlayer.isJumping() && !player.onGround()) { // Checks if the player is off the ground and holding the jump key (space bar by default).
                     if (aetherPlayer.getFlightModifier() >= aetherPlayer.getFlightModifierMax()) { // Limits the flight modifier to a maximum value.
                         aetherPlayer.setFlightModifier(aetherPlayer.getFlightModifierMax());
                     }
@@ -29,12 +29,12 @@ public interface ChromaticBlockFlight {
                     // Resets only the modifier if the player stops holding the jump key midair. The timer doesn't reset though and remains frozen, and will continue where it left off when the key is held again, preventing infinite flight.
                     aetherPlayer.setFlightModifier(1.0F);
                 }
-                if (onGround(player) /*|| !(player.getDeltaMovement().y <= 0)*/) { // Resets both timer and modifier if the player is on the ground.*/
+                if (player.onGround() /*|| !(player.getDeltaMovement().y <= 0)*/) { // Resets both timer and modifier if the player is on the ground.*/
                     aetherPlayer.setFlightTimer(0);
                     aetherPlayer.setFlightModifier(1.0F);
                 }
                 // Modifies the player's upwards movement based on the set flight modifier and timer values.
-                if (aetherPlayer.isJumping() && !onGround(player) && aetherPlayer.getFlightTimer() > 2 && aetherPlayer.getFlightModifier() > 1.0F) {
+                if (aetherPlayer.isJumping() && !player.onGround() && aetherPlayer.getFlightTimer() > 2 && aetherPlayer.getFlightModifier() > 1.0F) {
                     player.setDeltaMovement(deltaMovement.x(), 0.025F * aetherPlayer.getFlightModifier(), deltaMovement.z());
                 }
                 if (player instanceof ServerPlayer serverPlayer) { // Prevents the player from being kicked for flying.
@@ -43,10 +43,5 @@ public interface ChromaticBlockFlight {
                 }
             });
         }
-    }
-
-
-    private static boolean onGround(Player player) {
-        return (player.onGround());
     }
 }

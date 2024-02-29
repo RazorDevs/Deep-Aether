@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_big_holystone_bricks": {
+    "has_holystone_tiles": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:big_holystone_bricks"
+              "deep_aether:holystone_tiles"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_big_holystone_bricks",
+      "has_holystone_tiles",
       "has_the_recipe"
     ]
   ],

@@ -53,13 +53,13 @@ public class DAFluidInteraction {
         // Poison + Water = Aersmog
         addInteraction(DAFluidTypes.POISON_FLUID_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
                 ForgeMod.WATER_TYPE.get(),
-                fluidState -> fluidState.isSource() ? DABlocks.AERSMOG.get().defaultBlockState() : DABlocks.AERSMOG.get().defaultBlockState()
+                fluidState -> DABlocks.AERSMOG.get().defaultBlockState()
         ));
 
         // Poison + Lava = Crying Obsidian
         addInteraction(DAFluidTypes.POISON_FLUID_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
                 ForgeMod.LAVA_TYPE.get(),
-                fluidState -> fluidState.isSource() ? Blocks.CRYING_OBSIDIAN.defaultBlockState() : Blocks.CRYING_OBSIDIAN.defaultBlockState()
+                fluidState -> Blocks.CRYING_OBSIDIAN.defaultBlockState()
         ));
     }
 

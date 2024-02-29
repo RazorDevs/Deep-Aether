@@ -2,14 +2,12 @@ package teamrazor.deepaether;
 
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether.item.AetherItems;
 import com.google.common.reflect.Reflection;
 import com.legacy.lost_aether.registry.LCEntityTypes;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.gametest.framework.GameTestRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -33,11 +31,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.GameData;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
@@ -51,10 +47,7 @@ import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
-import teamrazor.deepaether.datagen.tags.DABiomeTagData;
-import teamrazor.deepaether.datagen.tags.DABlockTagData;
-import teamrazor.deepaether.datagen.tags.DAEntityTagData;
-import teamrazor.deepaether.datagen.tags.DAItemTagData;
+import teamrazor.deepaether.datagen.tags.*;
 import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -72,7 +65,6 @@ import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
-import java.nio.file.Path;
 import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
 
@@ -101,7 +93,6 @@ public class DeepAetherMod {
 	public static boolean IsHalloweenContentEnabled() {
 		return IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
 	}
-	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(MODID);
 
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
@@ -132,7 +123,6 @@ public class DeepAetherMod {
 		DAFeatures.FEATURES.register(bus);
 		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
-		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 		DARecipe.RECIPE_TYPES.register(bus);
@@ -158,6 +148,7 @@ public class DeepAetherMod {
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DAFluidTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput));
 	}

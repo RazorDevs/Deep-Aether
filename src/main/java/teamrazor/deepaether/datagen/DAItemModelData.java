@@ -28,8 +28,7 @@ public class DAItemModelData extends AetherItemModelProvider {
     @Override
     protected void registerModels() {
 
-        //BLOCKITEMS
-
+        //Roseroot woodset
         this.itemBlock(DABlocks.ROSEROOT_WOOD.get());
         this.itemBlock(DABlocks.ROSEROOT_LOG.get());
         this.itemBlock(DABlocks.STRIPPED_ROSEROOT_WOOD.get());
@@ -54,7 +53,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
         this.item(DAItems.ROSEROOT_SIGN.get());
         this.item(DAItems.ROSEROOT_HANGING_SIGN.get());
+        this.item(DAItems.ROSEROOT_BOAT.get());
+        this.item(DAItems.ROSEROOT_CHEST_BOAT.get());
 
+        //Yagroot woodset
         this.itemBlock(DABlocks.YAGROOT_WOOD.get());
         this.itemBlock(DABlocks.YAGROOT_LOG.get());
         this.itemBlock(DABlocks.STRIPPED_YAGROOT_WOOD.get());
@@ -76,9 +78,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.YAGROOT_ROOTS.get());
         this.itemBlock(DABlocks.MUDDY_YAGROOT_ROOTS.get());
         this.item(DAItems.YAGROOT_HANGING_SIGN.get());
-        this.item(DAItems.AERWHALE_SADDLE.get());
+        this.item(DAItems.YAGROOT_BOAT.get());
+        this.item(DAItems.YAGROOT_CHEST_BOAT.get());
 
-
+        //Cruderoot woodset
         this.itemBlock(DABlocks.CRUDEROOT_WOOD.get());
         this.itemBlock(DABlocks.CRUDEROOT_LOG.get());
         this.itemBlock(DABlocks.STRIPPED_CRUDEROOT_WOOD.get());
@@ -98,7 +101,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CRUDEROOT_LEAVES.get());
         this.item(DAItems.CRUDEROOT_SIGN.get());
         this.item(DAItems.CRUDEROOT_HANGING_SIGN.get());
+        this.item(DAItems.CRUDEROOT_BOAT.get());
+        this.item(DAItems.CRUDEROOT_CHEST_BOAT.get());
 
+        //Conberry woodset
         this.itemBlock(DABlocks.CONBERRY_WOOD.get());
         this.itemBlock(DABlocks.CONBERRY_LOG.get());
         this.itemBlock(DABlocks.STRIPPED_CONBERRY_WOOD.get());
@@ -118,7 +124,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
         this.item(DAItems.CONBERRY_SIGN.get());
         this.item(DAItems.CONBERRY_HANGING_SIGN.get());
+        this.item(DAItems.CONBERRY_BOAT.get());
+        this.item(DAItems.CONBERRY_CHEST_BOAT.get());
 
+        //Sunroot woodset
         this.itemBlock(DABlocks.SUNROOT_WOOD.get());
         this.itemBlock(DABlocks.SUNROOT_LOG.get());
         this.itemBlock(DABlocks.STRIPPED_SUNROOT_WOOD.get());
@@ -138,25 +147,24 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SUNROOT_LEAVES.get());
         this.item(DAItems.SUNROOT_SIGN.get());
         this.item(DAItems.SUNROOT_HANGING_SIGN.get());
+        this.item(DAItems.SUNROOT_BOAT.get());
+        this.item(DAItems.SUNROOT_CHEST_BOAT.get());
 
-        this.itemBlock(DABlocks.BLUE_SQUASH.get());
-        this.itemBlock(DABlocks.GREEN_SQUASH.get());
-        this.itemBlock(DABlocks.PURPLE_SQUASH.get());
-
+        //Mud blockset
         this.itemBlock(DABlocks.AETHER_COARSE_DIRT.get());
         this.itemBlock(DABlocks.AETHER_MUD.get());
         this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
         this.itemBlock(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
+        this.itemWallBlock(DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
-
+        //Ores
         this.itemBlock(DABlocks.SKYJADE_BLOCK.get());
         this.itemBlock(DABlocks.SKYJADE_ORE.get());
-
         this.itemBlock(DABlocks.STRATUS_BLOCK.get());
 
-
+        //Stone types
         this.itemBlock(DABlocks.COBBLED_ASETERITE.get());
         this.itemBlock(DABlocks.COBBLED_ASETERITE_STAIRS.get());
         this.itemBlock(DABlocks.COBBLED_ASETERITE_SLAB.get());
@@ -189,6 +197,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.POLISHED_CLORITE_SLAB.get());
         this.itemBlock(DABlocks.CLORITE_PILLAR.get());
 
+        //Tiles
         this.itemBlock(DABlocks.HOLYSTONE_TILES.get());
         this.itemBlock(DABlocks.HOLYSTONE_TILE_STAIRS.get());
         this.itemBlock(DABlocks.HOLYSTONE_TILE_SLAB.get());
@@ -244,13 +253,17 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
         this.itemBlock(DABlocks.CHISELED_HOLYSTONE.get());
 
-
+        //Plants
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.AETHER_CATTAILS.get());
         this.itemBlockFlatName(DABlocks.TALL_AETHER_CATTAILS.get(), "tall_aether_cattails_top");
         this.itemBlockFlat(DABlocks.RADIANT_ORCHID.get());
         this.itemBlockFlat(DABlocks.LIGHTCAP_MUSHROOMS.get());
+
+        this.itemBlock(DABlocks.BLUE_SQUASH.get());
+        this.itemBlock(DABlocks.GREEN_SQUASH.get());
+        this.itemBlock(DABlocks.PURPLE_SQUASH.get());
 
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
         this.itemBlock(DABlocks.AETHER_MOSS_BLOCK.get());
@@ -268,7 +281,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
 
-        //GENESIS SUPPORT
+        //Genesis compat
         this.itemLogWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
         this.itemLogWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAetherMod.MODID);
         this.itemLogWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), "", DeepAetherMod.MODID);
@@ -281,10 +294,14 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemLogWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAetherMod.MODID);
 
 
-        //ITEMS
+        //Flawless boss drops
         this.item(DAItems.AFTERBURNER.get());
         this.item(DAItems.SUN_CORE.get());
+        this.item(DAItems.AERWHALE_SADDLE.get());
+        this.item(DAItems.SLIDER_EYE.get());
+        this.item(DAItems.MEDAL_OF_HONOR.get());
 
+        //Skyjade set
         this.item(DAItems.SKYJADE.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_SWORD.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_AXE.get());
@@ -297,12 +314,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.chestplateItem(DAItems.SKYJADE_CHESTPLATE.get());
         this.helmetItem(DAItems.SKYJADE_HELMET.get());
         this.glovesItem(DAItems.SKYJADE_GLOVES.get());
-
         this.item(DAItems.SKYJADE_RING.get());
-        this.item(DAItems.SPOOKY_RING.get());
-        this.item(DAItems.SLIDER_EYE.get());
-        this.item(DAItems.MEDAL_OF_HONOR.get());
 
+        //Stratus set
         this.item(DAItems.STRATUS_INGOT.get());
         this.handheldItem(DAItems.STRATUS_SWORD.get());
         this.handheldItem(DAItems.STRATUS_AXE.get());
@@ -321,6 +335,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.GRAVITITE_RING.get());
 
+        //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
         this.item(DAItems.COOKED_AERGLOW_FISH.get());
         this.item(DAItems.AERGLOW_FISH_BUCKET.get());
@@ -330,26 +345,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.COOKED_QUAIL.get());
         this.item(DAItems.QUAIL_EGG.get());
 
-        this.item(DAItems.ROSEROOT_BOAT.get());
-        this.item(DAItems.ROSEROOT_CHEST_BOAT.get());
-        this.item(DAItems.YAGROOT_BOAT.get());
-        this.item(DAItems.YAGROOT_CHEST_BOAT.get());
-        this.item(DAItems.CRUDEROOT_BOAT.get());
-        this.item(DAItems.CRUDEROOT_CHEST_BOAT.get());
-        this.item(DAItems.CONBERRY_BOAT.get());
-        this.item(DAItems.CONBERRY_CHEST_BOAT.get());
-        this.item(DAItems.SUNROOT_BOAT.get());
-        this.item(DAItems.SUNROOT_CHEST_BOAT.get());
+        this.item(DAItems.GOLDEN_BERRIES.get());
 
-        this.item(DAItems.MUSIC_DISC_NABOORU.get());
-        this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
-
-        this.eggItem(DAItems.AETHER_FISH_SPAWN_EGG.get());
-        this.eggItem(DAItems.QUAIL_SPAWN_EGG.get());
-        this.eggItem(DAItems.VENOMITE_SPAWN_EGG.get());
-
-        this.item(DAItems.AERGLOW_BLOSSOM.get());
-        this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+        //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
@@ -359,8 +357,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.FEATHER_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_FEATHER_GRASS.get(), "tall_feather_grass_top");
 
-        this.item(DAItems.GOLDEN_BERRIES.get());
-        //this.itemBlock(DABlocks.VIRULENT_QUICKSAND.get());
         this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
         this.itemBlockFlat(DABlocks.ENCHANTED_BLOSSOM.get());
         this.itemBlockFlat(DABlocks.SKY_TULIPS.get());
@@ -377,8 +373,23 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.BLUE_SQUASH_SLICE.get());
         this.item(DAItems.PURPLE_SQUASH_SLICE.get());
 
-        this.itemWallBlock(DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
+
+        //Spawn eggs
+        this.eggItem(DAItems.AETHER_FISH_SPAWN_EGG.get());
+        this.eggItem(DAItems.QUAIL_SPAWN_EGG.get());
+        this.eggItem(DAItems.VENOMITE_SPAWN_EGG.get());
+
+        //Misc
         this.item(DAItems.CHAOS_EMERALD.get());
+        this.item(DAItems.SPOOKY_RING.get());
+
+        this.item(DAItems.MUSIC_DISC_NABOORU.get());
+        this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
+
+        this.item(DAItems.AERGLOW_BLOSSOM.get());
+
+        this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+
     }
 
     public void handheldItem(Item item) {
