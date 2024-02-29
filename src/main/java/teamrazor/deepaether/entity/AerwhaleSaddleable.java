@@ -12,10 +12,5 @@ public interface AerwhaleSaddleable {
     boolean isSaddleable();
 
     void equipSaddle(@Nullable SoundSource p_21748_);
-
-    default @NotNull SoundEvent getSaddleSoundEvent() {
-        return SoundEvents.HORSE_SADDLE;
-    }
-
     boolean isSaddled();
 }
