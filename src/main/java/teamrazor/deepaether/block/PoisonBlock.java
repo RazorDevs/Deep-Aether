@@ -13,8 +13,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -39,7 +37,7 @@ public class PoisonBlock extends LiquidBlock {
     @Override
     public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
         }
     }
 
@@ -86,7 +84,7 @@ public class PoisonBlock extends LiquidBlock {
 
         //Applies inebriation effect to living entities
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
         }
 
         //Poison recipe code
