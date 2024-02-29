@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_aether_cattails": {
+    "has_tall_aether_cattails": {
       "conditions": {
         "items": [
           {
             "items": [
-              "deep_aether:aether_cattails"
+              "deep_aether:tall_aether_cattails"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_aether_cattails",
+      "has_tall_aether_cattails",
       "has_the_recipe"
     ]
   ],

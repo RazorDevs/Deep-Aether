@@ -58,7 +58,7 @@ public class DABoatRenderer<T extends DABoatEntity> extends EntityRenderer<T> {
         if (f > 0.0f) {
             matrixStack.mulPose(Axis.XP.rotationDegrees(Mth.sin(f) * f * g / 10.0f * (float) entity.getHurtDir()));
         }
-        if (!Mth.equal(h = entity.getBubbleAngle(partialTicks), 0.0f)) {
+        if (!Mth.equal(entity.getBubbleAngle(partialTicks), 0.0f)) {
             matrixStack.mulPose(new Quaternionf().setAngleAxis(entity.getBubbleAngle(partialTicks) * ((float) Math.PI / 180), 1.0f, 0.0f, 1.0f));
         }
         Pair<ResourceLocation, ListModel<Boat>> pair = this.boatResources.get(entity.getWoodType());

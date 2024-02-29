@@ -31,7 +31,7 @@ public class DABlockTagData extends BlockTagsProvider {
 
     @SuppressWarnings("unchecked")
     @Override
-    protected void addTags(HolderLookup.Provider p_256380_) {
+    protected void addTags(HolderLookup.Provider provider) {
         IntrinsicTagAppender<Block> aether_block_tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
         Collection<RegistryObject<Block>> blocks = DABlocks.BLOCKS.getEntries();
 
@@ -53,27 +53,30 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRATUS_BLOCK.get()
         );
 
-        this.tag(DATags.Blocks.ROSEROOT_LOGS).add(
+        tag(DATags.Blocks.ROSEROOT_LOGS).add(
                 DABlocks.ROSEROOT_LOG.get(),
                 DABlocks.ROSEROOT_WOOD.get(),
                 DABlocks.STRIPPED_ROSEROOT_LOG.get(),
                 DABlocks.STRIPPED_ROSEROOT_WOOD.get());
-        this.tag(DATags.Blocks.CRUDEROOT_LOGS).add(
+
+        tag(DATags.Blocks.CRUDEROOT_LOGS).add(
                 DABlocks.CRUDEROOT_LOG.get(),
                 DABlocks.CRUDEROOT_WOOD.get(),
                 DABlocks.STRIPPED_CRUDEROOT_LOG.get(),
                 DABlocks.STRIPPED_CRUDEROOT_WOOD.get());
-        this.tag(DATags.Blocks.YAGROOT_LOGS).add(
+
+        tag(DATags.Blocks.YAGROOT_LOGS).add(
                 DABlocks.YAGROOT_LOG.get(),
                 DABlocks.YAGROOT_WOOD.get(),
                 DABlocks.STRIPPED_YAGROOT_LOG.get(),
                 DABlocks.STRIPPED_YAGROOT_WOOD.get());
-        this.tag(DATags.Blocks.CONBERRY_LOGS).add(
+        tag(DATags.Blocks.CONBERRY_LOGS).add(
                 DABlocks.CONBERRY_LOG.get(),
                 DABlocks.CONBERRY_WOOD.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG.get(),
                 DABlocks.STRIPPED_CONBERRY_WOOD.get());
-        this.tag(DATags.Blocks.SUNROOT_LOGS).add(
+
+        tag(DATags.Blocks.SUNROOT_LOGS).add(
                 DABlocks.SUNROOT_LOG.get(),
                 DABlocks.SUNROOT_WOOD.get(),
                 DABlocks.STRIPPED_SUNROOT_LOG.get(),

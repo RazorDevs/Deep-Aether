@@ -42,7 +42,6 @@ public class DATags {
         public static final TagKey<Block> SUNROOT_LOGS = tag("sunroot_logs");
 
         public static final TagKey<Block> CAN_GOLDEN_VINES_SURVIVE_ON = tag("can_golden_vines_survive_on");
-        public static final TagKey<Block> DEEP_AETHER_COMPAT_BLOCK = tag("deep_aether_compat_block");
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
         }
@@ -58,8 +57,6 @@ public class DATags {
 
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
         public static final TagKey<Biome> CAN_QUAIL_SPAWN = tag("can_quail_spawn");
-        public static final TagKey<Biome> HAS_AETHER_EXTRA_FLOWERS = tag("has_aether_extra_flowers");
-
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
         }

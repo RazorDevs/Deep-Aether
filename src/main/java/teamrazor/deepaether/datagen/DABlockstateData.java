@@ -24,8 +24,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
     @Override
     public void registerStatesAndModels() {
 
-        //WOOD ROSEROOT
-
+        //Roseroot woodset
         this.wood((RotatedPillarBlock) DABlocks.ROSEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.ROSEROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.ROSEROOT_LOG.get());
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_LOG.get());
@@ -51,10 +50,9 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
         this.block(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
         this.signBlock((StandingSignBlock) DABlocks.ROSEROOT_SIGN.get(), (WallSignBlock) DABlocks.ROSEROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.ROSEROOT_PLANKS.get())));
-
         this.hangingSignBlock(DABlocks.ROSEROOT_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.ROSEROOT_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_ROSEROOT_LOG.get())));
-        //WOOD YAGROOT
 
+        //Yagroot woodset
         this.wood((RotatedPillarBlock) DABlocks.YAGROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.YAGROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.YAGROOT_LOG.get());
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_YAGROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_YAGROOT_LOG.get());
@@ -76,8 +74,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.signBlock((StandingSignBlock) DABlocks.YAGROOT_SIGN.get(), (WallSignBlock) DABlocks.YAGROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.YAGROOT_PLANKS.get())));
         this.hangingSignBlock(DABlocks.YAGROOT_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.YAGROOT_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_YAGROOT_LOG.get())));
 
-        //WOOD CRUDEROOT
-
+        //Cruderoot woodset
         this.wood((RotatedPillarBlock) DABlocks.CRUDEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.CRUDEROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.CRUDEROOT_LOG.get());
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_CRUDEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_CRUDEROOT_LOG.get());
@@ -100,7 +97,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.hangingSignBlock(DABlocks.CRUDEROOT_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.CRUDEROOT_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_CRUDEROOT_LOG.get())));
 
 
-        //WOOD CONBERRY
+        //Conberry woodset
         this.wood((RotatedPillarBlock) DABlocks.CONBERRY_WOOD.get(), (RotatedPillarBlock) DABlocks.CONBERRY_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.CONBERRY_LOG.get());
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_CONBERRY_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_CONBERRY_LOG.get());
@@ -123,7 +120,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.hangingSignBlock(DABlocks.CONBERRY_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.CONBERRY_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_CONBERRY_LOG.get())));
 
 
-        //WOOD SUNROOT
+        //Sunroot woodset
         this.wood((RotatedPillarBlock) DABlocks.SUNROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.SUNROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.SUNROOT_LOG.get());
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_SUNROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_SUNROOT_LOG.get());
@@ -144,8 +141,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.signBlock((StandingSignBlock) DABlocks.SUNROOT_SIGN.get(), (WallSignBlock) DABlocks.SUNROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
         this.hangingSignBlock(DABlocks.SUNROOT_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_SUNROOT_LOG.get())));
 
-        //MUD
-
+        //Mud blockset
         this.blockDoubleDrops(DABlocks.AETHER_MUD.get());
         this.blockDoubleDrops(DABlocks.AETHER_COARSE_DIRT.get());
         this.block(DABlocks.PACKED_AETHER_MUD.get());
@@ -154,36 +150,28 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.stairs((StairBlock) DABlocks.AETHER_MUD_BRICKS_STAIRS.get(), DABlocks.AETHER_MUD_BRICKS.get());
         this.wallBlock((WallBlock) DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
-        //ORES
-
+        //Ores
         this.block(DABlocks.SKYJADE_ORE.get());
         this.block(DABlocks.SKYJADE_BLOCK.get());
-
         this.block(DABlocks.STRATUS_BLOCK.get());
 
     
-        //STONE
-        //ASETERITE
+        //Stone Types
         this.block(DABlocks.COBBLED_ASETERITE.get());
         this.stairs((StairBlock) DABlocks.COBBLED_ASETERITE_STAIRS.get(), DABlocks.COBBLED_ASETERITE.get());
         this.slab((SlabBlock) DABlocks.COBBLED_ASETERITE_SLAB.get(), DABlocks.COBBLED_ASETERITE.get());
         this.wallBlock((WallBlock) DABlocks.COBBLED_ASETERITE_WALL.get(), DABlocks.COBBLED_ASETERITE.get());
-
         this.blockDoubleDrops(DABlocks.ASETERITE.get());
         this.stairs((StairBlock) DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
         this.slab((SlabBlock) DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get());
         this.wallBlock((WallBlock) DABlocks.ASETERITE_WALL.get(), DABlocks.ASETERITE.get());
-
         this.block(DABlocks.POLISHED_ASETERITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_ASETERITE_SLAB.get(), DABlocks.POLISHED_ASETERITE.get());
-
         this.block(DABlocks.ASETERITE_BRICKS.get());
         this.stairs((StairBlock) DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.ASETERITE_BRICKS.get());
         this.slab((SlabBlock) DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE_BRICKS.get());
         this.wallBlock((WallBlock) DABlocks.ASETERITE_BRICKS_WALL.get(), DABlocks.ASETERITE_BRICKS.get());
-    
-        //CLORITE        
 
         this.blockDoubleDrops(DABlocks.RAW_CLORITE.get());
         this.stairs((StairBlock) DABlocks.RAW_CLORITE_STAIRS.get(), DABlocks.RAW_CLORITE.get());
@@ -198,35 +186,37 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.slab((SlabBlock) DABlocks.POLISHED_CLORITE_SLAB.get(), DABlocks.POLISHED_CLORITE.get());
         this.log((RotatedPillarBlock) DABlocks.CLORITE_PILLAR.get());
 
-        //PLANTS
-
+        //Plants
         this.crossBlock(DABlocks.AERLAVENDER.get());
         this.crossBlock(DABlocks.TALL_AERLAVENDER.get());
         this.crossBlock(DABlocks.AETHER_CATTAILS.get());
         this.crossBlock(DABlocks.RADIANT_ORCHID.get());
+        this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
+        this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
+        this.crossBlock(DABlocks.SKY_TULIPS.get());
+        this.crossBlock(DABlocks.IASPOVE.get());
+        this.crossBlock(DABlocks.GOLDEN_ASPESS.get());
+        this.crossBlock(DABlocks.ECHAISY.get());
+
         this.pottedPlantFix(DABlocks.POTTED_AERLAVENDER.get(), DABlocks.AERLAVENDER.get());
         this.pottedPlantFix(DABlocks.POTTED_TALL_AERLAVENDER.get(), DABlocks.TALL_AERLAVENDER.get());
         this.pottedPlantFix(DABlocks.POTTED_AETHER_CATTAILS.get(), DABlocks.AETHER_CATTAILS.get());
         this.pottedPlant(DABlocks.POTTED_RADIANT_ORCHID.get(), DABlocks.RADIANT_ORCHID.get());
+        this.pottedPlant(DABlocks.POTTED_ENCHANTED_BLOSSOM.get(), DABlocks.ENCHANTED_BLOSSOM.get());
+        this.pottedPlant(DABlocks.POTTED_SKY_TULIPS.get(), DABlocks.SKY_TULIPS.get());
+        this.pottedPlant(DABlocks.POTTED_GOLDEN_ASPESS.get(), DABlocks.GOLDEN_ASPESS.get());
+        this.pottedPlant(DABlocks.POTTED_IASPOVE.get(), DABlocks.IASPOVE.get());
+        this.pottedPlant(DABlocks.POTTED_ECHAISY.get(), DABlocks.ECHAISY.get());
+
         this.crossBlock(DABlocks.FEATHER_GRASS.get());
         this.crossBlock(DABlocks.MINI_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.crossBlock(DABlocks.SHORT_GOLDEN_GRASS.get());
-        this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
-        this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
-        this.pottedPlant(DABlocks.POTTED_ENCHANTED_BLOSSOM.get(), DABlocks.ENCHANTED_BLOSSOM.get());
-        this.crossBlock(DABlocks.SKY_TULIPS.get());
-        this.pottedPlant(DABlocks.POTTED_SKY_TULIPS.get(), DABlocks.SKY_TULIPS.get());
-        this.crossBlock(DABlocks.IASPOVE.get());
-        this.pottedPlant(DABlocks.POTTED_IASPOVE.get(), DABlocks.IASPOVE.get());
-        this.crossBlock(DABlocks.GOLDEN_ASPESS.get());
-        this.pottedPlant(DABlocks.POTTED_GOLDEN_ASPESS.get(), DABlocks.GOLDEN_ASPESS.get());
-        this.crossBlock(DABlocks.ECHAISY.get());
-        this.pottedPlant(DABlocks.POTTED_ECHAISY.get(), DABlocks.ECHAISY.get());
+
         this.crossBlock(DABlocks.LIGHTCAP_MUSHROOMS.get());
 
 
-        //TILES
+        //Tiles
         this.block(DABlocks.HOLYSTONE_TILES.get());
         this.stairs((StairBlock) DABlocks.HOLYSTONE_TILE_STAIRS.get(), DABlocks.HOLYSTONE_TILES.get());
         this.slab((SlabBlock) DABlocks.HOLYSTONE_TILE_SLAB.get(), DABlocks.HOLYSTONE_TILES.get());
@@ -277,15 +267,14 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.log((RotatedPillarBlock) DABlocks.HOLYSTONE_PILLAR.get());
         this.block(DABlocks.CHISELED_HOLYSTONE.get());
 
-        //MISC
+        //Misc
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
         this.translucentBlock(DABlocks.AERSMOG.get());
         this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
         this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
 
-        //MOSS
+        //Moss
         this.block(DABlocks.AETHER_MOSS_BLOCK.get());
-
 
         //GENESIS COMPATIBILITY
         this.makeLogWalls();

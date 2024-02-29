@@ -65,7 +65,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> STRIPPED_ROSEROOT_WALL = registerBlock(300, "stripped_roseroot_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final RegistryObject<Block> ROSEROOT_PLANKS = registerBlock(300, "roseroot_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 	public static final RegistryObject<Block> ROSEROOT_STAIRS = registerBlock("roseroot_stairs", () -> new StairBlock(() -> DABlocks.ROSEROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
-	public static final RegistryObject<Block> ROSEROOT_SLAB = registerBlock("roseroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
+	public static final RegistryObject<SlabBlock> ROSEROOT_SLAB = registerBlock("roseroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
 	public static final RegistryObject<Block> ROSEROOT_FENCE = registerBlock("roseroot_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)));
 	public static final RegistryObject<Block> ROSEROOT_FENCE_GATE = registerBlock("roseroot_fence_gate", () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), DAWoodTypes.ROSEROOT));
 	public static final RegistryObject<Block> ROSEROOT_PRESSURE_PLATE = registerBlock("roseroot_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), DAWoodTypes.ROSEROOT_BLOCK_SET));
