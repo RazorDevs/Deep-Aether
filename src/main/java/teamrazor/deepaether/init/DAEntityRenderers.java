@@ -24,6 +24,7 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE.get(), VenomiteRenderer::new);
+		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);

@@ -51,6 +51,11 @@ public class DAEntities {
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Venomite::new)
 					.sized(0.7F, 0.6F));
 
+	public static final RegistryObject<EntityType<Windfly>> WINDFLY = register("windfly",
+			EntityType.Builder.<Windfly>of(Windfly::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Windfly::new)
+					.sized(1F, 1F));
+
 	public static final RegistryObject<EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",
 			() -> EntityType.Builder.<FireProjectile>of(FireProjectile::new, MobCategory.MISC).sized(0.35F, 0.35F).clientTrackingRange(4).updateInterval(10).build("fire_projectile"));
 
@@ -66,6 +71,7 @@ public class DAEntities {
 			AerglowFish.createAttributes();
 			Quail.init();
 			Venomite.init();
+			Windfly.init();
 		});
 	}
 
@@ -74,5 +80,6 @@ public class DAEntities {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
+		event.put(WINDFLY.get(), Windfly.createAttributes().build());
 	}
 }
