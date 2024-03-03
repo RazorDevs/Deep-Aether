@@ -60,12 +60,12 @@ public class VenomiteBubble extends ThrowableProjectile {
     }
 
     private void explode(){
-        level().explode(this, this.getX(),this.getY(),this.getZ(),1, Level.ExplosionInteraction.MOB);
+        level().explode(this, this.getX(),this.getY(),this.getZ(),1, Level.ExplosionInteraction.NONE);
     }
 
 
     protected float getGravity() {
-        return 0.01F;
+        return 0.07F;
     }
     public void handleEntityEvent(byte id) {
         super.handleEntityEvent(id);
@@ -87,5 +87,7 @@ public class VenomiteBubble extends ThrowableProjectile {
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
+
+
 }
 

@@ -217,7 +217,7 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
 
     @Override
     public void remove(RemovalReason removalReason) {
-        if(!this.level().isClientSide && this.isDeadOrDying()) {
+        if(!this.level().isClientSide && this.isDeadOrDying() && random.nextBoolean()) {
             VenomiteBubble bubble = new VenomiteBubble(DAEntities.VENOMITE_BUBBLE.get(), this.level());
             bubble.moveTo(this.getPosition(0));
             this.level().addFreshEntity(bubble);

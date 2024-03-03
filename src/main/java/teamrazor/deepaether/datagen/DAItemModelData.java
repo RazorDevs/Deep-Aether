@@ -383,6 +383,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.CHAOS_EMERALD.get());
         this.item(DAItems.SPOOKY_RING.get());
 
+        this.item(DAItems.BIO_CRYSTAL.get());
+
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
 

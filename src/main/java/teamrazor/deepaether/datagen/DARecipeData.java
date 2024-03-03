@@ -158,6 +158,15 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.BREWING_STAND, 1)
+                .group("minecraft:brewing_stand")
+                .define('I', DAItems.BIO_CRYSTAL.get())
+                .define('D', AetherBlocks.HOLYSTONE.get().asItem())
+                .pattern(" I ")
+                .pattern("DDD")
+                .unlockedBy(getHasName(DAItems.BIO_CRYSTAL.get()), has(DAItems.BIO_CRYSTAL.get()))
+                .save(consumer, name("crystal_brewing_stand"));
+
         //Stone types
         //Aseterite
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());

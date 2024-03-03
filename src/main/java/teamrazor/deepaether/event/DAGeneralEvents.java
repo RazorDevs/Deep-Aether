@@ -21,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -28,6 +29,7 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
+import teamrazor.deepaether.entity.VenomiteBubble;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 
@@ -39,14 +41,14 @@ import java.util.UUID;
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
 
-    /*@SubscribeEvent
-    public static void onVenomiteDeath(LivingDeathEvent event){
-        if(event.getEntity() instanceof Venomite venomite){
-            VenomiteBubble bubble = new VenomiteBubble(DAEntities.VENOMITE_BUBBLE.get(), venomite.level());
-            bubble.moveTo(venomite.getPosition(0));
-            venomite.level().addFreshEntity(bubble);
+    @SubscribeEvent
+    public static void onBubbleExplosion(ExplosionEvent event){
+        if(event.getExplosion().getDirectSourceEntity() instanceof VenomiteBubble proj){
+            ItemEntity item = new ItemEntity(proj.level(), proj.getX(), proj.getY(), proj.getZ(), new ItemStack(DAItems.BIO_CRYSTAL.get()));
+            item.moveTo(proj.getPosition(0));
+            proj.level().addFreshEntity(item);
         }
-    }*/
+    }
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {

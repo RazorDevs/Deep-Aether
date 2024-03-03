@@ -422,6 +422,7 @@ public class DATabs {
             addToTab(AetherItems.AECHOR_PETAL.get(), DAItems.AERGLOW_BLOSSOM.get(), event);
             addToTab(AetherItems.SWET_BALL.get(), new Item[]{
                     DAItems.QUAIL_EGG.get(),
+                    DAItems.BIO_CRYSTAL.get(),
                     DAItems.STRATUS_SMITHING_TEMPLATE.get()
             }, event);
         }
