@@ -93,15 +93,14 @@ public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
 
     public void tick() {
         this.setXRotOData(this.getXRotData());
-        if(random.nextInt(5) == 0)
+
+        if(random.nextInt(7) == 0)
             this.level().addParticle(ParticleTypes.END_ROD, this.getX() + random.nextFloat(), this.getY() + 0.3, this.getZ() - 0.5, 0.0, 0.0, 0.0);
-        if(random.nextInt(5) == 0)
+        if(random.nextInt(7) == 0)
             this.level().addParticle(ParticleTypes.END_ROD, this.getX() - random.nextFloat(), this.getY() + 0.3, this.getZ() - 0.5, 0.0, 0.0, 0.0);
 
         super.tick();
     }
-
-
 
     public float getXRotOData() {
         return (Float)this.getEntityData().get(DATA_X_ROT_O_ID);

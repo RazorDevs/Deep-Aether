@@ -5,7 +5,6 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
@@ -13,7 +12,6 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
@@ -40,6 +38,15 @@ import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
+
+    /*@SubscribeEvent
+    public static void onVenomiteDeath(LivingDeathEvent event){
+        if(event.getEntity() instanceof Venomite venomite){
+            VenomiteBubble bubble = new VenomiteBubble(DAEntities.VENOMITE_BUBBLE.get(), venomite.level());
+            bubble.moveTo(venomite.getPosition(0));
+            venomite.level().addFreshEntity(bubble);
+        }
+    }*/
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
