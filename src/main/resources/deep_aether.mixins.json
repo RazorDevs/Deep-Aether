@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "deep_aether.refmap.json",
   "mixins": [
+    "BrewingFuelMixin",
+    "BrewingFuelMenuMixin",
     "AerwhaleKingMixin",
     "AerwhaleMixin",
     "MoaMixin",
