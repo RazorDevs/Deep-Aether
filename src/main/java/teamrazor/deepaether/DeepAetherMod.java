@@ -16,10 +16,16 @@ import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipe;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
@@ -54,6 +60,7 @@ import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.util.BetterBrewingRecipe;
 import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
 import teamrazor.deepaether.world.feature.DAFeatures;
@@ -123,6 +130,7 @@ public class DeepAetherMod {
 		DAFeatures.FEATURES.register(bus);
 		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
+		DAPotions.POTIONS.register(bus);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 		DARecipe.RECIPE_TYPES.register(bus);
@@ -171,6 +179,7 @@ public class DeepAetherMod {
 		{
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));
 		});
 	}
 
