@@ -1,0 +1,49 @@
+name: 'Bug Report'
+description: Create a bug report
+title: '<title>'
+body:
+  - type: input
+    id: modloader-ver
+    attributes:
+      label: Forge/Neoforge Version
+      description: What version of Forge or Neoforge are you running?
+      placeholder: "neoforge-0.0.0"
+    validations:
+      required: true
+  - type: input
+    id: deep-aether-version
+    attributes:
+      label: Deep Aether Version
+      description: What version of Deep Aether are you running? Please use the latest version of Deep Aether before reporting a bug.
+      placeholder: "1.0.2"
+    validations:
+      required: true
+  - type: input
+    id: terrablender-version
+    attributes:
+      label: Terrablender Version
+      description: What version of Terrablender are you running? Versions below 2.0.1.166 are incompatible with Aeroblender.
+      placeholder: "3.0.1.4"
+    validations:
+      required: true
+  - type: input
+    id: aether-version
+    attributes:
+      label: Aether Version
+      description: What version of Aether are you running?
+      placeholder: "1.1.1"
+    validations:
+      required: true
+  - type: textarea
+    id: client-log
+    attributes:
+      label: Log Files
+      description: Please provide the latest.log file found inside the 'logs' folder inside of your Minecraft instance's folder. If you're playing on a server, and are able to obtain the server log file, please provide that file too. Alternative you can provide a crash report, but the latest.log file is preferred.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Bug Report
+      description: Provide information about the bug, how to reproduce it, what happened, and what you expected to happen. Provide screenshots if necessary.
+    validations:
+      required: true

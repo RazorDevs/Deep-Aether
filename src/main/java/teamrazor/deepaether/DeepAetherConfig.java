@@ -1,14 +1,8 @@
 package teamrazor.deepaether;
 
-import com.aetherteam.aether.entity.AetherEntityTypes;
-import org.apache.commons.lang3.tuple.Pair;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import teamrazor.deepaether.init.DAItems;
-
-import java.util.HashMap;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class DeepAetherConfig {
 
