@@ -11,8 +11,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +23,7 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -84,11 +87,14 @@ public class DABlockInteractionBehavior {
         else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
+            BlockState blockHitState = world.getBlockState(blockRayTraceResult.getBlockPos());
             if (blockRayTraceResult.getType() == HitResult.Type.MISS) {
                 event.setCancellationResult(InteractionResult.PASS);
             } else if (blockRayTraceResult.getType() != HitResult.Type.BLOCK) {
                 event.setCancellationResult(InteractionResult.PASS);
-            } else if (world.getBlockState(blockRayTraceResult.getBlockPos()).getBlock() == Blocks.CAULDRON) {
+            } else if (blockHitState.getBlock() == Blocks.CAULDRON) {
+                event.setCancellationResult(InteractionResult.PASS);
+            } else if(!(player.isShiftKeyDown()) && blockHitState.hasBlockEntity() && (world.getBlockEntity(blockRayTraceResult.getBlockPos()) instanceof MenuProvider)) {
                 event.setCancellationResult(InteractionResult.PASS);
             } else {
                 BlockPos blockpos = blockRayTraceResult.getBlockPos();
