@@ -34,7 +34,7 @@ body:
       placeholder: "1.1.1"
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: client-log
     attributes:
       label: Log Files
