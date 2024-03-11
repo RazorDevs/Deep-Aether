@@ -706,9 +706,6 @@
   "fluid_type.deep_aether.poison_fluid": "Poison",
   "block.deep_aether.poison": "Poison",
 
-
-
-
   "item.deep_aether.skyjade_shield": "Skyjade Shield",
   "item.deep_aether.stratus_shield": "Stratus Shield",
 
@@ -724,7 +721,12 @@
   "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall",
 
   "item.deep_aether.chaos_emerald": "Chaos Emerald",
-  "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!"
+  "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!",
+
+  "item.minecraft.tipped_arrow.effect.remedy_potion": "Arrow of Remedy",
+  "item.minecraft.potion.effect.remedy_potion": "Potion of Remedy",
+  "item.minecraft.splash_potion.effect.remedy_potion": "Splash Potion of Remedy",
+  "item.minecraft.lingering_potion.effect.remedy_potion": "Lingering Potion of Remedy"
 }
 
 

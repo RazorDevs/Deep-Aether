@@ -164,7 +164,7 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
     //implementation fg.deobf("curse.maven:itemphysic-258587:4914117")
     //implementation fg.deobf("curse.maven:creativecore-257814:5005088")
-    implementation fg.deobf("curse.maven:ancient-aether-886751:5078007")
+    compileOnly fg.deobf("curse.maven:ancient-aether-886751:5078007")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
