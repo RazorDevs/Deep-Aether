@@ -346,6 +346,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.QUAIL_EGG.get());
 
         this.item(DAItems.GOLDEN_BERRIES.get());
+        this.item(DAItems.ANTIDOTE.get());
+        this.item(DAItems.ENCHANTED_ANTIDOTE.get());
 
         //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
@@ -391,6 +393,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.AERGLOW_BLOSSOM.get());
 
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+
+        this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
 
     }
 

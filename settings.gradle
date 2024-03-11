@@ -16,6 +16,9 @@ pluginManagement {
         maven { url = 'https://maven.parchmentmc.org' }
         maven { url = 'https://maven.moddingx.org' }
     }
+    plugins {
+        id 'org.jetbrains.kotlin.jvm' version '1.9.22'
+    }
 }
 
 plugins {

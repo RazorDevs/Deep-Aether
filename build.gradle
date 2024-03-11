@@ -6,6 +6,7 @@ plugins {
     id 'net.neoforged.gradle' version '[6.0.13, 6.2)'
     id 'io.github.0ffz.github-packages' version '[1,2)'
     id 'org.spongepowered.mixin' version '[0.7,0.8)'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 
@@ -127,6 +128,7 @@ repositories {
     flatDir {
         dir 'libs'
     }
+    mavenCentral()
 }
 
 dependencies {
@@ -163,6 +165,7 @@ dependencies {
     //implementation fg.deobf("curse.maven:itemphysic-258587:4914117")
     //implementation fg.deobf("curse.maven:creativecore-257814:5005088")
     implementation fg.deobf("curse.maven:ancient-aether-886751:5078007")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 jar {
@@ -212,4 +215,7 @@ tasks.withType(JavaCompile).configureEach {
 
 build {
     dependsOn 'jarJar'
+}
+kotlin {
+    jvmToolchain(17)
 }

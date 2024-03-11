@@ -401,9 +401,12 @@ public class DATabs {
 
             addToTab(AetherItems.WHITE_APPLE.get(), new Item[]{
                     DAItems.GOLDEN_BERRIES.get(),
+                    DAItems.FROZEN_GOLDEN_BERRIES.get(),
                     DAItems.BLUE_SQUASH_SLICE.get(),
                     DAItems.GREEN_SQUASH_SLICE.get(),
-                    DAItems.PURPLE_SQUASH_SLICE.get()
+                    DAItems.PURPLE_SQUASH_SLICE.get(),
+                    DAItems.ANTIDOTE.get(),
+                    DAItems.ENCHANTED_ANTIDOTE.get()
             }, event);
         }
 
