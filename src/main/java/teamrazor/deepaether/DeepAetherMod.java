@@ -37,6 +37,7 @@ import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.Behaviors.DADispenseBehaviors;
 import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
+import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -104,6 +105,7 @@ public class DeepAetherMod {
 		DaTrunkPlacerTypes.TRUNK_PLACERS.register(bus);
 		DAFeatures.FEATURES.register(bus);
 		DAMobEffects.EFFECTS.register(bus);
+		DAGlobalLootModifiers.LOOT_MODIFIERS.register(bus);
 
 		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);

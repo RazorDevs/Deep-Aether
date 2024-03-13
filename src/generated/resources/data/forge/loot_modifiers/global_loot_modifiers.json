@@ -2,8 +2,7 @@
   "entries": [
     "deep_aether:silver_loot_modifiers",
     "deep_aether:silver_loot_reward_modifiers",
-    "deep_aether:gold_loot_modifiers",
-    "deep_aether:gold_loot_stratus_upgrade"
+    "deep_aether:gold_loot_modifiers"
   ],
   "replace": false
 }
