@@ -179,6 +179,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer, name("glass_antidote"));
 
         freezingRecipe(RecipeCategory.MISC, (ItemLike) DAItems.FROZEN_GOLDEN_BERRIES.get(), (ItemLike) DAItems.GOLDEN_BERRIES.get(), 1, 100).save(consumer, this.name("golden_berries_freezing"));
+        enchantingRecipe(RecipeCategory.MISC, (ItemLike) DAItems.ENCHANTED_ANTIDOTE.get(), (ItemLike) DAItems.ANTIDOTE.get(), 1, 100).save(consumer, this.name("antidote_enchanting"));
 
         //Stone types
         //Aseterite
