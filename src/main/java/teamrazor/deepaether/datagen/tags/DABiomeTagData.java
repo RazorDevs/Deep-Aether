@@ -26,7 +26,8 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.BLUE_AERGLOW_FOREST,
                 DABiomes.YAGROOT_SWAMP,
                 DABiomes.GOLDEN_HEIGHTS,
-                DABiomes.GOLDEN_GROVE
+                DABiomes.GOLDEN_GROVE,
+                DABiomes.SACRED_LANDS
         );
 
         this.tag(DATags.Biomes.IS_NOT_SWAMP).add(
@@ -35,7 +36,8 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.MYSTIC_AERGLOW_FOREST,
                 DABiomes.BLUE_AERGLOW_FOREST,
                 DABiomes.GOLDEN_HEIGHTS,
-                DABiomes.GOLDEN_GROVE
+                DABiomes.GOLDEN_GROVE,
+                DABiomes.SACRED_LANDS
         );
         this.tag(DATags.Biomes.CAN_QUAIL_SPAWN).add(
                 DABiomes.AERLAVENDER_FIELDS,

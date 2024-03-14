@@ -14,6 +14,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
         public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
+        public final ConfigValue<Boolean> disable_sacred_lands_biomes;
         public final ConfigValue<String> slider_flawless_boss_drop;
         public final ConfigValue<String> valkyrie_queen_flawless_boss_drop;
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
@@ -96,6 +97,13 @@ public class DeepAetherConfig {
                     .comment("Disables Aerlavender Fields biomes from generating. Might make some content unobtainable")
                     .translation("config.deep_aether.common.gameplay.disable_aerlavenender_field_biomes")
                     .define("Disable Aerlavender Fields Biomes", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            disable_sacred_lands_biomes = builder
+                    .comment("Disables Sacred Lands biomes from generating. Might make some content unobtainable")
+                    .translation("config.deep_aether.common.gameplay.disable_sacred_lands_biomes")
+                    .define("Disable Sacred Lands Biomes", false);
             builder.pop();
         }
     }

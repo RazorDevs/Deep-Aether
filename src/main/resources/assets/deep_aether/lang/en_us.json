@@ -663,6 +663,10 @@
   "lore.block.deep_aether.enchanted_blossom": "This flower spawns in the Golden Heights biome. It can be crafted into White Dye.",
   "item.deep_aether.goldenleaf_berries": "Goldenleaf Berries",
   "lore.item.deep_aether.goldenleaf_berries": "Goldenleaf Berries come from Golden Vines that grow from Quicksoil. They restore 2 hunger bars.",
+  "item.deep_aether.frozen_goldenleaf_berries": "Frozen Goldenleaf Berries",
+
+  "item.deep_aether.bio_crystal": "Bio Crystal",
+
   "block.deep_aether.golden_heights_dirt_path": "Golden Dirt Path",
   "lore.block.deep_aether.golden_heights_dirt_path": "This is the path block variant of Golden Grass.",
   "block.deep_aether.aether_coarse_dirt": "Aether Coarse Dirt",
@@ -726,7 +730,10 @@
   "item.minecraft.tipped_arrow.effect.remedy_potion": "Arrow of Remedy",
   "item.minecraft.potion.effect.remedy_potion": "Potion of Remedy",
   "item.minecraft.splash_potion.effect.remedy_potion": "Splash Potion of Remedy",
-  "item.minecraft.lingering_potion.effect.remedy_potion": "Lingering Potion of Remedy"
+  "item.minecraft.lingering_potion.effect.remedy_potion": "Lingering Potion of Remedy",
+
+  "item.deep_aether.antidote": "Antidote",
+  "item.deep_aether.enchanted_antidote": "Enchanted Antidote"
 }
 
 
