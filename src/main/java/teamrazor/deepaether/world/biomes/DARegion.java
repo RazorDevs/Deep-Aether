@@ -66,6 +66,10 @@ public class DARegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(0.3F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_GROVE);
 
+            // Sacred Lands
+            this.addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.33F, 0.33F), fullRange, fullRange, fullRange, fullRange, 0),
+                    DABiomes.SACRED_LANDS);
+
             // Row 3
             addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-1.5F, -0.4F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_GROVE);
