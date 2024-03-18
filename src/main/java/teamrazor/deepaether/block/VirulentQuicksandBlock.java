@@ -77,19 +77,11 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
                 }
             }
         }
-        if (!entity.isSpectator() && hasEntityMoved(entity)) {
+        if (((int)entity.getEyeY()) == pos.getY())
             if (entity instanceof LivingEntity living)
-            {
                 living.hurt(level.damageSources().inWall(), 1f);
-            }
-        }
     }
 
-    public boolean hasEntityMoved(Entity entity) {
-        return entity.xOld - entity.getX() >= 0.001 ||
-                entity.yOld - entity.getY() >= 0.001 ||
-                entity.zOld - entity.getZ() >= 0.001;
-    }
 
     @Override
     public ItemStack pickupBlock(LevelAccessor accessor, @NotNull BlockPos pos, @NotNull BlockState blockState) {
