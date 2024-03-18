@@ -2,6 +2,7 @@ package teamrazor.deepaether.entity;
 
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -17,6 +18,8 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -93,6 +96,12 @@ public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
 
     public void tick() {
         this.setXRotOData(this.getXRotData());
+
+        if(random.nextInt(90) == 0) {
+            ItemEntity shard = new ItemEntity(this.level(), 0, 0, 0, new ItemStack(AetherItems.AMBROSIUM_SHARD.get()));
+            shard.moveTo(this.position());
+            this.level().addFreshEntity(shard);
+        }
 
         if(random.nextInt(7) == 0)
             this.level().addParticle(ParticleTypes.END_ROD, this.getX() + random.nextFloat(), this.getY() + 0.3, this.getZ() - 0.5, 0.0, 0.0, 0.0);
