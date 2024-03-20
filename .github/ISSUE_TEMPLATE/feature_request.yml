@@ -1,0 +1,26 @@
+name: 'Feature/Idea Request'
+description: Suggest an idea or a feature to add
+title: '<title>'
+body:
+  - type: textarea
+    id: idea-text
+    attributes:
+      label: Feature/Idea
+      description: Briefly describe what you have in mind
+      placeholder: "Write here."
+    validations:
+      required: true
+  - type: textarea
+    id: value-list
+    attributes:
+      label: Value of Proposition
+      description: Why should we implement your idea and why?
+      placeholder: "Write here."
+    validations:
+      required: true
+  - type: checkboxes
+    id: credited
+    attributes:
+      label: Credit
+      options:
+        - label: I want to be credited for the idea.
