@@ -2,6 +2,7 @@ package teamrazor.deepaether.event;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,7 +22,7 @@ public class DAClientForgeBusEvents {
         Player player = mc.player;
         if (player != null) {
             if (mc.level != null) {
-                BlockState state = mc.level.getBlockState(new BlockPos(player.blockPosition().above(1)));
+                BlockState state = mc.level.getBlockState(new BlockPos(new Vec3i(player.getBlockX(), (int) player.getEyeY(), player.getBlockZ())));
                 if (state.is(DABlocks.VIRULENT_QUICKSAND.get())) {
                     event.setNearPlaneDistance(0.5f);
                     event.setFarPlaneDistance(1.8f);
