@@ -104,7 +104,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
                         f4 = 1.0F;
                     }
 
-                    this.walkAnimation.update(f4, 0.4F);
+                    //this.walkAnimation.update(f4, 0.4F);
                 }
             } else {
                 super.travel(vector);

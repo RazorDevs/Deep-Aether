@@ -1,7 +1,9 @@
 package teamrazor.deepaether.item.gear.other;
 
+import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -65,13 +67,16 @@ public class SliderEye extends RingItem {
 
             //Triggers the shockwave if the entity hits a block
             if (player.isOnGround()) {
-                maxFallTime = 0;
+                if(!(player instanceof ServerPlayer)) {
+                    maxFallTime = 0;
+                }
 
                 //Range of shockwave
-                AABB aabb = player.getBoundingBox().inflate(3.0F);
+                AABB aabb = new AABB(player.position().add(-3,-1,-3), player.position().add(3,4,3));
 
                 List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
                 float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+
 
                 //Pushes all entities within range
                 for (LivingEntity target : entities) {
@@ -93,16 +98,16 @@ public class SliderEye extends RingItem {
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
         if (mayUse(stack, player)) {
-            player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
+            if(!player.isCreative())
+                player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
             player.setDeltaMovement(0F, 0F, 0F);
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
 
-            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-                aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
-            });
+            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true));
 
+            level.playSound(player, player.getOnPos(), AetherSoundEvents.ENTITY_SLIDER_MOVE.get(), SoundSource.PLAYERS, 0f, 0f);
             maxFallTime = 200;
         }
 
@@ -110,14 +115,17 @@ public class SliderEye extends RingItem {
             maxFallTime--;
 
 
-            player.getDeltaMovement().add(new Vec3(0F, -0.5F, 0F));
+            player.getDeltaMovement().add(new Vec3(0F, -0.3F, 0F));
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
 
             if (player.isOnGround()) {
                 maxFallTime = 0;
-                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS, 0.0f, 0.0f);
+                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS, 0f, 0f);
+
+                //Adds explosion
+                level.addParticle(ParticleTypes.EXPLOSION_EMITTER, player.getX(), player.getY(), player.getZ(), 1.0D, 0.0D, 0.0D);
             }
         }
     }
