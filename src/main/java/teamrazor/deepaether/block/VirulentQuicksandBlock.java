@@ -83,7 +83,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
         if (!entity.isSpectator() && hasEntityMoved(entity)) {
             if (entity instanceof LivingEntity living)
             {
-                living.hurt(DamageSource.IN_WALL, 2f);
+                living.hurt(DamageSource.IN_WALL, 1f);
             }
         }
     }
