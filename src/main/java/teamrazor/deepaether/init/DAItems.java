@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
@@ -30,6 +31,7 @@ import teamrazor.deepaether.item.gear.other.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
+import teamrazor.deepaether.item.moa_food.FodderItem;
 import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
 
@@ -104,7 +106,11 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
 	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).stacksTo(1)));
 
-	//BOATS
+	// MOA FODDER
+
+	public static final RegistryObject<Item> BASIC_FODDER = ITEMS.register("basic_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.MOVEMENT_SPEED, -1, 1, true, true, true)));
+
+	// BOATS
 	public static final RegistryObject<Item> ROSEROOT_BOAT = ITEMS.register("roseroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.ROSEROOT));
 	public static final RegistryObject<Item> ROSEROOT_CHEST_BOAT = ITEMS.register("roseroot_chest_boat", () -> new DABoatItem(true, new Item.Properties().stacksTo(1),  DABoatEntity.Type.ROSEROOT));
 	public static final RegistryObject<Item> YAGROOT_BOAT = ITEMS.register("yagroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.YAGROOT));

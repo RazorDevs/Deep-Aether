@@ -349,6 +349,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.ANTIDOTE.get());
         this.item(DAItems.ENCHANTED_ANTIDOTE.get());
 
+        //Moa Fodder
+        this.placeholder(DAItems.BASIC_FODDER.get());
+
         //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
@@ -407,6 +410,12 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + this.itemName(item)));
     }
+
+    public void placeholder(Item item) {
+        this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/placeholder"));
+    }
+
     public void itemFence(Block block, Block baseBlock) {
         this.withExistingParent(this.blockName(block), this.mcLoc("block/fence_inventory"))
                 .texture("texture", this.texture(this.blockName(baseBlock)));

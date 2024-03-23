@@ -1,0 +1,52 @@
+package teamrazor.deepaether.item.moa_food;
+
+import com.aetherteam.aether.entity.passive.Moa;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+
+public class FodderItem extends Item {
+
+    private MobEffectInstance effect;
+
+    public FodderItem(Properties properties, MobEffectInstance effect) {
+        super(properties);
+        this.effect = effect;
+    }
+
+    public MobEffectInstance getMobEffect(){
+        return effect;
+    }
+
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity livingEntity, InteractionHand interactionHand) {
+        if(!(livingEntity instanceof Moa))
+            return InteractionResult.FAIL;
+
+        if(!player.isCreative())
+            itemStack.shrink(1);
+
+        applyMoaEffect(livingEntity);
+
+        if(livingEntity.hasEffect(MobEffects.MOVEMENT_SPEED))
+            player.sendSystemMessage(Component.literal("Effect confirmed."));
+
+        return InteractionResult.CONSUME;
+    }
+
+    @Override
+    public boolean isEdible() {
+        return false;
+    }
+
+    private boolean applyMoaEffect(LivingEntity livingEntity) {
+        livingEntity.level().players().get(0).sendSystemMessage(Component.literal("Effect applied."));
+        return livingEntity.addEffect(getMobEffect());
+    }
+}
