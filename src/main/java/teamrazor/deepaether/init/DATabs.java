@@ -184,15 +184,7 @@ public class DATabs {
                         DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(),
                         DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(),
                         DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(),
-                        DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(),
-                        DABlocks.FROSTED_HOLYSTONE_BRICKS.get(),
-                        DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get(),
-                        DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get(),
-                        DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(),
-                        DABlocks.FROSTED_HOLYSTONE_TILES.get(),
-                        DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get(),
-                        DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get(),
-                        DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get()
+                        DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get()
                 }, event);
             }
 

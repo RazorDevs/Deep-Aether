@@ -218,11 +218,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get());
         this.itemWallBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_BRICKS.get());
 
-        this.itemBlock(DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
-        this.itemBlock(DABlocks.FROSTED_HOLYSTONE_BRICK_STAIRS.get());
-        this.itemBlock(DABlocks.FROSTED_HOLYSTONE_BRICK_SLAB.get());
-        this.itemWallBlock(DABlocks.FROSTED_HOLYSTONE_BRICK_WALL.get(), DABlocks.FROSTED_HOLYSTONE_BRICKS.get());
-
         this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS.get());
         this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get());
         this.itemBlock(DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get());
@@ -242,11 +237,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get());
         this.itemBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get());
         this.itemWallBlock(DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(), DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get());
-
-        this.itemBlock(DABlocks.FROSTED_HOLYSTONE_TILES.get());
-        this.itemBlock(DABlocks.FROSTED_HOLYSTONE_TILE_STAIRS.get());
-        this.itemBlock(DABlocks.FROSTED_HOLYSTONE_TILE_SLAB.get());
-        this.itemWallBlock(DABlocks.FROSTED_HOLYSTONE_TILE_WALL.get(), DABlocks.FROSTED_HOLYSTONE_TILES.get());
 
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR.get());
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_UP.get());

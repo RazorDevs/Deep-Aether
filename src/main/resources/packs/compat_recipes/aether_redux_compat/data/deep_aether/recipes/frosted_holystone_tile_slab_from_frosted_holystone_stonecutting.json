@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "aether_redux:frosted_holystone"
-  },
-  "result": "deep_aether:frosted_holystone_tile_slab"
-}
