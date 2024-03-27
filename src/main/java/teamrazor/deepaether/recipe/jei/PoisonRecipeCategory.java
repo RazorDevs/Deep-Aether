@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.recipe.PoisonRecipe;
+import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
 public class PoisonRecipeCategory extends AbstractRecipeCategory<PoisonRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(DeepAetherMod.MODID, "poison_recipe");

@@ -1,4 +1,4 @@
-package teamrazor.deepaether.recipe;
+package teamrazor.deepaether.recipe.poison;
 
 
 import net.minecraft.core.NonNullList;

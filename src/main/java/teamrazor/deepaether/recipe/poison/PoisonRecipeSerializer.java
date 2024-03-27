@@ -1,4 +1,4 @@
-package teamrazor.deepaether.recipe;
+package teamrazor.deepaether.recipe.poison;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -10,7 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -35,7 +34,7 @@ public class PoisonRecipeSerializer<T extends AbstractPoisonRecipe> implements R
             } else {
                 String resultString = GsonHelper.getAsString(json, "result");
                 ResourceLocation resultLocation = new ResourceLocation(resultString);
-                result = new ItemStack((ItemLike) ForgeRegistries.ITEMS.getValue(resultLocation));
+                result = new ItemStack(ForgeRegistries.ITEMS.getValue(resultLocation));
                 if (result.isEmpty()) {
                     throw new IllegalStateException("Item: " + resultString + " does not exist");
                 }

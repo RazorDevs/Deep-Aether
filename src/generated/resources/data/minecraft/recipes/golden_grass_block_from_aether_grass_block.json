@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:golden_swet_ball_recipe",
+  "ingredient": {
+    "block": "aether:aether_grass_block"
+  },
+  "result": {
+    "block": "deep_aether:golden_heights_grass_block"
+  }
+}

@@ -1,6 +1,7 @@
 package teamrazor.deepaether.item.misc;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.item.materials.behavior.ItemUseConversion;
 import net.minecraft.core.BlockPos;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
@@ -12,31 +13,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.GoldenSwetBallRecipe;
 
-public class GoldenSwetBall extends Item {
+public class GoldenSwetBall extends Item implements ItemUseConversion<GoldenSwetBallRecipe> {
     public GoldenSwetBall(Properties properties) {
         super(properties);
     }
-
-    @NotNull
-    @Override
-    public InteractionResult useOn(UseOnContext context) {
-        Level level = context.getLevel();
-        BlockPos pos = context.getClickedPos();
-        ItemStack item = context.getItemInHand();
-        BlockState state = level.getBlockState(pos);
-
-        if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
-            Player player = context.getPlayer();
-            if (player != null && !level.isClientSide) {
-                level.setBlockAndUpdate(pos, DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState());
-                player.awardStat(Stats.ITEM_USED.get(item.getItem()));
-                item.shrink(1);
-            }
-            return InteractionResult.sidedSuccess(level.isClientSide);
-        }
-        else {
-            return InteractionResult.PASS;
-        }
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
+        return this.convertBlock(DARecipe.GOLDEN_SWET_BALL_RECIPE.get(), context);
     }
 }

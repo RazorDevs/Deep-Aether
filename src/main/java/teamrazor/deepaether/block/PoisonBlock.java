@@ -24,7 +24,7 @@ import teamrazor.deepaether.advancement.PoisonTrigger;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.recipe.DARecipe;
-import teamrazor.deepaether.recipe.PoisonRecipe;
+import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
 import java.util.function.Supplier;
 
