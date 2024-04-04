@@ -28,7 +28,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.block.*;
-import teamrazor.deepaether.block.Behaviors.GoldenVines;
+import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.world.feature.tree.grower.*;
 
 import java.util.function.Supplier;
@@ -42,6 +42,7 @@ public class DABlocks {
 			DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAetherMod.MODID);
 
 	//GRASS
+
 	public static final RegistryObject<Block> GOLDEN_GRASS_BLOCK = registerBlock("golden_heights_grass_block", () -> new GoldenGrassBlock(Block.Properties.of().mapColor(MapColor.GOLD).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 	public static final RegistryObject<Block> GOLDEN_DIRT_PATH = registerBlock("golden_heights_dirt_path", () -> new AetherDirtPathBlock(Block.Properties.of().mapColor(MapColor.GOLD).strength(0.2F).sound(SoundType.GRASS)));
 	public static final RegistryObject<Block> AETHER_COARSE_DIRT = registerBlock("aether_coarse_dirt", () -> new AetherCoarseDirtBlock(BlockBehaviour.Properties.copy(Blocks.COARSE_DIRT)));
@@ -56,6 +57,7 @@ public class DABlocks {
 
 
 	// WOOD
+
 	public static final RegistryObject<Block> ROSEROOT_WOOD = registerBlock("roseroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> ROSEROOT_LOG = registerBlock("roseroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> ROTTEN_ROSEROOT_LOG = registerBlock("rotten_roseroot_log", () -> new EmptyLog(Block.Properties.copy(Blocks.OAK_LOG)));
@@ -90,6 +92,7 @@ public class DABlocks {
 
 
 	//YAGROOT
+
 	public static final RegistryObject<Block> YAGROOT_WOOD = registerBlock("yagroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> YAGROOT_LOG = registerBlock("yagroot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> YAGROOT_WALL = registerBlock(300,"yagroot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -120,6 +123,7 @@ public class DABlocks {
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), DAWoodTypes.YAGROOT));
 
 	//CRUDEROOOT
+
 	public static final RegistryObject<Block> CRUDEROOT_WOOD = registerBlock("cruderoot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
 	public static final RegistryObject<Block> CRUDEROOT_LOG = registerBlock("cruderoot_log", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> CRUDEROOT_WALL = registerBlock(300,"cruderoot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
@@ -170,6 +174,7 @@ public class DABlocks {
 			BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), DAWoodTypes.CONBERRY));
 	public static final RegistryObject<Block> CONBERRY_WALL_HANGING_SIGN = BLOCKS.register("conberry_wall_hanging_sign", () -> new DAWallHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), DAWoodTypes.CONBERRY));
+
 	//SUNROOT
 
 	public static final RegistryObject<Block> SUNROOT_WOOD = registerBlock("sunroot_wood", () -> new DALogBlock(Block.Properties.copy(Blocks.OAK_WOOD)));
@@ -198,11 +203,13 @@ public class DABlocks {
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), DAWoodTypes.SUNROOT));
 
 	// ORES
+
 	public static final RegistryObject<Block> SKYJADE_ORE = registerBlock("skyjade_ore", () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
 	public static final RegistryObject<Block> SKYJADE_BLOCK = registerBlock("skyjade_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
 	public static final RegistryObject<Block> STRATUS_BLOCK = registerBlock("stratus_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(10f, 10f)));
 
 	//STONE TYPES
+
 	public static final RegistryObject<Block> COBBLED_ASETERITE = registerBlock("cobbled_aseterite", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 	public static final RegistryObject<Block> COBBLED_ASETERITE_STAIRS = registerBlock("cobbled_aseterite_stairs", () -> new StairBlock(() -> DABlocks.COBBLED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.ANDESITE)));
 	public static final RegistryObject<Block> COBBLED_ASETERITE_SLAB = registerBlock("cobbled_aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
@@ -269,10 +276,38 @@ public class DABlocks {
 
 
 	//AERCLOUDS
+
 	public static final RegistryObject<Block> AERSMOG = registerBlock("aersmog", () -> new AersmogBlock((Block.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
 	public static final RegistryObject<Block> CHROMATIC_AERCLOUD = registerBlock("chromatic_aercloud", () -> new ChromaticAercloudBlock(Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).noCollission()));
 	public static final RegistryObject<Block> STERLING_AERCLOUD = registerBlock("sterling_aercloud", () -> new SterlingAercloudBlock(Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).noCollission().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
 	public static final RegistryObject<Block> RAIN_AERCLOUD = registerBlock("rain_aercloud", () -> new RainAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get())));
+
+	//PLANTS
+
+	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of().noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
+	public static final RegistryObject<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> TALL_AETHER_CATTAILS = registerBlock("tall_aether_cattails", () ->  new TallFlowerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> SKY_TULIPS = registerBlock("sky_tulips", () ->  new FlowerBlock(MobEffects.HEALTH_BOOST,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> IASPOVE = registerBlock("iaspove", () ->  new FlowerBlock(MobEffects.MOVEMENT_SPEED,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_ASPESS = registerBlock("golden_aspess", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> ECHAISY = registerBlock("echaisy", () ->  new FlowerBlock(MobEffects.DAMAGE_RESISTANCE,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+	public static final RegistryObject<Block> GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
+	public static final RegistryObject<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
+	public static final RegistryObject<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
+
+	public static final RegistryObject<SquashBlock> BLUE_SQUASH = registerBlock("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
+
+	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(DAItems.SQUASH_SEEDS,
+			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedSquashStemBlock(DAItems.SQUASH_SEEDS,
+			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 
 	//MISC
 
@@ -300,35 +335,10 @@ public class DABlocks {
 			.noLootTable()));
 	public static final RegistryObject<Block> POISON_CAULDRON = BLOCKS.register("poison_cauldron", () -> new PoisonCauldronBlock(BlockBehaviour.Properties.copy(CAULDRON)));
 
-
-	//PLANTS
-	public static final RegistryObject<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of().noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
-	public static final RegistryObject<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> TALL_AETHER_CATTAILS = registerBlock("tall_aether_cattails", () ->  new TallFlowerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> GOLDEN_FLOWER = registerBlock("golden_flower", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> ENCHANTED_BLOSSOM = registerBlock("enchanted_blossom", () ->  new FlowerBlock(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> SKY_TULIPS = registerBlock("sky_tulips", () ->  new FlowerBlock(MobEffects.HEALTH_BOOST,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> IASPOVE = registerBlock("iaspove", () ->  new FlowerBlock(MobEffects.MOVEMENT_SPEED,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> GOLDEN_ASPESS = registerBlock("golden_aspess", () ->  new FlowerBlockLargeHitBox(MobEffects.GLOWING,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> ECHAISY = registerBlock("echaisy", () ->  new FlowerBlock(MobEffects.DAMAGE_RESISTANCE,6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
-	public static final RegistryObject<Block> GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
-	public static final RegistryObject<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
-	public static final RegistryObject<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
-
-	public static final RegistryObject<SquashBlock> BLUE_SQUASH = registerBlock("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<SquashBlock> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-
-
-	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(DAItems.SQUASH_SEEDS,
-			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
-	public static final RegistryObject<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedSquashStemBlock(DAItems.SQUASH_SEEDS,
-			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-
+	public static final RegistryObject<Block> COMBINER = BLOCKS.register("combiner", () -> new CombinerBlock(BlockBehaviour.Properties.copy(AetherBlocks.ALTAR.get())));
 
 	//POTS
+
 	public static final RegistryObject<FlowerPotBlock> POTTED_AERLAVENDER = BLOCKS.register("potted_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_TALL_AERLAVENDER = BLOCKS.register("potted_tall_aerlavender", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_AETHER_CATTAILS = BLOCKS.register("potted_aether_cattails", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AETHER_CATTAILS, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -338,14 +348,11 @@ public class DABlocks {
 	public static final RegistryObject<FlowerPotBlock> POTTED_IASPOVE = BLOCKS.register("potted_iaspove", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IASPOVE, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_GOLDEN_ASPESS = BLOCKS.register("potted_golden_aspess", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDEN_ASPESS, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_ECHAISY = BLOCKS.register("potted_echaisy", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ECHAISY, Block.Properties.copy(Blocks.FLOWER_POT)));
-
-
 	public static final RegistryObject<FlowerPotBlock> POTTED_ROSEROOT_SAPLING = BLOCKS.register("potted_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_ROSEROOT_SAPLING = BLOCKS.register("potted_blue_roseroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLUE_ROSEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_YAGROOT_SAPLING = BLOCKS.register("potted_yagroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, TALL_AERLAVENDER, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CRUDEROOT_SAPLING = BLOCKS.register("potted_cruderoot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRUDEROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 	public static final RegistryObject<FlowerPotBlock> POTTED_CONBERRY_SAPLING = BLOCKS.register("potted_conberry_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CONBERRY_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
-
 	public static final RegistryObject<FlowerPotBlock> POTTED_SUNROOT_SAPLING = BLOCKS.register("potted_sunroot_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SUNROOT_SAPLING, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 	//REDUX COMPATIBILITY

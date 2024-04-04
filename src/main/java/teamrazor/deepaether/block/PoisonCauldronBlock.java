@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.AbstractCauldronBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import teamrazor.deepaether.block.Behaviors.DaCauldronInteraction;
+import teamrazor.deepaether.block.behavior.DaCauldronInteraction;
 
 
 public class PoisonCauldronBlock extends AbstractCauldronBlock {

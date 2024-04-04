@@ -1,4 +1,4 @@
-package teamrazor.deepaether.block.Behaviors;
+package teamrazor.deepaether.block.behavior;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

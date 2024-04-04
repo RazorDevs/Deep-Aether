@@ -1,4 +1,4 @@
-package teamrazor.deepaether.block.Behaviors;
+package teamrazor.deepaether.block.behavior;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;

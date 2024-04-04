@@ -1,4 +1,4 @@
-package teamrazor.deepaether.block.Behaviors;
+package teamrazor.deepaether.block.behavior;
 
 import com.aetherteam.aether.capability.player.AetherPlayer;
 import com.aetherteam.aether.mixin.mixins.common.accessor.ServerGamePacketListenerImplAccessor;

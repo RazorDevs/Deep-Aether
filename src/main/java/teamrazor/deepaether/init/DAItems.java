@@ -107,8 +107,9 @@ public class DAItems {
 	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).stacksTo(1)));
 
 	// MOA FODDER
+	public static final RegistryObject<Item> JUMP_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.JUMP, -1, 1, true, true, true)));
+	public static final RegistryObject<Item> LEVITATION_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, -1, 1, true, true, true)));
 
-	public static final RegistryObject<Item> BASIC_FODDER = ITEMS.register("basic_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.MOVEMENT_SPEED, -1, 1, true, true, true)));
 
 	// BOATS
 	public static final RegistryObject<Item> ROSEROOT_BOAT = ITEMS.register("roseroot_boat", () -> new DABoatItem(false, new Item.Properties().stacksTo(1), DABoatEntity.Type.ROSEROOT));

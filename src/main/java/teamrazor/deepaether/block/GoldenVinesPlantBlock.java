@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.block.Behaviors.GoldenVines;
+import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;

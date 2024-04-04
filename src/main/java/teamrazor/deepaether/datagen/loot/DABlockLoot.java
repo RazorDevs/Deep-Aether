@@ -31,7 +31,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.block.Behaviors.GoldenVines;
+import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
@@ -318,6 +318,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
         this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
         this.dropSelfDouble(DABlocks.AETHER_COARSE_DIRT.get());
+        this.dropSelf(DABlocks.COMBINER.get());
 
 
         //Aether redux compat

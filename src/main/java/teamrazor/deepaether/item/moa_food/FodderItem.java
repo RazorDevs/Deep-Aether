@@ -1,11 +1,9 @@
 package teamrazor.deepaether.item.moa_food;
 
 import com.aetherteam.aether.entity.passive.Moa;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -32,12 +30,10 @@ public class FodderItem extends Item {
         if(!player.isCreative())
             itemStack.shrink(1);
 
-        applyMoaEffect(livingEntity);
+        if(applyMoaEffect(livingEntity))
+            return InteractionResult.SUCCESS;
 
-        if(livingEntity.hasEffect(MobEffects.MOVEMENT_SPEED))
-            player.sendSystemMessage(Component.literal("Effect confirmed."));
-
-        return InteractionResult.CONSUME;
+        return InteractionResult.PASS;
     }
 
     @Override
@@ -46,7 +42,6 @@ public class FodderItem extends Item {
     }
 
     private boolean applyMoaEffect(LivingEntity livingEntity) {
-        livingEntity.level().players().get(0).sendSystemMessage(Component.literal("Effect applied."));
         return livingEntity.addEffect(getMobEffect());
     }
 }

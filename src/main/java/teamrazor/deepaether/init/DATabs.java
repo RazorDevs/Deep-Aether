@@ -399,7 +399,9 @@ public class DATabs {
                     DAItems.RAW_QUAIL.get(),
                     DAItems.COOKED_QUAIL.get(),
                     DAItems.RAW_AERGLOW_FISH.get(),
-                    DAItems.COOKED_AERGLOW_FISH.get()
+                    DAItems.COOKED_AERGLOW_FISH.get(),
+                    DAItems.JUMP_FODDER.get(),
+                    DAItems.LEVITATION_FODDER.get()
             }, event);
 
             addToTab(AetherItems.WHITE_APPLE.get(), new Item[]{

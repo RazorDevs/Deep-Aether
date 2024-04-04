@@ -272,6 +272,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.translucentBlock(DABlocks.AERSMOG.get());
         this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
         this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
+        this.block(DABlocks.COMBINER.get());
 
         //Moss
         this.block(DABlocks.AETHER_MOSS_BLOCK.get());

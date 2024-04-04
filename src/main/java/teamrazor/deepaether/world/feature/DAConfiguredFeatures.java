@@ -46,7 +46,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import teamrazor.deepaether.DeepAetherMod;
-import teamrazor.deepaether.block.Behaviors.GoldenVines;
+import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 import teamrazor.deepaether.world.feature.tree.decorators.SunrootHangerDecorator;

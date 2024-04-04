@@ -1,4 +1,4 @@
-package teamrazor.deepaether.block.Behaviors;
+package teamrazor.deepaether.block.behavior;
 
 import com.aetherteam.aether.item.AetherItems;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
