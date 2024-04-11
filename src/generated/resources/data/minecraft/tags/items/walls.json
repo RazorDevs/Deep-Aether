@@ -22,8 +22,6 @@
     "deep_aether:gilded_holystone_brick_wall",
     "deep_aether:gilded_holystone_tile_wall",
     "deep_aether:blightmoss_holystone_brick_wall",
-    "deep_aether:blightmoss_holystone_tile_wall",
-    "deep_aether:frosted_holystone_brick_wall",
-    "deep_aether:frosted_holystone_tile_wall"
+    "deep_aether:blightmoss_holystone_tile_wall"
   ]
 }

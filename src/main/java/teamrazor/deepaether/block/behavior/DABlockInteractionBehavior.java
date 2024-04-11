@@ -1,7 +1,10 @@
 package teamrazor.deepaether.block.behavior;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.recipe.recipes.block.MatchEventRecipe;
+import com.aetherteam.nitrogen.recipe.recipes.BlockStateRecipe;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,6 +23,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -33,6 +38,10 @@ import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.GoldenSwetBallRecipe;
+
+import java.util.Iterator;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {
@@ -46,18 +55,19 @@ public class DABlockInteractionBehavior {
         BlockPos pos = event.getPos();
         Level world = event.getLevel();
         BlockState state = world.getBlockState(pos);
+        Player player = event.getEntity();
 
         //Interactions for the Golden Swet Ball. Converts Aether Dirt Into Golden Grass Block on right click.
         if (itemstack.is(DATags.Items.IS_GOLDEN_SWET_BALL)) {
-            if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
-                BlockState newState = DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState();
-                world.setBlockAndUpdate(pos, newState);
-                itemstack.shrink(1);
-                event.getEntity().awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                event.setCanceled(true);
+
+            InteractionResult result = convertBlock(player, world, pos, itemstack);
+            if (world.isClientSide() && result == InteractionResult.SUCCESS) {
+                world.playSound(event.getEntity(), pos, AetherSoundEvents.ITEM_SWET_BALL_USE.get(), SoundSource.BLOCKS, 0.8F, 1.0F + (world.getRandom().nextFloat() - world.getRandom().nextFloat()) * 0.2F);
             }
+            event.setCancellationResult(result);
+            event.setCanceled(true);
         }
+
 
         //Interactions for Water Bottle and Aether Dirt. Converts Aether Dirt into Aether Mud.
         else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
@@ -67,7 +77,6 @@ public class DABlockInteractionBehavior {
                 BlockState newState = DABlocks.AETHER_MUD.get().defaultBlockState();
                 world.setBlockAndUpdate(pos, newState);
 
-                Player player = event.getEntity();
                 player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
                 //Shrinks stack
                 if (!player.getAbilities().instabuild) {
@@ -93,7 +102,6 @@ public class DABlockInteractionBehavior {
 
         //Creates a Poison Liquid Block from a Skyroot bucket
         else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
-            final Player player = event.getEntity();
             BlockHitResult blockRayTraceResult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             BlockState blockHitState = world.getBlockState(blockRayTraceResult.getBlockPos());
             if (blockRayTraceResult.getType() == HitResult.Type.MISS) {
@@ -130,7 +138,6 @@ public class DABlockInteractionBehavior {
 
         //Fills a skyroot bucket with poison when interact with a Poison Block.
         else if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
-            Player player = event.getEntity();
             BlockHitResult blockhitresult = Item.getPlayerPOVHitResult(world, player, ClipContext.Fluid.NONE);
             if (blockhitresult.getType() == HitResult.Type.MISS) {
                 event.setCancellationResult(InteractionResult.PASS);
@@ -158,6 +165,33 @@ public class DABlockInteractionBehavior {
                 }
             }
         }
+    }
+
+    public static InteractionResult convertBlock(Player player, Level level, BlockPos pos, ItemStack heldItem) {
+        BlockState oldBlockState = level.getBlockState(pos);
+        Iterator var8 = level.getRecipeManager().getAllRecipesFor(DARecipe.GOLDEN_SWET_BALL_RECIPE.get()).iterator();
+
+        while(var8.hasNext()) {
+            GoldenSwetBallRecipe recipe = (GoldenSwetBallRecipe) var8.next();
+            if (recipe != null) {
+                BlockState newState = ((BlockStateRecipe)recipe).getResultState(oldBlockState);
+                if (recipe.matches(player, level, pos, heldItem, oldBlockState, newState, DARecipe.GOLDEN_SWET_BALL_RECIPE.get())) {
+                    if (!level.isClientSide() && recipe.convert(level, pos, newState, ((BlockStateRecipe)recipe).getFunction())) {
+                        if (player != null && !player.getAbilities().instabuild) {
+                            heldItem.shrink(1);
+                        }
+
+                        return InteractionResult.CONSUME;
+                    }
+
+                    if (level.isClientSide()) {
+                        return InteractionResult.SUCCESS;
+                    }
+                }
+            }
+        }
+
+        return InteractionResult.PASS;
     }
 }
 
