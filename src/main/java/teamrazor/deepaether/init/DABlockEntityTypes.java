@@ -5,6 +5,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.entity.block.CombinerBlockEntity;
 import teamrazor.deepaether.entity.block.DAHangingSignBlockEntity;
 import teamrazor.deepaether.entity.block.DASignBlockEntity;
 
@@ -27,4 +28,9 @@ public class DABlockEntityTypes {
                     DABlocks.CONBERRY_WALL_HANGING_SIGN.get(), DABlocks.CONBERRY_HANGING_SIGN.get(),
                     DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), DABlocks.SUNROOT_HANGING_SIGN.get()
             ).build(null));
+
+    public static final RegistryObject<BlockEntityType<CombinerBlockEntity>> COMBINER_BE =
+            BLOCK_ENTITY_TYPES.register("combiner_be", () ->
+                    BlockEntityType.Builder.of(CombinerBlockEntity::new,
+                            DABlocks.COMBINER.get()).build(null));
 }

@@ -108,7 +108,7 @@ public class DAItems {
 
 	// MOA FODDER
 	public static final RegistryObject<Item> JUMP_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.JUMP, -1, 1, true, true, true)));
-	public static final RegistryObject<Item> LEVITATION_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, -1, 1, true, true, true)));
+	public static final RegistryObject<Item> LEVITATION_FODDER = ITEMS.register("levitation_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, -1, 1, true, true, true)));
 
 
 	// BOATS

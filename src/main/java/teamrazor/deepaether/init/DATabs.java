@@ -304,6 +304,7 @@ public class DATabs {
                     DABlocks.CONBERRY_HANGING_SIGN.get(),
                     DABlocks.SUNROOT_SIGN.get(),
                     DABlocks.SUNROOT_HANGING_SIGN.get(),
+                    DABlocks.COMBINER.get()
             }, event);
         }
 

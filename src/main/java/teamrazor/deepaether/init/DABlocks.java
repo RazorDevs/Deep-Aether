@@ -335,7 +335,7 @@ public class DABlocks {
 			.noLootTable()));
 	public static final RegistryObject<Block> POISON_CAULDRON = BLOCKS.register("poison_cauldron", () -> new PoisonCauldronBlock(BlockBehaviour.Properties.copy(CAULDRON)));
 
-	public static final RegistryObject<Block> COMBINER = BLOCKS.register("combiner", () -> new CombinerBlock(BlockBehaviour.Properties.copy(AetherBlocks.ALTAR.get())));
+	public static final RegistryObject<Block> COMBINER = registerBlock("combiner", () -> new CombinerBlock(BlockBehaviour.Properties.copy(AetherBlocks.ALTAR.get())));
 
 	//POTS
 

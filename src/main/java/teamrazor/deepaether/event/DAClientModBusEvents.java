@@ -4,6 +4,7 @@ import com.aetherteam.aether.client.renderer.AetherModelLayers;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.particle.CherryParticle;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -18,13 +19,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.AerwhaleModelOverrideOverrideLCCompat;
-import teamrazor.deepaether.init.DAFluids;
-import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.init.DAParticles;
-import teamrazor.deepaether.init.DAWoodTypes;
+import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
 import teamrazor.deepaether.particle.custom.MysticalParticle;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
+import teamrazor.deepaether.screen.CombinerScreen;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -45,6 +44,9 @@ public class DAClientModBusEvents {
         registerCuriosRenderers();
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
+
+        MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
+
 
         event.enqueueWork(() -> {
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);

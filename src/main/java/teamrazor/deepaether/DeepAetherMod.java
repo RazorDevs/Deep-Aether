@@ -68,6 +68,7 @@ import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
+import java.awt.image.BufferStrategy;
 import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
 
@@ -131,6 +132,7 @@ public class DeepAetherMod {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 		DARecipe.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
+		DAMenuTypes.MENUS.register(bus);
 		DAPacketHandler.register();
 	}
 
