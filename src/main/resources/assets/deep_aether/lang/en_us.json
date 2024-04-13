@@ -724,7 +724,26 @@
   "block.deep_aether.stripped_sunroot_log_wall": "Stripped Sunroot Log Wall",
 
   "item.deep_aether.chaos_emerald": "Chaos Emerald",
-  "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!"
+  "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!",
+
+  "subtitles.deep_aether.item.armor.equip_stratus": "Stratus armor clinks",
+  "subtitles.deep_aether.item.armor.equip_skyjade": "Skyjade armor clangs",
+  "subtitles.deep_aether.item.accessory.equip_skyjade_ring": "Skyjade Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_gravitite_ring": "Gravitite Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_stratus_ring": "Stratus Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_spooky_ring": "Spooky Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_slider_eye": "Slider Eye jingles",
+  "subtitles.deep_aether.item.accessory.ability_slider_eye": "Slider Eye howls",
+  "subtitles.deep_aether.item.tool.afterburner_fires": "Afterburner fires",
+  "subtitles.deep_aether.item.accessory.equip_medal_of_honor": "Medal of Honor jingles",
+
+  "subtitles.deep_aether.entity.quail.ambient": "Quail chirps",
+  "subtitles.deep_aether.entity.quail.death": "Quail dies",
+  "subtitles.deep_aether.entity.quail.hurt": "Quail hurts",
+  "subtitles.deep_aether.entity.venomite.ambient": "Venomite buzzes",
+  "subtitles.deep_aether.entity.venomite.death": "Venomite dies",
+  "subtitles.deep_aether.entity.venomite.hurt": "Venomite hurts"
+
 }
 
 
