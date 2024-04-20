@@ -3,7 +3,7 @@
 
 # Check out our Discord and Download pages!
 
-[![Discord](https://img.shields.io/discord/118816101936267265.svg?label=Discord&logoColor=FFFFFF&logo=discord&color=7289DA&style=flat-square)](https://discord.gg/mnGnZKRRK3)
+[![Discord](https://img.shields.io/discord/118816101936267265.svg?label=Discord&logoColor=FFFFFF&logo=discord&color=7289DA&style=flat-square)](https://discord.gg/AsDEG7smfn)
 [![Modloader: Forge](https://img.shields.io/badge/Mod%20Loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/gcHIih5B?color=00AF5C&logo=modrinth&label=Downloads)](https://modrinth.com/mod/deep-aether)
 [![Modrinth Version](https://img.shields.io/modrinth/game-versions/gcHIih5B?color=00AF5C&label=Latest&logo=modrinth&last=true)](https://modrinth.com/mod/deep-aether)
