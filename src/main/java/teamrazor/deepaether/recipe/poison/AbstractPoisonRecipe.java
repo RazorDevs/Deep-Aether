@@ -17,12 +17,12 @@ public abstract class AbstractPoisonRecipe implements Recipe<Container> {
     protected final String group;
     protected final Ingredient ingredient;
     protected final ItemStack result;
-    public AbstractPoisonRecipe(RecipeType<?> p_250197_, ResourceLocation p_249379_, String p_249518_, Ingredient p_251354_, ItemStack p_252185_) {
-        this.type = p_250197_;
-        this.id = p_249379_;
-        this.group = p_249518_;
-        this.ingredient = p_251354_;
-        this.result = p_252185_;
+    public AbstractPoisonRecipe(RecipeType<?> recipeType, ResourceLocation resourceLocation, String string, Ingredient ingredient, ItemStack itemStack) {
+        this.type = recipeType;
+        this.id = resourceLocation;
+        this.group = string;
+        this.ingredient = ingredient;
+        this.result = itemStack;
     }
 
     public boolean matches(Container p_43748_, Level p_43749_) {

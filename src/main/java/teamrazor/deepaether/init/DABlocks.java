@@ -377,12 +377,6 @@ public class DABlocks {
 	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("blightmoss_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> BLIGHTMOSS_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("blightmoss_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 
-	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILES = registerAetherReduxBlock("frosted_holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_STAIRS = registerAetherReduxBlock("frosted_holystone_tile_stairs", () -> new StairBlock(DABlocks.FROSTED_HOLYSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_SLAB = registerAetherReduxBlock("frosted_holystone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
-	public static final RegistryObject<Block> FROSTED_HOLYSTONE_TILE_WALL = registerAetherReduxBlock("frosted_holystone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
-
-
 	//GENESIS COMPATIBILITY
 
 	public static final RegistryObject<WallBlock> ROSEROOT_LOG_WALL = registerAetherGenesisBlock("roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));

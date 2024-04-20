@@ -26,7 +26,6 @@ public class DAJEIPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new PoisonRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-
     }
 
     @Override

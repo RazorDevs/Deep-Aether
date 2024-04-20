@@ -13,5 +13,8 @@ public class DARecipe {
     public static final RegistryObject<RecipeType<PoisonRecipe>> POISON_RECIPE = RECIPE_TYPES.register("poison_recipe", () ->
             RecipeType.simple(new ResourceLocation(DeepAetherMod.MODID, "poison_recipe")));
 
+    public static final RegistryObject<RecipeType<PoisonRecipe>> COMBINER_RECIPE = RECIPE_TYPES.register("combiner_recipe", () ->
+            RecipeType.simple(new ResourceLocation(DeepAetherMod.MODID, "combiner_recipe")));
+
     public static final RegistryObject<RecipeType<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_TYPES.register("golden_swet_ball_recipe", () -> RecipeType.simple(new ResourceLocation(DeepAetherMod.MODID, "golden_swet_ball_recipe")));
 }

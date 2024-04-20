@@ -1,0 +1,18 @@
+{
+  "type": "deep_aether:combiner_recipe",
+  "ingredients": [
+    {
+      "item": "aether:golden_amber"
+    },
+    {
+      "item": "deep_aether:bio_crystal"
+    },
+    {
+      "item": "deep_aether:frozen_goldenleaf_berries"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "deep_aether:antidote"
+  }
+}
