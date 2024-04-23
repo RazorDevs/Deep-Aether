@@ -9,6 +9,7 @@ public class DeepAetherConfig {
     public static class Common {
         public final ConfigValue<Boolean> skyjade_enchant;
         public final ConfigValue<Integer> deep_aether_biome_weight;
+        public final ConfigValue<Integer> stratus_dash_cooldown;
         public final ConfigValue<Boolean> always_enable_halloween_content;
         public final ConfigValue<Boolean> disable_roseroot_forest_biomes;
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
@@ -60,6 +61,13 @@ public class DeepAetherConfig {
                     .comment("The item dropped when the Aerwhale King is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Aerwhale King. This Config Does nothing if Aether Lost Content isn't installed.")
                     .translation("config.deep_aether.common.flawless.aerwhale_king_flawless_boss_drop")
                     .define("Aerwhale King Flawless Boss Drop", "deep_aether:aerwhale_saddle");
+            builder.pop();
+
+            builder.push("Gameplay");
+            stratus_dash_cooldown = builder
+                    .comment("The cooldown of the stratus dash. Set to a value below zero to disable the cooldown.")
+                    .translation("config.deep_aether.common.stratus_dash_cooldown")
+                    .define("Stratus dash cooldown", -1);
             builder.pop();
 
             builder.push("Biomes");
