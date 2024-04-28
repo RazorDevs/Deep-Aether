@@ -8,13 +8,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.init.DAMobEffects;
+import teamrazor.deepaether.init.DASounds;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
 public class MedalOfHonor extends PendantItem {
     public MedalOfHonor(Properties properties) {
-        super(new ResourceLocation(DeepAetherMod.MODID, "medal_of_honor"), AetherSoundEvents.ITEM_ACCESSORY_EQUIP_GOLD_PENDANT, properties);
+        super(new ResourceLocation(DeepAetherMod.MODID, "medal_of_honor"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, properties);
     }
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         slotContext.entity().addEffect(new MobEffectInstance(DAMobEffects.VALKYRIE_VALOR.get(), 5, 0, true, false, true));

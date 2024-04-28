@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.init.DASounds;
 
 import java.util.EnumMap;
 import java.util.function.Supplier;
@@ -21,14 +22,14 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 15, AetherSoundEvents.ITEM_ARMOR_EQUIP_GRAVITITE, 2.5F, 0.1F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
+    }), 15, DASounds.ITEM_ARMOR_EQUIP_STRATUS, 2.5F, 0.1F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
 
     SKYJADE("skyjade", 3, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 0, AetherSoundEvents.ITEM_ARMOR_EQUIP_ZANITE, 0.0F, 0.0F, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING));
+    }), 0, DASounds.ITEM_ARMOR_EQUIP_SKYJADE, 0.0F, 0.0F, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING));
 
     private static final EnumMap<ArmorItem.Type, Integer> DURABILITY_MAP = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 13);

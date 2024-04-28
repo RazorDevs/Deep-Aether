@@ -41,6 +41,10 @@ public class YagrootVineBlock extends VineBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         boolean isBottom = !context.getLevel().getBlockState(context.getClickedPos().below()).is(this);
-        return super.getStateForPlacement(context).setValue(BOTTOM, isBottom);
+        BlockState state = super.getStateForPlacement(context);
+        if(state != null)
+            return state.setValue(BOTTOM, isBottom);
+        else return null;
     }
+
 }

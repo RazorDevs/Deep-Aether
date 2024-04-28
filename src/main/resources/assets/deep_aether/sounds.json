@@ -21,37 +21,137 @@
       "deep_aether:entity/quail/say2",
       "deep_aether:entity/quail/say3"
     ],
-    "subtitle": "Quail chirps"
+    "subtitle": "subtitles.deep_aether.entity.quail.ambient"
   },
   "entity.quail.death": {
     "sounds": [
       "deep_aether:entity/quail/death"
     ],
-    "subtitle": "Quail dies"
+    "subtitle": "subtitles.deep_aether.entity.quail.death"
   },
   "entity.quail.hurt": {
     "sounds": [
       "deep_aether:entity/quail/hurt1",
       "deep_aether:entity/quail/hurt2"
     ],
-    "subtitle": "Quail hurts"
+    "subtitle": "subtitles.deep_aether.entity.quail.hurt"
   },
   "entity.venomite.ambient": {
     "sounds": [
       "deep_aether:entity/venomite/ambient"
     ],
-    "subtitle": "Venomite buzzes"
+    "subtitle": "subtitles.deep_aether.entity.venomite.ambient"
   },
   "entity.venomite.hurt": {
     "sounds": [
       "deep_aether:entity/venomite/hurt"
     ],
-    "subtitle": "Venomite hurts"
+    "subtitle": "subtitles.deep_aether.entity.venomite.hurt"
   },
   "entity.venomite.death": {
     "sounds": [
       "deep_aether:entity/venomite/death"
     ],
-    "subtitle": "Venomite dies"
+    "subtitle": "subtitles.deep_aether.entity.venomite.death"
+  },
+  "item.armor.equip_skyjade": {
+    "sounds": [
+      "item/armor/equip_diamond1",
+      "item/armor/equip_diamond2",
+      "item/armor/equip_diamond3",
+      "item/armor/equip_diamond4",
+      "item/armor/equip_diamond5",
+      "item/armor/equip_diamond6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.armor.equip_skyjade"
+  },
+  "item.armor.equip_stratus": {
+    "sounds": [
+      "item/armor/equip_gold1",
+      "item/armor/equip_gold2",
+      "item/armor/equip_gold3",
+      "item/armor/equip_gold4",
+      "item/armor/equip_gold5",
+      "item/armor/equip_gold6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.armor.equip_stratus"
+  },
+  "item.accessory.equip_skyjade_ring": {
+    "sounds": [
+      "item/armor/equip_chain1",
+      "item/armor/equip_chain2",
+      "item/armor/equip_chain3",
+      "item/armor/equip_chain4",
+      "item/armor/equip_chain5",
+      "item/armor/equip_chain6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.equip_skyjade_ring"
+  },
+  "item.accessory.equip_gravitite_ring": {
+    "sounds": [
+      "item/armor/equip_chain1",
+      "item/armor/equip_chain2",
+      "item/armor/equip_chain3",
+      "item/armor/equip_chain4",
+      "item/armor/equip_chain5",
+      "item/armor/equip_chain6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.equip_gravitite_ring"
+  },
+  "item.accessory.equip_stratus_ring": {
+    "sounds": [
+      "item/armor/equip_chain1",
+      "item/armor/equip_chain2",
+      "item/armor/equip_chain3",
+      "item/armor/equip_chain4",
+      "item/armor/equip_chain5",
+      "item/armor/equip_chain6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.equip_stratus_ring"
+  },
+  "item.accessory.equip_spooky_ring": {
+    "sounds": [
+      "item/armor/equip_chain1",
+      "item/armor/equip_chain2",
+      "item/armor/equip_chain3",
+      "item/armor/equip_chain4",
+      "item/armor/equip_chain5",
+      "item/armor/equip_chain6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.equip_spooky_ring"
+  },
+  "item.accessory.equip_slider_eye": {
+    "sounds": [
+      "item/armor/equip_chain1",
+      "item/armor/equip_chain2",
+      "item/armor/equip_chain3",
+      "item/armor/equip_chain4",
+      "item/armor/equip_chain5",
+      "item/armor/equip_chain6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.equip_slider_eye"
+  },
+  "item.accessory.ability_slider_eye": {
+    "sounds": [
+      "aether:entity/slider/move"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.ability_slider_eye"
+  },
+  "item.tool.afterburner_fires" : {
+    "sounds": [
+      "mob/ghast/fireball4"
+    ],
+    "subtitle": "subtitles.deep_aether.item.tool.afterburner_fires"
+  },
+  "item.accessory.equip_medal_of_honor" : {
+    "sounds": [
+      "item/armor/equip_chain1",
+      "item/armor/equip_chain2",
+      "item/armor/equip_chain3",
+      "item/armor/equip_chain4",
+      "item/armor/equip_chain5",
+      "item/armor/equip_chain6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.accessory.equip_medal_of_honor"
   }
 }

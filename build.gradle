@@ -138,6 +138,7 @@ dependencies {
     //Dependencies
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
+    runtimeOnly fg.deobf("curse.maven:aether-emissivity-916028:4765812")
     implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")

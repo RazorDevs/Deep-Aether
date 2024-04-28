@@ -13,6 +13,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
@@ -67,7 +68,7 @@ public class StratusAbility extends DaArmorItem {
         }
 
         if (coolDown >= 0)
-            coolDown -= 0.02;
+            coolDown -= 0.02F;
         if (world.isClientSide() && hasFullStratusSet(player)) {
 
             if (DeepAetherKeys.STRATUS_DASH_ABILITY.isDown()) {
@@ -91,7 +92,7 @@ public class StratusAbility extends DaArmorItem {
                 a = 1 - a;
                 if (StratusAbility.isStratusDashActive(player)) {
                     hasBeenOnGround = false;
-                    coolDown = 5;
+                    coolDown = (float) DeepAetherConfig.COMMON.stratus_dash_cooldown.get();
                     dashMultiplier = (float) EquipmentUtil.handleStratusRingBoost(player);
                     player.push(x * a * dashMultiplier, y * dashMultiplier, z * a * dashMultiplier);
                     if (player instanceof ServerPlayer serverPlayer) {

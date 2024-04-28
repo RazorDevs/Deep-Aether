@@ -14,6 +14,7 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.entity.FireProjectile;
+import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.init.DATiers;
 
 public class Afterburner extends TieredItem {
@@ -41,7 +42,7 @@ public class Afterburner extends TieredItem {
             fireProjectile.shoot(player.getXRot(), player.getYRot(), 1.0F, 11.0F);
 
             level.addFreshEntity(fireProjectile);
-            level.playLocalSound(player.getX(), player.getY(), player.getZ(), (SoundEvent) AetherSoundEvents.ITEM_HAMMER_OF_KINGBDOGZ_SHOOT.get(), SoundSource.PLAYERS, 1.0F, 1.0F / (livingEntity.getRandom().nextFloat() * 0.4F + 0.8F), false);
+            level.playLocalSound(player.getX(), player.getY(), player.getZ(), DASounds.ITEM_AFTERBURNER_FIRES.get(), SoundSource.PLAYERS, 1.0F, 1.0F / (livingEntity.getRandom().nextFloat() * 0.4F + 0.8F), false);
         }
         super.onUseTick(level, livingEntity, itemStack, i);
     }

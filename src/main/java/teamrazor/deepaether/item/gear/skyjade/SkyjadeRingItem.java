@@ -1,15 +1,15 @@
 package teamrazor.deepaether.item.gear.skyjade;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.init.DASounds;
 
 
 public class SkyjadeRingItem extends RingItem implements SkyjadeAccessory {
     public SkyjadeRingItem(Properties properties) {
-        super(AetherSoundEvents.ITEM_ACCESSORY_EQUIP_ZANITE_RING, properties);
+        super(DASounds.ITEM_ACCESSORY_EQUIP_SKYJADE_RING, properties);
     }
 
     @Override

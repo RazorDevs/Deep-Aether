@@ -21,6 +21,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
+import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotContext;
@@ -106,7 +107,7 @@ public class SliderEye extends RingItem {
 
             DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true));
 
-            level.playSound(player, player.getOnPos(), AetherSoundEvents.ENTITY_SLIDER_MOVE.get(), SoundSource.PLAYERS);
+            level.playSound(player, player.getOnPos(), DASounds.ITEM_ACCESSORY_ABILITY_SLIDER_EYE.get(), SoundSource.PLAYERS);
             maxFallTime = 200;
         }
 
