@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.google.common.reflect.Reflection;
 import com.legacy.lost_aether.registry.LCEntityTypes;
 import com.mojang.logging.LogUtils;
+import net.minecraft.SharedConstants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -12,9 +13,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -65,6 +68,7 @@ import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
+import java.nio.file.Path;
 import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
 
@@ -83,6 +87,7 @@ public class DeepAetherMod {
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
 	public static final String ANCIENT_AETHER = "ancient_aether";
+	public static final String EMISSIVITY = "aether_emissivity";
 
 	private static final String PROTOCOL_VERSION = "1";
 
@@ -254,14 +259,26 @@ public class DeepAetherMod {
 					path -> new PathPackResources(path, resourcePath, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
 			event.addRepositorySource(consumer -> consumer.accept(pack));
 
-			if(ModList.get().isLoaded("aether_emissivity")) {
-				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/deep_aether_emissivity");
-				var pack1 = Pack.readMetaAndCreate("builtin/deep_aether_emissivity", Component.literal("Deep Aether Emissivity Textures"), false,
-						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
-				event.addRepositorySource(consumer -> consumer.accept(pack1));
+			if(ModList.get().isLoaded(EMISSIVITY)) {
+				Path resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/deep_aether_emissivity");
+				PathPackResources pack1 = new PathPackResources(ModList.get().getModFileById(DeepAetherMod.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath1, true);
+				PackMetadataSection metadata = new PackMetadataSection(Component.literal(""), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
+				event.addRepositorySource((source) ->
+						source.accept(Pack.create(
+								"builtin/deep_aether_emissivity",
+								Component.literal(""),
+								true,
+								(string) -> pack1,
+								new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), true),
+								PackType.SERVER_DATA,
+								Pack.Position.TOP,
+								false,
+								PackSource.BUILT_IN)
+						)
+				);
 			}
 
-			if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) || ModList.get().isLoaded("aether_redux")) {
+			if(ModList.get().isLoaded(AETHER_GENESIS) || ModList.get().isLoaded(AETHER_REDUX)) {
 				var resourcePath1 = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallFixClient");
 				var pack1 = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallFixClient", Component.literal("Deep Aether Golden Swet Ball Texture Fix"), true,
 						path -> new PathPackResources(path, resourcePath1, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.DEFAULT);
@@ -269,7 +286,7 @@ public class DeepAetherMod {
 			}
 		}
 
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS) && event.getPackType() == PackType.SERVER_DATA) {
+		if(ModList.get().isLoaded(AETHER_GENESIS) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData");
 				var pack = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallAetherGenesisFix", Component.literal("Deep Aether Golden Swet Ball Aether Genesis Fix"), true,
@@ -278,7 +295,7 @@ public class DeepAetherMod {
 			}
 		}
 
-		else if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
+		else if(ModList.get().isLoaded(AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData");
 				var pack = Pack.readMetaAndCreate("builtin/DAGoldenSwetBallAetherReduxFix", Component.literal("Deep Aether Golden Swet Ball Aether Redux Fix"), true,
@@ -288,7 +305,7 @@ public class DeepAetherMod {
 			}
 		}
 
-		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT) && event.getPackType() == PackType.SERVER_DATA) {
+		if(ModList.get().isLoaded(LOST_AETHER_CONTENT) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_lost_content_compat");
 				var pack = Pack.readMetaAndCreate("builtin/lost_aether_content_compat", Component.literal("Lost Aether Content Compat"), true,
@@ -307,7 +324,7 @@ public class DeepAetherMod {
 			}
 		//}
 
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
+		if(ModList.get().isLoaded(AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/aether_redux_compat");
 				var pack = Pack.readMetaAndCreate("builtin/aether_redux_compat", Component.literal("Aether Redux Compat"), true,
@@ -317,7 +334,7 @@ public class DeepAetherMod {
 			}
 		}
 
-		if(ModList.get().isLoaded(DeepAetherMod.ANCIENT_AETHER) && event.getPackType() == PackType.SERVER_DATA) {
+		if(ModList.get().isLoaded(ANCIENT_AETHER) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAetherMod.MODID).getFile().findResource("packs/compat_recipes/ancient_aether_compat");
 				var pack = Pack.readMetaAndCreate("builtin/ancient_aether_compat", Component.literal("Ancient Aether Compat"), true,
