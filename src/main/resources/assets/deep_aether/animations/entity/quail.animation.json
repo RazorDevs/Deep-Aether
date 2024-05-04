@@ -3,24 +3,24 @@
 	"animations": {
 		"animation.quail.walk": {
 			"loop": true,
-			"animation_length": 0.8,
+			"animation_length": 1,
 			"bones": {
 				"right_leg": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.2": {
-							"vector": [30, 0, 0]
+						"0.25": {
+							"vector": ["20+", 0, 0],
+							"easing": "easeOutSine"
 						},
-						"0.4": {
-							"vector": [0, 0, 0]
+						"0.75": {
+							"vector": [-20, 0, 0],
+							"easing": "easeInOutSine"
 						},
-						"0.6": {
-							"vector": [-30, 0, 0]
-						},
-						"0.8": {
-							"vector": [0, 0, 0]
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInSine"
 						}
 					}
 				},
@@ -29,109 +29,33 @@
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.2": {
-							"vector": [-30, 0, 0]
+						"0.25": {
+							"vector": [-20, 0, 0],
+							"easing": "easeOutSine"
 						},
-						"0.4": {
-							"vector": [0, 0, 0]
+						"0.75": {
+							"vector": [20, 0, 0],
+							"easing": "easeInOutSine"
 						},
-						"0.6": {
-							"vector": [30, 0, 0]
-						},
-						"0.8": {
-							"vector": [0, 0, 0]
-						}
-					}
-				}
-			}
-		},
-		"animation.quail.walk": {
-			"loop": true,
-			"animation_length": 0.8,
-			"bones": {
-				"right_leg": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.2": {
-							"vector": [20, 0, 0]
-						},
-						"0.4": {
-							"vector": [0, 0, 0]
-						},
-						"0.6": {
-							"vector": [-20, 0, 0]
-						},
-						"0.8": {
-							"vector": [0, 0, 0]
-						}
-					}
-				},
-				"left_leg": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.2": {
-							"vector": [-20, 0, 0]
-						},
-						"0.4": {
-							"vector": [0, 0, 0]
-						},
-						"0.6": {
-							"vector": [20, 0, 0]
-						},
-						"0.8": {
-							"vector": [0, 0, 0]
-						}
-					}
-				}
-			}
-		},
-		"animation.quail.flap": {
-			"loop": true,
-			"animation_length": 0.4,
-			"bones": {
-				"left_wing": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, -53]
-						},
-						"0.2": {
-							"vector": [0, 0, -143]
-						},
-						"0.4": {
-							"vector": [0, 0, -53]
-						}
-					}
-				},
-				"right_wing": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 53]
-						},
-						"0.2": {
-							"vector": [0, 0, 143]
-						},
-						"0.4": {
-							"vector": [0, 0, 53]
+						"1.0": {
+							"vector": [0, 0, 0],
+							"easing": "easeInSine"
 						}
 					}
 				}
 			}
 		},
 		"animation.quail.flap_start": {
-			"loop": false,
-			"animation_length": 0.4,
+			"animation_length": 1.08333,
 			"bones": {
 				"left_wing": {
 					"rotation": {
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.4": {
-							"vector": [0, 0, -53]
+						"0.5": {
+							"vector": [0, 0, -53],
+							"easing": "easeInSine"
 						}
 					}
 				},
@@ -140,8 +64,9 @@
 						"0.0": {
 							"vector": [0, 0, 0]
 						},
-						"0.4": {
-							"vector": [0, 0, 53]
+						"0.5": {
+							"vector": [0, 0, 53],
+							"easing": "easeInSine"
 						}
 					}
 				}
@@ -150,6 +75,44 @@
 		"animation.quail.idle": {
 			"loop": true,
 			"animation_length": 1
+		},
+		"animation.quail.flap": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"left_wing": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, -53],
+							"easing": "easeInSine"
+						},
+						"0.25": {
+							"vector": [0, 0, -143],
+							"easing": "easeInOutSine"
+						},
+						"0.5": {
+							"vector": [0, 0, -53],
+							"easing": "easeInOutSine"
+						}
+					}
+				},
+				"right_wing": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 53],
+							"easing": "easeInSine"
+						},
+						"0.25": {
+							"vector": [0, 0, 143],
+							"easing": "easeInOutSine"
+						},
+						"0.5": {
+							"vector": [0, 0, 53],
+							"easing": "easeInOutSine"
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2
