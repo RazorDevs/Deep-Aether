@@ -11,7 +11,7 @@
 							"vector": [0, 0, 0]
 						},
 						"0.25": {
-							"vector": ["20+", 0, 0],
+							"vector": ["20", 0, 0],
 							"easing": "easeOutSine"
 						},
 						"0.75": {
@@ -114,6 +114,5 @@
 				}
 			}
 		}
-	},
-	"geckolib_format_version": 2
+	}
 }
