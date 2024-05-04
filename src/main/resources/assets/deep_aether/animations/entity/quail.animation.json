@@ -46,7 +46,7 @@
 			}
 		},
 		"animation.quail.flap_start": {
-			"animation_length": 1.08333,
+			"animation_length": 0.5,
 			"bones": {
 				"left_wing": {
 					"rotation": {
