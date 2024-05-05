@@ -17,6 +17,7 @@ public class DAPacketHandler {
 
     public static synchronized void register() {
         register(DAPlayerSyncPacket.class, DAPlayerSyncPacket::decode);
+        register(DAMoasyncPacket.class, DAMoasyncPacket::decode);
     }
 
     private static <MSG extends BasePacket> void register(Class<MSG> packet, Function<FriendlyByteBuf, MSG> decoder) {
