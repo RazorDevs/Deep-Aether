@@ -23,16 +23,13 @@ public class MoaBonusJumpEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-        if (!(livingEntity instanceof Moa moa)) {
-            livingEntity.removeEffect(this);
-        } else {
-            MoaBonusJump moaBonusJump = (MoaBonusJump) moa;
-            moaBonusJump.deep_Aether$setBonusJumps(amplifier);
-        }
+
     }
 
     @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
+
 }
