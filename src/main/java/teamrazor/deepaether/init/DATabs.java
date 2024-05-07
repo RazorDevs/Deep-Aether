@@ -438,6 +438,24 @@ public class DATabs {
                     DAItems.VENOMITE_SPAWN_EGG.get()
             }, event);
         }
+
+        if(tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.getKey()) {
+            addToTab(AetherBlocks.TREASURE_DOORWAY_SENTRY_STONE.get().asItem(), new Block[]{
+                    DABlocks.NIMBUS_STONE.get(),
+                    DABlocks.LOCKED_NIMBUS_STONE.get(),
+                    DABlocks.TRAPPED_NIMBUS_STONE.get(),
+                    DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(),
+                    DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(),
+                    DABlocks.NIMBUS_STAIRS.get(),
+                    DABlocks.NIMBUS_SLAB.get(),
+                    DABlocks.NIMBUS_WALL.get(),
+                    DABlocks.LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get()
+            }, event);
+        }
     }
 
     private static void addToTab(Item parent, Item stack, BuildCreativeModeTabContentsEvent event) {

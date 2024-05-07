@@ -70,6 +70,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_WOOD.get(),
                 DABlocks.STRIPPED_YAGROOT_LOG.get(),
                 DABlocks.STRIPPED_YAGROOT_WOOD.get());
+
         tag(DATags.Blocks.CONBERRY_LOGS).add(
                 DABlocks.CONBERRY_LOG.get(),
                 DABlocks.CONBERRY_WOOD.get(),
@@ -126,6 +127,24 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRIPPED_SUNROOT_LOG.get(),
                 DABlocks.STRIPPED_SUNROOT_WOOD.get()
         );
+
+
+        tag(DATags.Blocks.NIMBUS_BLOCKS).add(
+                DABlocks.NIMBUS_STONE.get(),
+                DABlocks.LIGHT_NIMBUS_STONE.get(),
+                DABlocks.LOCKED_NIMBUS_STONE.get(),
+                DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(),
+                DABlocks.TRAPPED_NIMBUS_STONE.get(),
+                DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(),
+                DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(),
+                DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(),
+                DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(),
+                DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(),
+                DABlocks.NIMBUS_STAIRS.get(),
+                DABlocks.NIMBUS_SLAB.get(),
+                DABlocks.NIMBUS_WALL.get()
+        );
+
         tag(BlockTags.ALL_SIGNS).add(
                 DABlocks.ROSEROOT_SIGN.get(),
                 DABlocks.YAGROOT_SIGN.get(),
@@ -219,7 +238,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LOG_WALL.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(),
                 DABlocks.SUNROOT_LOG_WALL.get(),
-                DABlocks.STRIPPED_SUNROOT_LOG_WALL.get()
+                DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(),
+                DABlocks.NIMBUS_WALL.get()
         );
 
         tag(BlockTags.FENCE_GATES).add(
@@ -240,10 +260,20 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_LEAVES.get(),
                 DABlocks.YAGROOT_ROOTS.get()
         );
+
+        tag(BlockTags.NEEDS_STONE_TOOL).add(
+                DABlocks.NIMBUS_STONE.get(),
+                DABlocks.LIGHT_NIMBUS_STONE.get(),
+                DABlocks.NIMBUS_STAIRS.get(),
+                DABlocks.NIMBUS_SLAB.get(),
+                DABlocks.NIMBUS_WALL.get()
+        );
+
         tag(BlockTags.NEEDS_IRON_TOOL).add(
                 DABlocks.SKYJADE_BLOCK.get(),
                 DABlocks.SKYJADE_ORE.get()
         );
+
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
                 DABlocks.STRATUS_BLOCK.get()
         );
@@ -504,7 +534,13 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.BLIGHTMOSS_HOLYSTONE_TILES.get(),
                 DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(),
                 DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get()
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get(),
+
+                DABlocks.NIMBUS_STONE.get(),
+                DABlocks.LIGHT_NIMBUS_STONE.get(),
+                DABlocks.NIMBUS_STAIRS.get(),
+                DABlocks.NIMBUS_SLAB.get(),
+                DABlocks.NIMBUS_WALL.get()
                 );
 
         tag(BlockTags.SNAPS_GOAT_HORN).add(

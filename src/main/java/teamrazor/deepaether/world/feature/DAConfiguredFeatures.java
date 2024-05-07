@@ -105,8 +105,10 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKY_TULIPS = createKey("sky_tulips");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_ASPESS = createKey("golden_aspess");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ECHAISY = createKey("echaisy");
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCKY_BUMPS = createKey("rocky_bumps");
+
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAetherMod.MODID, name));
     }
@@ -349,6 +351,9 @@ public class DAConfiguredFeatures {
 
         register(context, STERLING_AERCLOUD_CONFIGURATION, AetherFeatures.AERCLOUD.get(), new AercloudConfiguration(2,
                 SimpleStateProvider.simple(DABlocks.STERLING_AERCLOUD.get())));
+
+        //register(context, ROCKY_BUMPS, DAFeatures.ROCKY_BUMPS.get(), NoneFeatureConfiguration.INSTANCE);
+
     }
 
     static WeightedStateProvider weightedstateprovider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState().setValue(GoldenVines.BERRIES, Boolean.valueOf(true)), 1));

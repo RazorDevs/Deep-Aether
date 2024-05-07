@@ -9,6 +9,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -41,6 +42,7 @@ public class DAItemTagData extends ItemTagsProvider {
         this.copy(DATags.Blocks.CRUDEROOT_LOGS, DATags.Items.CRUDEROOT_LOGS);
         this.copy(DATags.Blocks.CONBERRY_LOGS, DATags.Items.CONBERRY_LOGS);
         this.copy(DATags.Blocks.SUNROOT_LOGS, DATags.Items.SUNROOT_LOGS);
+        this.copy(DATags.Blocks.NIMBUS_BLOCKS, DATags.Items.NIMBUS_BLOCKS);
 
         tag(AetherTags.Items.PLANKS_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
@@ -80,6 +82,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
                 DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
         );
+
         tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
                 DABlocks.YAGROOT_PLANKS.get().asItem(),
@@ -180,6 +183,51 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.CONBERRY_SIGN.get().asItem(),
                 DABlocks.SUNROOT_SIGN.get().asItem()
         );
+
+        tag(ItemTags.STAIRS).add(
+                DABlocks.ROSEROOT_STAIRS.get().asItem(),
+                DABlocks.YAGROOT_STAIRS.get().asItem(),
+                DABlocks.CRUDEROOT_STAIRS.get().asItem(),
+                DABlocks.CONBERRY_STAIRS.get().asItem(),
+                DABlocks.SUNROOT_STAIRS.get().asItem(),
+                DABlocks.CLORITE_STAIRS.get().asItem(),
+                DABlocks.ASETERITE_STAIRS.get().asItem(),
+                DABlocks.COBBLED_ASETERITE_STAIRS.get().asItem(),
+                DABlocks.ASETERITE_BRICKS_STAIRS.get().asItem(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get().asItem(),
+                DABlocks.AETHER_MUD_BRICKS_STAIRS.get().asItem(),
+                DABlocks.HOLYSTONE_TILE_STAIRS.get().asItem(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get().asItem(),
+                DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get().asItem(),
+                DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get().asItem(),
+                DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get().asItem(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get().asItem(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get().asItem(),
+                DABlocks.NIMBUS_STAIRS.get().asItem()
+        );
+
+        tag(ItemTags.SLABS).add(
+                DABlocks.ROSEROOT_SLAB.get().asItem(),
+                DABlocks.YAGROOT_SLAB.get().asItem(),
+                DABlocks.CRUDEROOT_SLAB.get().asItem(),
+                DABlocks.CONBERRY_SLAB.get().asItem(),
+                DABlocks.SUNROOT_SLAB.get().asItem(),
+                DABlocks.CLORITE_SLAB.get().asItem(),
+                DABlocks.ASETERITE_SLAB.get().asItem(),
+                DABlocks.COBBLED_ASETERITE_SLAB.get().asItem(),
+                DABlocks.ASETERITE_BRICKS_SLAB.get().asItem(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get().asItem(),
+                DABlocks.AETHER_MUD_BRICKS_SLAB.get().asItem(),
+                DABlocks.HOLYSTONE_TILE_SLAB.get().asItem(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get().asItem(),
+                DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get().asItem(),
+                DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get().asItem(),
+                DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get().asItem(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get().asItem(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get().asItem(),
+                DABlocks.NIMBUS_SLAB.get().asItem()
+        );
+
         tag(ItemTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get().asItem(),
                 DABlocks.STRIPPED_ROSEROOT_WALL.get().asItem(),
@@ -203,7 +251,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get().asItem(),
                 DABlocks.GILDED_HOLYSTONE_TILE_WALL.get().asItem(),
                 DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get().asItem()
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get().asItem(),
+                DABlocks.NIMBUS_WALL.get().asItem()
         );
         tag(ItemTags.FENCE_GATES).add(
                 DABlocks.ROSEROOT_FENCE_GATE.get().asItem(),

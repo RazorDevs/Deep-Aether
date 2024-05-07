@@ -258,6 +258,21 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.log((RotatedPillarBlock) DABlocks.HOLYSTONE_PILLAR.get());
         this.block(DABlocks.CHISELED_HOLYSTONE.get());
 
+        //Brass Dungeon
+        this.block(DABlocks.NIMBUS_STONE.get());
+        this.block(DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.stairs(DABlocks.NIMBUS_STAIRS.get(), DABlocks.NIMBUS_STONE.get());
+        this.slab(DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE.get());
+        this.wallBlock(DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
+        this.dungeonBlock(DABlocks.LOCKED_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.dungeonBlock(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.dungeonBlock(DABlocks.TRAPPED_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.dungeonBlock(DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.invisibleBlock(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.invisibleBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.dungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.dungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
         //Misc
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
         this.translucentBlock(DABlocks.AERSMOG.get());

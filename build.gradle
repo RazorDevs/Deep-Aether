@@ -12,7 +12,7 @@ plugins {
 
 version = "${project.mc_version}-${project.mod_version}"
 group = 'com.teamrazor.deep_aether'
-archivesBaseName = 'deep_aether'
+archivesBaseName = project.mod_id
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -48,7 +48,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
-                examplemod {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -63,7 +63,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
-                examplemod {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -84,7 +84,7 @@ minecraft {
             environment 'target', 'fmluserdevdata'
 
             mods {
-                examplemod {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }

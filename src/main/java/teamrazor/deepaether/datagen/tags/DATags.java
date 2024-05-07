@@ -28,6 +28,7 @@ public class DATags {
         public static final TagKey<Item> STRATUS_REPAIRING = tag("stratus_repairing");
         public static final TagKey<Item> SKYJADE_REPAIRING = tag("skyjade_repairing");
         public static final TagKey<Item> IS_GOLDEN_SWET_BALL = tag("is_golden_swet_ball");
+        public static final TagKey<Item> NIMBUS_BLOCKS = tag("nimbus_blocks");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.MODID, name));
@@ -40,8 +41,9 @@ public class DATags {
         public static final TagKey<Block> CRUDEROOT_LOGS = tag("cruderoot_logs");
         public static final TagKey<Block> CONBERRY_LOGS = tag("conberry_logs");
         public static final TagKey<Block> SUNROOT_LOGS = tag("sunroot_logs");
-
         public static final TagKey<Block> CAN_GOLDEN_VINES_SURVIVE_ON = tag("can_golden_vines_survive_on");
+        public static final TagKey<Block> NIMBUS_BLOCKS = tag("nimbus_blocks");
+
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
         }

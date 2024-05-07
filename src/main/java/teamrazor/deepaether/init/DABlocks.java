@@ -4,9 +4,13 @@ package teamrazor.deepaether.init;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.construction.AetherDirtPathBlock;
+import com.aetherteam.aether.block.dungeon.DoorwayBlock;
+import com.aetherteam.aether.block.dungeon.TrappedBlock;
+import com.aetherteam.aether.block.dungeon.TreasureDoorwayBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.effect.AetherEffects;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
@@ -31,6 +35,7 @@ import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.world.feature.tree.grower.*;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 import static net.minecraft.world.level.block.Blocks.CAULDRON;
@@ -309,6 +314,40 @@ public class DABlocks {
 	public static final RegistryObject<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedSquashStemBlock(DAItems.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 
+
+	// BRASS DUNGEON
+
+	public static final RegistryObject<Block> NIMBUS_STONE = registerBlock("nimbus_stone", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LIGHT_NIMBUS_STONE = registerBlock("light_nimbus_stone", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LOCKED_NIMBUS_STONE = registerBlock("locked_nimbus_stone", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
+	public static final RegistryObject<Block> LOCKED_LIGHT_NIMBUS_STONE = registerBlock("locked_light_nimbus_stone", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
+	public static final RegistryObject<Block> TRAPPED_NIMBUS_STONE = registerTrapped("trapped_nimbus_stone", () -> new TrappedBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_STONE.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_STONE.get())));
+	public static final RegistryObject<Block> TRAPPED_LIGHT_NIMBUS_STONE = registerTrapped("trapped_light_nimbus_stone", () -> new TrappedBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_STONE.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_STONE.get())));
+	public static final RegistryObject<Block> BOSS_DOORWAY_NIMBUS_STONE = registerBlock("boss_doorway_nimbus_stone", () -> new DoorwayBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F).forceSolidOn()));
+	public static final RegistryObject<Block> BOSS_DOORWAY_LIGHT_NIMBUS_STONE = registerBlock("boss_doorway_light_nimbus_stone", () -> new DoorwayBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.copy(BOSS_DOORWAY_NIMBUS_STONE.get())));
+	public static final RegistryObject<Block> TREASURE_DOORWAY_NIMBUS_STONE = registerBlock("treasure_doorway_nimbus_stone", () -> new TreasureDoorwayBlock(BlockBehaviour.Properties.copy(LOCKED_NIMBUS_STONE.get())));
+	public static final RegistryObject<Block> TREASURE_DOORWAY_LIGHT_NIMBUS_STONE = registerBlock("treasure_doorway_light_nimbus_stone", () -> new TreasureDoorwayBlock(BlockBehaviour.Properties.copy(LOCKED_LIGHT_NIMBUS_STONE.get())));
+
+	public static final RegistryObject<StairBlock> NIMBUS_STAIRS = registerBlock("nimbus_stairs",
+			() -> new StairBlock(() -> NIMBUS_STONE.get().defaultBlockState(), Block.Properties.copy(DABlocks.NIMBUS_STONE.get())));
+	public static final RegistryObject<SlabBlock> NIMBUS_SLAB = registerBlock("nimbus_slab",
+			() -> new SlabBlock(Block.Properties.copy(DABlocks.NIMBUS_STONE.get()).strength(0.5F, 6.0F)));
+	public static final RegistryObject<WallBlock> NIMBUS_WALL = registerBlock("nimbus_wall",
+			() -> new WallBlock(Block.Properties.copy(DABlocks.NIMBUS_STONE.get()).forceSolidOn()));
+
+	/*
+	public static final RegistryObject<Block> NIMBUS_PILLAR = registerBlock("nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LIGHT_NIMBUS_PILLAR = registerBlock("light_nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+	public static final RegistryObject<Block> LOCKED_NIMBUS_PILLAR = registerBlock("locked_nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
+	public static final RegistryObject<Block> LOCKED_LIGHT_NIMBUS_PILLAR = registerBlock("locked_light_nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
+	public static final RegistryObject<Block> TRAPPED_NIMBUS_PILLAR = registerTrapped("trapped_nimbus_pillar", () -> new TrappedBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_PILLAR.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> TRAPPED_LIGHT_NIMBUS_PILLAR = registerTrapped("trapped_light_nimbus_pillar", () -> new TrappedBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_PILLAR.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> BOSS_DOORWAY_NIMBUS_PILLAR = registerBlock("boss_doorway_nimbus_pillar", () -> new DoorwayBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F).forceSolidOn()));
+	public static final RegistryObject<Block> BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR = registerBlock("boss_doorway_light_nimbus_pillar", () -> new DoorwayBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.copy(BOSS_DOORWAY_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> TREASURE_DOORWAY_NIMBUS_PILLAR = registerBlock("treasure_doorway_nimbus_pillar", () -> new TreasureDoorwayBlock(BlockBehaviour.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR = registerBlock("treasure_doorway_light_nimbus_pillar", () -> new TreasureDoorwayBlock(BlockBehaviour.Properties.copy(LOCKED_LIGHT_NIMBUS_PILLAR.get())));
+*/
+
 	//MISC
 
 	public static final RegistryObject<Block> MOA_TOTEM = registerBlock("moa_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
@@ -468,6 +507,11 @@ public class DABlocks {
 
 	public static void register(IEventBus eventBus) {
 		BLOCKS.register(eventBus);
+	}
+
+	@SuppressWarnings("unchecked")
+	private static <B extends Block> RegistryObject<B> registerTrapped(String name, Supplier<? extends Block> block) {
+		return (RegistryObject<B>) registerBlock(name, block);
 	}
 
 	public static void registerWoodTypes() {

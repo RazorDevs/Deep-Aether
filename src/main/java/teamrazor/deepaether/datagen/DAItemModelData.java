@@ -243,6 +243,26 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
         this.itemBlock(DABlocks.CHISELED_HOLYSTONE.get());
 
+        //Brass Dungeon
+        this.itemBlock(DABlocks.NIMBUS_STONE.get());
+        this.itemBlock(DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.itemBlock(DABlocks.NIMBUS_STAIRS.get());
+        this.itemBlock(DABlocks.NIMBUS_SLAB.get());
+        this.itemWallBlock(DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
+
+        this.itemLockedDungeonBlock(DABlocks.LOCKED_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.itemLockedDungeonBlock(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
+        this.itemTrappedDungeonBlock(DABlocks.TRAPPED_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.itemTrappedDungeonBlock(DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
+        this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
+        this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
+
         //Plants
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
         this.itemBlockFlat(DABlocks.TALL_AERLAVENDER.get());
@@ -500,5 +520,11 @@ public class DAItemModelData extends AetherItemModelProvider {
             builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
 
+    }
+
+    public void itemOverlayDungeonBlock(Block block, Block baseBlock, String overlay) {
+        ((ItemModelBuilder)((ItemModelBuilder)((ItemModelBuilder)((ItemModelBuilder)((ItemModelBuilder)this.withExistingParent(this.blockName(block), this.mcLoc("block/cube"))).texture("overlay", new ResourceLocation("aether", "block/dungeon/" + overlay))).texture("face", this.texture(this.blockName(baseBlock)))).element().from(0.0F, 0.0F, 0.0F).to(16.0F, 16.0F, 16.0F).allFaces((direction, builder) -> {
+            builder.texture("#face").cullface(direction).end();
+        }).end()).element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end()).transforms().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.GROUND).rotation(90.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end().transform(ItemDisplayContext.GUI).rotation(30.0F, 135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end().transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end().end();
     }
 }

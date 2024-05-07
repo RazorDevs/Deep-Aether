@@ -1,7 +1,11 @@
 package teamrazor.deepaether.datagen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.dungeon.DoorwayBlock;
+import com.aetherteam.aether.block.dungeon.TrappedBlock;
+import com.aetherteam.aether.block.dungeon.TreasureDoorwayBlock;
 import com.aetherteam.aether.data.providers.AetherBlockLootSubProvider;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.functions.DoubleDrops;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
@@ -17,7 +21,10 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -304,6 +311,22 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_IASPOVE.get());
         this.dropPottedContents(DABlocks.POTTED_GOLDEN_ASPESS.get());
         this.dropPottedContents(DABlocks.POTTED_ECHAISY.get());
+
+        //Brass Dungeon
+        this.dropSelf(DABlocks.NIMBUS_STONE.get());
+        this.dropSelf(DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.dropSelf(DABlocks.NIMBUS_STAIRS.get());
+        this.dropSelf(DABlocks.NIMBUS_SLAB.get());
+        this.dropSelf(DABlocks.NIMBUS_WALL.get());
+        this.dropNone(DABlocks.LOCKED_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TRAPPED_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get());
+
 
         //Misc
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
