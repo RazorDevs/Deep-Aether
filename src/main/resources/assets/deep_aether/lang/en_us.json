@@ -46,6 +46,7 @@
   "entity.deep_aether.quail": "Quail",
   "entity.deep_aether.aerglow_fish": "Aerglow Fish",
   "entity.deep_aether.venomite": "Venomite",
+  "entity.deep_aether.boat": "Boat",
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "lore.block.deep_aether.aerglow_grass_path": "This block is the result of using a shovel on an Aerglow Grass Block.",
   "block.deep_aether.aersmog": "Aersmog",
@@ -743,7 +744,6 @@
   "subtitles.deep_aether.entity.venomite.ambient": "Venomite buzzes",
   "subtitles.deep_aether.entity.venomite.death": "Venomite dies",
   "subtitles.deep_aether.entity.venomite.hurt": "Venomite hurts"
-
 }
 
 

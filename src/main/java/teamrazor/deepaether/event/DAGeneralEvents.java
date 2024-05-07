@@ -3,6 +3,7 @@ package teamrazor.deepaether.event;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +13,8 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
@@ -21,6 +24,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -30,6 +34,10 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
+import teamrazor.deepaether.networking.DACapabilities;
+import teamrazor.deepaether.networking.DAMoasyncPacket;
+import teamrazor.deepaether.networking.DeepAetherPlayer;
+import teamrazor.deepaether.networking.MoaEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -106,16 +114,37 @@ public class DAGeneralEvents {
     }
 
     @SubscribeEvent
-    public static void onEffectRemoved(MobEffectEvent.Remove effectEvent) {
-        LivingEntity entity = effectEvent.getEntity();
-        MobEffect effect = effectEvent.getEffect();
-        if(entity instanceof Moa moa && effect.equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
-            MoaBonusJump moaBonusJump = (MoaBonusJump) moa;
-            moaBonusJump.deep_Aether$setBonusJumps(0);
+    public static void onEffectRemoved(MobEffectEvent.Remove event)
+    {
+        if(!event.getEffect().equals(DAMobEffects.MOA_BONUS_JUMPS.get()))
+            return;
+
+        if(event.getEntity() instanceof Moa moa) {
+            if(!moa.level().isClientSide) {
+                MoaEffect.get(moa).ifPresent((moaEffect) -> {
+                    moaEffect.setSynched(INBTSynchable.Direction.CLIENT, "setMoaEffectAmplifier", 0);
+                });
+            }
         }
     }
 
+    @SubscribeEvent
+    public static void onEffectExpired(MobEffectEvent.Expired event)
+    {
+        MobEffectInstance instance = event.getEffectInstance();
+        if(instance == null)
+            return;
+        if(!instance.getEffect().equals(DAMobEffects.MOA_BONUS_JUMPS.get()))
+            return;
 
+        if(event.getEntity() instanceof Moa moa) {
+            if(!moa.level().isClientSide) {
+                MoaEffect.get(moa).ifPresent((moaEffect) -> {
+                    moaEffect.setSynched(INBTSynchable.Direction.CLIENT, "setMoaEffectAmplifier", 0);
+                });
+            }
+        }
+    }
     @SubscribeEvent
     public static void applyValkyrieValorRes(LivingDamageEvent event){
         if(event.getSource().getEntity() instanceof LivingEntity undead) {
