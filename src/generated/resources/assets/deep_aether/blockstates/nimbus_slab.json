@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "deep_aether:block/nimbus_slab"
+    },
+    "type=double": {
+      "model": "deep_aether:block/nimbus_stone"
+    },
+    "type=top": {
+      "model": "deep_aether:block/nimbus_slab_top"
+    }
+  }
+}

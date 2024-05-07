@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "invisible=false": {
+      "model": "deep_aether:block/nimbus_stone"
+    },
+    "invisible=true": {
+      "model": "deep_aether:block/boss_doorway_nimbus_stone"
+    }
+  }
+}
