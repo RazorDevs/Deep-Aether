@@ -142,7 +142,17 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(),
                 DABlocks.NIMBUS_STAIRS.get(),
                 DABlocks.NIMBUS_SLAB.get(),
-                DABlocks.NIMBUS_WALL.get()
+                DABlocks.NIMBUS_WALL.get(),
+                DABlocks.NIMBUS_PILLAR.get(),
+                DABlocks.LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.LOCKED_NIMBUS_PILLAR.get(),
+                DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.TRAPPED_NIMBUS_PILLAR.get(),
+                DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(),
+                DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(),
+                DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get()
         );
 
         tag(BlockTags.ALL_SIGNS).add(

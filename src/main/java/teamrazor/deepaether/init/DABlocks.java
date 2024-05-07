@@ -35,7 +35,6 @@ import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.world.feature.tree.grower.*;
 
-import java.util.Objects;
 import java.util.function.Supplier;
 
 import static net.minecraft.world.level.block.Blocks.CAULDRON;
@@ -335,18 +334,16 @@ public class DABlocks {
 	public static final RegistryObject<WallBlock> NIMBUS_WALL = registerBlock("nimbus_wall",
 			() -> new WallBlock(Block.Properties.copy(DABlocks.NIMBUS_STONE.get()).forceSolidOn()));
 
-	/*
 	public static final RegistryObject<Block> NIMBUS_PILLAR = registerBlock("nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> LIGHT_NIMBUS_PILLAR = registerBlock("light_nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
 	public static final RegistryObject<Block> LOCKED_NIMBUS_PILLAR = registerBlock("locked_nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
 	public static final RegistryObject<Block> LOCKED_LIGHT_NIMBUS_PILLAR = registerBlock("locked_light_nimbus_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
-	public static final RegistryObject<Block> TRAPPED_NIMBUS_PILLAR = registerTrapped("trapped_nimbus_pillar", () -> new TrappedBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_PILLAR.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
-	public static final RegistryObject<Block> TRAPPED_LIGHT_NIMBUS_PILLAR = registerTrapped("trapped_light_nimbus_pillar", () -> new TrappedBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_PILLAR.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
-	public static final RegistryObject<Block> BOSS_DOORWAY_NIMBUS_PILLAR = registerBlock("boss_doorway_nimbus_pillar", () -> new DoorwayBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F).forceSolidOn()));
-	public static final RegistryObject<Block> BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR = registerBlock("boss_doorway_light_nimbus_pillar", () -> new DoorwayBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.copy(BOSS_DOORWAY_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> TRAPPED_NIMBUS_PILLAR = registerTrapped("trapped_nimbus_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_PILLAR.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> TRAPPED_LIGHT_NIMBUS_PILLAR = registerTrapped("trapped_light_nimbus_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.VALKYRIE::get, () -> LOCKED_NIMBUS_PILLAR.get().defaultBlockState(), Block.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
+	public static final RegistryObject<Block> BOSS_DOORWAY_NIMBUS_PILLAR = registerBlock("boss_doorway_nimbus_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F).forceSolidOn()));
+	public static final RegistryObject<Block> BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR = registerBlock("boss_doorway_light_nimbus_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.VALKYRIE_QUEEN::get, BlockBehaviour.Properties.copy(BOSS_DOORWAY_NIMBUS_PILLAR.get())));
 	public static final RegistryObject<Block> TREASURE_DOORWAY_NIMBUS_PILLAR = registerBlock("treasure_doorway_nimbus_pillar", () -> new TreasureDoorwayBlock(BlockBehaviour.Properties.copy(LOCKED_NIMBUS_PILLAR.get())));
 	public static final RegistryObject<Block> TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR = registerBlock("treasure_doorway_light_nimbus_pillar", () -> new TreasureDoorwayBlock(BlockBehaviour.Properties.copy(LOCKED_LIGHT_NIMBUS_PILLAR.get())));
-*/
 
 	//MISC
 

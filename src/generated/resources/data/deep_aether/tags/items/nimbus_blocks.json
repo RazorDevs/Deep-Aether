@@ -12,6 +12,16 @@
     "deep_aether:treasure_doorway_light_nimbus_stone",
     "deep_aether:nimbus_stairs",
     "deep_aether:nimbus_slab",
-    "deep_aether:nimbus_wall"
+    "deep_aether:nimbus_wall",
+    "deep_aether:nimbus_pillar",
+    "deep_aether:light_nimbus_pillar",
+    "deep_aether:locked_nimbus_pillar",
+    "deep_aether:locked_light_nimbus_pillar",
+    "deep_aether:trapped_nimbus_pillar",
+    "deep_aether:trapped_light_nimbus_pillar",
+    "deep_aether:boss_doorway_nimbus_pillar",
+    "deep_aether:boss_doorway_light_nimbus_pillar",
+    "deep_aether:treasure_doorway_nimbus_pillar",
+    "deep_aether:treasure_doorway_light_nimbus_pillar"
   ]
 }

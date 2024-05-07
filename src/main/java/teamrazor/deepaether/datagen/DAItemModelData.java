@@ -249,18 +249,25 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.NIMBUS_STAIRS.get());
         this.itemBlock(DABlocks.NIMBUS_SLAB.get());
         this.itemWallBlock(DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
-
         this.itemLockedDungeonBlock(DABlocks.LOCKED_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
         this.itemLockedDungeonBlock(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
-
         this.itemTrappedDungeonBlock(DABlocks.TRAPPED_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
         this.itemTrappedDungeonBlock(DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
-
         this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
         this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
-
         this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
         this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
+        this.itemBlock(DABlocks.NIMBUS_PILLAR.get());
+        this.itemBlock(DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.itemLockedDungeonBlock(DABlocks.LOCKED_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.itemLockedDungeonBlock(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.itemTrappedDungeonBlock(DABlocks.TRAPPED_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.itemTrappedDungeonBlock(DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
 
 
         //Plants

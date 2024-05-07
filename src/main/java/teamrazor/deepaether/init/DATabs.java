@@ -453,7 +453,17 @@ public class DATabs {
                     DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(),
                     DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(),
                     DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(),
-                    DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get()
+                    DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.NIMBUS_PILLAR.get(),
+                    DABlocks.LOCKED_NIMBUS_PILLAR.get(),
+                    DABlocks.TRAPPED_NIMBUS_PILLAR.get(),
+                    DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(),
+                    DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(),
+                    DABlocks.LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get()
             }, event);
         }
     }

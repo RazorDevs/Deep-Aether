@@ -273,6 +273,17 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.dungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
         this.dungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
 
+        this.log((RotatedPillarBlock) DABlocks.NIMBUS_PILLAR.get());
+        this.log((RotatedPillarBlock) DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.dungeonBlock(DABlocks.LOCKED_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.dungeonBlock(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.dungeonBlock(DABlocks.TRAPPED_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.dungeonBlock(DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.invisibleBlock(DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.invisibleBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.dungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.dungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+
         //Misc
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
         this.translucentBlock(DABlocks.AERSMOG.get());
