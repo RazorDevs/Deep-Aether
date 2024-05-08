@@ -21,7 +21,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 public class GoldenVinesBlock extends GrowingPlantHeadBlock implements BonemealableBlock, GoldenVines {
 

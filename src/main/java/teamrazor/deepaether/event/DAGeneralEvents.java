@@ -28,7 +28,6 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
-import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 
 import java.util.ArrayList;

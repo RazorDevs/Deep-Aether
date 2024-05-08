@@ -1,6 +1,7 @@
 package teamrazor.deepaether.block;
 
 import com.aetherteam.aether.effect.AetherEffects;
+import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,13 +14,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import teamrazor.deepaether.advancement.PoisonTrigger;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DAParticles;
@@ -30,8 +34,8 @@ import java.util.function.Supplier;
 
 public class PoisonBlock extends LiquidBlock {
 
-    public PoisonBlock(Supplier<? extends FlowingFluid> supplier, Properties properties) {
-        super(supplier, properties);
+    public PoisonBlock(DeferredHolder<Fluid, FlowingFluid> deferredHolder, Properties properties) {
+        super(deferredHolder, properties);
     }
 
     @Override
@@ -97,9 +101,9 @@ public class PoisonBlock extends LiquidBlock {
 
             //Checks if any poison recipe matches the ingredient
             if (!level.isClientSide()) {
-                for (PoisonRecipe recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
-                    if (recipe.getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
-                        TRANSFORM_ITEM = recipe.getResult().getItem();
+                for (RecipeHolder<PoisonRecipe> recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
+                    if (recipe.value().getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
+                        TRANSFORM_ITEM = recipe.value().getResult().getItem();
 
                         //Starts the timer in the randomTick function.
                         COUNT = true;

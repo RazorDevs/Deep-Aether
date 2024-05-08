@@ -28,8 +28,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.PlayMessages;
+import net.neoforged.fml.common.Mod;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimationState;
@@ -63,11 +62,6 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
 
 
     // Initialization
-
-    public Quail(PlayMessages.SpawnEntity packet, Level world) {
-        this(DAEntities.QUAIL.get(), world);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
-    }
 
     public Quail(EntityType<Quail> type, Level world) {
         super(type, world);
@@ -184,7 +178,7 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
         float f1 = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
         float f2 = 0.1F;
         float f3 = 0.0F;
-        entity.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + entity.getMyRidingOffset() + 0.0D, this.getZ() - (double)(0.1F * f1));
+        entity.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + entity.getMyRidingOffset(entity) + 0.0D, this.getZ() - (double)(0.1F * f1));
         if (entity instanceof LivingEntity) {
             ((LivingEntity)entity).yBodyRot = this.yBodyRot;
         }

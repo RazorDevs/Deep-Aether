@@ -15,7 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
-import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 

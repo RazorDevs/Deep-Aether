@@ -2,7 +2,9 @@ package teamrazor.deepaether.mixin;
 
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.capability.player.AetherPlayer;
+import com.aetherteam.aether.entity.EntityUtil;
 import com.aetherteam.aether.entity.passive.Aerwhale;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -37,7 +39,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.List;
 
@@ -45,6 +46,8 @@ import java.util.List;
 public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddleable, ContainerEntity, HasCustomInventoryScreen {
     @Shadow(remap = false) public abstract void setYRotData(float rot);
 
+    @Unique
+    private static final EntityDataAccessor<Boolean> DATA_STILL_ID = SynchedEntityData.defineId(Aerwhale.class, EntityDataSerializers.BOOLEAN);
     protected AerwhaleMixin(EntityType<? extends FlyingMob> p_20806_, Level p_20807_) {
         super(p_20806_, p_20807_);
     }
@@ -54,7 +57,19 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
     @Inject(at = @At("TAIL"), method = "defineSynchedData")
     protected void defineSynchedData(CallbackInfo ci) {
         this.getEntityData().define(DATA_SADDLE_ID, false);
+        this.getEntityData().define(DATA_STILL_ID, false);
     }
+
+    @Unique
+    public boolean deep_Aether$isStill() {
+        return this.getEntityData().get(DATA_STILL_ID);
+    }
+
+    @Unique
+    public void deep_Aether$setStill(boolean isStill) {
+        this.getEntityData().set(DATA_STILL_ID, isStill);
+    }
+
 
     /**
      * @author TunefulTurnip
@@ -62,7 +77,10 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
      */
     @Overwrite
     public void travel(@NotNull Vec3 vector) {
-        if (this.isEffectiveAi() || this.isControlledByLocalInstance()) {
+        if(deep_Aether$isStill()) {
+            this.setDeltaMovement(new Vec3(0.0, 0.0, 0.0));
+        }
+        else if (this.isEffectiveAi() || this.isControlledByLocalInstance()) {
             List<Entity> passengers = this.getPassengers();
             if (!passengers.isEmpty()) {
                 Entity entity = passengers.get(0);
@@ -120,9 +138,20 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
 
     @Inject(at = @At("HEAD"), cancellable = true, method = "mobInteract")
     protected void mobInteract(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+        ItemStack itemStack = player.getItemInHand(hand);
+        if (this.isSaddleable() && itemStack.is(AetherItems.NATURE_STAFF.get())) {
+            itemStack.hurtAndBreak(1, player, (p) -> {
+                p.broadcastBreakEvent(hand);
+            });
+            this.deep_Aether$setStill(!this.deep_Aether$isStill());
+            for (int i = 0; i < 20; ++i) {
+                EntityUtil.spawnMovementExplosionParticles(this);
+            }
 
+            cir.setReturnValue(InteractionResult.sidedSuccess(this.level().isClientSide()));
+        }
 
-        if(getPassengers().size() > 1)
+        else if(getPassengers().size() > 1)
             cir.setReturnValue(chestInteract(player));
 
         else if(player.isSecondaryUseActive()) {
@@ -241,13 +270,18 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
         super.addAdditionalSaveData(tag);
         this.addChestVehicleSaveData(tag);
         tag.putBoolean("isSaddled", isSaddled());
+        tag.putBoolean("isStill", deep_Aether$isStill());
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.readChestVehicleSaveData(tag);
-        this.deep_Aether$setSaddled(tag.getBoolean("isSaddled"));
+        if(tag.contains("isSaddled"))
+            this.deep_Aether$setSaddled(tag.getBoolean("isSaddled"));
+        if(tag.contains("isStill"))
+            this.deep_Aether$setStill(tag.getBoolean("isStill"));
+
     }
 
     /**

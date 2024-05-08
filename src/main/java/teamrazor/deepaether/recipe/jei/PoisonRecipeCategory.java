@@ -12,7 +12,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
 public class PoisonRecipeCategory extends AbstractRecipeCategory<PoisonRecipe> {

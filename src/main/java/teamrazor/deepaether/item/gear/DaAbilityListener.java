@@ -13,7 +13,6 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.init.DAItems;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DaAbilityListener {

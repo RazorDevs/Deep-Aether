@@ -62,24 +62,6 @@ runs {
     }
 }
 
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.logging.markers', 'REGISTRIES'
-            property "mixin.env.remapRefMap", "true"
-            property "mixin.env.refMapRemappingFile", "${projectDir}/build/createSrgToMcp/output.srg"
-
-            args '--mod', 'deep_aether', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            environment 'target', 'fmluserdevdata'
-
-            mods {
-                examplemod {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
-
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {

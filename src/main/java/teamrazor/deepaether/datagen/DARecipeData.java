@@ -19,7 +19,6 @@ import net.minecraftforge.common.Tags;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
 
 import java.util.function.Consumer;

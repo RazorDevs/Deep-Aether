@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraftforge.fml.ModList;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.init.DAItems;
 
 public class LCDAShieldItem extends ShieldItem {
     public LCDAShieldItem(Properties pProperties) {

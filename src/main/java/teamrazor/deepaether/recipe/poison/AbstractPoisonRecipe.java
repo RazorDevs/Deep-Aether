@@ -13,13 +13,11 @@ import net.minecraft.world.level.Level;
 
 public abstract class AbstractPoisonRecipe implements Recipe<Container> {
     protected final RecipeType<?> type;
-    protected final ResourceLocation id;
     protected final String group;
     protected final Ingredient ingredient;
     protected final ItemStack result;
-    public AbstractPoisonRecipe(RecipeType<?> recipeType, ResourceLocation resourceLocation, String string, Ingredient ingredient, ItemStack itemStack) {
+    public AbstractPoisonRecipe(RecipeType<?> recipeType, String string, Ingredient ingredient, ItemStack itemStack) {
         this.type = recipeType;
-        this.id = resourceLocation;
         this.group = string;
         this.ingredient = ingredient;
         this.result = itemStack;
@@ -54,11 +52,6 @@ public abstract class AbstractPoisonRecipe implements Recipe<Container> {
     public String getGroup() {
         return this.group;
     }
-
-    public ResourceLocation getId() {
-        return this.id;
-    }
-
     public RecipeType<?> getType() {
         return this.type;
     }

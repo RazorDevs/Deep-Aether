@@ -4,7 +4,7 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ToolAction;
+import net.neoforged.neoforge.common.ToolAction;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
 

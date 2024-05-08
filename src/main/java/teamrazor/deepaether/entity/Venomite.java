@@ -34,8 +34,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.PlayMessages;
+import net.neoforged.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -64,12 +63,6 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
     @javax.annotation.Nullable
     private UUID persistentAngerTarget;
-
-    public Venomite(PlayMessages.SpawnEntity spawnEntity, Level level) {
-        super(DAEntities.VENOMITE.get(), level);
-        this.moveControl = new FlyingMoveControl(this, 20, true);
-        this.xpReward = 3;
-    }
 
     public Venomite(EntityType<? extends Animal> type, Level level) {
         super(type, level);

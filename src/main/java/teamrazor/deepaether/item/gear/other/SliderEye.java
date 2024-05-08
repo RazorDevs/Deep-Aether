@@ -1,6 +1,5 @@
 package teamrazor.deepaether.item.gear.other;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.particles.ParticleTypes;
@@ -20,7 +19,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
-import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.networking.DeepAetherPlayer;

@@ -11,7 +11,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import teamrazor.deepaether.init.DAEntities;
-import teamrazor.deepaether.init.DAItems;
 
 public class ThrownQuailEgg extends ThrowableItemProjectile {
 

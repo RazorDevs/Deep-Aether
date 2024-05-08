@@ -15,7 +15,6 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.Iterator;
 

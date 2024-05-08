@@ -9,7 +9,6 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.List;
 

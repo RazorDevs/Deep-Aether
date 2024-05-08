@@ -26,7 +26,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.PlayMessages;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -41,16 +40,9 @@ import teamrazor.deepaether.init.DAEntities;
 public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
 
-    private static final EntityDataAccessor<Float> DATA_X_ROT_O_ID = SynchedEntityData.defineId(Aerwhale.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Float> DATA_X_ROT_ID = SynchedEntityData.defineId(Aerwhale.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Float> DATA_Y_ROT_ID = SynchedEntityData.defineId(Aerwhale.class, EntityDataSerializers.FLOAT);
-
-    public Windfly(PlayMessages.SpawnEntity packet, Level world) {
-        this(DAEntities.WINDFLY.get(), world);
-        this.lookControl = new Aerwhale.BlankLookControl(this);
-        this.moveControl = new WindflyMoveControl(this);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
-    }
+    private static final EntityDataAccessor<Float> DATA_X_ROT_O_ID = SynchedEntityData.defineId(Windfly.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> DATA_X_ROT_ID = SynchedEntityData.defineId(Windfly.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> DATA_Y_ROT_ID = SynchedEntityData.defineId(Windfly.class, EntityDataSerializers.FLOAT);
 
     public Windfly(EntityType<Windfly> type, Level world) {
         super(type, world);

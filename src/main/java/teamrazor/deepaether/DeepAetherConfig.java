@@ -1,7 +1,7 @@
 package teamrazor.deepaether;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class DeepAetherConfig {
@@ -21,7 +21,7 @@ public class DeepAetherConfig {
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
         public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
 
-        public Common(ForgeConfigSpec.Builder builder) {
+        public Common(ModConfigSpec.Builder builder) {
             builder.push("Gameplay");
             skyjade_enchant = builder
                     .comment("Skyjade tools will be enchantable")
@@ -118,7 +118,7 @@ public class DeepAetherConfig {
     public static class Client {
         public final ConfigValue<Boolean> always_enable_halloween_slider;
         public final ConfigValue<Boolean> never_enable_halloween_slider;
-        public Client(ForgeConfigSpec.Builder builder) {
+        public Client(ModConfigSpec.Builder builder) {
             builder.push("Rendering");
             always_enable_halloween_slider = builder
                     .comment("Always Enables the halloween Slider")
@@ -136,18 +136,18 @@ public class DeepAetherConfig {
     }
 
 
-    public static final ForgeConfigSpec COMMON_SPEC;
+    public static final ModConfigSpec COMMON_SPEC;
     public static final Common COMMON;
 
-    public static final ForgeConfigSpec CLIENT_SPEC;
+    public static final ModConfigSpec CLIENT_SPEC;
     public static final Client CLIENT;
 
     static {
-        final Pair<Common, ForgeConfigSpec> commonSpecPair = new ForgeConfigSpec.Builder().configure(Common::new);
+        final Pair<Common, ModConfigSpec> commonSpecPair = new ModConfigSpec.Builder().configure(Common::new);
         COMMON_SPEC = commonSpecPair.getRight();
         COMMON = commonSpecPair.getLeft();
 
-        final Pair<Client, ForgeConfigSpec> clientSpecPair = new ForgeConfigSpec.Builder().configure(Client::new);
+        final Pair<Client, ModConfigSpec> clientSpecPair = new ModConfigSpec.Builder().configure(Client::new);
         CLIENT_SPEC = clientSpecPair.getRight();
         CLIENT = clientSpecPair.getLeft();
     }

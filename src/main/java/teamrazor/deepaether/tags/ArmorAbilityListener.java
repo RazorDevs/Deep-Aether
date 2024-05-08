@@ -3,10 +3,10 @@ package teamrazor.deepaether.tags;
 
 import com.aetherteam.aether.event.hooks.AbilityHooks;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.item.gear.stratus.StratusAbility;
 

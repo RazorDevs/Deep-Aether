@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

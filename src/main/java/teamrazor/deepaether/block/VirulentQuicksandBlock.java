@@ -23,7 +23,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.Optional;
 

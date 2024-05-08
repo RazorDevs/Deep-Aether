@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipe;
 
 import java.util.Objects;

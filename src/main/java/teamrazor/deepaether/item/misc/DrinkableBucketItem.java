@@ -18,15 +18,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
     boolean CAN_CONSUME = false;
-    public DrinkableBucketItem(RegistryObject<FlowingFluid> fluid, Properties properties) {
+    public DrinkableBucketItem(DeferredHolder<Fluid, I> fluid, Properties properties) {
         super(fluid, properties);
     }
 

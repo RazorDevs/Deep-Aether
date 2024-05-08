@@ -23,7 +23,6 @@ import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 public class GoldenVinesPlantBlock extends GrowingPlantBodyBlock implements BonemealableBlock, GoldenVines {
     public GoldenVinesPlantBlock(BlockBehaviour.Properties p_153000_) {

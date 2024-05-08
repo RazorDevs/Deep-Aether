@@ -1,6 +1,5 @@
 package teamrazor.deepaether.entity;
 
-import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.HammerProjectileLaunchPacket;
 import com.aetherteam.nitrogen.network.PacketRelay;
 import net.minecraft.core.BlockPos;
@@ -20,8 +19,7 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.network.NetworkHooks;
+import net.neoforged.neoforge.event.EventHooks;
 import teamrazor.deepaether.init.DAEntities;
 
 public class FireProjectile extends ThrowableProjectile {
@@ -81,7 +79,7 @@ public class FireProjectile extends ThrowableProjectile {
             this.setTargetOnFire(target);
             this.level().broadcastEntityEvent(this, (byte) 70);
         } else {
-            PacketRelay.sendToServer(AetherPacketHandler.INSTANCE, new HammerProjectileLaunchPacket(target.getId(), this.getId()));
+            PacketRelay.sendToServer(new HammerProjectileLaunchPacket(target.getId(), this.getId()));
             this.spawnParticles();
         }
 
@@ -91,7 +89,7 @@ public class FireProjectile extends ThrowableProjectile {
         super.onHitBlock(result);
         if (!this.level().isClientSide) {
             Entity entity = this.getOwner();
-            if (!(entity instanceof Mob) || ForgeEventFactory.getMobGriefingEvent(this.level(), entity)) {
+            if (!(entity instanceof Mob) || EventHooks.getMobGriefingEvent(this.level(), entity)) {
                 BlockPos blockpos = result.getBlockPos().relative(result.getDirection());
                 if (this.level().isEmptyBlock(blockpos)) {
                     this.level().setBlockAndUpdate(blockpos, BaseFireBlock.getState(this.level(), blockpos));
@@ -145,10 +143,6 @@ public class FireProjectile extends ThrowableProjectile {
             this.ticksInAir = tag.getInt("TicksInAir");
         }
 
-    }
-
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
     }
 }
 

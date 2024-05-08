@@ -1,6 +1,5 @@
 package teamrazor.deepaether.item.gear;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.StringRepresentable;
@@ -8,8 +7,8 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DASounds;
 

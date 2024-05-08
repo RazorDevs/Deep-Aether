@@ -6,9 +6,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.fluids.FluidInteractionRegistry;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.common.NeoForgeMod;
+import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
+import net.neoforged.neoforge.fluids.FluidType;
 import teamrazor.deepaether.init.DABlocks;
 
 import java.util.*;
@@ -51,14 +51,14 @@ public class DAFluidInteraction {
     static
     {
         // Poison + Water = Aersmog
-        addInteraction(DAFluidTypes.POISON_FLUID_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
-                ForgeMod.WATER_TYPE.get(),
+        addInteraction(DAFluidTypes.POISON_FLUID_TYPE.value(), new FluidInteractionRegistry.InteractionInformation(
+                NeoForgeMod.WATER_TYPE.value(),
                 fluidState -> DABlocks.AERSMOG.get().defaultBlockState()
         ));
 
         // Poison + Lava = Crying Obsidian
-        addInteraction(DAFluidTypes.POISON_FLUID_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
-                ForgeMod.LAVA_TYPE.get(),
+        addInteraction(DAFluidTypes.POISON_FLUID_TYPE.value(), new FluidInteractionRegistry.InteractionInformation(
+                NeoForgeMod.LAVA_TYPE.value(),
                 fluidState -> Blocks.CRYING_OBSIDIAN.defaultBlockState()
         ));
     }

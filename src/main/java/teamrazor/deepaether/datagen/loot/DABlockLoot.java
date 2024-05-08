@@ -33,7 +33,6 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.Set;
 import java.util.stream.Collectors;

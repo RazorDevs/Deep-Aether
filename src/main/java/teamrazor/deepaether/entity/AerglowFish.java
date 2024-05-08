@@ -7,7 +7,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.Mod;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 
