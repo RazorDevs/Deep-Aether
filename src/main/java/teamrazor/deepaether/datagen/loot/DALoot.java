@@ -1,7 +1,7 @@
 package teamrazor.deepaether.datagen.loot;
 
 import net.minecraft.resources.ResourceLocation;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -12,7 +12,7 @@ public class DALoot {
     public static final Set<ResourceLocation> IMMUTABLE_LOOT_TABLES = Collections.unmodifiableSet(LOOT_TABLES);
 
     private static ResourceLocation register(String id) {
-        return register(new ResourceLocation(DeepAetherMod.MODID, id));
+        return register(new ResourceLocation(DeepAether.MODID, id));
     }
     private static ResourceLocation register(ResourceLocation id) {
         if (LOOT_TABLES.add(id)) {

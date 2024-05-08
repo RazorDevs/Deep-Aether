@@ -17,7 +17,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.AerwhaleModelOverrideOverrideLCCompat;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
@@ -26,7 +26,7 @@ import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import teamrazor.deepaether.screen.CombinerScreen;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = DeepAether.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAClientModBusEvents {
 
     /**
@@ -35,7 +35,7 @@ public class DAClientModBusEvents {
     @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
     public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
     {
-        if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT))
+        if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
             event.registerLayerDefinition(AetherModelLayers.AERWHALE, AerwhaleModelOverrideOverrideLCCompat::createOverrideLayerButWithChest);
     }
 
@@ -55,7 +55,7 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
 
-            if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+            if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 AddonItemModelPredicates.init();
             }
         });

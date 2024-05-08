@@ -4,13 +4,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.block.CombinerBlockEntity;
 import teamrazor.deepaether.entity.block.DAHangingSignBlockEntity;
 import teamrazor.deepaether.entity.block.DASignBlockEntity;
 
 public class DABlockEntityTypes {
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, DeepAetherMod.MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, DeepAether.MODID);
 
     public static final RegistryObject<BlockEntityType<DASignBlockEntity>> SIGN = BLOCK_ENTITY_TYPES.register("sign", () -> BlockEntityType.Builder.of(DASignBlockEntity::new,
             DABlocks.YAGROOT_SIGN.get(), DABlocks.YAGROOT_WALL_SIGN.get(),

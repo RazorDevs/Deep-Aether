@@ -5,7 +5,7 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
 import teamrazor.deepaether.world.feature.DAPlacedFeatures;
 
@@ -16,6 +16,6 @@ public class DAWorldGenData extends DatapackBuiltinEntriesProvider {
             .add(Registries.CONFIGURED_FEATURE, DAConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, DAPlacedFeatures::bootstrap);
     public DAWorldGenData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, BUILDER, Collections.singleton(DeepAetherMod.MODID));
+        super(output, registries, BUILDER, Collections.singleton(DeepAether.MODID));
     }
 }

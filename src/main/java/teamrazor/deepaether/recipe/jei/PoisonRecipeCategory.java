@@ -11,14 +11,14 @@ import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
 public class PoisonRecipeCategory extends AbstractRecipeCategory<PoisonRecipe> {
-    public static final ResourceLocation UID = new ResourceLocation(DeepAetherMod.MODID, "poison_recipe");
+    public static final ResourceLocation UID = new ResourceLocation(DeepAether.MODID, "poison_recipe");
     public static final ResourceLocation TEXTURE = new ResourceLocation(Aether.MODID, "textures/gui/menu/jei_render.png");
-    public static final RecipeType<PoisonRecipe> RECIPE_TYPE = RecipeType.create(DeepAetherMod.MODID, "poison_recipe", PoisonRecipe.class);
+    public static final RecipeType<PoisonRecipe> RECIPE_TYPE = RecipeType.create(DeepAether.MODID, "poison_recipe", PoisonRecipe.class);
 
     public PoisonRecipeCategory(IGuiHelper guiHelper) {
         super("poison_recipe", UID,

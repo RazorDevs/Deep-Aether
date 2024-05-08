@@ -5,11 +5,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 public class DASounds {
 
-	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DeepAetherMod.MODID);
+	public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DeepAether.MODID);
 
 	public static final RegistryObject<SoundEvent> NABOORU = register("item.music_disc.nabooru");
 	public static final RegistryObject<SoundEvent> A_MORNING_WISH = register("item.music_disc.a_morning_wish");
@@ -34,6 +34,6 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> ITEM_AFTERBURNER_FIRES = register("item.tool.afterburner_fires");
 
 	private static RegistryObject<SoundEvent> register(String name) {
-		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAetherMod.MODID, name)));
+		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAether.MODID, name)));
 	}
 }

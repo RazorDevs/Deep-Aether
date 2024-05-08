@@ -13,7 +13,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAItems;
 
@@ -91,9 +91,9 @@ public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
 
         public ResourceLocation getTexture(boolean hasChest) {
             if (hasChest) {
-                return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/chest_boat/" + name + ".png");
+                return new ResourceLocation(DeepAether.MODID, "textures/entity/chest_boat/" + name + ".png");
             }
-            return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/boat/" + name + ".png");
+            return new ResourceLocation(DeepAether.MODID, "textures/entity/boat/" + name + ".png");
         }
 
         public String getModelLocation() {

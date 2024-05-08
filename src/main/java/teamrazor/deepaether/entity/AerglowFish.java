@@ -8,10 +8,10 @@ import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.common.Mod;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
+@Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class AerglowFish extends AbstractSchoolingFish {
 
 	public AerglowFish(EntityType<? extends AerglowFish> p_29790_, Level p_29791_) {

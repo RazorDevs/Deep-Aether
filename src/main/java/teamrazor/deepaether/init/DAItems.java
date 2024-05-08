@@ -1,6 +1,5 @@
 package teamrazor.deepaether.init;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
@@ -23,7 +22,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
@@ -42,7 +41,7 @@ import java.util.function.Supplier;
 
 public class DAItems {
 	public static final DeferredRegister<Item> ITEMS =
-			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
+			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAether.MODID);
 
 	// SIGNS
 	public static final RegistryObject<Item> ROSEROOT_SIGN = ITEMS.register("roseroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.ROSEROOT_SIGN.get(), DABlocks.ROSEROOT_WALL_SIGN.get()));
@@ -78,7 +77,7 @@ public class DAItems {
 	public static final RegistryObject<Item> STRATUS_CHESTPLATE = ITEMS.register("stratus_chestplate", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 	public static final RegistryObject<Item> STRATUS_LEGGINGS = ITEMS.register("stratus_leggings", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
 	public static final RegistryObject<Item> STRATUS_BOOTS = ITEMS.register("stratus_boots", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.BOOTS, new Item.Properties()));
-	public static final RegistryObject<Item> STRATUS_GLOVES = ITEMS.register("stratus_gloves", () -> new GlovesItem(DaArmorMaterials.STRATUS, 1.0,new ResourceLocation(DeepAetherMod.MODID, "stratus_gloves"), DASounds.ITEM_ARMOR_EQUIP_STRATUS, new Item.Properties().defaultDurability(2031)));
+	public static final RegistryObject<Item> STRATUS_GLOVES = ITEMS.register("stratus_gloves", () -> new GlovesItem(DaArmorMaterials.STRATUS, 1.0,new ResourceLocation(DeepAether.MODID, "stratus_gloves"), DASounds.ITEM_ARMOR_EQUIP_STRATUS, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> STRATUS_RING = ITEMS.register("stratus_ring", () -> new RingItem(DASounds.ITEM_ACCESSORY_EQUIP_STRATUS_RING, new Item.Properties().stacksTo(1).durability(100)));
 	public static final RegistryObject<Item> SPOOKY_RING = ITEMS.register("spooky_ring", () -> new SpookyRing(DASounds.ITEM_ACCESSORY_EQUIP_SPOOKY_RING, new Item.Properties().stacksTo(1).durability(500)));
 	public static final RegistryObject<Item> SLIDER_EYE = ITEMS.register("slider_eye", () -> new SliderEye(DASounds.ITEM_ACCESSORY_EQUIP_SLIDER_EYE, new Item.Properties().stacksTo(1).durability(500).rarity(AetherItems.AETHER_LOOT).fireResistant()));
@@ -187,8 +186,8 @@ public class DAItems {
 	}
 
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
-		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
+		if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
 		}
 		return ITEMS.register(name, item);
 	}
@@ -196,9 +195,9 @@ public class DAItems {
 	//For Stratus Template
 	public static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
 	public static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.LIGHT_PURPLE;
-	public static final Component STRATUS_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(DeepAetherMod.MODID, "stratus_upgrade"))).withStyle(DAItems.TITLE_FORMAT);
-	public static final Component STRATUS_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAetherMod.MODID,"smithing_template.stratus_upgrade.applies_to"))).withStyle(DAItems.DESCRIPTION_FORMAT);
-	public static final Component STRATUS_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAetherMod.MODID,"smithing_template.stratus_upgrade.ingredients"))).withStyle(DAItems.DESCRIPTION_FORMAT);
-	public static final Component STRATUS_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAetherMod.MODID,"smithing_template.stratus_upgrade.base_slot_description")));
-	public static final Component STRATUS_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAetherMod.MODID,"smithing_template.stratus_upgrade.additions_slot_description")));
+	public static final Component STRATUS_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(DeepAether.MODID, "stratus_upgrade"))).withStyle(DAItems.TITLE_FORMAT);
+	public static final Component STRATUS_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.applies_to"))).withStyle(DAItems.DESCRIPTION_FORMAT);
+	public static final Component STRATUS_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.ingredients"))).withStyle(DAItems.DESCRIPTION_FORMAT);
+	public static final Component STRATUS_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.base_slot_description")));
+	public static final Component STRATUS_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.additions_slot_description")));
 }

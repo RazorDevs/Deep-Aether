@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 public class DABlockTagData extends BlockTagsProvider {
 
     public DABlockTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
-        super(output, registries, DeepAetherMod.MODID, helper);
+        super(output, registries, DeepAether.MODID, helper);
     }
     @Nonnull
     @Override
