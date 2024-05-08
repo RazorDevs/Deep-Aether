@@ -8,7 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 public class DATags {
     public class Items {
@@ -28,9 +28,10 @@ public class DATags {
         public static final TagKey<Item> STRATUS_REPAIRING = tag("stratus_repairing");
         public static final TagKey<Item> SKYJADE_REPAIRING = tag("skyjade_repairing");
         public static final TagKey<Item> IS_GOLDEN_SWET_BALL = tag("is_golden_swet_ball");
+        public static final TagKey<Item> NIMBUS_BLOCKS = tag("nimbus_blocks");
 
         private static TagKey<Item> tag(String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.MODID, name));
         }
     }
     public static class Blocks {
@@ -40,17 +41,18 @@ public class DATags {
         public static final TagKey<Block> CRUDEROOT_LOGS = tag("cruderoot_logs");
         public static final TagKey<Block> CONBERRY_LOGS = tag("conberry_logs");
         public static final TagKey<Block> SUNROOT_LOGS = tag("sunroot_logs");
-
         public static final TagKey<Block> CAN_GOLDEN_VINES_SURVIVE_ON = tag("can_golden_vines_survive_on");
+        public static final TagKey<Block> NIMBUS_BLOCKS = tag("nimbus_blocks");
+
         private static TagKey<Block> tag(String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAether.MODID, name));
         }
     }
 
     public static class Entities {
         public static final TagKey<EntityType<?>> STERLING_AERCLOUD_BLACKLIST = tag("sterling_aercloud_blacklist");
         private static TagKey<EntityType<?>> tag(String name) {
-            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DeepAether.MODID, name));
         }
     }
     public static class Biomes {
@@ -58,7 +60,7 @@ public class DATags {
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
         public static final TagKey<Biome> CAN_QUAIL_SPAWN = tag("can_quail_spawn");
         private static TagKey<Biome> tag(String name) {
-            return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAether.MODID, name));
         }
 
     }
@@ -67,7 +69,7 @@ public class DATags {
         public static final TagKey<Fluid> POISON = tag("poison");
 
         private static TagKey<Fluid> tag(String name) {
-            return TagKey.create(Registries.FLUID, new ResourceLocation(DeepAetherMod.MODID, name));
+            return TagKey.create(Registries.FLUID, new ResourceLocation(DeepAether.MODID, name));
         }
     }
 }

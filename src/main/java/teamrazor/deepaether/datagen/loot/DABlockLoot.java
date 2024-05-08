@@ -305,6 +305,31 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropPottedContents(DABlocks.POTTED_GOLDEN_ASPESS.get());
         this.dropPottedContents(DABlocks.POTTED_ECHAISY.get());
 
+        //Brass Dungeon
+        this.dropSelf(DABlocks.NIMBUS_STONE.get());
+        this.dropSelf(DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.dropSelf(DABlocks.NIMBUS_STAIRS.get());
+        this.dropSelf(DABlocks.NIMBUS_SLAB.get());
+        this.dropSelf(DABlocks.NIMBUS_WALL.get());
+        this.dropNone(DABlocks.LOCKED_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TRAPPED_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get());
+        this.dropNone(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get());
+        this.dropSelf(DABlocks.NIMBUS_PILLAR.get());
+        this.dropSelf(DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.LOCKED_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.TRAPPED_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get());
+        this.dropNone(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get());
+
         //Misc
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
 

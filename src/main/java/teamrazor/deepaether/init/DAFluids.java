@@ -7,12 +7,12 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.fluids.PoisonFluid;
 
 public class DAFluids {
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, DeepAetherMod.MODID);
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, DeepAether.MODID);
 
     public static final RegistryObject<FlowingFluid> POISON_FLUID = FLUIDS.register("poison_fluid", () -> new PoisonFluid.Source(DAFluids.POISON_PROPERTIES) {
     });

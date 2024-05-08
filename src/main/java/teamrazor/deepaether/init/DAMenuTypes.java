@@ -8,12 +8,12 @@ import net.minecraftforge.network.IContainerFactory;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.screen.CombinerMenu;
 
 public class DAMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(ForgeRegistries.MENU_TYPES, DeepAetherMod.MODID);
+            DeferredRegister.create(ForgeRegistries.MENU_TYPES, DeepAether.MODID);
 
     public static final RegistryObject<MenuType<CombinerMenu>> COMBINER_MENU =
             registerMenuType("combiner_menu", CombinerMenu::new);

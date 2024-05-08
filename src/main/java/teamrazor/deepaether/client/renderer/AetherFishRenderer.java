@@ -8,13 +8,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.AerglowFishModel;
 import teamrazor.deepaether.entity.AerglowFish;
 
 @OnlyIn(Dist.CLIENT)
 public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishModel<AerglowFish>> {
-	private static final ResourceLocation AERGLOW_FISH_LOCATION = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/aerglow_fish.png");
+	private static final ResourceLocation AERGLOW_FISH_LOCATION = new ResourceLocation(DeepAether.MODID, "textures/entity/aerglow_fish.png");
 
 	public AetherFishRenderer(EntityRendererProvider.Context renderer) {
 		super(renderer, new AerglowFishModel<>(renderer.bakeLayer(DAModelLayers.AERGLOW_FISH)), 0.4F);

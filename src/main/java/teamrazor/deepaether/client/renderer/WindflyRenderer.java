@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.WindflyModel;
 import teamrazor.deepaether.entity.Windfly;
 
@@ -22,7 +22,7 @@ public class WindflyRenderer extends GeoEntityRenderer<Windfly> {
 
     @Override
     public ResourceLocation getTextureLocation(Windfly instance) {
-        return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/windfly/windfly.png");
+        return new ResourceLocation(DeepAether.MODID, "textures/entity/windfly/windfly.png");
     }
 
     @Override

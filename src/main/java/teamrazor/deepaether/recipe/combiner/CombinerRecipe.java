@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 public class CombinerRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
@@ -82,7 +82,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<CombinerRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(DeepAetherMod.MODID, "combining");
+        public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
 
         @Override
         public CombinerRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {

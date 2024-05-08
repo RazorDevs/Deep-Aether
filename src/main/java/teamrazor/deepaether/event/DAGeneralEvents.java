@@ -12,8 +12,6 @@ import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
@@ -23,34 +21,28 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
-import teamrazor.deepaether.entity.VenomiteBubble;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
-import teamrazor.deepaether.networking.DACapabilities;
-import teamrazor.deepaether.networking.DAMoasyncPacket;
-import teamrazor.deepaether.networking.DeepAetherPlayer;
-import teamrazor.deepaether.networking.MoaEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
+@Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAetherMod.IsHalloweenContentEnabled()) {
+        if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAether.IsHalloweenContentEnabled()) {
             entity.spawnAtLocation(new ItemStack(DAItems.SPOOKY_RING.get(), 1));
         }
 
@@ -100,8 +92,8 @@ public class DAGeneralEvents {
     {
         var blocker = event.getEntity();
         DamageSource source = event.getDamageSource();
-        if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-            if (blocker.getUseItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields")))) {
+        if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
+            if (blocker.getUseItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields")))) {
                 blocker.level().playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level().random.nextFloat() * 0.4F);
 
                 if (blocker.getUseItem().getItem() == DAItems.STRATUS_SHIELD.get() && source.getDirectEntity() instanceof LivingEntity attacker) {

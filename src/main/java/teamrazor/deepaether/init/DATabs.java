@@ -16,9 +16,9 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT, modid = DeepAetherMod.MODID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT, modid = DeepAether.MODID)
 public class DATabs {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
@@ -167,7 +167,7 @@ public class DATabs {
                     DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get()
             }, event);
 
-            if (ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {
+            if (ModList.get().isLoaded(DeepAether.AETHER_REDUX)) {
                 addToTab(DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get().asItem(), new Block[]{
                         DABlocks.GILDED_HOLYSTONE_BRICKS.get(),
                         DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get(),
@@ -310,7 +310,7 @@ public class DATabs {
 
             }, event);
 
-            if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+            if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
             }
 
@@ -323,7 +323,7 @@ public class DATabs {
             }, event);
 
 
-            if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+            if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
             }
 
@@ -436,6 +436,34 @@ public class DATabs {
             }, event);
             addToTab(AetherItems.VALKYRIE_SPAWN_EGG.get(), new Item[]{
                     DAItems.VENOMITE_SPAWN_EGG.get()
+            }, event);
+        }
+
+        if(tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.getKey()) {
+            addToTab(AetherBlocks.TREASURE_DOORWAY_SENTRY_STONE.get().asItem(), new Block[]{
+                    DABlocks.NIMBUS_STONE.get(),
+                    DABlocks.LOCKED_NIMBUS_STONE.get(),
+                    DABlocks.TRAPPED_NIMBUS_STONE.get(),
+                    DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(),
+                    DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(),
+                    DABlocks.NIMBUS_STAIRS.get(),
+                    DABlocks.NIMBUS_SLAB.get(),
+                    DABlocks.NIMBUS_WALL.get(),
+                    DABlocks.LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_STONE.get(),
+                    DABlocks.NIMBUS_PILLAR.get(),
+                    DABlocks.LOCKED_NIMBUS_PILLAR.get(),
+                    DABlocks.TRAPPED_NIMBUS_PILLAR.get(),
+                    DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(),
+                    DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(),
+                    DABlocks.LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(),
+                    DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get()
             }, event);
         }
     }

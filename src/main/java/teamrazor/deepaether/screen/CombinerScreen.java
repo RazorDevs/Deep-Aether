@@ -7,11 +7,11 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 public class CombinerScreen extends AbstractContainerScreen<CombinerMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(DeepAetherMod.MODID, "textures/gui/combiner_gui.png");
+            new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui.png");
 
     public CombinerScreen(CombinerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

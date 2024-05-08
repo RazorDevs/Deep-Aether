@@ -11,13 +11,13 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.VenomiteBubbleModel;
 import teamrazor.deepaether.entity.VenomiteBubble;
 
 @OnlyIn(Dist.CLIENT)
 public class VenomiteBubbleRenderer extends EntityRenderer<VenomiteBubble> {
-	private static final ResourceLocation LOCATION = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/venomite/venomite_bubble.png");
+	private static final ResourceLocation LOCATION = new ResourceLocation(DeepAether.MODID, "textures/entity/venomite/venomite_bubble.png");
 
 	private final VenomiteBubbleModel<VenomiteBubble> bubble;
 

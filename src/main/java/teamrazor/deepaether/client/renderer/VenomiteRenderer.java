@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.VenomiteModel;
 import teamrazor.deepaether.entity.Venomite;
 
@@ -20,8 +20,8 @@ public class VenomiteRenderer extends GeoEntityRenderer<Venomite> {
 
     @Override
     public ResourceLocation getTextureLocation(Venomite instance) {
-        if (instance.isAngry()) return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/venomite/venomite_angry.png");
-        return new ResourceLocation(DeepAetherMod.MODID, "textures/entity/venomite/venomite.png");
+        if (instance.isAngry()) return new ResourceLocation(DeepAether.MODID, "textures/entity/venomite/venomite_angry.png");
+        return new ResourceLocation(DeepAether.MODID, "textures/entity/venomite/venomite.png");
     }
 
     @Override

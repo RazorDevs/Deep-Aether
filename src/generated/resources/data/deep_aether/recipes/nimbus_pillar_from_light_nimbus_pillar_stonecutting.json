@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "deep_aether:light_nimbus_pillar"
+  },
+  "result": "deep_aether:nimbus_pillar"
+}

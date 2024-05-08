@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.DeepAetherConfig;
-import teamrazor.deepaether.DeepAetherMod;
 
 /**
  * Used to change the slider texture during Halloween.
@@ -22,13 +22,13 @@ import teamrazor.deepaether.DeepAetherMod;
 public abstract class SliderRendererMixin extends MobRenderer<Slider, SliderModel> {
 
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/slider/halloween_slider_asleep.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_asleep.png");
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_CRITICAL_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/slider/halloween_slider_asleep_critical.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_CRITICAL_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_asleep_critical.png");
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/slider/halloween_slider_awake.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_awake.png");
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE = new ResourceLocation(DeepAetherMod.MODID, "textures/entity/slider/halloween_slider_awake_critical.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_awake_critical.png");
 
 
     public SliderRendererMixin(EntityRendererProvider.Context context, SliderModel sliderModel, float v) {
@@ -37,7 +37,7 @@ public abstract class SliderRendererMixin extends MobRenderer<Slider, SliderMode
 
     @Inject(at = @At("HEAD"), method = "getTextureLocation(Lcom/aetherteam/aether/entity/monster/dungeon/boss/Slider;)Lnet/minecraft/resources/ResourceLocation;", cancellable = true)
     public void getTextureLocation(Slider slider, CallbackInfoReturnable<ResourceLocation> cir) {
-        if (((DeepAetherMod.IS_HALLOWEEN || DeepAetherConfig.CLIENT.always_enable_halloween_slider.get()) && (!DeepAetherConfig.CLIENT.never_enable_halloween_slider.get()))) {
+        if (((DeepAether.IS_HALLOWEEN || DeepAetherConfig.CLIENT.always_enable_halloween_slider.get()) && (!DeepAetherConfig.CLIENT.never_enable_halloween_slider.get()))) {
             if (!slider.isAwake()) {
                 if (!slider.isCritical())
                     cir.setReturnValue(HALLOWEEN_SLIDER_ASLEEP_TEXTURE);

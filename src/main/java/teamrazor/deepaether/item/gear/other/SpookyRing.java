@@ -14,7 +14,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.mixin.AetherSkyRenderEffectsAccessor;
 import top.theillusivec4.curios.api.SlotContext;
@@ -66,8 +66,8 @@ public class SpookyRing extends RingItem {
     public static void SpookyMoonConditions(SlotContext slotContext) {
         Level level = slotContext.entity().level();
         if (level.isClientSide()) {
-            LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) & level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN ? new ResourceLocation(DeepAetherMod.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png");
-            AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && level.getMoonPhase() == 0 && DeepAetherMod.IS_HALLOWEEN ? new ResourceLocation(DeepAetherMod.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png"));
+            LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) & level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? new ResourceLocation(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png");
+            AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? new ResourceLocation(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png"));
         }
     }
 

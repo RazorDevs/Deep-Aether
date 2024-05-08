@@ -71,6 +71,11 @@
     "deep_aether:blightmoss_holystone_tiles",
     "deep_aether:blightmoss_holystone_tile_slab",
     "deep_aether:blightmoss_holystone_tile_stairs",
-    "deep_aether:blightmoss_holystone_tile_wall"
+    "deep_aether:blightmoss_holystone_tile_wall",
+    "deep_aether:nimbus_stone",
+    "deep_aether:light_nimbus_stone",
+    "deep_aether:nimbus_stairs",
+    "deep_aether:nimbus_slab",
+    "deep_aether:nimbus_wall"
   ]
 }

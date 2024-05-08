@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "invisible=false": {
+      "model": "deep_aether:block/light_nimbus_pillar"
+    },
+    "invisible=true": {
+      "model": "deep_aether:block/boss_doorway_light_nimbus_pillar"
+    }
+  }
+}

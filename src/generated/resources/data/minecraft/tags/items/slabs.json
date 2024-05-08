@@ -1,0 +1,23 @@
+{
+  "values": [
+    "deep_aether:roseroot_slab",
+    "deep_aether:yagroot_slab",
+    "deep_aether:cruderoot_slab",
+    "deep_aether:conberry_slab",
+    "deep_aether:sunroot_slab",
+    "deep_aether:clorite_slab",
+    "deep_aether:aseterite_slab",
+    "deep_aether:cobbled_aseterite_slab",
+    "deep_aether:aseterite_bricks_slab",
+    "deep_aether:big_holystone_bricks_slab",
+    "deep_aether:aether_mud_bricks_slab",
+    "deep_aether:holystone_tile_slab",
+    "deep_aether:mossy_holystone_brick_slab",
+    "deep_aether:mossy_holystone_tile_slab",
+    "deep_aether:gilded_holystone_brick_slab",
+    "deep_aether:gilded_holystone_tile_slab",
+    "deep_aether:blightmoss_holystone_brick_slab",
+    "deep_aether:blightmoss_holystone_tile_slab",
+    "deep_aether:nimbus_slab"
+  ]
+}

@@ -16,7 +16,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -27,7 +27,7 @@ import java.util.function.Supplier;
 
 public class DARecipeData extends AetherRecipeProvider {
     public DARecipeData(PackOutput output) {
-        super(output, DeepAetherMod.MODID);
+        super(output, DeepAether.MODID);
     }
 
     @Override
@@ -612,6 +612,22 @@ public class DARecipeData extends AetherRecipeProvider {
         dye(consumer, Items.ORANGE_DYE, DABlocks.GOLDEN_ASPESS.get());
         dye(consumer, Items.PURPLE_DYE, DABlocks.ECHAISY.get());
 
+        //Brass Dungeon
+        stairs(DABlocks.NIMBUS_STAIRS, DABlocks.NIMBUS_STONE).save(consumer);
+        slab(DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE).save(consumer);
+        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
+
+        this.stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STAIRS.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE.get(), 2);
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+
         //Misc
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.AFTERBURNER.get(), 1)
                 .define('O', DAItems.SUN_CORE.get())
@@ -763,12 +779,12 @@ public class DARecipeData extends AetherRecipeProvider {
         return slabBuilder(RecipeCategory.BUILDING_BLOCKS, slab, Ingredient.of(material.get())).unlockedBy(getHasName(material.get()), has(material.get()));
     }
     protected ResourceLocation name(String name) {
-        return new ResourceLocation(DeepAetherMod.MODID, name);
+        return new ResourceLocation(DeepAether.MODID, name);
     }
     protected ResourceLocation packName(String name) {
         return packNameSpace(name, "pack");
     }
     protected ResourceLocation packNameSpace(String name, String pack) {
-        return new ResourceLocation(DeepAetherMod.MODID, pack+"/"+name);
+        return new ResourceLocation(DeepAether.MODID, pack+"/"+name);
     }
 }
