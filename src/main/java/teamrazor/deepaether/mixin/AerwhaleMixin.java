@@ -1,7 +1,7 @@
 package teamrazor.deepaether.mixin;
 
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.capability.player.AetherPlayer;
+import com.aetherteam.aether.attachment.AetherDataAttachments;
 import com.aetherteam.aether.entity.EntityUtil;
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.aetherteam.aether.item.AetherItems;
@@ -101,7 +101,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
                     vector = new Vec3(player.xxa, 0.0, player.zza <= 0.0F ? (double)(player.zza * 0.25F) : (double)player.zza);
                     double d0;
                     double d1;
-                    if (AetherPlayer.get(player).map(AetherPlayer::isJumping).orElse(false)) {
+                    if (player.getData(AetherDataAttachments.AETHER_PLAYER).isJumping()) {
                         this.setDeltaMovement(new Vec3(0.0, 0.0, 0.0));
                     } else {
                         d0 = Math.toRadians(this.getYRot());

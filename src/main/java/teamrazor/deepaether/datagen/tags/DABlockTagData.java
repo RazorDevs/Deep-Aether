@@ -7,9 +7,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.data.BlockTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -33,10 +34,10 @@ public class DABlockTagData extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         IntrinsicTagAppender<Block> aether_block_tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
-        Collection<RegistryObject<Block>> blocks = DABlocks.BLOCKS.getEntries();
+        Collection<DeferredHolder<Block, ? extends Block>> blocks = DABlocks.BLOCKS.getEntries();
 
 
-        for (RegistryObject<Block> block : blocks)
+        for (DeferredHolder<Block, ? extends Block> block : blocks)
         {
             aether_block_tag.add(block.get());
         }

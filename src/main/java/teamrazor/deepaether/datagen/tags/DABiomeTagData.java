@@ -5,7 +5,7 @@ import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.world.biomes.DABiomes;
 

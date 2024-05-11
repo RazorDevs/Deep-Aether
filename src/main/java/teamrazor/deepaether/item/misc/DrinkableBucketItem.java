@@ -22,12 +22,12 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
     boolean CAN_CONSUME = false;
-    public DrinkableBucketItem(DeferredHolder<Fluid, I> fluid, Properties properties) {
+    public DrinkableBucketItem(DeferredHolder<Fluid, ? extends Fluid> fluid, Properties properties) {
         super(fluid, properties);
     }
 
@@ -54,7 +54,7 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         BlockHitResult blockhitresult = getPlayerPOVHitResult(world, player, this.getFluid() == Fluids.EMPTY ? ClipContext.Fluid.SOURCE_ONLY : ClipContext.Fluid.NONE);
-        InteractionResultHolder<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(player, world, itemstack, blockhitresult);
+        InteractionResultHolder<ItemStack> ret = EventHooks.onBucketUse(player, world, itemstack, blockhitresult);
         if (ret != null)
             return ret;
         if (blockhitresult.getType() == HitResult.Type.MISS) {
@@ -73,7 +73,7 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
                     BlockState blockstate1 = world.getBlockState(blockpos);
                     if (blockstate1.getBlock() instanceof BucketPickup) {
                         BucketPickup bucketpickup = (BucketPickup)blockstate1.getBlock();
-                        ItemStack itemstack1 = bucketpickup.pickupBlock(world, blockpos, blockstate1);
+                        ItemStack itemstack1 = bucketpickup.pickupBlock(player, world, blockpos, blockstate1);
                         if (!itemstack1.isEmpty()) {
                             player.awardStat(Stats.ITEM_USED.get(this));
                             bucketpickup.getPickupSound(blockstate1).ifPresent((p_150709_) -> {
@@ -92,7 +92,7 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
                     return InteractionResultHolder.fail(itemstack);
                 } else {
                     BlockState blockstate = world.getBlockState(blockpos);
-                    BlockPos blockpos2 = canBlockContainFluid(world, blockpos, blockstate) ? blockpos : blockpos1;
+                    BlockPos blockpos2 = canBlockContainFluid(player, world, blockpos, blockstate) ? blockpos : blockpos1;
                     if (this.emptyContents(player, world, blockpos2, blockhitresult, itemstack)) {
                         this.checkExtraContent(player, world, itemstack, blockpos2);
                         if (player instanceof ServerPlayer) {

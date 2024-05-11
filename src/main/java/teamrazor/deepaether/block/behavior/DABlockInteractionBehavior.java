@@ -28,9 +28,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
@@ -146,7 +146,7 @@ public class DABlockInteractionBehavior {
                 BlockPos blockpos = blockhitresult.getBlockPos();
                 Direction direction = blockhitresult.getDirection();
                 BlockPos relativePos = blockpos.relative(direction);
-                if (world.getFluidState(relativePos).getFluidType() == DAFluidTypes.POISON_FLUID_TYPE.get()) {
+                if (world.getFluidState(relativePos).getFluidType() == DAFluidTypes.POISON_FLUID_TYPE.value()) {
 
                     player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
                     if (!player.getAbilities().instabuild) {

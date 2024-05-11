@@ -1,13 +1,9 @@
 package teamrazor.deepaether.networking;
 
 import com.aetherteam.aether.entity.passive.Moa;
-import com.aetherteam.nitrogen.capability.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncEntityPacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.util.LazyOptional;
-import oshi.util.tuples.Quartet;
 
 public class DAMoasyncPacket extends SyncEntityPacket<MoaEffect> {
     public DAMoasyncPacket(Quartet<Integer, String, INBTSynchable.Type, Object> values) {

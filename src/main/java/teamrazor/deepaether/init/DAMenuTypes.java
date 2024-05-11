@@ -1,29 +1,20 @@
 package teamrazor.deepaether.init;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.common.extensions.IForgeMenuType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.network.IContainerFactory;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.network.IContainerFactory;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.screen.CombinerMenu;
 
 public class DAMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(ForgeRegistries.MENU_TYPES, DeepAether.MODID);
+            DeferredRegister.create(BuiltInRegistries.MENU, DeepAether.MODID);
 
-    public static final RegistryObject<MenuType<CombinerMenu>> COMBINER_MENU =
-            registerMenuType("combiner_menu", CombinerMenu::new);
-
-
-    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
-        return MENUS.register(name, () -> IForgeMenuType.create(factory));
-    }
-
-    public static void register(IEventBus eventBus) {
-        MENUS.register(eventBus);
-    }
+    public static final DeferredHolder<MenuType<?>, MenuType<CombinerMenu>> COMBINER_MENU = MENUS.register("combiner_menu", () ->
+            new MenuType<>(CombinerMenu::new, FeatureFlags.VANILLA_SET));
 }

@@ -2,7 +2,6 @@ package teamrazor.deepaether.item.gear.stratus;
 
 
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.capability.player.AetherPlayer;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -15,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 

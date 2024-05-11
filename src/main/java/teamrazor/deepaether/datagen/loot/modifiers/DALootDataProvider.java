@@ -5,10 +5,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.data.GlobalLootModifierProvider;
-import net.minecraftforge.common.loot.LootTableIdCondition;
+import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
+import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.List;
 

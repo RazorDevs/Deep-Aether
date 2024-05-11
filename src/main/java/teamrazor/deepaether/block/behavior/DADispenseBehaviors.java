@@ -2,7 +2,7 @@ package teamrazor.deepaether.block.behavior;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.particles.ParticleTypes;
@@ -31,12 +31,12 @@ public class DADispenseBehaviors {
     public static final DispenseItemBehavior DEEP_AETHER_BUCKET_BUCKET_BEHAVIOR = new DefaultDispenseItemBehavior() {
         @Override
         public ItemStack execute(BlockSource blockSource, ItemStack itemStack) {
-            LevelAccessor levelaccessor = blockSource.getLevel();
-            BlockPos blockpos = blockSource.getPos().relative(blockSource.getBlockState().getValue(DispenserBlock.FACING));
+            LevelAccessor levelaccessor = blockSource.level()  ;
+            BlockPos blockpos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
             BlockState blockstate = levelaccessor.getBlockState(blockpos);
             Block block = blockstate.getBlock();
             if (block == DABlocks.VIRULENT_QUICKSAND.get()) {
-                ItemStack itemstack = ((BucketPickup)block).pickupBlock(levelaccessor, blockpos, blockstate);
+                ItemStack itemstack = ((BucketPickup)block).pickupBlock(null, levelaccessor, blockpos, blockstate);
                 if (itemstack.isEmpty()) {
                     return super.execute(blockSource, itemStack);
                 } else {
@@ -46,7 +46,7 @@ public class DADispenseBehaviors {
                     if (itemStack.isEmpty()) {
                         return new ItemStack(item);
                     } else {
-                        if (blockSource.<DispenserBlockEntity>getEntity().addItem(new ItemStack(item)) < 0) {
+                        if (blockSource.blockEntity().addItem(new ItemStack(item)) < 0) {
                             super.execute(blockSource, new ItemStack(item));
                         }
 
@@ -68,9 +68,9 @@ public class DADispenseBehaviors {
             }
 
             else {
-                ServerLevel serverlevel = source.getLevel();
-                BlockPos blockpos = source.getPos();
-                BlockPos blockpos1 = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
+                ServerLevel serverlevel = source.level();
+                BlockPos blockpos = source.pos();
+                BlockPos blockpos1 = source.pos().relative(source.state().getValue(DispenserBlock.FACING));
 
                 if (serverlevel.getBlockState(blockpos1).is(AetherBlocks.AETHER_DIRT.get())) {
                     if (!serverlevel.isClientSide) {
@@ -85,7 +85,7 @@ public class DADispenseBehaviors {
                     return new ItemStack(Items.GLASS_BOTTLE);
                 }
 
-                else if (serverlevel.getBlockState(blockpos1).getBlockHolder().containsTag(BlockTags.CONVERTABLE_TO_MUD)) {
+                else if (serverlevel.getBlockState(blockpos1).getBlockHolder().is(BlockTags.CONVERTABLE_TO_MUD)) {
                     if (!serverlevel.isClientSide) {
                         for (int i = 0; i < 5; ++i) {
                             serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), (double) (blockpos.getY() + 1), (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
@@ -110,8 +110,8 @@ public class DADispenseBehaviors {
         @Override
         public ItemStack execute(BlockSource p_123561_, ItemStack p_123562_) {
             DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)p_123562_.getItem();
-            BlockPos blockpos = p_123561_.getPos().relative(p_123561_.getBlockState().getValue(DispenserBlock.FACING));
-            Level level = p_123561_.getLevel();
+            BlockPos blockpos = p_123561_.pos().relative(p_123561_.state().getValue(DispenserBlock.FACING));
+            Level level = p_123561_.level();
             if (dispensiblecontaineritem.emptyContents(null, level, blockpos, null)) {
                 dispensiblecontaineritem.checkExtraContent(null, level, p_123562_, blockpos);
                 return new ItemStack(Items.BUCKET);

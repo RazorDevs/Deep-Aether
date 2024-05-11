@@ -1,43 +1,43 @@
 package teamrazor.deepaether.screen;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.items.SlotItemHandler;
 import teamrazor.deepaether.entity.block.CombinerBlockEntity;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAMenuTypes;
 
 public class CombinerMenu extends AbstractContainerMenu {
-    public final CombinerBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
-
-    public CombinerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+    private final Container container;
+    public CombinerMenu(int containerId, Inventory playerInventory) {
+        this(containerId, playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
     }
 
-    public CombinerMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+    public CombinerMenu(int pContainerId, Inventory inv, Container container, ContainerData data) {
         super(DAMenuTypes.COMBINER_MENU.get(), pContainerId);
         checkContainerSize(inv, 4);
-        blockEntity = ((CombinerBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
+        this.container = container;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler, 0, 60, 11));
-            this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 11));
-            this.addSlot(new SlotItemHandler(iItemHandler, 2, 100, 11));
-            this.addSlot(new SlotItemHandler(iItemHandler, 3, 80, 59));
-        });
+            this.addSlot(new Slot(container, 0, 60, 11));
+            this.addSlot(new Slot(container, 1, 80, 11));
+            this.addSlot(new Slot(container, 2, 100, 11));
+            this.addSlot(new Slot(container, 3, 80, 59));
+
 
         addDataSlots(data);
     }
@@ -106,8 +106,7 @@ public class CombinerMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, DABlocks.COMBINER.get());
+        return this.container.stillValid(pPlayer);
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

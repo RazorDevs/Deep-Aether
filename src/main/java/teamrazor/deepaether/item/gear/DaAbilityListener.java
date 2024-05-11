@@ -1,18 +1,19 @@
 package teamrazor.deepaether.item.gear;
 
-import com.aetherteam.aether.capability.player.AetherPlayer;
+import com.aetherteam.aether.attachment.AetherDataAttachments;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.init.DAItems;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DaAbilityListener {
@@ -31,14 +32,12 @@ public class DaAbilityListener {
 
         if (com.aetherteam.aether.item.EquipmentUtil.hasFullGravititeSet(livingEntity)) {
             if (livingEntity instanceof Player player) {
-                AetherPlayer.get(player).ifPresent(aetherPlayer -> {
-                    if (aetherPlayer.isGravititeJumpActive()) {
-                        player.push(0.0, EquipmentUtil.handleStratusRingBoost(livingEntity)-1.0, 0.0);
-                        if (player instanceof ServerPlayer serverPlayer) {
-                            serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
-                        }
+                if (player.getData(AetherDataAttachments.AETHER_PLAYER).isGravititeJumpActive()) {
+                    player.push(0.0, EquipmentUtil.handleStratusRingBoost(livingEntity) - 1.0, 0.0);
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                     }
-                });
+                }
             }
         }
     }
