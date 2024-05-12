@@ -469,7 +469,7 @@ public class DABlocks {
 		DeferredBlock<Block> toReturn = BLOCKS.register(name, block);
 
 		if(ModList.get().isLoaded(DeepAether.AETHER_REDUX)) {
-			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
 			registerBlockItem(name, toReturn);
 
 		}

@@ -32,13 +32,15 @@ public class DAClientModBusEvents {
     /**
      * See {@link com.legacy.lost_aether.client.LCEntityRendering}
      */
+    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4
+    /*
     @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
     public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
     {
         if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
             event.registerLayerDefinition(AetherModelLayers.AERWHALE, AerwhaleModelOverrideOverrideLCCompat::createOverrideLayerButWithChest);
     }
-
+     */
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         registerCuriosRenderers();

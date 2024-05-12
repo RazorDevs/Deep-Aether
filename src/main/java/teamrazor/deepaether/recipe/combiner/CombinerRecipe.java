@@ -13,8 +13,9 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.DeepAether;
-
+/*
 public class CombinerRecipe implements Recipe<SimpleContainer> {
+
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private final ResourceLocation id;
@@ -39,6 +40,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
      * Method that checks if the passed ingredient is present in only one of the 3
      * slots using the XOR operator. This enables "shapeless" recipes in the combiner.
      */
+    /*
     private boolean testEachSlot(SimpleContainer pContainer, Ingredient ingredient){
         return ingredient.test(pContainer.getItem(0))
                 ^ ingredient.test(pContainer.getItem(1))
@@ -122,3 +124,4 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         }
     }
 }
+    */

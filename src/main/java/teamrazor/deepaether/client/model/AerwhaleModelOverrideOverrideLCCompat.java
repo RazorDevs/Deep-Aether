@@ -10,7 +10,10 @@ import net.minecraft.client.model.geom.builders.*;
  * Also, the name on the class totally makes sense {@link AerwhaleModelOverride}
  * For registration see {@link teamrazor.deepaether.event.DAClientModBusEvents}
  **/
+//TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4
+
 public interface AerwhaleModelOverrideOverrideLCCompat {
+    /*
     static LayerDefinition createOverrideLayerButWithChest()
     {
         if (!(Boolean) LostContentConfig.CLIENT.updatedAerwhaleAnimations.get()) {
@@ -35,4 +38,6 @@ public interface AerwhaleModelOverrideOverrideLCCompat {
             return LayerDefinition.create(meshdefinition, 256, 128);
         }
     }
+
+     */
 }

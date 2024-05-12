@@ -8,9 +8,11 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipe;
 
 import java.util.Objects;
@@ -30,8 +32,7 @@ public class DAJEIPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        registration.addRecipes(PoisonRecipeCategory.RECIPE_TYPE, rm.getAllRecipesFor(DARecipe.POISON_RECIPE.get()));
-
+        registration.addRecipes(PoisonRecipeCategory.RECIPE_TYPE, rm.getAllRecipesFor(DARecipe.POISON_RECIPE.get()).stream().map(RecipeHolder::value).toList());
     }
 
     @Override

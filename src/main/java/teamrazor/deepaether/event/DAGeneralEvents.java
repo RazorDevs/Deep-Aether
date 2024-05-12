@@ -23,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.*;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
@@ -30,6 +31,7 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
+import teamrazor.deepaether.networking.attachment.DAAttachments;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +40,13 @@ import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
+
+    @SubscribeEvent
+    public static void onEntityJoin(EntityJoinLevelEvent event) {
+        if(event.getEntity() instanceof Moa moa) {
+            moa.getData(DAAttachments.MOA_EFFECT).onJoinLevel(moa);
+        }
+    }
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
@@ -70,7 +79,7 @@ public class DAGeneralEvents {
 
                 //For advancement
                 for (Player player : players) {
-                    DAAdvancementTriggers.FLAWLESS.trigger((ServerPlayer) player, entity, event.getSource());
+                    DAAdvancementTriggers.FLAWLESS_TRIGGER.get().trigger((ServerPlayer) player, entity, event.getSource());
                 }
 
                 //Checks if flawless boss drop has been disabled

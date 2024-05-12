@@ -7,9 +7,4 @@ public class ValkyrieValorEffect extends MobEffect {
     public ValkyrieValorEffect() {
         super(MobEffectCategory.BENEFICIAL, 25525551);
     }
-
-    @Override
-    public boolean isDurationEffectTick(int duration, int amplifier) {
-        return true;
-    }
 }

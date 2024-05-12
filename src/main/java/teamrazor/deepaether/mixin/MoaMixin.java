@@ -3,16 +3,14 @@ package teamrazor.deepaether.mixin;
 import com.aetherteam.aether.entity.WingedBird;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.entity.passive.MountableAnimal;
-import com.aetherteam.nitrogen.capability.INBTSynchable;
+import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import org.openjdk.nashorn.internal.ir.annotations.Ignore;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAMobEffects;
-import teamrazor.deepaether.networking.MoaEffect;
+import teamrazor.deepaether.networking.attachment.DAAttachments;
 
 /**
  * Currently has no full implementation
@@ -39,9 +37,8 @@ public abstract class MoaMixin extends MountableAnimal implements WingedBird, Mo
     private int getMaxJumps(int original) {
         if(level().isClientSide) {
 
-            MoaEffect.get((Moa) (Object) this).ifPresent((moa) -> {
-                deep_Aether$amplifier = moa.getMoaEffectAmplifier();
-            });
+            if(this.hasData((DAAttachments.MOA_EFFECT)))
+                deep_Aether$amplifier = this.getData(DAAttachments.MOA_EFFECT).getMoaEffectAmplifier();
 
             return original + deep_Aether$amplifier;
         }
@@ -58,9 +55,8 @@ public abstract class MoaMixin extends MountableAnimal implements WingedBird, Mo
         if(passenger instanceof Player && !this.level().isClientSide) {
             MobEffectInstance instance = this.getEffect(DAMobEffects.MOA_BONUS_JUMPS.get());
             if (instance != null) {
-                MoaEffect.get((Moa) (Object) this).ifPresent((moaEffect) -> {
-                    moaEffect.setSynched(INBTSynchable.Direction.CLIENT, "setMoaEffectAmplifier", instance.getAmplifier());
-                });
+                if(this.hasData(DAAttachments.MOA_EFFECT))
+                    this.getData(DAAttachments.MOA_EFFECT).setSynched(this.getId(), INBTSynchable.Direction.CLIENT, "setMoaEffectAmplifier", instance.getAmplifier());
             }
         }
     }

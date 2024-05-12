@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.function.Supplier;
 

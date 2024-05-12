@@ -3,6 +3,7 @@ package teamrazor.deepaether.item.gear.skyjade;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherConfig;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DASounds;
 
 

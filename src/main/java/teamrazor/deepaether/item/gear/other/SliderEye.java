@@ -1,6 +1,7 @@
 package teamrazor.deepaether.item.gear.other;
 
 import com.aetherteam.aether.item.accessories.ring.RingItem;
+import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
@@ -18,9 +19,11 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
-import teamrazor.deepaether.networking.DeepAetherPlayer;
+import teamrazor.deepaether.networking.attachment.DAAttachments;
+import teamrazor.deepaether.networking.attachment.DAPlayerAttachment;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
@@ -50,13 +53,13 @@ public class SliderEye extends RingItem {
     }
 
     private void HandleServer(Player player, Level level) {
-        DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> {
-            if(aetherPlayer.isSliderSlamActivated()) {
+        if(player.hasData(DAAttachments.PLAYER)) {
+            DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
+            if (attachment.isSliderSlamActivated()) {
                 maxFallTime = 200;
-                aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
+                attachment.setSynched(player.getId(), INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
             }
-        });
-
+        }
 
         if (maxFallTime > 0) {
 
@@ -102,8 +105,9 @@ public class SliderEye extends RingItem {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
             }
 
-            DeepAetherPlayer.get(player).ifPresent((aetherPlayer) -> aetherPlayer.setSynched(INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true));
-
+            if(player.hasData(DAAttachments.PLAYER)) {
+                 player.getData(DAAttachments.PLAYER).setSynched(player.getId(), INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
+            }
             level.playSound(player, player.getOnPos(), DASounds.ITEM_ACCESSORY_ABILITY_SLIDER_EYE.get(), SoundSource.PLAYERS);
             maxFallTime = 200;
         }

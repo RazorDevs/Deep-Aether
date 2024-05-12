@@ -34,7 +34,6 @@ import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
 
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DAItems {
 	public static final DeferredRegister.Items ITEMS =
 			DeferredRegister.createItems(DeepAether.MODID);

@@ -35,7 +35,7 @@ public class SquashStemBlock extends StemBlock {
         if (!level.isAreaLoaded(blockPos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
         if (level.getRawBrightness(blockPos, 0) >= 9) {
             float f = CropBlock.getGrowthSpeed(this, level, blockPos);
-            if (net.neoforged.neoforge.common.CommonHooks.onCropsGrowPre(level, blockPos, blockState, pRandom.nextInt((int)(25.0F / f) + 1) == 0)) {
+            if (net.neoforged.neoforge.common.CommonHooks.onCropsGrowPre(level, blockPos, blockState, randomSource.nextInt((int)(25.0F / f) + 1) == 0)) {
                 int i = blockState.getValue(AGE);
                 if (i < 7) {
                     level.setBlock(blockPos, blockState.setValue(AGE, Integer.valueOf(i + 1)), 2);
@@ -45,7 +45,7 @@ public class SquashStemBlock extends StemBlock {
                     BlockState blockstate = level.getBlockState(blockpos.below());
                     if (level.isEmptyBlock(blockpos) && (blockstate.is(Blocks.FARMLAND) || blockstate.is(BlockTags.DIRT))) { // TODO 1.20.3 PORTING: reimplement canSustainPlant check
                         Registry<Block> registry = level.registryAccess().registryOrThrow(Registries.BLOCK);
-                        Optional<Block> optional = registry.getOptional(this.fruit);
+                        Optional<Block> optional = registry.getOptional(this.randomizedSquash().getKey());
                         Optional<Block> optional1 = registry.getOptional(this.attachedStem);
                         if (optional.isPresent() && optional1.isPresent()) {
                             level.setBlockAndUpdate(blockpos, optional.get().defaultBlockState());

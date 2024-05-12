@@ -22,7 +22,7 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlockEntityTypes;
-import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
+//import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 import teamrazor.deepaether.screen.CombinerMenu;
 
 import java.util.Optional;
@@ -34,8 +34,6 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
     private static final int SECOND_SLOT = 1;
     private static final int THIRD_SLOT = 2;
     private static final int OUTPUT_SLOT = 3;
-
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.of();
 
     protected final ContainerData data;
     private int progress = 0;
@@ -68,12 +66,6 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for(int i = 0; i < itemHandler.getSlots(); i++) {
@@ -90,7 +82,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new CombinerMenu(pContainerId, pPlayerInventory, this, this.data);
+        return new CombinerMenu(pContainerId, pPlayerInventory, null, this.data);
     }
 
     @Override
@@ -114,7 +106,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
             setChanged(pLevel, pPos, pState);
 
             if(hasProgressFinished()) {
-                craftItem();
+                //craftItem();
                 resetProgress();
             }
         } else {
@@ -125,17 +117,20 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
     private void resetProgress() {
         progress = 0;
     }
-
+/*
     private void craftItem() {
-        Optional<CombinerRecipe> recipe = getCurrentRecipe();
-        ItemStack result = recipe.get().getResultItem(null);
+        Optional<RecipeHolder<CombinerRecipe>> recipe = getCurrentRecipe();
+        ItemStack result = recipe.get().value().getResultItem(null);
         consumeIngredients();
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
                 this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
 
+ */
+
     private boolean hasRecipe() {
+        /*
         Optional<RecipeHolder<CombinerRecipe>> recipe = getCurrentRecipe();
 
         if(recipe.isEmpty())
@@ -143,14 +138,20 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
 
         ItemStack result = recipe.get().value().getResultItem(getLevel().registryAccess());
         return canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
+
+         */
+        return false;
     }
 
+    /*
     private Optional<RecipeHolder<CombinerRecipe>> getCurrentRecipe() {
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
         for(int i = 0; i < itemHandler.getSlots(); i++)
             inventory.setItem(i, this.itemHandler.getStackInSlot(i));
         return this.level.getRecipeManager().getRecipeFor(CombinerRecipe.Type.INSTANCE, inventory, level);
     }
+
+     */
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);

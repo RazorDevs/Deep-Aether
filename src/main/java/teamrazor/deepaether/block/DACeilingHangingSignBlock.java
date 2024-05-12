@@ -11,7 +11,7 @@ import teamrazor.deepaether.entity.block.DAHangingSignBlockEntity;
 
 public class DACeilingHangingSignBlock extends CeilingHangingSignBlock {
     public DACeilingHangingSignBlock(Properties properties, WoodType woodType) {
-        super(properties, woodType);
+        super(woodType, properties);
     }
 
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

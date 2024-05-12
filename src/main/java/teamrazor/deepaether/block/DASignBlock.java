@@ -12,7 +12,7 @@ import teamrazor.deepaether.entity.block.DASignBlockEntity;
 
 public class DASignBlock extends StandingSignBlock {
     public DASignBlock(BlockBehaviour.Properties properties, WoodType woodType) {
-        super(properties, woodType);
+        super(woodType, properties);
     }
 
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

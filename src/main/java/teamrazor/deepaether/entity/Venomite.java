@@ -50,7 +50,6 @@ import teamrazor.deepaether.init.DASounds;
 
 import java.util.UUID;
 
-@Mod.EventBusSubscriber
 public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, FlyingAnimal {
 
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);

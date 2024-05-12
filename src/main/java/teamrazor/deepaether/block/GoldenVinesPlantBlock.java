@@ -1,5 +1,6 @@
 package teamrazor.deepaether.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -10,11 +11,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.GrowingPlantBodyBlock;
-import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -23,8 +22,11 @@ import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 
 public class GoldenVinesPlantBlock extends GrowingPlantBodyBlock implements BonemealableBlock, GoldenVines {
+
+    public static final MapCodec<GoldenVinesPlantBlock> CODEC = simpleCodec(GoldenVinesPlantBlock::new);
     public GoldenVinesPlantBlock(BlockBehaviour.Properties p_153000_) {
         super(p_153000_, Direction.UP, SHAPE, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(BERRIES, Boolean.valueOf(false)));
@@ -33,12 +35,18 @@ public class GoldenVinesPlantBlock extends GrowingPlantBodyBlock implements Bone
     protected GrowingPlantHeadBlock getHeadBlock() {
         return (GrowingPlantHeadBlock) DABlocks.GOLDEN_VINES.get();
     }
+
+    @Override
+    protected MapCodec<? extends GrowingPlantBodyBlock> codec() {
+        return CODEC;
+    }
+
     @NotNull
     protected BlockState updateHeadAfterConvertedFromBody(BlockState value, BlockState blockState) {
         return blockState.setValue(BERRIES, value.getValue(BERRIES));
     }
     @NotNull
-    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
+    public ItemStack getCloneItemStack(LevelReader blockGetter, BlockPos blockPos, BlockState blockState) {
         return new ItemStack(DAItems.GOLDEN_BERRIES.get());
     }
 

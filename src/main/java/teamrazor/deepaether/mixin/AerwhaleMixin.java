@@ -39,6 +39,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.List;
 
@@ -196,7 +197,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
         if (i >= 0) {
             boolean flag = i == 0;
             float f = 0.7F;
-            float f1 = (float) (this.isRemoved() ? (double) 0.01F : this.getPassengersRidingOffset() + entity.getMyRidingOffset());
+            float f1 = (float) (this.isRemoved() ? (double) 0.01F : this.getBbHeight() * 0.75D);
             float f2 = 0;
 
             if(level().isClientSide && AetherConfig.CLIENT.legacy_models.get()) {

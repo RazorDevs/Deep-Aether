@@ -3,6 +3,7 @@ package teamrazor.deepaether.item.mods.lost_content;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import teamrazor.deepaether.init.DAItems;
 
 public class AddonItemModelPredicates {
 

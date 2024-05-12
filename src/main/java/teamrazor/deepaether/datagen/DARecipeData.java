@@ -6,6 +6,7 @@ import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -15,22 +16,25 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.GoldenSwetBallRecipe;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class DARecipeData extends AetherRecipeProvider {
-    public DARecipeData(PackOutput output) {
-        super(output, DeepAether.MODID);
+    public DARecipeData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, DeepAether.MODID);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput consumer) {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
                 .define('D', AetherBlocks.AETHER_DIRT.get().asItem())
@@ -652,7 +656,7 @@ public class DARecipeData extends AetherRecipeProvider {
         enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
     }
 
-    protected void copyTemplate(Consumer<FinishedRecipe> p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
+    protected void copyTemplate(RecipeOutput p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', Items.DIAMOND)
                 .define('C', p_267023_)
                 .define('S', p_267133_)
@@ -662,7 +666,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(p_267133_), has(p_267133_)).save(p_266734_);
     }
 
-    protected void copyTemplateGravitite(Consumer<FinishedRecipe> p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
+    protected void copyTemplateGravitite(RecipeOutput p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', AetherBlocks.ENCHANTED_GRAVITITE.get())
                 .define('C', p_267023_)
                 .define('S', p_267133_)
@@ -672,15 +676,15 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(p_267133_), has(p_267133_)).save(p_266734_, name(p_267133_ + "_from_gravitite"));
     }
 
-    protected void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {
+    protected void stonecuttingRecipe(RecipeOutput consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {
         stonecuttingRecipe(consumer, category, item, ingredient, 1);
     }
 
-    protected void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient, int count) {
+    protected void stonecuttingRecipe(RecipeOutput consumer, RecipeCategory category, ItemLike item, ItemLike ingredient, int count) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ingredient), category, item, count).unlockedBy(getHasName(ingredient), has(ingredient)).save(consumer, name(getConversionRecipeName(item, ingredient) + "_stonecutting"));
     }
 
-    protected void stratusSmithingRecipe(Consumer<FinishedRecipe> consumer, Item ingredient, RecipeCategory category, Item item) {
+    protected void stratusSmithingRecipe(RecipeOutput consumer, Item ingredient, RecipeCategory category, Item item) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(DAItems.STRATUS_SMITHING_TEMPLATE.get()), Ingredient.of(ingredient), Ingredient.of(DAItems.STRATUS_INGOT.get()), category, item).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(consumer, name(getItemName(item)) + "_smithing");
     }
 
@@ -729,7 +733,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(boat), has(boat));
     }
 
-    protected void makeHangingSign(Consumer<FinishedRecipe> consumer, Item sign, Block log) {
+    protected void makeHangingSign(RecipeOutput consumer, Item sign, Block log) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, sign, 6)
                 .group("hanging_sign")
                 .define('#', log)
@@ -740,7 +744,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy("has_stripped_logs", has(log))
                 .save(consumer, name(sign.toString()));
     }
-    protected void sign(Consumer<FinishedRecipe> consumer, Item sign, Block planks) {
+    protected void sign(RecipeOutput consumer, Item sign, Block planks) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, sign, 3)
                 .group("wooden_sign")
                 .define('#', planks)
@@ -751,7 +755,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(planks), has(planks))
                 .save(consumer, name(sign.toString()));
     }
-    protected void brick(Consumer<FinishedRecipe> consumer, Block brick, Block stone) {
+    protected void brick(RecipeOutput consumer, Block brick, Block stone) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, brick, 4)
                 .define('A', stone)
                 .pattern("AA")
@@ -760,18 +764,18 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
     }
 
-    protected void dye(Consumer<FinishedRecipe> consumer, Item dye, Block flower, int count) {
+    protected void dye(RecipeOutput consumer, Item dye, Block flower, int count) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, dye, count)
                 .requires(flower)
                 .unlockedBy(getHasName(flower), has(flower))
                 .save(consumer, name(getItemName(dye) + "_from_" + getItemName(flower)));
     }
-    protected void dye(Consumer<FinishedRecipe> consumer, Item dye, Block flower) {
+    protected void dye(RecipeOutput consumer, Item dye, Block flower) {
         dye(consumer, dye, flower, 1);
     }
 
     protected static BlockStateRecipeBuilder goldBallRecipe(Block result, Block ingredient) {
-        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, DARecipeSerializers.GOLDEN_SWET_BALL_RECIPE.get());
+        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, GoldenSwetBallRecipe::new);
     }
 
     protected RecipeBuilder slab(Block slab, Supplier<? extends Block> material) {

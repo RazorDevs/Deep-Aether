@@ -11,7 +11,6 @@ import net.neoforged.fml.common.Mod;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 
-@Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class AerglowFish extends AbstractSchoolingFish {
 
 	public AerglowFish(EntityType<? extends AerglowFish> p_29790_, Level p_29791_) {

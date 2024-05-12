@@ -9,7 +9,7 @@ import teamrazor.deepaether.entity.block.DASignBlockEntity;
 
 public class DAWallSignBlock extends WallSignBlock {
     public DAWallSignBlock(Properties properties, WoodType woodType) {
-        super(properties, woodType);
+        super(woodType, properties);
     }
 
     @Override

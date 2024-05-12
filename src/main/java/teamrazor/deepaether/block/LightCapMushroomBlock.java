@@ -12,7 +12,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 public class LightCapMushroomBlock extends MushroomBlock {
     public LightCapMushroomBlock(Properties properties, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-        super(properties, configuredFeature);
+        super(configuredFeature, properties);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class LightCapMushroomBlock extends MushroomBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_255904_, BlockPos p_54871_, BlockState p_54872_, boolean p_54873_) {
+    public boolean isValidBonemealTarget(LevelReader p_255904_, BlockPos p_54871_, BlockState p_54872_) {
         return false;
     }
 }

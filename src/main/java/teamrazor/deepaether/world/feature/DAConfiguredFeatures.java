@@ -261,8 +261,8 @@ public class DAConfiguredFeatures {
                                                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                                        .add(UniformInt.of(0, 1), 1)
                                                        .add(UniformInt.of(0, 2), 4)
-                                                       .add(UniformInt.of(0, 3), 5).build()), weightedstateprovider),
-                                       BlockColumnConfiguration.layer(ConstantInt.of(1), randomizedintstateprovider)),
+                                                       .add(UniformInt.of(0, 3), 5).build()), new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState().setValue(GoldenVines.BERRIES, Boolean.valueOf(true)), 1))),
+                                       BlockColumnConfiguration.layer(ConstantInt.of(1), new RandomizedIntStateProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(CaveVines.BERRIES, Boolean.valueOf(true)), 1)), CaveVinesBlock.AGE, UniformInt.of(23, 25)))),
                                        Direction.UP, BlockPredicate.ONLY_IN_AIR_PREDICATE, true),
                                BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.wouldSurvive(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), BlockPos.ZERO), BlockPredicate.not(BlockPredicate.matchesBlocks(DABlocks.GOLDEN_VINES.get())))))));
 
@@ -272,13 +272,13 @@ public class DAConfiguredFeatures {
                         .add(DAFeatureStates.TALL_AERLAVENDER, 32)
                         .add(Blocks.TALL_GRASS.defaultBlockState(), 16)
                         .add(AetherFeatureStates.BERRY_BUSH, 1)
-                        .add(Blocks.GRASS.defaultBlockState(), 32)), 418));
+                        .add(Blocks.SHORT_GRASS.defaultBlockState(), 32)), 418));
 
 
         register(context, AETHER_CATTAILS_PATCH, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.AETHER_CATTAILS, 5)
-                        .add(Blocks.GRASS.defaultBlockState(), 5)
+                        .add(Blocks.SHORT_GRASS.defaultBlockState(), 5)
                         .add(DAFeatureStates.TALL_AETHER_CATTAILS, 3)), 15));
 
         register(context, ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
@@ -309,7 +309,7 @@ public class DAConfiguredFeatures {
         register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.FEATHER_GRASS,8)
-                        .add(Blocks.GRASS.defaultBlockState(),12)
+                        .add(Blocks.SHORT_GRASS.defaultBlockState(),12)
                         .add(DAFeatureStates.TALL_FEATHER_GRASS,2)
                         .add(Blocks.TALL_GRASS.defaultBlockState(),3)
                         .add(AetherFeatureStates.PURPLE_FLOWER, 1)
@@ -337,7 +337,7 @@ public class DAConfiguredFeatures {
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SUNROOT_TREE), PlacementUtils.filteredByBlockSurvival(DABlocks.SUNROOT_SAPLING.get())), 0.5F)),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CONBERRY_TREE), PlacementUtils.filteredByBlockSurvival(DABlocks.CONBERRY_SAPLING.get()))));
 
-        register(context, AETHER_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.AETHER_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.GRASS.defaultBlockState(), 50).add(Blocks.TALL_GRASS.defaultBlockState(), 10))));
+        register(context, AETHER_MOSS_VEGETATION, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.AETHER_MOSS_CARPET.get().defaultBlockState(), 25).add(Blocks.SHORT_GRASS.defaultBlockState(), 50).add(Blocks.SHORT_GRASS.defaultBlockState(), 10))));
         register(context, AETHER_MOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH, new VegetationPatchConfiguration(BlockTags.MOSS_REPLACEABLE, BlockStateProvider.simple(DABlocks.AETHER_MOSS_BLOCK.get()),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AETHER_MOSS_VEGETATION)), CaveSurface.FLOOR, ConstantInt.of(1), 0.0F, 5, 0.6F, UniformInt.of(1, 2), 0.75F));
 
@@ -355,9 +355,6 @@ public class DAConfiguredFeatures {
         //register(context, ROCKY_BUMPS, DAFeatures.ROCKY_BUMPS.get(), NoneFeatureConfiguration.INSTANCE);
 
     }
-
-    static WeightedStateProvider weightedstateprovider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState().setValue(GoldenVines.BERRIES, Boolean.valueOf(true)), 1));
-    static RandomizedIntStateProvider randomizedintstateprovider = new RandomizedIntStateProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(CaveVines.BERRIES, Boolean.valueOf(true)), 1)), CaveVinesBlock.AGE, UniformInt.of(23, 25));
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }

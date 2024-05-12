@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
+import net.neoforged.fml.ModList;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 
@@ -29,7 +30,7 @@ public class LCDAShieldItem extends ShieldItem {
         if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
             return super.getDescription();
         }
-        else return Component.translatable("deep_aether.item.disabled_item").withStyle(Style.EMPTY.withItalic(true).withColor(TextColor.parseColor("#d1362b")));
+        else return Component.translatable("deep_aether.item.disabled_item").withStyle(Style.EMPTY.withItalic(true).withColor(TextColor.parseColor("#d1362b").result().get()));
 
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -23,6 +24,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.Optional;
 
@@ -83,7 +85,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
 
 
     @Override
-    public ItemStack pickupBlock(LevelAccessor accessor, @NotNull BlockPos pos, @NotNull BlockState blockState) {
+    public ItemStack pickupBlock(Player player, LevelAccessor accessor, @NotNull BlockPos pos, @NotNull BlockState blockState) {
         accessor.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
         if (!accessor.isClientSide()) {
             accessor.levelEvent(2001, pos, Block.getId(blockState));

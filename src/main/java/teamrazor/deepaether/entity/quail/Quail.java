@@ -42,7 +42,6 @@ import teamrazor.deepaether.init.DASounds;
 import javax.annotation.Nullable;
 
 @SuppressWarnings({"unchecked", "SameReturnValue"})
-@Mod.EventBusSubscriber
 public class Quail extends SittingAetherAnimal implements GeoEntity {
 
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);

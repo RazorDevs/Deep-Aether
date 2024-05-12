@@ -5,7 +5,6 @@ import com.aetherteam.nitrogen.recipe.BlockPropertyPair;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.recipes.AbstractBlockStateRecipe;
 import com.aetherteam.nitrogen.recipe.serializer.BlockStateRecipeSerializer;
-import net.minecraft.commands.CommandFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -15,9 +14,12 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.Optional;
+
 public class GoldenSwetBallRecipe extends AbstractBlockStateRecipe implements MatchEventRecipe {
-    public GoldenSwetBallRecipe(ResourceLocation id, BlockStateIngredient ingredient, BlockPropertyPair result, CommandFunction.CacheableFunction function) {
-        super(DARecipe.GOLDEN_SWET_BALL_RECIPE.get(), id, ingredient, result, function);
+
+    public GoldenSwetBallRecipe(BlockStateIngredient ingredient, BlockPropertyPair result, Optional<ResourceLocation> functionId) {
+        super(DARecipe.GOLDEN_SWET_BALL_RECIPE.get(), ingredient, result, functionId);
     }
 
     @Override

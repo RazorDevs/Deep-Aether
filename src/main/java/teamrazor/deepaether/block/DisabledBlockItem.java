@@ -14,6 +14,7 @@ public class DisabledBlockItem extends BlockItem {
 
     @Override
     public Component getDescription() {
-        return Component.translatable("deep_aether.item.disabled_item").withStyle(Style.EMPTY.withItalic(true).withColor(TextColor.parseColor("#d1362b")));
+        return Component.translatable("deep_aether.item.disabled_item").withStyle(Style.EMPTY.withItalic(true)
+                .withColor(TextColor.parseColor("#d1362b").result().get()));
     }
 }

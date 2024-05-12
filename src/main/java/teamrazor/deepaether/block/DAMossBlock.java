@@ -19,7 +19,7 @@ public class DAMossBlock extends AetherDoubleDropBlock implements BonemealableBl
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_256559_, BlockPos p_50898_, BlockState p_50899_, boolean p_50900_) {
+    public boolean isValidBonemealTarget(LevelReader p_256559_, BlockPos p_50898_, BlockState p_50899_) {
         return p_256559_.getBlockState(p_50898_.above()).isAir();
     }
 

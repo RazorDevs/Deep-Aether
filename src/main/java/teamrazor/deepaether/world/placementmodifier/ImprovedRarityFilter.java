@@ -29,6 +29,6 @@ public class ImprovedRarityFilter extends PlacementFilter {
 
     @NotNull
     public PlacementModifierType<?> type() {
-        return DAPlacementModifiers.IMPROVED_RARITY_FILTER;
+        return DAPlacementModifiers.IMPROVED_RARITY_FILTER.get();
     }
 }

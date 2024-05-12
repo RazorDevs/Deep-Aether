@@ -12,7 +12,7 @@ version = "${project.mc_version}-${project.mod_version}"
 group = 'com.teamrazor.deep_aether'
 archivesBaseName = project.mod_id
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
@@ -105,7 +105,7 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
     //Dependencies
-    implementation("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
+    implementation("software.bernie.geckolib:geckolib-neoforge-${project.mc_version}:${project.gecklib_version}")
     implementation("com.aetherteam.aether:aether:${project.aether_version}")
     runtimeOnly("curse.maven:aether-emissivity-916028:4765812")
     implementation("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
@@ -115,8 +115,9 @@ dependencies {
     implementation("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
     implementation("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
 
+    implementation("local:aeroblender:1.20.4-1.0.1-neoforge")
     jarJar("local:aeroblender:1.20.4-1.0.1-neoforge") {
-        jarJar.ranged(it, "[1.20.1-1.0.2-rc1,)")
+        jarJar.ranged(it, "[1.20.4-1.0.1-neoforge,)")
     }
     //Optional Dependencies
     compileOnly("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
@@ -126,7 +127,7 @@ dependencies {
     compileOnly("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${mc_version}-forge:${jei_version}")
     compileOnly("curse.maven:ancient-aether-886751:${ancient_aether_version}")
-    implementation("local:aether_protect_your_moa:1.20.1-1.0.0-neoforge")
+    compileOnly("local:aether_protect_your_moa:1.20.1-1.0.0-neoforge")
 }
 
 jar {
