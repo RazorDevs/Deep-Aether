@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_helmet",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_helmet"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_helmet_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

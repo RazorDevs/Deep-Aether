@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_iaspove",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_iaspove"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:blue_dye_from_iaspove"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

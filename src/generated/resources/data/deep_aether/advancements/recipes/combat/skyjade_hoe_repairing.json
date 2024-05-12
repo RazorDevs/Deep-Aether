@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_hoe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_hoe"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade_hoe_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

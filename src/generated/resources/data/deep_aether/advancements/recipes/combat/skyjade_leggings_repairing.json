@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_leggings",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_leggings"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade_leggings_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

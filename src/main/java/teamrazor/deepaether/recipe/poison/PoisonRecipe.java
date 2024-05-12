@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.neoforged.neoforge.common.crafting.CraftingHelper;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
@@ -34,7 +35,7 @@ public class PoisonRecipe extends AbstractPoisonRecipe {
         private static final Codec<PoisonRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
                 ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(PoisonRecipe::getGroup),
                 Ingredient.CODEC_NONEMPTY.fieldOf("ingredient").forGetter((recipe) -> recipe.ingredient),
-                ItemStack.RESULT_CODEC.fieldOf("result").forGetter((recipe) -> recipe.result)
+                CraftingHelper.smeltingResultCodec().fieldOf("result").forGetter((recipe) -> recipe.result)
         ).apply(instance, PoisonRecipe::new));
 
         @Override

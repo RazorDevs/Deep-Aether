@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_chestplate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_chestplate"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_chestplate_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

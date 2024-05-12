@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stripped_roseroot_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stripped_roseroot_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stripped_roseroot_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

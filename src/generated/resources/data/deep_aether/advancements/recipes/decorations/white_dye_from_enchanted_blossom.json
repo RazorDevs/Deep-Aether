@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_enchanted_blossom",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_enchanted_blossom"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:white_dye_from_enchanted_blossom"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

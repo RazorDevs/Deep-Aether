@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_gloves",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_gloves"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade_gloves_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

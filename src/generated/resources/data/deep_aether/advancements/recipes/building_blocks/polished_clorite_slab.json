@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_polished_clorite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_clorite"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:polished_clorite_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

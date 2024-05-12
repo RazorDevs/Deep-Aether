@@ -12,16 +12,13 @@
         },
         {
           "data": {
-            "Name": "minecraft:grass"
+            "Name": "minecraft:short_grass"
           },
           "weight": 50
         },
         {
           "data": {
-            "Name": "minecraft:tall_grass",
-            "Properties": {
-              "half": "lower"
-            }
+            "Name": "minecraft:short_grass"
           },
           "weight": 10
         }

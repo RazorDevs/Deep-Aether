@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_leggings",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_leggings"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_leggings_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

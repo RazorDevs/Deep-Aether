@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_pickaxe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_pickaxe"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_pickaxe_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

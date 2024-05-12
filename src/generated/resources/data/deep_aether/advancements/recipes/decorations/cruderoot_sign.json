@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_cruderoot_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cruderoot_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:cruderoot_sign"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_holystone_pillar_up",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_holystone_pillar_up"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:holystone_pillar_up"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

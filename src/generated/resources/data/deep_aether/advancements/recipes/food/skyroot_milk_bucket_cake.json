@@ -20,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_quail_egg",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_quail_egg"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyroot_milk_bucket_cake"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

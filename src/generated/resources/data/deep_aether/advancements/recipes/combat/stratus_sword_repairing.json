@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_sword",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_sword"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_sword_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

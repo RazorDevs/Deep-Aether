@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_mossy_holystone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mossy_holystone"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:mossy_holystone_bricks_from_mossy_holystone_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

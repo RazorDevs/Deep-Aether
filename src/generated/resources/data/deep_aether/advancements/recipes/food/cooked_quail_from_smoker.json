@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_raw_quail",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_quail"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:cooked_quail_from_smoker"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

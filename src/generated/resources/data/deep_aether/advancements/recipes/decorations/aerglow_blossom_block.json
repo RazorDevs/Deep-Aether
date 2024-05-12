@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aerglow_blossom",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aerglow_blossom"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:aerglow_blossom_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

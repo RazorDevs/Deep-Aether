@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aether_moss_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aether_moss_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:aether_moss_carpet"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

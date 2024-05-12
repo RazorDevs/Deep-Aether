@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aether_dirt",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aether_dirt"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:aether_coarse_dirt"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_cobbled_aseterite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cobbled_aseterite"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:cobbled_aseterite_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

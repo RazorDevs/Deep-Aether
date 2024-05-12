@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_shovel",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_shovel"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_shovel_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

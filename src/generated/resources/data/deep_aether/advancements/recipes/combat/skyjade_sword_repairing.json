@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_sword",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_sword"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade_sword_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_helmet",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_helmet"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade_helmet_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

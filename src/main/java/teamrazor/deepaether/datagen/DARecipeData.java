@@ -673,7 +673,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("#S#")
                 .pattern("#C#")
                 .pattern("###")
-                .unlockedBy(getHasName(p_267133_), has(p_267133_)).save(p_266734_, name(p_267133_ + "_from_gravitite"));
+                .unlockedBy(getHasName(p_267133_), has(p_267133_)).save(p_266734_, name(getItemName(p_267133_) + "_from_gravitite"));
     }
 
     protected void stonecuttingRecipe(RecipeOutput consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {
@@ -742,7 +742,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("###")
                 .pattern("###")
                 .unlockedBy("has_stripped_logs", has(log))
-                .save(consumer, name(sign.toString()));
+                .save(consumer);
     }
     protected void sign(RecipeOutput consumer, Item sign, Block planks) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, sign, 3)
@@ -753,7 +753,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("###")
                 .pattern(" / ")
                 .unlockedBy(getHasName(planks), has(planks))
-                .save(consumer, name(sign.toString()));
+                .save(consumer);
     }
     protected void brick(RecipeOutput consumer, Block brick, Block stone) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, brick, 4)

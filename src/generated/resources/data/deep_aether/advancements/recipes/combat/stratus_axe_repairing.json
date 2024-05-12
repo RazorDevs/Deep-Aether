@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_axe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_axe"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_axe_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

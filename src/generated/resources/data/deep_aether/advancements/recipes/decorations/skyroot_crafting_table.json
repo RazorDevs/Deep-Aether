@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyroot_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyroot_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyroot_crafting_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

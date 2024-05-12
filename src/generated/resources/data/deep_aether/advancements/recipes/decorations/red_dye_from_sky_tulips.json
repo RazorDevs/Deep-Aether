@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sky_tulips",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sky_tulips"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:red_dye_from_sky_tulips"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

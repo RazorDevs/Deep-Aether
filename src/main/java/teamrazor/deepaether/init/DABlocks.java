@@ -312,7 +312,7 @@ public class DABlocks {
 
 	public static final DeferredBlock<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(BlockReferences.BLUE_SQUASH, BlockReferences.ATTACHED_SQUASH_STEM, ItemReferences.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
-	public static final DeferredBlock<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedStemBlock(BlockReferences.BLUE_SQUASH, BlockReferences.SQUASH_STEM, ItemReferences.SQUASH_SEEDS,
+	public static final DeferredBlock<Block> ATTACHED_SQUASH_STEM = BLOCKS.register("attached_squash_stem", () -> new AttachedStemBlock(BlockReferences.SQUASH_STEM, BlockReferences.BLUE_SQUASH, ItemReferences.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 
 

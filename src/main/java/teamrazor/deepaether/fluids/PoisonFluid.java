@@ -18,13 +18,20 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.event.EventHooks;
+import net.neoforged.neoforge.fluids.FluidType;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAFluids;
 import teamrazor.deepaether.init.DAItems;
 
 public abstract class PoisonFluid extends FlowingFluid {
+
+    @Override
+    public FluidType getFluidType() {
+        return DAFluidTypes.POISON_FLUID_TYPE.value();
+    }
 
     @Override
     protected void beforeDestroyingBlock(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
@@ -43,6 +50,11 @@ public abstract class PoisonFluid extends FlowingFluid {
     @Override
     protected boolean canConvertToSource(Level pLevel) {
         return false;
+    }
+
+    @Override
+    public boolean isSame(Fluid pFluid) {
+        return pFluid == DAFluids.POISON_FLUID.get() || pFluid == DAFluids.POISON_FLOWING.get();
     }
 
     private void fizz(LevelAccessor levelAccessor, BlockPos blockPos) {
@@ -87,7 +99,7 @@ public abstract class PoisonFluid extends FlowingFluid {
 
     @Override
     protected int getSlopeFindDistance(LevelReader pLevel) {
-        return 2;
+        return 4;
     }
 
     @Override

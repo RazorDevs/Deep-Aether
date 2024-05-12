@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_big_holystone_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_big_holystone_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:big_holystone_bricks_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

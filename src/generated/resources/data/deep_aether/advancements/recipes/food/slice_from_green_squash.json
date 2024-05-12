@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_green_squash",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_green_squash"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:slice_from_green_squash"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

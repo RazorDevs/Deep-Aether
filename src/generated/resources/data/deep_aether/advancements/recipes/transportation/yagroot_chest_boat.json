@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_yagroot_chest_boat",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_yagroot_chest_boat"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:yagroot_chest_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

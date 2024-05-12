@@ -36,6 +36,7 @@ import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
 import java.util.Set;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -46,6 +47,10 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         super(EXPLOSION_RESISTANT, FeatureFlags.REGISTRY.allFlags());
     }
 
+    @Override
+    public Iterable<Block> getKnownBlocks() {
+        return DABlocks.BLOCKS.getEntries().stream().map(Supplier::get).collect(Collectors.toList());
+    }
 
     @Override
     public void generate() {

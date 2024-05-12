@@ -21,12 +21,10 @@ import java.util.function.Supplier;
 
 public class SquashStemBlock extends StemBlock {
 
-    private final ResourceKey<Block> fruit;
     private final ResourceKey<Block> attachedStem;
 
     public SquashStemBlock(ResourceKey<Block> fruit, ResourceKey<Block> stem, ResourceKey<Item> seed, Properties properties) {
         super(fruit, stem, seed, properties);
-        this.fruit = fruit;
         this.attachedStem = stem;
     }
 

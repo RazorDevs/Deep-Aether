@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_roseroot_chest_boat",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_roseroot_chest_boat"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:roseroot_chest_boat"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

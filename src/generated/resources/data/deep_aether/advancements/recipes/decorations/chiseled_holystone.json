@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_chiseled_holystone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_chiseled_holystone"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:chiseled_holystone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

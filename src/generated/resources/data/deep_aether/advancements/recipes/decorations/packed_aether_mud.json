@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aether_mud",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aether_mud"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:packed_aether_mud"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

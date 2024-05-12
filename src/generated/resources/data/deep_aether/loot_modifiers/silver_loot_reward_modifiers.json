@@ -3,7 +3,7 @@
   "chanceToSpawn": 0.5,
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "aether:chests/dungeon/silver/silver_dungeon_reward"
     }
   ],

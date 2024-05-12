@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_golden_aspess",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_golden_aspess"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:orange_dye_from_golden_aspess"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

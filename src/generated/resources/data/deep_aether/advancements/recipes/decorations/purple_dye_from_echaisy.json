@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_echaisy",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_echaisy"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:purple_dye_from_echaisy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -3,7 +3,7 @@
   "chanceToSpawn": 0.0,
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "aether:chests/dungeon/gold/gold_dungeon_reward"
     }
   ],

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_golden_grass_seeds",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_golden_grass_seeds"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:golden_swet_ball"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

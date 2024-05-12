@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_pickaxe",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_pickaxe"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade_pickaxe_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

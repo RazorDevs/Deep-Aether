@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_radiant_orchid",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_radiant_orchid"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:purple_dye_from_radiant_orchid"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

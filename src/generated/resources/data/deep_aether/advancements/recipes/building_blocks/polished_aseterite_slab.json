@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_polished_aseterite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_aseterite"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:polished_aseterite_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

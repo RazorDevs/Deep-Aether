@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyjade_ore",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyjade_ore"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:skyjade"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

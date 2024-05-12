@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_gloves",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_gloves"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_gloves_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

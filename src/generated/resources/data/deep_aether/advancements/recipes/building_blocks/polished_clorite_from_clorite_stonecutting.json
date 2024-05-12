@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_clorite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_clorite"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:polished_clorite_from_clorite_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_holystone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_holystone"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:mossy_holystone_from_aether_moss"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

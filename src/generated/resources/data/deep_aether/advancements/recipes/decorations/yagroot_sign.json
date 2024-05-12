@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_yagroot_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_yagroot_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:yagroot_sign"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sunroot_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sunroot_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:sunroot_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

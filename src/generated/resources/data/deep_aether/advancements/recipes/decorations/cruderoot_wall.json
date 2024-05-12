@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_cruderoot_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cruderoot_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:cruderoot_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

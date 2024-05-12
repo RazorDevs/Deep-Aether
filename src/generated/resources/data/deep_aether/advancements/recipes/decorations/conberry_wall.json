@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_conberry_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_conberry_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:conberry_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_pumpkin_seeds",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_pumpkin_seeds"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:squash_seeds_enchanting"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

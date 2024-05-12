@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_holystone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_holystone"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:chiseled_holystone_from_holystone_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

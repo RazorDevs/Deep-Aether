@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_antidote",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_antidote"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:antidote_enchanting"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

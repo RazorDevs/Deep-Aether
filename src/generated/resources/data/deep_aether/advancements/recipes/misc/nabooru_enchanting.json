@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_music_disc_nabooru",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_music_disc_nabooru"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:nabooru_enchanting"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

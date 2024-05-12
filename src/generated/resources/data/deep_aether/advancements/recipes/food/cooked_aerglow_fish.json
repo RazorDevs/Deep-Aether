@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_raw_aerglow_fish",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_aerglow_fish"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:cooked_aerglow_fish"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

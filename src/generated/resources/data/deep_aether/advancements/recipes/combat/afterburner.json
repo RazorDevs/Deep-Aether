@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sun_core",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sun_core"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:afterburner"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

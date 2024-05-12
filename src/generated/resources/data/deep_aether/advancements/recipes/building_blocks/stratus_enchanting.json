@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_sterling_aercloud",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sterling_aercloud"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_enchanting"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

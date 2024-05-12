@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stratus_boots",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stratus_boots"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stratus_boots_repairing"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

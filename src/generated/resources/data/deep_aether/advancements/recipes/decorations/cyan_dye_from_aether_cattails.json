@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aether_cattails",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aether_cattails"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:cyan_dye_from_aether_cattails"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

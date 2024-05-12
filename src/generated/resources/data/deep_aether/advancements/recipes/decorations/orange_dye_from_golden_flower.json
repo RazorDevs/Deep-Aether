@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_golden_flower",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_golden_flower"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:orange_dye_from_golden_flower"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

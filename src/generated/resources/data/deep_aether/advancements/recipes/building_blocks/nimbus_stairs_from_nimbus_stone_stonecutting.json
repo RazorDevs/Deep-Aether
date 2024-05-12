@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_nimbus_stone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_nimbus_stone"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:nimbus_stairs_from_nimbus_stone_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

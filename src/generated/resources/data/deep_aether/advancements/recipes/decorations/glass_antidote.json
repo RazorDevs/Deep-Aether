@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_bio_crystal",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bio_crystal"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:glass_antidote"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

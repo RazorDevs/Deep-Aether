@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_stripped_yagroot_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stripped_yagroot_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:stripped_yagroot_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

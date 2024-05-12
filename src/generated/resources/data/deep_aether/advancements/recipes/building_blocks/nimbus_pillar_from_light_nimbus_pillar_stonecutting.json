@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_light_nimbus_pillar",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_light_nimbus_pillar"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:nimbus_pillar_from_light_nimbus_pillar_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

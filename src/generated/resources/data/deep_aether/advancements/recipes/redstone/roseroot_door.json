@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_roseroot_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_roseroot_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:roseroot_door"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

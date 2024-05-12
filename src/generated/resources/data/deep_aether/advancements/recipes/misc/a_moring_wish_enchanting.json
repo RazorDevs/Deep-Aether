@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_music_disc_a_morning_wish",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_music_disc_a_morning_wish"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:a_moring_wish_enchanting"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

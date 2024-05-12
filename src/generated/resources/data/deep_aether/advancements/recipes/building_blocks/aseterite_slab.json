@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aseterite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aseterite"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:aseterite_slab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

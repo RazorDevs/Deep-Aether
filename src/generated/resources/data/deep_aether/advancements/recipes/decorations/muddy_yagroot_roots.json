@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aether_mud",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aether_mud"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:muddy_yagroot_roots"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

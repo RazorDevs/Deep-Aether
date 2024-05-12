@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_aseterite_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aseterite_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "deep_aether:aseterite_bricks_wall"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
