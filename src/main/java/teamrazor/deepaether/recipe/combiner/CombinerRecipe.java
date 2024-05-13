@@ -1,29 +1,31 @@
 package teamrazor.deepaether.recipe.combiner;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.DeepAether;
-/*
+
+import java.util.List;
+
 public class CombinerRecipe implements Recipe<SimpleContainer> {
 
-    private final NonNullList<Ingredient> inputItems;
-    private final ItemStack output;
-    private final ResourceLocation id;
+    public final List<Ingredient> inputItems;
+    public final ItemStack output;
 
-    public CombinerRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
+    public CombinerRecipe(List<Ingredient> inputItems, ItemStack output) {
         this.inputItems = inputItems;
         this.output = output;
-        this.id = id;
     }
 
     @Override
@@ -40,7 +42,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
      * Method that checks if the passed ingredient is present in only one of the 3
      * slots using the XOR operator. This enables "shapeless" recipes in the combiner.
      */
-    /*
+
     private boolean testEachSlot(SimpleContainer pContainer, Ingredient ingredient){
         return ingredient.test(pContainer.getItem(0))
                 ^ ingredient.test(pContainer.getItem(1))
@@ -63,11 +65,6 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ResourceLocation getId() {
-        return id;
-    }
-
-    @Override
     public RecipeSerializer<?> getSerializer() {
         return Serializer.INSTANCE;
     }
@@ -86,42 +83,38 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
 
-        @Override
-        public CombinerRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+        private static final Codec<CombinerRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+                Ingredient.LIST_CODEC_NONEMPTY.fieldOf("inputItems").forGetter((recipe) -> recipe.inputItems),
+                ItemStack.RESULT_CODEC.fieldOf("output").forGetter((recipe) -> recipe.output)
+        ).apply(instance, CombinerRecipe::new));
 
-            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+        @Override
+        public Codec<CombinerRecipe> codec() {
+            return CODEC;
+        }
+
+        @Nullable
+        @Override
+        public CombinerRecipe fromNetwork(FriendlyByteBuf buffer) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+                inputs.set(i, Ingredient.fromNetwork(buffer));
             }
 
-            return new CombinerRecipe(inputs, output, pRecipeId);
+            ItemStack output = buffer.readItem();
+            return new CombinerRecipe(inputs, output);
         }
 
         @Override
-        public @Nullable CombinerRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+        public void toNetwork(FriendlyByteBuf buffer, CombinerRecipe recipe) {
+            buffer.writeInt(recipe.inputItems.size());
 
-            for(int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(pBuffer));
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                ingredient.toNetwork(buffer);
             }
-
-            ItemStack output = pBuffer.readItem();
-            return new CombinerRecipe(inputs, output, pRecipeId);
-        }
-
-        @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, CombinerRecipe pRecipe) {
-            pBuffer.writeInt(pRecipe.inputItems.size());
-
-            for (Ingredient ingredient : pRecipe.getIngredients()) {
-                ingredient.toNetwork(pBuffer);
-            }
-
-            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+            buffer.writeItem(recipe.getResultItem(null));
         }
     }
 }
-    */
+

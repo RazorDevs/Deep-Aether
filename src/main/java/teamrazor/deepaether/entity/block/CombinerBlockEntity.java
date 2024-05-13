@@ -1,7 +1,6 @@
 package teamrazor.deepaether.entity.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Containers;
@@ -17,12 +16,10 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlockEntityTypes;
-//import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
+import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 import teamrazor.deepaether.screen.CombinerMenu;
 
 import java.util.Optional;
@@ -117,7 +114,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
     private void resetProgress() {
         progress = 0;
     }
-/*
+
     private void craftItem() {
         Optional<RecipeHolder<CombinerRecipe>> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().value().getResultItem(null);
@@ -127,10 +124,8 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
                 this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
 
- */
 
     private boolean hasRecipe() {
-        /*
         Optional<RecipeHolder<CombinerRecipe>> recipe = getCurrentRecipe();
 
         if(recipe.isEmpty())
@@ -138,12 +133,9 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
 
         ItemStack result = recipe.get().value().getResultItem(getLevel().registryAccess());
         return canInsertAmountIntoOutputSlot(result.getCount()) && canInsertItemIntoOutputSlot(result.getItem());
-
-         */
-        return false;
     }
 
-    /*
+
     private Optional<RecipeHolder<CombinerRecipe>> getCurrentRecipe() {
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
         for(int i = 0; i < itemHandler.getSlots(); i++)
@@ -151,7 +143,6 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
         return this.level.getRecipeManager().getRecipeFor(CombinerRecipe.Type.INSTANCE, inventory, level);
     }
 
-     */
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() || this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item);

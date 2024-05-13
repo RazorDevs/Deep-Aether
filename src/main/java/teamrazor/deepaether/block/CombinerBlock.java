@@ -2,12 +2,10 @@ package teamrazor.deepaether.block;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -40,22 +38,21 @@ public class CombinerBlock extends BaseEntityBlock {
 
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
-/*
+
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof CombinerBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (CombinerBlockEntity)entity, pPos);
+                pPlayer.openMenu((CombinerBlockEntity) entity);
             } else {
-                throw new IllegalStateException("Our Container provider is missing!");
+                throw new IllegalStateException("Container provider is missing!");
             }
         }
-
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
- */
+
 
     @Nullable
     @Override
