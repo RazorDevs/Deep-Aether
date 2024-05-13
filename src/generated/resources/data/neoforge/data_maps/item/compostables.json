@@ -1,0 +1,130 @@
+{
+  "values": {
+    "deep_aether:aerglow_blossom": {
+      "chance": 0.1
+    },
+    "deep_aether:aerglow_blossom_block": {
+      "chance": 0.3
+    },
+    "deep_aether:aerlavender": {
+      "chance": 0.3
+    },
+    "deep_aether:aether_cattails": {
+      "chance": 0.3
+    },
+    "deep_aether:aether_moss_block": {
+      "chance": 0.65
+    },
+    "deep_aether:aether_moss_carpet": {
+      "chance": 0.3
+    },
+    "deep_aether:blue_roseroot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:blue_roseroot_sapling": {
+      "chance": 0.3
+    },
+    "deep_aether:conberry_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:conberry_sapling": {
+      "chance": 0.3
+    },
+    "deep_aether:cruderoot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:cruderoot_sapling": {
+      "chance": 0.3
+    },
+    "deep_aether:echaisy": {
+      "chance": 0.3
+    },
+    "deep_aether:enchanted_blossom": {
+      "chance": 0.3
+    },
+    "deep_aether:feather_grass": {
+      "chance": 0.3
+    },
+    "deep_aether:flowering_blue_roseroot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:flowering_roseroot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:golden_aspess": {
+      "chance": 0.3
+    },
+    "deep_aether:golden_flower": {
+      "chance": 0.3
+    },
+    "deep_aether:golden_grass_seeds": {
+      "chance": 0.1
+    },
+    "deep_aether:goldenleaf_berries": {
+      "chance": 0.2
+    },
+    "deep_aether:iaspove": {
+      "chance": 0.3
+    },
+    "deep_aether:lightcap_mushrooms": {
+      "chance": 0.3
+    },
+    "deep_aether:medium_golden_grass": {
+      "chance": 0.3
+    },
+    "deep_aether:mini_golden_grass": {
+      "chance": 0.3
+    },
+    "deep_aether:radiant_orchid": {
+      "chance": 0.3
+    },
+    "deep_aether:roseroot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:roseroot_sapling": {
+      "chance": 0.3
+    },
+    "deep_aether:short_golden_grass": {
+      "chance": 0.3
+    },
+    "deep_aether:sky_tulips": {
+      "chance": 0.3
+    },
+    "deep_aether:squash_seeds": {
+      "chance": 0.1
+    },
+    "deep_aether:sunroot_hanger": {
+      "chance": 0.3
+    },
+    "deep_aether:sunroot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:sunroot_sapling": {
+      "chance": 0.3
+    },
+    "deep_aether:tall_aerlavender": {
+      "chance": 0.3
+    },
+    "deep_aether:tall_aether_cattails": {
+      "chance": 0.3
+    },
+    "deep_aether:tall_feather_grass": {
+      "chance": 0.3
+    },
+    "deep_aether:tall_golden_grass": {
+      "chance": 0.3
+    },
+    "deep_aether:yagroot_leaves": {
+      "chance": 0.3
+    },
+    "deep_aether:yagroot_roots": {
+      "chance": 0.3
+    },
+    "deep_aether:yagroot_sapling": {
+      "chance": 0.3
+    },
+    "deep_aether:yagroot_vine": {
+      "chance": 0.3
+    }
+  }
+}

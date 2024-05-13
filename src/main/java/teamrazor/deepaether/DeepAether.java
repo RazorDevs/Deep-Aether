@@ -45,10 +45,7 @@ import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.behavior.DADispenseBehaviors;
 import teamrazor.deepaether.block.behavior.DaCauldronInteraction;
-import teamrazor.deepaether.datagen.DABlockstateData;
-import teamrazor.deepaether.datagen.DAItemModelData;
-import teamrazor.deepaether.datagen.DARecipeData;
-import teamrazor.deepaether.datagen.DAWorldGenData;
+import teamrazor.deepaether.datagen.*;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
@@ -170,17 +167,16 @@ public class DeepAether {
 		generator.addProvider(event.includeServer(), new DAFluidTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput));
+		generator.addProvider(event.includeClient(), new DADataMapData(packOutput, lookupProvider));
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
-		Reflection.initialize(DAPlacementModifiers.class);
 		event.enqueueWork(() -> {
 			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();
 			DABlocks.registerFlammability();
 			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
-			this.registerCompostable();
 			registerFlawlessBossDrops();
 
 		});
@@ -220,50 +216,6 @@ public class DeepAether {
 		DispenserBlock.registerBehavior(Items.POTION, DADispenseBehaviors.WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DAItems.PLACEABLE_POISON_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
 		DispenserBlock.registerBehavior(DAItems.VIRULENT_QUICKSAND_BUCKET.get(), DADispenseBehaviors.DEEP_AETHER_BUCKET_PICKUP_DISPENSE_BEHAVIOR);
-	}
-	public void registerCompostable() {
-		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.BLUE_ROSEROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.FLOWERING_ROSEROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.CONBERRY_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.CONBERRY_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.SUNROOT_LEAVES.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.SUNROOT_SAPLING.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_ROOTS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_VINE.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.SUNROOT_HANGER.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.AERGLOW_BLOSSOM_BLOCK.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.MINI_GOLDEN_GRASS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.SHORT_GOLDEN_GRASS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.MEDIUM_GOLDEN_GRASS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.TALL_GOLDEN_GRASS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.RADIANT_ORCHID.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.AERLAVENDER.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.TALL_AERLAVENDER.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_CATTAILS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.TALL_AETHER_CATTAILS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.GOLDEN_FLOWER.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.SKY_TULIPS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.IASPOVE.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.ENCHANTED_BLOSSOM.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.ECHAISY.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.LIGHTCAP_MUSHROOMS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.GOLDEN_ASPESS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.FEATHER_GRASS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DABlocks.TALL_FEATHER_GRASS.get().asItem(), 0.3F);
-		ComposterBlock.COMPOSTABLES.put(DAItems.AERGLOW_BLOSSOM.get(), 0.1F);
-		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_BERRIES.get(), 0.2F);
-		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);
-		ComposterBlock.COMPOSTABLES.put(DAItems.SQUASH_SEEDS.get(), 0.1F);
 	}
 	public void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {

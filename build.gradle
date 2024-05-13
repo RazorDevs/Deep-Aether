@@ -1,4 +1,4 @@
-//import net.minecraftforge.gradle.userdev.tasks.JarJar
+import net.neoforged.gradle.common.tasks.JarJar
 
 plugins {
     id 'eclipse'
@@ -142,8 +142,6 @@ jar {
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
-    finalizedBy 'reobfJar'
-
     archiveClassifier = 'no-embeds'
 }
 
@@ -159,12 +157,10 @@ publishing {
         }
     }
 }
-/*
+
 tasks.named('jarJar', JarJar).configure {
     archiveClassifier = ''
 }
-
-tasks.jarJar.finalizedBy('reobfJarJar')
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
@@ -172,4 +168,4 @@ tasks.withType(JavaCompile).configureEach {
 
 build {
     dependsOn 'jarJar'
-}    */
+}
