@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "deep_aether:block/nimbus_pillardungeon/",
     "end": "deep_aether:block/nimbus_pillar_top",
     "side": "deep_aether:block/nimbus_pillar"
   }
