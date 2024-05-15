@@ -84,7 +84,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
 
         private static final Codec<CombinerRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-                Ingredient.LIST_CODEC_NONEMPTY.fieldOf("inputItems").forGetter((recipe) -> recipe.inputItems),
+                Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter((recipe) -> recipe.inputItems),
                 ItemStack.RESULT_CODEC.fieldOf("output").forGetter((recipe) -> recipe.output)
         ).apply(instance, CombinerRecipe::new));
 

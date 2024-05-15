@@ -3,6 +3,7 @@ package teamrazor.deepaether.entity.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -24,7 +25,7 @@ import teamrazor.deepaether.screen.CombinerMenu;
 
 import java.util.Optional;
 
-public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
+public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Container {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4);
 
     private static final int FIRST_SLOT = 0;
@@ -79,7 +80,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new CombinerMenu(pContainerId, pPlayerInventory, null, this.data);
+        return new CombinerMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 
     @Override
@@ -103,7 +104,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
             setChanged(pLevel, pPos, pState);
 
             if(hasProgressFinished()) {
-                //craftItem();
+                craftItem();
                 resetProgress();
             }
         } else {
@@ -164,5 +165,49 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider {
         this.itemHandler.extractItem(FIRST_SLOT, 1, false);
         this.itemHandler.extractItem(SECOND_SLOT, 1, false);
         this.itemHandler.extractItem(THIRD_SLOT, 1, false);
+    }
+
+    @Override
+    public int getContainerSize() {
+        return 4;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for(int i = 0; i < itemHandler.getSlots(); i++)
+            if(itemHandler.getStackInSlot(i) != ItemStack.EMPTY)
+                return false;
+        return true;
+    }
+
+    @Override
+    public ItemStack getItem(int i) {
+        return itemHandler.getStackInSlot(i);
+    }
+
+    @Override
+    public ItemStack removeItem(int i, int i1) {
+        return itemHandler.extractItem(i, i1, false);
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int i) {
+        return itemHandler.insertItem(i, ItemStack.EMPTY, false);
+    }
+
+    @Override
+    public void setItem(int i, ItemStack itemStack) {
+        itemHandler.setStackInSlot(i, itemStack);
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return true;
+    }
+
+    @Override
+    public void clearContent() {
+        for(int i = 0; i < itemHandler.getSlots(); i++)
+            itemHandler.setStackInSlot(i, ItemStack.EMPTY);
     }
 }
