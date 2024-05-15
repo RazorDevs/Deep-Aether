@@ -373,7 +373,7 @@ public class DABlocks {
 			.noLootTable()));
 	public static final DeferredBlock<Block> POISON_CAULDRON = BLOCKS.register("poison_cauldron", () -> new PoisonCauldronBlock(BlockBehaviour.Properties.ofFullCopy(CAULDRON)));
 
-	public static final DeferredBlock<Block> COMBINER = registerBlock("combiner", () -> new CombinerBlock(BlockBehaviour.Properties.ofFullCopy(AetherBlocks.ALTAR.get())));
+	public static final DeferredBlock<Block> COMBINER = registerBlock("combiner", () -> new CombinerBlock((Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASEDRUM).strength(2.5F))));
 
 	//POTS
 

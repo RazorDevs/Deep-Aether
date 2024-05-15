@@ -289,7 +289,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.translucentBlock(DABlocks.AERSMOG.get());
         this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
         this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
-        this.block(DABlocks.COMBINER.get());
+        this.combiner(DABlocks.COMBINER.get());
 
         //Moss
         this.block(DABlocks.AETHER_MOSS_BLOCK.get());
@@ -370,6 +370,14 @@ public class DABlockstateData extends AetherBlockStateProvider {
     }
     public void blockDoubleDrops(Block block) {
         this.getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(this.cubeAll(block)).build(), AetherBlockStateProperties.DOUBLE_DROPS);
+    }
+
+    public void combiner(Block block) {
+        ModelFile combiner = this.cubeBottomTop(this.name(block),
+                this.extend(this.texture(this.name(block)), "_side"),
+                this.extend(this.texture(this.name(block)), "_bottom"),
+                this.extend(this.texture(this.name(block)), "_bottom"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(combiner));
     }
 
 

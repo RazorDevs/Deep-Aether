@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -18,13 +19,15 @@ import teamrazor.deepaether.init.DABlockEntityTypes;
 
 public class CombinerBlock extends BaseEntityBlock {
 
+    public static final MapCodec<CombinerBlock> CODEC = simpleCodec(CombinerBlock::new);
+
     public CombinerBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     protected MapCodec<? extends CombinerBlock> codec() {
-        return null;
+        return CODEC;
     }
 
     @Override
@@ -69,5 +72,9 @@ public class CombinerBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new CombinerBlockEntity(blockPos, blockState);
+    }
+
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.MODEL;
     }
 }
