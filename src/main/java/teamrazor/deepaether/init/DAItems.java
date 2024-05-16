@@ -6,6 +6,7 @@ import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
@@ -37,7 +38,6 @@ import java.util.function.Supplier;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-
 public class DAItems {
 	public static final DeferredRegister<Item> ITEMS =
 			DeferredRegister.create(ForgeRegistries.ITEMS, DeepAetherMod.MODID);
@@ -154,11 +154,11 @@ public class DAItems {
 	public static final RegistryObject<Item> GOLDEN_BERRIES = ITEMS.register("goldenleaf_berries",()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
 	public static final RegistryObject<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds",()-> new Item(new Item.Properties()));
 	public static final RegistryObject<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball",()-> new Item(new Item.Properties()));
-
 	public static final RegistryObject<Item> SQUASH_SEEDS = ITEMS.register("squash_seeds",()-> new ItemNameBlockItem(DABlocks.SQUASH_STEM.get(), new Item.Properties()));
-
-
 	public static final RegistryObject<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
+
+	//PROTECT YOUR MOA
+	public static final RegistryObject<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", () -> new MoaArmorItem(7, new ResourceLocation(DeepAetherMod.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 
 	//LOST CONTENT
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
@@ -174,8 +174,15 @@ public class DAItems {
 	}
 
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {
-		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+		if(ModList.get().isLoaded(DeepAetherMod.PROTECT_YOUR_MOA)) {
 			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
+		}
+		return ITEMS.register(name, item);
+	}
+
+	private static <T extends Item> RegistryObject<T> registerPYMItem(String name, Supplier<T> item) {
+		if(ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+			DeepAetherMod.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
 		}
 		return ITEMS.register(name, item);
 	}

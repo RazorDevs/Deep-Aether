@@ -9,6 +9,7 @@ import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
@@ -463,7 +465,7 @@ public class DARecipeData extends AetherRecipeProvider {
         makeRing(DAItems.SKYJADE_RING, DAItems.SKYJADE.get()).save(consumer);
         makeGloves(DAItems.SKYJADE_GLOVES, DAItems.SKYJADE).save(consumer);
 
-        makeRing(DAItems.GRAVITITE_RING, AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()).save(consumer);
+        makeGravititeRing(DAItems.GRAVITITE_RING).save(consumer);
 
         //Stratus
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_sword_repairing"));
@@ -497,7 +499,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
                 .requires(DABlocks.CHROMATIC_AERCLOUD.get(), 5)
-                .requires(AetherBlocks.ENCHANTED_GRAVITITE.get())
+                .requires(AetherTags.Items.PROCESSED_GRAVITITE)
                 .requires(AetherItems.ZANITE_GEMSTONE.get())
                 .requires(AetherItems.AMBROSIUM_SHARD.get())
                 .requires(DAItems.SKYJADE.get())
@@ -614,24 +616,33 @@ public class DARecipeData extends AetherRecipeProvider {
         enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
     }
 
-    protected void copyTemplate(Consumer<FinishedRecipe> p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', Items.DIAMOND)
-                .define('C', p_267023_)
-                .define('S', p_267133_)
-                .pattern("#S#")
-                .pattern("#C#")
-                .pattern("###")
-                .unlockedBy(getHasName(p_267133_), has(p_267133_)).save(p_266734_);
+    private RecipeBuilder makeGravititeRing(RegistryObject<Item> gravititeRing) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, gravititeRing.get())
+                .define('#', AetherTags.Items.PROCESSED_GRAVITITE)
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy(getHasName(AetherBlocks.ENCHANTED_GRAVITITE.get()), has(AetherTags.Items.PROCESSED_GRAVITITE));
     }
 
-    protected void copyTemplateGravitite(Consumer<FinishedRecipe> p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', AetherBlocks.ENCHANTED_GRAVITITE.get())
-                .define('C', p_267023_)
-                .define('S', p_267133_)
+    protected void copyTemplate(Consumer<FinishedRecipe> recipeConsumer, ItemLike itemLike, ItemLike itemLike1) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, itemLike, 2).define('#', Items.DIAMOND)
+                .define('C', itemLike1)
+                .define('S', itemLike)
                 .pattern("#S#")
                 .pattern("#C#")
                 .pattern("###")
-                .unlockedBy(getHasName(p_267133_), has(p_267133_)).save(p_266734_, name(p_267133_ + "_from_gravitite"));
+                .unlockedBy(getHasName(itemLike), has(itemLike)).save(recipeConsumer);
+    }
+
+    protected void copyTemplateGravitite(Consumer<FinishedRecipe> recipeConsumer, ItemLike itemLike, ItemLike itemLike1) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, itemLike, 2).define('#', AetherTags.Items.PROCESSED_GRAVITITE)
+                .define('C', itemLike1)
+                .define('S', itemLike)
+                .pattern("#S#")
+                .pattern("#C#")
+                .pattern("###")
+                .unlockedBy(getHasName(itemLike), has(itemLike)).save(recipeConsumer, name(itemLike + "_from_gravitite"));
     }
 
     protected void stonecuttingRecipe(Consumer<FinishedRecipe> consumer, RecipeCategory category, ItemLike item, ItemLike ingredient) {

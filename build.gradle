@@ -133,25 +133,28 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     minecraft "net.neoforged:forge:${project.mc_version}-${project.neoforge_version}"
 
-    //Dependencies
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.gecklib_version}")
-    implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
-    runtimeOnly fg.deobf("curse.maven:aether-emissivity-916028:4765812")
-    implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")
-    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
-    implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
-    implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
     implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.2"))
-
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.3.2")) {
         jarJar.ranged(it, "[0.3.2,)")
     }
+
+    //Dependencies
+    implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
+    implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
+    implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.geckolib_version}")
+    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
+    implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
+
     jarJar fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge") {
         jarJar.ranged(it, "[1.20.1-1.0.2-rc1,)")
     }
+
     //Optional Dependencies
+    implementation fg.deobf("com.aetherteam.protect-your-moa:aether_protect_your_moa:${project.protect_your_moa_version}")
+    implementation fg.deobf("com.aetherteam.emissivity:aether_emissivity:${project.emissivity_version}")
     compileOnly fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")
@@ -159,18 +162,17 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
     compileOnly fg.deobf("curse.maven:ancient-aether-886751:${ancient_aether_version}")
-    implementation fg.deobf("local:aether_protect_your_moa:1.20.1-1.0.0-neoforge")
 }
 
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "deep_aether",
-                "Specification-Vendor"    : "razordevs",
+                "Specification-Title"     : project.mod_name,
+                "Specification-Vendor"    : project.mod_authors,
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "razordevs",
+                "Implementation-Vendor"   : project.mod_authors,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -180,8 +182,8 @@ jar {
 }
 
 mixin {
-    config "deep_aether.mixins.json"
-    add sourceSets.main, "deep_aether.refmap.json"
+    config "${project.mod_id}.mixins.json"
+    add sourceSets.main, "${project.mod_id}.refmap.json"
 }
 
 publishing {

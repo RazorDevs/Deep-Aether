@@ -88,6 +88,7 @@ public class DeepAetherMod {
 	public static final String AETHER_REDUX = "aether_redux";
 	public static final String ANCIENT_AETHER = "ancient_aether";
 	public static final String EMISSIVITY = "aether_emissivity";
+	public static final String PROTECT_YOUR_MOA = "aether_protect_your_moa";
 
 	private static final String PROTOCOL_VERSION = "1";
 

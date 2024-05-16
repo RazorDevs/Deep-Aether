@@ -5,6 +5,7 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.protect_your_moa.item.ProtectItems;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -306,10 +307,6 @@ public class DATabs {
 
             }, event);
 
-            if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-                addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
-            }
-
             addToTab(AetherItems.GRAVITITE_HOE.get(), new Item[]{
                     DAItems.STRATUS_SWORD.get(),
                     DAItems.STRATUS_SHOVEL.get(),
@@ -317,11 +314,6 @@ public class DATabs {
                     DAItems.STRATUS_AXE.get(),
                     DAItems.STRATUS_HOE.get()
             }, event);
-
-
-            if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
-                addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
-            }
 
             addToTab(AetherItems.SKYROOT_POWDER_SNOW_BUCKET.get(), DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), event);
 
@@ -331,7 +323,9 @@ public class DATabs {
                     DAItems.PLACEABLE_POISON_BUCKET.get(),
                     DAItems.AERGLOW_FISH_BUCKET.get()
             }, event);
+
             addToTab(AetherItems.BLACK_MOA_EGG.get(), DAItems.QUAIL_EGG.get(), event);
+
             addToTab(AetherItems.SKYROOT_CHEST_BOAT.get(), new Item[]{
                     DAItems.ROSEROOT_BOAT.get(),
                     DAItems.ROSEROOT_CHEST_BOAT.get(),
@@ -349,7 +343,13 @@ public class DATabs {
                     DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
                     DAItems.MUSIC_DISC_NABOORU.get()
             }, event);
+
+            if (ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+                addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
+                addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
+            }
         }
+
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey()) {
             addToTab(AetherItems.ZANITE_GLOVES.get(), new Item[]{
                     DAItems.SKYJADE_HELMET.get(),
@@ -382,7 +382,12 @@ public class DATabs {
                     DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.AERWHALE_SADDLE.get()
             }, event);
+
+            if (ModList.get().isLoaded(DeepAetherMod.PROTECT_YOUR_MOA)) {
+                addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), DAItems.SKYJADE_MOA_ARMOR.get(), event);
+            }
         }
+
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
             addToTab(AetherItems.CANDY_CANE.get(), new Item[]{
                     DAItems.RAW_QUAIL.get(),
@@ -417,6 +422,7 @@ public class DATabs {
                     DAItems.STRATUS_SMITHING_TEMPLATE.get()
             }, event);
         }
+
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {
             addToTab(AetherItems.AERBUNNY_SPAWN_EGG.get(), new Item[]{
                     DAItems.AETHER_FISH_SPAWN_EGG.get()
