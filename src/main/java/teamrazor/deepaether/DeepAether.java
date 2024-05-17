@@ -2,7 +2,6 @@ package teamrazor.deepaether;
 
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.google.common.reflect.Reflection;
 import com.legacy.lost_aether.registry.LCEntityTypes;
 import com.mojang.logging.LogUtils;
 import net.minecraft.SharedConstants;
@@ -23,7 +22,6 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -32,7 +30,6 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -54,7 +51,6 @@ import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.networking.attachment.DAAttachments;
-import teamrazor.deepaether.networking.attachment.MoaEffectAttachment;
 import teamrazor.deepaether.networking.packet.DAPlayerSyncPacket;
 import teamrazor.deepaether.networking.packet.MoaEffectSyncPacket;
 import teamrazor.deepaether.recipe.DARecipe;
@@ -83,6 +79,10 @@ public class DeepAether {
 	//TODO: add se_lang translation
 	//TODO: clean up code
 	//TODO: Add configs for flawless boss drops
+	//TODO: Custom plants are solid
+	//TODO: Some grass has rendering issues
+	//TODO: Continue Sacred Lands Testing
+
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
