@@ -1,18 +1,25 @@
 package teamrazor.deepaether.world.feature;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import teamrazor.deepaether.DeepAether;
@@ -58,6 +65,10 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> STERLING_AERCLOUD_PLACEMENT = createKey("sterling_aercloud");
     public static final ResourceKey<PlacedFeature> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_GROVE_GRASS_PATCH = createKey("golden_grove_grass_patch");
+
+    public static final ResourceKey<PlacedFeature> SACRED_ROCK = createKey("sacred_rock");
+    public static final ResourceKey<PlacedFeature> ROCK_SPIKE = createKey("rock_spike");
+    public static final ResourceKey<PlacedFeature> CLORITE_COLUMNS = createKey("clorite_columns");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -180,6 +191,31 @@ public class DAPlacedFeatures {
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
+
+        register(context, SACRED_ROCK, configuredFeatures.getOrThrow(DAConfiguredFeatures.SACRED_ROCK),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
+                        new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                .add(ConstantInt.of(0), 7)
+                                .add(UniformInt.of(1, 2), 2)
+                                .add(UniformInt.of(1, 3), 3)
+                                .build()), 4),
+                RarityFilter.onAverageOnceEvery(16),
+                InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), AetherTags.Blocks.TREATED_AS_AETHER_BLOCK)),
+                BiomeFilter.biome()
+        );
+
+        register(context, ROCK_SPIKE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROCK_SPIKE),
+                CountPlacement.of(2),
+                InSquarePlacement.spread(),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                BiomeFilter.biome()
+        );
+
+        register(context, CLORITE_COLUMNS, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_COLUMNS),
+                CountOnEveryLayerPlacement.of(3),
+                BiomeFilter.biome()
+        );
     }
 
 

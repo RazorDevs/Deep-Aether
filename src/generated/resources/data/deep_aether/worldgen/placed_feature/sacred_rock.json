@@ -1,0 +1,61 @@
+{
+  "feature": "deep_aether:sacred_rock",
+  "placement": [
+    {
+      "type": "aether:improved_layer_placement",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 0,
+            "weight": 7
+          },
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 2,
+                "min_inclusive": 1
+              }
+            },
+            "weight": 2
+          },
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              }
+            },
+            "weight": 3
+          }
+        ]
+      },
+      "heightmap": "MOTION_BLOCKING",
+      "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 16
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "offset": [
+          0,
+          -1,
+          0
+        ],
+        "tag": "aether:treated_as_aether_block"
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

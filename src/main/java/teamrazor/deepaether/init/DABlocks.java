@@ -47,6 +47,8 @@ public class DABlocks {
 	public static final DeferredRegister.Blocks BLOCKS =
 			DeferredRegister.createBlocks(DeepAether.MODID);
 
+	public static final DeferredBlock<Block> HIGHSTONE = registerBlock("highstone", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+
 	//GRASS
 
 	public static final DeferredBlock<Block> GOLDEN_GRASS_BLOCK = registerBlock("golden_heights_grass_block", () -> new GoldenGrassBlock(Block.Properties.of().mapColor(MapColor.GOLD).randomTicks().strength(0.2F).sound(SoundType.GRASS)));

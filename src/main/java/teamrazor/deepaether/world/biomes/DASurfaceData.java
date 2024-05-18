@@ -24,14 +24,18 @@ public class DASurfaceData {
                         SurfaceRules.state(DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
-                        SurfaceRules.state(DABlocks.ASETERITE.get().defaultBlockState()))),
+                        SurfaceRules.state(DABlocks.HIGHSTONE.get().defaultBlockState()))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
-                        SurfaceRules.state(DABlocks.ASETERITE.get().defaultBlockState()))),
+                        SurfaceRules.state(DABlocks.HIGHSTONE.get().defaultBlockState()))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
-                                SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.PATCH, 0.3D),
+                                SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.PATCH, 0.2D),
                                         SurfaceRules.state(AetherFeatureStates.AETHER_DIRT)))),
+
+                /*SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
+                        SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.4D),
+                                SurfaceRules.state(DABlocks.CLORITE.get().defaultBlockState())))),*/
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.YAGROOT_SWAMP),
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,

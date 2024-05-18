@@ -24,12 +24,12 @@
       "aether:water_lake"
     ],
     [
-      "minecraft:forest_rock",
-      "minecraft:large_dripstone"
+      "deep_aether:sacred_rock"
     ],
     [],
     [
-      "minecraft:small_basalt_columns"
+      "deep_aether:clorite_columns",
+      "deep_aether:rock_spike"
     ],
     [],
     [

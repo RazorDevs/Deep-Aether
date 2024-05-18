@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.feature;
 
 
+import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureRules;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
@@ -45,9 +46,11 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.features.ConfiguredBoulder;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 import teamrazor.deepaether.world.feature.tree.decorators.SunrootHangerDecorator;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
@@ -107,7 +110,9 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ECHAISY = createKey("echaisy");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCKY_BUMPS = createKey("rocky_bumps");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SACRED_ROCK = createKey("sacred_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_SPIKE = createKey("rock_spike");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_COLUMNS = createKey("clorite_columns");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -352,10 +357,37 @@ public class DAConfiguredFeatures {
         register(context, STERLING_AERCLOUD_CONFIGURATION, AetherFeatures.AERCLOUD.get(), new AercloudConfiguration(2,
                 SimpleStateProvider.simple(DABlocks.STERLING_AERCLOUD.get())));
 
-        //register(context, ROCKY_BUMPS, DAFeatures.ROCKY_BUMPS.get(), NoneFeatureConfiguration.INSTANCE);
+        register(context, SACRED_ROCK, DAFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(AetherFeatureStates.HOLYSTONE)));
+
+        register(context, ROCK_SPIKE, DAFeatures.ROCK_SPIKE.get(),
+                new NoneFeatureConfiguration());
+
+        register(context, CLORITE_COLUMNS, DAFeatures.CLORITE_COLUMNS.get(),
+                new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 4)));
 
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
+    }
+
+    private static BlockStateProvider prov(BlockState state)
+    {
+        return BlockStateProvider.simple(drops(state));
+    }
+
+    private static BlockStateProvider prov(DeferredBlock<? extends Block> block)
+    {
+        return prov(block.get().defaultBlockState());
+    }
+
+    private static BlockState drops(BlockState state)
+    {
+        return state.hasProperty(AetherBlockStateProperties.DOUBLE_DROPS) ? state.setValue(AetherBlockStateProperties.DOUBLE_DROPS, true) : state;
+    }
+
+    private static BlockState drops(DeferredBlock<? extends Block> block)
+    {
+        return drops(block.get().defaultBlockState());
     }
 }

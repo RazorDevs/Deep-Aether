@@ -28,6 +28,8 @@ public class DAItemModelData extends AetherItemModelProvider {
     @Override
     protected void registerModels() {
 
+        this.itemBlock(DABlocks.HIGHSTONE.get());
+
         //Roseroot woodset
         this.itemBlock(DABlocks.ROSEROOT_WOOD.get());
         this.itemBlock(DABlocks.ROSEROOT_LOG.get());

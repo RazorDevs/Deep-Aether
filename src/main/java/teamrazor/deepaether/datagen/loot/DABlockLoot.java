@@ -30,7 +30,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -54,6 +53,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
     @Override
     public void generate() {
+
+        this.dropSelf(DABlocks.HIGHSTONE.get());
+
         //Roseroot woodset
         this.dropSelf(DABlocks.ROSEROOT_WOOD.get());
         this.dropSelf(DABlocks.ROTTEN_ROSEROOT_LOG.get());
