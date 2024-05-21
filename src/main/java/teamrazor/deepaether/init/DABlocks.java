@@ -55,13 +55,13 @@ public class DABlocks {
 	public static final DeferredBlock<Block> GOLDEN_DIRT_PATH = registerBlock("golden_heights_dirt_path", () -> new AetherDirtPathBlock(Block.Properties.of().mapColor(MapColor.GOLD).strength(0.2F).sound(SoundType.GRASS)));
 	public static final DeferredBlock<Block> AETHER_COARSE_DIRT = registerBlock("aether_coarse_dirt", () -> new AetherCoarseDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COARSE_DIRT)));
 
-	public static final DeferredBlock<Block> MINI_GOLDEN_GRASS = registerBlock("mini_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
-	public static final DeferredBlock<Block> SHORT_GOLDEN_GRASS = registerBlock("short_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
-	public static final DeferredBlock<Block> MEDIUM_GOLDEN_GRASS = registerBlock("medium_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
-	public static final DeferredBlock<Block> TALL_GOLDEN_GRASS = registerBlock("tall_golden_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
+	public static final DeferredBlock<Block> MINI_GOLDEN_GRASS = registerBlock("mini_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+	public static final DeferredBlock<Block> SHORT_GOLDEN_GRASS = registerBlock("short_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+	public static final DeferredBlock<Block> MEDIUM_GOLDEN_GRASS = registerBlock("medium_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+	public static final DeferredBlock<Block> TALL_GOLDEN_GRASS = registerBlock("tall_golden_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
-	public static final DeferredBlock<Block> FEATHER_GRASS = registerBlock("feather_grass", ()-> new FeatherGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
-	public static final DeferredBlock<Block> TALL_FEATHER_GRASS = registerBlock("tall_feather_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
+	public static final DeferredBlock<Block> FEATHER_GRASS = registerBlock("feather_grass", ()-> new FeatherGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+	public static final DeferredBlock<Block> TALL_FEATHER_GRASS = registerBlock("tall_feather_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
 
 	// WOOD
