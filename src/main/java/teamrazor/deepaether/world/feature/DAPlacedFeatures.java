@@ -53,6 +53,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_GRASS = createKey("aerglow_forest_grass");
 
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
+    public static final ResourceKey<PlacedFeature> MORE_SKYJADE = createKey("more_skyjade_ore");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
     public static final ResourceKey<PlacedFeature> AETHER_MOSS_PATCHES = createKey("aether_moss");
@@ -181,6 +182,9 @@ public class DAPlacedFeatures {
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
+        register(context, MORE_SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_MORE_SKYJADE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+
         register(context, GOLDEN_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
         register(context, GOLDEN_GROVE_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GROVE_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
@@ -206,14 +210,14 @@ public class DAPlacedFeatures {
         );
 
         register(context, ROCK_SPIKE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROCK_SPIKE),
-                CountPlacement.of(2),
+                CountPlacement.of(1),
                 InSquarePlacement.spread(),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                 BiomeFilter.biome()
         );
 
         register(context, CLORITE_COLUMNS, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_COLUMNS),
-                CountOnEveryLayerPlacement.of(3),
+                CountOnEveryLayerPlacement.of(1),
                 BiomeFilter.biome()
         );
     }

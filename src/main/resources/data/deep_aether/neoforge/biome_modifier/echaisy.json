@@ -1,6 +1,6 @@
 {
-  "type": "forge:add_features",
+  "type": "neoforge:add_features",
   "biomes": "#deep_aether:has_aether_extra_flowers",
-  "features": "deep_aether:sky_tulips",
+  "features": "deep_aether:echaisy",
   "step": "vegetal_decoration"
 }

@@ -1,5 +1,5 @@
 {
-  "type": "forge:add_features",
+  "type": "neoforge:add_features",
   "biomes": "#aether:is_aether",
   "features": "deep_aether:skyjade_ore",
   "step": "underground_ores"

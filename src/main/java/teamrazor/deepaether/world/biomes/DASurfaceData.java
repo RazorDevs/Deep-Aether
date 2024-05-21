@@ -2,6 +2,7 @@ package teamrazor.deepaether.world.biomes;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
@@ -24,10 +25,10 @@ public class DASurfaceData {
                         SurfaceRules.state(DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
-                        SurfaceRules.state(DABlocks.HIGHSTONE.get().defaultBlockState()))),
+                        SurfaceRules.state(Blocks.SAND.defaultBlockState()))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR,
-                        SurfaceRules.state(DABlocks.HIGHSTONE.get().defaultBlockState()))),
+                        SurfaceRules.state(Blocks.SAND.defaultBlockState()))),
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(DABiomes.SACRED_LANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                                 SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.PATCH, 0.2D),
