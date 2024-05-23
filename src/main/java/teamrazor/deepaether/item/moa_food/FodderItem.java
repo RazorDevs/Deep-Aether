@@ -1,6 +1,8 @@
 package teamrazor.deepaether.item.moa_food;
 
 import com.aetherteam.aether.entity.passive.Moa;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -32,8 +34,9 @@ public class FodderItem extends Item {
         if(!player.isCreative())
             itemStack.shrink(1);
 
-        if(applyMoaEffect(livingEntity))
+        if(applyMoaEffect(livingEntity)) {
             return InteractionResult.SUCCESS;
+        }
 
         return InteractionResult.PASS;
     }
@@ -41,10 +44,10 @@ public class FodderItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         if(pPlayer.isPassenger())
-            if(pPlayer.getVehicle() instanceof Moa){
+            if(pPlayer.getVehicle() instanceof Moa moa){
                 if(!pPlayer.isCreative())
                     pPlayer.getItemInHand(pUsedHand).shrink(1);
-                applyMoaEffect((LivingEntity) pPlayer.getVehicle());
+                applyMoaEffect(moa);
                 return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
             }
         return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
@@ -56,6 +59,10 @@ public class FodderItem extends Item {
     }
 
     private boolean applyMoaEffect(LivingEntity livingEntity) {
-        return livingEntity.addEffect(getMobEffect());
+        if(livingEntity.addEffect(getMobEffect())) {
+            livingEntity.level().playLocalSound(livingEntity, SoundEvents.PLAYER_BURP, SoundSource.AMBIENT, 1f, 0.2f);
+            return true;
+        }
+        return false;
     }
 }
