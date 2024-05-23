@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -26,7 +25,7 @@ public class RockSpikeFeature extends Feature<NoneFeatureConfiguration> {
         for(worldgenlevel = context.level(); worldgenlevel.isEmptyBlock(blockpos) && blockpos.getY() > worldgenlevel.getMinBuildHeight() + 2; blockpos = blockpos.below()) {
         }
 
-        if (!worldgenlevel.getBlockState(blockpos).is(Blocks.SAND)) {
+        if (!worldgenlevel.getBlockState(blockpos).is(DABlocks.HIGHSTONE.get())) {
             return false;
         } else {
             blockpos = blockpos.above(randomsource.nextInt(4));

@@ -4,7 +4,7 @@
     "height": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 4,
+        "max_inclusive": 3,
         "min_inclusive": 1
       }
     },

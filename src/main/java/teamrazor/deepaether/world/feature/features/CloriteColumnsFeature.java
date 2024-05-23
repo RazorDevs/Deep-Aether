@@ -36,7 +36,7 @@ public class CloriteColumnsFeature extends Feature<ColumnFeatureConfiguration> {
         WorldGenLevel worldgenlevel = pContext.level();
         RandomSource randomsource = pContext.random();
         ColumnFeatureConfiguration columnfeatureconfiguration = (ColumnFeatureConfiguration)pContext.config();
-        if (!canPlaceAt(worldgenlevel, i, blockpos.mutable())) {
+        if (!canPlaceAt(worldgenlevel, blockpos.mutable())) {
             return false;
         } else {
             int j = columnfeatureconfiguration.height().sample(randomsource);
@@ -97,7 +97,7 @@ public class CloriteColumnsFeature extends Feature<ColumnFeatureConfiguration> {
     private static BlockPos findSurface(LevelAccessor pLevel, int pSeaLevel, BlockPos.MutableBlockPos pPos, int pDistance) {
         while(pPos.getY() > pLevel.getMinBuildHeight() + 1 && pDistance > 0) {
             --pDistance;
-            if (canPlaceAt(pLevel, pSeaLevel, pPos)) {
+            if (canPlaceAt(pLevel, pPos)) {
                 return pPos;
             }
 
@@ -107,7 +107,7 @@ public class CloriteColumnsFeature extends Feature<ColumnFeatureConfiguration> {
         return null;
     }
 
-    private static boolean canPlaceAt(LevelAccessor pLevel, int pSeaLevel, BlockPos.MutableBlockPos pPos) {
+    private static boolean canPlaceAt(LevelAccessor pLevel, BlockPos.MutableBlockPos pPos) {
         if (!isAirOrCloud(pLevel, pPos)) {
             return false;
         } else {

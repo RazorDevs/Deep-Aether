@@ -286,6 +286,8 @@
   "item.deep_aether.smithing_template.stratus_upgrade.base_slot_description": "Add gravitite armor, weapon, or tool",
   "item.deep_aether.smithing_template.stratus_upgrade.ingredients": "Stratus Ingot",
   "upgrade.deep_aether.stratus_upgrade": "Stratus Upgrade",
+  "item.deep_aether.stratus_smithing_template": "Smithing Template",
+
 
   "item.deep_aether.raw_oratie": "Raw Oratie",
   "item.deep_aether.oratie_ingot": "Oratie Ingot",
@@ -748,6 +750,14 @@
   "block.deep_aether.trapped_light_nimbus_pillar": "Trapped Light Nimbus Pillar",
   "block.deep_aether.boss_doorway_light_nimbus_pillar": "Boss Doorway Light Nimbus Pillar",
   "block.deep_aether.treasure_doorway_light_nimbus_pillar": "Treasure Doorway Light Nimbus Pillar",
+
+  "block.deep_aether.aerwhale_totem": "Aerwhale Totem",
+  "block.deep_aether.moa_totem": "Moa Totem",
+  "block.deep_aether.zephyr_totem": "Zephyr Totem",
+  "block.deep_aether.combiner": "Combiner",
+  "item.deep_aether.jump_fodder": "Moa Fodder (Jump)",
+  "item.deep_aether.levitation_fodder": "Moa Fodder (Levitation)",
+
 
   "item.deep_aether.chaos_emerald": "Chaos Emerald",
   "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!",

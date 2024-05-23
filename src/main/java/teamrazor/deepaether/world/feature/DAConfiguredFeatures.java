@@ -366,7 +366,7 @@ public class DAConfiguredFeatures {
                 new NoneFeatureConfiguration());
 
         register(context, CLORITE_COLUMNS, DAFeatures.CLORITE_COLUMNS.get(),
-                new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 4)));
+                new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 3)));
 
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
