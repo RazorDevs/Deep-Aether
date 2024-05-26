@@ -23,7 +23,7 @@ public abstract class TriviaGeneratorMixin {
     @Inject(at = @At("HEAD"), method = "getTriviaLine", cancellable = true, remap = false)
     private void getTriviaLine(CallbackInfoReturnable<Component> cir) {
         if(this.getTriviaComponent() != null) {
-            if (this.getTriviaComponent().getString().contains("aether.pro_tips.line.deep_aether")) {
+            if (this.getTriviaComponent().getContents().toString().contains("aether.pro_tips.line.deep_aether")) {
                 cir.setReturnValue(Component.translatable("gui.deep_aether.pro_tip").append(Component.literal(" ").append(this.getTriviaComponent())));
             }
         }
