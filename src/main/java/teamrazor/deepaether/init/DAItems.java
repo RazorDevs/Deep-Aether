@@ -16,7 +16,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.neoforged.fml.ModList;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -101,8 +100,8 @@ public class DAItems {
 	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).stacksTo(1)));
 
 	// MOA FODDER
-	public static final DeferredItem<Item> JUMP_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.JUMP, -1, 1, true, true, true)));
-	public static final DeferredItem<Item> LEVITATION_FODDER = ITEMS.register("levitation_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, -1, 1, true, true, true)));
+	public static final DeferredItem<Item> JUMP_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.JUMP, 200, 1, true, true, true)));
+	public static final DeferredItem<Item> LEVITATION_FODDER = ITEMS.register("levitation_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, 200, 1, true, true, true)));
 
 
 	// BOATS

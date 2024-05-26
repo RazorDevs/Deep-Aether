@@ -5,16 +5,16 @@
   "effects": {
     "fog_color": 9671612,
     "foliage_color": 377215134,
-    "grass_color": 	377215134,
+    "grass_color": 	13616256,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": true,
       "sound": "aether:music.aether"
     },
-    "sky_color": 12632319,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "sky_color": 13616256,
+    "water_color": 5601152,
+    "water_fog_color": 5601152
   },
   "features": [
     [
@@ -23,24 +23,29 @@
     [
       "aether:water_lake"
     ],
+    [
+      "deep_aether:sacred_rock"
+    ],
     [],
-    [],
-    [],
+    [
+      "deep_aether:clorite_columns",
+      "deep_aether:rock_spike"
+    ],
     [],
     [
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
       "aether:ambrosium_ore",
-      "aether:zanite_ore",
       "aether:gravitite_ore"
     ],
-    [],
+    [
+      "minecraft:dripstone_cluster",
+      "minecraft:pointed_dripstone"
+    ],
     [
       "aether:water_spring"
     ],
     [
-      "deep_aether:fallen_aerglow_forest",
-      "deep_aether:empty_fallen_aerglow_forest",
       "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",
@@ -155,12 +160,6 @@
         "maxCount": 4,
         "minCount": 3,
         "weight": 10
-      },
-      {
-        "type": "aether:sheepuff",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 12
       },
       {
         "type": "aether:flying_cow",

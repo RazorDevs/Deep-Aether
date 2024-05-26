@@ -108,7 +108,6 @@ dependencies {
     implementation("software.bernie.geckolib:geckolib-neoforge-${project.mc_version}:${project.gecklib_version}")
     implementation("com.aetherteam.aether:aether:${project.aether_version}")
     runtimeOnly("curse.maven:aether-emissivity-916028:4765812")
-    implementation("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
     runtimeOnly("top.theillusivec4.curios:curios-neoforge:${project.curios_version}")
     compileOnly("top.theillusivec4.curios:curios-neoforge:${project.curios_version}:api")
     implementation("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}")
@@ -119,6 +118,10 @@ dependencies {
     jarJar("local:aeroblender:1.20.4-1.0.1-neoforge") {
         jarJar.ranged(it, "[1.20.4-1.0.1-neoforge,)")
     }
+    jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
+        jarJar.ranged(it, "[${project.terrablender_version},)")
+    }
+
     //Optional Dependencies
     compileOnly("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly("com.legacy:structure-gel:${project.structure_gel_version}")

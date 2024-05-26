@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether:is_aether",
-  "features": "deep_aether:sterling_aercloud",
-  "step": "top_layer_modification"
-}

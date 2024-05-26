@@ -1,0 +1,14 @@
+{
+  "type": "deep_aether:configured_boulder",
+  "config": {
+    "state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:holystone",
+        "Properties": {
+          "double_drops": "true"
+        }
+      }
+    }
+  }
+}

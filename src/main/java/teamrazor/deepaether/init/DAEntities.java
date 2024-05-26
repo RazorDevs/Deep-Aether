@@ -14,6 +14,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.*;
+import teamrazor.deepaether.entity.eots.EOTS;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 
@@ -48,6 +49,9 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>,EntityType<Venomite>> VENOMITE = register("venomite",
 			Venomite::new, 0.7F, 0.6F);
 
+	public static final DeferredHolder<EntityType<?>,EntityType<EOTS>> EOTS = register("eots",
+			EOTS::new, 1F, 1F);
+
 	public static final DeferredHolder<EntityType<?>,EntityType<Windfly>> WINDFLY = register("windfly", Windfly::new, 1F, 1F);
 
 	public static final DeferredHolder<EntityType<?>,EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",
@@ -80,6 +84,7 @@ public class DAEntities {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
+		event.put(EOTS.get(), Venomite.createAttributes().build());
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
 	}
 }

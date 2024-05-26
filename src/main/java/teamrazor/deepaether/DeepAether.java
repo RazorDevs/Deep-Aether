@@ -79,6 +79,10 @@ public class DeepAether {
 	//TODO: add se_lang translation
 	//TODO: clean up code
 	//TODO: Add configs for flawless boss drops
+	//TODO: Custom plants are solid
+	//TODO: Some grass has rendering issues
+	//TODO: Continue Sacred Lands Testing
+
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";

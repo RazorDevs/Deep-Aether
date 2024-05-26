@@ -28,6 +28,8 @@ public class DAItemModelData extends AetherItemModelProvider {
     @Override
     protected void registerModels() {
 
+        this.itemBlock(DABlocks.HIGHSTONE.get());
+
         //Roseroot woodset
         this.itemBlock(DABlocks.ROSEROOT_WOOD.get());
         this.itemBlock(DABlocks.ROSEROOT_LOG.get());
@@ -364,11 +366,11 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.GOLDEN_BERRIES.get());
         this.item(DAItems.ANTIDOTE.get());
-        this.item(DAItems.ENCHANTED_ANTIDOTE.get());
+        this.altItem(DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get());
 
         //Moa Fodder
-        this.placeholder(DAItems.JUMP_FODDER.get());
-        this.placeholder(DAItems.LEVITATION_FODDER.get());
+        this.item(DAItems.JUMP_FODDER.get());
+        this.item(DAItems.LEVITATION_FODDER.get());
 
         //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
@@ -405,17 +407,13 @@ public class DAItemModelData extends AetherItemModelProvider {
         //Misc
         this.item(DAItems.CHAOS_EMERALD.get());
         this.item(DAItems.SPOOKY_RING.get());
-
         this.item(DAItems.BIO_CRYSTAL.get());
-
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
-
         this.item(DAItems.AERGLOW_BLOSSOM.get());
-
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
-
         this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
+        this.itemBlock(DABlocks.COMBINER.get());
 
     }
 
@@ -427,6 +425,11 @@ public class DAItemModelData extends AetherItemModelProvider {
     public void item(Item item) {
         this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + this.itemName(item)));
+    }
+
+    public void altItem(Item item, Item texture) {
+        this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + this.itemName(texture)));
     }
 
     public void placeholder(Item item) {

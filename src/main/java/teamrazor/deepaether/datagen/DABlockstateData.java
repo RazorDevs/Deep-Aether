@@ -24,6 +24,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
     @Override
     public void registerStatesAndModels() {
 
+        this.blockDoubleDrops(DABlocks.HIGHSTONE.get());
+
         //Roseroot woodset
         this.wood((RotatedPillarBlock) DABlocks.ROSEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.ROSEROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.ROSEROOT_LOG.get());

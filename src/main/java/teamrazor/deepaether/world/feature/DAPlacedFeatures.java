@@ -1,18 +1,25 @@
 package teamrazor.deepaether.world.feature;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import teamrazor.deepaether.DeepAether;
@@ -46,6 +53,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_GRASS = createKey("aerglow_forest_grass");
 
     public static final ResourceKey<PlacedFeature> SKYJADE = createKey("skyjade_ore");
+    public static final ResourceKey<PlacedFeature> MORE_SKYJADE = createKey("more_skyjade_ore");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
     public static final ResourceKey<PlacedFeature> AETHER_MOSS_PATCHES = createKey("aether_moss");
@@ -59,6 +67,10 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_GROVE_GRASS_PATCH = createKey("golden_grove_grass_patch");
     public static final ResourceKey<PlacedFeature> AERCLOUD_CLOUD = createKey("aercloud_cloud");
+
+    public static final ResourceKey<PlacedFeature> SACRED_ROCK = createKey("sacred_rock");
+    public static final ResourceKey<PlacedFeature> ROCK_SPIKE = createKey("rock_spike");
+    public static final ResourceKey<PlacedFeature> CLORITE_COLUMNS = createKey("clorite_columns");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -171,6 +183,9 @@ public class DAPlacedFeatures {
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
+        register(context, MORE_SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_MORE_SKYJADE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(20, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+
         register(context, GOLDEN_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
         register(context, GOLDEN_GROVE_GRASS_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.GOLDEN_GROVE_GRASS_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
@@ -186,6 +201,31 @@ public class DAPlacedFeatures {
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(175), VerticalAnchor.absolute(175)),
                 CountPlacement.of(1),
                 BiomeFilter.biome());
+
+        register(context, SACRED_ROCK, configuredFeatures.getOrThrow(DAConfiguredFeatures.SACRED_ROCK),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
+                        new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                .add(ConstantInt.of(0), 7)
+                                .add(UniformInt.of(1, 2), 2)
+                                .add(UniformInt.of(1, 3), 3)
+                                .build()), 4),
+                RarityFilter.onAverageOnceEvery(16),
+                InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), AetherTags.Blocks.TREATED_AS_AETHER_BLOCK)),
+                BiomeFilter.biome()
+        );
+
+        register(context, ROCK_SPIKE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROCK_SPIKE),
+                CountPlacement.of(1),
+                InSquarePlacement.spread(),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                BiomeFilter.biome()
+        );
+
+        register(context, CLORITE_COLUMNS, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_COLUMNS),
+                CountOnEveryLayerPlacement.of(1),
+                BiomeFilter.biome()
+        );
     }
 
 
