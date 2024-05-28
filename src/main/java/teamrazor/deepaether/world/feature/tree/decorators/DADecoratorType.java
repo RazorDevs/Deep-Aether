@@ -15,7 +15,7 @@ public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<FlowerDecorator>> FLOWERS = register("flowers", FlowerDecorator.CODEC);
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<YagrootVineDecorator>> YAGVINES = register("yagvines", YagrootVineDecorator.CODEC);
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<SunrootHangerDecorator>> SUNROOT_HANGER = register("sunroot_hanger", SunrootHangerDecorator.CODEC);
-
+    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GlowingVineDecorator>> GLOWING_VINE = register("glowing_vine", GlowingVineDecorator.CODEC);
     private final Codec<P> codec;
 
     private static <P extends TreeDecorator> DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<P>> register(String s, Codec<P> codec) {

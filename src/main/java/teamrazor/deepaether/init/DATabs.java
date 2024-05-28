@@ -272,6 +272,7 @@ public class DATabs {
                     DABlocks.IASPOVE.get(),
                     DABlocks.GOLDEN_ASPESS.get(),
                     DABlocks.ECHAISY.get(),
+                    DABlocks.GLOWING_VINE.get(),
                     DABlocks.MINI_GOLDEN_GRASS.get(),
                     DABlocks.SHORT_GOLDEN_GRASS.get(),
                     DABlocks.MEDIUM_GOLDEN_GRASS.get(),

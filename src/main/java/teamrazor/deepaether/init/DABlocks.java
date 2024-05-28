@@ -292,7 +292,7 @@ public class DABlocks {
 
 	//PLANTS
 
-	public static final DeferredBlock<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of().noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 5)));
+	public static final DeferredBlock<Block> RADIANT_ORCHID = registerBlock("radiant_orchid", () -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 100, BlockBehaviour.Properties.of().noCollission().sound(SoundType.GRASS).instabreak().lightLevel(s -> 8)));
 	public static final DeferredBlock<Block> AERLAVENDER = registerBlock("aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final DeferredBlock<Block> TALL_AERLAVENDER = registerBlock("tall_aerlavender", () ->  new FlowerBlockLargeHitBox(MobEffects.JUMP, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
 	public static final DeferredBlock<Block> AETHER_CATTAILS = registerBlock("aether_cattails", () ->  new FlowerBlock(AetherEffects.INEBRIATION, 6, BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
@@ -310,7 +310,18 @@ public class DABlocks {
 	public static final DeferredBlock<Block> BLUE_SQUASH = registerBlock("blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> PURPLE_SQUASH = registerBlock("purple_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final DeferredBlock<Block> GLOWING_VINE = registerBlock("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
+			.mapColor(MapColor.PLANT)
+			.replaceable()
+			.noCollission()
+			.randomTicks()
+			.strength(0.2F)
+			.sound(SoundType.VINE)
+			.ignitedByLava()
+			.lightLevel(s -> 10)
+			.pushReaction(PushReaction.DESTROY)));
 
+	public static final DeferredBlock<Block> TALL_GLOWING_GRASS = registerBlock("tall_glowing_grass", ()-> new GlowingGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
 	public static final DeferredBlock<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(BlockReferences.BLUE_SQUASH, BlockReferences.ATTACHED_SQUASH_STEM, ItemReferences.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));

@@ -18,23 +18,38 @@
   },
   "features": [
     [
-
+      "aether:quicksoil_shelf"
     ],
     [
+      "aether:water_lake"
     ],
+    [],
     [],
     [],
     [],
-    [],
     [
+      "aether:aether_dirt_ore",
+      "aether:icestone_ore",
+      "aether:ambrosium_ore",
+      "aether:zanite_ore",
+      "aether:gravitite_ore_buried",
+      "aether:gravitite_ore"
     ],
     [],
     [
+      "aether:water_spring"
     ],
     [
+      "deep_aether:skyroot_rainforest_trees",
+      "aether:holiday_tree",
+      "deep_aether:skyroot_rainforest_grass",
+      "aether:berry_bush_patch"
     ],
     [
-      "deep_aether:aercloud_cloud"
+      "aether:crystal_island",
+      "aether:cold_aercloud",
+      "aether:blue_aercloud",
+      "aether:golden_aercloud"
     ]
   ],
   "has_precipitation": false,
@@ -99,6 +114,24 @@
     ],
     "aether_surface_monster": [
       {
+        "type": "aether:aechor_plant",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 7
+      },
+      {
+        "type": "aether:blue_swet",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 6
+      },
+      {
+        "type": "aether:golden_swet",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 6
+      },
+      {
         "type": "aether:whirlwind",
         "maxCount": 1,
         "minCount": 1,
@@ -113,7 +146,38 @@
     ],
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "aether:phyg",
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 10
+      },
+      {
+        "type": "aether:sheepuff",
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 12
+      },
+      {
+        "type": "aether:flying_cow",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 12
+      },
+      {
+        "type": "aether:aerbunny",
+        "maxCount": 3,
+        "minCount": 3,
+        "weight": 11
+      },
+      {
+        "type": "aether:moa",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 8
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],

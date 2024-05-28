@@ -290,6 +290,7 @@ public class DABlockTagData extends BlockTagsProvider {
         );
         tag(BlockTags.CLIMBABLE).add(
                 DABlocks.YAGROOT_VINE.get(),
+                DABlocks.GLOWING_VINE.get(),
                 DABlocks.GOLDEN_VINES.get(),
                 DABlocks.GOLDEN_VINES_PLANT.get(),
                 DABlocks.SUNROOT_HANGER.get()
@@ -308,6 +309,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                 DABlocks.TALL_AETHER_CATTAILS.get(),
+                DABlocks.TALL_GLOWING_GRASS.get(),
                 DABlocks.AETHER_CATTAILS.get()
         );
         tag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH).add(
@@ -595,7 +597,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKY_TULIPS.get(),
                 DABlocks.IASPOVE.get(),
                 DABlocks.FEATHER_GRASS.get(),
-                DABlocks.TALL_FEATHER_GRASS.get()
+                DABlocks.TALL_FEATHER_GRASS.get(),
+                DABlocks.TALL_GLOWING_GRASS.get()
         );
 
 

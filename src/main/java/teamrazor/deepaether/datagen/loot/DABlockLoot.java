@@ -112,7 +112,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.YAGROOT_HANGING_SIGN.get());
         this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
-        this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createYagrootVinesDrop(DABlocks.YAGROOT_VINE.get()));
+        this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createVinesDrop(DABlocks.YAGROOT_VINE.get()));
+        this.add(DABlocks.GLOWING_VINE.get(), (vine) -> createVinesDrop(DABlocks.GLOWING_VINE.get()));
 
         //Cruderoot woodset
         this.dropSelf(DABlocks.CRUDEROOT_WOOD.get());
@@ -279,6 +280,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
+        this.add(DABlocks.TALL_GLOWING_GRASS.get(), (flower) -> createSinglePropConditionTable(DABlocks.TALL_GLOWING_GRASS.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 
         this.dropNone(DABlocks.FEATHER_GRASS.get());
         this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
@@ -393,7 +395,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(DAItems.GOLDEN_BERRIES.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(p_251070_).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GoldenVines.BERRIES, true))));
     }
 
-    protected static LootTable.Builder createYagrootVinesDrop(Block block) {
+    protected static LootTable.Builder createVinesDrop(Block block) {
         return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SHEARS).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(block)));
     }
 
@@ -409,6 +411,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                 .withPool(LootPool.lootPool().add(builder).add(builder1).add(builder2).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)))
                         .when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))), new BlockPos(0, -1, 0))));
     }
+
+
 
 
     protected LootTable.Builder createGoldenGrassDrops(Block block) {

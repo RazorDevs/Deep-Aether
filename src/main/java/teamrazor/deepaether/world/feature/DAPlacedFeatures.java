@@ -1,6 +1,8 @@
 package teamrazor.deepaether.world.feature;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
+import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
@@ -71,6 +73,8 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SACRED_ROCK = createKey("sacred_rock");
     public static final ResourceKey<PlacedFeature> ROCK_SPIKE = createKey("rock_spike");
     public static final ResourceKey<PlacedFeature> CLORITE_COLUMNS = createKey("clorite_columns");
+    public static final ResourceKey<PlacedFeature> SKYROOT_RAINFOREST_TREES = createKey("skyroot_rainforest_trees");
+    public static final ResourceKey<PlacedFeature> SKYROOT_RAINFOREST_GRASS = createKey("skyroot_rainforest_grass");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -226,6 +230,16 @@ public class DAPlacedFeatures {
                 CountOnEveryLayerPlacement.of(1),
                 BiomeFilter.biome()
         );
+
+        register(context, SKYROOT_RAINFOREST_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.SKYROOT_RAINFOREST_TREE),
+                AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
+
+        register(context, SKYROOT_RAINFOREST_GRASS, configuredFeatures.getOrThrow(DAConfiguredFeatures.SKYROOT_RAINFOREST_GRASS),
+                CountPlacement.of(3),
+                InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP,
+                BiomeFilter.biome());
+
     }
 
 
