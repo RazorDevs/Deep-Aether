@@ -22,18 +22,9 @@ public class GlowingGrassBlock extends DoublePlantBlock {
     }
 
     @Override
-    public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
-        if (context.getItemInHand().getItem() instanceof ShearsItem) {
-            popResource(context.getLevel(), context.getClickedPos(), new ItemStack(DAItems.GLOWING_SPORES.get()));
-            return Blocks.TALL_GRASS.defaultBlockState().setValue(HALF, state.getValue(HALF));
-        }
-        else return super.getToolModifiedState(state, context, toolAction, simulate);
-    }
-
-    @Override
     public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
         if(state.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER))
-            return 8;
+            return 7;
         else return 0;
     }
 }

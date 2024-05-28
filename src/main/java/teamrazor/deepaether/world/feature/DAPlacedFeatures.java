@@ -235,9 +235,8 @@ public class DAPlacedFeatures {
                 AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
 
         register(context, SKYROOT_RAINFOREST_GRASS, configuredFeatures.getOrThrow(DAConfiguredFeatures.SKYROOT_RAINFOREST_GRASS),
-                CountPlacement.of(3),
-                InSquarePlacement.spread(),
-                PlacementUtils.HEIGHTMAP,
+                NoiseThresholdCountPlacement.of(-0.8D, 5, 9),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
     }

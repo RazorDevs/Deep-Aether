@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "deep_aether:block/nimbus_stone"
+    "all": "deep_aether:block/nimbus_stonedungeon/"
   }
 }

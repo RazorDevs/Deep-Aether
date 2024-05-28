@@ -156,9 +156,9 @@ public class DAConfiguredFeatures {
 
         register(context, SKYROOT_RAINFOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(Blocks.SHORT_GRASS.defaultBlockState(),12)
-                        .add(Blocks.TALL_GRASS.defaultBlockState(),12)
-                        .add(DAFeatureStates.RADIANT_ORCHID, 12)), 100));
+                        .add(Blocks.SHORT_GRASS.defaultBlockState(),40)
+                        .add(DABlocks.TALL_GLOWING_GRASS.get().defaultBlockState(),12)
+                        .add(DAFeatureStates.RADIANT_ORCHID, 2)), 100));
 
         register(context, ROSEROOT_TREE_LARGE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(

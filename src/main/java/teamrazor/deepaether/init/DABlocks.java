@@ -322,7 +322,7 @@ public class DABlocks {
 			.strength(0.2F)
 			.sound(SoundType.VINE)
 			.ignitedByLava()
-			.lightLevel(s -> 10)
+			.lightLevel(s -> 7)
 			.pushReaction(PushReaction.DESTROY)));
 
 	public static final DeferredBlock<Block> TALL_GLOWING_GRASS = BLOCKS.register("tall_glowing_grass", ()-> new GlowingGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));

@@ -12,11 +12,11 @@
                 "data": {
                   "Name": "minecraft:short_grass"
                 },
-                "weight": 12
+                "weight": 40
               },
               {
                 "data": {
-                  "Name": "minecraft:tall_grass",
+                  "Name": "deep_aether:tall_glowing_grass",
                   "Properties": {
                     "half": "lower"
                   }
@@ -27,7 +27,7 @@
                 "data": {
                   "Name": "deep_aether:radiant_orchid"
                 },
-                "weight": 12
+                "weight": 2
               }
             ]
           }

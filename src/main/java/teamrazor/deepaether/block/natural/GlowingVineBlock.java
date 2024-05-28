@@ -14,17 +14,4 @@ public class GlowingVineBlock extends VineBlock {
     public GlowingVineBlock(Properties p_57847_) {
         super(p_57847_);
     }
-
-    @Override
-    public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
-        if (context.getItemInHand().getItem() instanceof ShearsItem) {
-            popResource(context.getLevel(), context.getClickedPos(), new ItemStack(DAItems.GLOWING_SPORES.get()));
-            return Blocks.VINE.defaultBlockState().setValue(UP, state.getValue(UP))
-                    .setValue(NORTH, state.getValue(NORTH))
-                    .setValue(EAST, state.getValue(EAST))
-                    .setValue(SOUTH, state.getValue(SOUTH))
-                    .setValue(WEST, state.getValue(WEST));
-        }
-        else return super.getToolModifiedState(state, context, toolAction, simulate);
-    }
 }

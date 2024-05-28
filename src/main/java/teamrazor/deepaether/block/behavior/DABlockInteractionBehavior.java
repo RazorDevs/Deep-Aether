@@ -20,21 +20,29 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.block.natural.GlowingGrassBlock;
+import teamrazor.deepaether.block.natural.GlowingVineBlock;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.GoldenSwetBallRecipe;
 
@@ -54,6 +62,24 @@ public class DABlockInteractionBehavior {
         BlockState state = world.getBlockState(pos);
         Player player = event.getEntity();
 
+        if(itemstack.getItem().equals(Items.SHEARS)) {
+            if(state.getBlock() instanceof GlowingVineBlock) {
+                Block.popResource(world, pos, new ItemStack(DAItems.GLOWING_SPORES.get()));
+                world.setBlock(pos, Blocks.VINE.defaultBlockState().setValue(PipeBlock.UP, state.getValue(PipeBlock.UP))
+                        .setValue(PipeBlock.NORTH, state.getValue(PipeBlock.NORTH))
+                        .setValue(PipeBlock.EAST, state.getValue(PipeBlock.EAST))
+                        .setValue(PipeBlock.SOUTH, state.getValue(PipeBlock.SOUTH))
+                        .setValue(PipeBlock.WEST, state.getValue(PipeBlock.WEST)), 16);
+            }
+            else if(state.getBlock() instanceof GlowingGrassBlock) {
+                if(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF).equals(DoubleBlockHalf.UPPER)) {
+                    Block.popResource(world, pos, new ItemStack(DAItems.GLOWING_SPORES.get()));
+                    world.setBlockAndUpdate(pos, Blocks.TALL_GRASS.defaultBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+                    world.setBlockAndUpdate(pos.below(1), Blocks.TALL_GRASS.defaultBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
+
+                }
+            }
+        }
 
         //Interactions for Water Bottle and Aether Dirt. Converts Aether Dirt into Aether Mud.
         if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
