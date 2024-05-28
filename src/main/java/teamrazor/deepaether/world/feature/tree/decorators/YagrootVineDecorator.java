@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import teamrazor.deepaether.block.YagrootVineBlock;
+import teamrazor.deepaether.block.natural.YagrootVineBlock;
 import teamrazor.deepaether.init.DABlocks;
 
 

@@ -33,8 +33,12 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.behavior.GoldenVines;
+import teamrazor.deepaether.block.building.*;
+import teamrazor.deepaether.block.misc.*;
+import teamrazor.deepaether.block.natural.*;
+import teamrazor.deepaether.block.utility.CombinerBlock;
+import teamrazor.deepaether.block.utility.PoisonCauldronBlock;
 import teamrazor.deepaether.world.feature.tree.DATreeGrower;
 
 import java.util.function.Supplier;

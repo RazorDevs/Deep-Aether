@@ -6,7 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
-import teamrazor.deepaether.block.SunrootHangerBlock;
+import teamrazor.deepaether.block.natural.SunrootHangerBlock;
 import teamrazor.deepaether.init.DABlocks;
 
 
