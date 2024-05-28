@@ -272,7 +272,6 @@ public class DATabs {
                     DABlocks.IASPOVE.get(),
                     DABlocks.GOLDEN_ASPESS.get(),
                     DABlocks.ECHAISY.get(),
-                    DABlocks.GLOWING_VINE.get(),
                     DABlocks.MINI_GOLDEN_GRASS.get(),
                     DABlocks.SHORT_GOLDEN_GRASS.get(),
                     DABlocks.MEDIUM_GOLDEN_GRASS.get(),
@@ -419,7 +418,8 @@ public class DATabs {
 
             addToTab(AetherItems.GOLDEN_AMBER.get(), new Item[]{
                     DAItems.GOLDEN_GRASS_SEEDS.get(),
-                    DAItems.GOLDEN_SWET_BALL.get()
+                    DAItems.GOLDEN_SWET_BALL.get(),
+                    DAItems.GLOWING_SPORES.get()
             }, event);
             addToTab(AetherItems.AECHOR_PETAL.get(), DAItems.AERGLOW_BLOSSOM.get(), event);
             addToTab(AetherItems.SWET_BALL.get(), new Item[]{

@@ -101,10 +101,4 @@ public class DAClientModBusEvents {
         event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
                 BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.GLOWING_VINE.get());
     }
-
-    @SubscribeEvent
-    public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        event.register((pStack, pTintIndex) -> FoliageColor.getDefaultColor(), DABlocks.GLOWING_VINE.get());
-        event.register((pStack, pTintIndex) -> FoliageColor.getDefaultColor(), DABlocks.TALL_GLOWING_GRASS.get());
-    }
 }

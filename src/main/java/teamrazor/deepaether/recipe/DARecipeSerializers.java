@@ -21,4 +21,6 @@ public class DARecipeSerializers {
             RECIPE_SERIALIZERS.register("combiner_recipe", CombinerRecipe.Serializer::new);
 
     public static final DeferredHolder<RecipeSerializer<?>, BlockStateRecipeSerializer<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_SERIALIZERS.register("golden_swet_ball_recipe", GoldenSwetBallRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, BlockStateRecipeSerializer<GlowingSporesRecipe>> GLOWING_SPORES_RECIPE = RECIPE_SERIALIZERS.register("glowing_spores_recipe", GlowingSporesRecipe.Serializer::new);
+
 }

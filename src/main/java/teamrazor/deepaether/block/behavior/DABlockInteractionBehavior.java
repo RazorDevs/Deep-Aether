@@ -54,20 +54,9 @@ public class DABlockInteractionBehavior {
         BlockState state = world.getBlockState(pos);
         Player player = event.getEntity();
 
-        //Interactions for the Golden Swet Ball. Converts Aether Dirt Into Golden Grass Block on right click.
-        if (itemstack.is(DATags.Items.IS_GOLDEN_SWET_BALL)) {
-
-            InteractionResult result = convertBlock(player, world, pos, itemstack);
-            if (world.isClientSide() && result == InteractionResult.SUCCESS) {
-                world.playSound(event.getEntity(), pos, AetherSoundEvents.ITEM_SWET_BALL_USE.get(), SoundSource.BLOCKS, 0.8F, 1.0F + (world.getRandom().nextFloat() - world.getRandom().nextFloat()) * 0.2F);
-            }
-            event.setCancellationResult(result);
-            event.setCanceled(true);
-        }
-
 
         //Interactions for Water Bottle and Aether Dirt. Converts Aether Dirt into Aether Mud.
-        else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
+        if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
 
                 //Changes the Aether Dirt block into an Aether Mud Block.

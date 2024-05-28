@@ -51,9 +51,6 @@
     "deep_aether:flowering_roseroot_leaves": {
       "chance": 0.3
     },
-    "deep_aether:glowing_vine": {
-      "chance": 0.3
-    },
     "deep_aether:golden_aspess": {
       "chance": 0.3
     },
@@ -127,6 +124,9 @@
       "chance": 0.3
     },
     "deep_aether:yagroot_vine": {
+      "chance": 0.3
+    },
+    "minecraft:air": {
       "chance": 0.3
     }
   }

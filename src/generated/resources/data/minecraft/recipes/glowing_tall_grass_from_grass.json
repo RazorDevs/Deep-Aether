@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:glowing_spores_recipe",
+  "ingredient": {
+    "block": "minecraft:tall_grass"
+  },
+  "result": {
+    "block": "deep_aether:tall_glowing_grass"
+  }
+}

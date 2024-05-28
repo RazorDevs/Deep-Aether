@@ -314,7 +314,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> BLUE_SQUASH = registerBlock("blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> PURPLE_SQUASH = registerBlock("purple_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final DeferredBlock<Block> GLOWING_VINE = registerBlock("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
+	public static final DeferredBlock<Block> GLOWING_VINE = BLOCKS.register("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.PLANT)
 			.replaceable()
 			.noCollission()
@@ -325,7 +325,7 @@ public class DABlocks {
 			.lightLevel(s -> 10)
 			.pushReaction(PushReaction.DESTROY)));
 
-	public static final DeferredBlock<Block> TALL_GLOWING_GRASS = registerBlock("tall_glowing_grass", ()-> new GlowingGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+	public static final DeferredBlock<Block> TALL_GLOWING_GRASS = BLOCKS.register("tall_glowing_grass", ()-> new GlowingGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
 	public static final DeferredBlock<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(BlockReferences.BLUE_SQUASH, BlockReferences.ATTACHED_SQUASH_STEM, ItemReferences.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));

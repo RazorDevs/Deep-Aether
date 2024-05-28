@@ -16,7 +16,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:glowing_vine"
+          "name": "minecraft:vine"
         }
       ],
       "rolls": 1.0

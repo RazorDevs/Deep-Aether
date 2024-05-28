@@ -113,7 +113,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
         this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createVinesDrop(DABlocks.YAGROOT_VINE.get()));
-        this.add(DABlocks.GLOWING_VINE.get(), (vine) -> createVinesDrop(DABlocks.GLOWING_VINE.get()));
+        this.add(DABlocks.GLOWING_VINE.get(), (vine) -> createVinesDrop(Blocks.VINE));
 
         //Cruderoot woodset
         this.dropSelf(DABlocks.CRUDEROOT_WOOD.get());
@@ -280,7 +280,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
-        this.add(DABlocks.TALL_GLOWING_GRASS.get(), (flower) -> createSinglePropConditionTable(DABlocks.TALL_GLOWING_GRASS.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+        this.add(DABlocks.TALL_GLOWING_GRASS.get(), (flower) -> createSinglePropConditionTable(Blocks.TALL_GRASS, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 
         this.dropNone(DABlocks.FEATHER_GRASS.get());
         this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());

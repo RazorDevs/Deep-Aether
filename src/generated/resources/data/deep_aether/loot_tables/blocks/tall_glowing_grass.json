@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "deep_aether:tall_glowing_grass",
+              "block": "minecraft:tall_grass",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "deep_aether:tall_glowing_grass"
+          "name": "minecraft:tall_grass"
         }
       ],
       "rolls": 1.0

@@ -16,6 +16,7 @@ public class DARecipe {
 
     public static final DeferredHolder<RecipeType<?>,RecipeType<CombinerRecipe>> COMBINER_RECIPE = RECIPE_TYPES.register("combiner_recipe", () ->
             RecipeType.simple(new ResourceLocation(DeepAether.MODID, "combiner_recipe")));
-
     public static final DeferredHolder<RecipeType<?>, RecipeType<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_TYPES.register("golden_swet_ball_recipe", () -> RecipeType.simple(new ResourceLocation(DeepAether.MODID, "golden_swet_ball_recipe")));
+    public static final DeferredHolder<RecipeType<?>, RecipeType<GlowingSporesRecipe>> GLOWING_SPORES_RECIPE = RECIPE_TYPES.register("glowing_spores_recipe", () -> RecipeType.simple(new ResourceLocation(DeepAether.MODID, "glowing_spores_recipe")));
+
 }
