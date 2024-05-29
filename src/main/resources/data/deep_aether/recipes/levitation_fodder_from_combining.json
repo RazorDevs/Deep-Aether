@@ -1,0 +1,18 @@
+{
+  "type": "deep_aether:combiner_recipe",
+  "ingredients": [
+    {
+      "item": "aether:golden_amber"
+    },
+    {
+      "item": "deep_aether:quail_egg"
+    },
+    {
+      "item": "deep_aether:frozen_goldenleaf_berries"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "result": "deep_aether:levitation_fodder"
+  }
+}

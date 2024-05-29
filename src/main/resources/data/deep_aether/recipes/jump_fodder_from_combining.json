@@ -1,0 +1,18 @@
+{
+  "type": "deep_aether:combiner_recipe",
+  "ingredients": [
+    {
+      "item": "aether:golden_amber"
+    },
+    {
+      "item": "deep_aether:goldenleaf_berries"
+    },
+    {
+      "item": "deep_aether:frozen_goldenleaf_berries"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "result": "deep_aether:jump_fodder"
+  }
+}
