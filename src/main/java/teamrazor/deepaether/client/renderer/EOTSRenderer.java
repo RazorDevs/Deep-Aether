@@ -9,7 +9,7 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.EOTSModel;
-import teamrazor.deepaether.entity.eots.EOTS;
+import teamrazor.deepaether.entity.living.boss.eots.EOTS;
 
 public class EOTSRenderer extends GeoEntityRenderer<EOTS> {
 

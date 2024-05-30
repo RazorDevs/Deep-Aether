@@ -28,8 +28,8 @@ import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.moa_food.FodderItem;
-import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
-import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
+import teamrazor.deepaether.item.compat.lost_content.LCDAShieldItem;
+import teamrazor.deepaether.item.compat.lost_content.SkyjadeShieldItem;
 
 import java.util.function.Supplier;
 

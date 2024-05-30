@@ -14,9 +14,14 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.*;
-import teamrazor.deepaether.entity.eots.EOTS;
-import teamrazor.deepaether.entity.quail.Quail;
-import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
+import teamrazor.deepaether.entity.living.boss.eots.EOTS;
+import teamrazor.deepaether.entity.living.AerglowFish;
+import teamrazor.deepaether.entity.living.Venomite;
+import teamrazor.deepaether.entity.living.Windfly;
+import teamrazor.deepaether.entity.living.projectile.FireProjectile;
+import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
+import teamrazor.deepaether.entity.living.quail.Quail;
+import teamrazor.deepaether.entity.living.projectile.ThrownQuailEgg;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)

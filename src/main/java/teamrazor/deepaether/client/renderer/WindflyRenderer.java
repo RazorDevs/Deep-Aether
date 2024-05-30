@@ -10,7 +10,7 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.WindflyModel;
-import teamrazor.deepaether.entity.Windfly;
+import teamrazor.deepaether.entity.living.Windfly;
 
 public class WindflyRenderer extends GeoEntityRenderer<Windfly> {
 

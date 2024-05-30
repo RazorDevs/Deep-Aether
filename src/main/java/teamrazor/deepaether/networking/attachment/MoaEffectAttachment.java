@@ -38,7 +38,6 @@ public class MoaEffectAttachment implements INBTSynchable {
         effectAmplifier = var1;
     }
 
-
     @Override
     public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
         return this.synchableFunctions;
@@ -53,5 +52,4 @@ public class MoaEffectAttachment implements INBTSynchable {
             this.setSynched(moa.getId(), Direction.CLIENT, "setMoaEffectAmplifier", getMoaEffectAmplifier());
         }
     }
-
 }

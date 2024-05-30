@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.mods.lost_content;
+package teamrazor.deepaether.item.compat.lost_content;
 
 import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAetherConfig;

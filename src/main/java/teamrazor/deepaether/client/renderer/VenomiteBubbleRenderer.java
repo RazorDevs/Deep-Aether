@@ -13,7 +13,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.VenomiteBubbleModel;
-import teamrazor.deepaether.entity.VenomiteBubble;
+import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 
 @OnlyIn(Dist.CLIENT)
 public class VenomiteBubbleRenderer extends EntityRenderer<VenomiteBubble> {

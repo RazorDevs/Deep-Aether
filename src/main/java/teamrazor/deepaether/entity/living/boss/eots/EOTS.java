@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity.eots;
+package teamrazor.deepaether.entity.living.boss.eots;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.client.AetherSoundEvents;

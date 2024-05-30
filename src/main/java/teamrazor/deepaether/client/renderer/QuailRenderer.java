@@ -11,8 +11,8 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.QuailModel;
-import teamrazor.deepaether.entity.quail.Quail;
-import teamrazor.deepaether.entity.quail.QuailVariants;
+import teamrazor.deepaether.entity.living.quail.Quail;
+import teamrazor.deepaether.entity.living.quail.QuailVariants;
 
 import java.util.Map;
 

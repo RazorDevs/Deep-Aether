@@ -10,7 +10,7 @@ import net.minecraft.world.item.EggItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
+import teamrazor.deepaether.entity.living.projectile.ThrownQuailEgg;
 
 public class QuailEggItem extends EggItem {
     public QuailEggItem(Properties properties) {

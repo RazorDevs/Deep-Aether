@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity;
+package teamrazor.deepaether.entity.living;
 
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.aetherteam.aether.entity.passive.AetherAnimal;

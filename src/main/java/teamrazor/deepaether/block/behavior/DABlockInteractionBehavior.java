@@ -82,7 +82,7 @@ public class DABlockInteractionBehavior {
         }
 
         //Interactions for Water Bottle and Aether Dirt. Converts Aether Dirt into Aether Mud.
-        if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
+        else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
             if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
 
                 //Changes the Aether Dirt block into an Aether Mud Block.
@@ -178,33 +178,4 @@ public class DABlockInteractionBehavior {
             }
         }
     }
-
-    public static InteractionResult convertBlock(Player player, Level level, BlockPos pos, ItemStack heldItem) {
-        BlockState oldBlockState = level.getBlockState(pos);
-        Iterator var8 = level.getRecipeManager().getAllRecipesFor(DARecipe.GOLDEN_SWET_BALL_RECIPE.get()).iterator();
-
-        while(var8.hasNext()) {
-            GoldenSwetBallRecipe recipe = (GoldenSwetBallRecipe) var8.next();
-            if (recipe != null) {
-                BlockState newState = ((BlockStateRecipe)recipe).getResultState(oldBlockState);
-                if (recipe.matches(player, level, pos, heldItem, oldBlockState, newState, DARecipe.GOLDEN_SWET_BALL_RECIPE.get())) {
-                    if (!level.isClientSide() && recipe.convert(level, pos, newState, ((BlockStateRecipe)recipe).getFunction())) {
-                        if (player != null && !player.getAbilities().instabuild) {
-                            heldItem.shrink(1);
-                        }
-
-                        return InteractionResult.CONSUME;
-                    }
-
-                    if (level.isClientSide()) {
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-            }
-        }
-
-        return InteractionResult.PASS;
-    }
 }
-
-

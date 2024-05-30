@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity.quail;
+package teamrazor.deepaether.entity.living.quail;
 
 import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.nbt.CompoundTag;

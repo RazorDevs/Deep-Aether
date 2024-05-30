@@ -1,7 +1,5 @@
 package teamrazor.deepaether.item.gear.other;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
@@ -13,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import teamrazor.deepaether.entity.FireProjectile;
+import teamrazor.deepaether.entity.living.projectile.FireProjectile;
 import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.init.DATiers;
 

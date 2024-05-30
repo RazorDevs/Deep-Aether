@@ -3,7 +3,7 @@ package teamrazor.deepaether.client.model;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.entity.Venomite;
+import teamrazor.deepaether.entity.living.Venomite;
 
 public class VenomiteModel extends DefaultedEntityGeoModel<Venomite> {
     public VenomiteModel() {

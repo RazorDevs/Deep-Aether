@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity;
+package teamrazor.deepaether.entity.living;
 
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
@@ -34,7 +34,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.neoforged.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -44,6 +43,7 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 import teamrazor.deepaether.entity.goals.FollowPlayerGoal;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;

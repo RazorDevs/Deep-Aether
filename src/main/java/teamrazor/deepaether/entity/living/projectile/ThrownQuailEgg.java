@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity.quail;
+package teamrazor.deepaether.entity.living.projectile;
 
 import net.minecraft.Util;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -10,6 +10,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import teamrazor.deepaether.entity.living.quail.Quail;
+import teamrazor.deepaether.entity.living.quail.QuailVariants;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAItems;
 

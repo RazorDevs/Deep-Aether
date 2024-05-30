@@ -10,7 +10,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.AerglowFishModel;
-import teamrazor.deepaether.entity.AerglowFish;
+import teamrazor.deepaether.entity.living.AerglowFish;
 
 @OnlyIn(Dist.CLIENT)
 public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishModel<AerglowFish>> {

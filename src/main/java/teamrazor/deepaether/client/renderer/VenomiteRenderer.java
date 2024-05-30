@@ -9,7 +9,7 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.VenomiteModel;
-import teamrazor.deepaether.entity.Venomite;
+import teamrazor.deepaether.entity.living.Venomite;
 
 public class VenomiteRenderer extends GeoEntityRenderer<Venomite> {
 

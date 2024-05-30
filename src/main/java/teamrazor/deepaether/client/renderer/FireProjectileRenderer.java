@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
-import teamrazor.deepaether.entity.FireProjectile;
+import teamrazor.deepaether.entity.living.projectile.FireProjectile;
 
 public class FireProjectileRenderer extends EntityRenderer<FireProjectile> {
     public static final ResourceLocation FIRE_PROJECTILE_TEXTURE = new ResourceLocation("minecraft:textures/item/fire_charge.png");

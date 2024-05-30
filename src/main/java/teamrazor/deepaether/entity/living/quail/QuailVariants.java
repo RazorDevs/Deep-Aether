@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity.quail;
+package teamrazor.deepaether.entity.living.quail;
 
 import java.util.Arrays;
 import java.util.Comparator;

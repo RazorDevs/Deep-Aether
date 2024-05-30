@@ -1,4 +1,4 @@
-package teamrazor.deepaether.entity;
+package teamrazor.deepaether.entity.living;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -7,8 +7,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.neoforged.fml.common.Mod;
-import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 
 public class AerglowFish extends AbstractSchoolingFish {
