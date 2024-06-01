@@ -105,7 +105,7 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
     //Dependencies
-    implementation("software.bernie.geckolib:geckolib-neoforge-${project.mc_version}:${project.gecklib_version}")
+    implementation("software.bernie.geckolib:geckolib-neoforge-${project.mc_version}:${project.geckolib_version}")
     implementation("com.aetherteam.aether:aether:${project.aether_version}")
     runtimeOnly("curse.maven:aether-emissivity-916028:4765812")
     runtimeOnly("top.theillusivec4.curios:curios-neoforge:${project.curios_version}")

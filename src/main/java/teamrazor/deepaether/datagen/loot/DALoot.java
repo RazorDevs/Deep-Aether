@@ -11,6 +11,15 @@ public class DALoot {
     private static final Set<ResourceLocation> LOOT_TABLES = new HashSet<>();
     public static final Set<ResourceLocation> IMMUTABLE_LOOT_TABLES = Collections.unmodifiableSet(LOOT_TABLES);
 
+    public static final ResourceLocation BRASS_DUNGEON = register("chests/dungeon/brass/brass_dungeon");
+    public static final ResourceLocation BRASS_DUNGEON_LOOT = register("chests/dungeon/brass/brass_dungeon_loot");
+    public static final ResourceLocation BRASS_DUNGEON_TRASH = register("chests/dungeon/brass/brass_dungeon_trash");
+    public static final ResourceLocation BRASS_DUNGEON_DISC = register("chests/dungeon/brass/brass_dungeon_disc");
+    public static final ResourceLocation BRASS_DUNGEON_REWARD = register("chests/dungeon/brass/brass_dungeon_reward");
+    public static final ResourceLocation BRASS_DUNGEON_TREASURE = register("chests/dungeon/brass/brass_dungeon_treasure");
+    public static final ResourceLocation BRASS_DUNGEON_NEPTUNE = register("chests/dungeon/brass/brass_dungeon_neptune");
+    public static final ResourceLocation BRASS_DUNGEON_GUMMIES = register("chests/dungeon/brass/brass_dungeon_gummies");
+    
     private static ResourceLocation register(String id) {
         return register(new ResourceLocation(DeepAether.MODID, id));
     }
