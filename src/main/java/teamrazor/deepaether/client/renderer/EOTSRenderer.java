@@ -9,9 +9,9 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.EOTSModel;
-import teamrazor.deepaether.entity.living.boss.eots.EOTS;
+import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
 
-public class EOTSRenderer extends GeoEntityRenderer<EOTS> {
+public class EOTSRenderer extends GeoEntityRenderer<EOTSController> {
 
     public EOTSRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new EOTSModel());
@@ -19,12 +19,12 @@ public class EOTSRenderer extends GeoEntityRenderer<EOTS> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(EOTS instance) {
+    public ResourceLocation getTextureLocation(EOTSController instance) {
         return new ResourceLocation(DeepAether.MODID, "textures/entity/eots/eots.png");
     }
 
     @Override
-    public void preRender(PoseStack poseStack, EOTS animatable,
+    public void preRender(PoseStack poseStack, EOTSController animatable,
                           BakedGeoModel model, MultiBufferSource bufferSource,
                           VertexConsumer buffer, boolean isReRender,
                           float partialTick, int packedLight, int packedOverlay,

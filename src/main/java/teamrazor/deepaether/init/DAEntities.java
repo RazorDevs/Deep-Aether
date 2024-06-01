@@ -14,10 +14,11 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.*;
-import teamrazor.deepaether.entity.living.boss.eots.EOTS;
 import teamrazor.deepaether.entity.living.AerglowFish;
 import teamrazor.deepaether.entity.living.Venomite;
 import teamrazor.deepaether.entity.living.Windfly;
+import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
+import teamrazor.deepaether.entity.living.boss.eots.EOTSSegment;
 import teamrazor.deepaether.entity.living.projectile.FireProjectile;
 import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 import teamrazor.deepaether.entity.living.quail.Quail;
@@ -54,8 +55,12 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>,EntityType<Venomite>> VENOMITE = register("venomite",
 			Venomite::new, 0.7F, 0.6F);
 
-	public static final DeferredHolder<EntityType<?>,EntityType<EOTS>> EOTS = register("eots",
-			EOTS::new, 1F, 1F);
+	public static final DeferredHolder<EntityType<?>,EntityType<EOTSController>> EOTS_CONTROLLER = register("eots_controller",
+			EOTSController::new, 1F, 1F);
+
+	public static final DeferredHolder<EntityType<?>,EntityType<EOTSSegment>> EOTS_SEGMENT = register("eots_segment",
+			EOTSSegment::new, 1F, 1F);
+
 
 	public static final DeferredHolder<EntityType<?>,EntityType<Windfly>> WINDFLY = register("windfly", Windfly::new, 1F, 1F);
 
@@ -89,7 +94,8 @@ public class DAEntities {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
-		event.put(EOTS.get(), Venomite.createAttributes().build());
+		event.put(EOTS_SEGMENT.get(), EOTSController.createMobAttributes().build());
+		event.put(EOTS_CONTROLLER.get(), EOTSController.createMobAttributes().build());
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
 	}
 }
