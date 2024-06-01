@@ -56,9 +56,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTSController>, Enemy {
-    protected List<EOTSSegment> segments = new ArrayList();
-    protected List<EOTSSegment> controllingSegments = new ArrayList();
-    private final int SEGMENT_COUNT = 20;
+    //protected List<EOTSSegment> segments = new ArrayList<>();
+    protected List<EOTSSegment> controllingSegments = new ArrayList<>();
+    protected List<EOTSSegment> segments = new ArrayList<>();
+    public static final int SEGMENT_COUNT = 20;
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID;
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID;
@@ -81,7 +82,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
         this.setBossName(BossNameGenerator.generateBossName(this.getRandom()));
-        this.moveTo((double) Mth.floor(this.getX()), this.getY(), (double)Mth.floor(this.getZ()));
+        this.moveTo(Mth.floor(this.getX()), this.getY(), (double)Mth.floor(this.getZ()));
         return spawnData;
     }
 
@@ -119,7 +120,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
                 }
             }
 
-            this.setTarget((LivingEntity)null);
+            this.setTarget(null);
         }
 
         this.evaporate();
@@ -127,9 +128,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     private void evaporate() {
         Pair<BlockPos, BlockPos> minMax = this.getDefaultBounds(this);
-        AetherBossMob.super.evaporate(this, minMax.getLeft(), minMax.getRight(), (blockState) -> {
-            return true;
-        });
+        AetherBossMob.super.evaporate(this, minMax.getLeft(), minMax.getRight(), (blockState) -> true);
     }
 
     public void customServerAiStep() {
@@ -187,12 +186,15 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     }
 
     private void spawnSegments() {
+        EOTSSegment oldSegment = new EOTSSegment(this.level(), this);
+        for (int i = 0; i < SEGMENT_COUNT; i++) {
+            oldSegment = new EOTSSegment(this.level(), oldSegment, this);
+        }
     }
 
     public void removeSegment(EOTSSegment segment) {
         this.segments.remove(segment);
     }
-
     public void setControllingSegment(EOTSSegment segment) {
         this.controllingSegments.add(segment);
     }
@@ -201,11 +203,9 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.controllingSegments.remove(segment);
     }
 
-    private void removeAllSegments() {
-        Iterator var1 = this.segments.iterator();
 
-        while(var1.hasNext()) {
-            EOTSSegment segment = (EOTSSegment)var1.next();
+    private void removeAllSegments() {
+        for (EOTSSegment segment : this.segments) {
             segment.remove(RemovalReason.DISCARDED);
         }
 

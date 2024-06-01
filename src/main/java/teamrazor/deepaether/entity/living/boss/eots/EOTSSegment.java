@@ -11,14 +11,12 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.FlyingMob;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.Goal.Flag;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -28,36 +26,74 @@ import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DAEntities;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
-    private boolean shouldGoToMiddle = false;
-    private BlockPos middle;
-    protected @Nullable EOTSSegment parent;
+
+    private boolean shouldGoToMiddle = false; //Not yet implemented
+    private BlockPos middle; //Not yet implemented
+
+    @Nullable
+    protected EOTSSegment parent;
+    @Nullable
     private UUID parentUUID;
-    private static final EntityDataAccessor<Boolean> DATA_HEAD_ID;
+
+    @Nullable
+    protected EOTSController controller; //Not yet implemented
+    @Nullable
+    private UUID controllerUUID; //Not yet implemented
+    private static final EntityDataAccessor<Boolean> DATA_HEAD_ID = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
 
     public EOTSSegment(EntityType<? extends EOTSSegment> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl = new EotsSegmentMoveControl(this);
     }
 
+    /**
+     * Used to spawn multiple segments at once
+     * {@link EOTSController.SEGMENT_COUNT}
+     */
     protected EOTSSegment(Level level, EOTSSegment parent, int length) {
         super(DAEntities.EOTS_SEGMENT.get(), level);
         this.moveControl = new EotsSegmentMoveControl(this);
         this.setPos(parent.getOnPos().getCenter());
         level.addFreshEntity(this);
         this.setParent(parent);
-        if (length < 30) {
+        if (length < EOTSController.SEGMENT_COUNT) {
             new EOTSSegment(level, this, length + 1);
         }
-
     }
 
+    public EOTSSegment(Level level, EOTSSegment parent, EOTSController controller) {
+        super(DAEntities.EOTS_SEGMENT.get(), level);
+        this.moveControl = new EotsSegmentMoveControl(this);
+        this.setPos(parent.getOnPos().getCenter());
+        level.addFreshEntity(this);
+        this.setParent(parent);
+        this.setController(controller);
+    }
+
+    public EOTSSegment(Level level, EOTSController controller) {
+        super(DAEntities.EOTS_SEGMENT.get(), level);
+        this.moveControl = new EotsSegmentMoveControl(this);
+        this.setPos(controller.getOnPos().getCenter());
+        level.addFreshEntity(this);
+        this.setController(controller);
+    }
+
+
+    /**
+     * Max Health should be equal to the controller's health divided by the numbers of segments
+     */
+    public static AttributeSupplier.Builder createMobAttributes() {
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 64.0);
+    }
+
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(DATA_HEAD_ID, true);
     }
 
     public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
-        new EOTSSegment(this.level(), this, 0);
+        new EOTSSegment(this.level(), this, 0); //Ensures multiple segments spawns in if spawn command is used
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
 
@@ -65,6 +101,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.goalSelector.addGoal(0, new RandomFloatAroundGoal(this));
     }
 
+    /**
+     * Used to rotate and position a body segment.
+     * Converts a body segment into a head segment if the parent (head) segment is missing
+     */
     public void tick() {
         super.tick();
         if (!this.isControllingSegment()) {
@@ -88,30 +128,68 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     newXRot = Mth.lerp(0.15F, xRot, xParentRot);
                 }
 
-                this.setRot(newYRot, newXRot);
-                this.setPos(parent.position().subtract(parent.getLookAngle().multiply(0.6499999761581421, 0.6499999761581421, 0.6499999761581421)));
+                this.setRot(newYRot, newXRot); //Rotates the segment towards the parent segment
+                this.setPos(parent.position().subtract(parent.getLookAngle().multiply(0.6499999761581421, 0.6499999761581421, 0.6499999761581421))); //Positions the segment behind the parent segment
+            }
+            else if(this.level() instanceof ServerLevel) {
+                this.setControllingSegment(true); //Converts a body segment into a head segment
+                if(this.getController() != null)
+                    this.getController().controllingSegments.add(this); //Adds itself to the list of controlling Segments
             }
         }
 
     }
 
-    public boolean canCollideWith(@NotNull Entity pEntity) {
-        return false;
+    @Override
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        if(this.getController() != null) {
+            if (pAmount > this.getHealth())
+                this.getController().hurt(pSource, this.getHealth());
+            else this.getController().hurt(pSource, pAmount);
+        }
+        return super.hurt(pSource, pAmount);
     }
 
+    @Override
+    public void die(DamageSource pDamageSource) {
+        if(this.getController() != null) {
+            this.getController().segments.remove(this);
+            if(this.isControllingSegment())
+                this.getController().controllingSegments.add(this);
+        }
+        super.die(pDamageSource);
+    }
+
+    public boolean canCollideWith(@NotNull Entity pEntity) {
+        return pEntity.getType() != DAEntities.EOTS_SEGMENT.get();
+    }
+
+    /**
+     * @return whenever the segment is a head (controlling segment) or not
+     * Used in {@link teamrazor.deepaether.client.model.EOTSSegmentModel} to renderer the correct model
+     */
     public boolean isControllingSegment() {
-        return (Boolean)this.getEntityData().get(DATA_HEAD_ID);
+        return this.getEntityData().get(DATA_HEAD_ID);
     }
 
     public void setControllingSegment(boolean head) {
         this.getEntityData().set(DATA_HEAD_ID, head);
     }
 
+    /**
+     * @return the parent's UUID as a fallback if {@link parent} is missing
+     */
+
     private @Nullable UUID getParentUUID() {
         return this.parentUUID;
     }
 
-    private @Nullable EOTSSegment getParent() {
+    /**
+     * Checks if the parent is present, and uses the parent's UUID as a fallback
+     * @return the parent object
+     */
+    @Nullable
+    public EOTSSegment getParent() {
         if (this.parent != null && !this.parent.isRemoved()) {
             return this.parent;
         } else if (this.parent == null && this.level() instanceof ServerLevel) {
@@ -126,17 +204,59 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.parentUUID = uuid;
     }
 
+    /**
+     * Saves the parent object and the parent's UUID
+     */
     public void setParent(@Nullable EOTSSegment parent) {
         this.setControllingSegment(parent == null);
         this.parent = parent;
         if (parent == null) {
-            this.setParentUUID((UUID)null);
+            this.setParentUUID(null);
         } else {
             this.setParentUUID(parent.getUUID());
         }
 
     }
 
+    private void setControllerUUID(@Nullable UUID uuid) {
+        this.controllerUUID = uuid;
+    }
+
+    @Nullable
+    private UUID getControllerUUID() {
+        return this.controllerUUID;
+    }
+
+    public void setController(@Nullable EOTSController controller) {
+        this.controller = controller;
+        if (parent == null) {
+            this.setControllerUUID(null);
+        } else {
+            this.setControllerUUID(parent.getUUID());
+        }
+    }
+
+
+    /**
+     * Checks if an EOTSController is present, and uses the EOTSController's UUID as a fallback
+     * @return the EOTSController object
+     */
+    @Nullable
+    public EOTSController getController() {
+        if (this.controller != null && !this.controller.isRemoved()) {
+            return this.controller;
+        } else if (this.controller == null && this.level() instanceof ServerLevel) {
+            this.controller = (EOTSController) ((ServerLevel)this.level()).getEntity(this.getControllerUUID());
+            return this.controller;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Not yet implemented
+     * @param middle The position the controlling segment should move towards
+     */
     public void setGoToMiddle(BlockPos middle) {
         this.shouldGoToMiddle = true;
         this.middle = middle;
@@ -144,24 +264,34 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     public void readAdditionalSaveData(@NotNull CompoundTag tag) {
         super.readAdditionalSaveData(tag);
+        if(tag.hasUUID("Controller"))
+            this.setControllerUUID(tag.getUUID("Controller"));
         if (tag.hasUUID("Parent")) {
             this.setParentUUID(tag.getUUID("Parent"));
             this.setControllingSegment(false);
+            if(this.getController() != null)  //Hope I don't call this to early
+                this.getController().segments.add(this);
         }
-
+        else if(this.getController() != null) {
+            this.getController().controllingSegments.add(this);
+            this.getController().segments.add(this);
+        }
     }
 
     public void addAdditionalSaveData(@NotNull CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        if(this.getControllerUUID() != null)
+            tag.putUUID("Controller", this.getControllerUUID());
         if (this.getParentUUID() != null) {
             tag.putUUID("Parent", this.getParentUUID());
         }
 
     }
 
-    static {
-        DATA_HEAD_ID = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
-    }
+    /**
+     * Modified version of {@link net.minecraft.world.entity.monster.Phantom.PhantomMoveControl}
+     * Handles the rotation and movement of the controlling segment
+     */
 
     protected static class EotsSegmentMoveControl extends MoveControl {
         private final EOTSSegment segment;
@@ -210,6 +340,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         }
     }
 
+    /**
+     * Makes the segment randomly float around when no other goals are active
+     * Should be updated release
+     */
     protected static class RandomFloatAroundGoal extends Goal {
         private final EOTSSegment segment;
 

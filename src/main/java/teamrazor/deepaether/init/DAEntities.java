@@ -94,7 +94,7 @@ public class DAEntities {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
-		event.put(EOTS_SEGMENT.get(), EOTSController.createMobAttributes().build());
+		event.put(EOTS_SEGMENT.get(), EOTSSegment.createMobAttributes().build());
 		event.put(EOTS_CONTROLLER.get(), EOTSController.createMobAttributes().build());
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
 	}
