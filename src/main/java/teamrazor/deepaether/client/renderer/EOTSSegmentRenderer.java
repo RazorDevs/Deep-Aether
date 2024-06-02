@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.monster.Phantom;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAether;
@@ -25,5 +26,11 @@ public class EOTSSegmentRenderer extends MobRenderer<EOTSSegment, EOTSSegmentMod
 	@Override
 	public ResourceLocation getTextureLocation(EOTSSegment segment) {
 		return EOTS_SEGMENT_LOCATION;
+	}
+
+	@Override
+	protected void setupRotations(EOTSSegment pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
+		super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
+		pPoseStack.mulPose(Axis.XP.rotationDegrees(pEntityLiving.getXRot()));
 	}
 }

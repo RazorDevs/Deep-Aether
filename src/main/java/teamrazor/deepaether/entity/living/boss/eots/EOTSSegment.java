@@ -15,9 +15,11 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.LookControl;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -44,6 +46,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     public EOTSSegment(EntityType<? extends EOTSSegment> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl = new EotsSegmentMoveControl(this);
+        this.lookControl = new EotsLookControl(this);
     }
 
     /**
@@ -51,8 +54,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      * {@link EOTSController.SEGMENT_COUNT}
      */
     protected EOTSSegment(Level level, EOTSSegment parent, int length) {
-        super(DAEntities.EOTS_SEGMENT.get(), level);
-        this.moveControl = new EotsSegmentMoveControl(this);
+        this(DAEntities.EOTS_SEGMENT.get(), level);
         this.setPos(parent.getOnPos().getCenter());
         level.addFreshEntity(this);
         this.setParent(parent);
@@ -62,8 +64,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     public EOTSSegment(Level level, EOTSSegment parent, EOTSController controller) {
-        super(DAEntities.EOTS_SEGMENT.get(), level);
-        this.moveControl = new EotsSegmentMoveControl(this);
+        this(DAEntities.EOTS_SEGMENT.get(), level);
         this.setPos(parent.getOnPos().getCenter());
         level.addFreshEntity(this);
         this.setParent(parent);
@@ -71,8 +72,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     public EOTSSegment(Level level, EOTSController controller) {
-        super(DAEntities.EOTS_SEGMENT.get(), level);
-        this.moveControl = new EotsSegmentMoveControl(this);
+        this(DAEntities.EOTS_SEGMENT.get(), level);
         this.setPos(controller.getOnPos().getCenter());
         level.addFreshEntity(this);
         this.setController(controller);
@@ -82,6 +82,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     /**
      * Max Health should be equal to the controller's health divided by the numbers of segments
      */
+
+    @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 64.0);
     }
@@ -91,8 +93,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         super.defineSynchedData();
         this.getEntityData().define(DATA_HEAD_ID, true);
     }
-
-    public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+    @Nullable
+    @SuppressWarnings("deprecation")
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
         new EOTSSegment(this.level(), this, 0); //Ensures multiple segments spawns in if spawn command is used
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
@@ -129,7 +132,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 }
 
                 this.setRot(newYRot, newXRot); //Rotates the segment towards the parent segment
-                this.setPos(parent.position().subtract(parent.getLookAngle().multiply(0.6499999761581421, 0.6499999761581421, 0.6499999761581421))); //Positions the segment behind the parent segment
+                this.setPos((parent.position().subtract(parent.getLookAngle().multiply(0.65F, 0F, 0.65F))).subtract(parent.getLookAngle().reverse().multiply(0F, 0.65F, 0F))); //Positions the segment behind the parent segment
             }
             else if(this.level() instanceof ServerLevel) {
                 this.setControllingSegment(true); //Converts a body segment into a head segment
@@ -141,7 +144,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     @Override
-    public boolean hurt(DamageSource pSource, float pAmount) {
+    public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
         if(this.getController() != null) {
             if (pAmount > this.getHealth())
                 this.getController().hurt(pSource, this.getHealth());
@@ -151,7 +154,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     @Override
-    public void die(DamageSource pDamageSource) {
+    public void die(@NotNull DamageSource pDamageSource) {
         if(this.getController() != null) {
             this.getController().segments.remove(this);
             if(this.isControllingSegment())
@@ -288,11 +291,32 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     }
 
+
+
+
+    protected static class EotsLookControl extends LookControl {
+        EOTSSegment segment;
+        public EotsLookControl(EOTSSegment segment) {
+            super(segment);
+            this.segment = segment;
+        }
+
+
+
+        /**
+         * Updates look
+         */
+        @Override
+        public void tick() {
+            //if(!segment.isControllingSegment())
+            //    super.tick();
+        }
+    }
+
     /**
      * Modified version of {@link net.minecraft.world.entity.monster.Phantom.PhantomMoveControl}
      * Handles the rotation and movement of the controlling segment
      */
-
     protected static class EotsSegmentMoveControl extends MoveControl {
         private final EOTSSegment segment;
         private float speed = 0.1F;
@@ -336,7 +360,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     this.segment.setDeltaMovement(vec3.add((new Vec3(d6, d8, d7)).subtract(vec3).scale(0.2)));
                 }
             }
-
         }
     }
 
@@ -346,6 +369,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     protected static class RandomFloatAroundGoal extends Goal {
         private final EOTSSegment segment;
+        private final int floatAroundHeight = 100;
 
         public RandomFloatAroundGoal(EOTSSegment segment) {
             this.segment = segment;
@@ -376,7 +400,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         public void start() {
             RandomSource random = this.segment.getRandom();
             double d0 = this.segment.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            double d1 = this.segment.getY() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = 100 + random.nextInt(1);
             double d2 = this.segment.getZ() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             this.segment.getMoveControl().setWantedPosition(d0, d1, d2, 0.5);
         }
