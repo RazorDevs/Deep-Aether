@@ -1,5 +1,8 @@
 package teamrazor.deepaether.entity.living.boss.eots;
 
+
+import java.util.EnumSet;
+import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -73,6 +76,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         level.addFreshEntity(this);
         this.setParent(parent);
         this.setController(controller);
+        if(this.getController() != null)
+            this.getController().segments.add(this);
     }
 
     public EOTSSegment(Level level, EOTSController controller) {
@@ -89,7 +94,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 8);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 8);
     }
 
     @Override
@@ -99,7 +104,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
     @Nullable
     @SuppressWarnings("deprecation")
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor pLevel, @NotNull DifficultyInstance pDifficulty, @NotNull MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
         new EOTSSegment(this.level(), this, 0); //Ensures multiple segments spawns in if spawn command is used
         return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
     }
@@ -216,6 +221,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     public EOTSSegment getParent() {
         if (this.parent != null && !this.parent.isRemoved()) {
             return this.parent;
+        } else if(this.parentUUID == null) {
+            return null;
         } else if (this.parent == null && this.level() instanceof ServerLevel) {
             this.parent = (EOTSSegment)((ServerLevel)this.level()).getEntity(this.parentUUID);
             return this.parent;
@@ -253,10 +260,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     public void setController(@Nullable EOTSController controller) {
         this.controller = controller;
-        if (parent == null) {
+        if (controller == null) {
             this.setControllerUUID(null);
         } else {
-            this.setControllerUUID(parent.getUUID());
+            this.setControllerUUID(controller.getUUID());
         }
     }
 
@@ -269,6 +276,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     public EOTSController getController() {
         if (this.controller != null && !this.controller.isRemoved()) {
             return this.controller;
+        } else if(this.controllerUUID == null) {
+            return null;
         } else if (this.controller == null && this.level() instanceof ServerLevel) {
             this.controller = (EOTSController) ((ServerLevel)this.level()).getEntity(this.getControllerUUID());
             return this.controller;
@@ -390,7 +399,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     protected static class RandomFloatAroundGoal extends Goal {
         private final EOTSSegment segment;
-        private final int floatAroundHeight = 225;
 
         public RandomFloatAroundGoal(EOTSSegment segment) {
             this.segment = segment;
@@ -419,6 +427,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         }
 
         public void start() {
+            float floatAroundHeight;
+
+            if(this.segment.getController() != null)
+                floatAroundHeight = (float) (this.segment.getController().position().y + 30.0F);
+            else if(this.segment.getTarget() != null)
+                floatAroundHeight = (float) (this.segment.getTarget().position().y + 30.0F);
+            else floatAroundHeight = 255.0F;
+
             if(this.segment.getTarget() == null) {
                 RandomSource random = this.segment.getRandom();
                 double d0 = this.segment.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);

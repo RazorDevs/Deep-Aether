@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity.living.boss.eots;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.entity.AetherBossMob;
@@ -15,6 +16,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -25,6 +27,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -44,6 +47,7 @@ import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.tuple.Pair;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -62,13 +66,10 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     //protected List<EOTSSegment> segments = new ArrayList<>();
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<EOTSSegment> segments = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 10;
+    public static final int SEGMENT_COUNT = 9;
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
-    private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID;
-    private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID;
-    private static final EntityDataAccessor<Float> DATA_HURT_ANGLE_ID;
-    private static final EntityDataAccessor<Float> DATA_HURT_ANGLE_X_ID;
-    private static final EntityDataAccessor<Float> DATA_HURT_ANGLE_Z_ID;
+    private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private MostDamageTargetGoal mostDamageTargetGoal;
     private final ServerBossEvent bossFight;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
@@ -80,17 +81,26 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.setBossFight(false);
         this.xpReward = 50;
         this.setRot(0.0F, 0.0F);
+        this.noPhysics = true;
         this.setPersistenceRequired();
     }
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
-        this.setBossName(BossNameGenerator.generateBossName(this.getRandom()));
-        this.moveTo(Mth.floor(this.getX()), this.getY(), (double)Mth.floor(this.getZ()));
+        this.setBossName(generateEOTSName(this.getRandom()));
+        this.moveTo(Mth.floor(this.getX()), this.getY(), Mth.floor(this.getZ()));
         return spawnData;
     }
 
+    /**
+     * Generates a name for the EOTS boss.
+     */
+    public static MutableComponent generateEOTSName(RandomSource random) {
+        MutableComponent result = BossNameGenerator.generateBossName(random);
+        return result.append(Component.translatable("gui.deep_aether.eots.title"));
+    }
+
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0).add(Attributes.FOLLOW_RANGE, 64.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0F).add(Attributes.FOLLOW_RANGE, 128.0F);
     }
 
     protected void registerGoals() {
@@ -103,30 +113,17 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         super.defineSynchedData();
         this.getEntityData().define(DATA_AWAKE_ID, false);
         this.getEntityData().define(DATA_BOSS_NAME_ID, Component.literal("EOTS"));
-        this.getEntityData().define(DATA_HURT_ANGLE_ID, 0.0F);
-        this.getEntityData().define(DATA_HURT_ANGLE_X_ID, 0.0F);
-        this.getEntityData().define(DATA_HURT_ANGLE_Z_ID, 0.0F);
     }
 
     public void tick() {
-        label16: {
-            super.tick();
-            if (this.isAwake()) {
-                LivingEntity var2 = this.getTarget();
-                if (!(var2 instanceof Player)) {
-                    break label16;
-                }
-
-                Player player = (Player)var2;
-                if (!player.isCreative() && !player.isSpectator()) {
-                    break label16;
-                }
-            }
-
+        super.tick();
+        if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
         }
-
-        this.evaporate();
+        if(this.isAwake()) {
+            if (segments.isEmpty())
+                this.hurt(this.level().damageSources().generic(), 400.0F);
+        }
     }
 
     private void evaporate() {
@@ -141,7 +138,12 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     }
 
     public boolean hurt(DamageSource source, float amount) {
-        return true;
+        if(!this.isBossFight()) {
+            this.start();
+            return false;
+        }
+
+        return super.hurt(source, amount);
     }
 
     private void start() {
@@ -156,20 +158,23 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         }
 
         this.spawnSegments();
+        this.setInvisible(true);
         AetherEventDispatch.onBossFightStart(this, this.getDungeon());
     }
 
+    @Override
     public void reset() {
         this.setDeltaMovement(Vec3.ZERO);
         this.setAwake(false);
         this.setBossFight(false);
-        this.setTarget((LivingEntity)null);
+        this.setTarget(null);
         this.setHealth(this.getMaxHealth());
         if (this.getDungeon() != null) {
             this.setPos(this.getDungeon().originCoordinates());
             this.openRoom();
         }
 
+        this.setInvisible(false);
         this.removeAllSegments();
         AetherEventDispatch.onBossFightStop(this, this.getDungeon());
     }
@@ -214,27 +219,33 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     }
 
+    @Override
     public void knockback(double strength, double x, double z) {
     }
 
+    @Override
     public void push(double x, double y, double z) {
     }
 
+    @Override
     public void checkDespawn() {
     }
 
-    public @Nullable BlockState convertBlock(BlockState state) {
-        if (state.is((Block) DABlocks.LOCKED_NIMBUS_STONE.get())) {
-            return ((Block)DABlocks.NIMBUS_STONE.get()).defaultBlockState();
-        } else if (state.is((Block)DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get())) {
-            return ((Block)DABlocks.LIGHT_NIMBUS_STONE.get()).defaultBlockState();
-        } else if (state.is((Block)DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get())) {
+    @Nullable
+    @Override
+    public BlockState convertBlock(BlockState state) {
+        if (state.is(DABlocks.LOCKED_NIMBUS_STONE.get())) {
+            return DABlocks.NIMBUS_STONE.get().defaultBlockState();
+        } else if (state.is(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get())) {
+            return DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState();
+        } else if (state.is(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get())) {
             return Blocks.AIR.defaultBlockState();
         } else {
-            return state.is((Block)DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get()) ? (BlockState)((TrapDoorBlock) AetherBlocks.SKYROOT_TRAPDOOR.get()).defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, (Direction)state.getValue(HorizontalDirectionalBlock.FACING)) : null;
+            return state.is(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get()) ? AetherBlocks.SKYROOT_TRAPDOOR.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, (Direction)state.getValue(HorizontalDirectionalBlock.FACING)) : null;
         }
     }
 
+    @Override
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
         PacketRelay.sendToPlayer(new BossInfoPacket.Display(this.bossFight.getId(), this.getId()), player);
@@ -245,6 +256,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     }
 
+    @Override
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         PacketRelay.sendToPlayer(new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()), player);
@@ -252,6 +264,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         AetherEventDispatch.onBossFightPlayerRemove(this, this.getDungeon(), player);
     }
 
+    @Override
     public void onDungeonPlayerAdded(@Nullable Player player) {
         if (player instanceof ServerPlayer serverPlayer) {
             this.bossFight.addPlayer(serverPlayer);
@@ -260,6 +273,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     }
 
+    @Override
     public void onDungeonPlayerRemoved(@Nullable Player player) {
         if (player instanceof ServerPlayer serverPlayer) {
             this.bossFight.removePlayer(serverPlayer);
@@ -269,7 +283,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     }
 
     public boolean isAwake() {
-        return (Boolean)this.getEntityData().get(DATA_AWAKE_ID);
+        return this.getEntityData().get(DATA_AWAKE_ID);
     }
 
     public void setAwake(boolean awake) {
@@ -277,7 +291,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     }
 
     public Component getBossName() {
-        return (Component)this.getEntityData().get(DATA_BOSS_NAME_ID);
+        return this.getEntityData().get(DATA_BOSS_NAME_ID);
     }
 
     public void setBossName(Component component) {
@@ -285,114 +299,152 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.bossFight.setName(component);
     }
 
-    public @Nullable BossRoomTracker<EOTSController> getDungeon() {
+    @Nullable
+    @Override
+    public BossRoomTracker<EOTSController> getDungeon() {
         return this.brassDungeon;
     }
 
+    @Override
     public void setDungeon(@Nullable BossRoomTracker<EOTSController> dungeon) {
         this.brassDungeon = dungeon;
     }
 
+    @Override
     public boolean isBossFight() {
         return this.bossFight.isVisible();
     }
 
+    @Override
     public void setBossFight(boolean isFighting) {
         this.bossFight.setVisible(isFighting);
     }
 
-    public @Nullable ResourceLocation getBossBarTexture() {
-        return new ResourceLocation("deep_aether", "boss_bar/EOTS");
+
+    /**
+     * Temporary
+     * @return The {@link ResourceLocation} for this boss's health bar.
+     */
+    @Nullable
+    @Override
+    public ResourceLocation getBossBarTexture() {
+        return new ResourceLocation(Aether.MODID, "boss_bar/slider");
     }
 
-    public @Nullable ResourceLocation getBossBarBackgroundTexture() {
-        return new ResourceLocation("deep_aether", "boss_bar/EOTS_background");
+    /**
+     * Temporary
+     * @return The {@link ResourceLocation} for this boss's health bar background.
+     */
+    @Nullable
+    @Override
+    public ResourceLocation getBossBarBackgroundTexture() {
+        return new ResourceLocation(Aether.MODID, "boss_bar/slider_background");
     }
-
+    @Override
     public int getDeathScore() {
         return this.deathScore;
     }
 
+    @Override
     public void setCustomName(@Nullable Component name) {
         super.setCustomName(name);
         this.setBossName(name);
     }
 
     protected SoundEvent getAwakenSound() {
-        return (SoundEvent) AetherSoundEvents.ENTITY_SLIDER_AWAKEN.get();
+        return  AetherSoundEvents.ENTITY_SLIDER_AWAKEN.get();
     }
 
-    protected @Nullable SoundEvent getAmbientSound() {
-        return (SoundEvent)AetherSoundEvents.ENTITY_SLIDER_AMBIENT.get();
+    @Override
+    @Nullable
+    protected SoundEvent getAmbientSound() {
+        return AetherSoundEvents.ENTITY_SLIDER_AMBIENT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return (SoundEvent)AetherSoundEvents.ENTITY_SLIDER_DEATH.get();
+        return AetherSoundEvents.ENTITY_SLIDER_DEATH.get();
     }
 
+    @Override
+    @NotNull
     public SoundSource getSoundSource() {
         return SoundSource.HOSTILE;
     }
 
+    @Override
     public boolean canAttack(LivingEntity target) {
         return false;
     }
 
+    @Override
     public boolean ignoreExplosion(Explosion explosion) {
         return true;
     }
 
+    @Override
     public float getYRot() {
         return 0.0F;
     }
 
+    @Override
     protected boolean canRide(Entity vehicle) {
         return false;
     }
 
+    @Override
     public boolean canBeCollidedWith() {
         return false;
     }
 
+    @Override
     public boolean isPushable() {
         return false;
     }
 
+    @Override
     public boolean isNoGravity() {
         return true;
     }
 
+    @Override
     public boolean shouldDiscardFriction() {
         return true;
     }
 
+    @Override
     protected boolean isAffectedByFluids() {
         return false;
     }
 
+    @Override
     public boolean displayFireAnimation() {
         return false;
     }
 
+    @Override
     public boolean isFullyFrozen() {
         return false;
     }
 
+    @Override
     protected Entity.MovementEmission getMovementEmission() {
         return MovementEmission.EVENTS;
     }
 
+    @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         this.addBossSaveData(tag);
         tag.putBoolean("Awake", this.isAwake());
     }
 
+    @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.readBossSaveData(tag);
         if (tag.contains("Awake")) {
             this.setAwake(tag.getBoolean("Awake"));
+            this.setInvisible(true);
         }
 
     }
@@ -411,6 +463,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     }
 
+    @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController(this, "controller",
                 0, this::predicate));
@@ -425,16 +478,9 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         return PlayState.CONTINUE;
     }
 
+    @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.factory;
-    }
-
-    static {
-        DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
-        DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
-        DATA_HURT_ANGLE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.FLOAT);
-        DATA_HURT_ANGLE_X_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.FLOAT);
-        DATA_HURT_ANGLE_Z_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.FLOAT);
     }
 
     public static class selectControllingSegmentGoal extends Goal {
@@ -445,7 +491,10 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.controller = controller;
         }
 
+        @Override
         public boolean canUse() {
+            if(this.controller.controllingSegments.isEmpty())
+                return false;
             if (this.timer <= 0) {
                 return true;
             } else {
@@ -454,6 +503,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             }
         }
 
+        @Override
         public void start() {
             this.timer = 200;
             this.controller.controllingSegments.get(this.controller.level().getRandom().nextInt(this.controller.controllingSegments.size())).setGoToMiddle(this.controller.blockPosition().above(2));
