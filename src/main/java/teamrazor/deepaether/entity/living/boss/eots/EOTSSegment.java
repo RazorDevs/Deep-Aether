@@ -1,9 +1,5 @@
 package teamrazor.deepaether.entity.living.boss.eots;
 
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -23,7 +19,6 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -31,6 +26,9 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DAEntities;
+
+import java.util.EnumSet;
+import java.util.UUID;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
 
@@ -139,12 +137,19 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     newXRot = Mth.lerp(0.15F, xRot, xParentRot);
                 }
 
-                this.setRot(newYRot, newXRot); //Rotates the segment towards the parent segment
-                this.setPos((parent.position().subtract(parent.getLookAngle().multiply(0.65F, 0F, 0.65F))).subtract(parent.getLookAngle().reverse().multiply(0F, 0.65F, 0F))); //Positions the segment behind the parent segment
+                //Rotates the segment towards the parent segment
+                this.setRot(newYRot, newXRot);
+
+                //Positions the segment behind the parent segment
+                this.setPos((parent.position().subtract(parent.getLookAngle().multiply(1.8F, 0F, 1.8F))).subtract(parent.getLookAngle().reverse().multiply(0F, 1.8F, 0F)));
             } else if (this.level() instanceof ServerLevel) {
-                this.setControllingSegment(true); //Converts a body segment into a head segment
+
+                //Converts a body segment into a head segment
+                this.setControllingSegment(true);
                 if (this.getController() != null)
-                    this.getController().controllingSegments.add(this); //Adds itself to the list of controlling Segments
+
+                    //Adds itself to the list of controlling Segments
+                    this.getController().controllingSegments.add(this);
             }
 
             if (this.getTarget() != null) {
@@ -199,7 +204,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     /**
      * @return the parent's UUID as a fallback if {@link parent} is missing
      */
-
     private @Nullable UUID getParentUUID() {
         return this.parentUUID;
     }
@@ -309,16 +313,12 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
 
-
-
     protected static class EotsLookControl extends LookControl {
         EOTSSegment segment;
         public EotsLookControl(EOTSSegment segment) {
             super(segment);
             this.segment = segment;
         }
-
-
 
         /**
          * Updates look

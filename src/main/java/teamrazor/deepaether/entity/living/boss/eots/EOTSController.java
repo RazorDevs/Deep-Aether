@@ -48,18 +48,21 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DABlocks;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTSController>, Enemy {
     //protected List<EOTSSegment> segments = new ArrayList<>();
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<EOTSSegment> segments = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 20;
+    public static final int SEGMENT_COUNT = 10;
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID;
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID;
@@ -408,7 +411,18 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     }
 
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController(this, "controller",
+                0, this::predicate));
+    }
+
+    // Animation handling
+    private PlayState predicate(AnimationState animationState) {
+        if(this.isAutoSpinAttack()) {
+            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.eots.attack"));
+            return PlayState.CONTINUE;
+        }
+        return PlayState.CONTINUE;
     }
 
     public AnimatableInstanceCache getAnimatableInstanceCache() {
