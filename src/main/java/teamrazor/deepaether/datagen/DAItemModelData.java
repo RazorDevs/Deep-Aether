@@ -406,6 +406,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         //Misc
         this.item(DAItems.CHAOS_EMERALD.get());
+        this.item(DAItems.BRASS_DUNGEON_KEY.get());
         this.item(DAItems.SPOOKY_RING.get());
         this.item(DAItems.BIO_CRYSTAL.get());
         this.item(DAItems.MUSIC_DISC_NABOORU.get());

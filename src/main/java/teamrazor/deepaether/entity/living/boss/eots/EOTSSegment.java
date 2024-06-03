@@ -486,7 +486,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             if(segment.getRandom().nextBoolean())
                 attackType = AttackType.SWEEPING;
             else attackType = AttackType.FOLLOWING;
-            maxFollowingTimer = 100;
+            maxFollowingTimer = 150;
             if(this.segment.getTarget() != null)
                 this.targetStartPos = this.segment.getTarget().position();
         }
@@ -507,14 +507,15 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     return;
                 }
 
-                Vec3 pos = this.segment.getTarget().position();
-                this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 2.0F);
-
                 if(this.attackType == AttackType.SWEEPING) {
+                    Vec3 pos = this.segment.getTarget().position();
+                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 2.0F);
                    if (this.segment.position().y < this.targetStartPos.y || this.segment.position().y < this.segment.getTarget().position().y)
                        this.hasAttacked = true;
                 }
                 else {
+                    Vec3 pos = this.segment.getTarget().position().add(0.0D,1.0D,0.0D);
+                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 2.0F);
                     this.maxFollowingTimer--;
                 }
 

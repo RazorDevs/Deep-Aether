@@ -1,9 +1,11 @@
 package teamrazor.deepaether.init;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
+import com.aetherteam.aether.item.miscellaneous.DungeonKeyItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -36,6 +38,8 @@ import java.util.function.Supplier;
 public class DAItems {
 	public static final DeferredRegister.Items ITEMS =
 			DeferredRegister.createItems(DeepAether.MODID);
+
+	public static final Rarity AETHER_LOOT = Rarity.create("aether.loot", ChatFormatting.AQUA);
 
 	// SIGNS
 	public static final DeferredItem<Item> ROSEROOT_SIGN = ITEMS.register("roseroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.ROSEROOT_SIGN.get(), DABlocks.ROSEROOT_WALL_SIGN.get()));
@@ -165,6 +169,9 @@ public class DAItems {
 	public static final DeferredItem<Item> GLOWING_SPORES = ITEMS.register("glowing_spores", ()-> new GlowingSporeItem(new Item.Properties()));
 
 	public static final DeferredItem<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
+
+	public static final DeferredItem<Item> BRASS_DUNGEON_KEY = ITEMS.register("brass_dungeon_key", () -> new DungeonKeyItem(new ResourceLocation(DeepAether.MODID, "brass"), new Item.Properties().stacksTo(1).rarity(AETHER_LOOT).fireResistant()));
+
 
 	//LOST CONTENT
 	public static final DeferredItem<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
