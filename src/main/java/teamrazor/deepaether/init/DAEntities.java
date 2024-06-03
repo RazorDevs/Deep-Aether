@@ -21,6 +21,7 @@ import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
 import teamrazor.deepaether.entity.living.boss.eots.EOTSSegment;
 import teamrazor.deepaether.entity.living.projectile.FireProjectile;
 import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
+import teamrazor.deepaether.entity.living.projectile.WindCrystal;
 import teamrazor.deepaether.entity.living.quail.Quail;
 import teamrazor.deepaether.entity.living.projectile.ThrownQuailEgg;
 
@@ -61,7 +62,9 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>,EntityType<EOTSSegment>> EOTS_SEGMENT = register("eots_segment",
 			EOTSSegment::new, 1F, 1F);
 
-
+	public static final DeferredHolder<EntityType<?>, EntityType<WindCrystal>> WIND_CRYSTAL = ENTITY_TYPES.register("wind_crystal",
+			() -> EntityType.Builder.<WindCrystal>of(WindCrystal::new, MobCategory.MISC).sized(0.85F, 0.85F)
+					.clientTrackingRange(4).updateInterval(10).fireImmune().build("wind_crystal"));
 	public static final DeferredHolder<EntityType<?>,EntityType<Windfly>> WINDFLY = register("windfly", Windfly::new, 1F, 1F);
 
 	public static final DeferredHolder<EntityType<?>,EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",

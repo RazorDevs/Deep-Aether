@@ -3,6 +3,7 @@ package teamrazor.deepaether.entity.living.boss.eots;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.client.AetherSoundEvents;
+import com.aetherteam.aether.data.resources.registries.AetherDamageTypes;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
 import com.aetherteam.aether.entity.ai.goal.MostDamageTargetGoal;
@@ -26,6 +27,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.BossEvent;
@@ -58,6 +60,7 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.init.DAEntities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,9 +123,9 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
         }
-        if(this.isAwake()) {
-            if (segments.isEmpty())
-                this.hurt(this.level().damageSources().generic(), 400.0F);
+
+        if(!this.firstTick && this.isAwake() && segments.isEmpty()) {
+            this.hurt(this.level().damageSources().mobAttack(this), 400.0F);
         }
     }
 
@@ -137,11 +140,26 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.trackDungeon();
     }
 
+    @Override
     public boolean hurt(DamageSource source, float amount) {
-        if(!this.isBossFight()) {
+        if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY))
+            return super.hurt(source, amount);
+        else if (!this.isBossFight()) {
             this.start();
             return false;
         }
+        if (source.getEntity() != null) {
+            if (source.isIndirect()) {
+                if (source.getEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
+                    return super.hurt(source, amount);
+                }
+            }
+            else if (source.getEntity().is(this))
+                return super.hurt(source, amount);
+        }
+
+        else return false;
+
 
         return super.hurt(source, amount);
     }

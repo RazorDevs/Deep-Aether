@@ -96,7 +96,6 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
 
                     float yRot = Mth.wrapDegrees(this.getYRot() + 90.0F);
                     yRot = Mth.approachDegrees(yRot, player.getYRot(), 0.00001F);
-                    System.out.println(yRot);
                     this.setYBodyRot(yRot);
 
                     vector = new Vec3(player.xxa, 0.0, player.zza <= 0.0F ? (double)(player.zza * 0.25F) : (double)player.zza);

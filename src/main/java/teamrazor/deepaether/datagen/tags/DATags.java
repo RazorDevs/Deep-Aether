@@ -51,6 +51,7 @@ public class DATags {
 
     public static class Entities {
         public static final TagKey<EntityType<?>> STERLING_AERCLOUD_BLACKLIST = tag("sterling_aercloud_blacklist");
+        public static final TagKey<EntityType<?>> WIND_CHARGE_BLACKLIST = tag("wind_charge_blacklist");
         private static TagKey<EntityType<?>> tag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DeepAether.MODID, name));
         }

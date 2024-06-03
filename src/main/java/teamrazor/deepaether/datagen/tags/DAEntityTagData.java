@@ -33,7 +33,22 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
 
         tag(DATags.Entities.STERLING_AERCLOUD_BLACKLIST).add(
                 AetherEntityTypes.AERWHALE.get(),
-                AetherEntityTypes.ZEPHYR.get()
+                AetherEntityTypes.EVIL_WHIRLWIND.get(),
+                AetherEntityTypes.WHIRLWIND.get(),
+                AetherEntityTypes.ZEPHYR.get(),
+                AetherEntityTypes.ZEPHYR_SNOWBALL.get(),
+                DAEntities.EOTS_SEGMENT.get(),
+                DAEntities.EOTS_CONTROLLER.get()
+        );
+
+        tag(DATags.Entities.WIND_CHARGE_BLACKLIST).add(
+                AetherEntityTypes.AERWHALE.get(),
+                AetherEntityTypes.EVIL_WHIRLWIND.get(),
+                AetherEntityTypes.WHIRLWIND.get(),
+                AetherEntityTypes.ZEPHYR.get(),
+                AetherEntityTypes.ZEPHYR_SNOWBALL.get(),
+                DAEntities.EOTS_SEGMENT.get(),
+                DAEntities.EOTS_CONTROLLER.get()
         );
     }
 }
