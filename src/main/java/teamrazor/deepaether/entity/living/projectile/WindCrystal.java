@@ -3,13 +3,13 @@ package teamrazor.deepaether.entity.living.projectile;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.data.resources.registries.AetherDamageTypes;
 import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -90,18 +90,12 @@ public class WindCrystal extends AbstractCrystal {
     @Override
     protected void onHitBlock(BlockHitResult result) {
         this.markHurt();
-        switch (result.getDirection()) {
-            case UP:
-            case DOWN:
-
-                float offset = (float) this.random.nextInt(200) / 1000;
-
-                new WindCrystal(level(), this, baseSpeed + offset, 0, baseSpeed - offset);
-                new WindCrystal(level(), this, -baseSpeed + offset, 0, baseSpeed + offset);
-                new WindCrystal(level(), this, baseSpeed - offset, 0, -baseSpeed - offset);
-                new WindCrystal(level(), this, -baseSpeed - offset, 0, -baseSpeed + offset);
-
-                break;
+        if(result.getDirection() == Direction.UP) {
+            float offset = (float) this.random.nextInt(200) / 1000;
+            new WindCrystal(level(), this, baseSpeed + offset, 0, baseSpeed - offset);
+            new WindCrystal(level(), this, -baseSpeed + offset, 0, baseSpeed + offset);
+            new WindCrystal(level(), this, baseSpeed - offset, 0, -baseSpeed - offset);
+            new WindCrystal(level(), this, -baseSpeed - offset, 0, -baseSpeed + offset);
         }
         this.level().explode(this, this.getX(), this.getY(), this.getZ(), 0, false, Level.ExplosionInteraction.MOB);
 

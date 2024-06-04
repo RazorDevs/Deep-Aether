@@ -96,4 +96,5 @@ public class DAClientModBusEvents {
         event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
                 BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.GLOWING_VINE.get());
     }
+
 }

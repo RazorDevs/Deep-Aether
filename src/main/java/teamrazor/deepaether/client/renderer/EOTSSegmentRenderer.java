@@ -28,14 +28,35 @@ public class EOTSSegmentRenderer extends MobRenderer<EOTSSegment, EOTSSegmentMod
 	}
 
 	@Override
-	public void render(EOTSSegment pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+	public void render(EOTSSegment eots, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+		/*pPoseStack.pushPose();
+		if(!eots.isControllingSegment()) {
+			int sub = 0;
+			sub = subTreeSearch(eots, sub) / 10;
+			pPoseStack.scale(1.2f - sub, 1.2f - sub, 1.2f - sub);
+		}else {
+			pPoseStack.scale(1.2f, 1.2f, 1.2f);
+		}
+		pPoseStack.popPose();*/
+
 		pPoseStack.scale(1.2f, 1.2f, 1.2f);
-		super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
+		super.render(eots, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
 	}
+
+	/*
+	private static int subTreeSearch(EOTSSegment eots, int sub){
+		if(!eots.isControllingSegment() && eots.getParent() != null){
+			sub++;
+			sub = subTreeSearch((EOTSSegment) eots.getServer().getLevel(eots.level().dimension()).getEntity(UUID.fromString(eots.getEntityData().get(eots.PARENT_DATA))), sub);
+		}
+		return sub;
+	}
+*/
 
 	@Override
 	protected void setupRotations(EOTSSegment pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
 		super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
 		pPoseStack.mulPose(Axis.XP.rotationDegrees(pEntityLiving.getXRot()));
 	}
+
 }

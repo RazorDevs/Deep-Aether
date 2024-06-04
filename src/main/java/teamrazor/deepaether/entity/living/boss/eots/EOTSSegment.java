@@ -1,9 +1,6 @@
 package teamrazor.deepaether.entity.living.boss.eots;
 
 
-import java.util.EnumSet;
-import java.util.UUID;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
@@ -11,7 +8,6 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -30,11 +26,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.living.projectile.WindCrystal;
 import teamrazor.deepaether.init.DAEntities;
+
+import java.util.EnumSet;
+import java.util.UUID;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
 
@@ -53,6 +51,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     private UUID controllerUUID; //Not yet implemented
     private boolean shouldMove = true;
     private static final EntityDataAccessor<Boolean> DATA_HEAD_ID = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
+    public static final EntityDataAccessor<String> PARENT_DATA = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.STRING);
+
     public EOTSSegment(EntityType<? extends EOTSSegment> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl = new EotsSegmentMoveControl(this);
@@ -107,6 +107,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(DATA_HEAD_ID, true);
+        this.getEntityData().define(PARENT_DATA, this.getParent() != null ? this.getParentUUID().toString() : this.getStringUUID());
     }
     @Nullable
     @SuppressWarnings("deprecation")
@@ -196,6 +197,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             }
         }
     }
+
 
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
