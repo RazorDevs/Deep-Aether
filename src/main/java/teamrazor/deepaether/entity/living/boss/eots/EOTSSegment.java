@@ -4,16 +4,14 @@ package teamrazor.deepaether.entity.living.boss.eots;
 import java.util.EnumSet;
 import java.util.UUID;
 
-import com.aetherteam.aether.data.resources.registries.AetherDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -32,18 +30,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.living.projectile.WindCrystal;
 import teamrazor.deepaether.init.DAEntities;
 
-import java.util.EnumSet;
-import java.util.UUID;
-
 public class EOTSSegment extends FlyingMob implements Enemy {
 
     private boolean shouldGoToMiddle = false; //Not yet implemented
     private BlockPos middle; //Not yet implemented
+
+    private boolean hasContactedControllerOnLoad = false;
 
     @Nullable
     protected EOTSSegment parent;
@@ -82,8 +80,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         level.addFreshEntity(this);
         this.setParent(parent);
         this.setController(controller);
-        if(this.getController() != null)
-            this.getController().segments.add(this);
+        if(this.getController() != null) {
+            this.getController().segmentUUIDs.add(this.uuid);
+        }
     }
 
     public EOTSSegment(Level level, EOTSController controller) {
@@ -94,13 +93,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
 
+
     /**
      * Max Health should be equal to the controller's health divided by the numbers of segments
      */
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 20);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 20);
     }
 
     @Override
@@ -133,12 +133,17 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     @Override
     public void tick() {
-        if(this.firstTick) {
-            if (this.getController() != null) {
-                this.getController().segments.add(this);
+        if(!this.hasContactedControllerOnLoad) {
+            if(this.getControllerUUID() == null) {
+                this.hasContactedControllerOnLoad = true;
+            }
+            else if (this.getController() != null) {
+                this.getController().segmentUUIDs.add(this.uuid);
                 if (this.isControllingSegment()) {
                     this.getController().controllingSegments.add(this);
                 }
+                this.hasContactedControllerOnLoad = true;
+                this.getController().setHasBeenContactedBySegment();
             }
         }
         super.tick();
@@ -182,6 +187,11 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             if (this.getTarget() != null) {
                 if (this.getTarget().distanceToSqr(this) < 0.2F) {
                     this.doHurtTarget(this.getTarget());
+                    //if(this.getTarget() instanceof Player player) {
+                    //    player.getUseItem().is(Tags.Items.TOOLS_SHIELDS) {
+                    //        player.get
+                    //    }
+                    //}
                 }
             }
         }
@@ -189,12 +199,15 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
-        if(this.getController() != null) {
+        if(this.isControllingSegment())
+            pAmount = pAmount*0.75F;
+        boolean doHurt = super.hurt(pSource, pAmount);
+        if(doHurt && this.getController() != null) {
             if (pAmount >= this.getHealth())
                 this.getController().hurt(createControllerDamageSource(pSource.typeHolder(), pSource.getDirectEntity()), this.getHealth());
             else this.getController().hurt(createControllerDamageSource(pSource.typeHolder(), pSource.getDirectEntity()), pAmount);
         }
-        return super.hurt(pSource, pAmount);
+        return doHurt;
     }
 
     private DamageSource createControllerDamageSource(Holder<DamageType> damageType, @Nullable Entity trueSource) {
@@ -211,7 +224,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     @Override
     public void die(@NotNull DamageSource pDamageSource) {
         if(this.getController() != null) {
-            this.getController().segments.remove(this);
+            this.getController().segmentUUIDs.remove(this.uuid);
             if(this.isControllingSegment())
                 this.getController().controllingSegments.remove(this);
         }
@@ -515,7 +528,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public boolean canUse() {
-            if(!this.segment.isAroundIdlePos() || !this.segment.isControllingSegment() || !this.segment.shouldMove)
+            if(!this.segment.isAroundIdlePos() || !this.segment.isControllingSegment() || !this.segment.shouldMove || this.segment.getTarget() == null)
                 return false;
             else if (this.nextScanTick > 0) {
                 --this.nextScanTick;
@@ -551,8 +564,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         @Override
         public void tick() {
             if(this.segment.getTarget() != null && this.segment.isControllingSegment()) {
-
-                if(this.attackType == AttackType.SWEEPING) {
+                if(this.targetStartPos == null) {
+                    hasAttacked = true;
+                }
+                else if(this.attackType == AttackType.SWEEPING) {
                     Vec3 pos = this.segment.getTarget().position();
                     this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 2.0F);
                    if (this.segment.position().y < this.targetStartPos.y || this.segment.position().y < this.segment.getTarget().position().y)

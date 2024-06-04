@@ -64,17 +64,18 @@ import teamrazor.deepaether.init.DAEntities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTSController>, Enemy {
-    //protected List<EOTSSegment> segments = new ArrayList<>();
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
-    protected List<EOTSSegment> segments = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 9;
+    protected List<UUID> segmentUUIDs = new ArrayList<>();
+    public static final int SEGMENT_COUNT = 19;
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private MostDamageTargetGoal mostDamageTargetGoal;
     private final ServerBossEvent bossFight;
+    private boolean hasBeenContactedBySegment = false;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
@@ -124,7 +125,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.setTarget(null);
         }
 
-        if(!this.firstTick && this.isAwake() && segments.isEmpty()) {
+        if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
             this.hurt(this.level().damageSources().mobAttack(this), 400.0F);
         }
     }
@@ -148,20 +149,20 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.start();
             return false;
         }
-        if (source.getEntity() != null) {
-            if (source.isIndirect()) {
-                if (source.getEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
-                    return super.hurt(source, amount);
-                }
-            }
-            else if (source.getEntity().is(this))
-                return super.hurt(source, amount);
+        else if (source.isIndirect() && source.getDirectEntity() != null && source.getDirectEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
+            boolean hasBeenHurt = super.hurt(source, amount);
+            this.invulnerableTime = 0;
+            return hasBeenHurt;
         }
-
+        else if (source.getEntity() != null && source.getEntity().is(this)) {
+            return super.hurt(source, amount);
+        }
         else return false;
+    }
 
-
-        return super.hurt(source, amount);
+    @Override
+    public boolean fireImmune() {
+        return true;
     }
 
     private void start() {
@@ -177,6 +178,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
         this.spawnSegments();
         this.setInvisible(true);
+        this.setHasBeenContactedBySegment();
         AetherEventDispatch.onBossFightStart(this, this.getDungeon());
     }
 
@@ -197,9 +199,11 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         AetherEventDispatch.onBossFightStop(this, this.getDungeon());
     }
 
+    @Override
     public void die(DamageSource source) {
         this.setDeltaMovement(Vec3.ZERO);
         if (this.level() instanceof ServerLevel) {
+            this.removeAllSegments();
             this.bossFight.setProgress(this.getHealth() / this.getMaxHealth());
             if (this.getDungeon() != null) {
                 this.getDungeon().grantAdvancements(source);
@@ -207,7 +211,6 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             }
         }
 
-        this.removeAllSegments();
         super.die(source);
     }
 
@@ -218,21 +221,11 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         }
     }
 
-    public void removeSegment(EOTSSegment segment) {
-        this.segments.remove(segment);
-    }
-    public void setControllingSegment(EOTSSegment segment) {
-        this.controllingSegments.add(segment);
-    }
-
-    public void removeControllingSegment(EOTSSegment segment) {
-        this.controllingSegments.remove(segment);
-    }
-
-
     private void removeAllSegments() {
-        for (EOTSSegment segment : this.segments) {
-            segment.remove(RemovalReason.DISCARDED);
+        for (UUID segmentUUID : this.segmentUUIDs) {
+            EOTSSegment segment = (EOTSSegment)((ServerLevel)this.level()).getEntity(segmentUUID);
+            if(segment != null)
+                segment.remove(RemovalReason.DISCARDED);
         }
 
     }
@@ -299,6 +292,12 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         }
 
     }
+
+    protected void setHasBeenContactedBySegment() {
+        this.hasBeenContactedBySegment = true;
+        this.setInvisible(true);
+    }
+
 
     public boolean isAwake() {
         return this.getEntityData().get(DATA_AWAKE_ID);
@@ -369,6 +368,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.setBossName(name);
     }
 
+    @NotNull
     protected SoundEvent getAwakenSound() {
         return  AetherSoundEvents.ENTITY_SLIDER_AWAKEN.get();
     }
@@ -376,11 +376,11 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     @Override
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return AetherSoundEvents.ENTITY_SLIDER_AMBIENT.get();
+        return null;
     }
 
     protected SoundEvent getDeathSound() {
-        return AetherSoundEvents.ENTITY_SLIDER_DEATH.get();
+        return null;
     }
 
     @Override
@@ -462,7 +462,6 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.readBossSaveData(tag);
         if (tag.contains("Awake")) {
             this.setAwake(tag.getBoolean("Awake"));
-            this.setInvisible(true);
         }
 
     }

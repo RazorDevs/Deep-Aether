@@ -50,10 +50,14 @@
   "lore.item.deep_aether.quail_spawn_egg": "This is a Spawn Egg that is used to spawn the Quail in Creative Mode.",
   "item.deep_aether.quail_egg": "Quail Egg",
   "lore.item.deep_aether.quail_egg": "Peculiar egg that Quails lay. They're as tasty as the originals!",
+
   "entity.deep_aether.quail": "Quail",
   "entity.deep_aether.aerglow_fish": "Aerglow Fish",
   "entity.deep_aether.venomite": "Venomite",
   "entity.deep_aether.boat": "Boat",
+  "entity.deep_aether.eots_controller": "Eye of the Storm",
+  "entity.deep_aether.eots_segment": "Eye of the Storm",
+
   "block.deep_aether.aerglow_grass_path": "Aerglow Grass Path",
   "lore.block.deep_aether.aerglow_grass_path": "This block is the result of using a shovel on an Aerglow Grass Block.",
   "block.deep_aether.aersmog": "Aersmog",
