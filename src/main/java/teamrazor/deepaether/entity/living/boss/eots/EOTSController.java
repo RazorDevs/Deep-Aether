@@ -72,6 +72,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
     private boolean hasBeenContactedBySegment = false;
+    public Vec3 deathPos; //The pos the controller should teleport to when it dies, ensures the controller drops its key at the right spot.
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
@@ -100,7 +101,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     }
 
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0F).add(Attributes.FOLLOW_RANGE, 128.0F);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0).add(Attributes.FOLLOW_RANGE, 128.0);
     }
 
     @Override
@@ -123,7 +124,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         }
 
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
-            this.hurt(this.level().damageSources().mobAttack(this), 400.0F);
+            this.hurt(this.level().damageSources().mobAttack(this), 400.1F);
         }
     }
 
@@ -198,6 +199,9 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     @Override
     public void die(DamageSource source) {
         this.setDeltaMovement(Vec3.ZERO);
+        if(deathPos != null) {
+            this.setPos(deathPos);
+        }
         if (this.level() instanceof ServerLevel) {
             this.removeAllSegments();
             this.bossFight.setProgress(this.getHealth() / this.getMaxHealth());

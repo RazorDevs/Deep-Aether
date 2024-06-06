@@ -211,10 +211,11 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
+        float health = this.getHealth();
         boolean doHurt = super.hurt(pSource, pAmount);
-        if(doHurt && this.getController() != null) {
-            if (pAmount >= this.getHealth())
-                this.getController().hurt(createControllerDamageSource(pSource.getEntity()), this.getHealth());
+        if(this.getController() != null) {
+            if (pAmount >= health)
+                this.getController().hurt(createControllerDamageSource(pSource.getEntity()), health);
             else this.getController().hurt(createControllerDamageSource( pSource.getEntity()), pAmount);
         }
         return doHurt;
@@ -235,6 +236,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             this.getController().segmentUUIDs.remove(this.uuid);
             if(this.isControllingSegment())
                 this.getController().controllingSegments.remove(this);
+            this.getController().deathPos = this.position();
         }
         super.die(pDamageSource);
     }
@@ -374,20 +376,24 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     private void goToIdlePos() {
+        float speed = 1.75F;
+        if(this.isAroundIdlePos())
+            speed = 1.0F;
+
         float floatAroundHeight = this.getIdlePos();
         if(this.getTarget() == null) {
             RandomSource random = this.getRandom();
             double d0 = this.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             double d1 = floatAroundHeight + random.nextInt(1);
             double d2 = this.getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.getMoveControl().setWantedPosition(d0, d1, d2, 1.0F);
+            this.getMoveControl().setWantedPosition(d0, d1, d2, speed);
         }
         else {
             RandomSource random = this.getRandom();
             double d0 = this.getTarget().getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
             double d1 = floatAroundHeight + random.nextInt(1);
             double d2 = this.getTarget().getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.getMoveControl().setWantedPosition(d0, d1, d2, 1.0F);
+            this.getMoveControl().setWantedPosition(d0, d1, d2, speed);
         }
     }
 
