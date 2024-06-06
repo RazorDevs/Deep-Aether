@@ -2,7 +2,6 @@ package teamrazor.deepaether.entity.living.boss.eots;
 
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -12,8 +11,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -462,7 +459,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     d3 = Math.sqrt(d0 * d0 + d2 * d2);
                     double d5 = Math.sqrt(d0 * d0 + d2 * d2 + d1 * d1);
                     float f = this.segment.getYRot();
-                    float f1 = (float)Mth.atan2(d2, d0);
+                    float f1 = (float) Mth.atan2(d2, d0);
                     float f2 = Mth.wrapDegrees(this.segment.getYRot() + 90.0F);
                     float f3 = Mth.wrapDegrees(f1 * 57.295776F);
                     this.segment.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
@@ -473,12 +470,18 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                         this.baseSpeed = Mth.approach(this.baseSpeed, 0.2F, 0.025F);
                     }
 
-                    float f4 = (float)(-(Mth.atan2(-d1, d3) * 180.0 / 3.1415927410125732));
+                    // Introduce a vertical wave motion using sine function
+                    double waveFrequency = 0.05; // Frequency of the wave
+                    double waveAmplitude = 0.8; // Amplitude of the wave
+                    double time = this.segment.tickCount + this.segment.getController().controllingSegments.indexOf(this); // Ensure different segments are out of phase
+                    double verticalWave = Math.sin(time * waveFrequency) * waveAmplitude;
+
+                    float f4 = (float) (-(Mth.atan2(-d1 + verticalWave, d3) * 180.0 / 3.1415927410125732));
                     this.segment.setXRot(f4);
                     float f5 = this.segment.getYRot() + 90.0F;
-                    double d6 = (double)(this.getSpeed() * Mth.cos(f5 * 0.017453292F)) * Math.abs(d0 / d5);
-                    double d7 = (double)(this.getSpeed() * Mth.sin(f5 * 0.017453292F)) * Math.abs(d2 / d5);
-                    double d8 = (double)(this.getSpeed() * Mth.sin(f4 * 0.017453292F)) * Math.abs(d1 / d5);
+                    double d6 = (double) (this.getSpeed() * Mth.cos(f5 * 0.017453292F)) * Math.abs(d0 / d5);
+                    double d7 = (double) (this.getSpeed() * Mth.sin(f5 * 0.017453292F)) * Math.abs(d2 / d5);
+                    double d8 = (double) (this.getSpeed() * Mth.sin(f4 * 0.017453292F)) * Math.abs((d1 + verticalWave) / d5);
                     Vec3 vec3 = this.segment.getDeltaMovement();
                     this.segment.setDeltaMovement(vec3.add((new Vec3(d6, d8, d7)).subtract(vec3).scale(0.2)));
                 }
