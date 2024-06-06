@@ -70,7 +70,6 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
-    private MostDamageTargetGoal mostDamageTargetGoal;
     private final ServerBossEvent bossFight;
     private boolean hasBeenContactedBySegment = false;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
@@ -104,18 +103,19 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0F).add(Attributes.FOLLOW_RANGE, 128.0F);
     }
 
+    @Override
     protected void registerGoals() {
-        this.mostDamageTargetGoal = new MostDamageTargetGoal(this);
         this.targetSelector.addGoal(2, new selectControllingSegmentGoal(this));
-        this.targetSelector.addGoal(1, this.mostDamageTargetGoal);
     }
 
+    @Override
     public void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(DATA_AWAKE_ID, false);
         this.getEntityData().define(DATA_BOSS_NAME_ID, Component.literal("EOTS"));
     }
 
+    @Override
     public void tick() {
         super.tick();
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
@@ -146,7 +146,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.start();
             return false;
         }
-        else if (source.isIndirect() && source.getDirectEntity() != null && source.getDirectEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
+        else if (source.getDirectEntity() != null && source.getDirectEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
             boolean hasBeenHurt = super.hurt(source, amount);
             this.invulnerableTime = 0;
             return hasBeenHurt;
@@ -163,9 +163,8 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     }
 
     private void start() {
-        if (this.getAwakenSound() != null) {
-            this.playSound(this.getAwakenSound(), 2.5F, 1.0F / (this.getRandom().nextFloat() * 0.2F + 0.9F));
-        }
+        this.getAwakenSound();
+        this.playSound(this.getAwakenSound(), 2.5F, 1.0F / (this.getRandom().nextFloat() * 0.2F + 0.9F));
 
         this.setAwake(true);
         this.setBossFight(true);
@@ -213,6 +212,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     private void spawnSegments() {
         EOTSSegment oldSegment = new EOTSSegment(this.level(), this);
+        this.segmentUUIDs.add(oldSegment.getUUID());
         for (int i = 0; i < SEGMENT_COUNT; i++) {
             oldSegment = new EOTSSegment(this.level(), oldSegment, this);
         }
@@ -367,7 +367,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     @NotNull
     protected SoundEvent getAwakenSound() {
-        return  AetherSoundEvents.ENTITY_SLIDER_AWAKEN.get();
+        return AetherSoundEvents.ENTITY_SLIDER_AWAKEN.get();
     }
 
     @Override

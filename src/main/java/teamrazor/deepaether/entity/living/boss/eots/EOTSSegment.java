@@ -12,6 +12,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -72,6 +73,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         if (length < EOTSController.SEGMENT_COUNT) {
             new EOTSSegment(level, this, length + 1);
         }
+        this.hasContactedControllerOnLoad = true;
     }
 
     public EOTSSegment(Level level, EOTSSegment parent, EOTSController controller) {
@@ -82,7 +84,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.setController(controller);
         if(this.getController() != null) {
             this.getController().segmentUUIDs.add(this.uuid);
+            System.out.println(this.uuid);
         }
+        this.hasContactedControllerOnLoad = true;
     }
 
     public EOTSSegment(Level level, EOTSController controller) {
@@ -90,17 +94,15 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.setPos(controller.getOnPos().getCenter());
         level.addFreshEntity(this);
         this.setController(controller);
+        this.hasContactedControllerOnLoad = true;
     }
-
-
 
     /**
      * Max Health should be equal to the controller's health divided by the numbers of segments
      */
-
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 20);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 15.0);
     }
 
     @Override
@@ -186,42 +188,46 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             }
 
             if (this.getTarget() != null) {
-                if (this.getTarget().distanceToSqr(this) < 0.2F) {
+                if (this.getTarget().distanceToSqr(this) < 1.0F) {
                     this.doHurtTarget(this.getTarget());
-                    //if(this.getTarget() instanceof Player player) {
-                    //    player.getUseItem().is(Tags.Items.TOOLS_SHIELDS) {
-                    //        player.get
-                    //    }
-                    //}
                 }
             }
         }
     }
 
+    @Override
+    public boolean canDisableShield() {
+        return true;
+    }
+
+    @Override
+    protected void blockedByShield(LivingEntity pDefender) {
+        super.blockedByShield(pDefender);
+        if(pDefender instanceof Player player) {
+            player.getCooldowns().addCooldown(player.getUseItem().getItem(), 1000);
+            player.invulnerableTime = 20;
+        }
+    }
 
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
-        if(this.isControllingSegment())
-            pAmount = pAmount*0.75F;
         boolean doHurt = super.hurt(pSource, pAmount);
         if(doHurt && this.getController() != null) {
             if (pAmount >= this.getHealth())
-                this.getController().hurt(createControllerDamageSource(pSource.typeHolder(), pSource.getDirectEntity()), this.getHealth());
-            else this.getController().hurt(createControllerDamageSource(pSource.typeHolder(), pSource.getDirectEntity()), pAmount);
+                this.getController().hurt(createControllerDamageSource(pSource.getEntity()), this.getHealth());
+            else this.getController().hurt(createControllerDamageSource( pSource.getEntity()), pAmount);
         }
         return doHurt;
     }
 
-    private DamageSource createControllerDamageSource(Holder<DamageType> damageType, @Nullable Entity trueSource) {
-        return new DamageSource(damageType, this, trueSource);
+    private DamageSource createControllerDamageSource(@Nullable Entity trueSource) {
+        return new DamageSource(this.level().damageSources().generic().typeHolder(), this, trueSource);
     }
 
     @Override
     public boolean fireImmune() {
         return true;
     }
-
-
 
     @Override
     public void die(@NotNull DamageSource pDamageSource) {
@@ -367,6 +373,24 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         return this.getY() > this.getIdlePos() - 3;
     }
 
+    private void goToIdlePos() {
+        float floatAroundHeight = this.getIdlePos();
+        if(this.getTarget() == null) {
+            RandomSource random = this.getRandom();
+            double d0 = this.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = floatAroundHeight + random.nextInt(1);
+            double d2 = this.getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.getMoveControl().setWantedPosition(d0, d1, d2, 1.0F);
+        }
+        else {
+            RandomSource random = this.getRandom();
+            double d0 = this.getTarget().getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            double d1 = floatAroundHeight + random.nextInt(1);
+            double d2 = this.getTarget().getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.getMoveControl().setWantedPosition(d0, d1, d2, 1.0F);
+        }
+    }
+
 
 
     @Override
@@ -494,22 +518,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         }
 
         public void start() {
-            float floatAroundHeight = this.segment.getIdlePos();
-
-            if(this.segment.getTarget() == null) {
-                RandomSource random = this.segment.getRandom();
-                double d0 = this.segment.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                double d1 = floatAroundHeight + random.nextInt(1);
-                double d2 = this.segment.getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                this.segment.getMoveControl().setWantedPosition(d0, d1, d2, 1.0F);
-            }
-            else {
-                RandomSource random = this.segment.getRandom();
-                double d0 = this.segment.getTarget().getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                double d1 = floatAroundHeight + random.nextInt(1);
-                double d2 = this.segment.getTarget().getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
-                this.segment.getMoveControl().setWantedPosition(d0, d1, d2, 1.0F);
-            }
+            this.segment.goToIdlePos();
         }
     }
 
@@ -555,6 +564,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         @Override
         public boolean canContinueToUse() {
             if(this.segment.hurtTime > 0) {
+                this.segment.goToIdlePos(); //Forces the segment to go to its idle pos if it takes damage
                 return false;
             }
             if(this.hasAttacked || this.maxFollowingTimer <= 0)
@@ -571,18 +581,19 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 }
                 else if(this.attackType == AttackType.SWEEPING) {
                     Vec3 pos = this.segment.getTarget().position();
-                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 2.0F);
+                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 1.75F);
                    if (this.segment.position().y < this.targetStartPos.y || this.segment.position().y < this.segment.getTarget().position().y)
                        this.hasAttacked = true;
                 }
                 else {
                     Vec3 pos = this.segment.getTarget().position().add(0.0D,1.0D,0.0D);
-                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 2.0F);
+                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 1.5F);
                     this.maxFollowingTimer--;
                 }
 
                 if (this.segment.getBoundingBox().inflate(0.2F).intersects(this.segment.getTarget().getBoundingBox())) {
                     this.segment.doHurtTarget(this.segment.getTarget());
+                    this.segment.getTarget().setDeltaMovement(this.segment.getLookAngle().multiply(2.0F,2.0F,2.0F));
                     this.hasAttacked = true;
                 }
 
