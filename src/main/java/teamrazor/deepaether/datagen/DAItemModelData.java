@@ -371,6 +371,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         //Moa Fodder
         this.item(DAItems.JUMP_FODDER.get());
         this.item(DAItems.LEVITATION_FODDER.get());
+        this.item(DAItems.FIRE_RES_FODDER.get());
 
         //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
