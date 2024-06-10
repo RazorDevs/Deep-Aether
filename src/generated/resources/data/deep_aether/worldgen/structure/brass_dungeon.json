@@ -1,0 +1,58 @@
+{
+  "type": "deep_aether:brass_dungeon",
+  "biomes": "#deep_aether:has_brass_dungeon",
+  "minY": 184,
+  "rangeY": 5,
+  "spawn_overrides": {
+    "aether_aerwhale": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "aether_darkness_monster": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "aether_sky_monster": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "aether_surface_monster": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "ambient": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "axolotls": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "creature": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "misc": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "monster": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "underground_water_creature": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "water_ambient": {
+      "bounding_box": "full",
+      "spawns": []
+    },
+    "water_creature": {
+      "bounding_box": "full",
+      "spawns": []
+    }
+  },
+  "step": "surface_structures",
+  "terrain_adaptation": "bury"
+}

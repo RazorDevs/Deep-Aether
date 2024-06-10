@@ -47,5 +47,8 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.GOLDEN_HEIGHTS,
                 DABiomes.GOLDEN_GROVE
         );
+        this.tag(DATags.Biomes.HAS_BRASS_DUNGEON).add(
+                DABiomes.STORM_CLOUD
+        );
     }
 }

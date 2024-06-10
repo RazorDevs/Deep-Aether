@@ -552,7 +552,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 return false;
             } else {
                 this.hasAttacked = false;
-                this.nextScanTick = (int) (((float) (75 + this.segment.random.nextInt(-50,50)))/this.segment.getGlobalSpeedModifier());
+                this.nextScanTick = (int) (((float) (50 + this.segment.random.nextInt(-25,40)))/this.segment.getGlobalSpeedModifier());
                 return true;
             }
         }

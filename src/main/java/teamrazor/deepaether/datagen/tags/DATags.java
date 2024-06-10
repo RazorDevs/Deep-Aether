@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.Fluid;
 import teamrazor.deepaether.DeepAether;
 
 public class DATags {
-    public class Items {
+    public static class Items {
         public static final TagKey<Item> ROSEROOT_LOGS = tag("roseroot_logs");
         public static final TagKey<Item> YAGROOT_LOGS = tag("yagroot_logs");
         public static final TagKey<Item> CRUDEROOT_LOGS = tag("cruderoot_logs");
@@ -60,6 +60,7 @@ public class DATags {
 
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
         public static final TagKey<Biome> CAN_QUAIL_SPAWN = tag("can_quail_spawn");
+        public static final TagKey<Biome> HAS_BRASS_DUNGEON = tag("has_brass_dungeon");
         private static TagKey<Biome> tag(String name) {
             return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAether.MODID, name));
         }

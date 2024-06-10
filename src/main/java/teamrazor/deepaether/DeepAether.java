@@ -30,7 +30,6 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -48,6 +47,7 @@ import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
 import teamrazor.deepaether.datagen.tags.*;
+import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -65,6 +65,8 @@ import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
 import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
+import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
+import teamrazor.deepaether.world.structure.DAStructureTypes;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
@@ -138,6 +140,8 @@ public class DeepAether {
 		DAAdvancementTriggers.TRIGGERS.register(bus);
 		DAAttachments.ATTACHMENTS.register(bus);
 		DAPlacementModifiers.PLACEMENT_MODIFIERS.register(bus);
+		DAStructureTypes.STRUCTURE_TYPES.register(bus);
+		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
 	}
 
 	public void registerPackets(RegisterPayloadHandlerEvent event) {

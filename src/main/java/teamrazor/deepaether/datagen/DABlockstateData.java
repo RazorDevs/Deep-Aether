@@ -300,6 +300,12 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.makeLogWalls();
     }
 
+    public void dungeonBlock(Block block, Block baseBlock) {
+        ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock))));
+        this.getVariantBuilder(block).partialState().setModels(dungeonBlock);
+    }
+
+
     public ResourceLocation texture(String name, String suffix) {
         return this.modLoc("block/"  + name + suffix);
     }
