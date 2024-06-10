@@ -1,6 +1,5 @@
 package teamrazor.deepaether.init;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
@@ -23,6 +22,8 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.item.compat.lost_content.LCDAShieldItem;
+import teamrazor.deepaether.item.compat.lost_content.SkyjadeShieldItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.other.*;
@@ -30,8 +31,6 @@ import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
 import teamrazor.deepaether.item.moa_food.FodderItem;
-import teamrazor.deepaether.item.compat.lost_content.LCDAShieldItem;
-import teamrazor.deepaether.item.compat.lost_content.SkyjadeShieldItem;
 
 import java.util.function.Supplier;
 
@@ -106,6 +105,7 @@ public class DAItems {
 	// MOA FODDER
 	public static final DeferredItem<Item> JUMP_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.JUMP, 200, 1, true, true, true)));
 	public static final DeferredItem<Item> LEVITATION_FODDER = ITEMS.register("levitation_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, 200, 1, true, true, true)));
+	public static final DeferredItem<Item> FIRE_RES_FODDER = ITEMS.register("fire_res_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 1, true, true, true)));
 
 
 	// BOATS
