@@ -26,7 +26,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.world.feature.tree.grower.*;
@@ -39,7 +39,7 @@ import static net.minecraft.world.level.block.Blocks.MOSSY_STONE_BRICKS;
 public class DABlocks {
 
 	public static final DeferredRegister<Block> BLOCKS =
-			DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAetherMod.MODID);
+			DeferredRegister.create(ForgeRegistries.BLOCKS, DeepAether.MODID);
 
 	//GRASS
 	public static final RegistryObject<Block> GOLDEN_GRASS_BLOCK = registerBlock("golden_heights_grass_block", () -> new GoldenGrassBlock(Block.Properties.of().mapColor(MapColor.GOLD).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
@@ -416,8 +416,8 @@ public class DABlocks {
 	private static <T extends Block> RegistryObject<T> registerAetherReduxBlock(String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
 
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_REDUX)) {
-			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
+		if(ModList.get().isLoaded(DeepAether.AETHER_REDUX)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
 			registerBlockItem(name, toReturn);
 
 		}
@@ -432,8 +432,8 @@ public class DABlocks {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
 
 
-		if(ModList.get().isLoaded(DeepAetherMod.AETHER_GENESIS)) {
-			DeepAetherMod.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
+		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
 			registerBlockItem(name, toReturn);
 		}
 		else

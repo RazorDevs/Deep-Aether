@@ -6,7 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.world.biomes.DABiomes;
 
 import javax.annotation.Nullable;
@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class DABiomeTagData extends BiomeTagsProvider {
     public DABiomeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
-        super(output, registries, DeepAetherMod.MODID, helper);
+        super(output, registries, DeepAether.MODID, helper);
     }
     @Override
     @SuppressWarnings("unchecked")

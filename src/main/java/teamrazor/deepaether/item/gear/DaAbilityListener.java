@@ -12,10 +12,10 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
+@Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DaAbilityListener {
     @SubscribeEvent
     public static void onEntityFall(LivingFallEvent event) {

@@ -13,9 +13,9 @@ import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
-@Mod.EventBusSubscriber(modid = DeepAetherMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = DeepAether.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DACapabilities {
     public static final Capability<DeepAetherPlayer> DEEP_AETHER_PLAYER_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {});
     public static final Capability<MoaEffect> MOA_CAPABILITY = CapabilityManager.get(new CapabilityToken<>() {});
@@ -26,14 +26,14 @@ public class DACapabilities {
         event.register(MoaEffect.class);
     }
 
-    @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
+    @Mod.EventBusSubscriber(modid = DeepAether.MODID)
     public static class Registration {
         @SubscribeEvent
         public static void attachPlayerCapabilities(AttachCapabilitiesEvent<Entity> event) {
             if(event.getObject() instanceof Player player)
-                event.addCapability(new ResourceLocation(DeepAetherMod.MODID, "deep_aether_player"), new CapabilityProvider(DACapabilities.DEEP_AETHER_PLAYER_CAPABILITY, new DAPlayerCapability(player)));
+                event.addCapability(new ResourceLocation(DeepAether.MODID, "deep_aether_player"), new CapabilityProvider(DACapabilities.DEEP_AETHER_PLAYER_CAPABILITY, new DAPlayerCapability(player)));
             else if(event.getObject() instanceof  Moa moa) {
-                event.addCapability(new ResourceLocation(DeepAetherMod.MODID, "moa_effect"), new CapabilityProvider(DACapabilities.MOA_CAPABILITY, new MoaEffectCapability(moa)));
+                event.addCapability(new ResourceLocation(DeepAether.MODID, "moa_effect"), new CapabilityProvider(DACapabilities.MOA_CAPABILITY, new MoaEffectCapability(moa)));
             }
         }
     }

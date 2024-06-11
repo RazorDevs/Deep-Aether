@@ -2,7 +2,7 @@ package teamrazor.deepaether.client.renderer;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 public class DAModelLayers {
     public static final ModelLayerLocation AERGLOW_FISH = register("aether_fish");
@@ -11,7 +11,7 @@ public class DAModelLayers {
     }
 
     private static ModelLayerLocation register(String name, String type) {
-        return register(new ResourceLocation(DeepAetherMod.MODID, name), type);
+        return register(new ResourceLocation(DeepAether.MODID, name), type);
     }
 
     private static ModelLayerLocation register(ResourceLocation identifier, String type) {

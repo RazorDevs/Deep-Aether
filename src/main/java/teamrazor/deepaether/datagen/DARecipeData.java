@@ -9,7 +9,6 @@ import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -18,7 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.RegistryObject;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
@@ -29,7 +28,7 @@ import java.util.function.Supplier;
 
 public class DARecipeData extends AetherRecipeProvider {
     public DARecipeData(PackOutput output) {
-        super(output, DeepAetherMod.MODID);
+        super(output, DeepAether.MODID);
     }
 
     @Override
@@ -465,6 +464,15 @@ public class DARecipeData extends AetherRecipeProvider {
         makeRing(DAItems.SKYJADE_RING, DAItems.SKYJADE.get()).save(consumer);
         makeGloves(DAItems.SKYJADE_GLOVES, DAItems.SKYJADE).save(consumer);
 
+        /*ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.SKYJADE_MOA_ARMOR.get())
+                .define('A', DAItems.SKYJADE.get())
+                .define('B', Items.LEATHER)
+                .pattern("  A")
+                .pattern("ABA")
+                .pattern("A A")
+                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
+                .save(consumer);*/
+
         makeGravititeRing(DAItems.GRAVITITE_RING).save(consumer);
 
         //Stratus
@@ -751,12 +759,12 @@ public class DARecipeData extends AetherRecipeProvider {
         return slabBuilder(RecipeCategory.BUILDING_BLOCKS, slab, Ingredient.of(material.get())).unlockedBy(getHasName(material.get()), has(material.get()));
     }
     protected ResourceLocation name(String name) {
-        return new ResourceLocation(DeepAetherMod.MODID, name);
+        return new ResourceLocation(DeepAether.MODID, name);
     }
     protected ResourceLocation packName(String name) {
         return packNameSpace(name, "pack");
     }
     protected ResourceLocation packNameSpace(String name, String pack) {
-        return new ResourceLocation(DeepAetherMod.MODID, pack+"/"+name);
+        return new ResourceLocation(DeepAether.MODID, pack+"/"+name);
     }
 }

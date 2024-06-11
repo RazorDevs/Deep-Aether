@@ -4,7 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 
 public class DABiomes {
     public static final ResourceKey<Biome> AERLAVENDER_FIELDS = createKey("aerlavender_fields");
@@ -20,6 +20,6 @@ public class DABiomes {
     public static final ResourceKey<Biome> GOLDEN_GROVE = createKey("golden_grove");
 
     private static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAetherMod.MODID, name));
+        return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAether.MODID, name));
     }
 }

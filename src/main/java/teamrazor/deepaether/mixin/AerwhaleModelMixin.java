@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
 
 @Mixin(AerwhaleModel.class)
@@ -34,7 +34,7 @@ public abstract class AerwhaleModelMixin extends EntityModel<Aerwhale> {
 
     @Inject(at = @At("TAIL"), remap = false, method = "<init>")
     private void AerwhaleModel(ModelPart root, CallbackInfo ci) {
-        if(!ModList.get().isLoaded(DeepAetherMod.LOST_AETHER_CONTENT)) {
+        if(!ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
             deep_Aether$leftChest = this.head.getChild("middle_top").getChild("left_chest");
             deep_Aether$rightChest = this.head.getChild("middle_top").getChild("right_chest");
         }

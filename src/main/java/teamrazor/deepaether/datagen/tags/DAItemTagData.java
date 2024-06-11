@@ -12,7 +12,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
@@ -23,7 +23,7 @@ import java.util.concurrent.CompletableFuture;
 public class DAItemTagData extends ItemTagsProvider {
 
     public DAItemTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper helper) {
-        super(output, registries, blockTags, DeepAetherMod.MODID, helper);
+        super(output, registries, blockTags, DeepAether.MODID, helper);
     }
 
     @Nonnull
@@ -239,13 +239,13 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
-                new ResourceLocation(DeepAetherMod.AETHER_REDUX, "golden_swet_ball")
+                new ResourceLocation(DeepAether.AETHER_REDUX, "golden_swet_ball")
         ).addOptional(
-                new ResourceLocation(DeepAetherMod.AETHER_GENESIS,"golden_swet_ball")
+                new ResourceLocation(DeepAether.AETHER_GENESIS,"golden_swet_ball")
         );
 
 
-        tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAetherMod.LOST_AETHER_CONTENT, "aether_shields"))).add(
+        tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
         );

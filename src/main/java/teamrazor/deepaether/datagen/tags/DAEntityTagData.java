@@ -7,7 +7,7 @@ import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAEntities;
 
 import javax.annotation.Nonnull;
@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class DAEntityTagData extends EntityTypeTagsProvider {
     public DAEntityTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
-        super(output, registries, DeepAetherMod.MODID, helper);
+        super(output, registries, DeepAether.MODID, helper);
     }
 
     @Nonnull

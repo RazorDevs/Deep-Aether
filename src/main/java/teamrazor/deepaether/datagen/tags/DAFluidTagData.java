@@ -5,7 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
-import teamrazor.deepaether.DeepAetherMod;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAFluids;
 
 import javax.annotation.Nonnull;
@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 public class DAFluidTagData extends FluidTagsProvider {
 
     public DAFluidTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
-        super(output, registries, DeepAetherMod.MODID, helper);
+        super(output, registries, DeepAether.MODID, helper);
     }
 
     @Nonnull
