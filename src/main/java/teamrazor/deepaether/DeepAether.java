@@ -47,7 +47,6 @@ import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
 import teamrazor.deepaether.datagen.tags.*;
-import teamrazor.deepaether.datagen.DAWorldGenData;
 import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
@@ -183,11 +182,6 @@ public class DeepAether {
 			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
 			registerFlawlessBossDrops();
-
-		});
-
-		event.enqueueWork(() ->
-		{
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));
