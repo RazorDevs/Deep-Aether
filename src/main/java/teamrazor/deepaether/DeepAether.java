@@ -291,6 +291,15 @@ public class DeepAether {
 			}
 		}
 
+		if(ModList.get().isLoaded(PROTECT_YOUR_MOA) && event.getPackType() == PackType.SERVER_DATA) {
+			if (event.getPackType() == PackType.SERVER_DATA) {
+				var resourcePath = ModList.get().getModFileById(DeepAether.MODID).getFile().findResource("packs/compat_recipes/protect_your_moa_compat");
+				var pack = Pack.readMetaAndCreate("builtin/protect_your_moa_compat", Component.literal("Deep Aether Protect Your Moa Compat"), true,
+						path -> new PathPackResources(path, resourcePath, true), PackType.SERVER_DATA, Pack.Position.TOP, PackSource.SERVER);
+				event.addRepositorySource(consumer -> consumer.accept(pack));
+			}
+		}
+
 		else if(ModList.get().isLoaded(AETHER_REDUX) && event.getPackType() == PackType.SERVER_DATA) {
 			if (event.getPackType() == PackType.SERVER_DATA) {
 				var resourcePath = ModList.get().getModFileById(DeepAether.MODID).getFile().findResource("packs/overrides/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData");
