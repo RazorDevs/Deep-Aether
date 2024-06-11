@@ -1,27 +1,26 @@
 package teamrazor.deepaether.screen;
 
+import com.aetherteam.aether.client.gui.screen.inventory.AbstractRecipeBookScreen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import teamrazor.deepaether.DeepAether;
 
-public class CombinerScreen extends AbstractContainerScreen<CombinerMenu> {
+public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> {
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui.png");
 
-    public CombinerScreen(CombinerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
-        super(pMenu, pPlayerInventory, pTitle);
+    public CombinerScreen(CombinerMenu menu, Inventory pPlayerInventory, Component pTitle) {
+        super(menu, new CombinerRecipeBookComponent(), pPlayerInventory, pTitle);
     }
 
     @Override
     protected void init() {
         super.init();
-        this.inventoryLabelY = 10000;
-        this.titleLabelY = 10000;
+        this.initScreen(0);
     }
 
     @Override
@@ -39,7 +38,7 @@ public class CombinerScreen extends AbstractContainerScreen<CombinerMenu> {
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(TEXTURE, x + 85, y + 30, 176, 0, 8, menu.getScaledProgress());
+            guiGraphics.blit(TEXTURE, x + 63, y + 36, 176, 0, 51, menu.getScaledProgress());
         }
     }
 

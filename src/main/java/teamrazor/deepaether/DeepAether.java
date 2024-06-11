@@ -2,6 +2,7 @@ package teamrazor.deepaether;
 
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.google.common.reflect.Reflection;
 import com.legacy.lost_aether.registry.LCEntityTypes;
 import com.mojang.logging.LogUtils;
 import net.minecraft.SharedConstants;
@@ -141,6 +142,9 @@ public class DeepAether {
 		DAPlacementModifiers.PLACEMENT_MODIFIERS.register(bus);
 		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
+
+
+		bus.addListener(DARecipeCategories::registerRecipeCategories);
 	}
 
 	public void registerPackets(RegisterPayloadHandlerEvent event) {
@@ -175,6 +179,8 @@ public class DeepAether {
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
+		Reflection.initialize(DARecipeBookTypes.class);
+
 		event.enqueueWork(() -> {
 			DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();
@@ -182,6 +188,7 @@ public class DeepAether {
 			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
 			registerFlawlessBossDrops();
+
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));

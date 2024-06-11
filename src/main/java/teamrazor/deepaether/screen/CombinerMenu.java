@@ -1,21 +1,19 @@
 package teamrazor.deepaether.screen;
 
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import teamrazor.deepaether.entity.block.CombinerBlockEntity;
-import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAMenuTypes;
+import teamrazor.deepaether.init.DARecipeBookTypes;
 
-public class CombinerMenu extends AbstractContainerMenu {
+public class CombinerMenu extends RecipeBookMenu<Container> {
     private final Level level;
     private final ContainerData data;
     private final Container container;
@@ -33,11 +31,10 @@ public class CombinerMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-            this.addSlot(new Slot(container, 0, 60, 11));
-            this.addSlot(new Slot(container, 1, 80, 11));
-            this.addSlot(new Slot(container, 2, 100, 11));
-            this.addSlot(new Slot(container, 3, 80, 59));
-
+            this.addSlot(new Slot(container, 0, 57, 17));
+            this.addSlot(new Slot(container, 1, 80, 17));
+            this.addSlot(new Slot(container, 2, 103, 17));
+            this.addSlot(new Slot(container, 3, 80, 53));
 
         addDataSlots(data);
     }
@@ -121,5 +118,53 @@ public class CombinerMenu extends AbstractContainerMenu {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    @Override
+    public void fillCraftSlotsStackedContents(StackedContents stackedContents) {
+        if (this.container instanceof StackedContentsCompatible stackedContentsCompatible) {
+            stackedContentsCompatible.fillStackedContents(stackedContents);
+        }
+    }
+
+    @Override
+    public void clearCraftingContent() {
+        for (Slot slot : slots) {
+            slot.set(ItemStack.EMPTY);
+        }
+    }
+
+    @Override
+    public boolean recipeMatches(RecipeHolder<? extends Recipe<Container>> recipeHolder) {
+        return recipeHolder.value().matches(this.container, this.level);    }
+
+    @Override
+    public int getResultSlotIndex() {
+        return 3;
+    }
+
+    @Override
+    public int getGridWidth() {
+        return 1;
+    }
+
+    @Override
+    public int getGridHeight() {
+        return 1;
+    }
+
+    @Override
+    public int getSize() {
+        return 4;
+    }
+
+    @Override
+    public RecipeBookType getRecipeBookType() {
+        return DARecipeBookTypes.COMBINER;
+    }
+
+    @Override
+    public boolean shouldMoveToInventory(int i) {
+        return true;
     }
 }

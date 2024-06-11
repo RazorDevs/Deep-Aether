@@ -384,7 +384,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         ModelFile combiner = this.cubeBottomTop(this.name(block),
                 this.extend(this.texture(this.name(block)), "_side"),
                 this.extend(this.texture(this.name(block)), "_bottom"),
-                this.extend(this.texture(this.name(block)), "_bottom"));
+                this.extend(this.texture(this.name(block)), "_top"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(combiner));
     }
 
