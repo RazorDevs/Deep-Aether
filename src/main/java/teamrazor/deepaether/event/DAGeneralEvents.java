@@ -3,6 +3,7 @@ package teamrazor.deepaether.event;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.aether.event.BossFightEvent;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -46,6 +47,11 @@ import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = DeepAetherMod.MODID)
 public class DAGeneralEvents {
+
+    @SubscribeEvent
+    public static void onDungeonPlayerAdded(BossFightEvent.AddPlayer event) {
+        ((IPlayerBossFight) event.getPlayer()).deep_Aether$setHasBeenHurt(false);
+    }
 
     @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
