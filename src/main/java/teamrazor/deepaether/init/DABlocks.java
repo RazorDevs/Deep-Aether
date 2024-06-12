@@ -419,7 +419,6 @@ public class DABlocks {
 		if(ModList.get().isLoaded(DeepAether.AETHER_REDUX)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
 			registerBlockItem(name, toReturn);
-
 		}
 		else
 			registerBlockItemDisabled(name, toReturn);
@@ -430,15 +429,12 @@ public class DABlocks {
 
 	private static <T extends Block> RegistryObject<T> registerAetherGenesisBlock(String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);
-
-
 		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
 			registerBlockItem(name, toReturn);
 		}
 		else
 			registerBlockItemDisabled(name, toReturn);
-
 		return  toReturn;
 	}
 
@@ -554,17 +550,7 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_WALL.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SUNROOT_WALL.get(), 5, 20);
 	}
-
-
 	private static boolean never(BlockState p_test_1_, BlockGetter p_test_2_, BlockPos p_test_3_) {
-		return false;
-	}
-
-	private static boolean always(BlockState p_test_1_, BlockGetter p_test_2_, BlockPos p_test_3_) {
-		return true;
-	}
-
-	private static <A> boolean never(BlockState p_test_1_, BlockGetter p_test_2_, BlockPos p_test_3_, A p_test_4_) {
 		return false;
 	}
 	private static boolean ocelotOrParrot(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {

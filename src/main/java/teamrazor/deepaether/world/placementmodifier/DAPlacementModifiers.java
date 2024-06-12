@@ -9,7 +9,6 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import teamrazor.deepaether.DeepAether;
 
 public class DAPlacementModifiers {
-
     public static final PlacementModifierType<ImprovedRarityFilter> IMPROVED_RARITY_FILTER = register(new ResourceLocation(DeepAether.MODID, "dungeon_blacklist_filter"), ImprovedRarityFilter.CODEC);
 
     private static <P extends PlacementModifier> PlacementModifierType<P> register(ResourceLocation name, Codec<P> codec) {

@@ -18,9 +18,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class YagrootTrunkPlacer extends TrunkPlacer {
-    public static final Codec<YagrootTrunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_) -> {
-        return trunkPlacerParts(p_70261_).apply(p_70261_, YagrootTrunkPlacer::new);
-    });
+    public static final Codec<YagrootTrunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_)
+            -> trunkPlacerParts(p_70261_).apply(p_70261_, YagrootTrunkPlacer::new));
 
 
     public YagrootTrunkPlacer(int p_161770_, int p_161771_, int p_161772_) {
@@ -45,8 +44,6 @@ public class YagrootTrunkPlacer extends TrunkPlacer {
                 this.placeLog(level, posState, random, pos.above(i).south(), config);
             }
         }
-
-
 
         //places Top of The Trunk
         Direction direction;
@@ -80,6 +77,5 @@ public class YagrootTrunkPlacer extends TrunkPlacer {
             this.placeLog(level,posState,random,pos.below().east(),config);
 
         return list;
-
     }
 }

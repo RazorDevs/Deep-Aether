@@ -5,7 +5,6 @@ import com.aetherteam.nitrogen.capability.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncEntityPacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.util.LazyOptional;
 import oshi.util.tuples.Quartet;
 

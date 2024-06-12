@@ -18,8 +18,8 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
+import teamrazor.deepaether.datagen.world.DAPlacedFeatures;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.world.feature.DAPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;

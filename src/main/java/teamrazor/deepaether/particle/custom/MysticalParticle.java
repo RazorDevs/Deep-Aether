@@ -40,6 +40,4 @@ public class MysticalParticle extends SimpleAnimatedParticle {
             return new MysticalParticle(p_106567_, p_106568_, p_106569_, p_106570_, p_106571_, p_106572_, p_106573_, this.sprites);
         }
     }
-
-
 }

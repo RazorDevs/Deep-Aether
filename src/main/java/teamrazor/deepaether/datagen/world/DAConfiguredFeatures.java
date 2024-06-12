@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature;
+package teamrazor.deepaether.datagen.world;
 
 
 import com.aetherteam.aether.block.AetherBlocks;
@@ -48,6 +48,8 @@ import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.DAFeatureStates;
+import teamrazor.deepaether.world.feature.DAFeatures;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 import teamrazor.deepaether.world.feature.tree.decorators.SunrootHangerDecorator;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
@@ -78,7 +80,6 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_CONFIGURATION = createKey("clorite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERLAVENDER_PATCH = createKey("aerlavender_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE_CONFIGURATION = createKey("skyroot_tree");
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_LARGE = createKey("roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_SMALL = createKey("roseroot_tree_small");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_AERGLOW_TREE = createKey("fallen_aerglow_tree");
@@ -110,7 +111,6 @@ public class DAConfiguredFeatures {
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
     }
-
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> holdergetter = context.lookup(Registries.BLOCK);
@@ -215,11 +215,10 @@ public class DAConfiguredFeatures {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(DABlocks.SUNROOT_LOG.get()),
                         new SunrootTunkPlacer(4, 6, 3),
-                        BlockStateProvider.simple(DABlocks.SUNROOT_LEAVES.get()),
+                        BlockStateProvider.simple(DAFeatureStates.SUNROOT_LEAVES),
                         new RandomSpreadFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), ConstantInt.of(2), 100),
                         new TwoLayersFeatureSize(2, 1, 4)
                 ).decorators(List.of(new SunrootHangerDecorator(0.2f))).ignoreVines().build());
-
 
         register(context, GOLDEN_GRASS_PATCH, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()

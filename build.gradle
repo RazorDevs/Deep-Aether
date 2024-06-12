@@ -8,7 +8,6 @@ plugins {
     id 'org.spongepowered.mixin' version '[0.7,0.8)'
 }
 
-
 version = "${project.mc_version}-${project.mod_version}"
 group = 'com.teamrazor.deep_aether'
 archivesBaseName = 'deep_aether'
@@ -31,7 +30,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
-                deepaether {
+                deep_aether {
                     source sourceSets.main
                 }
             }
@@ -47,7 +46,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
-                examplemod {
+                deep_aether {
                     source sourceSets.main
                 }
             }
@@ -62,7 +61,7 @@ minecraft {
             property 'forge.enabledGameTestNamespaces', 'deep_aether'
 
             mods {
-                examplemod {
+                deep_aether {
                     source sourceSets.main
                 }
             }
@@ -70,8 +69,6 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
             property 'forge.logging.markers', 'REGISTRIES'
@@ -83,7 +80,7 @@ minecraft {
             environment 'target', 'fmluserdevdata'
 
             mods {
-                examplemod {
+                deep_aether {
                     source sourceSets.main
                 }
             }
@@ -147,7 +144,6 @@ dependencies {
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.geckolib_version}")
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
     implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
-
     jarJar fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge") {
         jarJar.ranged(it, "[1.20.1-1.0.2-rc1,)")
     }
@@ -197,6 +193,9 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+processResources {
+    exclude '.cache/'
 }
 
 tasks.named('jarJar', JarJar).configure {

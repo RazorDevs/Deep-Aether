@@ -5,7 +5,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import teamrazor.deepaether.DeepAetherConfig;
-import teamrazor.deepaether.tags.SkyjadeTool;
 
 public class SkyjadeToolsPickaxeItem extends PickaxeItem implements SkyjadeTool {
 	public SkyjadeToolsPickaxeItem(Tier tier, int i, float v, Properties properties) {

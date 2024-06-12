@@ -1,6 +1,5 @@
 package teamrazor.deepaether.item.gear.other;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.particles.ParticleTypes;

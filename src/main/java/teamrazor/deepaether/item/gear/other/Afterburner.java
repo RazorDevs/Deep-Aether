@@ -1,7 +1,5 @@
 package teamrazor.deepaether.item.gear.other;
 
-import com.aetherteam.aether.client.AetherSoundEvents;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;

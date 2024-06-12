@@ -18,10 +18,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class SunrootTunkPlacer extends TrunkPlacer {
-    public static final Codec<SunrootTunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_) -> {
-        return trunkPlacerParts(p_70261_).apply(p_70261_, SunrootTunkPlacer::new);
-    });
-
+    public static final Codec<SunrootTunkPlacer> CODEC = RecordCodecBuilder.create((p_70261_) ->
+            trunkPlacerParts(p_70261_).apply(p_70261_, SunrootTunkPlacer::new));
 
     public SunrootTunkPlacer(int p_161770_, int p_161771_, int p_161772_) {
         super(p_161770_, p_161771_, p_161772_);
@@ -56,9 +54,6 @@ public class SunrootTunkPlacer extends TrunkPlacer {
             list.add(new FoliagePlacer.FoliageAttachment(pos2, 0, false));
         }
 
-
-
-
         //Adds the bottom of the trunk
         if(this.isFree(level, pos.below()))
             this.placeLog(level,posState,random,pos.below(),config);
@@ -81,6 +76,5 @@ public class SunrootTunkPlacer extends TrunkPlacer {
             this.placeLog(level,posState,random,pos.east(),config);
 
         return list;
-
     }
 }
