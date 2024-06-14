@@ -10,6 +10,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.registries.DeferredItem;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
@@ -25,6 +28,7 @@ import teamrazor.deepaether.recipe.DARecipeSerializers;
 import teamrazor.deepaether.recipe.GlowingSporesRecipe;
 import teamrazor.deepaether.recipe.GoldenSwetBallRecipe;
 
+import java.util.Properties;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -491,7 +495,7 @@ public class DARecipeData extends AetherRecipeProvider {
         makeRing(DAItems.SKYJADE_RING, DAItems.SKYJADE.get()).save(consumer);
         makeGloves(DAItems.SKYJADE_GLOVES, DAItems.SKYJADE).save(consumer);
 
-        makeRing(DAItems.GRAVITITE_RING, AetherBlocks.ENCHANTED_GRAVITITE.get().asItem()).save(consumer);
+        makeRing(DAItems.GRAVITITE_RING, AetherTags.Items.PROCESSED_GRAVITITE).save(consumer);
 
         //Stratus
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_sword_repairing"));
@@ -525,7 +529,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
                 .requires(DABlocks.CHROMATIC_AERCLOUD.get(), 5)
-                .requires(AetherBlocks.ENCHANTED_GRAVITITE.get())
+                .requires(AetherTags.Items.PROCESSED_GRAVITITE)
                 .requires(AetherItems.ZANITE_GEMSTONE.get())
                 .requires(AetherItems.AMBROSIUM_SHARD.get())
                 .requires(DAItems.SKYJADE.get())
@@ -660,6 +664,18 @@ public class DARecipeData extends AetherRecipeProvider {
         enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
     }
 
+    protected ShapedRecipeBuilder makeRing(Supplier<? extends Item> ring, TagKey<Item> material) {
+        return ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ring.get())
+                .define('#', material)
+                .pattern(" # ")
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy(getHasName(material), has(material));
+    }
+
+    protected static String getHasName(TagKey<Item> pItemLike) {
+        return "has_" + pItemLike.location().getPath();
+    }
     protected void copyTemplate(RecipeOutput p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', Items.DIAMOND)
                 .define('C', p_267023_)
@@ -671,7 +687,7 @@ public class DARecipeData extends AetherRecipeProvider {
     }
 
     protected void copyTemplateGravitite(RecipeOutput p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', AetherBlocks.ENCHANTED_GRAVITITE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', AetherTags.Items.PROCESSED_GRAVITITE)
                 .define('C', p_267023_)
                 .define('S', p_267133_)
                 .pattern("#S#")

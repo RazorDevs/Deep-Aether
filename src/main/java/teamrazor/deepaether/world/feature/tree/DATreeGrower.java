@@ -1,8 +1,7 @@
 package teamrazor.deepaether.world.feature.tree;
 
-import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.world.level.block.grower.TreeGrower;
-import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
+import teamrazor.deepaether.datagen.world.DAConfiguredFeatures;
 
 import java.util.Optional;
 

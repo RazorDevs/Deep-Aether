@@ -8,8 +8,6 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.strucutre.DAStructures;
 import teamrazor.deepaether.datagen.strucutre.DAStrucutreSets;
-import teamrazor.deepaether.world.feature.DAConfiguredFeatures;
-import teamrazor.deepaether.world.feature.DAPlacedFeatures;
 
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;

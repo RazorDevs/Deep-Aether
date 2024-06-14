@@ -27,10 +27,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import teamrazor.deepaether.world.biomes.DABiomes;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
-import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
-import teamrazor.deepaether.world.feature.tree.trunk.TrunkUtils;
-
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {

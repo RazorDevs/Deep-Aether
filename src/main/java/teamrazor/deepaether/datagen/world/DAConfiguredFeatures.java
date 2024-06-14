@@ -1,4 +1,4 @@
-package teamrazor.deepaether.world.feature;
+package teamrazor.deepaether.datagen.world;
 
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
@@ -51,6 +51,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.DAFeatureStates;
+import teamrazor.deepaether.world.feature.DAFeatures;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import teamrazor.deepaether.world.feature.features.ConfiguredBoulder;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
