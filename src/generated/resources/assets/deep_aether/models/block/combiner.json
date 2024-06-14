@@ -3,6 +3,6 @@
   "textures": {
     "bottom": "deep_aether:block/combiner_bottom",
     "side": "deep_aether:block/combiner_side",
-    "top": "deep_aether:block/combiner_bottom"
+    "top": "deep_aether:block/combiner_top"
   }
 }

@@ -2,22 +2,19 @@ package teamrazor.deepaether.block.utility;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.block.CombinerBlockEntity;
 import teamrazor.deepaether.init.DABlockEntityTypes;
 
-public class CombinerBlock extends BaseEntityBlock {
+public class CombinerBlock extends AbstractFurnaceBlock {
 
     public static final MapCodec<CombinerBlock> CODEC = simpleCodec(CombinerBlock::new);
 
@@ -43,19 +40,14 @@ public class CombinerBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide()) {
-            BlockEntity entity = pLevel.getBlockEntity(pPos);
+    protected void openContainer(Level level, BlockPos blockPos, Player player) {
+        if (!level.isClientSide()) {
+            BlockEntity entity = level.getBlockEntity(blockPos);
             if(entity instanceof CombinerBlockEntity) {
-                pPlayer.openMenu((CombinerBlockEntity) entity);
-            } else {
-                throw new IllegalStateException("Container provider is missing!");
+                player.openMenu((CombinerBlockEntity) entity);
             }
         }
-        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
-
-
 
     @Nullable
     @Override
