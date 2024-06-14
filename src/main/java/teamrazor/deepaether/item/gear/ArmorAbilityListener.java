@@ -1,4 +1,4 @@
-package teamrazor.deepaether.tags;
+package teamrazor.deepaether.item.gear;
 
 
 import com.aetherteam.aether.event.hooks.AbilityHooks;

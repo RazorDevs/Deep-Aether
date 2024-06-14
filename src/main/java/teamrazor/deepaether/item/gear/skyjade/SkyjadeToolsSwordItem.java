@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import teamrazor.deepaether.DeepAetherConfig;
 import teamrazor.deepaether.init.DATiers;
-import teamrazor.deepaether.tags.SkyjadeWeapon;
 
 public class SkyjadeToolsSwordItem extends SwordItem implements SkyjadeWeapon {
 	public SkyjadeToolsSwordItem() {

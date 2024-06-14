@@ -17,10 +17,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class TwinTrunkPlacer extends TrunkPlacer {
-    public static final Codec<TwinTrunkPlacer> CODEC = RecordCodecBuilder.create((parts) -> trunkPlacerParts(parts).apply(parts, TwinTrunkPlacer::new));
-
-
-
+    public static final Codec<TwinTrunkPlacer> CODEC = RecordCodecBuilder.create((parts)
+            -> trunkPlacerParts(parts).apply(parts, TwinTrunkPlacer::new));
     public TwinTrunkPlacer(int i, int i1, int i2) {
         super(i, i1, i2);
     }

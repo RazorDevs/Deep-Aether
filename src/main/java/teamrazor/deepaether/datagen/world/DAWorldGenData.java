@@ -1,4 +1,4 @@
-package teamrazor.deepaether.datagen;
+package teamrazor.deepaether.datagen.world;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;

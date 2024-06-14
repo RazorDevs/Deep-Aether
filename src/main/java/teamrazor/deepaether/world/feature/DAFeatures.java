@@ -18,7 +18,6 @@ import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfi
 
 public class DAFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, DeepAether.MODID);
-    public static DeferredHolder<Feature<?>, Feature<AercloudConfiguration>> MODIFIED_AERCLOUD = FEATURES.register("aercloud", () -> new ModifiedAercloudFeature(AercloudConfiguration.CODEC));
     public static DeferredHolder<Feature<?>, Feature<FallenTreeConfiguration>> FALLEN_TREE = FEATURES.register("fallen_tree", () -> new FallenTreeFeature(FallenTreeConfiguration.CODEC));
     //public static RegistryObject<Feature<NoneFeatureConfiguration>> ROCKY_BUMPS = FEATURES.register("rocky_bumps", new RockyBumpsFeature(NoneFeatureConfiguration.CODEC));
 

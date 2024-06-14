@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
-import teamrazor.deepaether.world.feature.tree.trunk.TrunkUtils;
 
 public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
     public FallenTreeFeature(Codec<FallenTreeConfiguration> codec) {
@@ -35,7 +34,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
         final int MAX_DEPTH = 4;
 
         //Chooses a random direction
-        Direction direction = TrunkUtils.getRandomDirectionButNotOnTheYAxis(rand);
+        Direction direction = getRandomDirectionButNotOnTheYAxis(rand);
 
         //Checks if the feature can be placed first.
         if(!canPlace(reader, pos))
@@ -145,5 +144,18 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
             if (canPlace(reader, pos.relative(direction.getCounterClockWise())) && !canPlace(reader, pos.relative(direction.getCounterClockWise()).below()))
                 this.setBlock(reader, pos.relative(direction.getClockWise()), block);
         }
+    }
+
+    public static Direction getRandomDirectionButNotOnTheYAxis(RandomSource random) {
+        int a = random.nextInt(3);
+
+        if(a == 0)
+            return Direction.NORTH;
+        else if(a == 1)
+            return Direction.SOUTH;
+        else if(a == 2)
+            return Direction.EAST;
+        else return Direction.WEST;
+
     }
 }

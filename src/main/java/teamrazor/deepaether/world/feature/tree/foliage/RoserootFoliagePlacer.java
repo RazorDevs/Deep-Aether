@@ -25,15 +25,9 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
         return DAFoliagePlacers.ROSEROOT_FOLIAGE_PLACER.get();
     }
 
-
-
     @Override
     protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         BlockPos blockpos = foliageAttachment.pos();
-        int i = randomSource.nextInt(2);
-        int j = 1;
-        int k = 0;
-
         for(int l = randomSource.nextInt(1, 4); l >= 0; --l) {
             this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.above(1+l), 0, 1, foliageAttachment.doubleTrunk());
         }
@@ -93,19 +87,6 @@ public class RoserootFoliagePlacer extends FoliagePlacer {
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(0).above(2));
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(1).above(2));
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(-1).above(2));
-    }
-    public void placeBigCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
-        this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
-
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(-3).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(3).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-3).east(0).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(2).east(-2).above(2));
-        if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(2).above(2));
-
     }
     public void placeBiggerCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
         this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());

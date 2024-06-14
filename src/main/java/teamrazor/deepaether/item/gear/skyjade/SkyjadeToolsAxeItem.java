@@ -5,7 +5,6 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import teamrazor.deepaether.DeepAetherConfig;
-import teamrazor.deepaether.tags.SkyjadeTool;
 
 public class SkyjadeToolsAxeItem extends AxeItem implements SkyjadeTool {
 	public SkyjadeToolsAxeItem(Tier tier, int i, float v, Properties properties) {

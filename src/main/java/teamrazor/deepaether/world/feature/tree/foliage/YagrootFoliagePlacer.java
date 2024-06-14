@@ -12,11 +12,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 
 public class YagrootFoliagePlacer extends FoliagePlacer {
-    public static final Codec<YagrootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> {
-        return foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer) -> {
-            return foliagePlacer.trunkHeight;
-        })).apply(p2, YagrootFoliagePlacer::new);
-    });
+    public static final Codec<YagrootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2)
+            -> foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer)
+            -> foliagePlacer.trunkHeight)).apply(p2, YagrootFoliagePlacer::new));
     private final IntProvider trunkHeight;
 
     public YagrootFoliagePlacer(IntProvider intProvider, IntProvider intProvider1, IntProvider intProvider2) {
@@ -27,9 +25,6 @@ public class YagrootFoliagePlacer extends FoliagePlacer {
     protected FoliagePlacerType<?> type() {
         return DAFoliagePlacers.YAGROOT_FOLIAGE_PLACER.get();
     }
-
-
-
 
     @Override
     protected void createFoliage(LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration configuration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
@@ -47,7 +42,6 @@ public class YagrootFoliagePlacer extends FoliagePlacer {
         this.placeLeavesRow(level,foliageSetter,random,configuration,foliageAttachment.pos(), size2, -1,false);
 
     }
-
 
     public int foliageHeight(RandomSource randomSource, int i, TreeConfiguration treeConfiguration) {
         return Math.max(4, i - this.trunkHeight.sample(randomSource));

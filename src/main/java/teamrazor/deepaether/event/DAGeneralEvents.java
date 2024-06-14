@@ -50,6 +50,11 @@ public class DAGeneralEvents {
     }
 
     @SubscribeEvent
+    public static void onDungeonPlayerAdded(BossFightEvent.AddPlayer event) {
+        ((IPlayerBossFight) event.getPlayer()).deep_Aether$setHasBeenHurt(false);
+    }
+
+    @SubscribeEvent
     public static void onLivingEntityDeath(LivingDeathEvent event) {
         LivingEntity entity = event.getEntity();
         if (entity.getType() == AetherEntityTypes.SLIDER.get() && DeepAether.IsHalloweenContentEnabled()) {
@@ -93,11 +98,6 @@ public class DAGeneralEvents {
                 }
             }
         }
-    }
-
-    @SubscribeEvent
-    public static void onDungeonPlayerAdded(BossFightEvent.AddPlayer event) {
-        ((IPlayerBossFight) event.getPlayer()).deep_Aether$setHasBeenHurt(false);
     }
 
     @SubscribeEvent

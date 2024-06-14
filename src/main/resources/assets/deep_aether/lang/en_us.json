@@ -799,7 +799,10 @@
   "subtitles.deep_aether.entity.quail.hurt": "Quail hurts",
   "subtitles.deep_aether.entity.venomite.ambient": "Venomite buzzes",
   "subtitles.deep_aether.entity.venomite.death": "Venomite dies",
-  "subtitles.deep_aether.entity.venomite.hurt": "Venomite hurts"
+  "subtitles.deep_aether.entity.venomite.hurt": "Venomite hurts",
+
+  "item.deep_aether.skyjade_moa_armor":"Skyjade Moa Armor",
+  "lore.deep_aether.skyjade_moa_armor": "A piece of skyjade armor for your Moa to wear, offering some amount of protection."
 }
 
 
