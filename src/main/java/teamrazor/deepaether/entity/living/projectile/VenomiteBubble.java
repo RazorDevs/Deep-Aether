@@ -3,12 +3,15 @@ package teamrazor.deepaether.entity.living.projectile;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAItems;
 
 public class VenomiteBubble extends ThrowableProjectile {
     private int ticksInAir = 0;
@@ -58,6 +61,7 @@ public class VenomiteBubble extends ThrowableProjectile {
 
     private void explode(){
         level().explode(this, this.getX(),this.getY(),this.getZ(),1, Level.ExplosionInteraction.NONE);
+        level().addFreshEntity(new ItemEntity(level(), this.getX(),this.getY(),this.getZ(), new ItemStack(DAItems.BIO_CRYSTAL.asItem())));
     }
 
 

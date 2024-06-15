@@ -1,13 +1,22 @@
 {
+  "type": "minecraft:entity",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "deep_aether:raw_quail"
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "deep_aether:bio_crystal"
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }
