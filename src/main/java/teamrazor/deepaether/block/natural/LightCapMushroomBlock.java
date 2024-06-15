@@ -12,7 +12,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 public class LightCapMushroomBlock extends MushroomBlock {
     public LightCapMushroomBlock(Properties properties, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-        super(properties, configuredFeature);
+        super(configuredFeature, properties);
     }
 
     @Override
