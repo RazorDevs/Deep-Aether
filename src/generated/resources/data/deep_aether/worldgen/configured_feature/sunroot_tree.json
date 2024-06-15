@@ -52,7 +52,7 @@
         "Name": "deep_aether:sunroot_log",
         "Properties": {
           "axis": "y",
-          "double_drops": "false"
+          "double_drops": "true"
         }
       }
     }

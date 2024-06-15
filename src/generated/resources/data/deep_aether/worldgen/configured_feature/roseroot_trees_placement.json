@@ -20,6 +20,26 @@
     },
     "features": [
       {
+        "chance": 0.01,
+        "feature": {
+          "feature": "deep_aether:huge_lightcap_mushroom",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "deep_aether:roseroot_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
         "chance": 0.33,
         "feature": {
           "feature": "deep_aether:roseroot_tree_large",

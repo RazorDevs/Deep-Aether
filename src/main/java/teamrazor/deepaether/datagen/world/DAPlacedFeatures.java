@@ -36,11 +36,9 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> POISON_SPRING_PLACEMENT = createKey("poison_spring");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> FALLEN_AERGLOW_FOREST = createKey("fallen_aerglow_forest");
-
     public static final ResourceKey<PlacedFeature> EMPTY_FALLEN_AERGLOW_FOREST = createKey("empty_fallen_aerglow_forest");
-
     public static final ResourceKey<PlacedFeature> YAGROOT_SWAMP_TREES_PLACEMENT = createKey("yagroot_swamp_trees_placement");
-
+    public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_MUSHROOM_PLACEMENT = createKey("aerglow_forest_mushroom_placement");
     public static final ResourceKey<PlacedFeature> BLUE_AERGLOW_FOREST_TREES_PLACEMENT = createKey("blue_aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> MYSTIC_AERGLOW_FOREST_TREES_PLACEMENT = createKey("mystic_aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> AERLAVENDER_PATCH = createKey("aerlavender_patch");
@@ -110,6 +108,9 @@ public class DAPlacedFeatures {
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
+
+        register(context, AERGLOW_FOREST_MUSHROOM_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.HUGE_LIGHTCAP_MUSHROOM),
+                AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
 
         register(context, AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_AND_BLUE_ROSEROOT_TREES_PLACEMENT),
                 AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));

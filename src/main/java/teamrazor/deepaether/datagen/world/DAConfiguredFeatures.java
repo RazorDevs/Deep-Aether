@@ -248,9 +248,9 @@ public class DAConfiguredFeatures {
 
         register(context, SUNROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(DABlocks.SUNROOT_LOG.get()),
+                        BlockStateProvider.simple(DAFeatureStates.SUNROOT_LOG),
                         new SunrootTunkPlacer(4, 6, 3),
-                        BlockStateProvider.simple(DABlocks.SUNROOT_LEAVES.get()),
+                        BlockStateProvider.simple(DAFeatureStates.SUNROOT_LEAVES),
                         new RandomSpreadFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), ConstantInt.of(2), 100),
                         new TwoLayersFeatureSize(2, 1, 4)
                 ).decorators(List.of(new SunrootHangerDecorator(0.2f))).ignoreVines().build());
@@ -349,8 +349,9 @@ public class DAConfiguredFeatures {
                         .add(AetherFeatureStates.WHITE_FLOWER, 1)
                         .add(AetherFeatureStates.BERRY_BUSH, 1)), 40));
 
-        register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
+        register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(
+                new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(HUGE_LIGHTCAP_MUSHROOM), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.01F),
+                new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_SMALL), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get()))));
 
         register(context, BLUE_ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
