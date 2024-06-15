@@ -239,7 +239,8 @@ public class DATabs {
                     DABlocks.YAGROOT_LEAVES.get(),
                     DABlocks.CRUDEROOT_LEAVES.get(),
                     DABlocks.CONBERRY_LEAVES.get(),
-                    DABlocks.SUNROOT_LEAVES.get()
+                    DABlocks.SUNROOT_LEAVES.get(),
+                    DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get()
             }, event);
 
             addToTab(AetherBlocks.GOLDEN_OAK_SAPLING.get().asItem(), new Block[]{

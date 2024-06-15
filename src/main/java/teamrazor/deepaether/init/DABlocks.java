@@ -29,6 +29,7 @@ import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.Behaviors.GoldenVines;
+import teamrazor.deepaether.datagen.world.DAConfiguredFeatures;
 import teamrazor.deepaether.world.feature.tree.grower.*;
 
 import java.util.function.Supplier;
@@ -85,8 +86,8 @@ public class DABlocks {
 			BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), DAWoodTypes.ROSEROOT));
 	public static final RegistryObject<Block> ROSEROOT_WALL_HANGING_SIGN = BLOCKS.register("roseroot_wall_hanging_sign", () -> new DAWallHangingSignBlock(
 			BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), DAWoodTypes.ROSEROOT));
-	public static final RegistryObject<Block> LIGHTCAP_MUSHROOMS = registerBlock("lightcap_mushrooms", () -> new LightCapMushroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM), null));
-
+	public static final RegistryObject<Block> LIGHTCAP_MUSHROOMS = registerBlock("lightcap_mushrooms", () -> new LightCapMushroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM), DAConfiguredFeatures.HUGE_LIGHTCAP_MUSHROOM));
+	public static final RegistryObject<Block> LIGHTCAP_MUSHROOM_BLOCK = registerBlock("lightcap_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
 
 
 	//YAGROOT

@@ -307,6 +307,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_HANGER.get()
         );
         tag(BlockTags.MINEABLE_WITH_AXE).add(
+                DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get(),
                 DABlocks.ROSEROOT_WOOD.get(),
                 DABlocks.STRIPPED_ROSEROOT_WOOD.get(),
                 DABlocks.STRIPPED_ROSEROOT_LOG.get(),
