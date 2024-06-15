@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackCompatibility;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -40,7 +39,10 @@ import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.behavior.DADispenseBehaviors;
 import teamrazor.deepaether.block.behavior.DaCauldronInteraction;
-import teamrazor.deepaether.datagen.*;
+import teamrazor.deepaether.datagen.DABlockstateData;
+import teamrazor.deepaether.datagen.DADataMapData;
+import teamrazor.deepaether.datagen.DAItemModelData;
+import teamrazor.deepaether.datagen.DARecipeData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
@@ -70,7 +72,6 @@ import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Calendar;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Mod("deep_aether")
@@ -87,6 +88,7 @@ public class DeepAether {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
+	public static final String MOD_VERSION = "1.1-snapshot-2";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";

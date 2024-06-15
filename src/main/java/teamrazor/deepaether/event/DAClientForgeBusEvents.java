@@ -1,19 +1,25 @@
 package teamrazor.deepaether.event;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.event.ViewportEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.screen.SnapshotScreen;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID,  value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DAClientForgeBusEvents {
+    private static boolean hasShownScreen = false;
 
     // Fog effect to mimic PowderSnow behaviour
     @SubscribeEvent
@@ -33,6 +39,18 @@ public class DAClientForgeBusEvents {
                     event.setFarPlaneDistance(1.8f);
                     event.setCanceled(true);
                 }
+            }
+        }
+    }
+
+
+    @SubscribeEvent(priority = EventPriority.LOW)
+    public static void onGuiOpen(ScreenEvent.Opening event) {
+        if(DeepAether.MOD_VERSION.contains("snapshot")){
+            Screen screen = event.getScreen();
+            if (screen instanceof TitleScreen title && !hasShownScreen) {
+                event.setNewScreen(new SnapshotScreen(title));
+                hasShownScreen = true;
             }
         }
     }
