@@ -669,6 +669,8 @@
   "block.deep_aether.aether_coarse_dirt": "Aether Coarse Dirt",
   "block.deep_aether.lightcap_mushrooms": "Lightcap Mushrooms",
   "lore.block.deep_aether.lightcap_mushrooms": "A type of Aether mushrooms that grow in the Aerglow Forest. Maybe they can be useful?",
+  "block.deep_aether.lightcap_mushroom_block": "Lightcap Mushroom Block",
+  "lore.block.deep_aether.lightcap_mushroom_block": "A block part of a Huge Lightcap Mushroom Tree.",
   "block.deep_aether.sky_tulips": "Sky Tulips",
   "lore.block.deep_aether.sky_tulips": "One of many Aether flowers. It is said to have good effects when eaten.",
   "block.deep_aether.iaspove": "Iaspove",
