@@ -32,7 +32,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.wood((RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_WOOD.get(), (RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.log((RotatedPillarBlock) DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.block(DABlocks.ROSEROOT_PLANKS.get());
-        this.slab((SlabBlock) DABlocks.ROSEROOT_SLAB.get(), DABlocks.ROSEROOT_PLANKS.get());
+        this.slab(DABlocks.ROSEROOT_SLAB.get(), DABlocks.ROSEROOT_PLANKS.get());
         this.stairs((StairBlock) DABlocks.ROSEROOT_STAIRS.get(), DABlocks.ROSEROOT_PLANKS.get());
         this.fence((FenceBlock) DABlocks.ROSEROOT_FENCE.get(), DABlocks.ROSEROOT_PLANKS.get());
         this.fenceGateBlock((FenceGateBlock) DABlocks.ROSEROOT_FENCE_GATE.get(), DABlocks.ROSEROOT_PLANKS.get());

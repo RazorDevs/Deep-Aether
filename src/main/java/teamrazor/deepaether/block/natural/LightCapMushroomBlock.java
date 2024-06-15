@@ -12,7 +12,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 public class LightCapMushroomBlock extends MushroomBlock {
     public LightCapMushroomBlock(Properties properties, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-        super(configuredFeature, properties);
+        super(properties, configuredFeature);
     }
 
     @Override
@@ -27,10 +27,5 @@ public class LightCapMushroomBlock extends MushroomBlock {
         } else {
             return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, this);
         }
-    }
-
-    @Override
-    public boolean isValidBonemealTarget(LevelReader p_255904_, BlockPos p_54871_, BlockState p_54872_) {
-        return false;
     }
 }
