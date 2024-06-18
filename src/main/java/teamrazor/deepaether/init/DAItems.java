@@ -24,6 +24,8 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.compat.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.compat.lost_content.SkyjadeShieldItem;
+import teamrazor.deepaether.item.dungeon.brass.StormBowItem;
+import teamrazor.deepaether.item.dungeon.brass.StormSwordItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.other.*;
@@ -170,22 +172,34 @@ public class DAItems {
 
 	public static final DeferredItem<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
+	//BRASS LOOT
 	public static final DeferredItem<Item> BRASS_DUNGEON_KEY = ITEMS.register("brass_dungeon_key", () -> new DungeonKeyItem(new ResourceLocation(DeepAether.MODID, "brass"), new Item.Properties().stacksTo(1).rarity(AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> STORM_BOW = ITEMS.register("storm_bow", () -> new StormBowItem(new Item.Properties().durability(384)));
+	public static final DeferredItem<Item> STORM_SWORD = ITEMS.register("storm_sword", () -> new StormSwordItem(DATiers.STORM, 3, -2.4F, new Item.Properties().durability(384)));
 
+	//PROTECT YOUR MOA
+	public static final DeferredItem<?> SKYJADE_MOA_ARMOR = registerPYMItem();
 
 	//LOST CONTENT
 	public static final DeferredItem<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
-	public static final DeferredItem<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
+	public static final DeferredItem<Item> STRATUS_SHIELD = ITEMS.register("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
 	public static void setupBucketReplacements() {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
 	}
-
 	private static <T extends Item> DeferredItem<T> registerLostContentItem(String name, Supplier<T> item) {
 		if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
 		}
 		return ITEMS.register(name, item);
+	}
+
+	private static DeferredItem<?>  registerPYMItem() {
+		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
+			return ITEMS.register("skyjade_moa_armor", ()-> new com.aetherteam.protect_your_moa.item.combat.MoaArmorItem(7, new ResourceLocation(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+		}
+		else return ITEMS.register("skyjade_moa_armor", () -> new Item(new Item.Properties()));
 	}
 
 	//For Stratus Template

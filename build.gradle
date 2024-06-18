@@ -68,7 +68,7 @@ repositories {
     maven githubPackage.invoke("The-Aether-Team/The-Aether")
     maven githubPackage.invoke("The-Aether-Team/Nitrogen")
     maven githubPackage.invoke("The-Aether-Team/Cumulus")
-
+    maven githubPackage.invoke("The-Aether-Team/Protect-Your-Moa")
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven {
@@ -126,12 +126,11 @@ dependencies {
     compileOnly("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly("com.legacy:structure-gel:${project.structure_gel_version}")
     compileOnly("curse.maven:aether-redux-867237:${project.aether_redux_version}")
-    compileOnly("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
-    compileOnly("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
-    runtimeOnly("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    compileOnly("mezz.jei:jei-${mc_version}-common-api:${project.jei_version}")
+    compileOnly("mezz.jei:jei-${mc_version}-neoforge:${project.jei_version}")
+    runtimeOnly compileOnly("mezz.jei:jei-${mc_version}-neoforge:${project.jei_version}")
     compileOnly("curse.maven:ancient-aether-886751:${ancient_aether_version}")
-    compileOnly("local:aether_protect_your_moa:1.20.1-1.0.0-neoforge")
-}
+    compileOnly("local:aether_protect_your_moa:${project.protect_your_moa_version}")}
 
 jar {
     manifest {

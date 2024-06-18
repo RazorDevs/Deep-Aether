@@ -413,7 +413,7 @@ public class DABlocks {
 
 	//REDUX COMPATIBILITY
 
-	public static final DeferredBlock<Block> GILDED_HOLYSTONE_BRICKS = registerAetherReduxBlock("gilded_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+	public static final DeferredBlock<Block> GILDED_HOLYSTONE_BRICKS = registerAetherReduxBlockWithLogging("gilded_holystone_bricks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> GILDED_HOLYSTONE_BRICK_STAIRS = registerAetherReduxBlock("gilded_holystone_brick_stairs", () -> new StairBlock(DABlocks.GILDED_HOLYSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> GILDED_HOLYSTONE_BRICK_SLAB = registerAetherReduxBlock("gilded_holystone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> GILDED_HOLYSTONE_BRICK_WALL = registerAetherReduxBlock("gilded_holystone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
@@ -435,7 +435,7 @@ public class DABlocks {
 
 	//GENESIS COMPATIBILITY
 
-	public static final DeferredBlock<WallBlock> ROSEROOT_LOG_WALL = registerAetherGenesisBlock("roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> ROSEROOT_LOG_WALL = registerAetherGenesisBlockWithLogging("roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final DeferredBlock<WallBlock> STRIPPED_ROSEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final DeferredBlock<WallBlock> CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final DeferredBlock<WallBlock> STRIPPED_CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
@@ -483,33 +483,32 @@ public class DABlocks {
 	private static <T extends Block> DeferredItem<Item> registerBlockItemDisabled(String name, DeferredBlock<T> block) {
 		return DAItems.ITEMS.register(name, () -> new DisabledBlockItem(block.get(), new Item.Properties()));
 	}
-	private static <T extends Block> DeferredBlock<Block> registerAetherReduxBlock(String name, Supplier<T> block) {
-		DeferredBlock<Block> toReturn = BLOCKS.register(name, block);
+	private static <T extends Block> DeferredBlock<T> registerAetherReduxBlock(String name, Supplier<T> block) {
+		return registerCompatBlock(DeepAether.AETHER_REDUX, name, block);
+	}
 
-		if(ModList.get().isLoaded(DeepAether.AETHER_REDUX)) {
+	private static <T extends Block> DeferredBlock<T> registerAetherReduxBlockWithLogging(String name, Supplier<T> block) {
+		if(ModList.get().isLoaded(DeepAether.AETHER_REDUX))
 			DeepAether.LOGGER.info("Deep Aether: Registering Aether Redux compat blocks");
-			registerBlockItem(name, toReturn);
-
-		}
-		else
-			registerBlockItemDisabled(name, toReturn);
-
-		return toReturn;
-
+		return registerCompatBlock(DeepAether.AETHER_REDUX, name, block);
 	}
 
 	private static <T extends Block> DeferredBlock<T> registerAetherGenesisBlock(String name, Supplier<T> block) {
-		DeferredBlock<T> toReturn = BLOCKS.register(name, block);
-
-
-		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)) {
+		return registerCompatBlock(DeepAether.AETHER_GENESIS, name, block);
+	}
+	private static <T extends Block> DeferredBlock<T> registerAetherGenesisBlockWithLogging(String name, Supplier<T> block) {
+		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS))
 			DeepAether.LOGGER.info("Deep Aether: Registering Aether Genesis compat blocks");
+		return registerAetherGenesisBlock(name, block);
+	}
+
+	private static <T extends Block> DeferredBlock<T> registerCompatBlock(String modid, String name, Supplier<T> block) {
+		DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+		if(ModList.get().isLoaded(modid)) {
 			registerBlockItem(name, toReturn);
 		}
-		else
-			registerBlockItemDisabled(name, toReturn);
-
-		return  toReturn;
+		else registerBlockItemDisabled(name, toReturn);
+		return toReturn;
 	}
 
 	private static <T extends Block> DeferredBlock<T> registerBlock(int burnTime, String name, Supplier<T> block) {

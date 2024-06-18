@@ -5,6 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.tags.EntityTypeTags;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.DeepAether;
@@ -49,6 +50,13 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
                 AetherEntityTypes.ZEPHYR_SNOWBALL.get(),
                 DAEntities.EOTS_SEGMENT.get(),
                 DAEntities.EOTS_CONTROLLER.get()
+        );
+        tag(Tags.EntityTypes.BOSSES).add(
+                DAEntities.EOTS_SEGMENT.get(),
+                DAEntities.EOTS_CONTROLLER.get()
+        );
+        tag(EntityTypeTags.ARROWS).add(
+                DAEntities.STORM_ARROW.get()
         );
     }
 }

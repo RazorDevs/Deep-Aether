@@ -5,6 +5,7 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.protect_your_moa.item.ProtectItems;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -387,6 +388,10 @@ public class DATabs {
                     DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.AERWHALE_SADDLE.get()
             }, event);
+
+            if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
+                addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), DAItems.SKYJADE_MOA_ARMOR.get(), event);
+            }
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
             addToTab(AetherItems.CANDY_CANE.get(), new Item[]{

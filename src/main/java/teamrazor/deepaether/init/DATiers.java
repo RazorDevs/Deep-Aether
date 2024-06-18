@@ -10,7 +10,9 @@ import java.util.function.Supplier;
 public enum DATiers implements Tier {
     SKYJADE(2, 150, 10.0F, 2.0F, 0, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING)),
     STRATUS(4, 2031, 9.0F, 4.0F, 15,  () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
-    FIRE(0, 500, 0, 2.0F, 0, () -> Ingredient.of(Items.FIRE_CHARGE));
+    FIRE(0, 500, 0, 2.0F, 0, () -> Ingredient.of(Items.FIRE_CHARGE)),
+    STORM(3, 502, 8.0F, 3.0F, 10, () -> Ingredient.of(DATags.Items.STORM_REPAIRING));
+
 
     private final int harvestLevel;
     private final int maxUses;

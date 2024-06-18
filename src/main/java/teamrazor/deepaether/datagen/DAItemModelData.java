@@ -334,6 +334,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.helmetItem(DAItems.SKYJADE_HELMET.get());
         this.glovesItem(DAItems.SKYJADE_GLOVES.get());
         this.item(DAItems.SKYJADE_RING.get());
+        this.item(DAItems.SKYJADE_MOA_ARMOR.get());
 
         //Stratus set
         this.item(DAItems.STRATUS_INGOT.get());
@@ -353,6 +354,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.STRATUS_SMITHING_TEMPLATE.get());
 
         this.item(DAItems.GRAVITITE_RING.get());
+
+        //Brass loot
+        this.item(DAItems.STORM_BOW.get());
+        this.item(DAItems.STORM_SWORD.get());
 
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
