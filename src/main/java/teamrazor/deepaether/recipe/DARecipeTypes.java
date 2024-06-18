@@ -9,7 +9,7 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
-public class DARecipe {
+public class DARecipeTypes {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, DeepAether.MODID);
     public static final DeferredHolder<RecipeType<?>, RecipeType<PoisonRecipe>> POISON_RECIPE = RECIPE_TYPES.register("poison_recipe", () ->
             RecipeType.simple(new ResourceLocation(DeepAether.MODID, "poison_recipe")));

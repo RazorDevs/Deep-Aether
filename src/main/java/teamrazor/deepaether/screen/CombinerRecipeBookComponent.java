@@ -7,12 +7,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
+@OnlyIn(Dist.CLIENT)
 public class CombinerRecipeBookComponent extends RecipeBookComponent {
     private static final Component FILTER_NAME = Component.translatable("gui.deep_aether.recipebook.toggleRecipes.combinable");
+
     private static final WidgetSprites FILTER_SPRITES = new WidgetSprites(
             new ResourceLocation("recipe_book/furnace_filter_enabled"),
             new ResourceLocation("recipe_book/furnace_filter_disabled"),

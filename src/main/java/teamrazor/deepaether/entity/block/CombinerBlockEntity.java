@@ -21,7 +21,7 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlockEntityTypes;
 import teamrazor.deepaether.init.DARecipeBookTypes;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 import teamrazor.deepaether.screen.CombinerMenu;
 
@@ -82,7 +82,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new CombinerMenu(pContainerId, DARecipe.COMBINING.get(), DARecipeBookTypes.COMBINER, pPlayerInventory, this, this.data);
+        return new CombinerMenu(pContainerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.COMBINER, pPlayerInventory, this, this.data);
     }
 
     @Override

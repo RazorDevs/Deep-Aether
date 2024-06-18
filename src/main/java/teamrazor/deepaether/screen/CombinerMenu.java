@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.init.DAMenuTypes;
 import teamrazor.deepaether.init.DARecipeBookTypes;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 
 public class CombinerMenu extends RecipeBookMenu<Container> {
@@ -24,7 +24,7 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
     private final RecipeBookType recipeBookType;
 
     public CombinerMenu(int containerId, Inventory playerInventory) {
-        this(containerId, DARecipe.COMBINING.get(), DARecipeBookTypes.COMBINER, playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
+        this(containerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.COMBINER, playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
     }
 
     public CombinerMenu(int pContainerId, RecipeType<? extends CombinerRecipe> recipeType, RecipeBookType recipeBookType, Inventory inv, Container container, ContainerData data) {

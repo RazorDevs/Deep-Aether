@@ -3,6 +3,7 @@ package teamrazor.deepaether.recipe;
 import net.minecraft.util.StringRepresentable;
 
 public enum DABookCategory implements StringRepresentable {
+    COMBINEABLE_FODDER("combinable_fodder"),
     COMBINEABLE_MISC("combinable_misc");
 
     /**

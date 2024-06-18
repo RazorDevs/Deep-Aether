@@ -1,5 +1,6 @@
 {
   "type": "deep_aether:combining",
+  "category": "combinable_fodder",
   "ingredients": [
     {
       "item": "aether:golden_amber"
@@ -12,7 +13,7 @@
     }
   ],
   "output": {
-    "count": 2,
+    "count": 1,
     "result": "deep_aether:levitation_fodder"
   }
 }

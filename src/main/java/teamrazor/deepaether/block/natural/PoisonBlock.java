@@ -1,7 +1,6 @@
 package teamrazor.deepaether.block.natural;
 
 import com.aetherteam.aether.effect.AetherEffects;
-import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -27,10 +26,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import teamrazor.deepaether.advancement.PoisonTrigger;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DAParticles;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.poison.PoisonRecipe;
-
-import java.util.function.Supplier;
 
 public class PoisonBlock extends LiquidBlock {
 
@@ -81,7 +78,7 @@ public class PoisonBlock extends LiquidBlock {
 
     /**
      * Used to apply inebriation effect to entities and convert items if they have a recipe
-     * See {@link DARecipe} for poison recipe serializer
+     * See {@link DARecipeTypes} for poison recipe serializer
      */
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
@@ -101,7 +98,7 @@ public class PoisonBlock extends LiquidBlock {
 
             //Checks if any poison recipe matches the ingredient
             if (!level.isClientSide()) {
-                for (RecipeHolder<PoisonRecipe> recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
+                for (RecipeHolder<PoisonRecipe> recipe : level.getRecipeManager().getAllRecipesFor(DARecipeTypes.POISON_RECIPE.get())) {
                     if (recipe.value().getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
                         TRANSFORM_ITEM = recipe.value().getResult().getItem();
 

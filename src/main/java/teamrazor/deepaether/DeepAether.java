@@ -54,8 +54,8 @@ import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.networking.attachment.DAAttachments;
 import teamrazor.deepaether.networking.packet.DAPlayerSyncPacket;
 import teamrazor.deepaether.networking.packet.MoaEffectSyncPacket;
-import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.util.BetterBrewingRecipe;
 import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
@@ -131,7 +131,7 @@ public class DeepAether {
 		DAPotions.POTIONS.register(bus);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
-		DARecipe.RECIPE_TYPES.register(bus);
+		DARecipeTypes.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 		DAMenuTypes.MENUS.register(bus);
 		DAAdvancementTriggers.TRIGGERS.register(bus);
@@ -142,7 +142,6 @@ public class DeepAether {
 
 		if (dist == Dist.CLIENT)
 			bus.addListener(DARecipeCategories::registerRecipeCategories);
-
 	}
 
 	public void registerPackets(RegisterPayloadHandlerEvent event) {

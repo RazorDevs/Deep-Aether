@@ -3,9 +3,7 @@ package teamrazor.deepaether.recipe.poison;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -13,14 +11,14 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.common.crafting.CraftingHelper;
 import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.recipe.DARecipe;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 
 import javax.annotation.Nullable;
 
 public class PoisonRecipe extends AbstractPoisonRecipe {
     public PoisonRecipe(String group, Ingredient ingredient, ItemStack result) {
-        super(DARecipe.POISON_RECIPE.get(), group, ingredient, result);
+        super(DARecipeTypes.POISON_RECIPE.get(), group, ingredient, result);
     }
 
     public ItemStack getToastSymbol() {
