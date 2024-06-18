@@ -25,6 +25,6 @@ public class DARecipeCategories {
         // Combination
         event.registerBookCategories(DARecipeBookTypes.COMBINER, ImmutableList.of(COMBINATION_SEARCH.get(), COMBINATION_MISC.get()));
         event.registerAggregateCategory(COMBINATION_SEARCH.get(), ImmutableList.of(COMBINATION_MISC.get()));
-        event.registerRecipeCategoryFinder(DARecipe.COMBINER_RECIPE.get(), recipe -> COMBINATION_MISC.get());
+        event.registerRecipeCategoryFinder(DARecipe.COMBINING.get(), recipe -> COMBINATION_MISC.get());
     }
 }

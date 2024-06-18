@@ -139,7 +139,10 @@ public class DeepAether {
 		DAPlacementModifiers.PLACEMENT_MODIFIERS.register(bus);
 		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
-		bus.addListener(DARecipeCategories::registerRecipeCategories);
+
+		if (dist == Dist.CLIENT)
+			bus.addListener(DARecipeCategories::registerRecipeCategories);
+
 	}
 
 	public void registerPackets(RegisterPayloadHandlerEvent event) {

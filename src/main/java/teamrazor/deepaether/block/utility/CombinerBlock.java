@@ -56,7 +56,7 @@ public class CombinerBlock extends AbstractFurnaceBlock {
             return null;
         }
 
-        return createTickerHelper(pBlockEntityType, DABlockEntityTypes.COMBINER_BE.get(),
+        return createTickerHelper(pBlockEntityType, DABlockEntityTypes.COMBINER.get(),
                 (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
     }
 

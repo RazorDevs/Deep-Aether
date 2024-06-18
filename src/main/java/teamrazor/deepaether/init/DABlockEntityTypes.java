@@ -29,8 +29,8 @@ public class DABlockEntityTypes {
                     DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), DABlocks.SUNROOT_HANGING_SIGN.get()
             ).build(null));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CombinerBlockEntity>> COMBINER_BE =
-            BLOCK_ENTITY_TYPES.register("combiner_be", () ->
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CombinerBlockEntity>> COMBINER =
+            BLOCK_ENTITY_TYPES.register("combiner", () ->
                     BlockEntityType.Builder.of(CombinerBlockEntity::new,
                             DABlocks.COMBINER.get()).build(null));
 }

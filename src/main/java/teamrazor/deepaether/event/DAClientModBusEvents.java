@@ -65,6 +65,8 @@ public class DAClientModBusEvents {
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 AddonItemModelPredicates.init();
             }
+
+            MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
         });
     }
 

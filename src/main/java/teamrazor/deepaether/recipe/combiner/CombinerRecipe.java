@@ -15,19 +15,28 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.recipe.DABookCategory;
+import teamrazor.deepaether.recipe.DARecipeSerializers;
 
 import java.util.List;
 
 public class CombinerRecipe implements Recipe<SimpleContainer> {
-
+    private final DABookCategory category;
     public final List<Ingredient> inputItems;
     public final ItemStack output;
 
     public CombinerRecipe(List<Ingredient> inputItems, ItemStack output) {
         this.inputItems = inputItems;
         this.output = output;
+        this.category = DABookCategory.COMBINEABLE_MISC;
     }
 
+    /*
+    public CombinerRecipe(DABookCategory daBookCategory, List<Ingredient> ingredients, ItemStack itemStack) {
+        this(ingredients, itemStack);
+    }
+    */
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
         if(pLevel.isClientSide())
@@ -36,6 +45,10 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         return testEachSlot(pContainer, inputItems.get(0))
                 && testEachSlot(pContainer, inputItems.get(1))
                 && testEachSlot(pContainer, inputItems.get(2));
+    }
+
+    public DABookCategory daCategory() {
+        return this.category;
     }
 
     /**
@@ -66,12 +79,18 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+        return DARecipeSerializers.COMBINING.get();
     }
 
     @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
+    }
+
+
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(DABlocks.COMBINER.get());
     }
 
     public static class Type implements RecipeType<CombinerRecipe> {
@@ -84,6 +103,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
 
         private static final Codec<CombinerRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+                //DABookCategory.CODEC.fieldOf("category").forGetter(CombinerRecipe::daCategory),
                 Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter((recipe) -> recipe.inputItems),
                 ItemStack.RESULT_CODEC.fieldOf("output").forGetter((recipe) -> recipe.output)
         ).apply(instance, CombinerRecipe::new));
