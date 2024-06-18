@@ -377,7 +377,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemLogWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAether.MODID);
 
         //Protect Your Moa Compat
-        this.item(DAItems.SKYJADE_MOA_ARMOR.get());
+        this.item((Item) DAItems.SKYJADE_MOA_ARMOR.get());
 
     }
 

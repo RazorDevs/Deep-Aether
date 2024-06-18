@@ -157,7 +157,7 @@ public class DAItems {
 	public static final RegistryObject<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
 	//PROTECT YOUR MOA
-	public static final RegistryObject<Item> SKYJADE_MOA_ARMOR = registerPYMItem();
+	public static final RegistryObject<?> SKYJADE_MOA_ARMOR = registerPYMItem();
 	//LOST CONTENT
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
@@ -178,7 +178,7 @@ public class DAItems {
 		return ITEMS.register(name, item);
 	}
 
-	private static RegistryObject<Item> registerPYMItem() {
+	private static RegistryObject<?> registerPYMItem() {
 		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
 			return ITEMS.register("skyjade_moa_armor", ()-> new MoaArmorItem(7, new ResourceLocation(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));

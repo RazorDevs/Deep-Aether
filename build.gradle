@@ -149,8 +149,8 @@ dependencies {
     }
 
     //Optional Dependencies
-    implementation fg.deobf("com.aetherteam.protect-your-moa:aether_protect_your_moa:${project.protect_your_moa_version}")
-    implementation fg.deobf("com.aetherteam.emissivity:aether_emissivity:${project.emissivity_version}")
+    compileOnly fg.deobf("com.aetherteam.protect-your-moa:aether_protect_your_moa:${project.protect_your_moa_version}")
+    compileOnly fg.deobf("com.aetherteam.emissivity:aether_emissivity:${project.emissivity_version}")
     compileOnly fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     compileOnly fg.deobf("com.legacy:structure-gel:${project.structure_gel_version}")
     compileOnly fg.deobf("curse.maven:aether-redux-867237:${project.aether_redux_version}")

@@ -385,7 +385,7 @@ public class DATabs {
             }, event);
 
             if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
-                addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), DAItems.SKYJADE_MOA_ARMOR.get(), event);
+                addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), (Item) DAItems.SKYJADE_MOA_ARMOR.get(), event);
             }
         }
 
