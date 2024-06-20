@@ -12,9 +12,8 @@
 
 # What is this about?
 
-The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.4 and beyond.
-It aims to add lots of new features to give players a chance to venture deeper into the Aether dimension, while also maintaining its original style.
-Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatment.
+The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.2 and beyond.
+It aims to add lots of new features to give players a chance to venture deeper into the Aether dimension, giving the Aether the "1.16 Nether Expansion Update" treatment.
  
  # What is new?
 
@@ -68,20 +67,13 @@ New Dungeon Loot:
 New Liquid:
  - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
 
-Mod Cross Compat:
- - Aether Lost Content
-    - Skyjade and Cloudium Shields
- - Aether Redux
-    - Brick and Tile variants for Gilded, Frosted, and Blightmoss Holystone
 
 # Requirements
 
 You'll need of course:
- - Forge
- - Aeroblender - This mod is **REQUIRED** for the biomes to work!!
- - The Aether Mod (The 1.19.4 version)
- 
- You will also need:
+ - Forge/NeoForge
+ - Aeroblender
+ - The Aether
  - GeckoLib
 
  
@@ -104,7 +96,7 @@ __Q: I am interested in joining your team to help with the development of the mo
 
 # Credits
 
-The rights to this mod belong to The Aether Team and all its developers, and the devs of Team Razor, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo and background by Aethyus. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
+The credits to this mod belong to RazorDevs, 345boneshoss, Aethyus, TunefulTurnip, and darksonic300. Logo and background by Aethyus. Music rights go to Emile van Krieken. Also thanks to careful#4376 (discord name) for contributing art.
 
 
 # Former Members
