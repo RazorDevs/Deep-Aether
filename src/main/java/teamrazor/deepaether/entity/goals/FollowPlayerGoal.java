@@ -14,21 +14,16 @@ public class FollowPlayerGoal extends Goal {
     private final TargetingConditions targetingConditions;
     protected final PathfinderMob mob;
     private final double speedModifier;
-    private double px;
-    private double py;
-    private double pz;
-    private double pRotX;
-    private double pRotY;
+    private double heightDifference;
     @Nullable
     protected Player player;
     private int calmDown;
     private boolean isRunning;
-    private final boolean canScare;
 
-    public FollowPlayerGoal(PathfinderMob mob, double v, boolean b) {
+    public FollowPlayerGoal(PathfinderMob mob, double speedMod, double heightDifference) {
         this.mob = mob;
-        this.speedModifier = v;
-        this.canScare = b;
+        this.speedModifier = speedMod;
+        this.heightDifference = heightDifference;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
         this.targetingConditions = TEMP_TARGETING.copy().selector(this::shouldFollow);
     }
@@ -39,7 +34,7 @@ public class FollowPlayerGoal extends Goal {
             return false;
         } else {
             this.player = this.mob.level().getNearestPlayer(targetingConditions, this.mob);
-            return this.player != null && !this.player.isCreative();
+            return this.player != null && !this.player.isCreative() && !this.player.isInWater();
         }
     }
 
@@ -48,37 +43,12 @@ public class FollowPlayerGoal extends Goal {
     }
 
     public boolean canContinueToUse() {
-        if (this.canScare()) {
-            if (this.mob.distanceToSqr(this.player) < 36.0D) {
-                if (this.player.distanceToSqr(this.px, this.py, this.pz) > 0.010000000000000002D) {
-                    return false;
-                }
-
-                if (Math.abs((double)this.player.getXRot() - this.pRotX) > 5.0D || Math.abs((double)this.player.getYRot() - this.pRotY) > 5.0D) {
-                    return false;
-                }
-            } else {
-                this.px = this.player.getX();
-                this.py = this.player.getY();
-                this.pz = this.player.getZ();
-            }
-
-            this.pRotX = (double)this.player.getXRot();
-            this.pRotY = (double)this.player.getYRot();
-        }
-
         return this.canUse();
     }
 
-    protected boolean canScare() {
-        return this.canScare;
-    }
-
     public void start() {
-        this.px = this.player.getX();
-        this.py = this.player.getY();
-        this.pz = this.player.getZ();
         this.isRunning = true;
+        this.mob.setNoGravity(true);
     }
 
     public void stop() {
@@ -91,11 +61,10 @@ public class FollowPlayerGoal extends Goal {
     public void tick() {
         this.mob.getLookControl().setLookAt(this.player, (float)(this.mob.getMaxHeadYRot() + 20), (float)this.mob.getMaxHeadXRot());
         if (this.mob.distanceToSqr(this.player) < 6.25D) {
-            this.mob.getNavigation().stop();
+            this.mob.getNavigation().moveTo(this.mob.getX(), this.player.getY() + heightDifference, this.mob.getZ(), this.speedModifier);
         } else {
-            this.mob.getNavigation().moveTo(this.player, this.speedModifier);
+            this.mob.getNavigation().moveTo(this.player.getX(), this.player.getY() + heightDifference, this.player.getZ(), this.speedModifier);
         }
-
     }
 
     public boolean isRunning() {

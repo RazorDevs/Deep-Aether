@@ -8,6 +8,8 @@ import net.minecraft.world.entity.player.Inventory;
 import teamrazor.deepaether.DeepAether;
 
 public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> {
+    //TODO: Make RecipeBook recipes work
+
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui.png");
 
