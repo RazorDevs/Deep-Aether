@@ -9,24 +9,32 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.init.DAMenuTypes;
 import teamrazor.deepaether.init.DARecipeBookTypes;
+import teamrazor.deepaether.recipe.DARecipeTypes;
+import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 
 public class CombinerMenu extends RecipeBookMenu<Container> {
     private final Level level;
     private final ContainerData data;
     private final Container container;
+    private final RecipeType<? extends CombinerRecipe> recipeType;
+    private final RecipeBookType recipeBookType;
+
     public CombinerMenu(int containerId, Inventory playerInventory) {
-        this(containerId, playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
+        this(containerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.COMBINER, playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
     }
 
-    public CombinerMenu(int pContainerId, Inventory inv, Container container, ContainerData data) {
+    public CombinerMenu(int pContainerId, RecipeType<? extends CombinerRecipe> recipeType, RecipeBookType recipeBookType, Inventory inv, Container container, ContainerData data) {
         super(DAMenuTypes.COMBINER_MENU.get(), pContainerId);
         checkContainerSize(inv, 4);
         this.level = inv.player.level();
         this.data = data;
         this.container = container;
+        this.recipeType = recipeType;
+        this.recipeBookType = recipeBookType;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -160,7 +168,7 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
 
     @Override
     public RecipeBookType getRecipeBookType() {
-        return DARecipeBookTypes.COMBINER;
+        return this.recipeBookType;
     }
 
     @Override

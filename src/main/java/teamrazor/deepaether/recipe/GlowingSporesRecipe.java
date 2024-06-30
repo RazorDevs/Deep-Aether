@@ -19,7 +19,7 @@ import java.util.Optional;
 public class GlowingSporesRecipe extends AbstractBlockStateRecipe implements MatchEventRecipe {
 
     public GlowingSporesRecipe(BlockStateIngredient ingredient, BlockPropertyPair result, Optional<ResourceLocation> functionId) {
-        super(DARecipe.GLOWING_SPORES_RECIPE.get(), ingredient, result, functionId);
+        super(DARecipeTypes.GLOWING_SPORES_RECIPE.get(), ingredient, result, functionId);
     }
 
     @Override

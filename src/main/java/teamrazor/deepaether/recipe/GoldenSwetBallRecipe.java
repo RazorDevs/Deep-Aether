@@ -19,7 +19,7 @@ import java.util.Optional;
 public class GoldenSwetBallRecipe extends AbstractBlockStateRecipe implements MatchEventRecipe {
 
     public GoldenSwetBallRecipe(BlockStateIngredient ingredient, BlockPropertyPair result, Optional<ResourceLocation> functionId) {
-        super(DARecipe.GOLDEN_SWET_BALL_RECIPE.get(), ingredient, result, functionId);
+        super(DARecipeTypes.GOLDEN_SWET_BALL_RECIPE.get(), ingredient, result, functionId);
     }
 
     @Override

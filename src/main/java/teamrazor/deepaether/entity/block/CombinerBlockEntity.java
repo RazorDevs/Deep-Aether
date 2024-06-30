@@ -20,6 +20,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlockEntityTypes;
+import teamrazor.deepaether.init.DARecipeBookTypes;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 import teamrazor.deepaether.screen.CombinerMenu;
 
@@ -38,7 +40,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
     private int maxProgress = 78;
 
     public CombinerBlockEntity(BlockPos pPos, BlockState pBlockState) {
-            super(DABlockEntityTypes.COMBINER_BE.get(), pPos, pBlockState);
+            super(DABlockEntityTypes.COMBINER.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
@@ -80,7 +82,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new CombinerMenu(pContainerId, pPlayerInventory, this, this.data);
+        return new CombinerMenu(pContainerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.COMBINER, pPlayerInventory, this, this.data);
     }
 
     @Override

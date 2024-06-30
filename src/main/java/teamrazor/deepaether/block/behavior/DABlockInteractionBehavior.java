@@ -1,9 +1,7 @@
 package teamrazor.deepaether.block.behavior;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.nitrogen.recipe.recipes.BlockStateRecipe;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,7 +18,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
@@ -39,14 +36,9 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.natural.GlowingGrassBlock;
 import teamrazor.deepaether.block.natural.GlowingVineBlock;
-import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.recipe.DARecipe;
-import teamrazor.deepaether.recipe.GoldenSwetBallRecipe;
-
-import java.util.Iterator;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class DABlockInteractionBehavior {

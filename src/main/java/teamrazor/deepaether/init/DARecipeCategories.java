@@ -6,25 +6,34 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.client.event.RegisterRecipeBookCategoriesEvent;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DABookCategory;
+import teamrazor.deepaether.recipe.DARecipeTypes;
+import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 
+@OnlyIn(Dist.CLIENT)
 public class DARecipeCategories {
 
-    public static final Supplier<RecipeBookCategories> COMBINATION_SEARCH = Suppliers.memoize(() -> RecipeBookCategories.create("COMBINATION_SEARCH", new ItemStack(Items.COMPASS)));
-    public static final Supplier<RecipeBookCategories> COMBINATION_MISC = Suppliers.memoize(() -> RecipeBookCategories.create("COMBINATION_MISC", new ItemStack(DAItems.ANTIDOTE.get())));
+    public static final Supplier<RecipeBookCategories> COMBINEABLE_SEARCH = Suppliers.memoize(() -> RecipeBookCategories.create("COMBINEABLE_SEARCH", new ItemStack(Items.COMPASS)));
+    public static final Supplier<RecipeBookCategories> COMBINEABLE_FODDER = Suppliers.memoize(() -> RecipeBookCategories.create("COMBINEABLE_FODDER", new ItemStack(DAItems.FIRE_RES_FODDER.get())));
+    public static final Supplier<RecipeBookCategories> COMBINEABLE_MISC = Suppliers.memoize(() -> RecipeBookCategories.create("COMBINEABLE_MISC", new ItemStack(DAItems.ANTIDOTE.get())));
 
     /**
      * Registers the mod's categories to be used in-game, along with functions to sort items.
      * To add sub-categories to be used by the search, use addAggregateCategories with the
      * search category as the first parameter.
-     *
-     * @see AetherClient#eventSetup()
      */
     public static void registerRecipeCategories(RegisterRecipeBookCategoriesEvent event) {
         // Combination
-        event.registerBookCategories(DARecipeBookTypes.COMBINER, ImmutableList.of(COMBINATION_SEARCH.get(), COMBINATION_MISC.get()));
-        event.registerAggregateCategory(COMBINATION_SEARCH.get(), ImmutableList.of(COMBINATION_MISC.get()));
-        event.registerRecipeCategoryFinder(DARecipe.COMBINER_RECIPE.get(), recipe -> COMBINATION_MISC.get());
+        event.registerBookCategories(DARecipeBookTypes.COMBINER, ImmutableList.of(COMBINEABLE_SEARCH.get(), COMBINEABLE_FODDER.get(), COMBINEABLE_MISC.get()));
+        event.registerAggregateCategory(COMBINEABLE_SEARCH.get(), ImmutableList.of(COMBINEABLE_FODDER.get(), COMBINEABLE_MISC.get()));
+        event.registerRecipeCategoryFinder(DARecipeTypes.COMBINING.get(), recipe -> {
+            if (recipe.value() instanceof CombinerRecipe combinerRecipe)
+                if (combinerRecipe.daCategory() == DABookCategory.COMBINEABLE_FODDER)
+                    return COMBINEABLE_FODDER.get();
+            return COMBINEABLE_MISC.get();
+        });
     }
 }

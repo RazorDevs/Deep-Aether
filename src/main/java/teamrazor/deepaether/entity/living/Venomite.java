@@ -43,8 +43,8 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
-import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 import teamrazor.deepaether.entity.goals.FollowPlayerGoal;
+import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
 
@@ -89,18 +89,17 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
         this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
     }
 
-    public float getWalkTargetValue(BlockPos p_27788_, LevelReader blockState) {
-        return blockState.getBlockState(p_27788_).isAir() ? 10.0F : 0.0F;
+    public float getWalkTargetValue(BlockPos state, LevelReader blockState) {
+        return blockState.getBlockState(state).isAir() ? 10.0F : 0.0F;
     }
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new VenomiteAttackGoal(this, (double)1.4F, true));
-        this.goalSelector.addGoal(1, new FollowPlayerGoal(this, 1.0, false));
+        this.goalSelector.addGoal(1, new FollowPlayerGoal(this, 1.0, 1));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomFlyingGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new FloatGoal(this));
-        this.targetSelector.addGoal(1, (new VenomiteHurtByOtherGoal(this)).setAlertOthers(new Class[0]));
-        this.targetSelector.addGoal(1, (new VenomiteHurtByOtherGoal(this)).setAlertOthers());
 
+        this.targetSelector.addGoal(1, (new VenomiteHurtByOtherGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new VenomiteBecomeAngryTargetGoal(this));
         this.targetSelector.addGoal(3, new ResetUniversalAngerTargetGoal<>(this, true));
     }
@@ -139,15 +138,8 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     }
 
     protected PathNavigation createNavigation(Level level) {
-        FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, level) {
-            public boolean isStableDestination(BlockPos blockPos) {
-                return !this.level.getBlockState(blockPos.below()).isAir();
-            }
-        };
-
-        flyingpathnavigation.setCanOpenDoors(false);
-        flyingpathnavigation.setCanFloat(false);
-        flyingpathnavigation.setCanPassDoors(true);
+        FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, level);
+        flyingpathnavigation.setCanFloat(true);
         return flyingpathnavigation;
     }
 
@@ -285,7 +277,6 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
-
 
 
     class VenomiteAttackGoal extends MeleeAttackGoal {

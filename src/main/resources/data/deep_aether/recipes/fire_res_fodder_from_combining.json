@@ -1,5 +1,6 @@
 {
-  "type": "deep_aether:combiner_recipe",
+  "type": "deep_aether:combining",
+  "category": "combinable_fodder",
   "ingredients": [
     {
       "item": "aether:golden_amber"
@@ -13,6 +14,6 @@
   ],
   "output": {
     "count": 2,
-    "result": "deep_aether:jump_fodder"
+    "result": "deep_aether:fire_res_fodder"
   }
 }

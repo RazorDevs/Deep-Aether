@@ -15,17 +15,20 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.recipe.DABookCategory;
 
 import java.util.List;
 
 public class CombinerRecipe implements Recipe<SimpleContainer> {
-
+    private final DABookCategory category;
     public final List<Ingredient> inputItems;
     public final ItemStack output;
 
-    public CombinerRecipe(List<Ingredient> inputItems, ItemStack output) {
+    public CombinerRecipe(DABookCategory daBookCategory, List<Ingredient> inputItems, ItemStack output) {
         this.inputItems = inputItems;
         this.output = output;
+        this.category = daBookCategory;
     }
 
     @Override
@@ -36,6 +39,10 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         return testEachSlot(pContainer, inputItems.get(0))
                 && testEachSlot(pContainer, inputItems.get(1))
                 && testEachSlot(pContainer, inputItems.get(2));
+    }
+
+    public DABookCategory daCategory() {
+        return this.category;
     }
 
     /**
@@ -74,6 +81,11 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(DABlocks.COMBINER.get());
+    }
+
     public static class Type implements RecipeType<CombinerRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "combining";
@@ -84,6 +96,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
 
         private static final Codec<CombinerRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+                DABookCategory.CODEC.fieldOf("category").forGetter(CombinerRecipe::daCategory),
                 Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter((recipe) -> recipe.inputItems),
                 ItemStack.RESULT_CODEC.fieldOf("output").forGetter((recipe) -> recipe.output)
         ).apply(instance, CombinerRecipe::new));
@@ -96,6 +109,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         @Nullable
         @Override
         public CombinerRecipe fromNetwork(FriendlyByteBuf buffer) {
+            DABookCategory daBookCategory = buffer.readEnum(DABookCategory.class);
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
@@ -103,11 +117,12 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
             }
 
             ItemStack output = buffer.readItem();
-            return new CombinerRecipe(inputs, output);
+            return new CombinerRecipe(daBookCategory, inputs, output);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, CombinerRecipe recipe) {
+            buffer.writeEnum(recipe.daCategory());
             buffer.writeInt(recipe.inputItems.size());
 
             for (Ingredient ingredient : recipe.getIngredients()) {

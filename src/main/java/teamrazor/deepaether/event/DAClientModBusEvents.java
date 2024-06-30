@@ -3,7 +3,6 @@ package teamrazor.deepaether.event;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
-import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.particle.CherryParticle;
@@ -51,7 +50,6 @@ public class DAClientModBusEvents {
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
 
-        MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
         LoreBookMenu.addLoreEntryOverride(stack -> stack.is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
 
 
@@ -65,6 +63,8 @@ public class DAClientModBusEvents {
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 AddonItemModelPredicates.init();
             }
+
+            MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
         });
     }
 
