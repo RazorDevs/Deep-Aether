@@ -350,14 +350,19 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.helmetItem(DAItems.STRATUS_HELMET.get());
         this.glovesItem(DAItems.STRATUS_GLOVES.get());
 
+        this.bootsItem(DAItems.STORMFORGED_BOOTS.get());
+        this.leggingsItem(DAItems.STORMFORGED_LEGGINGS.get());
+        this.chestplateItem(DAItems.STORMFORGED_CHESTPLATE.get());
+        this.helmetItem(DAItems.STORMFORGED_HELMET.get());
+
         this.item(DAItems.STRATUS_RING.get());
         this.item(DAItems.STRATUS_SMITHING_TEMPLATE.get());
 
         this.item(DAItems.GRAVITITE_RING.get());
 
         //Brass loot
-        this.item(DAItems.STORM_BOW.get());
-        this.item(DAItems.STORM_SWORD.get());
+        this.bowItem(DAItems.STORM_BOW.get());
+        this.handheldItem(DAItems.STORM_SWORD.get());
 
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
@@ -536,12 +541,22 @@ public class DAItemModelData extends AetherItemModelProvider {
             this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", new ResourceLocation(Aether.MODID,"trims/items/gloves_trim_" + material));
             builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
-
+    }
+    public void bowItem(Item item) {
+        this.withExistingParent(this.itemName(item) + "_pulling_0", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_0"));
+        this.withExistingParent(this.itemName(item) + "_pulling_1", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_1"));
+        this.withExistingParent(this.itemName(item) + "_pulling_2", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_2"));
+        this.withExistingParent(this.itemName(item), this.mcLoc("item/bow"))
+                .texture("layer0", this.modLoc("item/" + this.itemName(item)))
+                .override().predicate(new ResourceLocation("pulling"), 1).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0"))).end()
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.65F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1"))).end()
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.9F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2"))).end();
     }
 
+
     public void itemOverlayDungeonBlock(Block block, Block baseBlock, String overlay) {
-        ((ItemModelBuilder)((ItemModelBuilder)((ItemModelBuilder)((ItemModelBuilder)((ItemModelBuilder)this.withExistingParent(this.blockName(block), this.mcLoc("block/cube"))).texture("overlay", new ResourceLocation("aether", "block/dungeon/" + overlay))).texture("face", this.texture(this.blockName(baseBlock)))).element().from(0.0F, 0.0F, 0.0F).to(16.0F, 16.0F, 16.0F).allFaces((direction, builder) -> {
+        this.withExistingParent(this.blockName(block), this.mcLoc("block/cube")).texture("overlay", new ResourceLocation("aether", "block/dungeon/" + overlay)).texture("face", this.texture(this.blockName(baseBlock))).element().from(0.0F, 0.0F, 0.0F).to(16.0F, 16.0F, 16.0F).allFaces((direction, builder) -> {
             builder.texture("#face").cullface(direction).end();
-        }).end()).element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end()).transforms().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.GROUND).rotation(90.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end().transform(ItemDisplayContext.GUI).rotation(30.0F, 135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end().transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end().end();
+        }).end().element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end().transforms().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.GROUND).rotation(90.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end().transform(ItemDisplayContext.GUI).rotation(30.0F, 135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end().transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end().end();
     }
 }

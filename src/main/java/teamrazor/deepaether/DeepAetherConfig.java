@@ -76,7 +76,7 @@ public class DeepAetherConfig {
             stratus_dash_cooldown = builder
                     .comment("The cooldown of the stratus dash. Set to a value below zero to disable the cooldown.")
                     .translation("config.deep_aether.common.stratus_dash_cooldown")
-                    .define("Stratus dash cooldown", -1);
+                    .define("Stratus dash cooldown", 5);
             builder.pop();
 
             builder.push("Biomes");

@@ -143,7 +143,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
     public boolean hurt(DamageSource source, float amount) {
         if (source.is(DamageTypeTags.BYPASSES_INVULNERABILITY))
             return super.hurt(source, amount);
-        else if (!this.isBossFight()) {
+        else if (!this.isBossFight() && source.getDirectEntity() != null && source.getDirectEntity().getType() == EntityType.PLAYER) {
             this.start();
             return false;
         }
@@ -152,7 +152,7 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.invulnerableTime = 0;
             return hasBeenHurt;
         }
-        else if (source.getEntity() != null && source.getEntity().is(this)) {
+        else if (source.getEntity() != null && source.getEntity().is(this) && this.isBossFight()) {
             return super.hurt(source, amount);
         }
         else return false;
@@ -265,7 +265,6 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.bossFight.addPlayer(player);
             AetherEventDispatch.onBossFightPlayerAdd(this, this.getDungeon(), player);
         }
-
     }
 
     @Override

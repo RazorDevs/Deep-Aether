@@ -33,6 +33,7 @@ public class DASounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ACCESSORY_ABILITY_SLIDER_EYE = register("item.accessory.ability_slider_eye");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR = register("item.accessory.equip_medal_of_honor");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_AFTERBURNER_FIRES = register("item.tool.afterburner_fires");
+	public static final DeferredHolder<SoundEvent, SoundEvent> DEEP_AETHER_MUSIC = register("music.deep_aether");
 
 	private static DeferredHolder<SoundEvent, SoundEvent> register(String name) {
 		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAether.MODID, name)));

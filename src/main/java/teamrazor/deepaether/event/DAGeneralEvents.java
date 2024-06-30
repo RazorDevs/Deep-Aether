@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -32,6 +33,7 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.networking.attachment.DAAttachments;
 
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onEntityJoin(EntityJoinLevelEvent event) {
-        if(event.getEntity() instanceof Moa moa) {
+        if (event.getEntity() instanceof Moa moa) {
             moa.getData(DAAttachments.MOA_EFFECT).onJoinLevel(moa);
         }
     }
@@ -62,7 +64,7 @@ public class DAGeneralEvents {
         }
 
         //For flawless boss drop system
-        if(entity instanceof AetherBossMob<?> bossMob) {
+        if (entity instanceof AetherBossMob<?> bossMob) {
             Level level = entity.level();
 
             //Checks if boss has been defeated
@@ -101,11 +103,10 @@ public class DAGeneralEvents {
     }
 
     @SubscribeEvent
-    public static void onShieldBlock(ShieldBlockEvent event)
-    {
+    public static void onShieldBlock(ShieldBlockEvent event) {
         var blocker = event.getEntity();
         DamageSource source = event.getDamageSource();
-        if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
+        if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
             if (blocker.getUseItem().is(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields")))) {
                 blocker.level().playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level().random.nextFloat() * 0.4F);
 
@@ -122,7 +123,7 @@ public class DAGeneralEvents {
     public static void onEffectRemoved(MobEffectEvent.Remove effectEvent) {
         LivingEntity entity = effectEvent.getEntity();
         MobEffect effect = effectEvent.getEffect();
-        if(entity instanceof Moa moa && effect.equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
+        if (entity instanceof Moa moa && effect.equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
             MoaBonusJump moaBonusJump = (MoaBonusJump) moa;
             moaBonusJump.deep_Aether$setBonusJumps(0);
         }
@@ -130,8 +131,8 @@ public class DAGeneralEvents {
 
 
     @SubscribeEvent
-    public static void applyValkyrieValorRes(LivingDamageEvent event){
-        if(event.getSource().getEntity() instanceof LivingEntity undead) {
+    public static void applyValkyrieValorRes(LivingDamageEvent event) {
+        if (event.getSource().getEntity() instanceof LivingEntity undead) {
             if (event.getEntity().hasEffect(DAMobEffects.VALKYRIE_VALOR.get()) && !event.getSource().is(DamageTypeTags.BYPASSES_RESISTANCE) && undead.getMobType() == MobType.UNDEAD) {
                 int j = 10;
                 float f = event.getAmount() * (float) j;
@@ -155,10 +156,21 @@ public class DAGeneralEvents {
      */
 
     public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
+
     @SubscribeEvent
     public static void onLivingEntityHurt(LivingHurtEvent event) {
-        if(event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
+        if (event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
             ((IPlayerBossFight) player).deep_Aether$setHasBeenHurt(true);
         }
+        if (event.getSource().getDirectEntity() != null && event.getSource().getDirectEntity() instanceof LivingEntity target) {
+            if (EquipmentUtil.hasFullStormsteelSet(event.getEntity())) {
+                target.knockback(0.5F, event.getEntity().getX() - target.getX(), event.getEntity().getZ() - target.getZ());
+                if (target instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+                }
+            }
+        }
     }
+
+
 }

@@ -17,12 +17,22 @@ public class EquipmentUtil {
         return hasArmorSet(entity, DAItems.STRATUS_HELMET.get(), DAItems.STRATUS_CHESTPLATE.get(), DAItems.STRATUS_LEGGINGS.get(), DAItems.STRATUS_BOOTS.get(), DAItems.STRATUS_GLOVES.get());
     }
 
+    public static boolean hasFullStormsteelSet(LivingEntity entity) {
+        return hasArmorSet(entity, DAItems.STORMFORGED_HELMET.get(), DAItems.STORMFORGED_CHESTPLATE.get(), DAItems.STORMFORGED_LEGGINGS.get(), DAItems.STORMFORGED_BOOTS.get());
+    }
+
     private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots, Item gloves) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
                 && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
                 && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
                 && CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent();
+    }
+    private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots) {
+        return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
+                && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
+                && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
+                && entity.getItemBySlot(EquipmentSlot.FEET).is(boots);
     }
 
     public static boolean hasTwoSpookyRings(SlotContext context) {

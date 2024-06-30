@@ -1,5 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
+import com.aetherteam.aether.client.AetherSoundEvents;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.StringRepresentable;
@@ -21,7 +22,13 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 15, DASounds.ITEM_ARMOR_EQUIP_STRATUS, 2.5F, 0.1F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
+    }), 15, DASounds.ITEM_ARMOR_EQUIP_STRATUS, 2.5F, 0.0F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
+    STORMFORGED("stormforged", 33, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 10, AetherSoundEvents.ITEM_ARMOR_EQUIP_VALKYRIE, 1.5F, 0.15F, () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
 
     SKYJADE("skyjade", 3, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
@@ -43,7 +50,7 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
     private final Supplier<SoundEvent> soundEvent;
     private final float toughness;
     private final Supplier<Ingredient> repairMaterial;
-
+    private final float knockbackResistance;
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
 
 
@@ -54,6 +61,7 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
         this.enchantability = enchantability;
         this.soundEvent = soundEvent;
         this.toughness = toughness;
+        this.knockbackResistance = knockbackResistance;
         this.repairMaterial = repairMaterial;
     }
 
@@ -95,7 +103,7 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
 
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return this.knockbackResistance;
     }
     public String getSerializedName() {
         return this.name;

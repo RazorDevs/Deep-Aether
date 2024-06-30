@@ -153,5 +153,33 @@
       "item/armor/equip_chain6"
     ],
     "subtitle": "subtitles.deep_aether.item.accessory.equip_medal_of_honor"
+  },
+  "music.deep_aether": {
+    "sounds": [
+      {
+        "name": "deep_aether:wooshwoosh",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether1",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether2",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether3",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether4",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether5",
+        "stream": true
+      }
+    ]
   }
 }

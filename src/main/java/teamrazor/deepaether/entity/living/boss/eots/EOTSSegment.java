@@ -1,6 +1,7 @@
 package teamrazor.deepaether.entity.living.boss.eots;
 
 
+import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -23,7 +24,9 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.EventHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.living.projectile.WindCrystal;
@@ -81,7 +84,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.setController(controller);
         if(this.getController() != null) {
             this.getController().segmentUUIDs.add(this.uuid);
-            System.out.println(this.uuid);
         }
         this.hasContactedControllerOnLoad = true;
     }
@@ -141,6 +143,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 this.getController().segmentUUIDs.add(this.uuid);
                 if (this.isControllingSegment()) {
                     this.getController().controllingSegments.add(this);
+                    this.getController().setInvisible(true);
                 }
                 this.hasContactedControllerOnLoad = true;
                 this.getController().setHasBeenContactedBySegment();
@@ -350,9 +353,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     private float getIdleYPos() {
         if(this.getController() != null)
-            return  (float) (this.getController().position().y + 9.0F);
+            return  (float) (this.getController().position().y + 15.0F);
         else if(this.getTarget() != null)
-            return (float) (this.getTarget().position().y + 9.0F);
+            return (float) (this.getTarget().position().y + 15.0F);
         else return 255.0F;
     }
 
@@ -605,9 +608,38 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     this.segment.getTarget().setDeltaMovement(this.segment.getLookAngle().multiply(2.0F,2.0F,2.0F));
                     this.hasAttacked = true;
                 }
+                //BlockState state = this.segment.level().getBlockState(this.segment.getOnPos());
+                //if(!state.isAir())
+                //    tryBreakBlock(state, this.segment.getOnPos());
 
             }
         }
+
+        private void tryBreakBlock(BlockState state, BlockPos pos) {
+            if (!this.segment.level().isClientSide()) {
+                if (EventHooks.getMobGriefingEvent(this.segment.level(), this.segment)) {
+                    for (int i = 0; i < 2; i++) {
+                        if (this.isBreakable(state)) {
+                            EOTSController controller = this.segment.getController();
+                            if (controller != null) {
+                                if (controller.getDungeon() != null) {
+                                    if (controller.getDungeon().roomBounds() != null) {
+                                        if (controller.getDungeon().roomBounds().contains(pos.getCenter())) {
+                                            this.segment.level().destroyBlock(pos, true);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private boolean isBreakable(BlockState blockState) {
+            return !blockState.is(AetherTags.Blocks.VALKYRIE_QUEEN_UNBREAKABLE) && blockState.getBlock().defaultDestroyTime() >= 0.0F && blockState.getBlock().defaultDestroyTime() < 100.0F;
+        }
+
     }
 
     protected static class EotsAirChargeGoal extends Goal {

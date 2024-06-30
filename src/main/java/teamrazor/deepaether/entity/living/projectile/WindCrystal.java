@@ -143,7 +143,6 @@ public class WindCrystal extends AbstractCrystal {
             this.ownerUUID = owner.getUUID();
             this.cachedOwner = owner;
         }
-
     }
 
     @Override
