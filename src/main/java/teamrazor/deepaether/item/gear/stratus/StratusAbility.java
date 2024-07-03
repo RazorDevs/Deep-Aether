@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.gear.stratus;
 
 
-import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.capability.player.AetherPlayer;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,8 +17,6 @@ import teamrazor.deepaether.client.keys.DeepAetherKeys;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
-
-import static com.aetherteam.aether.item.EquipmentUtil.findFirstCurio;
 
 
 public class StratusAbility extends DaArmorItem {
@@ -49,8 +46,8 @@ public class StratusAbility extends DaArmorItem {
         return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
                 && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
-                && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
-                && (!AetherConfig.SERVER.require_gloves.get() || findFirstCurio(entity, gloves).isPresent());
+                && entity.getItemBySlot(EquipmentSlot.FEET).is(boots);
+                //&& (!AetherConfig.SERVER.require_gloves.get() || findFirstCurio(entity, gloves).isPresent());
     }
 
     private static boolean isStratusDashActive(Player player) {
