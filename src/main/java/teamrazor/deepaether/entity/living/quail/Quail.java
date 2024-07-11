@@ -47,7 +47,7 @@ public class Quail extends SittingAetherAnimal implements GeoEntity {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(Quail.class, EntityDataSerializers.INT);
     private static final Ingredient FOOD_ITEMS = Ingredient.of(
-            Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS
+            Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS, DAItems.GOLDEN_BERRIES.get()
     );
 
     public float flap;
