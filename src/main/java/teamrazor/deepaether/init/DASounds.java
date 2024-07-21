@@ -1,7 +1,6 @@
 package teamrazor.deepaether.init;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -22,6 +21,13 @@ public class DASounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> VENOMITE_DEATH = register("entity.venomite.death");
 	public static final DeferredHolder<SoundEvent, SoundEvent> VENOMITE_HURT = register("entity.venomite.hurt");
 	public static final DeferredHolder<SoundEvent, SoundEvent> VENOMITE_AMBIENT = register("entity.venomite.ambient");
+
+	public static final DeferredHolder<SoundEvent, SoundEvent> WINDFLY_HURT = register("entity.windfly.hurt");
+	public static final DeferredHolder<SoundEvent, SoundEvent> WINDFLY_AMBIENT = register("entity.windfly.ambient");
+
+	public static final DeferredHolder<SoundEvent, SoundEvent> EOTS_DEATH = register("entity.eots.death");
+	public static final DeferredHolder<SoundEvent, SoundEvent> EOTS_HURT = register("entity.eots.hurt");
+	public static final DeferredHolder<SoundEvent, SoundEvent> EOTS_AMBIENT = register("entity.eots.ambient");
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ARMOR_EQUIP_SKYJADE = register("item.armor.equip_skyjade");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ARMOR_EQUIP_STRATUS = register("item.armor.equip_stratus");

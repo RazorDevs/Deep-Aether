@@ -5,13 +5,8 @@ import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.client.renderer.entity.ArrowRenderer;
-import net.minecraft.client.renderer.entity.SpectralArrowRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.projectile.Arrow;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -31,9 +26,9 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE.get(), VenomiteRenderer::new);
+		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), EOTSRenderer::new);
 		event.registerEntityRenderer(DAEntities.EOTS_SEGMENT.get(), EOTSSegmentRenderer::new);
-		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);

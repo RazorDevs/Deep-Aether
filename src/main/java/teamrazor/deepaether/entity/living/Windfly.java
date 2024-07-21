@@ -8,6 +8,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -36,6 +37,7 @@ import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DASounds;
 
 public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
     private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
@@ -150,6 +152,15 @@ public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
         return !this.onGround();
     }
 
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return DASounds.WINDFLY_AMBIENT.get();
+    }
+    
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return DASounds.WINDFLY_HURT.get();
+    }
 
     private PlayState predicate(AnimationState animationState) {
         animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.lunar_moth.flying"));

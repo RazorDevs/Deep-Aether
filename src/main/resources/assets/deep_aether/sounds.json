@@ -54,6 +54,18 @@
     ],
     "subtitle": "subtitles.deep_aether.entity.venomite.death"
   },
+  "entity.windfly.ambient": {
+    "sounds": [
+      "deep_aether:entity/windfly/ambient"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.windfly.ambient"
+  },
+  "entity.windfly.hurt": {
+    "sounds": [
+      "deep_aether:entity/windfly/hurt"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.windfly.hurt"
+  },
   "item.armor.equip_skyjade": {
     "sounds": [
       "item/armor/equip_diamond1",

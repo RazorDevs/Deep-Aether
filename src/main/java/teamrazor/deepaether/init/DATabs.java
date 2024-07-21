@@ -443,7 +443,8 @@ public class DATabs {
                     DAItems.QUAIL_SPAWN_EGG.get()
             }, event);
             addToTab(AetherItems.VALKYRIE_SPAWN_EGG.get(), new Item[]{
-                    DAItems.VENOMITE_SPAWN_EGG.get()
+                    DAItems.VENOMITE_SPAWN_EGG.get(),
+                    DAItems.WINDFLY_SPAWN_EGG.get()
             }, event);
         }
 
