@@ -414,6 +414,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.eggItem(DAItems.AETHER_FISH_SPAWN_EGG.get());
         this.eggItem(DAItems.QUAIL_SPAWN_EGG.get());
         this.eggItem(DAItems.VENOMITE_SPAWN_EGG.get());
+        this.eggItem(DAItems.WINDFLY_SPAWN_EGG.get());
 
         //Misc
         this.item(DAItems.CHAOS_EMERALD.get());

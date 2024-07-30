@@ -6,7 +6,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.projectile.Arrow;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -14,17 +13,19 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.entity.*;
+import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.entity.DAChestBoatEntity;
+import teamrazor.deepaether.entity.StormArrow;
 import teamrazor.deepaether.entity.living.AerglowFish;
 import teamrazor.deepaether.entity.living.Venomite;
 import teamrazor.deepaether.entity.living.Windfly;
 import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
 import teamrazor.deepaether.entity.living.boss.eots.EOTSSegment;
 import teamrazor.deepaether.entity.living.projectile.FireProjectile;
+import teamrazor.deepaether.entity.living.projectile.ThrownQuailEgg;
 import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 import teamrazor.deepaether.entity.living.projectile.WindCrystal;
 import teamrazor.deepaether.entity.living.quail.Quail;
-import teamrazor.deepaether.entity.living.projectile.ThrownQuailEgg;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -57,6 +58,9 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>,EntityType<Venomite>> VENOMITE = register("venomite",
 			Venomite::new, 0.7F, 0.6F);
 
+	public static final DeferredHolder<EntityType<?>,EntityType<Windfly>> WINDFLY = register("windfly",
+			Windfly::new, 1.0F, 0.3F);
+
 	public static final DeferredHolder<EntityType<?>,EntityType<EOTSController>> EOTS_CONTROLLER = register("eots_controller",
 			EOTSController::new, 1F, 1F);
 
@@ -66,7 +70,6 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<WindCrystal>> WIND_CRYSTAL = ENTITY_TYPES.register("wind_crystal",
 			() -> EntityType.Builder.<WindCrystal>of(WindCrystal::new, MobCategory.MISC).sized(0.85F, 0.85F)
 					.clientTrackingRange(4).updateInterval(10).fireImmune().build("wind_crystal"));
-	public static final DeferredHolder<EntityType<?>,EntityType<Windfly>> WINDFLY = register("windfly", Windfly::new, 1F, 1F);
 
 	public static final DeferredHolder<EntityType<?>,EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",
 			() -> EntityType.Builder.<FireProjectile>of(FireProjectile::new, MobCategory.MISC).sized(0.35F, 0.35F).clientTrackingRange(4).updateInterval(10).build("fire_projectile"));

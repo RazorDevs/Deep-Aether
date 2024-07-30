@@ -146,6 +146,10 @@ public class DAItems {
 	public static final DeferredItem<Item> VENOMITE_SPAWN_EGG = ITEMS.register("venomite_spawn_egg",
 			() -> new DeferredSpawnEggItem(DAEntities.VENOMITE,0, 800080, new Item.Properties()));
 
+	public static final DeferredItem<Item> WINDFLY_SPAWN_EGG = ITEMS.register("windfly_spawn_egg",
+			() -> new DeferredSpawnEggItem(DAEntities.WINDFLY,10000, 500080, new Item.Properties()));
+
+
 	public static final DeferredItem<Item> QUAIL_EGG = ITEMS.register("quail_egg",
 			() -> new QuailEggItem(new Item.Properties().stacksTo(16)));
 
