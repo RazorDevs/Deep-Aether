@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "lost_aether_content:enchanted_pink_aercloud"
+  },
+  "result": {
+    "item": "lost_aether_content:pink_aercloud"
+  }
+}

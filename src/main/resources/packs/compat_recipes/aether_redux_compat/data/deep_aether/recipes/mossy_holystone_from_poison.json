@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether_redux:gilded_holystone"
+  },
+  "result": {
+    "item": "aether:mossy_holystone"
+  }
+}

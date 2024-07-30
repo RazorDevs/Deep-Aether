@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether_redux:raw_gravitite"
+  },
+  "result": {
+    "item": "aether:gravitite_ore"
+  }
+}

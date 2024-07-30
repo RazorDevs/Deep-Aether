@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether_redux:crystal_fruit_sapling"
+  },
+  "result": {
+    "item": "aether_redux:crystal_sapling"
+  }
+}

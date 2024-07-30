@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "minecraft:glowstone"
+  },
+  "result": {
+    "item": "aether_redux:divinite"
+  }
+}

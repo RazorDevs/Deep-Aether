@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether_redux:enchanted_blueberry_pie"
+  },
+  "result": {
+    "item": "aether_redux:blueberry_pie"
+  }
+}
