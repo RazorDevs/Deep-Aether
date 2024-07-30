@@ -1,11 +1,13 @@
 package teamrazor.deepaether.datagen.world;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Vec3i;
@@ -233,7 +235,11 @@ public class DAPlacedFeatures {
         );
 
         register(context, SKYROOT_RAINFOREST_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.SKYROOT_RAINFOREST_TREE),
-                AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(5, 0.1F, 1)));
+                    CountPlacement.of(2),
+                    ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome(),
+                        BiomeFilter.biome(),
+                        PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()),
+                        new DungeonBlacklistFilter());
 
         register(context, SKYROOT_RAINFOREST_GRASS, configuredFeatures.getOrThrow(DAConfiguredFeatures.SKYROOT_RAINFOREST_GRASS),
                 NoiseThresholdCountPlacement.of(-0.8D, 5, 9),

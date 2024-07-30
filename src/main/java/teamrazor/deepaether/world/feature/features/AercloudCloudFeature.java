@@ -25,13 +25,15 @@ import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
+import org.apache.commons.lang3.tuple.Pair;
+import org.slf4j.event.KeyValuePair;
 import teamrazor.deepaether.world.biomes.DABiomes;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import java.util.List;
 
 public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
 
-    public static final PerlinSimplexNoise bottom_noise = new PerlinSimplexNoise(new XoroshiroRandomSource(42), List.of(0,1, 1));
+    public static final PerlinSimplexNoise NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource(42), List.of(0,1, 0, 0, 1, 1));
     //public static final PerlinSimplexNoise top_noise = new PerlinSimplexNoise(new XoroshiroRandomSource(12), List.of(1,1,1, 2, 3, 4, 5,5, 5,7,8));
     //public static final PerlinSimplexNoise top_noise = new PerlinSimplexNoise(new XoroshiroRandomSource(12), List.of(1,3,3,7));
 
@@ -71,13 +73,17 @@ public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
                 int xCoord = chunkX + x;
                 int zCoord = chunkZ + z;
 
-                double bottomNoiseValue = bottom_noise.getValue(xCoord * 0.02D, zCoord * 0.02D, false);
+                double bottomNoiseValue = NOISE.getValue(xCoord * 0.02D, zCoord * 0.02D, false);
                 double bottom = Math.abs(Mth.lerp(bottomNoiseValue, 5, 2));
                 double originalBottom = bottom;
 
-                double topNoiseValue = bottom_noise.getValue(xCoord * 0.005D, zCoord * 0.005D, false);
-                //double top = Mth.lerp(topNoiseValue*edgeMultiplier,12,25) + 5*edgeMultiplier;
-                double top = Mth.lerp(topNoiseValue, 2, 12) + 3;
+                double topNoiseValue = NOISE.getValue(xCoord * 0.01D, zCoord * 0.01D, false);
+                double top = Mth.lerp(topNoiseValue, 2, 10) + 3;
+                if (top < 6) {
+                    top -= ((6 -top) * 2);
+                } else if (top > 6) {
+                    top = top + ((top - 6) / 8);
+                }
 
                 final double decreaseMultiplier = 1.5D;
                 final double decreaseMultiplierCorner = 4D;

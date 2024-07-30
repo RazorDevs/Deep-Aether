@@ -153,7 +153,7 @@ public class DAConfiguredFeatures {
         register(context, SKYROOT_RAINFOREST_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
-                        new ImprovedStraightTrunkPlacer(5, 4, 0),
+                        new StraightTrunkPlacer(5, 4, 0),
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
                         new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                         new TwoLayersFeatureSize(1, 0, 1)
