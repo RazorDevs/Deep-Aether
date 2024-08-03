@@ -7,6 +7,7 @@ import com.aetherteam.aether.block.construction.AetherDirtPathBlock;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.dungeon.TreasureDoorwayBlock;
+import com.aetherteam.aether.block.natural.AercloudBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.effect.AetherEffects;
@@ -55,6 +56,22 @@ public class DABlocks {
 	public static final DeferredBlock<Block> HIGHSTONE = registerBlock("highstone", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 
 	//GRASS
+	public static final DeferredBlock<Block> AERCLOUD_GRASS_BLOCK = registerBlock("aercloud_grass_block", () -> new GrassBlock(Block.Properties.of().mapColor(MapColor.COLOR_PINK).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+	public static final DeferredBlock<Block> AERCLOUD_ROOTS = registerBlock("aercloud_roots", () -> new AetherDoubleDropsLeaves (
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
+
+		@Override
+		public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+			return true;
+		}
+
+		@Override
+		public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+			return 1;
+		}
+	});
+	public static final DeferredBlock<Block> AERCLOUD_ROOT_CARPET = registerBlock("aercloud_root_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).isViewBlocking(DABlocks::never).noOcclusion()));
+
 
 	public static final DeferredBlock<Block> GOLDEN_GRASS_BLOCK = registerBlock("golden_heights_grass_block", () -> new GoldenGrassBlock(Block.Properties.of().mapColor(MapColor.GOLD).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 	public static final DeferredBlock<Block> GOLDEN_DIRT_PATH = registerBlock("golden_heights_dirt_path", () -> new AetherDirtPathBlock(Block.Properties.of().mapColor(MapColor.GOLD).strength(0.2F).sound(SoundType.GRASS)));
@@ -67,6 +84,7 @@ public class DABlocks {
 
 	public static final DeferredBlock<Block> FEATHER_GRASS = registerBlock("feather_grass", ()-> new FeatherGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
 	public static final DeferredBlock<Block> TALL_FEATHER_GRASS = registerBlock("tall_feather_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+	public static final DeferredBlock<Block> TALL_ALIEN_PLANT = registerBlock("tall_alien_plant", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
 
 	// WOOD
@@ -102,6 +120,10 @@ public class DABlocks {
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN), DAWoodTypes.ROSEROOT));
 	public static final DeferredBlock<Block> LIGHTCAP_MUSHROOMS = registerBlock("lightcap_mushrooms", () -> new LightCapMushroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM), DAConfiguredFeatures.HUGE_LIGHTCAP_MUSHROOM));
 	public static final DeferredBlock<Block> LIGHTCAP_MUSHROOM_BLOCK = registerBlock("lightcap_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
+	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOM_BLOCK = registerBlock("pink_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock((Block.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
+	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOMS = registerBlock("pink_aercloud_mushrooms", () -> new MushroomBlock(DAConfiguredFeatures.HUGE_PINK_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
+	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOM_BLOCK = registerBlock("blue_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
+	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOMS = registerBlock("blue_aercloud_mushrooms", () -> new MushroomBlock(DAConfiguredFeatures.HUGE_BLUE_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
 
 
 	//YAGROOT
@@ -123,7 +145,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> YAGROOT_TRAPDOOR = registerBlock("yagroot_trapdoor", () -> new TrapDoorBlock(DAWoodTypes.YAGROOT_BLOCK_SET, Block.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)));
 	public static final DeferredBlock<Block> YAGROOT_LEAVES = registerBlock("yagroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
 	public static final DeferredBlock<Block> YAGROOT_SAPLING = registerBlock("yagroot_sapling", () -> new SaplingBlock(DATreeGrower.YAGROOT, BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PROPAGULE)));
-	public static final DeferredBlock<Block> YAGROOT_ROOTS = registerBlock(300, "yagroot_roots", () -> new YagrootRootBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(0.7F).randomTicks().sound(SoundType.MANGROVE_ROOTS).noOcclusion()));
+	public static final DeferredBlock<Block> YAGROOT_ROOTS = registerBlock(300, "yagroot_roots", () -> new YagrootRootBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(0.7F).sound(SoundType.MANGROVE_ROOTS).noOcclusion()));
 	public static final DeferredBlock<Block> MUDDY_YAGROOT_ROOTS = registerBlock("muddy_yagroot_roots", () -> new DADoubleDropRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(0.7F).sound(SoundType.MUDDY_MANGROVE_ROOTS)));
 	public static final DeferredBlock<Block> YAGROOT_WALL_SIGN = BLOCKS.register("yagroot_wall_sign", () -> new DAWallSignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN), DAWoodTypes.YAGROOT));
 	public static final DeferredBlock<Block> YAGROOT_SIGN = BLOCKS.register("yagroot_sign", () -> new DASignBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN), DAWoodTypes.YAGROOT));
@@ -293,7 +315,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> AERSMOG = registerBlock("aersmog", () -> new AersmogBlock((Block.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
 	public static final DeferredBlock<Block> CHROMATIC_AERCLOUD = registerBlock("chromatic_aercloud", () -> new ChromaticAercloudBlock(Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).noCollission()));
 	public static final DeferredBlock<Block> STERLING_AERCLOUD = registerBlock("sterling_aercloud", () -> new SterlingAercloudBlock(Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.3F).sound(SoundType.WOOL).noCollission().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never)));
-	public static final DeferredBlock<Block> RAIN_AERCLOUD = registerBlock("rain_aercloud", () -> new RainAercloudBlock(BlockBehaviour.Properties.ofFullCopy(AetherBlocks.COLD_AERCLOUD.get())));
+	public static final DeferredBlock<Block> RAIN_AERCLOUD = registerBlock("rain_aercloud", () -> new AercloudBlock(BlockBehaviour.Properties.ofFullCopy(AetherBlocks.COLD_AERCLOUD.get()).forceSolidOn()));
 
 	//PLANTS
 

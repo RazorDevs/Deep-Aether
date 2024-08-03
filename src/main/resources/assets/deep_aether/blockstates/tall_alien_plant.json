@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "deep_aether:block/tall_alien_plant_bottom"
+    },
+    "half=upper": {
+      "model": "deep_aether:block/tall_alien_plant_top"
+    }
+  }
+}

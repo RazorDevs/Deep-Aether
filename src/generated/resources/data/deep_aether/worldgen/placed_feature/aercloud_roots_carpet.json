@@ -1,0 +1,22 @@
+{
+  "feature": "deep_aether:aercloud_roots_carpet",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 30
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    }
+  ]
+}

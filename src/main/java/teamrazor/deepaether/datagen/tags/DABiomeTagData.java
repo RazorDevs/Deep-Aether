@@ -48,6 +48,14 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.GOLDEN_GROVE
         );
         this.tag(DATags.Biomes.HAS_BRASS_DUNGEON).add(
+                DABiomes.CLOUD,
+                DABiomes.OVERGROWN_CLOUD
+        );
+        this.tag(DATags.Biomes.IS_CLOUD).add(
+                DABiomes.OVERGROWN_CLOUD,
+                DABiomes.CLOUD
+        );
+        this.tag(DATags.Biomes.IS_RAIN_CLOUD).add(
                 DABiomes.STORM_CLOUD
         );
     }

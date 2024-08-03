@@ -4,8 +4,8 @@
   "downfall": 0.0,
   "effects": {
     "fog_color": 9671612,
-    "foliage_color": 11665355,
-    "grass_color": 11665355,
+    "foliage_color": 13345791,
+    "grass_color": 8519637,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
@@ -18,7 +18,7 @@
   },
   "features": [
     [
-      "deep_aether:aercloud_cloud"
+      "deep_aether:aercloud_rain_cloud"
     ],
     [
     ],
@@ -34,7 +34,7 @@
     [
     ],
     [
-
+      "deep_aether:aercloud_lake"
     ]
   ],
   "has_precipitation": false,

@@ -17,7 +17,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether:skyroot_leaves",
+        "Name": "deep_aether:aercloud_roots",
         "Properties": {
           "distance": "7",
           "double_drops": "true",

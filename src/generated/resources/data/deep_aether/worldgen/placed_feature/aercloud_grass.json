@@ -1,0 +1,29 @@
+{
+  "feature": "deep_aether:aercloud_grass",
+  "placement": [
+    {
+      "type": "minecraft:noise_threshold_count",
+      "above_noise": 9,
+      "below_noise": 5,
+      "noise_level": -0.8
+    },
+    {
+      "type": "aether:improved_layer_placement",
+      "count": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 1,
+          "min_inclusive": 0
+        }
+      },
+      "heightmap": "MOTION_BLOCKING",
+      "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    }
+  ]
+}

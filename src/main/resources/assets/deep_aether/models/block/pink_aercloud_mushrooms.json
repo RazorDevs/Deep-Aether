@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "cross": "deep_aether:block/pink_aercloud_mushrooms"
+  }
+}

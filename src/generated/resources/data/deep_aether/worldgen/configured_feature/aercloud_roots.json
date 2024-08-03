@@ -1,0 +1,15 @@
+{
+  "type": "deep_aether:aercloud_roots",
+  "config": {
+    "blocks": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:cold_aercloud",
+        "Properties": {
+          "double_drops": "false"
+        }
+      }
+    },
+    "bounds": 20
+  }
+}

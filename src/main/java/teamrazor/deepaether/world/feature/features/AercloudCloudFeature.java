@@ -27,17 +27,17 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.event.KeyValuePair;
+import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.biomes.DABiomes;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import java.util.List;
 
 public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
 
-    public static final PerlinSimplexNoise NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource(42), List.of(0,1, 0, 0, 1, 1));
-    //public static final PerlinSimplexNoise top_noise = new PerlinSimplexNoise(new XoroshiroRandomSource(12), List.of(1,1,1, 2, 3, 4, 5,5, 5,7,8));
-    //public static final PerlinSimplexNoise top_noise = new PerlinSimplexNoise(new XoroshiroRandomSource(12), List.of(1,3,3,7));
+    public static final PerlinSimplexNoise NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource(42), List.of(0,1, 0, 0, 0, 1, 0, 1));
 
-    public static final int lowestY  = 175;
+    public static final int lowestY  = 155;
     public AercloudCloudFeature(Codec<AercloudCloudConfiguration> codec) {
         super(codec);
     }
@@ -48,21 +48,21 @@ public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
         BlockPos pos = context.origin();
         AercloudCloudConfiguration config = context.config();
         BlockState block = config.block().getState(context.random(), pos);
-        place(reader, pos, block);
+        place(reader, pos, block, config.hasGrass());
 
         return true;
     }
 
-    public void place(WorldGenLevel reader, BlockPos pos, BlockState block) {
-        boolean goAgainstX = !reader.getBiome(pos.relative(Direction.Axis.X, 16)).is(DABiomes.STORM_CLOUD);
-        boolean goAgainstNegativeX = !reader.getBiome(pos.relative(Direction.Axis.X, -16)).is(DABiomes.STORM_CLOUD);
-        boolean goAgainstZ = !reader.getBiome(pos.relative(Direction.Axis.Z, 16)).is(DABiomes.STORM_CLOUD);
-        boolean goAgainstNegativeZ = !reader.getBiome(pos.relative(Direction.Axis.Z, -16)).is(DABiomes.STORM_CLOUD);
+    public void place(WorldGenLevel reader, BlockPos pos, BlockState block, boolean hasGrass) {
+        boolean goAgainstX = !reader.getBiome(pos.relative(Direction.Axis.X, 16)).is(DATags.Biomes.IS_CLOUD);
+        boolean goAgainstNegativeX = !reader.getBiome(pos.relative(Direction.Axis.X, -16)).is(DATags.Biomes.IS_CLOUD);
+        boolean goAgainstZ = !reader.getBiome(pos.relative(Direction.Axis.Z, 16)).is(DATags.Biomes.IS_CLOUD);
+        boolean goAgainstNegativeZ = !reader.getBiome(pos.relative(Direction.Axis.Z, -16)).is(DATags.Biomes.IS_CLOUD);
 
-        boolean goAgainstXAndZ = ((!reader.getBiome(pos.relative(Direction.Axis.X, 16).relative(Direction.Axis.Z, 16)).is(DABiomes.STORM_CLOUD)) && !goAgainstX && !goAgainstZ);
-        boolean goAgainstXAndNegativeZ = (!reader.getBiome(pos.relative(Direction.Axis.X, 16).relative(Direction.Axis.Z, -16)).is(DABiomes.STORM_CLOUD) && !goAgainstX && !goAgainstNegativeZ);
-        boolean goAgainstNegativeXAndZ = (!reader.getBiome(pos.relative(Direction.Axis.X, -16).relative(Direction.Axis.Z, 16)).is(DABiomes.STORM_CLOUD) && !goAgainstNegativeX && !goAgainstZ);
-        boolean goAgainstNegativeXAndNegativeZ = (!reader.getBiome(pos.relative(Direction.Axis.X, -16).relative(Direction.Axis.Z, -16)).is(DABiomes.STORM_CLOUD) && !goAgainstNegativeX && !goAgainstNegativeZ);
+        boolean goAgainstXAndZ = ((!reader.getBiome(pos.relative(Direction.Axis.X, 16).relative(Direction.Axis.Z, 16)).is(DATags.Biomes.IS_CLOUD)) && !goAgainstX && !goAgainstZ);
+        boolean goAgainstXAndNegativeZ = (!reader.getBiome(pos.relative(Direction.Axis.X, 16).relative(Direction.Axis.Z, -16)).is(DATags.Biomes.IS_CLOUD) && !goAgainstX && !goAgainstNegativeZ);
+        boolean goAgainstNegativeXAndZ = (!reader.getBiome(pos.relative(Direction.Axis.X, -16).relative(Direction.Axis.Z, 16)).is(DATags.Biomes.IS_CLOUD) && !goAgainstNegativeX && !goAgainstZ);
+        boolean goAgainstNegativeXAndNegativeZ = (!reader.getBiome(pos.relative(Direction.Axis.X, -16).relative(Direction.Axis.Z, -16)).is(DATags.Biomes.IS_CLOUD) && !goAgainstNegativeX && !goAgainstNegativeZ);
 
         int chunkX = pos.getX() - (pos.getX() % 16);
         int chunkZ = pos.getZ() - (pos.getZ() % 16);
@@ -74,16 +74,18 @@ public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
                 int zCoord = chunkZ + z;
 
                 double bottomNoiseValue = NOISE.getValue(xCoord * 0.02D, zCoord * 0.02D, false);
-                double bottom = Math.abs(Mth.lerp(bottomNoiseValue, 5, 2));
+                double bottom = Math.abs(Mth.lerp(bottomNoiseValue, 4, 2));
                 double originalBottom = bottom;
 
-                double topNoiseValue = NOISE.getValue(xCoord * 0.01D, zCoord * 0.01D, false);
-                double top = Mth.lerp(topNoiseValue, 2, 10) + 3;
-                if (top < 6) {
-                    top -= ((6 -top) * 2);
-                } else if (top > 6) {
-                    top = top + ((top - 6) / 8);
+                double topNoiseValue = NOISE.getValue(xCoord * 0.007D, zCoord * 0.007D, false);
+                double top = Mth.lerp(topNoiseValue, -2, 7) + 2;
+
+                if (top < 3) {
+                    top -= ((3-top) * 2);
                 }
+                //else if (top > 7)
+                //    top  = 7;
+
 
                 final double decreaseMultiplier = 1.5D;
                 final double decreaseMultiplierCorner = 4D;
@@ -150,8 +152,23 @@ public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
                     }
                 }
 
-                for (int y = Math.round(Math.round(lowestY + bottom)); y < lowestY + top + originalBottom; y++) {
+                int y;
+                for (y = Math.round(Math.round(lowestY + bottom - (top / 2))); y < lowestY + top + originalBottom; y++) {
                     this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), block);
+                }
+                if(hasGrass && top >= 4) {
+                    this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), DABlocks.AERCLOUD_GRASS_BLOCK.get().defaultBlockState());
+                }
+
+                originalBottom = originalBottom * 4;
+
+                int a = 0;
+                if(originalBottom < 12) {
+                    a = (int) (12 - originalBottom);
+                }
+
+                for (y = 12 + a; y > originalBottom; y--) {
+                    this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y + lowestY + 20), block);
                 }
             }
         }

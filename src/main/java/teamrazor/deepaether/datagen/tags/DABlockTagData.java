@@ -300,6 +300,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.AETHER_MOSS_BLOCK.get(),
                 DABlocks.GOLDEN_GRASS_BLOCK.get(),
+                DABlocks.AERCLOUD_GRASS_BLOCK.get(),
                 DABlocks.AETHER_COARSE_DIRT.get()
         );
         tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(

@@ -1,0 +1,44 @@
+{
+  "type": "deep_aether:improved_mushroom_feature",
+  "config": {
+    "base_height": 4,
+    "cap_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:pink_aercloud_mushroom_block",
+        "Properties": {
+          "down": "false",
+          "east": "true",
+          "north": "true",
+          "south": "true",
+          "up": "true",
+          "west": "true"
+        }
+      }
+    },
+    "foliage_radius": 3,
+    "random_height": 3,
+    "roots_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:aercloud_roots",
+        "Properties": {
+          "distance": "7",
+          "double_drops": "false",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "stem_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:cold_aercloud",
+        "Properties": {
+          "double_drops": "false"
+        }
+      }
+    },
+    "trunk_radius": 1
+  }
+}

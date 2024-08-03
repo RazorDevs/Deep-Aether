@@ -35,6 +35,8 @@ import java.util.List;
 public class DAPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> POISON_LAKE_PLACEMENT = createKey("poison_lake");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_LAKE_PLACEMENT = createKey("aercloud_lake");
+
     public static final ResourceKey<PlacedFeature> POISON_SPRING_PLACEMENT = createKey("poison_spring");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
     public static final ResourceKey<PlacedFeature> FALLEN_AERGLOW_FOREST = createKey("fallen_aerglow_forest");
@@ -69,12 +71,21 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_GROVE_GRASS_PATCH = createKey("golden_grove_grass_patch");
     public static final ResourceKey<PlacedFeature> AERCLOUD_CLOUD = createKey("aercloud_cloud");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_CLOUD_OVERGROWN = createKey("aercloud_cloud_overgrown");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_RAIN_CLOUD = createKey("aercloud_rain_cloud");
+
+    public static final ResourceKey<PlacedFeature> AERCLOUD_ROOTS = createKey("aercloud_roots");
 
     public static final ResourceKey<PlacedFeature> SACRED_ROCK = createKey("sacred_rock");
     public static final ResourceKey<PlacedFeature> ROCK_SPIKE = createKey("rock_spike");
     public static final ResourceKey<PlacedFeature> CLORITE_COLUMNS = createKey("clorite_columns");
     public static final ResourceKey<PlacedFeature> SKYROOT_RAINFOREST_TREES = createKey("skyroot_rainforest_trees");
     public static final ResourceKey<PlacedFeature> SKYROOT_RAINFOREST_GRASS = createKey("skyroot_rainforest_grass");
+
+    public static final ResourceKey<PlacedFeature> AERCLOUD_TREES = createKey("aercloud_trees");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_GRASS = createKey("aercloud_grass");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_ROOTS_CARPET = createKey("aercloud_roots_carpet");
+    public static final ResourceKey<PlacedFeature> OVERGROWN_CLOUD_MUSHROOM_TREES = createKey("overgrown_cloud_mushroom_trees");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -89,6 +100,10 @@ public class DAPlacedFeatures {
                 PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                 InSquarePlacement.spread(),
                 BiomeFilter.biome());
+
+        register(context, AERCLOUD_LAKE_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.POISON_LAKE_CONFIGURATION),
+                RarityFilter.onAverageOnceEvery(10),
+                PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
 
         register(context, POISON_SPRING_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.POISON_SPRING_CONFIGURATION),
                 CountPlacement.of(100),
@@ -208,6 +223,22 @@ public class DAPlacedFeatures {
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(175), VerticalAnchor.absolute(175)),
                 CountPlacement.of(1),
                 BiomeFilter.biome());
+        register(context, AERCLOUD_CLOUD_OVERGROWN, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_CLOUD_OVERGROWN),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(175), VerticalAnchor.absolute(175)),
+                CountPlacement.of(1),
+                BiomeFilter.biome());
+
+        register(context, AERCLOUD_RAIN_CLOUD, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_RAIN_CLOUD),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(175), VerticalAnchor.absolute(175)),
+                CountPlacement.of(1),
+                BiomeFilter.biome());
+
+        register(context, AERCLOUD_ROOTS, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_ROOTS),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE),
+                CountPlacement.of(1),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
 
         register(context, SACRED_ROCK, configuredFeatures.getOrThrow(DAConfiguredFeatures.SACRED_ROCK),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
@@ -246,6 +277,33 @@ public class DAPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
+        register(context, AERCLOUD_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_TREE_CONFIGURATION),
+                CountPlacement.of(1),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome(),
+                BiomeFilter.biome(),
+                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()),
+                new DungeonBlacklistFilter());
+
+        register(context, OVERGROWN_CLOUD_MUSHROOM_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.OVERGROWN_CLOUD_MUSHROOM_TREES),
+                CountPlacement.of(2),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome(),
+                BiomeFilter.biome(),
+                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()),
+                new DungeonBlacklistFilter());
+
+        register(context, AERCLOUD_GRASS, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_GRASS),
+                NoiseThresholdCountPlacement.of(-0.8D, 5, 9),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
+
+        register(context, AERCLOUD_ROOTS_CARPET, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_ROOTS_CARPET),
+                CountPlacement.of(30),
+                InSquarePlacement.spread(),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
     }
 
 

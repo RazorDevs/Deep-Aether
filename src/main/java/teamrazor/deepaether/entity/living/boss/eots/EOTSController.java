@@ -5,7 +5,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
-import com.aetherteam.aether.entity.ai.goal.MostDamageTargetGoal;
 import com.aetherteam.aether.entity.monster.dungeon.boss.BossNameGenerator;
 import com.aetherteam.aether.event.AetherEventDispatch;
 import com.aetherteam.aether.network.packet.clientbound.BossInfoPacket;
@@ -86,7 +85,8 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
         this.setPersistenceRequired();
     }
 
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
+    @SuppressWarnings("deprecation")
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
         this.setBossName(generateEOTSName(this.getRandom()));
         this.moveTo(Mth.floor(this.getX()), this.getY(), Mth.floor(this.getZ()));
         return spawnData;
@@ -482,15 +482,14 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller",
+        controllers.add(new AnimationController<>(this, "controller",
                 0, this::predicate));
     }
 
     // Animation handling
-    private PlayState predicate(AnimationState animationState) {
+    private PlayState predicate(AnimationState<EOTSController> animationState) {
         if(this.isAutoSpinAttack()) {
             animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.eots.attack"));
-            return PlayState.CONTINUE;
         }
         return PlayState.CONTINUE;
     }

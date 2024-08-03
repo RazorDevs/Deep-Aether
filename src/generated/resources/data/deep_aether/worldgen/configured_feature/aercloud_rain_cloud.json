@@ -1,0 +1,15 @@
+{
+  "type": "deep_aether:rain_aercloud_cloud",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:rain_aercloud",
+        "Properties": {
+          "double_drops": "false"
+        }
+      }
+    },
+    "hasGrass": false
+  }
+}

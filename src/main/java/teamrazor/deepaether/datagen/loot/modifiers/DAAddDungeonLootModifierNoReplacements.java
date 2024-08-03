@@ -40,7 +40,6 @@ public class DAAddDungeonLootModifierNoReplacements extends LootModifier {
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-
         // size of the loots
         int size = generatedLoot.size();
 

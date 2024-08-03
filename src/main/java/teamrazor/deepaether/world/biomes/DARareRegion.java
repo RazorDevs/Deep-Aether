@@ -25,16 +25,16 @@ public class DARareRegion extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
-        Climate.Parameter tempWoodland = Climate.Parameter.span(-1.5F, -0.8F);
-        Climate.Parameter tempYagroot = Climate.Parameter.span(-0.8F, -0.4F);
-        Climate.Parameter tempAerglow = Climate.Parameter.span(-0.4F, 0.0F);
-        Climate.Parameter tempDefault3 = Climate.Parameter.span(0.0F, 0.4F);
-        Climate.Parameter tempDefault4 = Climate.Parameter.span(0.4F, 0.7F);
+        Climate.Parameter tempDefault4 = Climate.Parameter.span(0.5F, 0.7F);
         Climate.Parameter tempDefault5 = Climate.Parameter.span(0.7F, 1.5F);
 
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
+        Climate.Parameter tempDefault45 = Climate.Parameter.span(0.5F, 1.5F);
+
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault45, Climate.Parameter.span(-1.0F, 1.0F), fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
                 DABiomes.SKYROOT_RAINFOREST);
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(-0.3F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
+                DABiomes.CLOUD);
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, fullRange, fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
                 DABiomes.STORM_CLOUD);
     }
 }

@@ -10,8 +10,11 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.api.distmarker.Dist;
@@ -98,6 +101,7 @@ public class DAClientModBusEvents {
                 DABlocks.TALL_GLOWING_GRASS.get());
         event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
                 BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.GLOWING_VINE.get());
+        event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
+                BiomeColors.getAverageGrassColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.AERCLOUD_GRASS_BLOCK.get());
     }
-
 }

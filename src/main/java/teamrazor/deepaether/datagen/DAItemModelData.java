@@ -294,6 +294,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.AERSMOG.get());
         this.itemBlock(DABlocks.STERLING_AERCLOUD.get());
         this.itemBlock(DABlocks.CHROMATIC_AERCLOUD.get());
+        this.itemBlock(DABlocks.AERCLOUD_ROOT_CARPET.get());
+        this.itemBlockFlat(DABlocks.PINK_AERCLOUD_MUSHROOMS.get());
+        this.itemBlockFlat(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get());
 
         this.itemBlockFlat(DABlocks.MINI_GOLDEN_GRASS.get());
         this.itemBlockFlat(DABlocks.SHORT_GOLDEN_GRASS.get());
@@ -390,8 +393,12 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlatName(DABlocks.TALL_GOLDEN_GRASS.get(), "tall_golden_grass_top");
         this.itemBlock(DABlocks.GOLDEN_GRASS_BLOCK.get());
 
+        this.itemBlock(DABlocks.AERCLOUD_GRASS_BLOCK.get());
+        this.itemBlock(DABlocks.AERCLOUD_ROOTS.get());
+
         this.itemBlockFlat(DABlocks.FEATHER_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_FEATHER_GRASS.get(), "tall_feather_grass_top");
+        this.itemBlockFlatName(DABlocks.TALL_ALIEN_PLANT.get(), "tall_alien_plant_top");
 
         this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
         this.itemBlockFlat(DABlocks.ENCHANTED_BLOSSOM.get());

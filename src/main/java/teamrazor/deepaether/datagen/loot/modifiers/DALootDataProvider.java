@@ -27,7 +27,6 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 1), 90),
                         WeightedEntry.wrap(new ItemStack(DAItems.SKYJADE.get(), 2), 10)
-
                         ),
                 100,
                 0.8f

@@ -2,6 +2,9 @@ package teamrazor.deepaether.recipe;
 
 import net.minecraft.util.StringRepresentable;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum DABookCategory implements StringRepresentable {
     COMBINEABLE_FODDER("combinable_fodder"),
     COMBINEABLE_MISC("combinable_misc");
@@ -20,4 +23,9 @@ public enum DABookCategory implements StringRepresentable {
     public String getSerializedName() {
         return this.name;
     }
+
+    public static DABookCategory valueOf(int value) {
+        return values()[value];
+    }
 }
+

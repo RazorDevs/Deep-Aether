@@ -41,7 +41,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
@@ -53,6 +52,7 @@ import teamrazor.deepaether.world.feature.DAFeatureStates;
 import teamrazor.deepaether.world.feature.DAFeatures;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import teamrazor.deepaether.world.feature.features.ConfiguredBoulder;
+import teamrazor.deepaether.world.feature.features.configuration.DAHugeMushroomFeatureConfiguration;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 import teamrazor.deepaether.world.feature.tree.decorators.GlowingVineDecorator;
 import teamrazor.deepaether.world.feature.tree.decorators.SunrootHangerDecorator;
@@ -60,7 +60,6 @@ import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
 import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.foliage.YagrootFoliagePlacer;
-import teamrazor.deepaether.world.feature.tree.trunk.ImprovedStraightTrunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.SunrootTunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.TwinTrunkPlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.YagrootTrunkPlacer;
@@ -74,6 +73,10 @@ public class DAConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> POISON_LAKE_CONFIGURATION = createKey("poison_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> POISON_SPRING_CONFIGURATION = createKey("poison_spring");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_LAKE_CONFIGURATION = createKey("aercloud_lake");
+    //public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_SPRING_CONFIGURATION = createKey("poison_spring");
+
     public static final ResourceKey<ConfiguredFeature<?,?>> YAGROOT_TREE_CONFIGURATION = createKey("yagroot_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> CRUDEROOT_TREE_CONFIGURATION = createKey("cruderoot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_AND_BLUE_ROSEROOT_TREES_PLACEMENT = createKey("roseroot_and_blue_roseroot_trees_placement");
@@ -85,7 +88,6 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASETERITE_CONFIGURATION = createKey("aseterite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_CONFIGURATION = createKey("clorite");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERLAVENDER_PATCH = createKey("aerlavender_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE_CONFIGURATION = createKey("skyroot_tree");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_LARGE = createKey("roseroot_tree_large");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSEROOT_TREE_SMALL = createKey("roseroot_tree_small");
@@ -114,14 +116,24 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_ASPESS = createKey("golden_aspess");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ECHAISY = createKey("echaisy");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_LIGHTCAP_MUSHROOM = createKey("huge_lightcap_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_PINK_AERCLOUD_MUSHROOM = createKey("huge_pink_aercloud_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_BLUE_AERCLOUD_MUSHROOM = createKey("huge_blue_aercloud_mushroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERGROWN_CLOUD_MUSHROOM_TREES = createKey("overgrown_cloud_mushroom_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCKY_BUMPS = createKey("rocky_bumps");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SACRED_ROCK = createKey("sacred_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_SPIKE = createKey("rock_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_COLUMNS = createKey("clorite_columns");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD = createKey("aercloud_cloud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD_OVERGROWN = createKey("aercloud_cloud_overgrown");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_RAIN_CLOUD = createKey("aercloud_rain_cloud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_ROOTS = createKey("aercloud_roots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_RAINFOREST_TREE = createKey("skyroot_rainforest_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_RAINFOREST_GRASS = createKey("skyroot_rainforest_grass");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_TREE_CONFIGURATION = createKey("aercloud_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_GRASS = createKey("aercloud_grass");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_ROOTS_CARPET = createKey("aercloud_roots_carpet");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -137,15 +149,30 @@ public class DAConfiguredFeatures {
         register(context, POISON_SPRING_CONFIGURATION, Feature.SPRING,
                 AetherConfiguredFeatureBuilders.spring(DABlocks.POISON_BLOCK.get().getFluid().defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, AetherBlocks.HOLYSTONE.get(), DABlocks.AETHER_MUD.get())));
 
+        register(context, AERCLOUD_LAKE_CONFIGURATION, AetherFeatures.LAKE.get(), AetherConfiguredFeatureBuilders.lake(BlockStateProvider.simple(Blocks.WATER),
+                BlockStateProvider.simple(DABlocks.RAIN_AERCLOUD.get())));
+
         FeatureUtils.register(context, HUGE_LIGHTCAP_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfiguration(
                         BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.TRUE).setValue(HugeMushroomBlock.DOWN, Boolean.FALSE)),
                         BlockStateProvider.simple(Blocks.MUSHROOM_STEM.defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.FALSE).setValue(HugeMushroomBlock.DOWN, Boolean.FALSE)), 2));
 
-        register(context, SKYROOT_TREE_CONFIGURATION, Feature.TREE,
+        FeatureUtils.register(context, HUGE_PINK_AERCLOUD_MUSHROOM, DAFeatures.IMPROVED_MUSHROOM_FEATURE.get(), new DAHugeMushroomFeatureConfiguration(
+                BlockStateProvider.simple(DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.TRUE).setValue(HugeMushroomBlock.DOWN, Boolean.FALSE)),
+                BlockStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get().defaultBlockState()), BlockStateProvider.simple(DABlocks.AERCLOUD_ROOTS.get()),3, 4,3, 1));
+
+        FeatureUtils.register(context, HUGE_BLUE_AERCLOUD_MUSHROOM, DAFeatures.IMPROVED_MUSHROOM_FEATURE.get(), new DAHugeMushroomFeatureConfiguration(
+                BlockStateProvider.simple(DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.TRUE).setValue(HugeMushroomBlock.DOWN, Boolean.FALSE)),
+                BlockStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get().defaultBlockState()), BlockStateProvider.simple(DABlocks.AERCLOUD_ROOTS.get()),2, 4, 7, 2));
+
+        register(context, OVERGROWN_CLOUD_MUSHROOM_TREES, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(HUGE_PINK_AERCLOUD_MUSHROOM), PlacementUtils.filteredByBlockSurvival(DABlocks.BLUE_ROSEROOT_SAPLING.get())), 0.5F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(HUGE_BLUE_AERCLOUD_MUSHROOM), PlacementUtils.filteredByBlockSurvival(DABlocks.BLUE_ROSEROOT_SAPLING.get()))));
+
+        register(context, AERCLOUD_TREE_CONFIGURATION, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
                         new StraightTrunkPlacer(4, 2, 0),
-                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
+                        BlockStateProvider.simple(DAFeatureStates.AERCLOUD_LEAVES),
                         new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -164,6 +191,18 @@ public class DAConfiguredFeatures {
                         .add(Blocks.SHORT_GRASS.defaultBlockState(),40)
                         .add(DABlocks.TALL_GLOWING_GRASS.get().defaultBlockState(),12)
                         .add(DAFeatureStates.RADIANT_ORCHID, 2)), 100));
+
+        register(context, AERCLOUD_GRASS, Feature.RANDOM_PATCH,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(AetherFeatureStates.WHITE_FLOWER, 2)
+                        .add(AetherFeatureStates.PURPLE_FLOWER, 2)
+                        .add(DAFeatureStates.RADIANT_ORCHID, 2)
+                        .add(DABlocks.TALL_ALIEN_PLANT.get().defaultBlockState(), 3)
+                        .add(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get().defaultBlockState(), 6)
+                        .add(DABlocks.PINK_AERCLOUD_MUSHROOMS.get().defaultBlockState(), 6)), 24));
+
+        register(context, AERCLOUD_ROOTS_CARPET, Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(BlockStateProvider.simple(DABlocks.AERCLOUD_ROOT_CARPET.get())));
 
         register(context, ROSEROOT_TREE_LARGE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -218,7 +257,6 @@ public class DAConfiguredFeatures {
                         new RoserootFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
-
 
         register(context, YAGROOT_TREE_CONFIGURATION, Feature.TREE,
                 (new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(DAFeatureStates.YAGROOT_LOG),
@@ -387,7 +425,11 @@ public class DAConfiguredFeatures {
         register(context, STERLING_AERCLOUD_CONFIGURATION, AetherFeatures.AERCLOUD.get(), new AercloudConfiguration(2,
                 SimpleStateProvider.simple(DABlocks.STERLING_AERCLOUD.get())));
 
-        register(context, AERCLOUD_CLOUD, DAFeatures.AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(SimpleStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get())));
+        register(context, AERCLOUD_CLOUD, DAFeatures.AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(SimpleStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get()), Boolean.FALSE));
+        register(context, AERCLOUD_CLOUD_OVERGROWN, DAFeatures.AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(SimpleStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get()), Boolean.TRUE));
+        register(context, AERCLOUD_RAIN_CLOUD, DAFeatures.RAIN_AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(SimpleStateProvider.simple(DABlocks.RAIN_AERCLOUD.get()), Boolean.FALSE));
+        register(context, AERCLOUD_ROOTS, DAFeatures.AERCLOUD_ROOTS.get(),
+                new AercloudConfiguration(20, SimpleStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get())));
 
 
         //register(context, ROCKY_BUMPS, DAFeatures.ROCKY_BUMPS.get(), NoneFeatureConfiguration.INSTANCE);

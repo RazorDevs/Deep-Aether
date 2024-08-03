@@ -1,0 +1,23 @@
+{
+  "type": "aether:lake",
+  "config": {
+    "fluid": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "0"
+        }
+      }
+    },
+    "top": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "deep_aether:rain_aercloud",
+        "Properties": {
+          "double_drops": "false"
+        }
+      }
+    }
+  }
+}

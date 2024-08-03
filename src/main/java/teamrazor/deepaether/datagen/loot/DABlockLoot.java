@@ -111,6 +111,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropOther(DABlocks.YAGROOT_WALL_HANGING_SIGN.get(), DABlocks.YAGROOT_HANGING_SIGN.get());
         this.dropSelf(DABlocks.YAGROOT_HANGING_SIGN.get());
         this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
+        this.dropSelfDouble(DABlocks.AERCLOUD_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
         this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createVinesDrop(DABlocks.YAGROOT_VINE.get()));
         this.add(DABlocks.GLOWING_VINE.get(), (vine) -> createVinesDrop(Blocks.VINE));
@@ -281,6 +282,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
         this.add(DABlocks.TALL_GLOWING_GRASS.get(), (flower) -> createSinglePropConditionTable(Blocks.TALL_GRASS, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+        this.dropSelf(DABlocks.TALL_ALIEN_PLANT.get());
 
         this.dropNone(DABlocks.FEATHER_GRASS.get());
         this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
@@ -294,6 +296,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.LIGHTCAP_MUSHROOMS.get());
         this.add(DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get(), (block) -> this.createMushroomBlockDrop(block, DABlocks.LIGHTCAP_MUSHROOMS.get()));
 
+        this.add(DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), (block) -> this.createMushroomBlockDrop(block, DABlocks.LIGHTCAP_MUSHROOMS.get()));
+        this.add(DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), (block) -> this.createMushroomBlockDrop(block, DABlocks.LIGHTCAP_MUSHROOMS.get()));
+        this.dropSelf(DABlocks.AERCLOUD_ROOT_CARPET.get());
         //Flowers
         this.dropSelf(DABlocks.AERLAVENDER.get());
         this.dropSelf(DABlocks.AETHER_CATTAILS.get());
@@ -352,6 +357,9 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         this.dropSelfDouble(DABlocks.RAIN_AERCLOUD.get());
         this.dropDoubleWithSilk(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropDoubleWithSilk(DABlocks.AERCLOUD_GRASS_BLOCK.get(), AetherBlocks.COLD_AERCLOUD.get());
+        this.dropSelf(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get());
+        this.dropSelf(DABlocks.PINK_AERCLOUD_MUSHROOMS.get());
         this.dropSelfDouble(DABlocks.AETHER_COARSE_DIRT.get());
         this.dropSelf(DABlocks.COMBINER.get());
 

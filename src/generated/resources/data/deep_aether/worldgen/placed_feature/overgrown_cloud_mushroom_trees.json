@@ -1,0 +1,42 @@
+{
+  "feature": "deep_aether:overgrown_cloud_mushroom_trees",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 2
+    },
+    {
+      "type": "aether:improved_layer_placement",
+      "count": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 1,
+          "min_inclusive": 0
+        }
+      },
+      "heightmap": "MOTION_BLOCKING",
+      "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "aether:skyroot_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    }
+  ]
+}
