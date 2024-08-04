@@ -1,5 +1,6 @@
 package teamrazor.deepaether.networking.attachment;
 
+import com.mojang.serialization.Codec;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -13,4 +14,8 @@ public class DAAttachments {
 
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<MoaEffectAttachment>> MOA_EFFECT = ATTACHMENTS.register("moa_effect", ()
             -> AttachmentType.builder(MoaEffectAttachment::new).serialize(MoaEffectAttachment.CODEC).build());
+
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<Boolean>> PLAYER_BOSS_FIGHT = ATTACHMENTS.register("player_boss_figth", ()
+            -> AttachmentType.builder(()->false).serialize(Codec.BOOL).build());
+
 }

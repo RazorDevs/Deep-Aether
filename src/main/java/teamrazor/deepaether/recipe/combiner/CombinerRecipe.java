@@ -1,7 +1,10 @@
 package teamrazor.deepaether.recipe.combiner;
 
+import com.aetherteam.aether.recipe.AetherBookCategory;
+import com.aetherteam.aether.recipe.recipes.item.AbstractAetherCookingRecipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -19,6 +22,7 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.recipe.DABookCategory;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +35,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
     public CombinerRecipe(List<Ingredient> inputItems, ItemStack output) {
         this.inputItems = inputItems;
         this.output = output;
-        this.category = DABookCategory.COMBINEABLE_MISC;
+        this.category = DABookCategory.UNKNOWN;
     }
 
     @Override
@@ -78,7 +82,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeType<?> getType() {
-        return Type.INSTANCE;
+        return DARecipeTypes.COMBINING.get();
     }
 
     @Override
@@ -86,15 +90,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         return new ItemStack(DABlocks.COMBINER.get());
     }
 
-    public static class Type implements RecipeType<CombinerRecipe> {
-        public static final Type INSTANCE = new Type();
-        public static final String ID = "combining";
-    }
-
     public static class Serializer implements RecipeSerializer<CombinerRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
-
         private static final Codec<CombinerRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
                 //DABookCategory.CODEC.fieldOf("category").forGetter(CombinerRecipe::daCategory),
                 Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter((recipe) -> recipe.inputItems),

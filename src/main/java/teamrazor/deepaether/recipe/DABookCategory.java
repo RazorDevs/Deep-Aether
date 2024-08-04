@@ -1,13 +1,12 @@
 package teamrazor.deepaether.recipe;
 
 import net.minecraft.util.StringRepresentable;
-
-import java.util.Arrays;
-import java.util.Optional;
+import org.jetbrains.annotations.NotNull;
 
 public enum DABookCategory implements StringRepresentable {
     COMBINEABLE_FODDER("combinable_fodder"),
-    COMBINEABLE_MISC("combinable_misc");
+    COMBINEABLE_MISC("combinable_misc"),
+    UNKNOWN("unknown");
 
     /**
      * Warning for "deprecation" is suppressed because using {@link StringRepresentable.EnumCodec} is necessary.
@@ -20,12 +19,17 @@ public enum DABookCategory implements StringRepresentable {
         this.name = name;
     }
 
+    @NotNull
     public String getSerializedName() {
         return this.name;
     }
 
     public static DABookCategory valueOf(int value) {
-        return values()[value];
+        return switch (value) {
+            case 0 -> COMBINEABLE_FODDER;
+            case 1 -> COMBINEABLE_MISC;
+            default -> UNKNOWN;
+        };
     }
 }
 

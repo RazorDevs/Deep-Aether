@@ -143,7 +143,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
         SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
         for(int i = 0; i < itemHandler.getSlots(); i++)
             inventory.setItem(i, this.itemHandler.getStackInSlot(i));
-        return this.level.getRecipeManager().getRecipeFor(CombinerRecipe.Type.INSTANCE, inventory, level);
+        return this.level.getRecipeManager().getRecipeFor(DARecipeTypes.COMBINING.get(), inventory, level);
     }
 
 

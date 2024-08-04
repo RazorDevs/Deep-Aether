@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import teamrazor.deepaether.entity.IPlayerBossFight;
+import teamrazor.deepaether.networking.attachment.DAAttachments;
 
 @Pseudo
 @Mixin(value = AerwhaleKingEntity.class)
@@ -18,7 +18,7 @@ public abstract class AerwhaleKingMixin implements AetherBossMob<AerwhaleKingEnt
     @Inject(at = @At("TAIL"), method = "onDungeonPlayerAdded", remap = false)
     private void onDungeonPlayerAdded(Player player, CallbackInfo ci) {
         if (player instanceof ServerPlayer serverPlayer) {
-            ((IPlayerBossFight) serverPlayer).deep_Aether$setHasBeenHurt(false);
+            serverPlayer.setData(DAAttachments.PLAYER_BOSS_FIGHT, false);
         }
     }
 }

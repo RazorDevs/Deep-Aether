@@ -29,7 +29,6 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.*;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
-import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
@@ -53,7 +52,7 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onDungeonPlayerAdded(BossFightEvent.AddPlayer event) {
-        ((IPlayerBossFight) event.getPlayer()).deep_Aether$setHasBeenHurt(false);
+        event.getPlayer().setData(DAAttachments.PLAYER_BOSS_FIGHT.get(), false);
     }
 
     @SubscribeEvent
@@ -77,7 +76,7 @@ public class DAGeneralEvents {
                 for (UUID uuid : uuids) {
                     Player player = level.getPlayerByUUID(uuid);
                     if (player != null) {
-                        if (((IPlayerBossFight) player).deep_Aether$getHasBeenHurt())
+                        if (player.getData(DAAttachments.PLAYER_BOSS_FIGHT))
                             return;
                         players.add(player);
                     }
@@ -152,7 +151,7 @@ public class DAGeneralEvents {
 
     /**
      * Used to check if a player has been hurt during a boss fight
-     * See {@link IPlayerBossFight}
+     * See {@link DAAttachments#PLAYER_BOSS_FIGHT}
      */
 
     public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
@@ -160,7 +159,7 @@ public class DAGeneralEvents {
     @SubscribeEvent
     public static void onLivingEntityHurt(LivingHurtEvent event) {
         if (event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
-            ((IPlayerBossFight) player).deep_Aether$setHasBeenHurt(true);
+            player.setData(DAAttachments.PLAYER_BOSS_FIGHT, true);
         }
         if (event.getSource().getDirectEntity() != null && event.getSource().getDirectEntity() instanceof LivingEntity target) {
             if (EquipmentUtil.hasFullStormsteelSet(event.getEntity())) {

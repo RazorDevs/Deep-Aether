@@ -526,8 +526,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         ItemModelBuilder builder = this.withExistingParent(this.itemName(item), this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item)));
         double index = 0.1;
 
-        for(Iterator var7 = VANILLA_TRIM_MATERIALS.iterator(); var7.hasNext(); index += 0.1) {
-            ResourceKey<TrimMaterial> trimMaterial = (ResourceKey)var7.next();
+        for(Iterator<ResourceKey<TrimMaterial>> var7 = VANILLA_TRIM_MATERIALS.iterator(); var7.hasNext(); index += 0.1) {
+            ResourceKey<TrimMaterial> trimMaterial = var7.next();
             String material = trimMaterial.location().getPath();
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
@@ -541,8 +541,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         ItemModelBuilder builder = this.withExistingParent(this.itemName(item), this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/"  + this.itemName(item)));
         double index = 0.1;
 
-        for(Iterator var6 = NitrogenItemModelProvider.VANILLA_TRIM_MATERIALS.iterator(); var6.hasNext(); index += 0.1) {
-            ResourceKey<TrimMaterial> trimMaterial = (ResourceKey)var6.next();
+        for(Iterator<ResourceKey<TrimMaterial>> var6 = NitrogenItemModelProvider.VANILLA_TRIM_MATERIALS.iterator(); var6.hasNext(); index += 0.1) {
+            ResourceKey<TrimMaterial> trimMaterial = var6.next();
             String material = trimMaterial.location().getPath();
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
@@ -563,8 +563,6 @@ public class DAItemModelData extends AetherItemModelProvider {
 
 
     public void itemOverlayDungeonBlock(Block block, Block baseBlock, String overlay) {
-        this.withExistingParent(this.blockName(block), this.mcLoc("block/cube")).texture("overlay", new ResourceLocation("aether", "block/dungeon/" + overlay)).texture("face", this.texture(this.blockName(baseBlock))).element().from(0.0F, 0.0F, 0.0F).to(16.0F, 16.0F, 16.0F).allFaces((direction, builder) -> {
-            builder.texture("#face").cullface(direction).end();
-        }).end().element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end().transforms().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.GROUND).rotation(90.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end().transform(ItemDisplayContext.GUI).rotation(30.0F, 135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end().transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end().end();
+        this.withExistingParent(this.blockName(block), this.mcLoc("block/cube")).texture("overlay", new ResourceLocation("aether", "block/dungeon/" + overlay)).texture("face", this.texture(this.blockName(baseBlock))).element().from(0.0F, 0.0F, 0.0F).to(16.0F, 16.0F, 16.0F).allFaces((direction, builder) -> builder.texture("#face").cullface(direction).end()).end().element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end().transforms().transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(75.0F, 45.0F, 0.0F).translation(0.0F, 2.5F, 0.0F).scale(0.375F, 0.375F, 0.375F).end().transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).rotation(-90.0F, -180.0F, -45.0F).scale(0.4F, 0.4F, 0.4F).end().transform(ItemDisplayContext.GROUND).rotation(90.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 0.0F).scale(0.25F, 0.25F, 0.25F).end().transform(ItemDisplayContext.GUI).rotation(30.0F, 135.0F, 0.0F).scale(0.625F, 0.625F, 0.625F).end().transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end().end();
     }
 }

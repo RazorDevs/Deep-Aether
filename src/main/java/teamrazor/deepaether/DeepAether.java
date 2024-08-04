@@ -28,12 +28,14 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.moddiscovery.ModInfo;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
 import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
+import net.neoforged.neoforgespi.language.IModInfo;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
@@ -142,7 +144,7 @@ public class DeepAether {
 		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
 
-		if (dist == Dist.CLIENT)
+		if (dist.isClient())
 			bus.addListener(DARecipeCategories::registerRecipeCategories);
 	}
 
