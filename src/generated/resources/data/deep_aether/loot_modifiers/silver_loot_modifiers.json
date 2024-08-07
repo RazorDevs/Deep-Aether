@@ -1,6 +1,6 @@
 {
-  "type": "deep_aether:aether_dungeon_loot_no_replacement",
-  "chanceToSpawn": 0.8,
+  "type": "deep_aether:aether_dungeon_loot",
+  "chanceToSpawn": 0.0,
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",

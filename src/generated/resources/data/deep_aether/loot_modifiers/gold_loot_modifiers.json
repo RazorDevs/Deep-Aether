@@ -1,6 +1,6 @@
 {
-  "type": "deep_aether:aether_dungeon_loot_no_replacement",
-  "chanceToSpawn": 0.55,
+  "type": "deep_aether:aether_dungeon_loot",
+  "chanceToSpawn": 0.25,
   "conditions": [
     {
       "condition": "neoforge:loot_table_id",
@@ -34,15 +34,15 @@
         "Count": 2,
         "id": "deep_aether:sterling_aercloud"
       },
-      "weight": 5
+      "weight": 7
     },
     {
       "data": {
         "Count": 1,
         "id": "deep_aether:sterling_aercloud"
       },
-      "weight": 15
+      "weight": 20
     }
   ],
-  "totalWeight": 110
+  "totalWeight": 100
 }
