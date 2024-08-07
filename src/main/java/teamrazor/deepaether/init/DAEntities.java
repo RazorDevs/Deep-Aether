@@ -1,15 +1,21 @@
 package teamrazor.deepaether.init;
 
 
+import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.entity.passive.AetherAnimal;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import teamrazor.deepaether.DeepAether;
@@ -53,7 +59,11 @@ public class DAEntities {
 					.sized(0.5f, 0.5f));
 
 	public static final DeferredHolder<EntityType<?>,EntityType<Quail>> QUAIL = register("quail",
-			Quail::new, 0.35F, 0.7f);
+			EntityType.Builder.of(Quail::new, MobCategory.CREATURE)
+					.setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3)
+					.clientTrackingRange(10)
+					.sized(0.35F, 0.7f));
 
 	public static final DeferredHolder<EntityType<?>,EntityType<Venomite>> VENOMITE = register("venomite",
 			Venomite::new, 0.7F, 0.6F);
@@ -94,13 +104,15 @@ public class DAEntities {
 	}
 
 	@SubscribeEvent
-	public static void init(FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
-			AerglowFish.createAttributes();
-			Quail.init();
-			Venomite.init();
-			Windfly.init();
-		});
+	public static void spawnPlacementRegisterEvent(SpawnPlacementRegisterEvent event) {
+		event.register(DAEntities.QUAIL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(DAEntities.WINDFLY.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				DAEntities::checkWindFly, SpawnPlacementRegisterEvent.Operation.OR);
+		event.register(DAEntities.VENOMITE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+	}
+
+	public static boolean checkWindFly(EntityType<Windfly> animal, LevelAccessor level, MobSpawnType spawnReason, BlockPos pos, RandomSource random) {
+		return level.isEmptyBlock(pos.above());
 	}
 
 	@SubscribeEvent

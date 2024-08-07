@@ -34,13 +34,6 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.deep_aether]]
-modId="geckolib"
-type = "required"
-versionRange="[4.4.4,)"
-ordering="NONE"
-side="BOTH"
-
-[[dependencies.deep_aether]]
 modId="aeroblender"
 type = "required"
 versionRange="[1.0.1,)"

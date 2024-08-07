@@ -12,9 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.client.model.AerglowFishModel;
-import teamrazor.deepaether.client.model.EOTSSegmentModel;
-import teamrazor.deepaether.client.model.VenomiteBubbleModel;
+import teamrazor.deepaether.client.model.*;
 import teamrazor.deepaether.client.renderer.*;
 import teamrazor.deepaether.entity.DABoatEntity;
 
@@ -29,6 +27,7 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), EOTSRenderer::new);
 		event.registerEntityRenderer(DAEntities.EOTS_SEGMENT.get(), EOTSSegmentRenderer::new);
+		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.HANGING_SIGN.get(), HangingSignRenderer::new);
@@ -46,7 +45,10 @@ public class DAEntityRenderers {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(DAModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.EOTS_SEGMENT, EOTSSegmentModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.QUAIL, QuailModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.VENOMITE_BUBBLE, VenomiteBubbleModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.VENOMITE, VenomiteModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.WINDFLY, WindflyModel::createBodyLayer);
 
 		for (DABoatEntity.Type type : DABoatEntity.Type.values()) {
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getModelLocation()), "main"), BoatModel::createBodyModel);

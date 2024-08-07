@@ -28,16 +28,13 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.loading.moddiscovery.ModInfo;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
 import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
-import net.neoforged.neoforgespi.language.IModInfo;
 import org.slf4j.Logger;
-import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.behavior.DADispenseBehaviors;
@@ -114,8 +111,6 @@ public class DeepAether {
 		bus.addListener(this::registerPackets);
 		bus.addListener(this::addAetherAdditionalResourcesPack);
 
-		//NeoForge.EVENT_BUS.register(this);
-		GeckoLib.initialize(bus);
 		DABlocks.BLOCKS.register(bus);
 		DAItems.ITEMS.register(bus);
 		DAParticles.PARTICLE_TYPES.register(bus);

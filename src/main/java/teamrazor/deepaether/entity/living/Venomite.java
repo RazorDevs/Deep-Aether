@@ -35,14 +35,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.entity.goals.FollowPlayerGoal;
 import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 import teamrazor.deepaether.init.DAEntities;
@@ -50,9 +42,8 @@ import teamrazor.deepaether.init.DASounds;
 
 import java.util.UUID;
 
-public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, FlyingAnimal {
+public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
 
-    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     public static final int TICKS_PER_FLAP = Mth.ceil(1.4959966F);
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(Venomite.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> DATA_REMAINING_ANGER_TIME = SynchedEntityData.defineId(Venomite.class, EntityDataSerializers.INT);
@@ -60,7 +51,8 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
     private float rollAmount;
     private float rollAmountO;
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-    @javax.annotation.Nullable
+
+    @Nullable
     private UUID persistentAngerTarget;
 
     public Venomite(EntityType<? extends Animal> type, Level level) {
@@ -71,8 +63,8 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D)
-                .add(Attributes.FLYING_SPEED, (double)0.6F)
-                .add(Attributes.MOVEMENT_SPEED, (double)0.3F)
+                .add(Attributes.FLYING_SPEED, 0.6F)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D)
                 .add(Attributes.FOLLOW_RANGE, 48.0D);
     }
@@ -260,24 +252,6 @@ public class Venomite extends AetherAnimal implements GeoEntity, NeutralMob, Fly
             this.setRolling(flag);
         }
     }
-
-
-    private PlayState predicate(AnimationState animationState) {
-        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.venomite.flying"));
-        return PlayState.CONTINUE;
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller",
-                0, this::predicate));
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return factory;
-    }
-
 
     class VenomiteAttackGoal extends MeleeAttackGoal {
         VenomiteAttackGoal(PathfinderMob mob, double v, boolean b) {

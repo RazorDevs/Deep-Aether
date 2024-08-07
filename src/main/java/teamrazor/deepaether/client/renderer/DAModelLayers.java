@@ -8,6 +8,9 @@ public class DAModelLayers {
     public static final ModelLayerLocation AERGLOW_FISH = register("aether_fish");
     public static final ModelLayerLocation EOTS_SEGMENT = register("eots_segment_head");
     public static final ModelLayerLocation VENOMITE_BUBBLE = register("venomite_bubble");
+    public static final ModelLayerLocation VENOMITE = register("venomite");
+    public static final ModelLayerLocation QUAIL = register("quail");
+    public static final ModelLayerLocation WINDFLY = register("windfly");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

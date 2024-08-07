@@ -47,14 +47,6 @@ import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAEntities;
 
@@ -62,11 +54,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTSController>, Enemy {
+public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 19;
-    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
@@ -478,25 +469,6 @@ public class EOTSController extends Mob implements GeoEntity, AetherBossMob<EOTS
             this.readBossSaveData(tag);
         }
 
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller",
-                0, this::predicate));
-    }
-
-    // Animation handling
-    private PlayState predicate(AnimationState<EOTSController> animationState) {
-        if(this.isAutoSpinAttack()) {
-            animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.eots.attack"));
-        }
-        return PlayState.CONTINUE;
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.factory;
     }
 
     public static class selectControllingSegmentGoal extends Goal {

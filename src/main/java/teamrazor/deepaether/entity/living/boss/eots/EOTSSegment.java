@@ -36,10 +36,10 @@ import java.util.EnumSet;
 import java.util.UUID;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
-
+    /*
     private boolean shouldGoToMiddle = false; //Not yet implemented
     private BlockPos middle; //Not yet implemented
-
+    */
     private boolean hasContactedControllerOnLoad = false;
 
     @Nullable
@@ -63,7 +63,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     /**
      * Used to spawn multiple segments at once
-     * {@link EOTSController.SEGMENT_COUNT}
+     * {@link EOTSController#SEGMENT_COUNT}
      */
     protected EOTSSegment(Level level, EOTSSegment parent, int length) {
         this(DAEntities.EOTS_SEGMENT.get(), level);
@@ -201,7 +201,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     @Override
-    protected void blockedByShield(LivingEntity pDefender) {
+    protected void blockedByShield(@NotNull LivingEntity pDefender) {
         super.blockedByShield(pDefender);
         if(pDefender instanceof Player player) {
             player.getCooldowns().addCooldown(player.getUseItem().getItem(), 1000);
@@ -214,9 +214,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         float health = this.getHealth();
         boolean doHurt = super.hurt(pSource, pAmount);
         if(this.getController() != null) {
-            if (pAmount >= health)
-                this.getController().hurt(createControllerDamageSource(pSource.getEntity()), health);
-            else this.getController().hurt(createControllerDamageSource( pSource.getEntity()), pAmount);
+            this.getController().hurt(createControllerDamageSource(pSource.getEntity()), Math.min(pAmount, health));
         }
         return doHurt;
     }
@@ -263,7 +261,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     /**
-     * @return the parent's UUID as a fallback if {@link parent} is missing
+     * @return the parent's UUID as a fallback if {@link #parent} is missing
      */
     private @Nullable UUID getParentUUID() {
         return this.parentUUID;
@@ -347,8 +345,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      * @param middle The position the controlling segment should move towards
      */
     public void setGoToMiddle(BlockPos middle) {
-        this.shouldGoToMiddle = true;
-        this.middle = middle;
+        //this.shouldGoToMiddle = true;
+        //this.middle = middle;
     }
 
     private float getIdleYPos() {
@@ -436,7 +434,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     /**
-     * Modified version of {@link net.minecraft.world.entity.monster.Phantom.PhantomMoveControl}
+     * Modified version of @link net.minecraft.world.entity.monster.Phantom#PhantomMoveControl
      * Handles the rotation and movement of the controlling segment
      */
     protected static class EotsSegmentMoveControl extends MoveControl {
@@ -476,7 +474,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     // Introduce a vertical wave motion using sine function
                     double waveFrequency = 0.05; // Frequency of the wave
                     double waveAmplitude = 0.8; // Amplitude of the wave
-                    double time = this.segment.tickCount + this.segment.getController().controllingSegments.indexOf(this); // Ensure different segments are out of phase
+                    double time = this.segment.tickCount;
+                    EOTSController controller = this.segment.getController();
+                    if(controller != null)
+                        time += controller.controllingSegments.indexOf(this); // Ensure different segments are out of phase
                     double verticalWave = Math.sin(time * waveFrequency) * waveAmplitude;
 
                     float f4 = (float) (-(Mth.atan2(-d1 + verticalWave, d3) * 180.0 / 3.1415927410125732));

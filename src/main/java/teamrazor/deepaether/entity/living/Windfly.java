@@ -28,20 +28,10 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
 
-public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
-    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
-
+public class Windfly extends AetherAnimal implements FlyingAnimal {
     private static final EntityDataAccessor<Float> DATA_X_ROT_O_ID = SynchedEntityData.defineId(Windfly.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Float> DATA_X_ROT_ID = SynchedEntityData.defineId(Windfly.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Float> DATA_Y_ROT_ID = SynchedEntityData.defineId(Windfly.class, EntityDataSerializers.FLOAT);
@@ -63,14 +53,6 @@ public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
                 .add(Attributes.FLYING_SPEED, (double)0.15F)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.3F)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D);
-    }
-
-
-    // Spawn Handling
-    public static void init() {
-        SpawnPlacements.register(DAEntities.WINDFLY.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                (entityType, world, reason, pos,
-                 random) -> (world.getBlockState(pos.above()).is(Blocks.AIR)));
     }
 
     protected void defineSynchedData() {
@@ -160,22 +142,6 @@ public class Windfly extends AetherAnimal implements GeoEntity, FlyingAnimal {
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
         return DASounds.WINDFLY_HURT.get();
-    }
-
-    private PlayState predicate(AnimationState animationState) {
-        animationState.getController().setAnimation(RawAnimation.begin().thenPlay("animation.lunar_moth.flying"));
-        return PlayState.CONTINUE;
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller",
-                0, this::predicate));
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return factory;
     }
 
     public static class WindflyMoveControl extends MoveControl {

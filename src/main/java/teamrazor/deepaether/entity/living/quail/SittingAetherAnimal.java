@@ -37,9 +37,6 @@ public abstract class SittingAetherAnimal extends AetherAnimal {
     @Override
     public void readAdditionalSaveData(@Nonnull CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        if (tag.contains("IsBaby")) {
-            this.setBaby(tag.getBoolean("IsBaby"));
-        }
         if (tag.contains("Sitting")) {
             this.setSitting(tag.getBoolean("Sitting"));
         }

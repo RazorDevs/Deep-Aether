@@ -1,14 +1,13 @@
 package teamrazor.deepaether.client.renderer;
 
 import com.google.common.collect.Maps;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.Util;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import net.minecraft.util.Mth;
+import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.QuailModel;
 import teamrazor.deepaether.entity.living.quail.Quail;
@@ -16,11 +15,10 @@ import teamrazor.deepaether.entity.living.quail.QuailVariants;
 
 import java.util.Map;
 
-public class QuailRenderer extends GeoEntityRenderer<Quail> {
+public class QuailRenderer extends MobRenderer<Quail, QuailModel> {
 
     public QuailRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new QuailModel());
-        this.shadowRadius = 0.3f;
+        super(renderManager, new QuailModel(renderManager.bakeLayer(DAModelLayers.QUAIL)), 0.3f);
     }
 
     public static final Map<QuailVariants, ResourceLocation> LOCATION_BY_VARIANT =
@@ -41,26 +39,16 @@ public class QuailRenderer extends GeoEntityRenderer<Quail> {
                         new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_copper.png"));
 
             });
+
     @Override
-    public ResourceLocation getTextureLocation(Quail instance) {
-        return LOCATION_BY_VARIANT.get(instance.getVariant());
+    protected float getBob(Quail pLivingBase, float pPartialTicks) {
+        float f = Mth.lerp(pPartialTicks, pLivingBase.oFlap, pLivingBase.flap);
+        float f1 = Mth.lerp(pPartialTicks, pLivingBase.oFlapSpeed, pLivingBase.flapSpeed);
+        return (Mth.sin(f) + 1.0F) * f1;
     }
     @Override
-    public void preRender(PoseStack poseStack, Quail animatable,
-                          BakedGeoModel model, MultiBufferSource bufferSource,
-                          VertexConsumer buffer, boolean isReRender,
-                          float partialTick, int packedLight, int packedOverlay,
-                          float red, float green, float blue, float alpha) {
-
-        if (animatable.isBaby()){
-            poseStack.scale(0.6f, 0.6f, 0.6f);
-        }else{
-            poseStack.scale(0.9f, 0.9f,0.9f);
-        }
-        if (animatable.isSitting()){
-            poseStack.translate(0.0, -0.35, 0.0);
-        }
-
-        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+    @NotNull
+    public ResourceLocation getTextureLocation(Quail instance) {
+        return LOCATION_BY_VARIANT.get(instance.getVariant());
     }
 }
