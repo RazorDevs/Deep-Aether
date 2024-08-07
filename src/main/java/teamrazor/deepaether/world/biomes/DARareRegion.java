@@ -25,10 +25,10 @@ public class DARareRegion extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
-        Climate.Parameter tempDefault4 = Climate.Parameter.span(0.5F, 0.7F);
+        Climate.Parameter tempDefault4 = Climate.Parameter.span(0.6F, 0.7F);
         Climate.Parameter tempDefault5 = Climate.Parameter.span(0.7F, 1.5F);
 
-        Climate.Parameter tempDefault45 = Climate.Parameter.span(0.5F, 1.5F);
+        Climate.Parameter tempDefault45 = Climate.Parameter.span(0.6F, 1.5F);
 
         addBiome(mapper, new Climate.ParameterPoint(tempDefault45, Climate.Parameter.span(-1.0F, 1.0F), fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
                 DABiomes.SKYROOT_RAINFOREST);

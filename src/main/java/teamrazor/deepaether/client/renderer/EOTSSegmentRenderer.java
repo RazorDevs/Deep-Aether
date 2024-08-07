@@ -43,6 +43,12 @@ public class EOTSSegmentRenderer extends MobRenderer<EOTSSegment, EOTSSegmentMod
 		super.render(eots, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
 	}
 
+
+	@Override
+	protected float getBob(EOTSSegment pLivingBase, float pPartialTick) {
+		return pPartialTick;
+	}
+
 	/*
 	private static int subTreeSearch(EOTSSegment eots, int sub){
 		if(!eots.isControllingSegment() && eots.getParent() != null){

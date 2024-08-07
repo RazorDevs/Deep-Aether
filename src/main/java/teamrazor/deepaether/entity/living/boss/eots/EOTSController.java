@@ -97,7 +97,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @Override
     protected void registerGoals() {
-        this.targetSelector.addGoal(2, new selectControllingSegmentGoal(this));
+        //this.targetSelector.addGoal(2, new selectControllingSegmentGoal(this));
     }
 
     @Override
@@ -494,7 +494,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         @Override
         public void start() {
             this.timer = 200;
-            this.controller.controllingSegments.get(this.controller.level().getRandom().nextInt(this.controller.controllingSegments.size())).setGoToMiddle(this.controller.blockPosition().above(2));
+            //this.controller.controllingSegments.get(this.controller.level().getRandom().nextInt(this.controller.controllingSegments.size())).setGoToMiddle(this.controller.blockPosition().above(2));
         }
     }
 }

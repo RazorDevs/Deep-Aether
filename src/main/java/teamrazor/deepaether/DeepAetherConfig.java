@@ -135,7 +135,7 @@ public class DeepAetherConfig {
             storm_cloud_biome_weight = builder
                     .comment("The weighting of Storm Cloud regions in the aether")
                     .translation("config.deep_aether.common.gameplay.storm_cloud_biome_weight")
-                    .define("Storm Cloud Biome Weight", 2);
+                    .define("Storm Cloud Biome Weight", 1);
             builder.pop();
         }
     }

@@ -36,10 +36,6 @@ import java.util.EnumSet;
 import java.util.UUID;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
-    /*
-    private boolean shouldGoToMiddle = false; //Not yet implemented
-    private BlockPos middle; //Not yet implemented
-    */
     private boolean hasContactedControllerOnLoad = false;
 
     @Nullable
@@ -53,6 +49,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     private boolean shouldMove = true;
     private static final EntityDataAccessor<Boolean> DATA_HEAD_ID = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
     public static final EntityDataAccessor<String> PARENT_DATA = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.STRING);
+    public static final EntityDataAccessor<Boolean> DATA_OPEN_MONTH = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
 
     public EOTSSegment(EntityType<? extends EOTSSegment> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -104,10 +101,12 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 15.0);
     }
 
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(DATA_HEAD_ID, true);
+        this.getEntityData().define(DATA_OPEN_MONTH, false);
         this.getEntityData().define(PARENT_DATA, this.getParent() != null ? this.getParentUUID().toString() : this.getStringUUID());
     }
     @Nullable
@@ -260,6 +259,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.getEntityData().set(DATA_HEAD_ID, head);
     }
 
+    public boolean isMouthOpen() {
+        return this.getEntityData().get(DATA_OPEN_MONTH);
+    }
+
+    public void setMouthOpen(boolean head) {
+        this.getEntityData().set(DATA_OPEN_MONTH, head);
+    }
+
     /**
      * @return the parent's UUID as a fallback if {@link #parent} is missing
      */
@@ -338,15 +345,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         } else {
             return null;
         }
-    }
-
-    /**
-     * Not yet implemented
-     * @param middle The position the controlling segment should move towards
-     */
-    public void setGoToMiddle(BlockPos middle) {
-        //this.shouldGoToMiddle = true;
-        //this.middle = middle;
     }
 
     private float getIdleYPos() {
@@ -572,6 +570,12 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             maxFollowingTimer = 150;
             if(this.segment.getTarget() != null)
                 this.targetStartPos = this.segment.getTarget().position();
+            segment.setMouthOpen(true);
+        }
+
+        @Override
+        public void stop() {
+            segment.setMouthOpen(false);
         }
 
         @Override
@@ -681,12 +685,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             this.attackDelay = 19;
             this.numberOfAttacks = (int) (this.segment.random.nextInt(0,3) * this.segment.getGlobalSpeedModifier());
             this.segment.shouldMove = false;
+            this.segment.setMouthOpen(true);
             super.start();
         }
 
         @Override
         public void stop() {
             this.segment.shouldMove = true;
+            this.segment.setMouthOpen(false);
             super.stop();
         }
 
