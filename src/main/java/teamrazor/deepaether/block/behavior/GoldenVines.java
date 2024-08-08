@@ -32,7 +32,7 @@ public interface GoldenVines {
             Block.popResource(level, pos, new ItemStack(DAItems.GOLDEN_BERRIES.get(), 1));
             float f = Mth.randomBetween(level.random, 0.8F, 1.2F);
             level.playSound(null, pos, SoundEvents.CAVE_VINES_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, f);
-            BlockState blockstate = state.setValue(BERRIES, Boolean.valueOf(false));
+            BlockState blockstate = state.setValue(BERRIES, Boolean.FALSE);
             level.setBlock(pos, blockstate, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(entity, blockstate));
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -42,6 +42,6 @@ public interface GoldenVines {
     }
 
     static ToIntFunction<BlockState> emission(int emission) {
-        return (p_181216_) -> p_181216_.getValue(BlockStateProperties.BERRIES) ? emission : 0;
+        return (state) -> state.getValue(BlockStateProperties.BERRIES) ? emission : 0;
     }
 }

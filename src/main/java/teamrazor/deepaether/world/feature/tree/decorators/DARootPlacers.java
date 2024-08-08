@@ -1,7 +1,6 @@
 package teamrazor.deepaether.world.feature.tree.decorators;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;

@@ -11,7 +11,6 @@ import com.aetherteam.aether.network.packet.clientbound.BossInfoPacket;
 import com.aetherteam.nitrogen.entity.BossRoomTracker;
 import com.aetherteam.nitrogen.network.PacketRelay;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -91,6 +90,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         return result.append(Component.translatable("gui.deep_aether.eots.title"));
     }
 
+    @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0).add(Attributes.FOLLOW_RANGE, 128.0);
     }
@@ -188,7 +188,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    public void die(DamageSource source) {
+    public void die(@NotNull DamageSource source) {
         this.setDeltaMovement(Vec3.ZERO);
         if(deathPos != null) {
             this.setPos(deathPos);
@@ -205,7 +205,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         super.die(source);
     }
 
-    private void spawnSegments() {
+    protected void spawnSegments() {
         EOTSSegment oldSegment = new EOTSSegment(this.level(), this);
         this.segmentUUIDs.add(oldSegment.getUUID());
         for (int i = 0; i < SEGMENT_COUNT; i++) {
@@ -244,12 +244,12 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         } else if (state.is(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get())) {
             return Blocks.AIR.defaultBlockState();
         } else {
-            return state.is(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get()) ? AetherBlocks.SKYROOT_TRAPDOOR.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, (Direction)state.getValue(HorizontalDirectionalBlock.FACING)) : null;
+            return state.is(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get()) ? AetherBlocks.SKYROOT_TRAPDOOR.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, state.getValue(HorizontalDirectionalBlock.FACING)) : null;
         }
     }
 
     @Override
-    public void startSeenByPlayer(ServerPlayer player) {
+    public void startSeenByPlayer(@NotNull ServerPlayer player) {
         super.startSeenByPlayer(player);
         PacketRelay.sendToPlayer(new BossInfoPacket.Display(this.bossFight.getId(), this.getId()), player);
         if (this.getDungeon() == null || this.getDungeon().isPlayerTracked(player)) {
@@ -259,7 +259,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    public void stopSeenByPlayer(ServerPlayer player) {
+    public void stopSeenByPlayer(@NotNull ServerPlayer player) {
         super.stopSeenByPlayer(player);
         PacketRelay.sendToPlayer(new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()), player);
         this.bossFight.removePlayer(player);
@@ -381,12 +381,12 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    public boolean canAttack(LivingEntity target) {
+    public boolean canAttack(@NotNull LivingEntity target) {
         return false;
     }
 
     @Override
-    public boolean ignoreExplosion(Explosion explosion) {
+    public boolean ignoreExplosion(@NotNull Explosion explosion) {
         return true;
     }
 
@@ -396,12 +396,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    protected boolean canRide(Entity vehicle) {
-        return false;
-    }
-
-    @Override
-    public boolean canBeCollidedWith() {
+    protected boolean canRide(@NotNull Entity vehicle) {
         return false;
     }
 
@@ -436,19 +431,20 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
+    @NotNull
     protected Entity.MovementEmission getMovementEmission() {
         return MovementEmission.EVENTS;
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
+    public void addAdditionalSaveData(@NotNull CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         this.addBossSaveData(tag);
         tag.putBoolean("Awake", this.isAwake());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
+    public void readAdditionalSaveData(@NotNull CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.readBossSaveData(tag);
         if (tag.contains("Awake")) {

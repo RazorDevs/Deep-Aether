@@ -94,7 +94,7 @@ public class DABlockInteractionBehavior {
                 if (!world.isClientSide) {
                     ServerLevel serverlevel = (ServerLevel) world;
                     for (int i = 0; i < 5; ++i) {
-                        serverlevel.sendParticles(ParticleTypes.SPLASH, (double) pos.getX() + world.random.nextDouble(), (double) (pos.getY() + 1), (double) pos.getZ() + world.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
+                        serverlevel.sendParticles(ParticleTypes.SPLASH, (double) pos.getX() + world.random.nextDouble(), pos.getY() + 1, (double) pos.getZ() + world.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
                     }
                 }
 

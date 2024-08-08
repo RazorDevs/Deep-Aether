@@ -11,13 +11,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import teamrazor.deepaether.init.DABlocks;
 
 import java.util.Optional;
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class SquashStemBlock extends StemBlock {
 

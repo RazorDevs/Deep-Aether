@@ -1,10 +1,6 @@
 package teamrazor.deepaether.datagen.strucutre;
 
-import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.data.resources.registries.AetherStructures;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -17,7 +13,6 @@ import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement
 import teamrazor.deepaether.DeepAether;
 
 import java.util.List;
-import java.util.Optional;
 
 public class DAStrucutreSets {
     public static final ResourceKey<StructureSet> BRASS_DUNGEON = createKey("brass_dungeon");

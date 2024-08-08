@@ -3,7 +3,6 @@ package teamrazor.deepaether.client.model;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
-
 import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
 public class EOTSModel extends EntityModel<EOTSController> {
 

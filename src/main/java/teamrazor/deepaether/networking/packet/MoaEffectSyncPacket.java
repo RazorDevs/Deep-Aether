@@ -1,6 +1,5 @@
 package teamrazor.deepaether.networking.packet;
 
-import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncEntityPacket;
 import net.minecraft.network.FriendlyByteBuf;
@@ -9,7 +8,6 @@ import net.neoforged.neoforge.attachment.AttachmentType;
 import oshi.util.tuples.Quartet;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.networking.attachment.DAAttachments;
-import teamrazor.deepaether.networking.attachment.DAPlayerAttachment;
 import teamrazor.deepaether.networking.attachment.MoaEffectAttachment;
 
 import java.util.function.Supplier;

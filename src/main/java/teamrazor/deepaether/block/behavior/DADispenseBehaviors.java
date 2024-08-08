@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.block.entity.DispenserBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import teamrazor.deepaether.init.DABlocks;
@@ -75,7 +74,7 @@ public class DADispenseBehaviors {
                 if (serverlevel.getBlockState(blockpos1).is(AetherBlocks.AETHER_DIRT.get())) {
                     if (!serverlevel.isClientSide) {
                         for (int i = 0; i < 5; ++i) {
-                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), (double) (blockpos.getY() + 1), (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
+                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), blockpos.getY() + 1, (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
                         }
                     }
 
@@ -88,7 +87,7 @@ public class DADispenseBehaviors {
                 else if (serverlevel.getBlockState(blockpos1).getBlockHolder().is(BlockTags.CONVERTABLE_TO_MUD)) {
                     if (!serverlevel.isClientSide) {
                         for (int i = 0; i < 5; ++i) {
-                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), (double) (blockpos.getY() + 1), (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
+                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), blockpos.getY() + 1, (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
                         }
                     }
 
@@ -108,15 +107,15 @@ public class DADispenseBehaviors {
         private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
 
         @Override
-        public ItemStack execute(BlockSource p_123561_, ItemStack p_123562_) {
-            DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)p_123562_.getItem();
-            BlockPos blockpos = p_123561_.pos().relative(p_123561_.state().getValue(DispenserBlock.FACING));
-            Level level = p_123561_.level();
-            if (dispensiblecontaineritem.emptyContents(null, level, blockpos, null)) {
-                dispensiblecontaineritem.checkExtraContent(null, level, p_123562_, blockpos);
+        public ItemStack execute(BlockSource source, ItemStack stack) {
+            DispensibleContainerItem dispensiblecontaineritem = (DispensibleContainerItem)stack.getItem();
+            BlockPos blockpos = source.pos().relative(source.state().getValue(DispenserBlock.FACING));
+            Level level = source.level();
+            if (dispensiblecontaineritem.emptyContents(null, level, blockpos, null, stack)) {
+                dispensiblecontaineritem.checkExtraContent(null, level, stack, blockpos);
                 return new ItemStack(Items.BUCKET);
             } else {
-                return this.defaultDispenseItemBehavior.dispense(p_123561_, p_123562_);
+                return this.defaultDispenseItemBehavior.dispense(source, stack);
             }
         }
     };

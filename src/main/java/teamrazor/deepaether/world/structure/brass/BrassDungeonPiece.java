@@ -1,7 +1,5 @@
 package teamrazor.deepaether.world.structure.brass;
 
-import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.world.structurepiece.AetherTemplateStructurePiece;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;

@@ -24,12 +24,4 @@ public class MoaBonusJumpEffect extends MobEffect {
     public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
 
     }
-
-    @Override
-    public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
-        return false;
-    }
-
-
-
 }

@@ -3,7 +3,6 @@ package teamrazor.deepaether.client.renderer;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.projectile.SpectralArrow;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import teamrazor.deepaether.entity.StormArrow;

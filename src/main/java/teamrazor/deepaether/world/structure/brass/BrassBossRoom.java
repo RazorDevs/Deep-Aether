@@ -1,13 +1,8 @@
 package teamrazor.deepaether.world.structure.brass;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.blockentity.TreasureChestBlockEntity;
-import com.aetherteam.aether.loot.AetherLoot;
 import com.aetherteam.aether.world.processor.BossRoomProcessor;
-import com.aetherteam.aether.world.structurepiece.AetherStructurePieceTypes;
 import com.aetherteam.aether.world.structurepiece.AetherTemplateStructurePiece;
-import com.aetherteam.aether.world.structurepiece.golddungeon.GoldBossRoom;
-import com.aetherteam.aether.world.structurepiece.golddungeon.GoldDungeonPiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;

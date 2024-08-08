@@ -1,10 +1,6 @@
 package teamrazor.deepaether.client.model;
 
-import com.aetherteam.aether.client.renderer.entity.model.AerwhaleModel;
-import com.legacy.lost_aether.LostContentConfig;
 import com.legacy.lost_aether.client.models.AerwhaleModelOverride;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
 /**
  * I blame this on LC's code, okay?
  * Also, the name on the class totally makes sense {@link AerwhaleModelOverride}

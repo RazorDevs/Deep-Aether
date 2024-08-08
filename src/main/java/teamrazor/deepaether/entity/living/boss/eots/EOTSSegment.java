@@ -36,20 +36,27 @@ import java.util.EnumSet;
 import java.util.UUID;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
+
+    //Used to indicate if the EOTSSegment has been able to connect to the controller on reloading a world during a boss fight.
     private boolean hasContactedControllerOnLoad = false;
 
+    //The segment before the current segment. Null if the current segment is a head/controlling segment
     @Nullable
     protected EOTSSegment parent;
     @Nullable
     private UUID parentUUID;
+
+    //The controller for the EOTS boss fight. The controller is needed to calculate the total health of all the segments, and the progress of the boss fight.
     @Nullable
-    protected EOTSController controller; //Not yet implemented
+    protected EOTSController controller;
     @Nullable
-    private UUID controllerUUID; //Not yet implemented
+    private UUID controllerUUID;
+
+    //Used to stop EOTS from moving when performing the air charge attack.
     private boolean shouldMove = true;
     private static final EntityDataAccessor<Boolean> DATA_HEAD_ID = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
     public static final EntityDataAccessor<String> PARENT_DATA = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.STRING);
-    public static final EntityDataAccessor<Boolean> DATA_OPEN_MONTH = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
+    public static final EntityDataAccessor<Boolean> DATA_OPEN_MOUTH = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
 
     public EOTSSegment(EntityType<? extends EOTSSegment> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -59,7 +66,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     /**
-     * Used to spawn multiple segments at once
+     * Used to spawn multiple EOTSSegments without a controller, not possible to trigger without cheats.
+     * {@link EOTSSegment#finalizeSpawn}
      * {@link EOTSController#SEGMENT_COUNT}
      */
     protected EOTSSegment(Level level, EOTSSegment parent, int length) {
@@ -73,6 +81,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.hasContactedControllerOnLoad = true;
     }
 
+    /**
+     * Used to spawn a body EOTSSegment with a controller and a parent attached to it
+     * {@link EOTSController#spawnSegments()}
+     */
     public EOTSSegment(Level level, EOTSSegment parent, EOTSController controller) {
         this(DAEntities.EOTS_SEGMENT.get(), level);
         this.setPos(parent.getOnPos().getCenter());
@@ -85,6 +97,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.hasContactedControllerOnLoad = true;
     }
 
+    /**
+     * Used to spawn a controlling segment with a controller attached to it
+     * {@link EOTSController#spawnSegments()}
+     */
     public EOTSSegment(Level level, EOTSController controller) {
         this(DAEntities.EOTS_SEGMENT.get(), level);
         this.setPos(controller.getOnPos().getCenter());
@@ -106,9 +122,13 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(DATA_HEAD_ID, true);
-        this.getEntityData().define(DATA_OPEN_MONTH, false);
-        this.getEntityData().define(PARENT_DATA, this.getParent() != null ? this.getParentUUID().toString() : this.getStringUUID());
+        this.getEntityData().define(DATA_OPEN_MOUTH, false);
+        this.getEntityData().define(PARENT_DATA, this.getParent() != null && this.getParentUUID() != null ? this.getParentUUID().toString() : this.getStringUUID());
     }
+
+    /**
+     * Used to spawn multiple segments when a summon command is used.
+     */
     @Nullable
     @SuppressWarnings("deprecation")
     public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor pLevel, @NotNull DifficultyInstance pDifficulty, @NotNull MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
@@ -124,6 +144,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, false));
     }
 
+    /**
+     * We don't want the EOTSSegment to despawn
+     */
     @Override
     public void checkDespawn() {
     }
@@ -134,8 +157,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     @Override
     public void tick() {
-        if(!this.hasContactedControllerOnLoad) {
-            if(this.getControllerUUID() == null) {
+        if(!this.hasContactedControllerOnLoad) { //We try to reach the controller until we do after rejoining a world
+            if(this.getControllerUUID() == null) { //Non existent controller
                 this.hasContactedControllerOnLoad = true;
             }
             else if (this.getController() != null) {
@@ -186,7 +209,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     this.getController().controllingSegments.add(this);
             }
 
-            if (this.getTarget() != null) {
+            if (this.getTarget() != null) { //We damage the player if it's too close to the segment
                 if (this.getTarget().distanceToSqr(this) < 1.0F) {
                     this.doHurtTarget(this.getTarget());
                 }
@@ -208,6 +231,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         }
     }
 
+    /**
+     * When a segment is hurt we also want to damage the controller, to keep track of the total remaining health
+     */
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
         float health = this.getHealth();
@@ -227,6 +253,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         return true;
     }
 
+    /**
+     * Removes itself on death from {@link EOTSController#segmentUUIDs} and
+     * {@link EOTSController#controllingSegments} if the segments is a controlling segment
+     */
     @Override
     public void die(@NotNull DamageSource pDamageSource) {
         if(this.getController() != null) {
@@ -238,6 +268,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         super.die(pDamageSource);
     }
 
+    /**
+     * The segment can't collide with other segments
+     */
     public boolean canCollideWith(@NotNull Entity pEntity) {
         return pEntity.getType() != DAEntities.EOTS_SEGMENT.get();
     }
@@ -259,12 +292,15 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.getEntityData().set(DATA_HEAD_ID, head);
     }
 
+    /**
+     * Used to open EOTS mouth while attacking
+     */
     public boolean isMouthOpen() {
-        return this.getEntityData().get(DATA_OPEN_MONTH);
+        return this.getEntityData().get(DATA_OPEN_MOUTH);
     }
 
     public void setMouthOpen(boolean head) {
-        this.getEntityData().set(DATA_OPEN_MONTH, head);
+        this.getEntityData().set(DATA_OPEN_MOUTH, head);
     }
 
     /**
