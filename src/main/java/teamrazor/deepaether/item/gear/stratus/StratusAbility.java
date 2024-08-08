@@ -30,31 +30,8 @@ public class StratusAbility extends DaArmorItem {
         super(armorMaterial, type, properties);
     }
 
-    public static boolean hasFullStratusSet(LivingEntity entity) {
-        return hasArmorSet(entity, DAItems.STRATUS_HELMET.get(), DAItems.STRATUS_CHESTPLATE.get(), DAItems.STRATUS_LEGGINGS.get(), DAItems.STRATUS_BOOTS.get(), DAItems.STRATUS_GLOVES.get());
-    }
-
-
-    /**
-     * Checks if the player is wearing all armor pieces out of a set.
-     * @param entity The {@link LivingEntity} wearer.
-     * @param helmet The helmet {@link Item}.
-     * @param chestplate The chestplate {@link Item}.
-     * @param leggings The leggings {@link Item}.
-     * @param boots The boots {@link Item}.
-     * @param gloves The gloves {@link Item}.
-     * @return The result of the check, as a {@link Boolean}.
-     */
-    private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots, Item gloves) {
-        return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
-                && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
-                && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
-                && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
-                && (!AetherConfig.SERVER.require_gloves.get() || findFirstCurio(entity, gloves).isPresent());
-    }
-
     private static boolean isStratusDashActive(Player player) {
-        return hasFullStratusSet(player) && coolDown <= 0;
+        return EquipmentUtil.hasFullStratusSet(player) && coolDown <= 0;
     }
 
     private static boolean hasBeenOnGround = true;
@@ -69,7 +46,7 @@ public class StratusAbility extends DaArmorItem {
 
         if (coolDown >= 0)
             coolDown -= 0.02F;
-        if (world.isClientSide() && hasFullStratusSet(player)) {
+        if (world.isClientSide() && EquipmentUtil.hasFullStratusSet(player)) {
 
             if (DeepAetherKeys.STRATUS_DASH_ABILITY.isDown()) {
                 dash(player);

@@ -1,5 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
+import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,12 +23,13 @@ public class EquipmentUtil {
     }
 
     private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots, Item gloves) {
-        return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
-                && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
-                && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
-                && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
-                && CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent();
+        return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet) &&
+                entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate) &&
+                entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings) &&
+                entity.getItemBySlot(EquipmentSlot.FEET).is(boots) &&
+                (!(Boolean) AetherConfig.SERVER.require_gloves.get() || com.aetherteam.aether.item.EquipmentUtil.findFirstCurio(entity, gloves).isPresent());
     }
+
     private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
