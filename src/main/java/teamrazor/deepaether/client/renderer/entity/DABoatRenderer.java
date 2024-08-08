@@ -1,4 +1,4 @@
-package teamrazor.deepaether.client.renderer;
+package teamrazor.deepaether.client.renderer.entity;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -46,7 +46,6 @@ public class DABoatRenderer<T extends DABoatEntity> extends EntityRenderer<T> {
 
     @Override
     public void render(T entity, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight) {
-        float h;
         matrixStack.pushPose();
         matrixStack.translate(0.0f, 0.375f, 0.0f);
         matrixStack.mulPose(Axis.YP.rotationDegrees(180.0f - entityYaw));

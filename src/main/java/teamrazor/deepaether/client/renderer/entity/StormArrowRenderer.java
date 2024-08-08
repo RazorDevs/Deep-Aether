@@ -1,4 +1,4 @@
-package teamrazor.deepaether.client.renderer;
+package teamrazor.deepaether.client.renderer.entity;
 
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

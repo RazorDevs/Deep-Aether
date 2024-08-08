@@ -24,7 +24,7 @@ import static com.aetherteam.aether.item.EquipmentUtil.findFirstCurio;
 
 public class StratusAbility extends DaArmorItem {
 
-    static float coolDown = 0;
+    public static float coolDown = 0;
 
     public StratusAbility(ArmorMaterial armorMaterial, ArmorItem.Type type, Properties properties) {
         super(armorMaterial, type, properties);
@@ -57,10 +57,10 @@ public class StratusAbility extends DaArmorItem {
         return hasFullStratusSet(player) && coolDown <= 0;
     }
 
-    private final double strength = 1.3;
     private static boolean hasBeenOnGround = true;
 
 
+    @SuppressWarnings("removal")
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
         if(player.onGround()) {
@@ -72,18 +72,18 @@ public class StratusAbility extends DaArmorItem {
         if (world.isClientSide() && hasFullStratusSet(player)) {
 
             if (DeepAetherKeys.STRATUS_DASH_ABILITY.isDown()) {
-                dash(player, strength);
+                dash(player);
             }
         }
     }
 
-    static void dash(LivingEntity entity, double strength) {
+    static void dash(LivingEntity entity) {
         float dashMultiplier;
         if (EquipmentUtil.hasFullStratusSet(entity) && hasBeenOnGround) {
             if (entity instanceof Player player) {
-                double x = player.getLookAngle().x * strength * 2;
-                double y = player.getLookAngle().y * strength;
-                double z = player.getLookAngle().z * strength * 2;
+                double x = player.getLookAngle().x * 1.3 * 2;
+                double y = player.getLookAngle().y * 1.3;
+                double z = player.getLookAngle().z * 1.3 * 2;
                 double a = y * 0.5;
                 // absolute value of a
                 if (a < 0) {

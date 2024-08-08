@@ -1,4 +1,4 @@
-package teamrazor.deepaether.client.renderer;
+package teamrazor.deepaether.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -13,6 +13,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.VenomiteBubbleModel;
+import teamrazor.deepaether.client.renderer.DAModelLayers;
 import teamrazor.deepaether.entity.living.projectile.VenomiteBubble;
 
 @OnlyIn(Dist.CLIENT)

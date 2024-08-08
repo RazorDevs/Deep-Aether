@@ -14,6 +14,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.*;
 import teamrazor.deepaether.client.renderer.*;
+import teamrazor.deepaether.client.renderer.entity.*;
 import teamrazor.deepaether.entity.DABoatEntity;
 
 

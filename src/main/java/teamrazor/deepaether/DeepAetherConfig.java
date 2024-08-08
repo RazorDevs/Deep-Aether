@@ -142,6 +142,10 @@ public class DeepAetherConfig {
     public static class Client {
         public final ConfigValue<Boolean> always_enable_halloween_slider;
         public final ConfigValue<Boolean> never_enable_halloween_slider;
+
+        public final ConfigValue<Integer> stratus_cooldown_indicator_x_position;
+        public final ConfigValue<Integer> stratus_colldown_indicator_y_position;
+
         public Client(ModConfigSpec.Builder builder) {
             builder.push("Rendering");
             always_enable_halloween_slider = builder
@@ -155,6 +159,20 @@ public class DeepAetherConfig {
                     .comment("Never Enables the halloween Slider, not even during halloween")
                     .translation("config.deep_aether.common.gameplay.never_enable_halloween_slider")
                     .define("Never Enable Halloween Slider", false);
+            builder.pop();
+
+            builder.push("Gui");
+            stratus_cooldown_indicator_x_position = builder
+                    .comment("The horizontal position of the stratus cooldown icon")
+                    .translation("config.deep_aether.client.gui.stratus_cooldown_indicator_x_position")
+                    .define("Stratus Cooldown Indicator Horizontal Position", 354);
+            builder.pop();
+
+            builder.push("Gui");
+            stratus_colldown_indicator_y_position = builder
+                    .comment("The vertical position of the stratus cooldown icon")
+                    .translation("config.deep_aether.client.gui.stratus_cooldown_indicator_y_position")
+                    .define("Stratus Cooldown Indicator Vertical Position", 17);
             builder.pop();
         }
     }

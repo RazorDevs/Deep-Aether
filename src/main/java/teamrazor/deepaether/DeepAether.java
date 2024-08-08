@@ -80,7 +80,6 @@ public class DeepAether {
 	//TODO: add it_lang translation
 	//TODO: add se_lang translation
 	//TODO: clean up code
-	//TODO: Add configs for flawless boss drops
 	//TODO: Custom plants are solid
 	//TODO: Some grass has rendering issues
 	//TODO: Continue Sacred Lands Testing
