@@ -680,7 +680,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         private boolean isBreakable(BlockState blockState) {
             return !blockState.is(AetherTags.Blocks.VALKYRIE_QUEEN_UNBREAKABLE) && blockState.getBlock().defaultDestroyTime() >= 0.0F && blockState.getBlock().defaultDestroyTime() < 100.0F;
         }
-
     }
 
     protected static class EotsAirChargeGoal extends Goal {

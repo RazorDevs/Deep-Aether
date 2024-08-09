@@ -29,7 +29,6 @@ public class DABlockTagData extends BlockTagsProvider {
         return "Deep Aether Block Tags";
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         IntrinsicTagAppender<Block> aether_block_tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
@@ -269,6 +268,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_LEAVES.get(),
                 DABlocks.SUNROOT_LEAVES.get(),
                 DABlocks.YAGROOT_ROOTS.get()
+        );
+
+        tag(DATags.Blocks.STERLING_AERCLOUD_REPLACEABLE).add(
+                DABlocks.RAIN_AERCLOUD.get()
         );
 
         tag(BlockTags.NEEDS_STONE_TOOL).add(

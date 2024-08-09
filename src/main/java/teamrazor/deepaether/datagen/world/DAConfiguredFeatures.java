@@ -1,6 +1,7 @@
 package teamrazor.deepaether.datagen.world;
 
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureRules;
@@ -44,9 +45,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.behavior.GoldenVines;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.DAFeatureStates;
 import teamrazor.deepaether.world.feature.DAFeatures;
@@ -124,16 +128,19 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SACRED_ROCK = createKey("sacred_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_SPIKE = createKey("rock_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_COLUMNS = createKey("clorite_columns");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD = createKey("aercloud_cloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD_OVERGROWN = createKey("aercloud_cloud_overgrown");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_RAIN_CLOUD = createKey("aercloud_rain_cloud");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_ROOTS = createKey("aercloud_roots");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_RAINFOREST_TREE = createKey("skyroot_rainforest_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_RAINFOREST_GRASS = createKey("skyroot_rainforest_grass");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_TREE_CONFIGURATION = createKey("aercloud_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_GRASS = createKey("aercloud_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_ROOTS_CARPET = createKey("aercloud_roots_carpet");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_ROOTS = createKey("aercloud_roots");
+
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -465,4 +472,7 @@ public class DAConfiguredFeatures {
     {
         return drops(block.get().defaultBlockState());
     }
+
+    public static final RuleTest RAIN_AERCLOUD = new TagMatchTest(DATags.Blocks.STERLING_AERCLOUD_REPLACEABLE);
+
 }

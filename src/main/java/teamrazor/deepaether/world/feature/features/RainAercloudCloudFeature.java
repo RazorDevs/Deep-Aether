@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import net.minecraft.world.level.material.Fluids;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 
 import java.util.List;
@@ -31,12 +32,12 @@ public class RainAercloudCloudFeature extends Feature<AercloudCloudConfiguration
         BlockPos pos = context.origin();
         AercloudCloudConfiguration config = context.config();
         BlockState block = config.block().getState(context.random(), pos);
-        place(reader, pos, block, config.hasGrass());
+        place(reader, pos, block, context.random().nextInt(400, 3000));
 
         return true;
     }
 
-    public void place(WorldGenLevel reader, BlockPos pos, BlockState block, boolean hasGrass) {
+    public void place(WorldGenLevel reader, BlockPos pos, BlockState block, int sterlingAercloudCount) {
         boolean goAgainstX = !reader.getBiome(pos.relative(Direction.Axis.X, 16)).is(DATags.Biomes.IS_RAIN_CLOUD);
         boolean goAgainstNegativeX = !reader.getBiome(pos.relative(Direction.Axis.X, -16)).is(DATags.Biomes.IS_RAIN_CLOUD);
         boolean goAgainstZ = !reader.getBiome(pos.relative(Direction.Axis.Z, 16)).is(DATags.Biomes.IS_RAIN_CLOUD);
@@ -51,6 +52,7 @@ public class RainAercloudCloudFeature extends Feature<AercloudCloudConfiguration
         int chunkZ = pos.getZ() - (pos.getZ() % 16);
 
         //Fills a chunk with blocks with a noise-based terrain
+        int sterlingCount = 0;
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
                 int xCoord = chunkX + x;
@@ -66,9 +68,6 @@ public class RainAercloudCloudFeature extends Feature<AercloudCloudConfiguration
                 if (top < 3) {
                     top -= ((3-top) * 2);
                 }
-                //else if (top > 7)
-                //    top  = 7;
-
 
                 final double decreaseMultiplier = 1.5D;
                 final double decreaseMultiplierCorner = 4D;
@@ -138,6 +137,7 @@ public class RainAercloudCloudFeature extends Feature<AercloudCloudConfiguration
                 int y = Math.round(Math.round(lowestY + bottom - (top / 2)));
                 if(top >=4) {
                     this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), block);
+                    sterlingCount++;
                     for (y += 1; y < 153; y++) {
                         reader.setBlock(pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), Fluids.WATER.defaultFluidState().createLegacyBlock(), 2);
                     }
@@ -146,7 +146,12 @@ public class RainAercloudCloudFeature extends Feature<AercloudCloudConfiguration
                 }
                 else {
                     for (; y < lowestY + top + originalBottom; y++) {
-                        this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), block);
+                        sterlingCount++;
+                        if(sterlingCount > sterlingAercloudCount) {
+                            sterlingCount = 0;
+                            this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), DABlocks.STERLING_AERCLOUD.get().defaultBlockState());
+                        }
+                        else this.setBlock(reader, pos.relative(Direction.Axis.X, x).relative(Direction.Axis.Z, z).atY(y), block);
                     }
                 }
 
