@@ -120,7 +120,7 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
 
     private void craftItem() {
         Optional<RecipeHolder<CombinerRecipe>> recipe = getCurrentRecipe();
-        ItemStack result = recipe.get().value().getResultItem(null);
+        ItemStack result = recipe.get().value().getResultItem(getLevel().registryAccess());
         consumeIngredients();
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),

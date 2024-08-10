@@ -309,7 +309,7 @@ public class DATabs {
                     DAItems.SKYJADE_TOOLS_PICKAXE.get(),
                     DAItems.SKYJADE_TOOLS_AXE.get(),
                     DAItems.SKYJADE_TOOLS_HOE.get(),
-
+                    DAItems.SUN_CLOCK.get(),
             }, event);
 
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
