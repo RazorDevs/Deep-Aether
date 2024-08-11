@@ -807,7 +807,20 @@
 
   "item.deep_aether.storm_sword": "Storm Sword",
   "lore.item.deep_aether.storm_sword": "A weapon with a blade made of pure clouds. Deals extra knockback to enemies when attacked with a fully charged attack.",
-  "lore.item.deep_aether.storm_ruler": "A weapon with a blade made of pure clouds. Deals extra knockback to enemies when attacked with a fully charged attack. §oOnly a storm can fell a greatwood."
+  "lore.item.deep_aether.storm_ruler": "A weapon with a blade made of pure clouds. Deals extra knockback to enemies when attacked with a fully charged attack. §oOnly a storm can fell a greatwood.",
+
+  "deep_aether.locate.invalid": "Bound structure invalid. Please re-bind",
+  "deep_aether.locate.fail": "Bound structure could not be located nearby",
+  "deep_aether.locate.distance": "Bound structure is %s blocks away",
+  "deep_aether.locate.toggled": "Structure Compass hud toggled %s",
+
+  "deep_aether.structure.locating": "Attempting to locate %s, please wait...",
+  "deep_aether.structure.found": "%s has been located %s blocks away, compass is pointing towards the structure",
+  "deep_aether.structure.found.tooltip": "%s has been located, compass is pointing towards the structure",
+  "deep_aether.structure.failed": "%s can not be located within a %s block radius. Please explore further and try again later",
+  "deep_aether.structure.failed.tooltip": "%s can not be located, perhaps try again later",
+  "deep_aether.structure.wrong_dimension.tooltip": "You are not in the dimension in which %s was found",
+  "deep_aether.structure.unset.tooltip": "No structure has been set, shift right-click to select a structure"
 }
 
 

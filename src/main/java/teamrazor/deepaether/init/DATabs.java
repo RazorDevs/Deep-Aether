@@ -310,6 +310,9 @@ public class DATabs {
                     DAItems.SKYJADE_TOOLS_AXE.get(),
                     DAItems.SKYJADE_TOOLS_HOE.get(),
                     DAItems.SUN_CLOCK.get(),
+                    DAItems.BRONZE_COMPASS.get(),
+                    DAItems.SILVER_COMPASS.get(),
+                    DAItems.GOLD_COMPASS.get()
             }, event);
 
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {

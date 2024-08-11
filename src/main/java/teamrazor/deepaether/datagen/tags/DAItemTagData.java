@@ -365,5 +365,11 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(ItemTags.TRIM_TEMPLATES).add(
                 DAItems.STRATUS_SMITHING_TEMPLATE.get()
         );
+
+        this.tag(ItemTags.COMPASSES).add(
+                DAItems.BRONZE_COMPASS.get(),
+                DAItems.SILVER_COMPASS.get(),
+                DAItems.GOLD_COMPASS.get()
+        );
     }
 }
