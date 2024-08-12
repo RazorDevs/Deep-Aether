@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.core.BlockPos;
@@ -26,6 +27,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.api.distmarker.Dist;
@@ -53,7 +55,7 @@ public class DAClientModBusEvents {
     /**
      * See {@link com.legacy.lost_aether.client.LCEntityRendering}
      */
-    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4
+    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4 (unlikely)
     /*
     @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
     public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
@@ -61,7 +63,8 @@ public class DAClientModBusEvents {
         if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
             event.registerLayerDefinition(AetherModelLayers.AERWHALE, AerwhaleModelOverrideOverrideLCCompat::createOverrideLayerButWithChest);
     }
-     */
+    */
+
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         registerCuriosRenderers();
@@ -82,6 +85,8 @@ public class DAClientModBusEvents {
             }
 
             MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
+
+            clockRotation(DAItems.SUN_CLOCK.get());
 
             compassRotation(DAItems.BRONZE_COMPASS.get());
             compassRotation(DAItems.SILVER_COMPASS.get());
@@ -123,6 +128,9 @@ public class DAClientModBusEvents {
                 BiomeColors.getAverageGrassColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.AERCLOUD_GRASS_BLOCK.get());
     }
 
+    /**
+     *  Method responsible for the needle texture rotation.
+     */
     public static void compassRotation(Item item){
         ItemProperties.register(item, new ResourceLocation("angle"), new ItemPropertyFunction() {
             @OnlyIn(Dist.CLIENT)
@@ -199,6 +207,55 @@ public class DAClientModBusEvents {
                     }
                 }
                 return null;
+            }
+        });
+    }
+
+    /**
+     *  Method responsible for the clock day/night cycle texture rotation.
+     */
+    public static void clockRotation(Item item){
+        ItemProperties.register(item, new ResourceLocation("time"), new ClampedItemPropertyFunction() {
+            private double rotation;
+            private double rota;
+            private long lastUpdateTick;
+
+            public float unclampedCall(ItemStack itemStack, @Nullable ClientLevel clientLevel, @Nullable LivingEntity livingEntity, int i) {
+                Entity entity = livingEntity != null ? livingEntity : itemStack.getEntityRepresentation();
+                if (entity == null) {
+                    return 0.0F;
+                } else {
+                    if (clientLevel == null && ((Entity)entity).level() instanceof ClientLevel) {
+                        clientLevel = (ClientLevel)((Entity)entity).level();
+                    }
+
+                    if (clientLevel == null) {
+                        return 0.0F;
+                    } else {
+                        double d0;
+                        if (clientLevel.dimensionType().natural()) {
+                            d0 = (double)clientLevel.getTimeOfDay(1.0F);
+                        } else {
+                            d0 = Math.random();
+                        }
+
+                        d0 = this.wobble(clientLevel, d0);
+                        return (float)d0;
+                    }
+                }
+            }
+
+            private double wobble(Level level, double v) {
+                if (level.getGameTime() != this.lastUpdateTick) {
+                    this.lastUpdateTick = level.getGameTime();
+                    double d0 = v - this.rotation;
+                    d0 = Mth.positiveModulo(d0 + 0.5, 1.0) - 0.5;
+                    this.rota += d0 * 0.1;
+                    this.rota *= 0.9;
+                    this.rotation = Mth.positiveModulo(this.rotation + this.rota, 1.0);
+                }
+
+                return this.rotation;
             }
         });
     }

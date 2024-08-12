@@ -440,11 +440,6 @@ public class DAItemModelData extends AetherItemModelProvider {
 //        this.item(DAItems.BRONZE_COMPASS.get());
 //        this.item(DAItems.SILVER_COMPASS.get());
 //        this.item(DAItems.GOLD_COMPASS.get());
-
-//        this.altItem(DAItems.SUN_CLOCK.get(), Items.COMPASS);
-//        this.altItem(DAItems.BRONZE_COMPASS.get(), Items.COMPASS);
-//        this.altItem(DAItems.SILVER_COMPASS.get(), Items.COMPASS);
-//        this.altItem(DAItems.GOLD_COMPASS.get(), Items.COMPASS);
     }
 
     public void handheldItem(Item item) {
