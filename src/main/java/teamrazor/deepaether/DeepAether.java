@@ -136,6 +136,7 @@ public class DeepAether {
 		DAPlacementModifiers.PLACEMENT_MODIFIERS.register(bus);
 		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
+		DAEnchantments.ENCHANTMENTS.register(bus);
 
 		if (dist.isClient())
 			bus.addListener(DARecipeCategories::registerRecipeCategories);

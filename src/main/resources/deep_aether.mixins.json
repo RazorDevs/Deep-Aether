@@ -10,6 +10,7 @@
     "AerwhaleMixin",
     "BrewingFuelMenuMixin",
     "BrewingFuelMixin",
+    "GlovesMixin",
     "MoaMixin",
     "PowderedSnowMixin",
     "TriviaGeneratorMixin"

@@ -820,7 +820,9 @@
   "deep_aether.structure.failed": "%s can not be located within a %s block radius. Please explore further and try again later",
   "deep_aether.structure.failed.tooltip": "%s can not be located, perhaps try again later",
   "deep_aether.structure.wrong_dimension.tooltip": "You are not in the dimension in which %s was found",
-  "deep_aether.structure.unset.tooltip": "No structure has been set, shift right-click to select a structure"
+  "deep_aether.structure.unset.tooltip": "No structure has been set, shift right-click to select a structure",
+
+  "enchantment.deep_aether.gloves_reach" : "Gloves Block Reach"
 }
 
 
