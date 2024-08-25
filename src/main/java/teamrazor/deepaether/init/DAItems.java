@@ -3,6 +3,7 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
+import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.miscellaneous.DungeonKeyItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
@@ -93,6 +94,8 @@ public class DAItems {
 	public static final DeferredItem<Item> STORMFORGED_CHESTPLATE = ITEMS.register("stormforged_chestplate", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 	public static final DeferredItem<Item> STORMFORGED_LEGGINGS = ITEMS.register("stormforged_leggings", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.LEGGINGS, new Item.Properties()));
 	public static final DeferredItem<Item> STORMFORGED_BOOTS = ITEMS.register("stormforged_boots", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+	public static final DeferredItem<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(new ResourceLocation(DeepAether.MODID, "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties()));
 
 	// ORES
 	public static final DeferredItem<Item> SKYJADE = ITEMS.register("skyjade", SkyjadeItem::new);

@@ -366,6 +366,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         //Brass loot
         this.bowItem(DAItems.STORM_BOW.get());
         this.handheldItem(DAItems.STORM_SWORD.get());
+        this.item(DAItems.AERCLOUD_NECKLACE.get());
 
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());

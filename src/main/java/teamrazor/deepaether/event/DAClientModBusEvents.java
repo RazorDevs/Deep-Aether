@@ -115,6 +115,7 @@ public class DAClientModBusEvents {
         CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
+        CuriosRendererRegistry.register(DAItems.AERCLOUD_NECKLACE.get(), PendantRenderer::new);
     }
 
     @SubscribeEvent

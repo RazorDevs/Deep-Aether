@@ -2,18 +2,32 @@ package teamrazor.deepaether.block.misc;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import teamrazor.deepaether.block.behavior.ChromaticBlockFlight;
+import teamrazor.deepaether.block.natural.SterlingAercloudBlock;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
 
 public class ChromaticAercloudBlock extends HalfTransparentBlock {
 
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        if(context instanceof EntityCollisionContext collisionContext) {
+            if(collisionContext.getEntity() instanceof LivingEntity entity) {
+                if(EquipmentUtil.hasCloudNecklace(entity))
+                    return SterlingAercloudBlock.FULL_COLLISION;
+            }
+        }
+        return SterlingAercloudBlock.NO_COLLISION;
+    }
 
     public ChromaticAercloudBlock(Properties properties) {
         super(properties);

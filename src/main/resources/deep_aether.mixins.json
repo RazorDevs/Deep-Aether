@@ -5,11 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "deep_aether.refmap.json",
   "mixins": [
+    "AercloudMixin",
     "AerwhaleKingMixin",
     "AerwhaleMixin",
     "BrewingFuelMenuMixin",
     "BrewingFuelMixin",
     "MoaMixin",
+    "PowderedSnowMixin",
     "TriviaGeneratorMixin"
   ],
   "client": [
