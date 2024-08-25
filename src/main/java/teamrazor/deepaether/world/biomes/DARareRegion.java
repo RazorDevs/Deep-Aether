@@ -38,13 +38,9 @@ public class DARareRegion extends Region {
         addBiome(mapper, new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(-1.0F, 0.2F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
                 DABiomes.OVERGROWN_CLOUD);
 
-        //Skyroot + Storm Aercloud
-        this.addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
-                DABiomes.SKYROOT_RAINFOREST);
-        this.addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
-                DABiomes.STORM_CLOUD);
-        //this.addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
-        //        AetherBiomes.SKYROOT_MEADOW);
+        //Skyroot
+        this.addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
+                AetherBiomes.SKYROOT_MEADOW);
         this.addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_FOREST);
 
