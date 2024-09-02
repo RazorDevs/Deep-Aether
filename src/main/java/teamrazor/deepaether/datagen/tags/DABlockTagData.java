@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -30,7 +31,7 @@ public class DABlockTagData extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         IntrinsicTagAppender<Block> aether_block_tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
         Collection<DeferredHolder<Block, ? extends Block>> blocks = DABlocks.BLOCKS.getEntries();
 
@@ -266,8 +267,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_LEAVES.get(),
                 DABlocks.CRUDEROOT_LEAVES.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
-                DABlocks.SUNROOT_LEAVES.get(),
-                DABlocks.YAGROOT_ROOTS.get()
+                DABlocks.SUNROOT_LEAVES.get()
         );
 
         tag(DATags.Blocks.STERLING_AERCLOUD_REPLACEABLE).add(
@@ -311,13 +311,15 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_LOG.get(),
                 DABlocks.AETHER_MUD.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
+                DABlocks.YAGROOT_ROOTS.get(),
                 DABlocks.TALL_AETHER_CATTAILS.get(),
                 DABlocks.TALL_GLOWING_GRASS.get(),
                 DABlocks.AETHER_CATTAILS.get()
         );
         tag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH).add(
                 DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.AETHER_MOSS_CARPET.get()
+                DABlocks.AETHER_MOSS_CARPET.get(),
+                DABlocks.YAGROOT_ROOTS.get()
         );
         tag(BlockTags.SCULK_REPLACEABLE).add(
                 DABlocks.ASETERITE.get(),
