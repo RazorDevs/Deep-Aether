@@ -1,6 +1,7 @@
 package teamrazor.deepaether.world.feature;
 
 import com.aetherteam.aether.world.configuration.AercloudConfiguration;
+import com.aetherteam.aether.world.configuration.AetherLakeConfiguration;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
@@ -25,6 +26,7 @@ public class DAFeatures {
     public static DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> ROCK_SPIKE = FEATURES.register("rock_spike", () -> new RockSpikeFeature(NoneFeatureConfiguration.CODEC));
     public static DeferredHolder<Feature<?>, Feature<ColumnFeatureConfiguration>> CLORITE_COLUMNS = FEATURES.register("clorite_columns", () -> new CloriteColumnsFeature(ColumnFeatureConfiguration.CODEC));
     public static DeferredHolder<Feature<?>, Feature<DAHugeMushroomFeatureConfiguration>> IMPROVED_MUSHROOM_FEATURE = FEATURES.register("improved_mushroom_feature", () -> new DAHugeMushroomFeature(DAHugeMushroomFeatureConfiguration.CODEC));
+    public static DeferredHolder<Feature<?>, Feature<AetherLakeConfiguration>> POISON_LAKE = FEATURES.register("poison_lake", () -> new PoisonLakeFeature(AetherLakeConfiguration.CODEC));
 
 }
 

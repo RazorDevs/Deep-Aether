@@ -1,5 +1,5 @@
 {
-  "type": "aether:lake",
+  "type": "deep_aether:poison_lake",
   "config": {
     "fluid": {
       "type": "minecraft:simple_state_provider",

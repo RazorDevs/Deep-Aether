@@ -37,5 +37,6 @@ public class DAFeatureStates {
     public static final BlockState SUNROOT_LOG = DABlocks.SUNROOT_LOG.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState SUNROOT_LEAVES = DABlocks.SUNROOT_LEAVES.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
     public static final BlockState VIRULENT_QUICKSAND = DABlocks.VIRULENT_QUICKSAND.get().defaultBlockState();
+    public static final BlockState AETHER_MUD = DABlocks.AETHER_MUD.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
 
 }

@@ -1,7 +1,6 @@
 package teamrazor.deepaether.datagen.world;
 
 
-import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureRules;
@@ -151,7 +150,7 @@ public class DAConfiguredFeatures {
         HolderGetter<Block> holdergetter = context.lookup(Registries.BLOCK);
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        register(context, POISON_LAKE_CONFIGURATION, AetherFeatures.LAKE.get(), AetherConfiguredFeatureBuilders.lake(BlockStateProvider.simple(DABlocks.POISON_BLOCK.get()),
+        register(context, POISON_LAKE_CONFIGURATION, DAFeatures.POISON_LAKE.get(), AetherConfiguredFeatureBuilders.lake(BlockStateProvider.simple(DABlocks.POISON_BLOCK.get()),
                 BlockStateProvider.simple(DABlocks.AETHER_MUD.get())));
         register(context, POISON_SPRING_CONFIGURATION, Feature.SPRING,
                 AetherConfiguredFeatureBuilders.spring(DABlocks.POISON_BLOCK.get().getFluid().defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, AetherBlocks.HOLYSTONE.get(), DABlocks.AETHER_MUD.get())));
