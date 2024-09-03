@@ -57,7 +57,6 @@ public abstract class PoisonFluid extends FlowingFluid {
         levelAccessor.levelEvent(1501, blockPos, 0);
     }
 
-    @Override
     protected void spreadTo(LevelAccessor levelAccessor, BlockPos blockPos, BlockState blockState, Direction direction, FluidState fluidState) {
         if (direction == Direction.DOWN) {
             FluidState fluidstate = levelAccessor.getFluidState(blockPos);

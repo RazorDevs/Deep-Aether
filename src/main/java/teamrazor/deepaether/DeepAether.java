@@ -19,6 +19,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -27,10 +28,12 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
+import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
 import net.neoforged.neoforge.network.registration.IPayloadRegistrar;
 import org.slf4j.Logger;
@@ -176,6 +179,8 @@ public class DeepAether {
 	public void commonSetup(FMLCommonSetupEvent event) {
 		Reflection.initialize(DARecipeBookTypes.class);
         registerFlawlessBossDrops();
+		registerFluidInteractions();
+
 		event.enqueueWork(() -> {
             DaCauldronInteraction.bootStrap();
 			DABlocks.registerPots();
@@ -196,6 +201,18 @@ public class DeepAether {
 		this.getFlawlessBossDrop(AetherEntityTypes.SUN_SPIRIT.get(), DeepAetherConfig.COMMON.sun_spirit_flawless_boss_drop.get(), DAItems.SUN_CORE.get());
 		if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
 			this.getFlawlessBossDrop(LCEntityTypes.AERWHALE_KING, DeepAetherConfig.COMMON.aerwhale_king_flawless_boss_drop.get(), DAItems.AERWHALE_SADDLE.get());
+	}
+
+	private void registerFluidInteractions(){
+		// Poison + Water = Aersmog
+		FluidInteractionRegistry.addInteraction(DAFluidTypes.POISON_FLUID_TYPE.value(), new FluidInteractionRegistry.InteractionInformation(
+				NeoForgeMod.WATER_TYPE.value(), state -> DABlocks.AERSMOG.get().defaultBlockState()
+		));
+
+		// Poison + Lava = Crying Obsidian
+		FluidInteractionRegistry.addInteraction(DAFluidTypes.POISON_FLUID_TYPE.value(), new FluidInteractionRegistry.InteractionInformation(
+				NeoForgeMod.LAVA_TYPE.value(), state -> Blocks.CRYING_OBSIDIAN.defaultBlockState()
+		));
 	}
 
 	private void getFlawlessBossDrop(EntityType<?> type, String string, Item fallBack) {
