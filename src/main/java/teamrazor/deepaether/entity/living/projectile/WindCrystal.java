@@ -97,7 +97,7 @@ public class WindCrystal extends AbstractCrystal {
             new WindCrystal(level(), this, baseSpeed - offset, 0, -baseSpeed - offset);
             new WindCrystal(level(), this, -baseSpeed - offset, 0, -baseSpeed + offset);
         }
-        this.level().explode(this, this.getX(), this.getY(), this.getZ(), 0, false, Level.ExplosionInteraction.MOB);
+        this.level().playLocalSound(result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f, true);
 
         if (!this.level().isClientSide) {
             this.discard();
