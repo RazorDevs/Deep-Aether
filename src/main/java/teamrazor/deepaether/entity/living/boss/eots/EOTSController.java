@@ -56,7 +56,7 @@ import java.util.UUID;
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 19;
+    public static final int SEGMENT_COUNT = 11;
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
@@ -92,7 +92,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 400.0).add(Attributes.FOLLOW_RANGE, 128.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 200.0).add(Attributes.FOLLOW_RANGE, 96.0);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         }
 
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
-            this.hurt(this.level().damageSources().mobAttack(this), 400.1F);
+            this.hurt(this.level().damageSources().mobAttack(this), 200.1F);
         }
     }
 

@@ -116,7 +116,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 128.0).add(Attributes.ATTACK_DAMAGE, 15.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.FOLLOW_RANGE, 96.0).add(Attributes.ATTACK_DAMAGE, 7.5);
     }
 
 
