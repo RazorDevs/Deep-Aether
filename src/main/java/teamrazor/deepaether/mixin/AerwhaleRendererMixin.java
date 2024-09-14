@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamrazor.deepaether.client.model.AerwhaleModelLayer;
 import teamrazor.deepaether.client.model.ClassicAerwhaleModelLayer;
 
-@Mixin(AerwhaleRenderer.class)
+@Mixin(value = AerwhaleRenderer.class, remap = false)
 public abstract class AerwhaleRendererMixin extends MobRenderer<Aerwhale, EntityModel<Aerwhale>>  {
     public AerwhaleRendererMixin(EntityRendererProvider.Context context, AerwhaleModel defaultModel, float shadowRadius) {
         super(context, defaultModel, shadowRadius);
@@ -24,7 +24,6 @@ public abstract class AerwhaleRendererMixin extends MobRenderer<Aerwhale, Entity
     private void AerwhaleRenderer(EntityRendererProvider.Context context, CallbackInfo ci) {
         if(AetherConfig.CLIENT.legacy_models.get())
             this.addLayer(new ClassicAerwhaleModelLayer(this));
-        else if(AetherConfig.CLIENT.legacy_models.get())
-            this.addLayer(new AerwhaleModelLayer(this));
+        else this.addLayer(new AerwhaleModelLayer(this));
     }
 }

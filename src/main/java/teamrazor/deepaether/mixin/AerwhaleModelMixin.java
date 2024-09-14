@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
 
-@Mixin(AerwhaleModel.class)
+@Mixin(value = AerwhaleModel.class, remap = false)
 public abstract class AerwhaleModelMixin extends EntityModel<Aerwhale> {
 
     @Shadow(remap = false) @Final public ModelPart head;
@@ -46,7 +46,6 @@ public abstract class AerwhaleModelMixin extends EntityModel<Aerwhale> {
 
     @Inject(at = @At("RETURN"), method = "createBodyLayer", remap = false)
     private static void AerwhaleRenderer(CallbackInfoReturnable<LayerDefinition> cir, @Local(name = "head") PartDefinition head) {
-
         CubeListBuilder cubelistbuilder = CubeListBuilder.create().texOffs(47, 46).addBox(-4.0F, 0.0F, -2.0F, 8.0F, 8.0F, 3.0F, CubeDeformation.NONE);
         head.getChild("middle_top").addOrReplaceChild("left_chest", cubelistbuilder, PartPose.offsetAndRotation(24.0F, 2.0F, 11.0F, 0.0F, (-(float)Math.PI / 2F), 0.0F));
         head.getChild("middle_top").addOrReplaceChild("right_chest", cubelistbuilder, PartPose.offsetAndRotation(0.0F, 2.0F, 11.0F, 0.0F, ((float)Math.PI / 2F), 0.0F));
