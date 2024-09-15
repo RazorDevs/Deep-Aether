@@ -69,7 +69,7 @@ public class WindCrystal extends AbstractCrystal {
         Entity entity = result.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
             if(!entity.getType().is(DATags.Entities.WIND_CHARGE_BLACKLIST)) {
-                if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), DamageTypes.MOB_PROJECTILE, this, this.getOwner()), 7.0F)) {
+                if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), DamageTypes.MOB_PROJECTILE, this, this.getOwner()), 10.0F)) {
                     this.level().playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
                     this.discard();
                 }
@@ -97,7 +97,7 @@ public class WindCrystal extends AbstractCrystal {
             new WindCrystal(level(), this, baseSpeed - offset, 0, -baseSpeed - offset);
             new WindCrystal(level(), this, -baseSpeed - offset, 0, -baseSpeed + offset);
         }
-        this.level().explode(this, this.getX(), this.getY(), this.getZ(), 0, false, Level.ExplosionInteraction.MOB);
+        this.level().playLocalSound(result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f, true);
 
         if (!this.level().isClientSide) {
             this.discard();
@@ -107,7 +107,7 @@ public class WindCrystal extends AbstractCrystal {
     @Override
     @Nonnull
     protected SoundEvent getImpactExplosionSoundEvent() {
-        return AetherSoundEvents.ENTITY_FIRE_CRYSTAL_EXPLODE.get();
+        return AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get();
     }
 
     @Override
