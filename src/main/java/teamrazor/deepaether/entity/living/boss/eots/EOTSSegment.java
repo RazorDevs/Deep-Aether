@@ -39,6 +39,9 @@ import java.util.UUID;
 
 public class EOTSSegment extends FlyingMob implements Enemy {
 
+    //TODO: Replace Segment death animation
+    //TODO: Sounds for the boss
+
     //Used to indicate if the EOTSSegment has been able to connect to the controller on reloading a world during a boss fight.
     private boolean hasContactedControllerOnLoad = false;
 
@@ -122,7 +125,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.FOLLOW_RANGE, 96.0).add(Attributes.ATTACK_DAMAGE, 7.5);
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 15.0)
+                .add(Attributes.FOLLOW_RANGE, 96.0)
+                .add(Attributes.ATTACK_DAMAGE, 7.5);
     }
 
 
@@ -154,10 +160,17 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     /**
-     * We don't want the EOTSSegment to de-spawn
+     * We don't want the EOTSSegment to despawn
      */
     @Override
     public void checkDespawn() {
+    }
+
+    /**
+     * We don't want the EOTSSegment to have knockback
+     */
+    @Override
+    public void knockback(double pStrength, double pX, double pZ) {
     }
 
     /**
@@ -307,7 +320,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      * The segment can't collide with other segments
      */
     public boolean canCollideWith(@NotNull Entity pEntity) {
-        return pEntity.getType() != DAEntities.EOTS_SEGMENT.get();
+        return pEntity.getType() != DAEntities.EOTS_SEGMENT.get() || pEntity.canBeCollidedWith();
     }
 
     @Override

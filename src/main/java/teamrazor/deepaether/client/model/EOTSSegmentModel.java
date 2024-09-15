@@ -54,8 +54,6 @@ public class EOTSSegmentModel extends EntityModel<EOTSSegment> {
         head.addOrReplaceChild("lowerMouth", CubeListBuilder.create().texOffs(29, 29).addBox(-3.0F, 0.0F, -9.0F, 10.0F, 3.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.0F, -10.0F));
 
         return LayerDefinition.create(meshdefinition, 128, 128);
-
-
     }
 
     @Override
@@ -86,7 +84,6 @@ public class EOTSSegmentModel extends EntityModel<EOTSSegment> {
             bb_main.visible = false;
             upperMouth.visible = false;
         }
-
     }
 
     @Override
