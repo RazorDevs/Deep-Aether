@@ -31,6 +31,8 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -57,6 +59,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 11;
+    public static final int EXTRA_SEGMENT = 5;
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
@@ -91,7 +94,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 200.0).add(Attributes.FOLLOW_RANGE, 96.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 120.0).add(Attributes.FOLLOW_RANGE, 96.0);
     }
 
     @Override
@@ -202,10 +205,18 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         super.die(source);
     }
 
+    private static final UUID HEALTH_UUID = UUID.fromString("385fead7-a5d3-49c7-8c8f-532403c5a7e9");
     protected void spawnSegments() {
         EOTSSegment oldSegment = new EOTSSegment(this.level(), this);
         this.segmentUUIDs.add(oldSegment.getUUID());
-        for (int i = 0; i < SEGMENT_COUNT; i++) {
+        int extra = (this.bossFight.getPlayers().size() - 1) * EXTRA_SEGMENT;
+        AttributeInstance instance = this.getAttribute(Attributes.MAX_HEALTH);
+        if(instance != null) {
+            instance.removePermanentModifier(HEALTH_UUID);
+            instance.addPermanentModifier(new AttributeModifier(HEALTH_UUID,"eots_health_multiplayer", extra*10.0F, AttributeModifier.Operation.ADDITION));
+        }
+
+        for (int i = 0; i < SEGMENT_COUNT + extra; i++) {
             oldSegment = new EOTSSegment(this.level(), oldSegment, this);
         }
     }

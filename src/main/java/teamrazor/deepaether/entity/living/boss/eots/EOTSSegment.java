@@ -1,8 +1,5 @@
 package teamrazor.deepaether.entity.living.boss.eots;
 
-
-import com.aetherteam.aether.AetherTags;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -28,10 +25,8 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.event.EventHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.living.projectile.WindCrystal;
@@ -572,7 +567,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     double time = this.segment.tickCount;
                     EOTSController controller = this.segment.getController();
                     if(controller != null)
-                        time += controller.controllingSegments.indexOf(this); // Ensure different segments are out of phase
+                        time += controller.controllingSegments.indexOf(this.segment); // Ensure different segments are out of phase
                     double verticalWave = Math.sin(time * waveFrequency) * waveAmplitude;
 
                     float f4 = (float) (-(Mth.atan2(-d1 + verticalWave, d3) * 180.0 / 3.1415927410125732));
@@ -711,36 +706,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     this.segment.getTarget().setDeltaMovement(this.segment.getLookAngle().multiply(1.5F,1.5F,1.5F));
                     this.hasAttacked = true;
                 }
-                //BlockState state = this.segment.level().getBlockState(this.segment.getOnPos());
-                //if(!state.isAir())
-                //    tryBreakBlock(state, this.segment.getOnPos());
-
             }
-        }
-
-        private void tryBreakBlock(BlockState state, BlockPos pos) {
-            if (!this.segment.level().isClientSide()) {
-                if (EventHooks.getMobGriefingEvent(this.segment.level(), this.segment)) {
-                    for (int i = 0; i < 2; i++) {
-                        if (this.isBreakable(state)) {
-                            EOTSController controller = this.segment.getController();
-                            if (controller != null) {
-                                if (controller.getDungeon() != null) {
-                                    if (controller.getDungeon().roomBounds() != null) {
-                                        if (controller.getDungeon().roomBounds().contains(pos.getCenter())) {
-                                            this.segment.level().destroyBlock(pos, true);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private boolean isBreakable(BlockState blockState) {
-            return !blockState.is(AetherTags.Blocks.VALKYRIE_QUEEN_UNBREAKABLE) && blockState.getBlock().defaultDestroyTime() >= 0.0F && blockState.getBlock().defaultDestroyTime() < 100.0F;
         }
     }
 
