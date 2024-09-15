@@ -42,6 +42,7 @@ import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.compat.lost_content.AddonItemModelPredicates;
+import teamrazor.deepaether.particle.custom.EOTSExplosionParticle;
 import teamrazor.deepaether.particle.custom.MysticalParticle;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import teamrazor.deepaether.screen.CombinerScreen;
@@ -109,6 +110,8 @@ public class DAClientModBusEvents {
         Minecraft.getInstance().particleEngine.register(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (spriteSet)
                 -> (particleType, level, v, v1, v2, v3, v4, v5)
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
+
+        event.registerSpriteSet(DAParticles.EOTS_EXPLOSION.get(), EOTSExplosionParticle.Provider::new);
     }
 
     public static void registerCuriosRenderers() {

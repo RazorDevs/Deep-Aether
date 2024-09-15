@@ -1,5 +1,6 @@
 package teamrazor.deepaether.init;
 
+import com.aetherteam.aether.client.renderer.entity.IceCrystalRenderer;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -20,6 +21,7 @@ import teamrazor.deepaether.entity.DABoatEntity;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class DAEntityRenderers {
+
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
@@ -38,9 +40,10 @@ public class DAEntityRenderers {
 
 		event.registerEntityRenderer(DAEntities.FIRE_PROJECTILE.get(), FireProjectileRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE_BUBBLE.get(), VenomiteBubbleRenderer::new);
-		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), WindCrystalRenderer::new);
+		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), IceCrystalRenderer::new);
 		event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
 	}
+
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(DAModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);
@@ -54,6 +57,5 @@ public class DAEntityRenderers {
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getModelLocation()), "main"), BoatModel::createBodyModel);
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
 		}
-
 	}
 }

@@ -61,7 +61,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
     private boolean hasBeenContactedBySegment = false;
-    public Vec3 deathPos; //The pos the controller should teleport to when it dies, ensures the controller drops its key at the right spot.
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
@@ -138,7 +137,8 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
             this.start();
             return false;
         }
-        else if (source.getDirectEntity() != null && source.getDirectEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
+
+        if (source.getDirectEntity() != null && source.getDirectEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
             boolean hasBeenHurt = super.hurt(source, amount);
             this.invulnerableTime = 0;
             return hasBeenHurt;
@@ -190,9 +190,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void die(@NotNull DamageSource source) {
         this.setDeltaMovement(Vec3.ZERO);
-        if(deathPos != null) {
-            this.setPos(deathPos);
-        }
         if (this.level() instanceof ServerLevel) {
             this.removeAllSegments();
             this.bossFight.setProgress(this.getHealth() / this.getMaxHealth());

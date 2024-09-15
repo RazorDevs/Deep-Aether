@@ -21,4 +21,7 @@ public class DAParticles {
 
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> FLOWERING_ROSEROOT_LEAVES = PARTICLE_TYPES.register("flowering_roseroot_leaves",
             () -> new SimpleParticleType(true));
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> EOTS_EXPLOSION = PARTICLE_TYPES.register("eots_explosion",
+            () -> new SimpleParticleType(true));
 }
