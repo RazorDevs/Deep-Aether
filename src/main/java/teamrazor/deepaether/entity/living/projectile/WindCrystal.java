@@ -69,7 +69,7 @@ public class WindCrystal extends AbstractCrystal {
         Entity entity = result.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
             if(!entity.getType().is(DATags.Entities.WIND_CHARGE_BLACKLIST)) {
-                if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), DamageTypes.MOB_PROJECTILE, this, this.getOwner()), 20.0F)) {
+                if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), DamageTypes.MOB_PROJECTILE, this, this.getOwner()), 7.0F)) {
                     this.level().playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
                     this.discard();
                 }
