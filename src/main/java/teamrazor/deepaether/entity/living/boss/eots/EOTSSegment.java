@@ -48,6 +48,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     @Nullable
     private UUID parentUUID;
 
+    //Used to add randomness to ETSSegment's idle pos on the y-axis
+    private int randomYOffset = 0;
+
     //The controller for the EOTS boss fight. The controller is needed to calculate the total health of all the segments, and the progress of the boss fight.
     @Nullable
     protected EOTSController controller;
@@ -403,12 +406,12 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         }
     }
 
-    private float getIdleYPos() {
+    private int getIdleYPos() {
         if(this.getController() != null)
-            return  (float) (this.getController().position().y + 15.0F);
+            return  this.getController().blockPosition().getY() + 15;
         else if(this.getTarget() != null)
-            return (float) (this.getTarget().position().y + 15.0F);
-        else return 255.0F;
+            return this.getTarget().blockPosition().getY() + 15;
+        else return 255;
     }
 
     private float getGlobalSpeedModifier() {
@@ -424,7 +427,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      * @return If the EOTS segments is close to its idle pos, assuming it's not above its idle pos.
      */
     public boolean isAroundIdlePos() {
-        return this.getY() > this.getIdleYPos() - 3;
+        return this.getY() > this.getIdleYPos() - 2;
     }
 
     private void goToIdlePos() {
@@ -436,17 +439,21 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         if(this.getTarget() == null) {
             RandomSource random = this.getRandom();
             double d0 = this.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 8.0F);
-            double d1 = floatAroundHeight + random.nextInt(1);
+            double d1 = floatAroundHeight + randomYOffset;
             double d2 = this.getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 8.0F);
             this.getMoveControl().setWantedPosition(d0, d1, d2, speed);
         }
         else {
             RandomSource random = this.getRandom();
             double d0 = this.getTarget().getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 8.0F);
-            double d1 = floatAroundHeight + random.nextInt(1);
+            double d1 = floatAroundHeight + randomYOffset;
             double d2 = this.getTarget().getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 8.0F);
             this.getMoveControl().setWantedPosition(d0, d1, d2, speed);
         }
+    }
+
+    private void updateYAxisRandomness() {
+        this.randomYOffset = this.getRandom().nextInt(-2, 3);
     }
 
 
@@ -484,6 +491,8 @@ public class EOTSSegment extends FlyingMob implements Enemy {
          */
         @Override
         public void tick() {
+            if(segment.isAroundIdlePos())
+                super.tick();
         }
     }
 
@@ -575,7 +584,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     double d1 = moveControl.getWantedY() - this.segment.getY();
                     double d2 = moveControl.getWantedZ() - this.segment.getZ();
                     double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-                    return d3 < 1.0 || d3 > 3600.0;
+                    return d3 < 5.0 || d3 > 3600.0;
                 }
             }
         }
@@ -632,6 +641,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         @Override
         public void stop() {
             segment.setMouthOpen(false);
+            segment.updateYAxisRandomness();
         }
 
         @Override
