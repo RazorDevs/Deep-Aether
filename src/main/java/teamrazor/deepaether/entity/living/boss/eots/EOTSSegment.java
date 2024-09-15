@@ -460,8 +460,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         else target = this;
 
         RandomSource random = this.getRandom();
-        double d0 = target.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 8.0F);
-        double d2 = target.getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * 8.0F);
+        int x = random.nextInt(9);
+        int y;
+        if(x < 8)
+            y = random.nextInt(8-x);
+        else y = 0;
+
+        double d0 = target.getX() + (double) ((random.nextFloat() * 2.0F - 1.0F) * x);
+        double d2 = target.getZ() + (double) ((random.nextFloat() * 2.0F - 1.0F) * y);
         this.getMoveControl().setWantedPosition(d0, this.getIdleYPos(), d2, speed);
     }
 

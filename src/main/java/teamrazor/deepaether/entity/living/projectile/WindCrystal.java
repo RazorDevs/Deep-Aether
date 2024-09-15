@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity.living.projectile;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.data.resources.registries.AetherDamageTypes;
 import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
@@ -15,10 +16,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.EventHooks;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
 import teamrazor.deepaether.init.DAEntities;
 
 import javax.annotation.Nonnull;
@@ -99,9 +103,19 @@ public class WindCrystal extends AbstractCrystal {
         }
         this.level().playLocalSound(result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f, true);
 
+        if(this.isBreakable(this.level().getBlockState(result.getBlockPos()))) {
+            if (EventHooks.getMobGriefingEvent(this.level(), this)) {
+                this.level().destroyBlock(result.getBlockPos(), true);
+            }
+        }
+
         if (!this.level().isClientSide) {
             this.discard();
         }
+    }
+
+    private boolean isBreakable(BlockState blockState) {
+        return !blockState.is(AetherTags.Blocks.VALKYRIE_QUEEN_UNBREAKABLE) && blockState.getBlock().defaultDestroyTime() >= 0.0F && blockState.getBlock().defaultDestroyTime() < 100.0F;
     }
 
     @Override
