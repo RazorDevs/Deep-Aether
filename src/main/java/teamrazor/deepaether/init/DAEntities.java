@@ -69,7 +69,7 @@ public class DAEntities {
 
 
 	public static final DeferredHolder<EntityType<?>,EntityType<EOTSController>> EOTS_CONTROLLER = register("eots_controller",
-			EOTSController::new, 1F, 1F);
+			EOTSController::new, 3F, 3F);
 
 	public static final DeferredHolder<EntityType<?>,EntityType<EOTSSegment>> EOTS_SEGMENT = register("eots_segment",
 			EOTSSegment::new, 1F, 1F);

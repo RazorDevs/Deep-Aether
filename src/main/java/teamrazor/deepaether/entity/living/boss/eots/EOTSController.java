@@ -44,12 +44,14 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAParticles;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,13 +60,14 @@ import java.util.UUID;
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 11;
+    public static final int SEGMENT_COUNT = 15;
     public static final int EXTRA_SEGMENT = 5;
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
     private boolean hasBeenContactedBySegment = false;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
+    private static final AABB NO_HIT_BOX = new AABB(0,0,0,0,0,0);
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
         super(type, level);
@@ -94,7 +97,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 120.0).add(Attributes.FOLLOW_RANGE, 96.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 255.0).add(Attributes.FOLLOW_RANGE, 96.0);
     }
 
     @Override
@@ -119,6 +122,16 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
             this.hurt(this.level().damageSources().mobAttack(this), 200.1F);
         }
+        if(level().isClientSide()) {
+            this.spawnParticles();
+        }
+    }
+
+    @Override
+    protected AABB getHitbox() {
+        if(this.bossFight.isVisible())
+            return NO_HIT_BOX;
+        else return super.getHitbox();
     }
 
     private void evaporate() {
@@ -212,11 +225,11 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         int extra = (this.bossFight.getPlayers().size() - 1) * EXTRA_SEGMENT;
         AttributeInstance instance = this.getAttribute(Attributes.MAX_HEALTH);
         if(instance != null) {
-            instance.removePermanentModifier(HEALTH_UUID);
-            instance.addPermanentModifier(new AttributeModifier(HEALTH_UUID,"eots_health_multiplayer", extra*10.0F, AttributeModifier.Operation.ADDITION));
+            instance.removeModifier(HEALTH_UUID);
+            instance.addTransientModifier(new AttributeModifier(HEALTH_UUID,"eots_health_multiplayer", extra*10.0F, AttributeModifier.Operation.ADDITION));
         }
 
-        for (int i = 0; i < SEGMENT_COUNT + extra; i++) {
+        for (int i = 0; i < SEGMENT_COUNT-1 + extra; i++) {
             oldSegment = new EOTSSegment(this.level(), oldSegment, this);
         }
     }
@@ -228,6 +241,19 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
                 segment.remove(RemovalReason.DISCARDED);
         }
 
+    }
+
+    public void spawnParticles() {
+        if(this.bossFight.isVisible()) {
+            /*for (int i = 0; i < 2; ++i) {
+                this.level().addParticle(DAParticles.EOTS_FIGHT.get(), this.getX() + random.nextFloat() - 10, this.getY() + 0.25 + (random.nextFloat() * 2), this.getZ() + random.nextFloat(), 0, 0, 0);
+            }*/
+        }
+        else {
+            for (int i = 0; i < 2; ++i) {
+                this.level().addParticle(DAParticles.EOTS_PRE_FIGHT.get(), this.getX() -1, this.getY() + 0.25+(random.nextFloat() * 2), this.getZ(), 0, 0.001 + (random.nextFloat() * 0.002), 0);
+            }
+        }
     }
 
     @Override

@@ -6,6 +6,7 @@ import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -28,7 +29,7 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE.get(), VenomiteRenderer::new);
 		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
-		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), EOTSRenderer::new);
+		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), NoopRenderer::new);
 		event.registerEntityRenderer(DAEntities.EOTS_SEGMENT.get(), EOTSSegmentRenderer::new);
 		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);

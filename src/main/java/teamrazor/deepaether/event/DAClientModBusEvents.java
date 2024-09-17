@@ -4,14 +4,9 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.CherryParticle;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
@@ -37,14 +32,13 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.compat.lost_content.AddonItemModelPredicates;
-import teamrazor.deepaether.particle.custom.EOTSExplosionParticle;
-import teamrazor.deepaether.particle.custom.MysticalParticle;
-import teamrazor.deepaether.particle.custom.PoisonBubbles;
+import teamrazor.deepaether.particle.custom.*;
 import teamrazor.deepaether.screen.CombinerScreen;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -85,8 +79,6 @@ public class DAClientModBusEvents {
                 AddonItemModelPredicates.init();
             }
 
-            MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
-
             clockRotation(DAItems.SUN_CLOCK.get());
 
             compassRotation(DAItems.BRONZE_COMPASS.get());
@@ -96,22 +88,26 @@ public class DAClientModBusEvents {
     }
 
     @SubscribeEvent
+    public static void registerMenuScreens(RegisterMenuScreensEvent event) {
+        event.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
+    }
+
+    @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
-        Minecraft.getInstance().particleEngine.register(DAParticles.POISON_BUBBLES.get(),
-                PoisonBubbles.Provider::new);
+        event.registerSpriteSet(DAParticles.POISON_BUBBLES.get(), PoisonBubbles.Provider::new);
+        event.registerSpriteSet(DAParticles.MYTHICAL_PARTICLE.get(), MysticalParticle.Provider::new);
 
-        Minecraft.getInstance().particleEngine.register(DAParticles.MYTHICAL_PARTICLE.get(),
-                MysticalParticle.Provider::new);
-
-        Minecraft.getInstance().particleEngine.register(DAParticles.ROSEROOT_LEAVES.get(), (spriteSet)
+        event.registerSpriteSet(DAParticles.ROSEROOT_LEAVES.get(), (spriteSet)
                 -> (particleType, level, v, v1, v2, v3, v4, v5)
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
 
-        Minecraft.getInstance().particleEngine.register(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (spriteSet)
+        event.registerSpriteSet(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (spriteSet)
                 -> (particleType, level, v, v1, v2, v3, v4, v5)
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
 
         event.registerSpriteSet(DAParticles.EOTS_EXPLOSION.get(), EOTSExplosionParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.EOTS_PRE_FIGHT.get(), EOTSPreFightParticle.Factory::new);
+        event.registerSpriteSet(DAParticles.EOTS_FIGHT.get(), EOTSFightParticle.Factory::new);
     }
 
     public static void registerCuriosRenderers() {
@@ -160,7 +156,7 @@ public class DAClientModBusEvents {
                     if (globalPos != null && clientLevel.dimension().location().equals(globalPos.dimensionLocation())) {
                         double d1 = livingExists ? (double) entity.getYRot() : this.getFrameRotation((ItemFrame) entity);
                         d1 = Mth.positiveModulo(d1 / 360.0D, 1.0D);
-                        double d2 = this.getSpawnToAngle((Entity) entity, globalPos.pos()) / (double) ((float) Math.PI * 2F);
+                        double d2 = this.getSpawnToAngle(entity, globalPos.pos()) / (double) ((float) Math.PI * 2F);
                         d0 = 0.5D - (d1 - 0.25D - d2);
                     } else {
                         d0 = Math.random();
