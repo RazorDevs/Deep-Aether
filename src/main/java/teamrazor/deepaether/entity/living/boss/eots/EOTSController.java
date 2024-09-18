@@ -117,6 +117,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         super.tick();
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
+            this.playAmbientSound();
         }
 
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
@@ -401,7 +402,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return null;
+        return AetherSoundEvents.ENTITY_ZEPHYR_SHOOT.get();
     }
 
     protected SoundEvent getDeathSound() {
