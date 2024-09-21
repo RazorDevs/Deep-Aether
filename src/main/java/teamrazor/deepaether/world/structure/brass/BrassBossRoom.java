@@ -5,6 +5,7 @@ import com.aetherteam.aether.world.processor.BossRoomProcessor;
 import com.aetherteam.aether.world.structurepiece.AetherTemplateStructurePiece;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -44,6 +45,7 @@ public class BrassBossRoom extends BrassDungeonPiece {
     }
 
     public static StructurePlaceSettings makeSettingsWithPivot(StructurePlaceSettings settings, Rotation rotation) {
+        settings.setRotationPivot(new BlockPos(0,0,0).relative(Direction.EAST, 31));
         settings.setRotation(rotation);
         return settings;
     }
@@ -55,8 +57,6 @@ public class BrassBossRoom extends BrassDungeonPiece {
                 .addProcessor(BrassDungeonRoomProcessor.INSTANCE)
                 .setFinalizeEntities(true);
     }
-
-    //TODO: IMPLEMENT DOOR
 
     @Override
     protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {

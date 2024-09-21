@@ -12,5 +12,5 @@ public class DAStructureProcessor {
     public static final DeferredRegister<StructureProcessorType<?>> STRUCTURE_PROCESSOR_TYPES =
             DeferredRegister.create(Registries.STRUCTURE_PROCESSOR, DeepAether.MODID);
 
-    public static final DeferredHolder<StructureProcessorType<?>, StructureProcessorType<BossRoomProcessor>> BOSS_ROOM = STRUCTURE_PROCESSOR_TYPES.register("boss_room", () -> () -> BrassDungeonRoomProcessor.CODEC);
+    public static final DeferredHolder<StructureProcessorType<?>, StructureProcessorType<BrassDungeonRoomProcessor>> BOSS_ROOM = STRUCTURE_PROCESSOR_TYPES.register("boss_room", () -> () -> BrassDungeonRoomProcessor.CODEC);
 }

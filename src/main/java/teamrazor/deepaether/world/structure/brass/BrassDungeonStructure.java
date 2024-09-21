@@ -20,6 +20,10 @@ import teamrazor.deepaether.world.structure.DAStructureTypes;
 
 import java.util.Optional;
 
+//TODO: ADD CLOUD BED
+//TODO: ADD ENTRANCE
+//TODO: ADD VARIATION
+
 public class BrassDungeonStructure extends Structure {
     public static final Codec<BrassDungeonStructure> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             settingsCodec(builder),
@@ -71,7 +75,15 @@ public class BrassDungeonStructure extends Structure {
         rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
         this.createBossRoom(
                 builder,
-                elevatedPos.relative(rotation.rotate(Direction.WEST), 31),
+                elevatedPos.relative(rotation.rotate(Direction.SOUTH), 1),
+                rotation,
+                templateManager,
+                false
+        );
+        rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
+        this.createBossRoom(
+                builder,
+                elevatedPos.relative(rotation.rotate(Direction.SOUTH), 1).relative(rotation.rotate(Direction.EAST), 1),
                 rotation,
                 templateManager,
                 false
@@ -80,16 +92,7 @@ public class BrassDungeonStructure extends Structure {
         rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
         this.createBossRoom(
                 builder,
-                elevatedPos.relative(rotation.rotate(Direction.WEST), 31).relative(rotation.rotate(Direction.SOUTH), 31),
-                rotation,
-                templateManager,
-                false
-        );
-
-        rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
-        this.createBossRoom(
-                builder,
-                elevatedPos.relative(rotation.rotate(Direction.SOUTH), 31),
+                elevatedPos.relative(rotation.rotate(Direction.EAST), 1),
                 rotation,
                 templateManager,
                 false

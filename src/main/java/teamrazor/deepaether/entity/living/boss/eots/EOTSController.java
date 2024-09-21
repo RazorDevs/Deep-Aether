@@ -57,12 +57,13 @@ import teamrazor.deepaether.init.DAParticles;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy, IEntityWithComplexSpawn {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 12;
+    public static final int SEGMENT_COUNT = 15;
     public static final int EXTRA_SEGMENT = 5;
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
@@ -135,7 +136,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     protected AABB getHitbox() {
         if(this.bossFight.isVisible())
-            return NO_HIT_BOX;
+            return new AABB(this.position(), this.position());
         else return super.getHitbox();
     }
 
@@ -257,7 +258,9 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
             if(segment != null)
                 segment.remove(RemovalReason.DISCARDED);
         }
-
+        this.segmentUUIDs = new ArrayList<>();
+        this.controllingSegments = new ArrayList<>();
+        this.hasBeenContactedBySegment = false;
     }
 
     public void spawnParticles() {
@@ -504,12 +507,14 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     }
 
+    @Override
     public void writeSpawnData(FriendlyByteBuf buffer) {
         CompoundTag tag = new CompoundTag();
         this.addBossSaveData(tag);
         buffer.writeNbt(tag);
     }
 
+    @Override
     public void readSpawnData(FriendlyByteBuf additionalData) {
         CompoundTag tag = additionalData.readNbt();
         if (tag != null) {
