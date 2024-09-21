@@ -70,6 +70,7 @@ import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
 import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
 import teamrazor.deepaether.world.structure.DAStructureTypes;
+import teamrazor.deepaether.world.structure.processor.DAStructureProcessor;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
@@ -140,6 +141,7 @@ public class DeepAether {
 		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
 		DAEnchantments.ENCHANTMENTS.register(bus);
+		DAStructureProcessor.STRUCTURE_PROCESSOR_TYPES.register(bus);
 
 		if (dist.isClient())
 			bus.addListener(DARecipeCategories::registerRecipeCategories);

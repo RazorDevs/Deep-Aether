@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilde
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
 import teamrazor.deepaether.world.structure.DAStructureTypes;
 
 import java.util.Optional;
@@ -39,15 +40,16 @@ public class BrassDungeonStructure extends Structure {
     protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         RandomSource random = context.random();
         ChunkPos chunkpos = context.chunkPos();
-        int x = chunkpos.getMiddleBlockX();
-        int z = chunkpos.getMiddleBlockZ();
 
         //int terrainHeight = context.chunkGenerator().getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
         int height = this.minY + random.nextInt(this.rangeY);
         //height = Math.max(terrainHeight, height);
         BlockPos blockpos = new BlockPos(chunkpos.getMiddleBlockX(), height, chunkpos.getMiddleBlockZ());
+
         return Optional.of(new GenerationStub(blockpos, piecesBuilder -> this.generatePieces(piecesBuilder, context, blockpos)));
     }
+
+
 
     @Override
     public StructureType<?> type() {
@@ -59,20 +61,61 @@ public class BrassDungeonStructure extends Structure {
         StructureTemplateManager templateManager = context.structureTemplateManager();
 
         Rotation rotation = Rotation.getRandom(random);
-        BlockPos bossPos = elevatedPos.offset(this.getBossRoomOffset(templateManager, rotation.rotate(Direction.SOUTH)));
-        BrassBossRoom bossRoom = new BrassBossRoom(
+        this.createBossRoom(
+                builder,
+                elevatedPos,
+                rotation,
                 templateManager,
-                "boss_room",
-                bossPos,
-                rotation
+                true);
+
+        rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
+        this.createBossRoom(
+                builder,
+                elevatedPos.relative(rotation.rotate(Direction.WEST), 31),
+                rotation,
+                templateManager,
+                false
         );
-        builder.addPiece(bossRoom);
+
+        rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
+        this.createBossRoom(
+                builder,
+                elevatedPos.relative(rotation.rotate(Direction.WEST), 31).relative(rotation.rotate(Direction.SOUTH), 31),
+                rotation,
+                templateManager,
+                false
+        );
+
+        rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
+        this.createBossRoom(
+                builder,
+                elevatedPos.relative(rotation.rotate(Direction.SOUTH), 31),
+                rotation,
+                templateManager,
+                false
+        );
     }
 
-    private Vec3i getBossRoomOffset(StructureTemplateManager templateManager, Direction direction) {
-        StructureTemplate template = templateManager.getOrCreate(new ResourceLocation(DeepAether.MODID, "brass_dungeon/boss_room"));
-        Vec3i size = template.getSize();
-        Vec3i offset = new Vec3i(size.getX() / -2, size.getY() / -2, (size.getZ()) / -2);
-        return offset.relative(direction, -1);
+    private void createBossRoom(StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {
+        if(parent) {
+            builder.addPiece(new BrassBossRoom(
+                    templateManager,
+                    "room_part_0",
+                    pos,
+                    rotation));
+        }
+        else {
+            builder.addPiece(new BrassRoom(
+                    templateManager,
+                    "room_part_0_no_boss",
+                    pos,
+                    rotation));
+        }
+
+        builder.addPiece(new BrassRoom(
+                templateManager,
+                "room_part_up",
+                pos.above(32),
+                rotation));
     }
 }

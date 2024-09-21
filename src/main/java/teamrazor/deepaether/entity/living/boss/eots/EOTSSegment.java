@@ -824,7 +824,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     double d1 = moveControl.getWantedY() - this.segment.getY();
                     double d2 = moveControl.getWantedZ() - this.segment.getZ();
                     double d3 = d0 * d0 + d1 * d1 + d2 * d2;
-                    System.out.println(d3);
                     hasPositionedAboveController = d3 < 2;
                     if(hasPositionedAboveController) {
                         if(this.segment.getController() != null) {

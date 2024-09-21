@@ -17,6 +17,10 @@ public class BrassDungeonPiece extends AetherTemplateStructurePiece {
             new ProcessorRule(new RandomBlockMatchTest(DABlocks.LOCKED_NIMBUS_STONE.get(), 0.1F), AlwaysTrueTest.INSTANCE, DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get().defaultBlockState())
     ));
 
+    protected static final RuleProcessor NIMBUS_STONE = new RuleProcessor(ImmutableList.of(
+            new ProcessorRule(new RandomBlockMatchTest(DABlocks.NIMBUS_STONE.get(), 0.1F), AlwaysTrueTest.INSTANCE, DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState())
+    ));
+
     public BrassDungeonPiece(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos) {
         super(type, manager, makeLocation(name), settings, pos);
     }

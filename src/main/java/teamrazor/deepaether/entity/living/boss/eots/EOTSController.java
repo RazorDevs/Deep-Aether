@@ -36,6 +36,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Explosion;
@@ -46,6 +47,7 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -57,7 +59,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy {
+public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy, IEntityWithComplexSpawn {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 15;
@@ -102,6 +104,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @Override
     protected void registerGoals() {
+        this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, false));
         //this.targetSelector.addGoal(2, new selectControllingSegmentGoal(this));
     }
 
@@ -118,6 +121,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
         }
+        this.evaporate();
 
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
             this.hurt(this.level().damageSources().mobAttack(this), 200.1F);
@@ -142,7 +146,18 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     public void customServerAiStep() {
         super.customServerAiStep();
         this.bossFight.setProgress(this.getHealth() / this.getMaxHealth());
+
+        if (this.getDungeon() != null) {
+            this.getDungeon().trackPlayers();
+            if (this.isBossFight() && (this.getDungeon().dungeonPlayers().isEmpty() || !this.getDungeon().isBossWithinRoom())) {
+                this.reset();
+            }
+        }
+
         this.trackDungeon();
+
+
+
     }
 
     @Override
@@ -191,6 +206,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         this.setDeltaMovement(Vec3.ZERO);
         this.setAwake(false);
         this.setBossFight(false);
+        this.setInvisible(false);
         this.setTarget(null);
         this.setHealth(this.getMaxHealth());
         if (this.getDungeon() != null) {
