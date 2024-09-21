@@ -62,7 +62,7 @@ import java.util.UUID;
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy, IEntityWithComplexSpawn {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 15;
+    public static final int SEGMENT_COUNT = 12;
     public static final int EXTRA_SEGMENT = 5;
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
@@ -120,11 +120,12 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         super.tick();
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
+            this.playAmbientSound();
         }
         this.evaporate();
 
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
-            this.hurt(this.level().damageSources().mobAttack(this), 200.1F);
+            this.hurt(this.level().damageSources().mobAttack(this), 255.1F);
         }
         if(level().isClientSide()) {
             this.spawnParticles();
@@ -417,7 +418,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return null;
+        return AetherSoundEvents.ENTITY_ZEPHYR_SHOOT.get();
     }
 
     protected SoundEvent getDeathSound() {

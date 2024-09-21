@@ -100,11 +100,11 @@ public class WindCrystal extends AbstractCrystal {
             new WindCrystal(level(), this, baseSpeed - offset, 0, -baseSpeed - offset);
             new WindCrystal(level(), this, -baseSpeed - offset, 0, -baseSpeed + offset);
         }
-        this.level().playLocalSound(result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f, false);
+        this.level().playSound(this, result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f);
 
         if(this.isBreakable(this.level().getBlockState(result.getBlockPos()))) {
             if (EventHooks.getMobGriefingEvent(this.level(), this)) {
-                this.level().destroyBlock(result.getBlockPos(), true);
+                //this.level().destroyBlock(result.getBlockPos(), true);
             }
         }
 
