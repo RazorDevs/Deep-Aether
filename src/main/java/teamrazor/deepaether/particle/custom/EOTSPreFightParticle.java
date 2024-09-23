@@ -47,7 +47,7 @@ public class EOTSPreFightParticle extends TextureSheetParticle {
         return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
-    public record Factory(SpriteSet spriteSet) implements ParticleProvider<SimpleParticleType> {
+    public record Provider(SpriteSet spriteSet) implements ParticleProvider<SimpleParticleType> {
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             EOTSPreFightParticle particle = new EOTSPreFightParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, this.spriteSet());
             particle.pickSprite(this.spriteSet());

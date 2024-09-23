@@ -106,8 +106,7 @@ public class DAClientModBusEvents {
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
 
         event.registerSpriteSet(DAParticles.EOTS_EXPLOSION.get(), EOTSExplosionParticle.Provider::new);
-        event.registerSpriteSet(DAParticles.EOTS_PRE_FIGHT.get(), EOTSPreFightParticle.Factory::new);
-        event.registerSpriteSet(DAParticles.EOTS_FIGHT.get(), EOTSFightParticle.Factory::new);
+        event.registerSpriteSet(DAParticles.EOTS_PRE_FIGHT.get(), EOTSPreFightParticle.Provider::new);
     }
 
     public static void registerCuriosRenderers() {

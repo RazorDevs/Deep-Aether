@@ -36,7 +36,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
@@ -59,7 +58,6 @@ import teamrazor.deepaether.init.DAParticles;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy, IEntityWithComplexSpawn {
@@ -107,7 +105,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     protected void registerGoals() {
         this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, false));
-        //this.targetSelector.addGoal(2, new selectControllingSegmentGoal(this));
     }
 
     @Override
@@ -194,9 +191,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
         this.setAwake(true);
         this.setBossFight(true);
-        if (this.getDungeon() != null) {
-            this.closeRoom();
-        }
+        this.closeRoom();
 
         this.spawnSegments();
         this.setInvisible(true);
@@ -206,14 +201,15 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @Override
     public void closeRoom() {
-        this.getDungeon().modifyRoom(state -> {
-            if (state.getBlock() instanceof DoorwayBlock || state.getBlock() instanceof DoorwayPillarBlock) {
-                return state.setValue(DoorwayBlock.INVISIBLE, false);
-            }
-            else {
-                return null;
-            }
-        });
+        if(this.getDungeon() != null) {
+            this.getDungeon().modifyRoom(state -> {
+                if (state.getBlock() instanceof DoorwayBlock || state.getBlock() instanceof DoorwayPillarBlock) {
+                    return state.setValue(DoorwayBlock.INVISIBLE, false);
+                } else {
+                    return null;
+                }
+            });
+        }
     }
 
     @Override
@@ -291,12 +287,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     public void spawnParticles() {
-        if(this.bossFight.isVisible()) {
-            /*for (int i = 0; i < 2; ++i) {
-                this.level().addParticle(DAParticles.EOTS_FIGHT.get(), this.getX() + random.nextFloat() - 10, this.getY() + 0.25 + (random.nextFloat() * 2), this.getZ() + random.nextFloat(), 0, 0, 0);
-            }*/
-        }
-        else {
+        if(!this.bossFight.isVisible()) {
             for (int i = 0; i < 2; ++i) {
                 this.level().addParticle(DAParticles.EOTS_PRE_FIGHT.get(), this.getX() -1, this.getY() + 0.25+(random.nextFloat() * 2), this.getZ(), 0, 0.001 + (random.nextFloat() * 0.002), 0);
             }
@@ -553,32 +544,5 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
             this.readBossSaveData(tag);
         }
 
-    }
-
-    public static class selectControllingSegmentGoal extends Goal {
-        int timer = 200;
-        EOTSController controller;
-
-        private selectControllingSegmentGoal(EOTSController controller) {
-            this.controller = controller;
-        }
-
-        @Override
-        public boolean canUse() {
-            if(this.controller.controllingSegments.isEmpty())
-                return false;
-            if (this.timer <= 0) {
-                return true;
-            } else {
-                --this.timer;
-                return false;
-            }
-        }
-
-        @Override
-        public void start() {
-            this.timer = 200;
-            //this.controller.controllingSegments.get(this.controller.level().getRandom().nextInt(this.controller.controllingSegments.size())).setGoToMiddle(this.controller.blockPosition().above(2));
-        }
     }
 }

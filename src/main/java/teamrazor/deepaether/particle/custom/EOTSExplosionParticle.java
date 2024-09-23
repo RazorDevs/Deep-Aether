@@ -9,7 +9,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import org.joml.Quaternionf;
 
 import javax.annotation.Nullable;
 
