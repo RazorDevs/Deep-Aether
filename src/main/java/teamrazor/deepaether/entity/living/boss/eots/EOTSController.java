@@ -2,6 +2,7 @@ package teamrazor.deepaether.entity.living.boss.eots;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
@@ -51,6 +52,7 @@ import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import teamrazor.deepaether.block.building.DoorwayPillarBlock;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAParticles;
@@ -70,7 +72,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     private final ServerBossEvent bossFight;
     private boolean hasBeenContactedBySegment = false;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
-    private static final AABB NO_HIT_BOX = new AABB(0,0,0,0,0,0);
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
         super(type, level);
@@ -204,6 +205,18 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
+    public void closeRoom() {
+        this.getDungeon().modifyRoom(state -> {
+            if (state.getBlock() instanceof DoorwayBlock || state.getBlock() instanceof DoorwayPillarBlock) {
+                return state.setValue(DoorwayBlock.INVISIBLE, false);
+            }
+            else {
+                return null;
+            }
+        });
+    }
+
+    @Override
     public void reset() {
         this.setDeltaMovement(Vec3.ZERO);
         this.setAwake(false);
@@ -234,6 +247,20 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         }
 
         super.die(source);
+    }
+
+    @Override
+    public void tearDownRoom() {
+        if(this.getDungeon() != null) {
+            AABB aabb = this.getDungeon().roomBounds();
+            for (BlockPos pos : BlockPos.betweenClosed((int) aabb.minX - 10, (int) aabb.minY, (int) aabb.minZ - 10, (int) aabb.maxX + 10, (int) aabb.maxY, (int) aabb.maxZ +10)) {
+                BlockState state = this.level().getBlockState(pos);
+                BlockState newState = this.convertBlock(state);
+                if (newState != null) {
+                    this.level().setBlock(pos, newState, 1 | 2);
+                }
+            }
+        }
     }
 
     private static final UUID HEALTH_UUID = UUID.fromString("385fead7-a5d3-49c7-8c8f-532403c5a7e9");
@@ -295,7 +322,12 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
             return DABlocks.NIMBUS_STONE.get().defaultBlockState();
         } else if (state.is(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get())) {
             return DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState();
-        } else if (state.is(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get())) {
+        }
+        else if (state.is(DABlocks.LOCKED_NIMBUS_PILLAR.get())) {
+            return DABlocks.NIMBUS_PILLAR.get().defaultBlockState();
+        } else if (state.is(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get())) {
+            return DABlocks.LIGHT_NIMBUS_PILLAR.get().defaultBlockState();
+        } else if (state.is(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get()) || state.is(DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR)) {
             return Blocks.AIR.defaultBlockState();
         } else {
             return state.is(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get()) ? AetherBlocks.SKYROOT_TRAPDOOR.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, state.getValue(HorizontalDirectionalBlock.FACING)) : null;

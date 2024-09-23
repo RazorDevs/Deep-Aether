@@ -28,7 +28,7 @@ public class BrassDungeonRoomProcessor extends StructureProcessor {
 
         BossRoomTracker<?> tracker = new BossRoomTracker<>(null,
                 entityInfo.pos,
-                new AABB(pos.getX()-168, pos.getY() -2, pos.getZ() - 18, pos.getX() + 19, pos.getY() + 32, pos.getZ() +19),
+                new AABB(pos.getX()- 21, pos.getY() -2, pos.getZ() - 21, pos.getX() + 22, pos.getY() + 32, pos.getZ() + 22),
                 new ArrayList<>());
         entityInfo.nbt.put("Dungeon", tracker.addAdditionalSaveData());
         return super.processEntity(level, seedPos, rawEntityInfo, entityInfo, placementSettings, template);
