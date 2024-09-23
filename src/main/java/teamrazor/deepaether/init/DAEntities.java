@@ -1,5 +1,6 @@
 package teamrazor.deepaether.init;
 
+import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,6 +19,7 @@ import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.entity.DAChestBoatEntity;
 import teamrazor.deepaether.entity.StormArrow;
 import teamrazor.deepaether.entity.living.AerglowFish;
+import teamrazor.deepaether.entity.living.BabyZephyr;
 import teamrazor.deepaether.entity.living.Venomite;
 import teamrazor.deepaether.entity.living.Windfly;
 import teamrazor.deepaether.entity.living.boss.eots.EOTSController;
@@ -66,8 +68,6 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>,EntityType<Windfly>> WINDFLY = register("windfly",
 			Windfly::new, 1.0F, 0.3F);
 
-
-
 	public static final DeferredHolder<EntityType<?>,EntityType<EOTSController>> EOTS_CONTROLLER = register("eots_controller",
 			EOTSController::new, 3F, 3F);
 
@@ -86,6 +86,13 @@ public class DAEntities {
 
 	public static final DeferredHolder<EntityType<?>,EntityType<VenomiteBubble>> VENOMITE_BUBBLE = ENTITY_TYPES.register("venomite_bubble",
 			() -> EntityType.Builder.<VenomiteBubble>of(VenomiteBubble::new, MobCategory.MISC).sized(0.35F, 0.2F).clientTrackingRange(4).updateInterval(10).build("venomite_bubble"));
+
+	public static final DeferredHolder<EntityType<?>, EntityType<BabyZephyr>> BABY_ZEPHYR = ENTITY_TYPES.register("baby_zephyr",
+			() -> EntityType.Builder.of(BabyZephyr::new,
+					AetherMobCategory.AETHER_SKY_MONSTER)
+					.sized(1.5F, 1.0F)
+					.clientTrackingRange(10).build("baby_zephyr"));
+
 
 	private static <T extends Entity> DeferredHolder<EntityType<?>,EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));
@@ -115,5 +122,6 @@ public class DAEntities {
 		event.put(EOTS_SEGMENT.get(), EOTSSegment.createMobAttributes().build());
 		event.put(EOTS_CONTROLLER.get(), EOTSController.createMobAttributes().build());
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
+		event.put(BABY_ZEPHYR.get(), BabyZephyr.createMobAttributes().build());
 	}
 }

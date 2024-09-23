@@ -18,6 +18,7 @@ import teamrazor.deepaether.client.model.*;
 import teamrazor.deepaether.client.renderer.*;
 import teamrazor.deepaether.client.renderer.entity.*;
 import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.entity.living.BabyZephyr;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -43,6 +44,7 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.VENOMITE_BUBBLE.get(), VenomiteBubbleRenderer::new);
 		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), IceCrystalRenderer::new);
 		event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
+		event.registerEntityRenderer(DAEntities.BABY_ZEPHYR.get(), BabyZephyrRenderer::new);
 	}
 
 	@SubscribeEvent
@@ -53,6 +55,7 @@ public class DAEntityRenderers {
 		event.registerLayerDefinition(DAModelLayers.VENOMITE_BUBBLE, VenomiteBubbleModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.VENOMITE, VenomiteModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.WINDFLY, WindflyModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.BABY_ZEPHYR, BabyZephyrModel::createBodyLayer);
 
 		for (DABoatEntity.Type type : DABoatEntity.Type.values()) {
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getModelLocation()), "main"), BoatModel::createBodyModel);

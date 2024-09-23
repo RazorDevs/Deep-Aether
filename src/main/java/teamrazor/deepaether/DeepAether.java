@@ -252,6 +252,7 @@ public class DeepAether {
 			if (ModList.get().isLoaded(PROTECT_YOUR_MOA))
 				setupCompatPack("compat_recipes/protect_your_moa_compat", "Deep Aether Protect Your Moa Compat", event);
 
+
 			if (ModList.get().isLoaded(AETHER_GENESIS))
 				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData", "Deep Aether Golden Swet Ball Aether Genesis Fix", event);
 			else if (ModList.get().isLoaded(AETHER_REDUX))
