@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
 
 public class BrassRoom extends BrassDungeonPiece {
@@ -27,14 +28,15 @@ public class BrassRoom extends BrassDungeonPiece {
     private static StructurePlaceSettings makeSettings() {
         return new StructurePlaceSettings()
                 .addProcessor(BrassDungeonPiece.LOCKED_NIMBUS_STONE)
-                .addProcessor(BrassDungeonPiece.NIMBUS_STONE);
+                .addProcessor(BrassDungeonPiece.TRAPPED_NIMBUS_STONE)
+                .addProcessor(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_NORMAL);
     }
 
 
     @Override
     protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {
         if (name.equals("Door Location")) {
-            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
+            level.setBlock(pos, DABlocks.LOCKED_NIMBUS_STONE.get().defaultBlockState(), 2); //Fix later
         }
     }
 }

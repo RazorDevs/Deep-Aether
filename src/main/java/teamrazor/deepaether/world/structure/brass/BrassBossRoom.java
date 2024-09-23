@@ -53,7 +53,8 @@ public class BrassBossRoom extends BrassDungeonPiece {
     private static StructurePlaceSettings makeSettings() {
         return new StructurePlaceSettings()
                 .addProcessor(BrassDungeonPiece.LOCKED_NIMBUS_STONE)
-                .addProcessor(BrassDungeonPiece.NIMBUS_STONE)
+                .addProcessor(BrassDungeonPiece.TRAPPED_NIMBUS_STONE)
+                .addProcessor(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_NORMAL)
                 .addProcessor(BrassDungeonRoomProcessor.INSTANCE)
                 .setFinalizeEntities(true);
     }
@@ -70,9 +71,6 @@ public class BrassBossRoom extends BrassDungeonPiece {
             TreasureChestBlockEntity.setDungeonType(level, chest, new ResourceLocation(DeepAether.MODID, "brass"));
 
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
-        }
-        if (name.equals("Door Location")) {
-            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
         }
     }
 }

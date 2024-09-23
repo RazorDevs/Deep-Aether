@@ -29,6 +29,7 @@ public class DAItemModelData extends AetherItemModelProvider {
     protected void registerModels() {
 
         this.itemBlock(DABlocks.HIGHSTONE.get());
+        this.itemBlock(DABlocks.TRAPPED_SKYROOT_PLANKS.get());
 
         //Roseroot woodset
         this.itemBlock(DABlocks.ROSEROOT_WOOD.get());

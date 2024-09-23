@@ -36,6 +36,6 @@ public class BrassDungeonRoomProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return AetherStructureProcessors.BOSS_ROOM.get();
+        return DAStructureProcessor.BOSS_ROOM.get();
     }
 }

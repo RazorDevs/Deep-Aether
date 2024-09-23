@@ -1,5 +1,6 @@
 package teamrazor.deepaether.world.structure.brass;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.world.structurepiece.AetherTemplateStructurePiece;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
@@ -17,8 +18,13 @@ public class BrassDungeonPiece extends AetherTemplateStructurePiece {
             new ProcessorRule(new RandomBlockMatchTest(DABlocks.LOCKED_NIMBUS_STONE.get(), 0.1F), AlwaysTrueTest.INSTANCE, DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get().defaultBlockState())
     ));
 
-    protected static final RuleProcessor NIMBUS_STONE = new RuleProcessor(ImmutableList.of(
-            new ProcessorRule(new RandomBlockMatchTest(DABlocks.NIMBUS_STONE.get(), 0.1F), AlwaysTrueTest.INSTANCE, DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState())
+    protected static final RuleProcessor TRAPPED_NIMBUS_STONE = new RuleProcessor(ImmutableList.of(
+            new ProcessorRule(new RandomBlockMatchTest(DABlocks.LOCKED_NIMBUS_STONE.get(), 0.05F), AlwaysTrueTest.INSTANCE, DABlocks.TRAPPED_NIMBUS_STONE.get().defaultBlockState()),
+            new ProcessorRule(new RandomBlockMatchTest(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(), 0.05F), AlwaysTrueTest.INSTANCE, DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get().defaultBlockState())
+    ));
+
+    protected static final RuleProcessor TRAPPED_SKYROOT_PLANKS_NORMAL = new RuleProcessor(ImmutableList.of(
+            new ProcessorRule(new RandomBlockMatchTest(AetherBlocks.SKYROOT_PLANKS.get(), 0.05F), AlwaysTrueTest.INSTANCE, DABlocks.TRAPPED_SKYROOT_PLANKS.get().defaultBlockState())
     ));
 
     public BrassDungeonPiece(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos) {

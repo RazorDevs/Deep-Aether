@@ -55,6 +55,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
     public void generate() {
 
         this.dropSelf(DABlocks.HIGHSTONE.get());
+        this.dropOther(DABlocks.TRAPPED_SKYROOT_PLANKS.get(), AetherBlocks.SKYROOT_PLANKS.get());
 
         //Roseroot woodset
         this.dropSelf(DABlocks.ROSEROOT_WOOD.get());
