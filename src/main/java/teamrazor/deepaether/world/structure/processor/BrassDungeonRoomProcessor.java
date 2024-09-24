@@ -1,14 +1,9 @@
 package teamrazor.deepaether.world.structure.processor;
 
-import com.aetherteam.aether.world.processor.AetherStructureProcessors;
-import com.aetherteam.aether.world.processor.BossRoomProcessor;
 import com.aetherteam.nitrogen.entity.BossRoomTracker;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -28,7 +23,7 @@ public class BrassDungeonRoomProcessor extends StructureProcessor {
 
         BossRoomTracker<?> tracker = new BossRoomTracker<>(null,
                 entityInfo.pos,
-                new AABB(pos.getX()- 21, pos.getY() -2, pos.getZ() - 21, pos.getX() + 22, pos.getY() + 32, pos.getZ() + 22),
+                new AABB(pos.getX()- 21, pos.getY() -8, pos.getZ() - 21, pos.getX() + 22, pos.getY() + 32, pos.getZ() + 22),
                 new ArrayList<>());
         entityInfo.nbt.put("Dungeon", tracker.addAdditionalSaveData());
         return super.processEntity(level, seedPos, rawEntityInfo, entityInfo, placementSettings, template);

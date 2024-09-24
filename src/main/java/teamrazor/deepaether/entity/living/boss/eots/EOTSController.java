@@ -99,7 +99,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 255.0).add(Attributes.FOLLOW_RANGE, 96.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 225.1).add(Attributes.FOLLOW_RANGE, 96.0);
     }
 
     @Override
@@ -132,10 +132,13 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    protected AABB getHitbox() {
-        if(this.bossFight.isVisible())
-            return new AABB(this.position(), this.position());
-        else return super.getHitbox();
+    public boolean isWithinMeleeAttackRange(LivingEntity pEntity) {
+        return false;
+    }
+
+    @Override
+    public boolean attackable() {
+        return !this.bossFight.isVisible();
     }
 
     private void evaporate() {
@@ -170,11 +173,11 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         }
 
         if (source.getDirectEntity() != null && source.getDirectEntity().getType() == DAEntities.EOTS_SEGMENT.get()) {
-            boolean hasBeenHurt = super.hurt(source, amount);
             this.invulnerableTime = 0;
-            return hasBeenHurt;
+            return super.hurt(source, amount);
         }
         else if (source.getEntity() != null && source.getEntity().is(this) && this.isBossFight()) {
+            this.invulnerableTime = 0;
             return super.hurt(source, amount);
         }
         else return false;
@@ -192,6 +195,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         this.setAwake(true);
         this.setBossFight(true);
         this.closeRoom();
+        this.setPos(this.position().subtract(0, 6.0,0));
 
         this.spawnSegments();
         this.setInvisible(true);
@@ -233,6 +237,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void die(@NotNull DamageSource source) {
         this.setDeltaMovement(Vec3.ZERO);
+        this.setPos(this.position().add(0, 8, 0));
         if (this.level() instanceof ServerLevel) {
             this.removeAllSegments();
             this.bossFight.setProgress(this.getHealth() / this.getMaxHealth());
@@ -267,7 +272,8 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         AttributeInstance instance = this.getAttribute(Attributes.MAX_HEALTH);
         if(instance != null) {
             instance.removeModifier(HEALTH_UUID);
-            instance.addTransientModifier(new AttributeModifier(HEALTH_UUID,"eots_health_multiplayer", extra*10.0F, AttributeModifier.Operation.ADDITION));
+            instance.addTransientModifier(new AttributeModifier(HEALTH_UUID,"eots_health_multiplayer", extra*15.0F, AttributeModifier.Operation.ADDITION));
+            oldSegment.setHealth(this.getMaxHealth());
         }
 
         for (int i = 0; i < SEGMENT_COUNT-1 + extra; i++) {

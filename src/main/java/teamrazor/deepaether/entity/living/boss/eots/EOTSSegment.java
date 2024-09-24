@@ -114,7 +114,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     public EOTSSegment(Level level, EOTSController controller) {
         this(DAEntities.EOTS_SEGMENT.get(), level);
-        this.setPos(controller.getOnPos().getCenter());
+        this.setPos(controller.getOnPos().getCenter().add(0, 6.0, 0));
         level.addFreshEntity(this);
         this.setController(controller);
         this.hasContactedControllerOnLoad = true;
@@ -281,12 +281,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             if (this.getController().segmentUUIDs.size() == 1 && (health - pAmount <= 0)) {
                 this.deathAnimation = true;
                 this.finishedDeathAnimation = false;
+                this.getController().hurt(createControllerDamageSource(this), this.getController().getHealth() - 0.5F);
                 this.setInvulnerable(true);
                 return false;
             }
             else {
                 boolean doHurt = super.hurt(pSource, pAmount);
-                this.getController().hurt(createControllerDamageSource(pSource.getEntity()), Math.min(pAmount, health));
+                if(doHurt)
+                    this.getController().hurt(createControllerDamageSource(pSource.getEntity()), Math.min(pAmount, health));
                 return doHurt;
             }
         } else return super.hurt(pSource, pAmount);
@@ -433,7 +435,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     private int getIdleYPos() {
         if(this.getController() != null)
-            return  this.getController().blockPosition().getY() + 15 + randomYOffset;
+            return  this.getController().blockPosition().getY() + 21 + randomYOffset;
         else if(this.getTarget() != null)
             return this.getTarget().blockPosition().getY() + 15 + randomYOffset;
         else return 255;
@@ -827,7 +829,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                     hasPositionedAboveController = d3 < 2;
                     if(hasPositionedAboveController) {
                         if(this.segment.getController() != null) {
-                            this.targetY = this.segment.getController().getY();
+                            this.targetY = this.segment.getController().getY() + 6.0;
                             segment.getMoveControl().setWantedPosition(moveControl.getWantedX(), targetY  - 5.0, moveControl.getWantedZ(), 1.0F);
                         }
                         else return false;
@@ -849,7 +851,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             this.segment.setInvisible(true);
             if(this.segment.getController() != null) {
                 this.segment.getController().segmentUUIDs.remove(this.segment.getUUID());
-                Vec3 pos = new Vec3(this.segment.getX(), this.segment.getController().position().y() + 0.3, this.segment.getZ());
+                Vec3 pos = new Vec3(this.segment.getX(), this.segment.getController().position().y() + 6.3, this.segment.getZ());
 
                 ((ServerLevel) this.segment.level()).sendParticles(DAParticles.EOTS_EXPLOSION.get(), pos.x(), pos.y(), pos.z(), 1,0.0, 0.0, 0.0, 0.0);
                 this.segment.level().playSound(null, pos.x(), pos.y(), pos.z(), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE, 1.0F, 1.0F);
@@ -861,7 +863,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         public void start() {
             if(this.segment.getController() != null && !this.segment.getController().isRemoved()) {
-                Vec3 pos = this.segment.getController().position();
+                Vec3 pos = this.segment.getController().position().add(0, 6.0, 0);
                 this.segment.getMoveControl().setWantedPosition(pos.x, this.segment.getIdleYPos() + 20.0F, pos.z, 0.6F);
             }
             else {
