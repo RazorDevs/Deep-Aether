@@ -60,12 +60,25 @@ public class BrassDungeonStructure extends Structure {
         return DAStructureTypes.BRASS_DUNGEON.get();
     }
 
+    private String getRandomRoom(RandomSource random) {
+        int num = random.nextInt(58);
+        if(num <= 20)
+            return "empty";
+        else if(num <=40)
+            return "empty_1";
+        else if(num <=45)
+            return "garden";
+        else if(num <= 55)
+            return "library";
+        else return "infested";
+    }
+
     private void generatePieces(StructurePiecesBuilder builder, GenerationContext context, BlockPos elevatedPos) {
         RandomSource random = context.random();
         StructureTemplateManager templateManager = context.structureTemplateManager();
 
         Rotation rotation = Rotation.getRandom(random);
-        this.createBossRoom(
+        this.createBossRoom(random,
                 builder,
                 elevatedPos,
                 rotation,
@@ -73,7 +86,7 @@ public class BrassDungeonStructure extends Structure {
                 true);
 
         rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
-        this.createBossRoom(
+        this.createBossRoom(random,
                 builder,
                 elevatedPos.relative(rotation.rotate(Direction.SOUTH), 1),
                 rotation,
@@ -81,7 +94,7 @@ public class BrassDungeonStructure extends Structure {
                 false
         );
         rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
-        this.createBossRoom(
+        this.createBossRoom(random,
                 builder,
                 elevatedPos.relative(rotation.rotate(Direction.SOUTH), 1).relative(rotation.rotate(Direction.EAST), 1),
                 rotation,
@@ -90,7 +103,7 @@ public class BrassDungeonStructure extends Structure {
         );
 
         rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
-        this.createBossRoom(
+        this.createBossRoom(random,
                 builder,
                 elevatedPos.relative(rotation.rotate(Direction.EAST), 1),
                 rotation,
@@ -99,34 +112,49 @@ public class BrassDungeonStructure extends Structure {
         );
 
         rotation = rotation.getRotated(Rotation.CLOCKWISE_90);
-        builder.addPiece(new BrassBossRoom(
+        builder.addPiece(new BrassRoom(
                 templateManager,
                 "door",
                 elevatedPos.relative(rotation.rotate(Direction.EAST), 4),
-                rotation));
+                rotation, 0));
 
     }
 
-    private void createBossRoom(StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {
+    private void createBossRoom(RandomSource random, StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {
+        int flag = 0; //Does not work
+        String room = this.getRandomRoom(random);
+        if(room.equals("garden"))
+            flag = 1;
+        else if(room.equals("infested")) { //Little oopsie
+            flag = 2;
+            pos = pos.above();
+        }
+
         if(parent) {
             builder.addPiece(new BrassBossRoom(
                     templateManager,
-                    "room_part_0",
+                    "brass_room_" + room +"_boss",
                     pos,
-                    rotation));
+                    rotation, flag));
         }
         else {
+
+
             builder.addPiece(new BrassRoom(
                     templateManager,
-                    "room_part_0_no_boss",
+                    "brass_room_" + room,
                     pos,
-                    rotation));
+                    rotation, flag));
+        }
+
+        if(room.equals("infested")) {
+            pos = pos.above().below();
         }
 
         builder.addPiece(new BrassRoom(
                 templateManager,
                 "room_part_up",
                 pos.above(32),
-                rotation));
+                rotation, 0));
     }
 }

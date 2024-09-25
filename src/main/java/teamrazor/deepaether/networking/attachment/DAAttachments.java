@@ -2,10 +2,16 @@ package teamrazor.deepaether.networking.attachment;
 
 import com.mojang.serialization.Codec;
 import net.neoforged.neoforge.attachment.AttachmentType;
+import net.neoforged.neoforge.attachment.IAttachmentSerializer;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import teamrazor.deepaether.DeepAether;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class DAAttachments {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENTS = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, DeepAether.MODID);
@@ -18,4 +24,6 @@ public class DAAttachments {
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<Boolean>> PLAYER_BOSS_FIGHT = ATTACHMENTS.register("player_boss_figth", ()
             -> AttachmentType.builder(()->false).serialize(Codec.BOOL).build());
 
+    //public static final DeferredHolder<AttachmentType<?>, AttachmentType<List<String>>> PLAYER_FLAWLESS = ATTACHMENTS.register("player_flawless", ()
+    //        -> AttachmentType.builder(() -> ((List<String>) new ArrayList<String>())).serialize(Codec.STRING.listOf()).build());
 }

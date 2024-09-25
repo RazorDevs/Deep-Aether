@@ -56,7 +56,7 @@ public class TrappedSkyrootBlock extends Block {
                 if (hitResult.getType() == HitResult.Type.BLOCK) {
                     spawnPos = spawnPos.relative(hitResult.getDirection());
                 }
-                this.getEntity().spawn(serverLevel, spawnPos, MobSpawnType.TRIGGERED);
+                this.getEntity(state, level).spawn(serverLevel, spawnPos, MobSpawnType.TRIGGERED);
                 serverLevel.playSound(null, pos, AetherSoundEvents.BLOCK_DUNGEON_TRAP_TRIGGER.get(), SoundSource.BLOCKS, 0.5F, level.getRandom().nextFloat() * 0.1F + 0.9F);
             }
         }
@@ -65,10 +65,14 @@ public class TrappedSkyrootBlock extends Block {
     /**
      * Different Rooms can Spawn With Different Entities
      */
-    private EntityType<?> getEntity() {
-        return switch (this.defaultBlockState().getValue(TRAPPED_MOB_TYPE)) {
+    private EntityType<?> getEntity(BlockState state, Level level) {
+        EntityType<?> type = switch (state.getValue(TRAPPED_MOB_TYPE)) {
             case 1 -> AetherEntityTypes.AECHOR_PLANT.get();
+            case 2 -> AetherEntityTypes.COCKATRICE.get();
             default -> DAEntities.BABY_ZEPHYR.get();
         };
+        if(level.getRandom().nextBoolean())
+            return type;
+        else return DAEntities.BABY_ZEPHYR.get();
     }
 }

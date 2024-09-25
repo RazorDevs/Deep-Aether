@@ -4,6 +4,7 @@ import com.aetherteam.aether.blockentity.TreasureChestBlockEntity;
 import com.aetherteam.aether.world.processor.BossRoomProcessor;
 import com.aetherteam.aether.world.structurepiece.AetherTemplateStructurePiece;
 import com.google.common.collect.ImmutableList;
+import com.ibm.icu.impl.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
@@ -30,18 +31,19 @@ import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
 import teamrazor.deepaether.world.structure.processor.BrassDungeonRoomProcessor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BrassBossRoom extends BrassDungeonPiece {
-
-    public BrassBossRoom(StructureTemplateManager manager, String name, BlockPos pos, Rotation rotation) {
+    public BrassBossRoom(StructureTemplateManager manager, String name, BlockPos pos, Rotation rotation, int flag) {
         super(DAStructurePieceTypes.BRASS_BOSS_ROOM.get(), manager, name,
-                makeSettingsWithPivot(makeSettings(), rotation), pos);
+                makeSettingsWithPivot(makeSettings(flag), rotation), pos);
     }
 
     public BrassBossRoom(StructurePieceSerializationContext context, CompoundTag tag) {
         super(DAStructurePieceTypes.BRASS_BOSS_ROOM.get(), tag, context.structureTemplateManager(), resourceLocation
-                -> makeSettings());
+                -> makeSettings(0));
     }
 
     public static StructurePlaceSettings makeSettingsWithPivot(StructurePlaceSettings settings, Rotation rotation) {
@@ -50,27 +52,29 @@ public class BrassBossRoom extends BrassDungeonPiece {
         return settings;
     }
 
-    private static StructurePlaceSettings makeSettings() {
-        return new StructurePlaceSettings()
-                .addProcessor(BrassDungeonPiece.LOCKED_NIMBUS_STONE)
-                .addProcessor(BrassDungeonPiece.TRAPPED_NIMBUS_STONE)
-                .addProcessor(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_NORMAL)
+    private static StructurePlaceSettings makeSettings(int flag) {
+        return BrassRoom.makeSettings(flag)
                 .addProcessor(BrassDungeonRoomProcessor.INSTANCE)
                 .setFinalizeEntities(true);
     }
 
     @Override
     protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {
-        if (name.equals("Treasure Chest")) {
-            BlockPos chest = pos.below();
-            BlockEntity entity = level.getBlockEntity(chest);
+        switch (name) {
+            case "Brass Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
+            case "Library Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
+            case "Combinder Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
+            case "Treasure Chest" -> {
+                BlockPos chest = pos.below();
+                BlockEntity entity = level.getBlockEntity(chest);
 
-            if (entity instanceof RandomizableContainerBlockEntity container) {
-                container.setLootTable(DALoot.BRASS_DUNGEON_REWARD, random.nextLong());
+                if (entity instanceof RandomizableContainerBlockEntity container) {
+                    container.setLootTable(DALoot.BRASS_DUNGEON_REWARD, random.nextLong());
+                }
+                TreasureChestBlockEntity.setDungeonType(level, chest, new ResourceLocation(DeepAether.MODID, "brass"));
+
+                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
             }
-            TreasureChestBlockEntity.setDungeonType(level, chest, new ResourceLocation(DeepAether.MODID, "brass"));
-
-            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
         }
     }
 }

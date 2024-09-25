@@ -42,7 +42,7 @@ public class DAEntityRenderers {
 
 		event.registerEntityRenderer(DAEntities.FIRE_PROJECTILE.get(), FireProjectileRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE_BUBBLE.get(), VenomiteBubbleRenderer::new);
-		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), IceCrystalRenderer::new);
+		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), WindCrystalRenderer::new);
 		event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
 		event.registerEntityRenderer(DAEntities.BABY_ZEPHYR.get(), BabyZephyrRenderer::new);
 	}

@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.block.misc.TrappedSkyrootBlock;
 import teamrazor.deepaether.init.DABlocks;
 
 import java.util.function.Function;
@@ -27,6 +28,13 @@ public class BrassDungeonPiece extends AetherTemplateStructurePiece {
             new ProcessorRule(new RandomBlockMatchTest(AetherBlocks.SKYROOT_PLANKS.get(), 0.05F), AlwaysTrueTest.INSTANCE, DABlocks.TRAPPED_SKYROOT_PLANKS.get().defaultBlockState())
     ));
 
+    protected static final RuleProcessor TRAPPED_SKYROOT_PLANKS_PLANT = new RuleProcessor(ImmutableList.of(
+            new ProcessorRule(new RandomBlockMatchTest(AetherBlocks.SKYROOT_PLANKS.get(), 0.05F), AlwaysTrueTest.INSTANCE, DABlocks.TRAPPED_SKYROOT_PLANKS.get().defaultBlockState().setValue(TrappedSkyrootBlock.TRAPPED_MOB_TYPE, 1))
+    ));
+
+    protected static final RuleProcessor TRAPPED_SKYROOT_PLANKS_COCKATRICE = new RuleProcessor(ImmutableList.of(
+            new ProcessorRule(new RandomBlockMatchTest(AetherBlocks.SKYROOT_PLANKS.get(), 0.05F), AlwaysTrueTest.INSTANCE, DABlocks.TRAPPED_SKYROOT_PLANKS.get().defaultBlockState().setValue(TrappedSkyrootBlock.TRAPPED_MOB_TYPE, 2))
+    ));
     public BrassDungeonPiece(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos) {
         super(type, manager, makeLocation(name), settings, pos);
     }
