@@ -18,8 +18,6 @@ public class DARecipeSerializers {
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<CombinerRecipe>> COMBINING =
             RECIPE_SERIALIZERS.register("combining", CombinerRecipe.Serializer::new);
-    //public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ConditionalShapedRecipe>> CONDITIONAL_SHAPED =
-    //        RECIPE_SERIALIZERS.register("conditional_shaped", ConditionalShapedRecipe.Serializer::new);
 
     public static final DeferredHolder<RecipeSerializer<?>, BlockStateRecipeSerializer<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_SERIALIZERS.register("golden_swet_ball_recipe", GoldenSwetBallRecipe.Serializer::new);
     public static final DeferredHolder<RecipeSerializer<?>, BlockStateRecipeSerializer<GlowingSporesRecipe>> GLOWING_SPORES_RECIPE = RECIPE_SERIALIZERS.register("glowing_spores_recipe", GlowingSporesRecipe.Serializer::new);

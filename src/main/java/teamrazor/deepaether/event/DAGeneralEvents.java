@@ -4,7 +4,6 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -85,12 +84,6 @@ public class DAGeneralEvents {
 
                 //For advancement
                 for (Player player : players) {
-                    /*String string = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).toString();
-                    List<String> data = player.getData(DAAttachments.PLAYER_FLAWLESS.get());
-                    if(!data.contains(string)) {
-                        data.add(string);
-                        player.setData(DAAttachments.PLAYER_FLAWLESS.get(), data);
-                    }*/
                     DAAdvancementTriggers.FLAWLESS_TRIGGER.get().trigger((ServerPlayer) player, entity, event.getSource());
                 }
 
