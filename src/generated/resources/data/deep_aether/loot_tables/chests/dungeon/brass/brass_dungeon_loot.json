@@ -6,17 +6,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_pickaxe",
+          "name": "deep_aether:skyjade_pickaxe",
           "weight": 4
         },
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_axe",
+          "name": "deep_aether:skyjade_axe",
           "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_sword",
+          "name": "deep_aether:skyjade_sword",
           "weight": 3
         },
         {
@@ -26,8 +26,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "aether:swet_cape",
-          "weight": 2
+          "name": "deep_aether:sterling_aercloud"
         },
         {
           "type": "minecraft:item",
@@ -35,11 +34,11 @@
         },
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_shovel"
+          "name": "deep_aether:skyjade_shovel"
         },
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_hoe"
+          "name": "deep_aether:skyjade_hoe"
         }
       ],
       "rolls": {
@@ -106,18 +105,12 @@
         },
         {
           "type": "minecraft:item",
-          "name": "aether:skyroot_poison_bucket",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
           "name": "aether:iron_ring",
           "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "aether:golden_amber",
-          "weight": 2
+          "name": "deep_aether:skyjade"
         },
         {
           "type": "minecraft:item",
@@ -141,7 +134,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:icestone"
+          "name": "aether:cold_aercloud"
         },
         {
           "type": "minecraft:item",
@@ -171,7 +164,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:ambrosium_torch"
+          "name": "aether:blue_aercloud"
         }
       ],
       "rolls": {
@@ -196,7 +189,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:ambrosium_shard",
+          "name": "deep_aether:aerglow_blossom",
           "weight": 6
         },
         {
@@ -217,17 +210,17 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:flint",
+          "name": "deep_aether:goldenleaf_berries",
           "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:feather",
+          "name": "deep_aether:frozen_goldenleaf_berries",
           "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:string",
+          "name": "deep_aether:antidote",
           "weight": 2
         },
         {
@@ -264,7 +257,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:skyroot_planks",
+          "name": "deep_aether:roseroot_planks",
           "weight": 2
         }
       ],

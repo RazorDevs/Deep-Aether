@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
@@ -35,11 +36,31 @@ public abstract class AbstractBrassRoom extends BrassDungeonPiece {
     @Override
     protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {
         switch (name) {
-            case "Brass Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
-            case "Library Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
-            case "Combinder Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
-            case "Infested Chest Up" -> level.setBlock(pos, AetherBlocks.SKYROOT_PLANKS.get().defaultBlockState(), 2); //Fix later
+            case "Brass Chest" -> createChestLoot(level, pos, random, DALoot.BRASS_DUNGEON_LOOT);
+            case "Library Chest" -> createChestLoot(level, pos, random, DALoot.BRASS_DUNGEON_LOOT); //Fix later
+            case "Combinder Chest" -> createChestLoot(level, pos, random, DALoot.BRASS_DUNGEON_LOOT); //Fix later
+            case "Infested Chest Up" -> {
+                BlockPos chest = pos.above();
+                BlockEntity entity = level.getBlockEntity(chest);
+
+                if (entity instanceof RandomizableContainerBlockEntity container) {
+                    container.setLootTable(DALoot.BRASS_DUNGEON_LOOT, random.nextLong());
+                }
+
+                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+            }
         }
+    }
+
+    protected void createChestLoot(ServerLevelAccessor level, BlockPos pos, RandomSource random, ResourceLocation lootTable) {
+        BlockPos chest = pos.below();
+        BlockEntity entity = level.getBlockEntity(chest);
+
+        if (entity instanceof RandomizableContainerBlockEntity container) {
+            container.setLootTable(lootTable, random.nextLong());
+        }
+
+        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
     }
 
     public static StructurePlaceSettings makeSettingsWithPivot(StructurePlaceSettings settings, Rotation rotation) {
@@ -61,10 +82,19 @@ public abstract class AbstractBrassRoom extends BrassDungeonPiece {
         @Override
         protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {
             switch (name) {
-                case "Brass Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
-                case "Library Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
-                case "Combinder Chest" -> level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2); //Fix later
-                case "Infested Chest Up" -> level.setBlock(pos, AetherBlocks.SKYROOT_PLANKS.get().defaultBlockState(), 2); //Fix later
+                case "Brass Chest" -> createChestLoot(level, pos, random, DALoot.BRASS_DUNGEON_LOOT);
+                case "Library Chest" -> createChestLoot(level, pos, random, DALoot.BRASS_DUNGEON_LOOT); //Fix later
+                case "Combinder Chest" -> createChestLoot(level, pos, random, DALoot.BRASS_DUNGEON_LOOT); //Fix later
+                case "Infested Chest Up" -> {
+                    BlockPos chest = pos.above();
+                    BlockEntity entity = level.getBlockEntity(chest);
+
+                    if (entity instanceof RandomizableContainerBlockEntity container) {
+                        container.setLootTable(DALoot.BRASS_DUNGEON_LOOT, random.nextLong());
+                    }
+
+                    level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+                }
                 case "Treasure Chest" -> {
                     BlockPos chest = pos.below();
                     BlockEntity entity = level.getBlockEntity(chest);

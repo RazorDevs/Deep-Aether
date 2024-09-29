@@ -6,23 +6,23 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether:neptune_helmet"
+          "name": "deep_aether:stormforged_helmet"
         },
         {
           "type": "minecraft:item",
-          "name": "aether:neptune_chestplate"
+          "name": "deep_aether:stormforged_chestplate"
         },
         {
           "type": "minecraft:item",
-          "name": "aether:neptune_leggings"
+          "name": "deep_aether:stormforged_leggings"
         },
         {
           "type": "minecraft:item",
-          "name": "aether:neptune_boots"
+          "name": "deep_aether:stormforged_boots"
         },
         {
           "type": "minecraft:item",
-          "name": "aether:neptune_gloves"
+          "name": "deep_aether:stormforged_gloves"
         }
       ],
       "rolls": 1.0

@@ -368,6 +368,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.bowItem(DAItems.STORM_BOW.get());
         this.handheldItem(DAItems.STORM_SWORD.get());
         this.item(DAItems.AERCLOUD_NECKLACE.get());
+        this.translucentItem(DAItems.CLOUD_CAPE.get());
 
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
@@ -442,6 +443,14 @@ public class DAItemModelData extends AetherItemModelProvider {
 //        this.item(DAItems.BRONZE_COMPASS.get());
 //        this.item(DAItems.SILVER_COMPASS.get());
 //        this.item(DAItems.GOLD_COMPASS.get());
+    }
+
+    public void translucentItem(Item item) {
+        this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
+                .renderType(new ResourceLocation("translucent"))
+                .texture("layer0", modLoc("item/" + this.itemName(item)));
+
+
     }
 
     public void handheldItem(Item item) {

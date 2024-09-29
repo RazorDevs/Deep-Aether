@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:ambrosium_shard",
+          "name": "deep_aether:aerglow_blossom",
           "weight": 6
         },
         {
@@ -38,22 +38,22 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:flint",
+          "name": "aether:cold_aercloud",
           "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:feather",
+          "name": "aether:blue_aercloud",
           "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:string",
+          "name": "aether:golden_aercloud",
           "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_gemstone",
+          "name": "deep_aether:skyjade",
           "weight": 2
         },
         {
@@ -69,7 +69,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:skyroot_planks",
+          "name": "deep_aether:roseroot_planks",
           "weight": 2
         },
         {

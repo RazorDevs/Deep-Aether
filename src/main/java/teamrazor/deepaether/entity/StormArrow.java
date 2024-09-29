@@ -34,6 +34,7 @@ public class StormArrow extends AbstractArrow {
         whirlwind.setPos(this.position());
         whirlwind.setLifeLeft(this.level().getRandom().nextInt(512) + 512);
         this.level().addFreshEntity(whirlwind);
+        this.discard();
     }
 
     @Override
@@ -43,5 +44,6 @@ public class StormArrow extends AbstractArrow {
         whirlwind.setPos(this.position());
         whirlwind.setLifeLeft(this.level().getRandom().nextInt(512) + 512);
         this.level().addFreshEntity(whirlwind);
+        this.discard();
     }
 }

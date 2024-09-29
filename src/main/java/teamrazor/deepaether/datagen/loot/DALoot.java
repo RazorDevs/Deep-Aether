@@ -13,11 +13,13 @@ public class DALoot {
 
     public static final ResourceLocation BRASS_DUNGEON = register("chests/dungeon/brass/brass_dungeon");
     public static final ResourceLocation BRASS_DUNGEON_LOOT = register("chests/dungeon/brass/brass_dungeon_loot");
+    //public static final ResourceLocation BRASS_DUNGEON_LIBRARY_LOOT = register("chests/dungeon/brass/brass_dungeon_library_loot");
+    //public static final ResourceLocation BRASS_DUNGEON_COMBINDER_LOOT = register("chests/dungeon/brass/brass_dungeon_combinder_loot");
     public static final ResourceLocation BRASS_DUNGEON_TRASH = register("chests/dungeon/brass/brass_dungeon_trash");
     public static final ResourceLocation BRASS_DUNGEON_DISC = register("chests/dungeon/brass/brass_dungeon_disc");
     public static final ResourceLocation BRASS_DUNGEON_REWARD = register("chests/dungeon/brass/brass_dungeon_reward");
     public static final ResourceLocation BRASS_DUNGEON_TREASURE = register("chests/dungeon/brass/brass_dungeon_treasure");
-    public static final ResourceLocation BRASS_DUNGEON_NEPTUNE = register("chests/dungeon/brass/brass_dungeon_neptune");
+    public static final ResourceLocation BRASS_DUNGEON_STORM_FORGED = register("chests/dungeon/brass/brass_dungeon_stormforfed");
     public static final ResourceLocation BRASS_DUNGEON_GUMMIES = register("chests/dungeon/brass/brass_dungeon_gummies");
     
     private static ResourceLocation register(String id) {

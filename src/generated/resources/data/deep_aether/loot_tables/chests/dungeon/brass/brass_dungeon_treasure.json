@@ -6,17 +6,25 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether:valkyrie_lance",
+          "name": "deep_aether:cloud_cape",
           "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "aether:hammer_of_kingbdogz",
+          "name": "deep_aether:aercloud_necklace",
           "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "aether:sentry_boots",
+          "functions": [
+            {
+              "enchantments": [
+                "deep_aether:gloves_reach"
+              ],
+              "function": "minecraft:enchant_randomly"
+            }
+          ],
+          "name": "minecraft:book",
           "weight": 3
         }
       ],

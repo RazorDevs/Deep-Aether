@@ -31,6 +31,7 @@ public class DASounds {
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ARMOR_EQUIP_SKYJADE = register("item.armor.equip_skyjade");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ARMOR_EQUIP_STRATUS = register("item.armor.equip_stratus");
+	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ARMOR_EQUIP_STORMFORGED = register("item.armor.equip_stormforged");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ACCESSORY_EQUIP_SKYJADE_RING = register("item.accessory.equip_skyjade_ring");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ACCESSORY_EQUIP_GRAVITITE_RING = register("item.accessory.equip_gravitite_ring");
 	public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_ACCESSORY_EQUIP_STRATUS_RING = register("item.accessory.equip_stratus_ring");

@@ -88,6 +88,17 @@
     ],
     "subtitle": "subtitles.deep_aether.item.armor.equip_stratus"
   },
+  "item.armor.equip_stormforged": {
+    "sounds": [
+      "item/armor/equip_gold1",
+      "item/armor/equip_gold2",
+      "item/armor/equip_gold3",
+      "item/armor/equip_gold4",
+      "item/armor/equip_gold5",
+      "item/armor/equip_gold6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.armor.equip_stormforged"
+  },
   "item.accessory.equip_skyjade_ring": {
     "sounds": [
       "item/armor/equip_chain1",

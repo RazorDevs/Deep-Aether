@@ -36,7 +36,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "aether:ambrosium_shard",
+          "name": "deep_aether:aerglow_blossom",
           "weight": 4
         },
         {
@@ -68,12 +68,12 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:flint",
+          "name": "aether:cold_aercloud",
           "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "aether:zanite_gemstone",
+          "name": "deep_aether:skyjade_pickaxe",
           "weight": 2
         },
         {
