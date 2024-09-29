@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:loot_table",
-          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_neptune"
+          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_stormforged"
         }
       ],
       "rolls": {
@@ -122,8 +122,8 @@
         },
         {
           "type": "minecraft:loot_table",
-          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_neptune",
-          "weight": 8
+          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_stormforged",
+          "weight": 10
         },
         {
           "type": "minecraft:item",

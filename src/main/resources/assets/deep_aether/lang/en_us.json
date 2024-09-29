@@ -824,7 +824,11 @@
   "deep_aether.structure.wrong_dimension.tooltip": "You are not in the dimension in which %s was found",
   "deep_aether.structure.unset.tooltip": "No structure has been set, shift right-click to select a structure",
 
-  "enchantment.deep_aether.gloves_reach" : "Gloves Block Reach"
-}
+  "enchantment.deep_aether.gloves_reach" : "Gloves Block Reach",
+
+  "deep_aether.brass_treasure_chest_locked": "This Treasure Chest must be unlocked with a Brass Key.",
+  "deep_aether.dungeon.brass_dungeon": "Brass Dungeon",
+  "menu.deep_aether.brass_treasure_chest": "Brass Treasure Chest"}
+
 
 

@@ -19,7 +19,7 @@ public class DALoot {
     public static final ResourceLocation BRASS_DUNGEON_DISC = register("chests/dungeon/brass/brass_dungeon_disc");
     public static final ResourceLocation BRASS_DUNGEON_REWARD = register("chests/dungeon/brass/brass_dungeon_reward");
     public static final ResourceLocation BRASS_DUNGEON_TREASURE = register("chests/dungeon/brass/brass_dungeon_treasure");
-    public static final ResourceLocation BRASS_DUNGEON_STORM_FORGED = register("chests/dungeon/brass/brass_dungeon_stormforfed");
+    public static final ResourceLocation BRASS_DUNGEON_STORM_FORGED = register("chests/dungeon/brass/brass_dungeon_stormforged");
     public static final ResourceLocation BRASS_DUNGEON_GUMMIES = register("chests/dungeon/brass/brass_dungeon_gummies");
     
     private static ResourceLocation register(String id) {
