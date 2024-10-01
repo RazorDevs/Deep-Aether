@@ -323,6 +323,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.AERWHALE_SADDLE.get());
         this.item(DAItems.SLIDER_EYE.get());
         this.item(DAItems.MEDAL_OF_HONOR.get());
+        this.item(DAItems.FLOATY_SCARF.get());
 
         //Skyjade set
         this.item(DAItems.SKYJADE.get());

@@ -389,7 +389,8 @@ public class DATabs {
                     DAItems.SUN_CORE.get(),
                     DAItems.AFTERBURNER.get(),
                     DAItems.MEDAL_OF_HONOR.get(),
-                    DAItems.AERWHALE_SADDLE.get()
+                    DAItems.AERWHALE_SADDLE.get(),
+                    DAItems.FLOATY_SCARF.get(),
             }, event);
 
             if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {

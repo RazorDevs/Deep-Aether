@@ -12,7 +12,7 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class MedalOfHonor extends PendantItem {
+public class MedalOfHonor extends PendantItem implements FlawlessDrop {
     public MedalOfHonor(Properties properties) {
         super(new ResourceLocation(DeepAether.MODID, "medal_of_honor"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, properties);
     }
@@ -24,31 +24,12 @@ public class MedalOfHonor extends PendantItem {
     public void setRenderTexture(String modId, String registryName) {
         this.PENDANT_LOCATION = new ResourceLocation(modId, "textures/models/accessory/pendant/" + registryName + "_accessory.png");
     }
+
     int i = 0;
     @Override
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
-
-        if(i > 70)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_1"));
-        else if(i > 60)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_2"));
-        else if(i > 50)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_3"));
-        else if(i > 40)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_4"));
-        else if(i > 30)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_5"));
-        else if(i > 20)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_6"));
-        else if(i > 10)
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_7"));
-        else
-            tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_8"));
-
-        if(i < 80)
-            i++;
-        else i = 0;
-
+        flawlessComponent(tagTooltips, i);
+        i = i < 80 ? i + 1 : 0;
         return super.getAttributesTooltip(tagTooltips, stack);
     }
 }

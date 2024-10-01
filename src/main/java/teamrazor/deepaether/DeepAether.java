@@ -85,7 +85,7 @@ public class DeepAether {
 	//TODO: add se_lang translation
 	//TODO: clean up code
 	//TODO: Custom plants are solid
-	//TODO: Some grass has rendering issues
+	//TODO: Some grass have rendering issues
 	//TODO: Continue Sacred Lands Testing
 
 	public static final Logger LOGGER = LogUtils.getLogger();
@@ -201,6 +201,8 @@ public class DeepAether {
 		this.getFlawlessBossDrop(AetherEntityTypes.SLIDER.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.SLIDER_EYE.get());
 		this.getFlawlessBossDrop(AetherEntityTypes.VALKYRIE_QUEEN.get(), DeepAetherConfig.COMMON.valkyrie_queen_flawless_boss_drop.get(), DAItems.MEDAL_OF_HONOR.get());
 		this.getFlawlessBossDrop(AetherEntityTypes.SUN_SPIRIT.get(), DeepAetherConfig.COMMON.sun_spirit_flawless_boss_drop.get(), DAItems.SUN_CORE.get());
+		this.getFlawlessBossDrop(DAEntities.EOTS_CONTROLLER.get(), DeepAetherConfig.COMMON.eots_flawless_boss_drop.get(), DAItems.FLOATY_SCARF.get());
+
 		if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
 			this.getFlawlessBossDrop(LCEntityTypes.AERWHALE_KING, DeepAetherConfig.COMMON.aerwhale_king_flawless_boss_drop.get(), DAItems.AERWHALE_SADDLE.get());
 	}
