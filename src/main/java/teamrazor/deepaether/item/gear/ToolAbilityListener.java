@@ -11,14 +11,6 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 @Mod.EventBusSubscriber
 public class ToolAbilityListener {
-    @SubscribeEvent
-    public static void modifyBreakSpeed(PlayerEvent.BreakSpeed event) {
-        Player player = event.getEntity();
-        ItemStack itemStack = player.getMainHandItem();
-        if (!event.isCanceled()) {
-            event.setNewSpeed(DAAbilityHooks.ToolHooks.handleSkyjadeToolAbility(itemStack, event.getNewSpeed()));
-        }
-    }
 
     @SubscribeEvent
     public static void setupToolModifications(BlockEvent.BlockToolModificationEvent event) {

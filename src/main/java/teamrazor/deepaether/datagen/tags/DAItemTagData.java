@@ -284,6 +284,14 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(DATags.Items.SKYJADE_REPAIRING).add(
                 DAItems.SKYJADE.get()
         );
+        tag(DATags.Items.SKYJADE_ARMOR).add(
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.SKYJADE_GLOVES.get()
+
+        );
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(

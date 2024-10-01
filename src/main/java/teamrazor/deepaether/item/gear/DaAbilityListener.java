@@ -47,14 +47,6 @@ public class DaAbilityListener {
     }
 
     @SubscribeEvent
-    public static void onMiningSpeed(PlayerEvent.BreakSpeed event) {
-        Player player = event.getEntity();
-        if (!event.isCanceled()) {
-            event.setNewSpeed(EquipmentUtil.handleSkyjadeRingAbility(player, event.getNewSpeed()));
-        }
-    }
-
-    @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         if (!event.isCanceled()) {
