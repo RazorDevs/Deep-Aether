@@ -78,7 +78,6 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> POISON_SPRING_CONFIGURATION = createKey("poison_spring");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_LAKE_CONFIGURATION = createKey("aercloud_lake");
-    //public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_SPRING_CONFIGURATION = createKey("poison_spring");
 
     public static final ResourceKey<ConfiguredFeature<?,?>> YAGROOT_TREE_CONFIGURATION = createKey("yagroot_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> CRUDEROOT_TREE_CONFIGURATION = createKey("cruderoot_tree");
@@ -123,7 +122,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_BLUE_AERCLOUD_MUSHROOM = createKey("huge_blue_aercloud_mushroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERGROWN_CLOUD_MUSHROOM_TREES = createKey("overgrown_cloud_mushroom_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCKY_BUMPS = createKey("rocky_bumps");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TOTEM = createKey("totem");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SACRED_ROCK = createKey("sacred_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK_SPIKE = createKey("rock_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLORITE_COLUMNS = createKey("clorite_columns");
@@ -438,15 +437,7 @@ public class DAConfiguredFeatures {
                 new AercloudConfiguration(20, SimpleStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get())));
 
 
-        //register(context, ROCKY_BUMPS, DAFeatures.ROCKY_BUMPS.get(), NoneFeatureConfiguration.INSTANCE);
-        register(context, SACRED_ROCK, DAFeatures.CONFIGURED_BOULDER.get(),
-                new ConfiguredBoulder.Config(prov(AetherFeatureStates.HOLYSTONE)));
-
-        register(context, ROCK_SPIKE, DAFeatures.ROCK_SPIKE.get(),
-                new NoneFeatureConfiguration());
-
-        register(context, CLORITE_COLUMNS, DAFeatures.CLORITE_COLUMNS.get(),
-                new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 3)));
+        register(context, TOTEM, DAFeatures.TOTEM.get(), NoneFeatureConfiguration.INSTANCE);
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

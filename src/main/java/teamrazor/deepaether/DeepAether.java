@@ -143,8 +143,10 @@ public class DeepAether {
 		DAEnchantments.ENCHANTMENTS.register(bus);
 		DAStructureProcessor.STRUCTURE_PROCESSOR_TYPES.register(bus);
 
-		if (dist.isClient())
+		if (dist == Dist.CLIENT) {
 			bus.addListener(DARecipeCategories::registerRecipeCategories);
+		}
+
 	}
 
 	public void registerPackets(RegisterPayloadHandlerEvent event) {

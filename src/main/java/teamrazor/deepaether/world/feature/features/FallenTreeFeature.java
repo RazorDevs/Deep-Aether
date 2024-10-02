@@ -34,7 +34,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
         final int MAX_DEPTH = 4;
 
         //Chooses a random direction
-        Direction direction = getRandomDirectionButNotOnTheYAxis(rand);
+        Direction direction = getRandomDirectionYExcluded(rand);
 
         //Checks if the feature can be placed first.
         if(!canPlace(reader, pos))
@@ -124,6 +124,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
             return true;
         return false;
     }
+
     public void addDecorators(WorldGenLevel reader, BlockPos pos, BlockState block, RandomSource random, Direction direction) {
         if(random.nextInt(7) == 1) {
             if (canPlace(reader, pos.above()))
@@ -146,7 +147,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
         }
     }
 
-    public static Direction getRandomDirectionButNotOnTheYAxis(RandomSource random) {
+    public static Direction getRandomDirectionYExcluded(RandomSource random) {
         int a = random.nextInt(3);
 
         if(a == 0)
