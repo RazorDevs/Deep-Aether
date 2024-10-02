@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.common.ToolActions;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.item.gear.skyjade.SkyjadeTool;
 
 import java.util.Map;
 
@@ -29,13 +28,6 @@ public class DAAbilityHooks {
                 }
             }
             return old;
-        }
-
-        public static float handleSkyjadeToolAbility(ItemStack stack, float speed) {
-            if (stack.getItem() instanceof SkyjadeTool skyjadeTool) {
-                return skyjadeTool.decreaseSpeed(stack, speed);
-            }
-            return speed;
         }
     }
 }

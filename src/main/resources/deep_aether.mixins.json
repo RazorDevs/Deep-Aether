@@ -8,6 +8,7 @@
     "AercloudMixin",
     "AerwhaleKingMixin",
     "AerwhaleMixin",
+    "BlockBehaviourMixin",
     "BrewingFuelMenuMixin",
     "BrewingFuelMixin",
     "GlovesMixin",
@@ -20,6 +21,8 @@
     "AerwhaleRendererMixin",
     "AetherSkyRenderEffectsAccessor",
     "ClassicAerwhaleModelMixin",
+    "HumanoidArmorLayerMixin",
+    "LivingEntityRendererMixin",
     "SliderGlowLayerMixin",
     "SliderRendererMixin"
   ],

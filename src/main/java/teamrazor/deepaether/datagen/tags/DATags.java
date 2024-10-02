@@ -27,6 +27,7 @@ public class DATags {
         public static final TagKey<Item> MILK_BUCKETS = tag("milk_buckets");
         public static final TagKey<Item> STRATUS_REPAIRING = tag("stratus_repairing");
         public static final TagKey<Item> SKYJADE_REPAIRING = tag("skyjade_repairing");
+        public static final TagKey<Item> SKYJADE_ARMOR = tag("skyjade_armor");
         public static final TagKey<Item> STORM_REPAIRING = tag("storm_repairing");
         public static final TagKey<Item> IS_GOLDEN_SWET_BALL = tag("is_golden_swet_ball");
         public static final TagKey<Item> NIMBUS_BLOCKS = tag("nimbus_blocks");

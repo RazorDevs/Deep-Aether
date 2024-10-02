@@ -47,6 +47,7 @@ public class MoaEffectAttachment implements INBTSynchable {
     public BasePacket getSyncPacket(int entityID, String key, Type type, Object value) {
         return new MoaEffectSyncPacket(entityID, key, type, value);
     }
+
     public void onJoinLevel(Moa moa) {
         if (!moa.level().isClientSide()) {
             this.setSynched(moa.getId(), Direction.CLIENT, "setMoaEffectAmplifier", getMoaEffectAmplifier());

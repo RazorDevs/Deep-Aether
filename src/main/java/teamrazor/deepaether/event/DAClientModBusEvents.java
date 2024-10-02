@@ -1,11 +1,15 @@
 package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.client.event.hooks.HandRenderHooks;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.CherryParticle;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -15,6 +19,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.decoration.ItemFrame;
@@ -34,8 +39,10 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.RenderHandEvent;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.client.renderer.curios.SkyjadeGlovesRenderer;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.compat.lost_content.AddonItemModelPredicates;
 import teamrazor.deepaether.particle.custom.*;
@@ -110,7 +117,7 @@ public class DAClientModBusEvents {
     }
 
     public static void registerCuriosRenderers() {
-        CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
+        CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), SkyjadeGlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
         CuriosRendererRegistry.register(DAItems.AERCLOUD_NECKLACE.get(), PendantRenderer::new);

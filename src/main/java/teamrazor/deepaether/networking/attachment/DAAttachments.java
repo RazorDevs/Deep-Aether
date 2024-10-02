@@ -21,9 +21,6 @@ public class DAAttachments {
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<MoaEffectAttachment>> MOA_EFFECT = ATTACHMENTS.register("moa_effect", ()
             -> AttachmentType.builder(MoaEffectAttachment::new).serialize(MoaEffectAttachment.CODEC).build());
 
-    public static final DeferredHolder<AttachmentType<?>, AttachmentType<Boolean>> PLAYER_BOSS_FIGHT = ATTACHMENTS.register("player_boss_figth", ()
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<Boolean>> PLAYER_BOSS_FIGHT = ATTACHMENTS.register("player_boss_fight", ()
             -> AttachmentType.builder(()->false).serialize(Codec.BOOL).build());
-
-    //public static final DeferredHolder<AttachmentType<?>, AttachmentType<List<String>>> PLAYER_FLAWLESS = ATTACHMENTS.register("player_flawless", ()
-    //        -> AttachmentType.builder(() -> ((List<String>) new ArrayList<String>())).serialize(Codec.STRING.listOf()).build());
 }

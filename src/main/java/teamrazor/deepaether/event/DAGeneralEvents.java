@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
+import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -15,8 +16,13 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -25,15 +31,21 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.sound.SoundEvent;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.*;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.networking.attachment.DAAttachments;
+import teamrazor.deepaether.networking.attachment.DAPlayerAttachment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -171,5 +183,27 @@ public class DAGeneralEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void onEquip(LivingEquipmentChangeEvent event) {
+        if(event.getEntity() instanceof Player player) {
+            DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
+            boolean skyjade = EquipmentUtil.hasFullSkyjadeSet(player);
+            boolean enabled = attachment.isSkyjadeAbilityActivated();
+            attachment.setSynched(player.getId(), INBTSynchable.Direction.CLIENT, "hasSkyjadeSet", skyjade);
 
+            EquipmentUtil.updateSkyjadeBehavior(player, skyjade && enabled);
+        }
+    }
+
+    @SubscribeEvent
+    public static void livingVisibilityModification(LivingEvent.LivingVisibilityEvent event) {
+        if(event.getLookingEntity() instanceof LivingEntity living) {
+            boolean enabled = true;
+            if(living instanceof Player player) {
+                enabled = player.getData(DAAttachments.PLAYER).isSkyjadeAbilityActivated();
+            }
+            if(enabled && EquipmentUtil.hasFullSkyjadeSet(living))
+                event.modifyVisibility(event.getVisibilityModifier() * 0.5F);
+        }
+    }
 }
