@@ -6,6 +6,7 @@ import teamrazor.deepaether.DeepAether;
 
 public class DAModelLayers {
     public static final ModelLayerLocation AERGLOW_FISH = register("aether_fish");
+    public static final ModelLayerLocation EOTS_CONTROLLER = register("eots_controller");
     public static final ModelLayerLocation EOTS_SEGMENT = register("eots_segment_head");
     public static final ModelLayerLocation VENOMITE_BUBBLE = register("venomite_bubble");
     public static final ModelLayerLocation VENOMITE = register("venomite");

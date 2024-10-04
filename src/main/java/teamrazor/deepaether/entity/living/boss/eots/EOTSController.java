@@ -30,6 +30,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -70,6 +72,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     private final ServerBossEvent bossFight;
     private boolean hasBeenContactedBySegment = false;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
+    private int chatCooldown;
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
         super(type, level);
@@ -117,6 +120,13 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void tick() {
         super.tick();
+
+        if(this.level().isClientSide()) {
+            if(!this.bossFight.isVisible()){
+                this.spawnParticles();
+            }
+        }
+
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
             this.playAmbientSound();
@@ -126,8 +136,9 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         if(this.hasBeenContactedBySegment && this.isAwake() && segmentUUIDs.isEmpty()) {
             this.hurt(this.level().damageSources().mobAttack(this), 255.1F);
         }
-        if(level().isClientSide()) {
-            this.spawnParticles();
+
+        if (this.getChatCooldown() > 0) {
+            --this.chatCooldown;
         }
     }
 
@@ -158,9 +169,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         }
 
         this.trackDungeon();
-
-
-
     }
 
     @Override
@@ -293,11 +301,28 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     public void spawnParticles() {
-        if(!this.bossFight.isVisible()) {
-            for (int i = 0; i < 2; ++i) {
-                this.level().addParticle(DAParticles.EOTS_PRE_FIGHT.get(), this.getX() -1, this.getY() + 0.25+(random.nextFloat() * 2), this.getZ(), 0, 0.001 + (random.nextFloat() * 0.002), 0);
+        for (int i = 0; i < 2; ++i) {
+            this.level().addParticle(DAParticles.EOTS_PRE_FIGHT.get(), this.getX() - 1, this.getY() + 0.25 + (random.nextFloat() * 2), this.getZ(), 0, 0.001 + (random.nextFloat() * 0.002), 0);
+        }
+    }
+
+    @Override
+    protected InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+        if (!this.level().isClientSide()) {
+            if (this.getChatCooldown() <= 0) {
+                pPlayer.sendSystemMessage(Component.translatable("gui.deep_aether.eots.message.interact"));
+                this.setChatCooldown(15);
             }
         }
+        return super.mobInteract(pPlayer, pHand);
+    }
+
+    public int getChatCooldown() {
+        return this.chatCooldown;
+    }
+
+    public void setChatCooldown(int cooldown) {
+        this.chatCooldown = cooldown;
     }
 
     @Override
