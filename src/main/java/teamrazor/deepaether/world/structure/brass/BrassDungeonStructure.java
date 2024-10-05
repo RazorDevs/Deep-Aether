@@ -128,8 +128,8 @@ public class BrassDungeonStructure extends Structure {
 
         }
         else if(room.equals("infested")) {
-            if(parent) builder.addPiece(new InfestedBrassRoom.BossRoom(templateManager, "infested_boss", pos.above() /*Little oopsie*/, rotation));
-            else builder.addPiece(new InfestedBrassRoom(templateManager, "infested", pos.above(), rotation));
+            if(parent) builder.addPiece(new InfestedBrassRoom.BossRoom(templateManager, "infested_boss", pos, rotation));
+            else builder.addPiece(new InfestedBrassRoom(templateManager, "infested", pos, rotation));
 
         }
         else {
