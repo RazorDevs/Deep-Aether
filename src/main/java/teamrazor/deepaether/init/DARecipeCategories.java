@@ -13,7 +13,6 @@ import teamrazor.deepaether.recipe.DABookCategory;
 import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 
-@OnlyIn(Dist.CLIENT)
 public class DARecipeCategories {
 
     public static final Supplier<RecipeBookCategories> COMBINEABLE_SEARCH = Suppliers.memoize(() -> RecipeBookCategories.create("COMBINEABLE_SEARCH", new ItemStack(Items.COMPASS)));
@@ -29,11 +28,6 @@ public class DARecipeCategories {
         // Combination
         event.registerBookCategories(DARecipeBookTypes.COMBINER, ImmutableList.of(COMBINEABLE_SEARCH.get(), COMBINEABLE_FODDER.get(), COMBINEABLE_MISC.get()));
         event.registerAggregateCategory(COMBINEABLE_SEARCH.get(), ImmutableList.of(COMBINEABLE_FODDER.get(), COMBINEABLE_MISC.get()));
-        event.registerRecipeCategoryFinder(DARecipeTypes.COMBINING.get(), recipe -> {
-            if (recipe.value() instanceof CombinerRecipe combinerRecipe)
-                if (combinerRecipe.daCategory() == DABookCategory.COMBINEABLE_FODDER)
-                    return COMBINEABLE_FODDER.get();
-            return COMBINEABLE_MISC.get();
-        });
+        event.registerRecipeCategoryFinder(DARecipeTypes.COMBINING.get(), recipe -> COMBINEABLE_MISC.get());
     }
 }

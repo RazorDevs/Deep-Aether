@@ -75,7 +75,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERCLOUD_ROOTS = createKey("aercloud_roots");
 
     public static final ResourceKey<PlacedFeature> SACRED_ROCK = createKey("sacred_rock");
-    public static final ResourceKey<PlacedFeature> ROCK_SPIKE = createKey("rock_spike");
+    public static final ResourceKey<PlacedFeature> TOTEM = createKey("totem");
     public static final ResourceKey<PlacedFeature> CLORITE_COLUMNS = createKey("clorite_columns");
     public static final ResourceKey<PlacedFeature> SKYROOT_RAINFOREST_TREES = createKey("skyroot_rainforest_trees");
     public static final ResourceKey<PlacedFeature> SKYROOT_RAINFOREST_GRASS = createKey("skyroot_rainforest_grass");
@@ -237,29 +237,10 @@ public class DAPlacedFeatures {
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
 
-
-        register(context, SACRED_ROCK, configuredFeatures.getOrThrow(DAConfiguredFeatures.SACRED_ROCK),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
-                        new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                                .add(ConstantInt.of(0), 7)
-                                .add(UniformInt.of(1, 2), 2)
-                                .add(UniformInt.of(1, 3), 3)
-                                .build()), 4),
-                RarityFilter.onAverageOnceEvery(16),
-                InSquarePlacement.spread(),
-                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), AetherTags.Blocks.TREATED_AS_AETHER_BLOCK)),
-                BiomeFilter.biome()
-        );
-
-        register(context, ROCK_SPIKE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROCK_SPIKE),
+        register(context, TOTEM, configuredFeatures.getOrThrow(DAConfiguredFeatures.TOTEM),
                 CountPlacement.of(1),
                 InSquarePlacement.spread(),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
-                BiomeFilter.biome()
-        );
-
-        register(context, CLORITE_COLUMNS, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_COLUMNS),
-                CountOnEveryLayerPlacement.of(1),
                 BiomeFilter.biome()
         );
 

@@ -14,6 +14,7 @@
   "gui.deep_aether.flawless_tier_7": "§6F§6l§ea§ew§el§ee§6s§6s",
   "gui.deep_aether.flawless_tier_8": "§6F§6l§6a§ew§el§ee§es§6s",
   "gui.deep_aether.eots.title": "the Eye of the Storm",
+  "gui.deep_aether.eots.message.interact": "What a wind. Maybe I should try to hit that?",
   "item.deep_aether.brass_dungeon_key": "Brass Key",
   "lore.item.deep_aether.brass_dungeon_key": "A colorful key that is dropped from the Eye of the Storm after being defeated. You can use it to claim the treasure you earned!",
   "advancement.deep_aether.brass_dungeon": "Storm Ruler",

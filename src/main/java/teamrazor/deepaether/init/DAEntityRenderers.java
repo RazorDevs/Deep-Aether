@@ -1,12 +1,10 @@
 package teamrazor.deepaether.init;
 
-import com.aetherteam.aether.client.renderer.entity.IceCrystalRenderer;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -15,10 +13,9 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.*;
-import teamrazor.deepaether.client.renderer.*;
+import teamrazor.deepaether.client.renderer.DAModelLayers;
 import teamrazor.deepaether.client.renderer.entity.*;
 import teamrazor.deepaether.entity.DABoatEntity;
-import teamrazor.deepaether.entity.living.BabyZephyr;
 
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -30,7 +27,7 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE.get(), VenomiteRenderer::new);
 		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
-		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), NoopRenderer::new);
+		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), EOTSRenderer::new);
 		event.registerEntityRenderer(DAEntities.EOTS_SEGMENT.get(), EOTSSegmentRenderer::new);
 		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);
 		event.registerBlockEntityRenderer(DABlockEntityTypes.SIGN.get(), SignRenderer::new);
@@ -50,6 +47,7 @@ public class DAEntityRenderers {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(DAModelLayers.AERGLOW_FISH, AerglowFishModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.EOTS_CONTROLLER, EOTSModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.EOTS_SEGMENT, EOTSSegmentModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.QUAIL, QuailModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.VENOMITE_BUBBLE, VenomiteBubbleModel::createBodyLayer);
