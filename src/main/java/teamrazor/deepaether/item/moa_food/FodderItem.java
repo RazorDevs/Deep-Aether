@@ -1,6 +1,8 @@
 package teamrazor.deepaether.item.moa_food;
 
 import com.aetherteam.aether.entity.passive.Moa;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -11,11 +13,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class FodderItem extends Item {
 
-    private MobEffectInstance effect;
+    private final MobEffectInstance effect;
 
     public FodderItem(Properties properties, MobEffectInstance effect) {
         super(properties);
@@ -56,6 +63,11 @@ public class FodderItem extends Item {
     @Override
     public boolean isEdible() {
         return false;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        PotionUtils.addPotionTooltip(List.of(effect), pTooltipComponents, 1.0F, pLevel == null ? 20.0F : pLevel.tickRateManager().tickrate());
     }
 
     private boolean applyMoaEffect(LivingEntity livingEntity) {

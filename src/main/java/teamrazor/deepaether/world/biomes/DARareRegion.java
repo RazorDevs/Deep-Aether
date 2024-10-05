@@ -36,7 +36,7 @@ public class DARareRegion extends Region {
         addBiome(mapper, new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
                 DABiomes.CLOUD);
         addBiome(mapper, new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(-1.0F, 0.2F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
-                DABiomes.OVERGROWN_CLOUD);
+                DABiomes.CLOUD); //Overgrown cloud goes here
 
         //Skyroot
         this.addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),

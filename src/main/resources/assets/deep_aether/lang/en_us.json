@@ -734,8 +734,9 @@
   "block.deep_aether.moa_totem": "Moa Totem",
   "block.deep_aether.zephyr_totem": "Zephyr Totem",
   "block.deep_aether.combiner": "Combiner",
-  "item.deep_aether.jump_fodder": "Moa Fodder (Jump)",
-  "item.deep_aether.levitation_fodder": "Moa Fodder (Levitation)",
+  "item.deep_aether.jump_fodder": "Moa Fodder",
+  "item.deep_aether.levitation_fodder": "Moa Fodder",
+  "item.deep_aether.fire_res_fodder": "Moa Fodder",
   "item.deep_aether.chaos_emerald": "Chaos Emerald",
   "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!",
   "item.minecraft.tipped_arrow.effect.remedy_potion": "Arrow of Remedy",
@@ -781,7 +782,8 @@
   "deep_aether.brass_treasure_chest_locked": "This Treasure Chest must be unlocked with a Brass Key.",
   "deep_aether.dungeon.brass_dungeon": "Brass Dungeon",
   "menu.deep_aether.brass_treasure_chest": "Brass Treasure Chest",
-  "key.deep_aether.toggle_skyjade_transparency": "Toggle Skyjade Transparency"
+  "key.deep_aether.toggle_skyjade_transparency": "Toggle Skyjade Transparency",
+  "deep_aether.moa.healed_health": "Health"
 }
 
 
