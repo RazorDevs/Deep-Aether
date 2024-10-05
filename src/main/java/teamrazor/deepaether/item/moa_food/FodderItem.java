@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.moa_food;
 
 import com.aetherteam.aether.entity.passive.Moa;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
