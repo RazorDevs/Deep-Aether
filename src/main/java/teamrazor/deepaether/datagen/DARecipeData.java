@@ -188,6 +188,10 @@ public class DARecipeData extends AetherRecipeProvider {
         enchantingRecipe(RecipeCategory.MISC, DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get(), 1, 100).save(consumer, this.name("antidote_enchanting"));
         enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DAItems.GLOWING_SPORES.get(), 1, 100).save(consumer, this.name("glowing_spores"));
 
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 100).save(consumer, this.name("blue_aercloud_from_blue_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.GOLDEN_AERCLOUD.get(), DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 400).save(consumer, this.name("golden_aercloud_from_pink_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.COLD_AERCLOUD.get(), DABlocks.AERCLOUD_ROOTS.get(), 1, 30).save(consumer, this.name("cold_aercloud_from_aercloud_roots"));
+
         //Stone types
         //Aseterite
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());

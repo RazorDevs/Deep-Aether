@@ -1,15 +1,11 @@
 package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.client.event.hooks.HandRenderHooks;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.CherryParticle;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -19,7 +15,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.decoration.ItemFrame;
@@ -39,7 +34,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.client.event.RenderHandEvent;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.renderer.curios.SkyjadeGlovesRenderer;
@@ -134,6 +128,11 @@ public class DAClientModBusEvents {
                 BiomeColors.getAverageGrassColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.AERCLOUD_GRASS_BLOCK.get());
     }
 
+    @SubscribeEvent
+    public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
+        event.register((ItemStack pStack, int pTintIndex) -> 10021818, DABlocks.AERCLOUD_GRASS_BLOCK.get());
+    }
+
     /**
      *  Method responsible for the needle texture rotation.
      */
@@ -194,7 +193,7 @@ public class DAClientModBusEvents {
             private double getFrameRotation(ItemFrame itemFrame) {
                 Direction direction = itemFrame.getDirection();
                 int i = direction.getAxis().isVertical() ? 90 * direction.getAxisDirection().getStep() : 0;
-                return (double) Mth.wrapDegrees(180 + direction.get2DDataValue() * 90 + itemFrame.getRotation() * 45 + i);
+                return Mth.wrapDegrees(180 + direction.get2DDataValue() * 90 + itemFrame.getRotation() * 45 + i);
             }
 
             @OnlyIn(Dist.CLIENT)
@@ -231,8 +230,8 @@ public class DAClientModBusEvents {
                 if (entity == null) {
                     return 0.0F;
                 } else {
-                    if (clientLevel == null && ((Entity)entity).level() instanceof ClientLevel) {
-                        clientLevel = (ClientLevel)((Entity)entity).level();
+                    if (clientLevel == null && entity.level() instanceof ClientLevel) {
+                        clientLevel = (ClientLevel) entity.level();
                     }
 
                     if (clientLevel == null) {
@@ -240,7 +239,7 @@ public class DAClientModBusEvents {
                     } else {
                         double d0;
                         if (clientLevel.dimensionType().natural()) {
-                            d0 = (double)clientLevel.getTimeOfDay(1.0F);
+                            d0 = clientLevel.getTimeOfDay(1.0F);
                         } else {
                             d0 = Math.random();
                         }

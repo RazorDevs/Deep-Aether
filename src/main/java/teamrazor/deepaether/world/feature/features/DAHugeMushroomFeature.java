@@ -1,11 +1,14 @@
 package teamrazor.deepaether.world.feature.features;
 
+import com.aetherteam.aether.block.AetherBlocks;
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelWriter;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,7 +16,12 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.features.configuration.DAHugeMushroomFeatureConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAHugeMushroomFeature extends Feature<DAHugeMushroomFeatureConfiguration> {
     public DAHugeMushroomFeature(Codec<DAHugeMushroomFeatureConfiguration> p_65975_) {
@@ -33,9 +41,58 @@ public class DAHugeMushroomFeature extends Feature<DAHugeMushroomFeatureConfigur
             return false;
         } else {
             this.makeCap(worldgenlevel, randomsource, blockpos, height, blockpos$mutableblockpos, config);
-            this.placeTrunk(worldgenlevel, randomsource, blockpos, config, height, config.trunkRadius, blockpos$mutableblockpos);
+            List<BlockPos> logs = this.placeTrunk(worldgenlevel, randomsource, blockpos, config, height, config.trunkRadius, blockpos$mutableblockpos);
             this.placeRoots(worldgenlevel, config.rootsProvider, randomsource, blockpos);
+            this.alterGround(worldgenlevel, randomsource, logs);
             return true;
+        }
+    }
+
+    public void alterGround(WorldGenLevel level, RandomSource random, List<BlockPos> logs) {
+        List<BlockPos> list = Lists.newArrayList();
+        list.addAll(logs);
+
+        if (!list.isEmpty()) {
+            int i = list.get(0).getY();
+            list.stream().filter(pos -> pos.getY() == i).forEach(pos -> {
+                this.placeCircle(level, pos.west().north());
+                this.placeCircle(level, pos.east(2).north());
+                this.placeCircle(level, pos.west().south(2));
+                this.placeCircle(level, pos.east(2).south(2));
+
+                for(int j = 0; j < 5; ++j) {
+                    int k = random.nextInt(64);
+                    int l = k % 8;
+                    int i1 = k / 8;
+                    if (l == 0 || l == 7 || i1 == 0 || i1 == 7) {
+                        this.placeCircle(level, pos.offset(-3 + l, 0, -3 + i1));
+                    }
+                }
+            });
+        }
+    }
+
+    private void placeCircle(WorldGenLevel level, BlockPos pos) {
+        for (int i = -2; i <= 2; ++i) {
+            for (int j = -2; j <= 2; ++j) {
+                if (Math.abs(i) != 2 || Math.abs(j) != 2) {
+                    this.placeBlockAt(level, pos.offset(i, 0, j));
+                }
+            }
+        }
+    }
+
+    private void placeBlockAt(WorldGenLevel level, BlockPos pos) {
+        for(int i = 2; i >= -3; --i) {
+            BlockPos blockpos = pos.above(i);
+            if (level.getBlockState(blockpos).is(AetherBlocks.COLD_AERCLOUD.get()) && level.isEmptyBlock(blockpos.above())) {
+                this.setBlock(level, blockpos, DABlocks.AERCLOUD_GRASS_BLOCK.get().defaultBlockState());
+                break;
+            }
+
+            if (!level.isEmptyBlock(blockpos) && i < 0) {
+                break;
+            }
         }
     }
 
@@ -112,7 +169,6 @@ public class DAHugeMushroomFeature extends Feature<DAHugeMushroomFeatureConfigur
                 }
             }
         }
-
     }
     /**
      * [Code Copy] {@link net.minecraft.world.level.levelgen.feature.HugeRedMushroomFeature#getTreeRadiusForHeight(int, int, int, int)} (LevelAccessor, RandomSource, BlockPos, int, BlockPos.MutableBlockPos, HugeMushroomFeatureConfiguration)}
@@ -131,17 +187,20 @@ public class DAHugeMushroomFeature extends Feature<DAHugeMushroomFeatureConfigur
     /**
      * [Modified] {@link net.minecraft.world.level.levelgen.feature.HugeRedMushroomFeature#placeTrunk(LevelAccessor, RandomSource, BlockPos, HugeMushroomFeatureConfiguration, int, BlockPos.MutableBlockPos)}
      */
-    protected void placeTrunk(LevelAccessor pLevel, RandomSource pRandom, BlockPos pPos, DAHugeMushroomFeatureConfiguration pConfig, int pMaxHeight, int radius, BlockPos.MutableBlockPos pMutablePos) {
+    protected List<BlockPos> placeTrunk(LevelAccessor pLevel, RandomSource pRandom, BlockPos pPos, DAHugeMushroomFeatureConfiguration pConfig, int pMaxHeight, int radius, BlockPos.MutableBlockPos pMutablePos) {
+        List<BlockPos> pos = new ArrayList<>();
         for(int iii = 0; iii < radius; ++iii) {
             for (int ii = 0; ii < radius; ++ii) {
                 for (int i = 0; i < pMaxHeight; ++i) {
                     pMutablePos.set(pPos).move(Direction.UP, i).move(Direction.NORTH, ii - (radius/2)).move(Direction.EAST, iii);
                     if (!pLevel.getBlockState(pMutablePos).isSolidRender(pLevel, pMutablePos)) {
                         this.setBlock(pLevel, pMutablePos, pConfig.stemProvider.getState(pRandom, pPos));
+                        pos.add(pPos);
                     }
                 }
             }
         }
+        return pos;
     }
 
     protected boolean isValidPosition(LevelAccessor pLevel, BlockPos pPos, int pMaxHeight, BlockPos.MutableBlockPos pMutablePos, DAHugeMushroomFeatureConfiguration pConfig) {

@@ -53,7 +53,6 @@ import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.DAFeatureStates;
 import teamrazor.deepaether.world.feature.DAFeatures;
-import teamrazor.deepaether.world.feature.features.ConfiguredBoulder;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import teamrazor.deepaether.world.feature.features.configuration.DAHugeMushroomFeatureConfiguration;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
@@ -202,9 +201,8 @@ public class DAConfiguredFeatures {
                         .add(AetherFeatureStates.WHITE_FLOWER, 2)
                         .add(AetherFeatureStates.PURPLE_FLOWER, 2)
                         .add(DAFeatureStates.RADIANT_ORCHID, 2)
-                        .add(DABlocks.TALL_ALIEN_PLANT.get().defaultBlockState(), 3)
-                        .add(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get().defaultBlockState(), 6)
-                        .add(DABlocks.PINK_AERCLOUD_MUSHROOMS.get().defaultBlockState(), 6)), 24));
+                        .add(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get().defaultBlockState(), 2)
+                        .add(DABlocks.PINK_AERCLOUD_MUSHROOMS.get().defaultBlockState(), 2)), 20));
 
         register(context, AERCLOUD_ROOTS_CARPET, Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(BlockStateProvider.simple(DABlocks.AERCLOUD_ROOT_CARPET.get())));
@@ -337,8 +335,8 @@ public class DAConfiguredFeatures {
                                                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                                        .add(UniformInt.of(0, 1), 1)
                                                        .add(UniformInt.of(0, 2), 4)
-                                                       .add(UniformInt.of(0, 3), 5).build()), new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState().setValue(GoldenVines.BERRIES, Boolean.valueOf(true)), 1))),
-                                       BlockColumnConfiguration.layer(ConstantInt.of(1), new RandomizedIntStateProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(CaveVines.BERRIES, Boolean.valueOf(true)), 1)), CaveVinesBlock.AGE, UniformInt.of(23, 25)))),
+                                                       .add(UniformInt.of(0, 3), 5).build()), new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState().setValue(GoldenVines.BERRIES, Boolean.TRUE), 1))),
+                                       BlockColumnConfiguration.layer(ConstantInt.of(1), new RandomizedIntStateProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES.get().defaultBlockState().setValue(CaveVines.BERRIES, Boolean.TRUE), 1)), CaveVinesBlock.AGE, UniformInt.of(23, 25)))),
                                        Direction.UP, BlockPredicate.ONLY_IN_AIR_PREDICATE, true),
                                BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.wouldSurvive(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), BlockPos.ZERO), BlockPredicate.not(BlockPredicate.matchesBlocks(DABlocks.GOLDEN_VINES.get())))))));
 

@@ -28,24 +28,15 @@
               },
               {
                 "data": {
-                  "Name": "deep_aether:tall_alien_plant",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                },
-                "weight": 3
-              },
-              {
-                "data": {
                   "Name": "deep_aether:blue_aercloud_mushrooms"
                 },
-                "weight": 6
+                "weight": 2
               },
               {
                 "data": {
                   "Name": "deep_aether:pink_aercloud_mushrooms"
                 },
-                "weight": 6
+                "weight": 2
               }
             ]
           }
@@ -61,7 +52,7 @@
         }
       ]
     },
-    "tries": 24,
+    "tries": 20,
     "xz_spread": 7,
     "y_spread": 3
   }

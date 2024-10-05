@@ -56,7 +56,8 @@ public class DABlocks {
 	public static final DeferredBlock<Block> HIGHSTONE = registerBlock("highstone", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 
 	//GRASS
-	public static final DeferredBlock<Block> AERCLOUD_GRASS_BLOCK = registerBlock("aercloud_grass_block", () -> new GrassBlock(Block.Properties.of().mapColor(MapColor.COLOR_PINK).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+	public static final DeferredBlock<Block> AERCLOUD_GRASS_BLOCK = registerBlock("aercloud_grass_block", () -> new AercloudGrassBlock(Block.Properties.of()
+			.mapColor(MapColor.COLOR_PINK).randomTicks().strength(0.2F).sound(SoundType.GRASS).forceSolidOn()));
 	public static final DeferredBlock<Block> AERCLOUD_ROOTS = registerBlock("aercloud_roots", () -> new AetherDoubleDropsLeaves (
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
 
@@ -86,9 +87,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> TALL_FEATHER_GRASS = registerBlock("tall_feather_grass", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 	public static final DeferredBlock<Block> TALL_ALIEN_PLANT = registerBlock("tall_alien_plant", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
 
-
 	// WOOD
-
 	public static final DeferredBlock<Block> ROSEROOT_WOOD = registerBlock("roseroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> ROSEROOT_LOG = registerBlock("roseroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
 	public static final DeferredBlock<Block> ROTTEN_ROSEROOT_LOG = registerBlock("rotten_roseroot_log", () -> new EmptyLog(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
@@ -121,9 +120,9 @@ public class DABlocks {
 	public static final DeferredBlock<Block> LIGHTCAP_MUSHROOMS = registerBlock("lightcap_mushrooms", () -> new LightCapMushroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM), DAConfiguredFeatures.HUGE_LIGHTCAP_MUSHROOM));
 	public static final DeferredBlock<Block> LIGHTCAP_MUSHROOM_BLOCK = registerBlock("lightcap_mushroom_block", () -> new HugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
 	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOM_BLOCK = registerBlock("pink_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock((Block.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
-	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOMS = registerBlock("pink_aercloud_mushrooms", () -> new MushroomBlock(DAConfiguredFeatures.HUGE_PINK_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
+	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOMS = registerBlock("pink_aercloud_mushrooms", () -> new AercloudMushroomBlock(DAConfiguredFeatures.HUGE_PINK_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
 	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOM_BLOCK = registerBlock("blue_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
-	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOMS = registerBlock("blue_aercloud_mushrooms", () -> new MushroomBlock(DAConfiguredFeatures.HUGE_BLUE_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
+	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOMS = registerBlock("blue_aercloud_mushrooms", () -> new AercloudMushroomBlock(DAConfiguredFeatures.HUGE_BLUE_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
 
 
 	//YAGROOT

@@ -75,8 +75,6 @@ public class RootFeature extends Feature<AercloudConfiguration> {
                 }
                 this.setBlock(level, pos.below(intB).relative(direction, intA).relative(opposite, intD), DABlocks.AERCLOUD_ROOTS.get().defaultBlockState().setValue(LeavesBlock.PERSISTENT, true));
             }
-            if(level.isEmptyBlock(pos.below(intB+1).relative(direction, intA).relative(opposite, intD)) && intC > 2)
-                this.setBlock(level, pos.below(intB+1).relative(direction, intA).relative(opposite, intD), Blocks.PEARLESCENT_FROGLIGHT.defaultBlockState());
         }
         return true;
     }

@@ -42,7 +42,8 @@ public class DABlockTagData extends BlockTagsProvider {
         }
 
         tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
-                DABlocks.GOLDEN_GRASS_BLOCK.get()
+                DABlocks.GOLDEN_GRASS_BLOCK.get(),
+                DABlocks.AERCLOUD_GRASS_BLOCK.get()
         );
         tag(DATags.Blocks.CAN_GOLDEN_VINES_SURVIVE_ON).add(
                 AetherBlocks.QUICKSOIL.get(),
