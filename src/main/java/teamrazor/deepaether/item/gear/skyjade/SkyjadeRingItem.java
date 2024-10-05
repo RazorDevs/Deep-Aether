@@ -32,27 +32,29 @@ public class SkyjadeRingItem extends RingItem {
         LivingEntity livingEntity = slotContext.entity();
         AttributeInstance stepHeight = livingEntity.getAttribute(NeoForgeMod.STEP_HEIGHT.value());
         if (stepHeight != null) {
-            if (!stepHeight.hasModifier(this.getStepHeightModifier(EquipmentUtil.getSkyjadeRingCount(slotContext))) && !livingEntity.isShiftKeyDown()) {
-                stepHeight.addTransientModifier(this.getStepHeightModifier(EquipmentUtil.getSkyjadeRingCount(slotContext)));
+            int count = EquipmentUtil.getSkyjadeRingCount(slotContext);
+            for (int i = 1; i <= count; i++) {
+                if (!stepHeight.hasModifier(this.getStepHeightModifier(i))) {
+                    stepHeight.addTransientModifier(this.getStepHeightModifier(i));
+                }
             }
         }
     }
-
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
         AttributeInstance stepHeight = livingEntity.getAttribute(NeoForgeMod.STEP_HEIGHT.value());
         if (stepHeight != null) {
-            if (stepHeight.hasModifier(this.getStepHeightModifier(EquipmentUtil.getSkyjadeRingCount(slotContext)-1))) {
-                stepHeight.removeModifier(this.getStepHeightModifier(EquipmentUtil.getSkyjadeRingCount(slotContext)-1).getId());
+            if (stepHeight.hasModifier(this.getStepHeightModifier(EquipmentUtil.getSkyjadeRingCount(slotContext)+1))) {
+                stepHeight.removeModifier(this.getStepHeightModifier(EquipmentUtil.getSkyjadeRingCount(slotContext)+1).getId());
             }
         }
     }
 
     public AttributeModifier getStepHeightModifier(int count) {
-        if(count == 0)
-            return new AttributeModifier(STEP_HEIGHT_0_UUID, "Step height increase", 1.0, AttributeModifier.Operation.ADDITION);
-        else return new AttributeModifier(STEP_HEIGHT_1_UUID, "Step height increase 1", 1.0, AttributeModifier.Operation.ADDITION);
+        if(count == 1)
+            return new AttributeModifier(STEP_HEIGHT_0_UUID, "Step height increase", 0.5, AttributeModifier.Operation.ADDITION);
+        else return new AttributeModifier(STEP_HEIGHT_1_UUID, "Step height increase 1", 0.5, AttributeModifier.Operation.ADDITION);
     }
 }
