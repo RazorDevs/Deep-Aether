@@ -240,7 +240,7 @@ public class DAPlacedFeatures {
         register(context, TOTEM, configuredFeatures.getOrThrow(DAConfiguredFeatures.TOTEM),
                 CountPlacement.of(1),
                 InSquarePlacement.spread(),
-                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
                 BiomeFilter.biome()
         );
 
