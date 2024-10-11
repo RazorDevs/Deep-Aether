@@ -22,6 +22,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DAStructures {
+    //TODO: fix Sacred Lands Structures spawning at bottom Y
+
     public static final ResourceKey<Structure> BRASS_DUNGEON = createKey("brass_dungeon");
 
     private static ResourceKey<Structure> createKey(String name) {
