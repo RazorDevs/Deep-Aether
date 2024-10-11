@@ -117,7 +117,7 @@ public class BrassDungeonStructure extends Structure {
                 templateManager,
                 "door",
                 elevatedPos.relative(rotation.rotate(Direction.EAST), 4),
-                rotation, ));
+                rotation));
     }
 
     private void createBossRoom(RandomSource random, StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {

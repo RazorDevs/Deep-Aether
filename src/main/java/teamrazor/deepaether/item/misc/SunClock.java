@@ -49,7 +49,7 @@ public class SunClock extends Item {
 
     protected void openScreen(Level level, Player player, int timeScale) {
         if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
-            PacketRelay.sendToPlayer(new OpenSunAltarPacket(Component.translatable("menu." + DeepAether.MODID + ".sun_clock"), timeScale), serverPlayer);
+            PacketRelay.sendToPlayer(new OpenSunAltarPacket(Component.translatable("menu." + DeepAether.MODID + ".sun_clock")), serverPlayer);
         }
     }
 }
