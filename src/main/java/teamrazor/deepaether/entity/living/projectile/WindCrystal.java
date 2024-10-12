@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
 import teamrazor.deepaether.datagen.tags.DATags;
@@ -44,6 +45,7 @@ public class WindCrystal extends AbstractCrystal {
     public WindCrystal(EntityType<WindCrystal> entityType, Level level) {
         super(entityType, level);
     }
+    /*
     private WindCrystal(Level level, Entity shooter) {
         this(DAEntities.WIND_CRYSTAL.get(), level);
         this.setOwner(shooter);
@@ -52,6 +54,7 @@ public class WindCrystal extends AbstractCrystal {
         this.setDeltaMovement(this.xPower, this.yPower, this.zPower);
         level().addFreshEntity(this);
     }
+     */
 
     public WindCrystal(Level level, Entity shooter, Vec3 direction) {
         this(DAEntities.WIND_CRYSTAL.get(), level);
@@ -102,6 +105,7 @@ public class WindCrystal extends AbstractCrystal {
         }
         this.level().playSound(this, result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f);
 
+        //TODO: Maybe this can be removed?
         if(this.isBreakable(this.level().getBlockState(result.getBlockPos()))) {
             if (EventHooks.getMobGriefingEvent(this.level(), this)) {
                 //this.level().destroyBlock(result.getBlockPos(), true);
@@ -110,6 +114,15 @@ public class WindCrystal extends AbstractCrystal {
 
         if (!this.level().isClientSide) {
             this.discard();
+        }
+    }
+
+    @Override
+    protected void onHit(HitResult pResult) {
+        super.onHit(pResult);
+        if (this.level().isClientSide) {
+            this.level().addParticle(ParticleTypes.SNOWFLAKE, this.getX(), this.getY() + (random.nextFloat() - 0.5), this.getZ(), 0.0D, 0.0D, 0.0D);
+            this.level().addParticle(ParticleTypes.SNOWFLAKE, this.getX(), this.getY() + (random.nextFloat() - 0.5), this.getZ(), 0.0D, 0.0D, 0.0D);
         }
     }
 
