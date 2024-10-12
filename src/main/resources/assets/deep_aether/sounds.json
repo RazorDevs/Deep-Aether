@@ -66,6 +66,12 @@
     ],
     "subtitle": "subtitles.deep_aether.entity.windfly.hurt"
   },
+  "entity.eots.blowing": {
+    "sounds": [
+      "deep_aether:entity/eots/blowing"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.windfly.hurt"
+  },
   "item.armor.equip_skyjade": {
     "sounds": [
       "item/armor/equip_diamond1",
