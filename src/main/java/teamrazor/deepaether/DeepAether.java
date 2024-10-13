@@ -91,7 +91,7 @@ public class DeepAether {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final String MOD_VERSION = "1.1-snapshot-4";
+	public static final String MOD_VERSION = "1.1-dev-4";
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";

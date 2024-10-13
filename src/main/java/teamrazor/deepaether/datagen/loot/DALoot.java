@@ -21,6 +21,8 @@ public class DALoot {
     public static final ResourceLocation BRASS_DUNGEON_TREASURE = register("chests/dungeon/brass/brass_dungeon_treasure");
     public static final ResourceLocation BRASS_DUNGEON_STORM_FORGED = register("chests/dungeon/brass/brass_dungeon_stormforged");
     public static final ResourceLocation BRASS_DUNGEON_GUMMIES = register("chests/dungeon/brass/brass_dungeon_gummies");
+
+    public static final ResourceLocation ALTAR_CAMP = register("chests/dungeon/altar_camp");
     
     private static ResourceLocation register(String id) {
         return register(new ResourceLocation(DeepAether.MODID, id));
