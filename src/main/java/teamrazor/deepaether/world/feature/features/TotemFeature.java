@@ -54,7 +54,8 @@ public class TotemFeature extends Feature<NoneFeatureConfiguration> {
 
     public boolean canPlace(LevelReader reader, BlockPos pos) {
         BlockState state = reader.getBlockState(pos);
-        return reader.isEmptyBlock(pos) || state.is(BlockTags.LEAVES) || state.canBeReplaced() || !state.isCollisionShapeFullBlock(reader, pos);
+        BlockState below = reader.getBlockState(pos.below());
+        return (reader.isEmptyBlock(pos) || state.is(BlockTags.LEAVES) || state.canBeReplaced() || !state.isCollisionShapeFullBlock(reader, pos)) && below.is(AetherBlocks.AETHER_GRASS_BLOCK);
     }
 
     public Block getRandomBlock(RandomSource random, boolean log){

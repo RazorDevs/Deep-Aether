@@ -57,6 +57,7 @@ import teamrazor.deepaether.block.building.DoorwayPillarBlock;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAParticles;
+import teamrazor.deepaether.init.DASounds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,6 +74,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     private boolean hasBeenContactedBySegment = false;
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
     private int chatCooldown;
+    private int soundCooldown;
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
         super(type, level);
@@ -83,6 +85,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         this.setRot(0.0F, 0.0F);
         this.noPhysics = true;
         this.setPersistenceRequired();
+        this.soundCooldown = 0;
     }
 
     @SuppressWarnings("deprecation")
@@ -129,7 +132,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
         if (!this.isAwake() || (this.getTarget() instanceof Player player && (player.isCreative() || player.isSpectator()))) {
             this.setTarget(null);
-            this.playAmbientSound();
+            this.playBlowingSound();
         }
         this.evaporate();
 
@@ -139,6 +142,15 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
         if (this.getChatCooldown() > 0) {
             --this.chatCooldown;
+        }
+    }
+
+    private void playBlowingSound() {
+        if(this.soundCooldown != 0){
+            this.soundCooldown--;
+        }else{
+            this.level().playLocalSound(this, DASounds.EOTS_BLOWING.get(), SoundSource.HOSTILE, 1.0f, 1.0f);
+            this.soundCooldown = 50;
         }
     }
 
@@ -472,11 +484,13 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         return AetherSoundEvents.ENTITY_SLIDER_AWAKEN.get();
     }
 
+    /*
     @Override
     @Nullable
     protected SoundEvent getAmbientSound() {
         return AetherSoundEvents.ENTITY_ZEPHYR_SHOOT.get();
     }
+     */
 
     protected SoundEvent getDeathSound() {
         return null;
