@@ -1,4 +1,4 @@
-package teamrazor.deepaether.mixin;
+package teamrazor.deepaether.mixin.entity;
 
 import com.aetherteam.aether.client.renderer.entity.layers.SliderGlowLayer;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;

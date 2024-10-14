@@ -5,27 +5,27 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "deep_aether.refmap.json",
   "mixins": [
-    "AercloudMixin",
-    "AerwhaleKingMixin",
-    "AerwhaleMixin",
-    "BlockBehaviourMixin",
+    "block/AercloudMixin",
+    "entity/AerwhaleKingMixin",
+    "entity/AerwhaleMixin",
+    "block/BlockBehaviourMixin",
     "BrewingFuelMenuMixin",
     "BrewingFuelMixin",
     "GlovesMixin",
-    "MoaMixin",
-    "PowderedSnowMixin",
+    "entity/MoaMixin",
+    "block/PowderedSnowMixin",
     "TriviaGeneratorMixin",
-    "LavaFluidMixin"
+    "block/LavaFluidMixin"
   ],
   "client": [
-    "AerwhaleModelMixin",
-    "AerwhaleRendererMixin",
+    "entity/AerwhaleModelMixin",
+    "entity/AerwhaleRendererMixin",
     "AetherSkyRenderEffectsAccessor",
-    "ClassicAerwhaleModelMixin",
-    "HumanoidArmorLayerMixin",
-    "LivingEntityRendererMixin",
-    "SliderGlowLayerMixin",
-    "SliderRendererMixin"
+    "entity/ClassicAerwhaleModelMixin",
+    "entity/HumanoidArmorLayerMixin",
+    "entity/LivingEntityRendererMixin",
+    "entity/SliderGlowLayerMixin",
+    "entity/SliderRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

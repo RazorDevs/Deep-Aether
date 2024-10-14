@@ -1,4 +1,4 @@
-package teamrazor.deepaether.mixin;
+package teamrazor.deepaether.mixin.block;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;

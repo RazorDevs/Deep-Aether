@@ -1,4 +1,4 @@
-package teamrazor.deepaether.mixin;
+package teamrazor.deepaether.mixin.block;
 
 import com.aetherteam.aether.block.natural.AercloudBlock;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -12,7 +12,6 @@ import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
