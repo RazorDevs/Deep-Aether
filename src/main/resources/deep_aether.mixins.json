@@ -14,7 +14,8 @@
     "GlovesMixin",
     "MoaMixin",
     "PowderedSnowMixin",
-    "TriviaGeneratorMixin"
+    "TriviaGeneratorMixin",
+    "LavaFluidMixin"
   ],
   "client": [
     "AerwhaleModelMixin",
