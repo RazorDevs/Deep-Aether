@@ -14,7 +14,8 @@
     "MoaMixin",
     "PowderSnowBlockMixin",
     "ServerPlayerMixin",
-    "TriviaGeneratorMixin"
+    "TriviaGeneratorMixin",
+    "LavaFluidMixin"
   ],
   "client": [
     "AerwhaleModelMixin",
