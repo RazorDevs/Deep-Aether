@@ -9,7 +9,8 @@
     "AerwhaleMixin",
     "MoaMixin",
     "ServerPlayerMixin",
-    "TriviaGeneratorMixin"
+    "TriviaGeneratorMixin",
+    "LavaFluidMixin"
   ],
   "client": [
     "AerwhaleModelMixin",
