@@ -595,11 +595,11 @@ public class DARecipeData extends AetherRecipeProvider {
         makeBoat(DAItems.CONBERRY_BOAT, DABlocks.CONBERRY_PLANKS.get()).save(consumer);
         makeBoat(DAItems.SUNROOT_BOAT, DABlocks.SUNROOT_PLANKS.get()).save(consumer);
 
-        makeChestBoat(DAItems.ROSEROOT_CHEST_BOAT.get()).save(consumer);
-        makeChestBoat(DAItems.YAGROOT_CHEST_BOAT.get()).save(consumer);
-        makeChestBoat(DAItems.CRUDEROOT_CHEST_BOAT.get()).save(consumer);
-        makeChestBoat(DAItems.CONBERRY_CHEST_BOAT.get()).save(consumer);
-        makeChestBoat(DAItems.SUNROOT_CHEST_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.ROSEROOT_CHEST_BOAT.get(), DAItems.ROSEROOT_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.YAGROOT_CHEST_BOAT.get(), DAItems.YAGROOT_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.CRUDEROOT_CHEST_BOAT.get(), DAItems.CRUDEROOT_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.CONBERRY_CHEST_BOAT.get(), DAItems.CONBERRY_BOAT.get()).save(consumer);
+        makeChestBoat(DAItems.SUNROOT_CHEST_BOAT.get(), DAItems.SUNROOT_BOAT.get()).save(consumer);
 
         makeHangingSign(consumer, DAItems.ROSEROOT_HANGING_SIGN.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         makeHangingSign(consumer, DAItems.YAGROOT_HANGING_SIGN.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
@@ -745,11 +745,11 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(material), has(material));
     }
 
-    protected ShapelessRecipeBuilder makeChestBoat(Item boat) {
-        return ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, boat)
+    protected ShapelessRecipeBuilder makeChestBoat(Item chestBoat, Item boat) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, chestBoat)
                 .requires(boat)
                 .requires(Tags.Items.CHESTS_WOODEN)
-                .unlockedBy(getHasName(boat), has(boat));
+                .unlockedBy(getHasName(chestBoat), has(chestBoat));
     }
 
     protected void makeHangingSign(RecipeOutput consumer, Item sign, Block log) {

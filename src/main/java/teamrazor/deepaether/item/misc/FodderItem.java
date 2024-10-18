@@ -1,4 +1,4 @@
-package teamrazor.deepaether.item.moa_food;
+package teamrazor.deepaether.item.misc;
 
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.network.chat.Component;
@@ -28,7 +28,7 @@ public class FodderItem extends Item {
         this.effect = effect;
     }
 
-    public MobEffectInstance getMobEffect(){
+    public MobEffectInstance getMobEffect() {
         return effect;
     }
 

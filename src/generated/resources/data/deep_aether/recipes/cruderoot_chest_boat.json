@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "deep_aether:cruderoot_chest_boat"
+      "item": "deep_aether:cruderoot_boat"
     },
     {
       "tag": "forge:chests/wooden"

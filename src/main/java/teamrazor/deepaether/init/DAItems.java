@@ -2,7 +2,6 @@ package teamrazor.deepaether.init;
 
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.aether.item.accessories.cape.CapeItem;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
@@ -35,7 +34,7 @@ import teamrazor.deepaether.item.gear.other.*;
 import teamrazor.deepaether.item.gear.skyjade.*;
 import teamrazor.deepaether.item.gear.stratus.*;
 import teamrazor.deepaether.item.misc.*;
-import teamrazor.deepaether.item.moa_food.FodderItem;
+import teamrazor.deepaether.item.misc.FodderItem;
 
 import java.util.function.Supplier;
 
