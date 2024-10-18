@@ -823,14 +823,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 MoveControl moveControl = this.segment.getMoveControl();
                 if(!hasPositionedAboveController) {
                     double d0 = moveControl.getWantedX() - this.segment.getX();
-                    double d1 = moveControl.getWantedY() - this.segment.getY();
+                    double d1 = (moveControl.getWantedY() - this.segment.getY())/10;
                     double d2 = moveControl.getWantedZ() - this.segment.getZ();
                     double d3 = d0 * d0 + d1 * d1 + d2 * d2;
                     hasPositionedAboveController = d3 < 2;
                     if(hasPositionedAboveController) {
                         if(this.segment.getController() != null) {
                             this.targetY = this.segment.getController().getY() + 6.0;
-                            segment.getMoveControl().setWantedPosition(moveControl.getWantedX(), targetY  - 5.0, moveControl.getWantedZ(), 1.0F);
+                            segment.getMoveControl().setWantedPosition(moveControl.getWantedX(), targetY - 12.0, moveControl.getWantedZ(), 1.0F);
                         }
                         else return false;
                     }
@@ -864,7 +864,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         public void start() {
             if(this.segment.getController() != null && !this.segment.getController().isRemoved()) {
                 Vec3 pos = this.segment.getController().position().add(0, 6.0, 0);
-                this.segment.getMoveControl().setWantedPosition(pos.x, this.segment.getIdleYPos() + 20.0F, pos.z, 0.6F);
+                this.segment.getMoveControl().setWantedPosition(pos.x, this.segment.getIdleYPos() + 20.0F, pos.z, 1.0F);
             }
             else {
                 this.segment.setInvulnerable(false);
