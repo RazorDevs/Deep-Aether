@@ -1,43 +1,33 @@
 import net.neoforged.gradle.common.tasks.JarJar
 
 plugins {
-    id 'eclipse'
+    id 'java-library'
+    id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.97'
+    id 'net.neoforged.gradle.userdev' version "${neogradle_version}"
     id 'io.github.0ffz.github-packages' version '[1,2)'
 }
 
 
 version = "${project.mc_version}-${project.mod_version}"
-group = 'com.teamrazor.deep_aether'
+group = "io.github.razordevs.${project.mod_id}"
 archivesBaseName = project.mod_id
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
+minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
 
-   minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
 runs {
-    // applies to all the run configs below
     configureEach {
-        // Recommended logging data for a userdev environment
-        // The markers can be added/remove as needed separated by commas.
-        // "SCAN": For mods scan.
-        // "REGISTRIES": For firing of registry events.
-        // "REGISTRYDUMP": For getting the contents of all registries.
         systemProperty 'forge.logging.markers', 'REGISTRIES'
-
-        // Recommended logging level for the console
-        // You can set various levels here.
-        // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
         systemProperty 'forge.logging.console.level', 'debug'
 
         modSource project.sourceSets.main
     }
 
     client {
-        // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
         systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
     }
 
@@ -46,18 +36,11 @@ runs {
         programArgument '--nogui'
     }
 
-    // This run config launches GameTestServer and runs all registered gametests, then exits.
-    // By default, the server will crash when no gametests are provided.
-    // The gametest system is also enabled by default for other run configs under the /test command.
     gameTestServer {
         systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
     }
 
     data {
-        // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
-        // workingDirectory project.file('run-data')
-
-        // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
         programArguments.addAll '--mod', 'deep_aether', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'aether'
     }
 }
@@ -86,12 +69,10 @@ repositories {
         }
     }
     maven {
-        // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
     }
     maven {
-        // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
@@ -105,14 +86,13 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
     //Dependencies
-    //implementation("software.bernie.geckolib:geckolib-neoforge-${project.mc_version}:${project.geckolib_version}")
-    implementation("com.aetherteam.aether:aether:${project.aether_version}")
-    //runtimeOnly("curse.maven:aether-emissivity-916028:4765812")
-    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${project.curios_version}")
-    compileOnly("top.theillusivec4.curios:curios-neoforge:${project.curios_version}:api")
+    //implementation("com.aetherteam.aether:aether:${project.aether_version}")
+    implementation("local:aether:${project.aether_version}")
     implementation("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}")
     implementation("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
     implementation("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
+    implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.mc_version}"
+
 
     implementation("local:aeroblender:1.20.4-1.0.1-neoforge")
     jarJar("local:aeroblender:1.20.4-1.0.1-neoforge") {
@@ -122,15 +102,21 @@ dependencies {
         jarJar.ranged(it, "[${project.terrablender_version},)")
     }
 
+    jarJar("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}") {
+        jarJar.ranged(it, "[${project.nitrogen_version},)")
+        jarJar.pin(it, "${project.nitrogen_version}")
+    }
+
+    jarJar("io.wispforest:accessories-neoforge:${project.accessories_version}+${project.mc_version}") {
+        jarJar.ranged(it, "[${project.accessories_version}+${project.mc_version},)")
+        jarJar.pin(it, "${project.accessories_version}+${project.mc_version}")
+    }
+
+    compileOnly "me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}"
+
     //Optional Dependencies
-    compileOnly("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
-    compileOnly("com.legacy:structure-gel:${project.structure_gel_version}")
-    compileOnly("curse.maven:aether-redux-867237:${project.aether_redux_version}")
-    compileOnly("mezz.jei:jei-${mc_version}-common-api:${project.jei_version}")
-    compileOnly("mezz.jei:jei-${mc_version}-neoforge:${project.jei_version}")
-    //runtimeOnly compileOnly("mezz.jei:jei-${mc_version}-neoforge:${project.jei_version}")
-    compileOnly("curse.maven:ancient-aether-886751:${ancient_aether_version}")
-    compileOnly("local:aether_protect_your_moa:${project.protect_your_moa_version}")}
+
+}
 
 jar {
     manifest {
