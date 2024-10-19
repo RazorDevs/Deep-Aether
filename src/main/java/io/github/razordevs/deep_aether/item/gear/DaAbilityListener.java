@@ -2,19 +2,18 @@ package io.github.razordevs.deep_aether.item.gear;
 
 import com.aetherteam.aether.attachment.AetherDataAttachments;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
-import teamrazor.deepaether.DeepAether;
 
-@Mod.EventBusSubscriber(modid = DeepAether.MODID)
+@EventBusSubscriber(modid = DeepAether.MODID)
 public class DaAbilityListener {
     @SubscribeEvent
     public static void onEntityFall(LivingFallEvent event) {

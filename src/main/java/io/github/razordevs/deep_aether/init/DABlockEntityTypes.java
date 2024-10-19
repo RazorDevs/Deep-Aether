@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.init;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.entity.block.CombinerBlockEntity;
 import io.github.razordevs.deep_aether.entity.block.DAHangingSignBlockEntity;
 import io.github.razordevs.deep_aether.entity.block.DASignBlockEntity;
@@ -7,7 +8,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import teamrazor.deepaether.DeepAether;
 
 public class DABlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create( BuiltInRegistries.BLOCK_ENTITY_TYPE, DeepAether.MODID);

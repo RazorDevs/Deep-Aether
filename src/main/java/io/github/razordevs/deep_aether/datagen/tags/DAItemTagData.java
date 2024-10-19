@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.core.HolderLookup;
@@ -14,7 +15,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import teamrazor.deepaether.DeepAether;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

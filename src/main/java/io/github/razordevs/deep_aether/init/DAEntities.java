@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.init;
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
 import io.github.razordevs.deep_aether.entity.DAChestBoatEntity;
 import io.github.razordevs.deep_aether.entity.StormArrow;
@@ -23,15 +24,13 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import teamrazor.deepaether.DeepAether;
 
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class DAEntities {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, DeepAether.MODID);
 

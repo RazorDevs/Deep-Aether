@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.datagen;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -11,7 +12,6 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Map;
 

@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.math.Axis;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
@@ -21,7 +22,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.vehicle.Boat;
 import org.joml.Quaternionf;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Map;
 import java.util.stream.Stream;
@@ -67,7 +67,7 @@ public class DABoatRenderer<T extends DABoatEntity> extends EntityRenderer<T> {
         matrixStack.mulPose(Axis.YP.rotationDegrees(90.0f));
         listModel.setupAnim(entity, partialTicks, 0.0f, -0.1f, 0.0f, 0.0f);
         VertexConsumer vertexConsumer = buffer.getBuffer(listModel.renderType(resourceLocation));
-        listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
+        listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
         if (!entity.isUnderWater()) {
             VertexConsumer vertexConsumer2 = buffer.getBuffer(RenderType.waterMask());
             if (listModel instanceof WaterPatchModel waterPatchModel) {

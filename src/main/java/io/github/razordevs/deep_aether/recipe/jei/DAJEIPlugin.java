@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.recipe.jei;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
 import mezz.jei.api.IModPlugin;
@@ -13,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Objects;
 

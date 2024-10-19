@@ -10,6 +10,7 @@ import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenConfiguredFeatureBuilders;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.block.behavior.GoldenVines;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
 import io.github.razordevs.deep_aether.init.DABlocks;
@@ -64,7 +65,6 @@ import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.List;
 import java.util.Optional;

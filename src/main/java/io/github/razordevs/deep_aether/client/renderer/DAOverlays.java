@@ -1,6 +1,8 @@
 package io.github.razordevs.deep_aether.client.renderer;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.DeepAetherConfig;
 import io.github.razordevs.deep_aether.item.gear.stratus.StratusAbility;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -8,12 +10,10 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.RegisterGuiOverlaysEvent;
-import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.DeepAetherConfig;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class DAOverlays {
 
     public static final ResourceLocation STRATUS_COOLDOWN_1 = ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "hud/stratus/stratus_cooldown_1");
@@ -21,20 +21,20 @@ public class DAOverlays {
     public static final ResourceLocation STRATUS_COOLDOWN_3 = ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "hud/stratus/stratus_cooldown_3");
 
     @SubscribeEvent
-    public static void registerOverlays(RegisterGuiOverlaysEvent event) {
-        event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "stratus"), (gui, guiGraphics, partialTick, screenWidth, screenHeight) -> {
+    public static void registerOverlays(RegisterGuiLayersEvent event) {
+        event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "stratus"), (guiGraphics, deltaTracker) -> {
             Minecraft minecraft = Minecraft.getInstance();
             LocalPlayer player = minecraft.player;
             if (player != null && !player.isSpectator() && DeepAetherConfig.COMMON.stratus_dash_cooldown.get() > 0) {
                 if (StratusAbility.coolDown > 0)
-                    renderStratusCooldown(guiGraphics, screenWidth, screenHeight);
+                    renderStratusCooldown(guiGraphics);
             }
         });
     }
 
-    private static void renderStratusCooldown(GuiGraphics guiGraphics, int screenWidth, int screenHeight) {
+    private static void renderStratusCooldown(GuiGraphics guiGraphics) {
         RenderSystem.enableBlend();
-        stratusCooldown(guiGraphics, screenWidth - DeepAetherConfig.CLIENT.stratus_cooldown_indicator_x_position.get(),screenHeight - DeepAetherConfig.CLIENT.stratus_colldown_indicator_y_position.get());
+        stratusCooldown(guiGraphics, guiGraphics.guiWidth() - DeepAetherConfig.CLIENT.stratus_cooldown_indicator_x_position.get(),guiGraphics.guiHeight() - DeepAetherConfig.CLIENT.stratus_colldown_indicator_y_position.get());
         RenderSystem.disableBlend();
     }
 

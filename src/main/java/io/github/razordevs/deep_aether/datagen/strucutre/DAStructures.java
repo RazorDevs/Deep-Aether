@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.datagen.strucutre;
 
 import com.aetherteam.aether.data.resources.builders.AetherStructureBuilders;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
 import io.github.razordevs.deep_aether.world.structure.brass.BrassDungeonStructure;
 import net.minecraft.core.HolderGetter;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Arrays;
 import java.util.Map;

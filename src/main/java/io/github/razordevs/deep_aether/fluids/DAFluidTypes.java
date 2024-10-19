@@ -1,13 +1,13 @@
 package io.github.razordevs.deep_aether.fluids;
 
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.joml.Vector3f;
-import teamrazor.deepaether.DeepAether;
 
 public class DAFluidTypes {
     public static final ResourceLocation POISON_STILL_RL = ResourceLocation.fromNamespaceAndPath("block/water_still");

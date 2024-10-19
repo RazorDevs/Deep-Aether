@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.recipe;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.recipe.combiner.CombinerRecipe;
 import io.github.razordevs.deep_aether.recipe.poison.PoisonRecipe;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -7,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import teamrazor.deepaether.DeepAether;
 
 public class DARecipeTypes {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, DeepAether.MODID);

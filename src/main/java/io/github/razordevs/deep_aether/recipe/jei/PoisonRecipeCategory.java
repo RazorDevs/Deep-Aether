@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.recipe.jei;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.nitrogen.integration.jei.categories.AbstractRecipeCategory;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.recipe.poison.PoisonRecipe;
 import mezz.jei.api.constants.VanillaTypes;
@@ -13,7 +14,6 @@ import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAether;
 
 public class PoisonRecipeCategory extends AbstractRecipeCategory<PoisonRecipe> {
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "poison_recipe");

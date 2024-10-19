@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.datagen.loot.modifiers;
 
 import com.aetherteam.aether.loot.AetherLoot;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.data.PackOutput;
@@ -9,7 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.List;
 

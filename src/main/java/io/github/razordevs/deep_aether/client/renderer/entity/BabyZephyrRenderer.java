@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.client.model.BabyZephyrModel;
 import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.BabyZephyr;
@@ -8,7 +9,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import teamrazor.deepaether.DeepAether;
 
 public class BabyZephyrRenderer extends MobRenderer<BabyZephyr, BabyZephyrModel> {
     public BabyZephyrRenderer(EntityRendererProvider.Context context) {

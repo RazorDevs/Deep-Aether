@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.client.model.EOTSModel;
 import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.boss.eots.EOTSController;
@@ -8,7 +9,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import teamrazor.deepaether.DeepAether;
 
 public class EOTSRenderer extends MobRenderer<EOTSController, EOTSModel> {
 

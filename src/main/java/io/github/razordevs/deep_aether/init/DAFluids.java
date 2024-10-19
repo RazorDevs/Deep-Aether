@@ -1,13 +1,13 @@
 package io.github.razordevs.deep_aether.init;
 
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.fluids.PoisonFluid;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import teamrazor.deepaether.DeepAether;
 
 public class DAFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(BuiltInRegistries.FLUID, DeepAether.MODID);

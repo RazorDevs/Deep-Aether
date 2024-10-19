@@ -1,13 +1,13 @@
 package io.github.razordevs.deep_aether.client.renderer.entity;
 
+import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.client.model.WindflyModel;
+import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.Windfly;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.DeepAether;
-import io.github.razordevs.deep_aether.client.model.WindflyModel;
-import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 
 public class WindflyRenderer extends MobRenderer<Windfly, WindflyModel> {
 

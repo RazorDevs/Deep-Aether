@@ -9,7 +9,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class StormArrowRenderer extends ArrowRenderer<StormArrow> {
-    public static final ResourceLocation SPECTRAL_ARROW_LOCATION = ResourceLocation.fromNamespaceAndPath("textures/entity/projectiles/arrow.png");
+    public static final ResourceLocation SPECTRAL_ARROW_LOCATION = ResourceLocation.withDefaultNamespace("textures/entity/projectiles/arrow.png");
 
     public StormArrowRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);

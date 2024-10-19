@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.item.gear.other;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
 import io.github.razordevs.deep_aether.mixin.AetherSkyRenderEffectsAccessor;
 import net.minecraft.ChatFormatting;
@@ -16,7 +17,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import teamrazor.deepaether.DeepAether;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;

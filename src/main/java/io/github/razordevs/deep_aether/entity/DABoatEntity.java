@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.entity;
 
 import com.aetherteam.aether.entity.miscellaneous.SkyrootBoatBehavior;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAEntities;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.nbt.CompoundTag;
@@ -15,7 +16,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.function.Supplier;
 

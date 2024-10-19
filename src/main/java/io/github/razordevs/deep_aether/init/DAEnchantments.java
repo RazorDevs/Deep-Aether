@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.init;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.enchantments.GlovesReachEnchantment;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -8,7 +9,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import teamrazor.deepaether.DeepAether;
 
 public class DAEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS =

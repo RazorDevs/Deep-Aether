@@ -1,13 +1,13 @@
 package io.github.razordevs.deep_aether.item.gear.other;
 
 import com.aetherteam.aether.item.accessories.pendant.PendantItem;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAMobEffects;
 import io.github.razordevs.deep_aether.init.DASounds;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAether;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;

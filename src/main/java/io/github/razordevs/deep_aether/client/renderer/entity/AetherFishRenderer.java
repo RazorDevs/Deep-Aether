@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.client.model.AerglowFishModel;
 import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.AerglowFish;
@@ -11,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import teamrazor.deepaether.DeepAether;
 
 @OnlyIn(Dist.CLIENT)
 public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishModel<AerglowFish>> {
@@ -25,8 +25,8 @@ public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishMode
 		return AERGLOW_FISH_LOCATION;
 	}
 
-	protected void setupRotations(AerglowFish fish, PoseStack pose, float p_115830_, float p_115831_, float p_115832_) {
-		super.setupRotations(fish, pose, p_115830_, p_115831_, p_115832_);
+	protected void setupRotations(AerglowFish fish, PoseStack pose, float p_115830_, float p_115831_, float p_115832_, float scale) {
+		super.setupRotations(fish, pose, p_115830_, p_115831_, p_115832_, scale);
 		float f = 1.0F;
 		float f1 = 1.0F;
 		if (!fish.isInWater()) {

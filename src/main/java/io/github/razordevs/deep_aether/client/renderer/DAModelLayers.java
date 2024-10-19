@@ -1,8 +1,8 @@
 package io.github.razordevs.deep_aether.client.renderer;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
-import teamrazor.deepaether.DeepAether;
 
 public class DAModelLayers {
     public static final ModelLayerLocation AERGLOW_FISH = register("aether_fish");

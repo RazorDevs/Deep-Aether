@@ -12,7 +12,6 @@ import net.minecraft.world.item.Tier;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import teamrazor.deepaether.DeepAether;
 
 @EventBusSubscriber(modid = DeepAether.MODID)
 public class StormSwordItem extends SwordItem {

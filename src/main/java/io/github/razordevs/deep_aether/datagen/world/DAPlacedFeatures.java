@@ -5,6 +5,7 @@ import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.world.placementmodifier.ImprovedRarityFilter;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.List;
 

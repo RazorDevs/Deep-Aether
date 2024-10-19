@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.client.renderer.entity;
 
 import com.google.common.collect.Maps;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.client.model.QuailModel;
 import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.quail.Quail;
@@ -11,7 +12,6 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Map;
 

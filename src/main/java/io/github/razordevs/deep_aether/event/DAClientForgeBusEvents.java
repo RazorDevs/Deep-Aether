@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.event;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.screen.SnapshotScreen;
 import net.minecraft.client.Minecraft;
@@ -12,12 +13,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.client.event.ViewportEvent;
-import teamrazor.deepaether.DeepAether;
 
-@Mod.EventBusSubscriber(modid = DeepAether.MODID,  value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = DeepAether.MODID,  value = Dist.CLIENT, bus = EventBusSubscriber.Bus.FORGE)
 public class DAClientForgeBusEvents {
     private static boolean hasShownScreen = false;
 

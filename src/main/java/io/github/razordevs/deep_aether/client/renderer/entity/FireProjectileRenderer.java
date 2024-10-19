@@ -14,7 +14,7 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
 public class FireProjectileRenderer extends EntityRenderer<FireProjectile> {
-    public static final ResourceLocation FIRE_PROJECTILE_TEXTURE = ResourceLocation.fromNamespaceAndPath("minecraft:textures/item/fire_charge.png");
+    public static final ResourceLocation FIRE_PROJECTILE_TEXTURE = ResourceLocation.withDefaultNamespace("textures/item/fire_charge.png");
             //ResourceLocation.fromNamespaceAndPath(DeepAetherMod.MODID, "textures/item/sun_core.png");
     public FireProjectileRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -34,16 +34,16 @@ public class FireProjectileRenderer extends EntityRenderer<FireProjectile> {
         PoseStack.Pose pose = poseStack.last();
         Matrix4f matrix4f = pose.pose();
         Matrix3f matrix3f = pose.normal();
-        vertex(consumer, matrix4f, matrix3f, packedLight, 0.0F, 0.0F, 0.0F, 1.0F);
-        vertex(consumer, matrix4f, matrix3f, packedLight, 1.0F, 0.0F, 1.0F, 1.0F);
-        vertex(consumer, matrix4f, matrix3f, packedLight, 1.0F, 1.0F, 1.0F, 0.0F);
-        vertex(consumer, matrix4f, matrix3f, packedLight, 0.0F, 1.0F, 0.0F, 0.0F);
+        vertex(consumer, matrix4f, poseStack, packedLight, 0.0F, 0.0F, 0.0F, 1.0F);
+        vertex(consumer, matrix4f, poseStack, packedLight, 1.0F, 0.0F, 1.0F, 1.0F);
+        vertex(consumer, matrix4f, poseStack, packedLight, 1.0F, 1.0F, 1.0F, 0.0F);
+        vertex(consumer, matrix4f, poseStack, packedLight, 0.0F, 1.0F, 0.0F, 0.0F);
         poseStack.popPose();
         super.render(hammer, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 
-    private static void vertex(VertexConsumer consumer, Matrix4f matrix, Matrix3f normals, int packedLight, float offsetX, float offsetY, float textureX, float textureY) {
-        consumer.vertex(matrix, offsetX - 0.5F, offsetY - 0.25F, 0.0F).color(255, 255, 255, 255).uv(textureX, textureY).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(packedLight).normal(normals, 0.0F, 1.0F, 0.0F).endVertex();
+    private static void vertex(VertexConsumer consumer, Matrix4f matrix, PoseStack normals, int packedLight, float offsetX, float offsetY, float textureX, float textureY) {
+        consumer.addVertex(matrix, offsetX - 0.5F, offsetY - 0.25F, 0.0F).setColor(255, 255, 255, 255).setUv(textureX, textureY).setOverlay(OverlayTexture.NO_OVERLAY).setUv2(packedLight, packedLight).setNormal(normals.last(), 0.0F, 1.0F, 0.0F);
     }
 
     @Override

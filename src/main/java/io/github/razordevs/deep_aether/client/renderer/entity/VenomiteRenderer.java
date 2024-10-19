@@ -1,13 +1,13 @@
 package io.github.razordevs.deep_aether.client.renderer.entity;
 
+import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.client.model.VenomiteModel;
+import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.Venomite;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.DeepAether;
-import io.github.razordevs.deep_aether.client.model.VenomiteModel;
-import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 
 public class VenomiteRenderer extends MobRenderer<Venomite, VenomiteModel> {
 

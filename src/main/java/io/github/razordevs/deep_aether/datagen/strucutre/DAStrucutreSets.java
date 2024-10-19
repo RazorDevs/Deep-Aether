@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.datagen.strucutre;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -10,7 +11,6 @@ import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.List;
 

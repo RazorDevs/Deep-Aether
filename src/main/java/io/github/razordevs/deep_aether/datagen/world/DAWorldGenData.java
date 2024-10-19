@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.datagen.world;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.strucutre.DAStructures;
 import io.github.razordevs.deep_aether.datagen.strucutre.DAStrucutreSets;
 import net.minecraft.core.HolderLookup;
@@ -7,7 +8,6 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;

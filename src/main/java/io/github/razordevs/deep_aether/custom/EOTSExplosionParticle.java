@@ -82,9 +82,4 @@ public class EOTSExplosionParticle extends SimpleAnimatedParticle {
     public AABB getBoundingBox() {
         return INFINITE;
     }
-
-    @Override
-    public boolean shouldCull() {
-        return false;
-    }
 }

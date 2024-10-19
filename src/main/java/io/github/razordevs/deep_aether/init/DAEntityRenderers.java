@@ -1,6 +1,9 @@
 package io.github.razordevs.deep_aether.init;
 
+import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.client.model.*;
 import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
+import io.github.razordevs.deep_aether.client.renderer.entity.*;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
@@ -11,14 +14,12 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.client.model.*;
-import teamrazor.deepaether.client.renderer.entity.*;
 
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class DAEntityRenderers {
 
 	@SubscribeEvent

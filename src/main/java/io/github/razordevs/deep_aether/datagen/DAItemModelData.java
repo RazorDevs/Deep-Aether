@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.datagen;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import com.aetherteam.nitrogen.data.providers.NitrogenItemModelProvider;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.core.Direction;
@@ -15,7 +16,6 @@ import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Iterator;
 

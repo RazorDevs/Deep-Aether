@@ -1,11 +1,11 @@
 package io.github.razordevs.deep_aether.item.gear;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import teamrazor.deepaether.DeepAether;
 
 import javax.annotation.Nullable;
 

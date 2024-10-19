@@ -2,15 +2,14 @@ package io.github.razordevs.deep_aether.item.gear;
 
 
 import com.aetherteam.aether.event.hooks.AbilityHooks;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.item.gear.stratus.StratusAbility;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
-import teamrazor.deepaether.DeepAether;
 
-@Mod.EventBusSubscriber(modid = DeepAether.MODID)
+@EventBusSubscriber(modid = DeepAether.MODID)
 public class ArmorAbilityListener {
 
     @SubscribeEvent

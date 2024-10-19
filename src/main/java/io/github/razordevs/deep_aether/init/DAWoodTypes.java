@@ -1,8 +1,8 @@
 package io.github.razordevs.deep_aether.init;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import teamrazor.deepaether.DeepAether;
 
 public class DAWoodTypes {
     public static final BlockSetType ROSEROOT_BLOCK_SET = new BlockSetType(DeepAether.MODID + ":roseroot");

@@ -3,6 +3,9 @@ package io.github.razordevs.deep_aether.client.renderer.entity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.client.model.VenomiteBubbleModel;
+import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 import io.github.razordevs.deep_aether.entity.living.projectile.VenomiteBubble;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -12,9 +15,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import teamrazor.deepaether.DeepAether;
-import io.github.razordevs.deep_aether.client.model.VenomiteBubbleModel;
-import io.github.razordevs.deep_aether.client.renderer.DAModelLayers;
 
 @OnlyIn(Dist.CLIENT)
 public class VenomiteBubbleRenderer extends EntityRenderer<VenomiteBubble> {

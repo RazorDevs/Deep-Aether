@@ -6,7 +6,7 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.neoforged.fml.ModList;
-import teamrazor.deepaether.DeepAether;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAItems;
 
 public class LCDAShieldItem extends ShieldItem {

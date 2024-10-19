@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.entity.MoaBonusJump;
 import io.github.razordevs.deep_aether.init.DAItems;
@@ -32,17 +33,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.*;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-@Mod.EventBusSubscriber(modid = DeepAether.MODID)
+@EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
 
     @SubscribeEvent

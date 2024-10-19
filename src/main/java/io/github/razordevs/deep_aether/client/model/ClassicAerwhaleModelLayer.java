@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.client.model;
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.entity.AerwhaleSaddleable;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -11,7 +12,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import teamrazor.deepaether.DeepAether;
 
 public class ClassicAerwhaleModelLayer extends RenderLayer<Aerwhale, EntityModel<Aerwhale>> {
     private static final RenderType SADDLED_AERWHALE_CLASSIC = RenderType.armorCutoutNoCull(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/aerwhale_saddled_classic.png"));

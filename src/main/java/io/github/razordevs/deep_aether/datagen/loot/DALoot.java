@@ -1,7 +1,7 @@
 package io.github.razordevs.deep_aether.datagen.loot;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.resources.ResourceLocation;
-import teamrazor.deepaether.DeepAether;
 
 import java.util.Collections;
 import java.util.HashSet;
