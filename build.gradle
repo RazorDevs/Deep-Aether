@@ -94,9 +94,9 @@ dependencies {
     implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.mc_version}"
 
 
-    implementation("local:aeroblender:1.20.4-1.0.1-neoforge")
-    jarJar("local:aeroblender:1.20.4-1.0.1-neoforge") {
-        jarJar.ranged(it, "[1.20.4-1.0.1-neoforge,)")
+    implementation("local:aeroblender:${project.aeroblender_version}")
+    jarJar("local:aeroblender:${project.aeroblender_version}") {
+        jarJar.ranged(it, "[1.21-1.0.0-neoforge,)")
     }
     jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
         jarJar.ranged(it, "[${project.terrablender_version},)")
