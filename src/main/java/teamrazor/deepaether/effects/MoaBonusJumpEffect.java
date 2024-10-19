@@ -7,7 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.event.DAGeneralEvents;
-import teamrazor.deepaether.mixin.MoaMixin;
+import teamrazor.deepaether.mixin.entity.MoaMixin;
 
 /**
  *  Removes the effect if the LivingEntity isn't a moa

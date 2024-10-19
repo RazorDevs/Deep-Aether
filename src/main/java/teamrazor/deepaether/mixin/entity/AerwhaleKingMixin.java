@@ -1,4 +1,4 @@
-package teamrazor.deepaether.mixin;
+package teamrazor.deepaether.mixin.entity;
 
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.legacy.lost_aether.entity.AerwhaleKingEntity;

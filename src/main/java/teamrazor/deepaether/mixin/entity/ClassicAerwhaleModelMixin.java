@@ -1,4 +1,4 @@
-package teamrazor.deepaether.mixin;
+package teamrazor.deepaether.mixin.entity;
 
 import com.aetherteam.aether.client.renderer.entity.model.ClassicAerwhaleModel;
 import com.aetherteam.aether.entity.passive.Aerwhale;

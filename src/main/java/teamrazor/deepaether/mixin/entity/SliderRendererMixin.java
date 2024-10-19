@@ -1,4 +1,4 @@
-package teamrazor.deepaether.mixin;
+package teamrazor.deepaether.mixin.entity;
 
 import com.aetherteam.aether.client.renderer.entity.SliderRenderer;
 import com.aetherteam.aether.client.renderer.entity.model.SliderModel;
