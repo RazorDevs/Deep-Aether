@@ -2,13 +2,10 @@ package io.github.razordevs.deep_aether.block.building;
 
 import com.aetherteam.aether.client.particle.AetherParticleTypes;
 import com.aetherteam.aether.entity.EntityUtil;
-import com.aetherteam.aether.entity.ai.AetherBlockPathTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
@@ -46,20 +43,23 @@ public class DoorwayPillarBlock extends Block {
         this.blockedEntityTypeSupplier = blockedEntityTypeSupplier;
     }
 
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(INVISIBLE);
     }
 
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (player.isCreative()) {
             BlockState newState = state.cycle(INVISIBLE);
             level.setBlock(pos, newState, 3);
             return InteractionResult.SUCCESS;
         } else {
-            return super.use(state, level, pos, player, hand, hit);
+            return super.useWithoutItem(state, level, pos, player, hit);
         }
     }
 
+    @Override
     public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
         boolean flag = super.canBeReplaced(state, context);
         if (!flag) {
@@ -74,13 +74,13 @@ public class DoorwayPillarBlock extends Block {
         return flag;
     }
 
+    @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.gameMode != null && minecraft.gameMode.getPlayerMode() == GameType.CREATIVE && minecraft.player != null && minecraft.level != null) {
             ItemStack itemStack = minecraft.player.getMainHandItem();
             Item item = itemStack.getItem();
-            if (item instanceof BlockItem) {
-                BlockItem blockItem = (BlockItem)item;
+            if (item instanceof BlockItem blockItem) {
                 if (blockItem.getBlock() == this && state.getValue(INVISIBLE)) {
                     minecraft.level.addParticle(AetherParticleTypes.BOSS_DOORWAY_BLOCK.get(), (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5, 0.0, 0.0, 0.0);
                 }
@@ -89,11 +89,11 @@ public class DoorwayPillarBlock extends Block {
 
     }
 
+    @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if (state.getValue(INVISIBLE)) {
             if (context instanceof EntityCollisionContext entity) {
-                Entity var7 = entity.getEntity();
-                if (var7 instanceof Player player) {
+                if (entity.getEntity() instanceof Player player) {
                     if (player.isCreative()) {
                         return INVISIBLE_SHAPE;
                     }
@@ -106,6 +106,7 @@ public class DoorwayPillarBlock extends Block {
         }
     }
 
+    @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if (context instanceof EntityCollisionContext entity) {
             if (entity.getEntity() != null && this.blockedEntityTypeSupplier.get() != null && entity.getEntity().getType() == this.blockedEntityTypeSupplier.get()) {
@@ -116,11 +117,15 @@ public class DoorwayPillarBlock extends Block {
         return state.getValue(INVISIBLE) ? Shapes.empty() : super.getCollisionShape(state, level, pos, context);
     }
 
+    @SuppressWarnings("deprecation")
+    @Override
     public RenderShape getRenderShape(BlockState state) {
         return state.getValue(INVISIBLE) ? RenderShape.INVISIBLE : super.getRenderShape(state);
     }
 
-    public @Nullable BlockPathTypes getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
-        return AetherBlockPathTypes.BOSS_DOORWAY;
+    @Override
+    @Nullable
+    public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
+        return PathType.BLOCKED;
     }
 }

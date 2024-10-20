@@ -2,7 +2,7 @@ package io.github.razordevs.deep_aether.entity.living.projectile;
 
 import io.github.razordevs.deep_aether.init.DAEntities;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -23,8 +23,9 @@ public class VenomiteBubble extends ThrowableProjectile {
     public VenomiteBubble(Level level) {
         super(DAEntities.VENOMITE_BUBBLE.get(), level);
     }
+
     @Override
-    protected void defineSynchedData() {
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
     }
 
     public void tick() {
@@ -45,7 +46,6 @@ public class VenomiteBubble extends ThrowableProjectile {
     }
 
     protected void onHitEntity(EntityHitResult result) {
-        Entity target = result.getEntity();
         if (!this.level().isClientSide()) {
             this.explode();
             this.level().broadcastEntityEvent(this, (byte) 70);
@@ -64,10 +64,11 @@ public class VenomiteBubble extends ThrowableProjectile {
         level().addFreshEntity(new ItemEntity(level(), this.getX(),this.getY(),this.getZ(), new ItemStack(DAItems.BIO_CRYSTAL.asItem())));
     }
 
-
-    protected float getGravity() {
+    @Override
+    protected double getDefaultGravity() {
         return 0.07F;
     }
+
     public void handleEntityEvent(byte id) {
         super.handleEntityEvent(id);
     }

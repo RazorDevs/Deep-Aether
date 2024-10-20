@@ -3,11 +3,14 @@ package io.github.razordevs.deep_aether.item.gear.other;
 import io.github.razordevs.deep_aether.entity.living.projectile.FireProjectile;
 import io.github.razordevs.deep_aether.init.DASounds;
 import io.github.razordevs.deep_aether.init.DATiers;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -48,19 +51,21 @@ public class Afterburner extends TieredItem {
     @Override
     public void onStopUsing(ItemStack stack, LivingEntity entity, int count) {
         if(entity instanceof Player player)
-            if(count < stack.getUseDuration() - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
+            if(count < stack.getUseDuration(entity) - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
                 if(!player.isCreative()) {
                     player.getCooldowns().addCooldown(this, 100);
-                    stack.hurt(10, RandomSource.create(), null);
+                    stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(InteractionHand.MAIN_HAND));
                 }
             }
         super.onStopUsing(stack, entity, count);
     }
 
-    public int getUseDuration(ItemStack itemStack) {
+    @Override
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 60;
     }
 
+    @Override
     public UseAnim getUseAnimation(ItemStack itemStack) {
         return UseAnim.BOW;
     }

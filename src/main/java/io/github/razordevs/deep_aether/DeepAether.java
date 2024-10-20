@@ -20,6 +20,8 @@ import io.github.razordevs.deep_aether.datagen.world.DAWorldGenData;
 import io.github.razordevs.deep_aether.event.DAGeneralEvents;
 import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.*;
+import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
+import io.github.razordevs.deep_aether.item.gear.DAArmorMaterials;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.recipe.DARecipeSerializers;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
@@ -137,8 +139,9 @@ public class DeepAether {
 		DAPlacementModifiers.PLACEMENT_MODIFIERS.register(bus);
 		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
-		DAEnchantments.ENCHANTMENTS.register(bus);
+		DAArmorMaterials.ARMOR_MATERIALS.register(bus);
 		DAStructureProcessor.STRUCTURE_PROCESSOR_TYPES.register(bus);
+		DADataComponentTypes.DATA_COMPONENT_TYPES.register(bus);
 
 		DABlocks.registerWoodTypes(); // Registered this early to avoid bugs with WoodTypes and signs.
 
@@ -172,14 +175,14 @@ public class DeepAether {
 		// Server Data
 		generator.addProvider(event.includeServer(), new DAWorldGenData(packOutput, lookupProvider));
 		generator.addProvider(event.includeServer(), new DARecipeData(packOutput, lookupProvider));
-		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput));
+		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput, lookupProvider));
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAFluidTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
-		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput));
+		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput, lookupProvider));
 		generator.addProvider(event.includeClient(), new DADataMapData(packOutput, lookupProvider));
 	}
 

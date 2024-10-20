@@ -3,7 +3,9 @@ package io.github.razordevs.deep_aether.screen;
 import io.github.razordevs.deep_aether.init.DAMenuTypes;
 import io.github.razordevs.deep_aether.init.DARecipeBookTypes;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
+import io.github.razordevs.deep_aether.recipe.combiner.CombinderRecipeInput;
 import io.github.razordevs.deep_aether.recipe.combiner.CombinerRecipe;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -15,7 +17,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-public class CombinerMenu extends RecipeBookMenu<Container> {
+public class CombinerMenu extends RecipeBookMenu<CombinderRecipeInput, CombinerRecipe> {
     private final Level level;
     private final ContainerData data;
     private final Container container;
@@ -23,7 +25,7 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
     private final RecipeBookType recipeBookType;
 
     public CombinerMenu(int containerId, Inventory playerInventory) {
-        this(containerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.COMBINER, playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
+        this(containerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.DEEP_AETHER_COMBINER.getValue(), playerInventory, new SimpleContainer(4), new SimpleContainerData(7));
     }
 
     public CombinerMenu(int pContainerId, RecipeType<? extends CombinerRecipe> recipeType, RecipeBookType recipeBookType, Inventory inv, Container container, ContainerData data) {
@@ -143,7 +145,11 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
 
     @Override
     public boolean recipeMatches(RecipeHolder recipeHolder) {
-        return recipeHolder.value().matches(this.container, this.level);
+        NonNullList<ItemStack> stacks = NonNullList.withSize(3, ItemStack.EMPTY);
+        for (int i = 0; i < 3; i++) {
+            stacks.add(container.getItem(i));
+        }
+        return recipeHolder.value().matches(new CombinderRecipeInput(stacks), this.level);
     }
 
     @Override

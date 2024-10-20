@@ -91,10 +91,10 @@ public class VenomiteModel extends EntityModel<Venomite> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        wingsfront.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        wingsback.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+        wingsfront.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+        wingsback.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
     }
 }

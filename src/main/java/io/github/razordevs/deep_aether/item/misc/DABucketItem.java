@@ -27,9 +27,9 @@ import java.util.function.Supplier;
 public class DABucketItem extends MobBucketItem {
     private final Supplier<? extends EntityType<?>> fishType;
 
-    public DABucketItem(Supplier<? extends EntityType<?>> entityType, Properties properties) {
-        super(entityType, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, properties);
-        this.fishType = entityType;
+    public DABucketItem(EntityType<?> entityType, Properties properties) {
+        super(entityType, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, properties);
+        this.fishType = ()-> entityType;
     }
 
     @Override

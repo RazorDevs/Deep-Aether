@@ -5,7 +5,7 @@ import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.Nullable;
 
 public class AetherCoarseDirtBlock extends AetherDoubleDropBlock {
@@ -13,12 +13,11 @@ public class AetherCoarseDirtBlock extends AetherDoubleDropBlock {
         super(p_49795_);
     }
 
-    @Nullable
     @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+    public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
         if (context.getItemInHand().getItem() instanceof HoeItem) {
             return AetherBlocks.AETHER_DIRT.get().defaultBlockState();
         }
-        return super.getToolModifiedState(state, context, toolAction, simulate);
+        return super.getToolModifiedState(state, context, itemAbility, simulate);
     }
 }

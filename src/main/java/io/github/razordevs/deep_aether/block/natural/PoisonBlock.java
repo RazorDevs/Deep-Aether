@@ -27,16 +27,18 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
+import java.util.Properties;
+
 public class PoisonBlock extends LiquidBlock {
 
-    public PoisonBlock(DeferredHolder<Fluid, FlowingFluid> deferredHolder, Properties properties) {
+    public PoisonBlock(FlowingFluid deferredHolder, Properties properties) {
         super(deferredHolder, properties);
     }
 
     @Override
     public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION, 100, 0, false, false));
         }
     }
 
@@ -83,7 +85,7 @@ public class PoisonBlock extends LiquidBlock {
 
         //Applies inebriation effect to living entities
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION, 100, 0, false, false));
         }
 
         //Poison recipe code
@@ -97,7 +99,7 @@ public class PoisonBlock extends LiquidBlock {
             //Checks if any poison recipe matches the ingredient
             if (!level.isClientSide()) {
                 for (RecipeHolder<PoisonRecipe> recipe : level.getRecipeManager().getAllRecipesFor(DARecipeTypes.POISON_RECIPE.get())) {
-                    if (recipe.value().getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
+                    if (recipe.value().getIngredients().getFirst().getItems()[0].getItem() == itemEntity.getItem().getItem()) {
                         TRANSFORM_ITEM = recipe.value().getResult().getItem();
 
                         //Starts the timer in the randomTick function.

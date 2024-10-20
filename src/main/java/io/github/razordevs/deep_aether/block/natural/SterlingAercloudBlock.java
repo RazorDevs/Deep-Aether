@@ -2,7 +2,7 @@ package io.github.razordevs.deep_aether.block.natural;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
-import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
+import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -30,7 +30,7 @@ public class SterlingAercloudBlock extends HalfTransparentBlock {
     public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if(context instanceof EntityCollisionContext collisionContext) {
             if(collisionContext.getEntity() instanceof LivingEntity entity) {
-                if(EquipmentUtil.hasCloudNecklace(entity))
+                if(DAEquipmentUtil.hasCloudNecklace(entity))
                     return FULL_COLLISION;
             }
         }
@@ -40,7 +40,7 @@ public class SterlingAercloudBlock extends HalfTransparentBlock {
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity && !entity.getType().is(DATags.Entities.STERLING_AERCLOUD_BLACKLIST)) {
-            if(EquipmentUtil.hasCloudNecklace((LivingEntity) entity))
+            if(DAEquipmentUtil.hasCloudNecklace((LivingEntity) entity))
                 return;
             LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
             if (lightningbolt != null) {

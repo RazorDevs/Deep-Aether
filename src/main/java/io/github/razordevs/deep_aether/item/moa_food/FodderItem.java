@@ -12,8 +12,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -60,13 +62,8 @@ public class FodderItem extends Item {
     }
 
     @Override
-    public boolean isEdible() {
-        return false;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        PotionUtils.addPotionTooltip(List.of(effect), pTooltipComponents, 1.0F, pLevel == null ? 20.0F : pLevel.tickRateManager().tickrate());
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        PotionContents.addPotionTooltip(List.of(effect), tooltipComponents::add, 1.0F, context.level() == null ? 20.0F : context.tickRate());
     }
 
     private boolean applyMoaEffect(LivingEntity livingEntity) {

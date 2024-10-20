@@ -5,9 +5,6 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAEntities;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -36,9 +33,9 @@ public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(WOOD_TYPE, 0);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(WOOD_TYPE, 0);
     }
 
     @Override
@@ -65,11 +62,6 @@ public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
     @Override
     public Item getDropItem() {
         return this.getWoodType().getItem().get();
-    }
-
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return new ClientboundAddEntityPacket(this);
     }
 
     public enum Type {
@@ -128,9 +120,9 @@ public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
         public static Type byName(String name) {
             Type[] values = values();
 
-            for(int i = 0; i < values.length; ++i) {
-                if (values[i].getName().equals(name)) {
-                    return values[i];
+            for (Type value : values) {
+                if (value.getName().equals(name)) {
+                    return value;
                 }
             }
 

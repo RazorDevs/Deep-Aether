@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.block.behavior;
 import com.aetherteam.aether.block.AetherBlocks;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
@@ -15,7 +16,7 @@ import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -62,7 +63,7 @@ public class DADispenseBehaviors {
 
         @Override
         public ItemStack execute(BlockSource source, ItemStack stack) {
-            if (PotionUtils.getPotion(stack) != Potions.WATER) {
+            if (!stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER)) {
                 return super.execute(source, stack);
             }
 

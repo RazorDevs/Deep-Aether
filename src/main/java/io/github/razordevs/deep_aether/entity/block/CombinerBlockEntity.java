@@ -3,9 +3,12 @@ package io.github.razordevs.deep_aether.entity.block;
 import io.github.razordevs.deep_aether.init.DABlockEntityTypes;
 import io.github.razordevs.deep_aether.init.DARecipeBookTypes;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
+import io.github.razordevs.deep_aether.recipe.combiner.CombinderRecipeInput;
 import io.github.razordevs.deep_aether.recipe.combiner.CombinerRecipe;
 import io.github.razordevs.deep_aether.screen.CombinerMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
@@ -82,22 +85,21 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new CombinerMenu(pContainerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.COMBINER, pPlayerInventory, this, this.data);
+        return new CombinerMenu(pContainerId, DARecipeTypes.COMBINING.get(), DARecipeBookTypes.DEEP_AETHER_COMBINER.getValue(), pPlayerInventory, this, this.data);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        pTag.put("inventory", itemHandler.serializeNBT());
-        pTag.putInt("combiner.progress", progress);
-
-        super.saveAdditional(pTag);
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        tag.put("inventory", itemHandler.serializeNBT(registries));
+        tag.putInt("combiner.progress", progress);
+        super.saveAdditional(tag, registries);
     }
 
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        progress = pTag.getInt("combiner.progress");
+    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+        progress = tag.getInt("combiner.progress");
     }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
@@ -140,10 +142,12 @@ public class CombinerBlockEntity extends BlockEntity implements MenuProvider, Co
 
 
     private Optional<RecipeHolder<CombinerRecipe>> getCurrentRecipe() {
-        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+
+        NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
+
         for(int i = 0; i < itemHandler.getSlots(); i++)
-            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
-        return this.level.getRecipeManager().getRecipeFor(DARecipeTypes.COMBINING.get(), inventory, level);
+            items.add(i, this.itemHandler.getStackInSlot(i));
+        return this.level.getRecipeManager().getRecipeFor(DARecipeTypes.COMBINING.get(), new CombinderRecipeInput(items), level);
     }
 
 

@@ -1,6 +1,6 @@
 package io.github.razordevs.deep_aether.world.placementmodifier;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
@@ -10,8 +10,8 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import org.jetbrains.annotations.NotNull;
 
 public class ImprovedRarityFilter extends PlacementFilter {
-    public static final Codec<ImprovedRarityFilter> CODEC = ExtraCodecs.POSITIVE_FLOAT.fieldOf("chance").xmap(ImprovedRarityFilter::new, (rarityFilter)
-            -> rarityFilter.chance).codec();
+    public static final MapCodec<ImprovedRarityFilter> CODEC = ExtraCodecs.POSITIVE_FLOAT.fieldOf("chance").xmap(ImprovedRarityFilter::new, (rarityFilter)
+            -> rarityFilter.chance);
 
     private final float chance;
 

@@ -39,7 +39,7 @@ public class VenomiteBubbleRenderer extends EntityRenderer<VenomiteBubble> {
 		VertexConsumer iVertexBuilder = bufferSource.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(venomiteBubble)));
 		poseStack.mulPose(Axis.XP.rotationDegrees(180f));
 		poseStack.translate(0,-1.53,0);
-		this.bubble.renderToBuffer(poseStack, iVertexBuilder, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+		this.bubble.renderToBuffer(poseStack, iVertexBuilder, packedLight, OverlayTexture.NO_OVERLAY);
 		poseStack.popPose();
 
 		super.render(venomiteBubble, entityYaw, partialTicks, poseStack, bufferSource, packedLight);

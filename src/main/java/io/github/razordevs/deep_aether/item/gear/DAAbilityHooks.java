@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableMap;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
 import java.util.Map;
 
@@ -19,9 +19,9 @@ public class DAAbilityHooks {
                 .put(DABlocks.YAGROOT_WOOD.get(), DABlocks.STRIPPED_YAGROOT_WOOD.get())
                 .build();
 
-        public static BlockState setupToolActions(BlockState old, ToolAction action) {
+        public static BlockState setupToolActions(BlockState old, ItemAbility action) {
             Block oldBlock = old.getBlock();
-            if (action == ToolActions.AXE_STRIP) {
+            if (action == ItemAbilities.AXE_STRIP) {
                 if (STRIPPABLES.containsKey(oldBlock)) {
                     return STRIPPABLES.get(oldBlock).withPropertiesOf(old);
                 }

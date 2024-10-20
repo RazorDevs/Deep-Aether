@@ -132,13 +132,12 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 .add(Attributes.ATTACK_DAMAGE, 7.5);
     }
 
-
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.getEntityData().define(DATA_HEAD_ID, true);
-        this.getEntityData().define(DATA_OPEN_MOUTH, false);
-        this.getEntityData().define(PARENT_DATA, this.getParent() != null && this.getParentUUID() != null ? this.getParentUUID().toString() : this.getStringUUID());
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_HEAD_ID, true);
+        builder.define(DATA_OPEN_MOUTH, false);
+        builder.define(PARENT_DATA, this.getParent() != null && this.getParentUUID() != null ? this.getParentUUID().toString() : this.getStringUUID());
     }
 
     /**
@@ -146,9 +145,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     @Nullable
     @SuppressWarnings("deprecation")
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor pLevel, @NotNull DifficultyInstance pDifficulty, @NotNull MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor pLevel, @NotNull DifficultyInstance pDifficulty, @NotNull MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
         new EOTSSegment(this.level(), this, 0); //Ensures multiple segments spawns in if spawn command is used
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
     }
 
     @Override

@@ -2,7 +2,7 @@ package io.github.razordevs.deep_aether.block.misc;
 
 import io.github.razordevs.deep_aether.block.behavior.ChromaticBlockFlight;
 import io.github.razordevs.deep_aether.block.natural.SterlingAercloudBlock;
-import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
+import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,7 +22,7 @@ public class ChromaticAercloudBlock extends HalfTransparentBlock {
     public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if(context instanceof EntityCollisionContext collisionContext) {
             if(collisionContext.getEntity() instanceof LivingEntity entity) {
-                if(EquipmentUtil.hasCloudNecklace(entity))
+                if(DAEquipmentUtil.hasCloudNecklace(entity))
                     return SterlingAercloudBlock.FULL_COLLISION;
             }
         }

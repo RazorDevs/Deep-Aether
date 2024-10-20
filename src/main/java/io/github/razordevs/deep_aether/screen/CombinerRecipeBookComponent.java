@@ -17,10 +17,10 @@ import java.util.List;
 public class CombinerRecipeBookComponent extends RecipeBookComponent {
     private static final Component FILTER_NAME = Component.translatable("gui.deep_aether.recipebook.toggleRecipes.combinable");
     private static final WidgetSprites FILTER_SPRITES = new WidgetSprites(
-            ResourceLocation.fromNamespaceAndPath("recipe_book/furnace_filter_enabled"),
-            ResourceLocation.fromNamespaceAndPath("recipe_book/furnace_filter_disabled"),
-            ResourceLocation.fromNamespaceAndPath("recipe_book/furnace_filter_enabled_highlighted"),
-            ResourceLocation.fromNamespaceAndPath("recipe_book/furnace_filter_disabled_highlighted"));
+            ResourceLocation.withDefaultNamespace("recipe_book/furnace_filter_enabled"),
+            ResourceLocation.withDefaultNamespace("recipe_book/furnace_filter_disabled"),
+            ResourceLocation.withDefaultNamespace("recipe_book/furnace_filter_enabled_highlighted"),
+            ResourceLocation.withDefaultNamespace("recipe_book/furnace_filter_disabled_highlighted"));
 
     @Override
     protected Component getRecipeFilterName() {

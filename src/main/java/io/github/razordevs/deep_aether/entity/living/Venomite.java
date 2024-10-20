@@ -31,11 +31,10 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.Nullable;
 import io.github.razordevs.deep_aether.entity.goals.FollowPlayerGoal;
 import io.github.razordevs.deep_aether.entity.living.projectile.VenomiteBubble;
@@ -69,16 +68,11 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
                 .add(Attributes.FOLLOW_RANGE, 48.0D);
     }
 
-    public static void init() {
-        SpawnPlacements.register(DAEntities.VENOMITE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                (entityType, world, reason, pos,
-                 random) -> (world.getBlockState(pos.above()).is(Blocks.AIR)));
-    }
-
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_FLAGS_ID, (byte)0);
-        this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_FLAGS_ID, (byte)0);
+        builder.define(DATA_REMAINING_ANGER_TIME, 0);
     }
 
     public float getWalkTargetValue(BlockPos state, LevelReader blockState) {
@@ -86,7 +80,7 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new VenomiteAttackGoal(this, (double)1.4F, true));
+        this.goalSelector.addGoal(0, new VenomiteAttackGoal(this, 1.4F, true));
         this.goalSelector.addGoal(1, new FollowPlayerGoal(this, 1.0, 1));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomFlyingGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new FloatGoal(this));
@@ -104,6 +98,11 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
         this.readPersistentAngerSaveData(this.level(), compoundTag);
+    }
+
+    @Override
+    public boolean isFood(ItemStack stack) {
+        return false;
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {
@@ -125,23 +124,21 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
     protected void checkFallDamage(double v, boolean b, BlockState blockState, BlockPos blockPos) {
     }
 
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
-
+    @Override
     protected PathNavigation createNavigation(Level level) {
         FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, level);
         flyingpathnavigation.setCanFloat(true);
         return flyingpathnavigation;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public boolean canBeAffected(MobEffectInstance effectInstance) {
         return !effectInstance.getEffect().equals(AetherEffects.INEBRIATION.get());
     }
 
-    private boolean getFlag(int p_27922_) {
-        return (this.entityData.get(DATA_FLAGS_ID) & p_27922_) != 0;
+    private boolean getFlag(int flag) {
+        return (this.entityData.get(DATA_FLAGS_ID) & flag) != 0;
     }
 
     @Nullable
@@ -179,8 +176,9 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
         this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
     }
 
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return entityDimensions.height * 0.5F;
+    @Override
+    protected EntityDimensions getDefaultDimensions(Pose pose) {
+        return super.getDefaultDimensions(pose).scale(1F, 1.5F);
     }
 
     private void setFlag(int i, boolean b) {
@@ -204,10 +202,6 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
     public void tick() {
         super.tick();
         this.updateRollAmount();
-    }
-
-    public float getRollAmount(float p_27936_) {
-        return Mth.lerp(p_27936_, this.rollAmountO, this.rollAmount);
     }
 
     private void updateRollAmount() {

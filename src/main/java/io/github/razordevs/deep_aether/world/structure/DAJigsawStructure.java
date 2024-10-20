@@ -68,8 +68,8 @@ public class DAJigsawStructure extends Structure {
         int startY = startHeight.sample(context.random(), new WorldGenerationContext(context.chunkGenerator(), context.heightAccessor()));
         ChunkPos chunkPos = context.chunkPos();
         BlockPos pos = new BlockPos(chunkPos.getMiddleBlockX(), startY, chunkPos.getMiddleBlockZ());
-
-        return JigsawPlacement.addPieces(
+        //TODO: FIX THIS
+        return null;/* JigsawPlacement.addPieces(
                 context,
                 startPool,
                 startJigsawName,
@@ -79,7 +79,7 @@ public class DAJigsawStructure extends Structure {
                 projectStartToHeightmap,
                 maxDistanceFromCenter,
                 PoolAliasLookup.create(poolAliases, pos, context.seed())
-        );
+        );*/
     }
 
     @Override

@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.entity;
 import io.github.razordevs.deep_aether.init.DAEntities;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
@@ -22,6 +23,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import javax.annotation.Nullable;
 
@@ -30,7 +32,7 @@ public class DAChestBoatEntity extends DABoatEntity implements HasCustomInventor
     private static final int CONTAINER_SIZE = 27;
     private NonNullList<ItemStack> itemStacks = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
     @Nullable
-    private ResourceLocation lootTable;
+    private ResourceKey<LootTable> lootTable;
     private long lootTableSeed;
 
     public DAChestBoatEntity(EntityType<? extends Boat> entityType, Level level) {
@@ -58,13 +60,13 @@ public class DAChestBoatEntity extends DABoatEntity implements HasCustomInventor
     @Override
     protected void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        this.addChestVehicleSaveData(pCompound);
+        this.addChestVehicleSaveData(pCompound, this.registryAccess());
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.readChestVehicleSaveData(pCompound);
+    protected void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.readChestVehicleSaveData(compound, this.registryAccess());
     }
 
     @Override
@@ -161,12 +163,12 @@ public class DAChestBoatEntity extends DABoatEntity implements HasCustomInventor
     }
 
     @Nullable
-    public ResourceLocation getLootTable() {
+    public ResourceKey<LootTable> getLootTable() {
         return this.lootTable;
     }
 
     @Override
-    public void setLootTable(@Nullable ResourceLocation location) {
+    public void setLootTable(@Nullable ResourceKey<LootTable> location) {
         this.lootTable = location;
     }
 

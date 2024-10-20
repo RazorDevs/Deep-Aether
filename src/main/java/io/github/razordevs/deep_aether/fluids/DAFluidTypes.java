@@ -10,9 +10,9 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.joml.Vector3f;
 
 public class DAFluidTypes {
-    public static final ResourceLocation POISON_STILL_RL = ResourceLocation.fromNamespaceAndPath("block/water_still");
-    public static final ResourceLocation POISON_FLOWING_RL = ResourceLocation.fromNamespaceAndPath("block/water_flow");
-    public static final ResourceLocation POISON_OVERLAY_RL = ResourceLocation.fromNamespaceAndPath("block/water_overlay");
+    public static final ResourceLocation POISON_STILL_RL = ResourceLocation.withDefaultNamespace("block/water_still");
+    public static final ResourceLocation POISON_FLOWING_RL = ResourceLocation.withDefaultNamespace("block/water_flow");
+    public static final ResourceLocation POISON_OVERLAY_RL = ResourceLocation.withDefaultNamespace("block/water_overlay");
 
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, DeepAether.MODID);
 

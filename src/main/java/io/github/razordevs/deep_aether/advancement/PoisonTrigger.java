@@ -25,8 +25,8 @@ public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance
     }
     public record Instance(Optional<ContextAwarePredicate> player, Optional<ItemPredicate> item) implements SimpleInstance {
         public static final Codec<Instance> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                        ExtraCodecs.strictOptionalField(EntityPredicate.ADVANCEMENT_CODEC, "player").forGetter(PoisonTrigger.Instance::player),
-                        ExtraCodecs.strictOptionalField(ItemPredicate.CODEC, "item").forGetter(PoisonTrigger.Instance::item))
+                        EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(PoisonTrigger.Instance::player),
+                        ItemPredicate.CODEC.optionalFieldOf("item").forGetter(PoisonTrigger.Instance::item))
                 .apply(instance, PoisonTrigger.Instance::new));
 
         public boolean test(ItemStack stack) {

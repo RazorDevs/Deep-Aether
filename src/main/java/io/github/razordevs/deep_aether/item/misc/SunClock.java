@@ -6,7 +6,6 @@ import com.aetherteam.aether.attachment.AetherDataAttachments;
 import com.aetherteam.aether.command.SunAltarWhitelist;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.network.packet.clientbound.OpenSunAltarPacket;
-import com.aetherteam.nitrogen.network.PacketRelay;
 import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -16,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class SunClock extends Item {
 
@@ -49,7 +49,7 @@ public class SunClock extends Item {
 
     protected void openScreen(Level level, Player player, int timeScale) {
         if (!level.isClientSide() && player instanceof ServerPlayer serverPlayer) {
-            PacketRelay.sendToPlayer(new OpenSunAltarPacket(Component.translatable("menu." + DeepAether.MODID + ".sun_clock")), serverPlayer);
+            PacketDistributor.sendToPlayer(serverPlayer, new OpenSunAltarPacket(Component.translatable("menu." + DeepAether.MODID + ".sun_clock"), timeScale));
         }
     }
 }

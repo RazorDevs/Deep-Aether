@@ -17,8 +17,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.neoforged.neoforge.common.ToolAction;
-import net.neoforged.neoforge.common.ToolActions;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -59,9 +59,9 @@ public class GoldenGrassBlock extends AetherGrassBlock {
                         continue;
                     }
 
-                    holder = ((RandomPatchConfiguration)list.get(0).config()).feature();
+                    holder = ((RandomPatchConfiguration)list.getFirst().config()).feature();
                 } else {
-                    if (!optional.isPresent()) {
+                    if (optional.isEmpty()) {
                         continue;
                     }
 
@@ -76,15 +76,15 @@ public class GoldenGrassBlock extends AetherGrassBlock {
 
     @Nullable
     @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility itemAbility, boolean simulate) {
         if(context.getItemInHand().getItem() instanceof ShovelItem) {
                 return DABlocks.GOLDEN_DIRT_PATH.get().defaultBlockState();
-        } else if (ToolActions.HOE_TILL == toolAction) {
+        } else if (ItemAbilities.HOE_TILL == itemAbility) {
             Block block = state.getBlock();
             if (block == this && context.getLevel().getBlockState(context.getClickedPos().above()).isAir()) {
                 return Blocks.FARMLAND.defaultBlockState();
             }
         }
-        return super.getToolModifiedState(state, context, toolAction, simulate);
+        return super.getToolModifiedState(state, context, itemAbility, simulate);
     }
 }

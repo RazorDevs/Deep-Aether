@@ -8,8 +8,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 public class StratusAxeItem extends AxeItem implements GravititeTool {
-    public StratusAxeItem(Tier tier, float v, float v1, Properties properties) {
-        super(tier, v, v1, properties);
+    public StratusAxeItem(Tier tier, Properties properties) {
+        super(tier, properties);
     }
     @Override
     public InteractionResult useOn(UseOnContext context) {

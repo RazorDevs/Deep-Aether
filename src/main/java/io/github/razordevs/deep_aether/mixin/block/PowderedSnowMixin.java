@@ -1,6 +1,6 @@
 package io.github.razordevs.deep_aether.mixin.block;
 
-import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
+import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.PowderSnowBlock;
@@ -15,7 +15,7 @@ public class PowderedSnowMixin {
     @Inject(at = @At("HEAD"), method = "canEntityWalkOnPowderSnow", cancellable = true)
     private static void canEntityWalkOnPowderSnow(Entity pEntity, CallbackInfoReturnable<Boolean> cir) {
         if(pEntity instanceof LivingEntity entity) {
-            if(EquipmentUtil.hasCloudNecklace(entity)) {
+            if(DAEquipmentUtil.hasCloudNecklace(entity)) {
                 cir.setReturnValue(true);
             }
         }

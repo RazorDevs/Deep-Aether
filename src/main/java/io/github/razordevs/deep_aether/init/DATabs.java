@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -312,7 +313,7 @@ public class DATabs {
             }, event);
 
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-                addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
+                //addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
             }
 
             addToTab(AetherItems.GRAVITITE_HOE.get(), new Item[]{
@@ -325,7 +326,7 @@ public class DATabs {
 
 
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-                addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
+                //addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
             }
 
             addToTab(AetherItems.SKYROOT_POWDER_SNOW_BUCKET.get(), DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), event);

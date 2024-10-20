@@ -68,7 +68,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
 
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
-        if (!(entity instanceof LivingEntity) || entity.getFeetBlockState().is(this)) {
+        if (!(entity instanceof LivingEntity) || entity.getInBlockState().is(this)) {
             entity.makeStuckInBlock(blockState, new Vec3(0.9F, 1.5D, 0.9F));
             if (level.isClientSide) {
                 RandomSource randomsource = level.getRandom();

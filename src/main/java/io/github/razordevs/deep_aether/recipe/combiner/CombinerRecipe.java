@@ -1,31 +1,29 @@
 package io.github.razordevs.deep_aether.recipe.combiner;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.recipe.DABookCategory;
 import io.github.razordevs.deep_aether.recipe.DARecipeSerializers;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.util.ExtraCodecs;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CombinerRecipe implements Recipe<Container> {
+public class CombinerRecipe implements Recipe<CombinderRecipeInput> {
 
     private final String group;
     private final DABookCategory category;
     public final List<Ingredient> inputItems;
-    private final ItemStack output;
+    public final ItemStack output;
 
     public CombinerRecipe(String group, DABookCategory category, List<Ingredient> inputItems, ItemStack output) {
         this.group = group;
@@ -35,10 +33,10 @@ public class CombinerRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean matches(Container pContainer, Level pLevel) {
-        return testEachSlot(pContainer, inputItems.get(0))
-                && testEachSlot(pContainer, inputItems.get(1))
-                && testEachSlot(pContainer, inputItems.get(2));
+    public boolean matches(CombinderRecipeInput input, Level pLevel) {
+        return inputItems.get(0).test(input.items().getFirst())
+                && inputItems.get(1).test(input.items().get(1))
+                && inputItems.get(2).test(input.items().get(2));
     }
 
     public DABookCategory daCategory() {
@@ -61,7 +59,7 @@ public class CombinerRecipe implements Recipe<Container> {
     }
 
     @Override
-    public ItemStack assemble(Container pContainer, RegistryAccess pRegistryAccess) {
+    public ItemStack assemble(CombinderRecipeInput input, HolderLookup.Provider registries) {
         return output.copy();
     }
 
@@ -71,7 +69,7 @@ public class CombinerRecipe implements Recipe<Container> {
     }
 
     @Override
-    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+    public ItemStack getResultItem(HolderLookup.Provider registries) {
         return output.copy();
     }
 
@@ -92,36 +90,51 @@ public class CombinerRecipe implements Recipe<Container> {
 
     public static class Serializer implements RecipeSerializer<CombinerRecipe> {
 
-        public final Codec<CombinerRecipe> codec = RecordCodecBuilder.create((instance) -> instance.group(
-                ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(CombinerRecipe::getGroup),
+        public final MapCodec<CombinerRecipe> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
+                Codec.STRING.optionalFieldOf("group", "").forGetter(CombinerRecipe::getGroup),
                 DABookCategory.CODEC.fieldOf("category").forGetter(CombinerRecipe::daCategory),
-                Ingredient.LIST_CODEC_NONEMPTY.fieldOf("ingredients").forGetter((recipe) -> recipe.inputItems),
-                ItemStack.RESULT_CODEC.fieldOf("output").forGetter((recipe) -> recipe.output)
+                Ingredient.CODEC_NONEMPTY
+                        .listOf()
+                        .fieldOf("ingredients")
+                        .forGetter(recipe -> recipe.inputItems),
+                ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
         ).apply(instance, CombinerRecipe::new));
 
-        @Override
-        public Codec<CombinerRecipe> codec() {
-            return codec;
-        }
 
-        @Override
-        public CombinerRecipe fromNetwork(FriendlyByteBuf buffer) {
+        public static final StreamCodec<RegistryFriendlyByteBuf, CombinerRecipe> STREAM_CODEC = StreamCodec.of(
+                CombinerRecipe.Serializer::toNetwork, CombinerRecipe.Serializer::fromNetwork
+        );
+
+        public static CombinerRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
             String group = buffer.readUtf();
+            DABookCategory daBookCategory = buffer.readEnum(DABookCategory.class);
             List<Ingredient> ingredients = new ArrayList<>();
             for(int i = 0; i < 3; i++) {
-                ingredients.add(i, Ingredient.fromNetwork(buffer));
+                ingredients.add(Ingredient.CONTENTS_STREAM_CODEC.decode(buffer));
             }
 
-            return new CombinerRecipe(group, buffer.readEnum(DABookCategory.class), ingredients, buffer.readItem());
+            ItemStack itemstack = ItemStack.STREAM_CODEC.decode(buffer);
+            return new CombinerRecipe(group, daBookCategory, ingredients, itemstack);
+        }
+
+        public static void toNetwork(RegistryFriendlyByteBuf buffer, CombinerRecipe recipe) {
+            buffer.writeUtf(recipe.getGroup());
+            buffer.writeEnum(recipe.daCategory());
+
+            for (Ingredient ingredient : recipe.inputItems)
+                Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, ingredient);
+
+            ItemStack.STREAM_CODEC.encode(buffer, recipe.getResult());
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buffer, CombinerRecipe recipe) {
-            buffer.writeUtf(recipe.getGroup());
-            for (Ingredient ingredient : recipe.inputItems)
-                ingredient.toNetwork(buffer);
-            buffer.writeEnum(recipe.daCategory());
-            buffer.writeItem(recipe.getResult());
+        public MapCodec<CombinerRecipe> codec() {
+            return CODEC;
+        }
+
+        @Override
+        public StreamCodec<RegistryFriendlyByteBuf, CombinerRecipe> streamCodec() {
+            return STREAM_CODEC;
         }
     }
 }

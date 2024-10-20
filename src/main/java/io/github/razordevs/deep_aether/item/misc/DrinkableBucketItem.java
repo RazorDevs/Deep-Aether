@@ -27,14 +27,14 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
     boolean CAN_CONSUME = false;
-    public DrinkableBucketItem(DeferredHolder<Fluid, ? extends Fluid> fluid, Properties properties) {
+    public DrinkableBucketItem(Fluid fluid, Properties properties) {
         super(fluid, properties);
     }
 
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         if(CAN_CONSUME) {
             if (!level.isClientSide()) {
-                user.addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 500, 0));
+                user.addEffect(new MobEffectInstance(AetherEffects.INEBRIATION, 500, 0));
             }
 
             this.consume(this, stack, user);
@@ -53,10 +53,7 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
 
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-        BlockHitResult blockhitresult = getPlayerPOVHitResult(world, player, this.getFluid() == Fluids.EMPTY ? ClipContext.Fluid.SOURCE_ONLY : ClipContext.Fluid.NONE);
-        InteractionResultHolder<ItemStack> ret = EventHooks.onBucketUse(player, world, itemstack, blockhitresult);
-        if (ret != null)
-            return ret;
+        BlockHitResult blockhitresult = getPlayerPOVHitResult(world, player, this.content == Fluids.EMPTY ? ClipContext.Fluid.SOURCE_ONLY : ClipContext.Fluid.NONE);
         if (blockhitresult.getType() == HitResult.Type.MISS) {
             CAN_CONSUME = true;
             return ItemUtils.startUsingInstantly(world, player, hand);
@@ -69,7 +66,7 @@ public class DrinkableBucketItem extends BucketItem implements ConsumableItem {
             Direction direction = blockhitresult.getDirection();
             BlockPos blockpos1 = blockpos.relative(direction);
             if (world.mayInteract(player, blockpos) && player.mayUseItemAt(blockpos1, direction, itemstack)) {
-                if (this.getFluid() == Fluids.EMPTY) {
+                if (this.content == Fluids.EMPTY) {
                     BlockState blockstate1 = world.getBlockState(blockpos);
                     if (blockstate1.getBlock() instanceof BucketPickup) {
                         BucketPickup bucketpickup = (BucketPickup)blockstate1.getBlock();

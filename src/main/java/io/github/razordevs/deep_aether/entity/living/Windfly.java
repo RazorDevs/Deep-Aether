@@ -27,7 +27,7 @@ import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -41,7 +41,7 @@ public class Windfly extends AetherAnimal implements FlyingAnimal {
         super(type, world);
         this.lookControl = new Aerwhale.BlankLookControl(this);
         this.moveControl = new WindflyMoveControl(this);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, 0.0F);
     }
 
     protected void registerGoals() {
@@ -51,16 +51,17 @@ public class Windfly extends AetherAnimal implements FlyingAnimal {
     public static AttributeSupplier.Builder createAttributes() {
         return FlyingMob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 6.0D)
-                .add(Attributes.FLYING_SPEED, (double)0.15F)
-                .add(Attributes.MOVEMENT_SPEED, (double)0.3F)
+                .add(Attributes.FLYING_SPEED, 0.15F)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D);
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.getEntityData().define(DATA_X_ROT_O_ID, this.getXRot());
-        this.getEntityData().define(DATA_X_ROT_ID, this.getXRot());
-        this.getEntityData().define(DATA_Y_ROT_ID, this.getYRot());
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_X_ROT_O_ID, this.getXRot());
+        builder.define(DATA_X_ROT_ID, this.getXRot());
+        builder.define(DATA_Y_ROT_ID, this.getYRot());
     }
 
     public void aiStep() {
@@ -69,6 +70,11 @@ public class Windfly extends AetherAnimal implements FlyingAnimal {
         this.setYRot(this.getYRotData());
         this.setYBodyRot(this.getYRotData());
         this.setYHeadRot(this.getYRotData());
+    }
+
+    @Override
+    public boolean isFood(ItemStack stack) {
+        return false;
     }
 
     public void tick() {
@@ -89,7 +95,7 @@ public class Windfly extends AetherAnimal implements FlyingAnimal {
     }
 
     public float getXRotOData() {
-        return (Float)this.getEntityData().get(DATA_X_ROT_O_ID);
+        return this.getEntityData().get(DATA_X_ROT_O_ID);
     }
 
     public void setXRotOData(float rot) {
@@ -97,7 +103,7 @@ public class Windfly extends AetherAnimal implements FlyingAnimal {
     }
 
     public float getXRotData() {
-        return (Float)this.getEntityData().get(DATA_X_ROT_ID);
+        return this.getEntityData().get(DATA_X_ROT_ID);
     }
 
     public void setXRotData(float rot) {
@@ -105,7 +111,7 @@ public class Windfly extends AetherAnimal implements FlyingAnimal {
     }
 
     public float getYRotData() {
-        return (Float)this.getEntityData().get(DATA_Y_ROT_ID);
+        return this.getEntityData().get(DATA_Y_ROT_ID);
     }
 
     public void setYRotData(float rot) {

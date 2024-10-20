@@ -6,6 +6,7 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.attachment.AttachmentType;
@@ -23,7 +24,7 @@ public class DAPlayerSyncPacket extends SyncEntityPacket<DAPlayerAttachment> {
         super(playerID, key, type, value);
     }
 
-    public static DAPlayerSyncPacket decode(FriendlyByteBuf buf) {
+    public static DAPlayerSyncPacket decode(RegistryFriendlyByteBuf buf) {
         return new DAPlayerSyncPacket(SyncEntityPacket.decodeEntityValues(buf));
     }
 

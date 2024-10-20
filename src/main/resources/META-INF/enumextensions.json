@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/inventory/RecipeBookType",
+      "name": "DEEP_AETHER_COMBINER"
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "DEEP_AETHER_COMBINEABLE_SEARCH",
+      "parameters": {
+        "class": "io/github./razordevs/deep_aether/init/RecipeBookCategories",
+        "field": "DEEP_AETHER_COMBINEABLE_SEARCH"
+      }
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "DEEP_AETHER_COMBINEABLE_FODDER",
+      "parameters": {
+        "class": "io/github./razordevs/deep_aether/init/RecipeBookCategories",
+        "field": "DEEP_AETHER_COMBINEABLE_FODDER"
+      }
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "DEEP_AETHER_COMBINEABLE_MISC",
+      "parameters": {
+        "class": "io/github./razordevs/deep_aether/init/RecipeBookCategories",
+        "field": "DEEP_AETHER_COMBINEABLE_MISC"
+      }
+    }
+  ]
+}

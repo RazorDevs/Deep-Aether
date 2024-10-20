@@ -10,7 +10,7 @@ import com.aetherteam.aether.entity.monster.dungeon.boss.BossNameGenerator;
 import com.aetherteam.aether.event.AetherEventDispatch;
 import com.aetherteam.aether.network.packet.clientbound.BossInfoPacket;
 import com.aetherteam.nitrogen.entity.BossRoomTracker;
-import com.aetherteam.nitrogen.network.PacketRelay;
+import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.block.building.DoorwayPillarBlock;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAEntities;
@@ -18,7 +18,7 @@ import io.github.razordevs.deep_aether.init.DAParticles;
 import io.github.razordevs.deep_aether.init.DASounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -55,6 +55,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -88,8 +89,9 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         this.soundCooldown = 0;
     }
 
+    @Override
     @SuppressWarnings("deprecation")
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty, @NotNull MobSpawnType reason, @Nullable SpawnGroupData spawnData) {
         this.setBossName(generateEOTSName(this.getRandom()));
         this.moveTo(Mth.floor(this.getX()), this.getY(), Mth.floor(this.getZ()));
         return spawnData;
@@ -114,10 +116,10 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    public void defineSynchedData() {
-        super.defineSynchedData();
-        this.getEntityData().define(DATA_AWAKE_ID, false);
-        this.getEntityData().define(DATA_BOSS_NAME_ID, Component.literal("EOTS"));
+    public void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_AWAKE_ID, false);
+        builder.define(DATA_BOSS_NAME_ID, Component.literal("EOTS"));
     }
 
     @Override
@@ -284,15 +286,18 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         }
     }
 
-    private static final UUID HEALTH_UUID = UUID.fromString("385fead7-a5d3-49c7-8c8f-532403c5a7e9");
+    private static AttributeModifier getBonusHealth(int extra) {
+        return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "eots_health_multiplayer"), extra*15.0F, AttributeModifier.Operation.ADD_VALUE);
+    }
+
     protected void spawnSegments() {
         EOTSSegment oldSegment = new EOTSSegment(this.level(), this);
         this.segmentUUIDs.add(oldSegment.getUUID());
         int extra = (this.bossFight.getPlayers().size() - 1) * EXTRA_SEGMENT;
         AttributeInstance instance = this.getAttribute(Attributes.MAX_HEALTH);
         if(instance != null) {
-            instance.removeModifier(HEALTH_UUID);
-            instance.addTransientModifier(new AttributeModifier(HEALTH_UUID,"eots_health_multiplayer", extra*15.0F, AttributeModifier.Operation.ADDITION));
+            instance.removeModifier(getBonusHealth(extra));
+            instance.addTransientModifier(getBonusHealth(extra));
             oldSegment.setHealth(this.getMaxHealth());
         }
 
@@ -371,7 +376,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void startSeenByPlayer(@NotNull ServerPlayer player) {
         super.startSeenByPlayer(player);
-        PacketRelay.sendToPlayer(new BossInfoPacket.Display(this.bossFight.getId(), this.getId()), player);
+        PacketDistributor.sendToPlayer(player, new BossInfoPacket.Display(this.bossFight.getId(), this.getId()));
         if (this.getDungeon() == null || this.getDungeon().isPlayerTracked(player)) {
             this.bossFight.addPlayer(player);
             AetherEventDispatch.onBossFightPlayerAdd(this, this.getDungeon(), player);
@@ -381,7 +386,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void stopSeenByPlayer(@NotNull ServerPlayer player) {
         super.stopSeenByPlayer(player);
-        PacketRelay.sendToPlayer(new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()), player);
+        PacketDistributor.sendToPlayer(player, new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
         this.bossFight.removePlayer(player);
         AetherEventDispatch.onBossFightPlayerRemove(this, this.getDungeon(), player);
     }
@@ -492,6 +497,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
      */
 
+    @Override
     protected SoundEvent getDeathSound() {
         return null;
     }
@@ -561,14 +567,14 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void addAdditionalSaveData(@NotNull CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        this.addBossSaveData(tag);
+        this.addBossSaveData(tag, this.registryAccess());
         tag.putBoolean("Awake", this.isAwake());
     }
 
     @Override
     public void readAdditionalSaveData(@NotNull CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        this.readBossSaveData(tag);
+        this.readBossSaveData(tag, this.registryAccess());
         if (tag.contains("Awake")) {
             this.setAwake(tag.getBoolean("Awake"));
         }
@@ -576,17 +582,17 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     }
 
     @Override
-    public void writeSpawnData(FriendlyByteBuf buffer) {
+    public void writeSpawnData(RegistryFriendlyByteBuf buffer) {
         CompoundTag tag = new CompoundTag();
-        this.addBossSaveData(tag);
+        this.addBossSaveData(tag, this.registryAccess());
         buffer.writeNbt(tag);
     }
 
     @Override
-    public void readSpawnData(FriendlyByteBuf additionalData) {
+    public void readSpawnData(RegistryFriendlyByteBuf additionalData) {
         CompoundTag tag = additionalData.readNbt();
         if (tag != null) {
-            this.readBossSaveData(tag);
+            this.readBossSaveData(tag, this.registryAccess());
         }
 
     }

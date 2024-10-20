@@ -8,8 +8,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 public class StratusShovelItem extends ShovelItem implements GravititeTool {
-    public StratusShovelItem(Tier p_43114_, float p_43115_, float p_43116_, Properties p_43117_) {
-        super(p_43114_, p_43115_, p_43116_, p_43117_);
+    public StratusShovelItem(Tier p_43114_, Properties p_43117_) {
+        super(p_43114_, p_43117_);
     }
 
     @Override

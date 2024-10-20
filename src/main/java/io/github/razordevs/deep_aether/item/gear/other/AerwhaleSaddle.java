@@ -42,9 +42,9 @@ public class AerwhaleSaddle extends Item implements FlawlessDrop {
 
     int i = 0;
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag tooltipFlag) {
-        flawlessComponent(components, i);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        flawlessComponent(tooltipComponents, i);
         i = i < 80 ? i + 1 : 0;
-        super.appendHoverText(itemStack, level, components, tooltipFlag);
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

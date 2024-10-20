@@ -3,7 +3,7 @@ package io.github.razordevs.deep_aether.datagen.strucutre;
 import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -25,7 +25,7 @@ public class DAStrucutreSets {
      * Warning for "deprecation" is suppressed because using {@link StructurePlacement.ExclusionZone} is necessary.
      */
     @SuppressWarnings("deprecation")
-    public static void bootstrap(BootstapContext<StructureSet> context) {
+    public static void bootstrap(BootstrapContext<StructureSet> context) {
         HolderGetter<Structure> structures = context.lookup(Registries.STRUCTURE);
 
         context.register(BRASS_DUNGEON, new StructureSet(List.of(

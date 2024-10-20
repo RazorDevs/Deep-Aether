@@ -10,29 +10,24 @@ import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.entity.MoaBonusJump;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DAMobEffects;
-import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
+import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.*;
 
@@ -101,7 +96,7 @@ public class DAGeneralEvents {
             }
         }
     }
-
+/*
     @SubscribeEvent
     public static void onShieldBlock(ShieldBlockEvent event) {
         var blocker = event.getEntity();
@@ -118,11 +113,11 @@ public class DAGeneralEvents {
             }
         }
     }
-
+*/
     @SubscribeEvent
     public static void onEffectRemoved(MobEffectEvent.Remove effectEvent) {
         LivingEntity entity = effectEvent.getEntity();
-        MobEffect effect = effectEvent.getEffect();
+        MobEffect effect = effectEvent.getEffect().value();
         if (entity instanceof Moa moa && effect.equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
             MoaBonusJump moaBonusJump = (MoaBonusJump) moa;
             moaBonusJump.deep_Aether$setBonusJumps(0);
@@ -131,14 +126,14 @@ public class DAGeneralEvents {
 
 
     @SubscribeEvent
-    public static void applyValkyrieValorRes(LivingDamageEvent event) {
+    public static void applyValkyrieValorRes(LivingDamageEvent.Pre event) {
         if (event.getSource().getEntity() instanceof LivingEntity undead) {
-            if (event.getEntity().hasEffect(DAMobEffects.VALKYRIE_VALOR.get()) && !event.getSource().is(DamageTypeTags.BYPASSES_RESISTANCE) && undead.getMobType() == MobType.UNDEAD) {
+            if (event.getEntity().hasEffect(DAMobEffects.VALKYRIE_VALOR) && !event.getSource().is(DamageTypeTags.BYPASSES_RESISTANCE) && undead.getType().is(EntityTypeTags.UNDEAD)) {
                 int j = 10;
-                float f = event.getAmount() * (float) j;
-                float f1 = event.getAmount();
-                event.setAmount(Math.max(f / 25.0F, 0.0F));
-                float f2 = f1 - event.getAmount();
+                float f = event.getNewDamage() * (float) j;
+                float f1 = event.getNewDamage();
+                event.setNewDamage(Math.max(f / 25.0F, 0.0F));
+                float f2 = f1 - event.getNewDamage();
                 if (f2 > 0.0F && f2 < 3.4028235E37F) {
                     if (event.getEntity() instanceof ServerPlayer player) {
                         player.awardStat(Stats.CUSTOM.get(Stats.DAMAGE_RESISTED), Math.round(f2 * 10.0F));
@@ -158,12 +153,12 @@ public class DAGeneralEvents {
     public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
 
     @SubscribeEvent
-    public static void onLivingEntityHurt(LivingHurtEvent event) {
+    public static void onLivingEntityHurt(LivingDamageEvent.Pre event) {
         if (event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
             player.setData(DAAttachments.PLAYER_BOSS_FIGHT, true);
         }
         if (event.getSource().getDirectEntity() != null && event.getSource().getDirectEntity() instanceof LivingEntity target) {
-            if (EquipmentUtil.hasFullStormsteelSet(event.getEntity())) {
+            if (DAEquipmentUtil.hasFullStormsteelSet(event.getEntity())) {
                 target.knockback(0.5F, event.getEntity().getX() - target.getX(), event.getEntity().getZ() - target.getZ());
                 if (target instanceof ServerPlayer serverPlayer) {
                     serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
@@ -176,11 +171,11 @@ public class DAGeneralEvents {
     public static void onEquip(LivingEquipmentChangeEvent event) {
         if(event.getEntity() instanceof Player player) {
             DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
-            boolean skyjade = EquipmentUtil.hasFullSkyjadeSet(player);
+            boolean skyjade = DAEquipmentUtil.hasFullSkyjadeSet(player);
             boolean enabled = attachment.isSkyjadeAbilityActivated();
             attachment.setSynched(player.getId(), INBTSynchable.Direction.CLIENT, "hasSkyjadeSet", skyjade);
 
-            EquipmentUtil.updateSkyjadeBehavior(player, skyjade && enabled);
+            DAEquipmentUtil.updateSkyjadeBehavior(player, skyjade && enabled);
         }
     }
 
@@ -191,7 +186,7 @@ public class DAGeneralEvents {
             if(living instanceof Player player) {
                 enabled = player.getData(DAAttachments.PLAYER).isSkyjadeAbilityActivated();
             }
-            if(enabled && EquipmentUtil.hasFullSkyjadeSet(living))
+            if(enabled && DAEquipmentUtil.hasFullSkyjadeSet(living))
                 event.modifyVisibility(event.getVisibilityModifier() * 0.5F);
         }
     }

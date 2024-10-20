@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.advancement;
 
+import io.github.razordevs.deep_aether.DeepAether;
 import net.minecraft.advancements.CriterionTrigger;
 import net.minecraft.advancements.critereon.KilledTrigger;
 import net.minecraft.core.registries.Registries;

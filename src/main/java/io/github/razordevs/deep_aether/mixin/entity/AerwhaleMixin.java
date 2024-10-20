@@ -12,6 +12,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -29,6 +30,7 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -267,10 +269,12 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        this.addChestVehicleSaveData(tag);
+        this.addChestVehicleSaveData(tag, this.registryAccess());
         tag.putBoolean("isSaddled", isSaddled());
         tag.putBoolean("isStill", deep_Aether$isStill());
     }
+
+
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
@@ -291,7 +295,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
     private NonNullList<ItemStack> deep_Aether$itemStacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
     @Unique
     @Nullable
-    private ResourceLocation deep_Aether$lootTable;
+    private ResourceKey<LootTable> deep_Aether$lootTable;
     @Unique
     private long deep_Aether$lootTableSeed;
 
@@ -389,7 +393,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
         return this.getChestVehicleSlot(a);
     }
 
-    public void setLootTable(@Nullable ResourceLocation lootTable) {
+    public void setLootTable(@Nullable ResourceKey<LootTable> lootTable) {
         this.deep_Aether$lootTable = lootTable;
     }
 
@@ -402,7 +406,7 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
     }
 
     @Override
-    public ResourceLocation getLootTable() {
+    public ResourceKey<LootTable> getLootTable() {
         return this.deep_Aether$lootTable;
     }
 

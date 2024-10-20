@@ -27,7 +27,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -51,10 +51,9 @@ public class Quail extends SittingAetherAnimal {
 
 
     // Initialization
-
     public Quail(EntityType<? extends Quail> type, Level world) {
         super(type, world);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, 0.0F);
     }
 
     protected void registerGoals() {
@@ -75,13 +74,11 @@ public class Quail extends SittingAetherAnimal {
                 .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
-
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor levelAccessor, DifficultyInstance difficultyInstance,
-                                        MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData,
-                                        @Nullable CompoundTag compoundTag) {
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor levelAccessor, DifficultyInstance difficultyInstance, MobSpawnType spawnType, SpawnGroupData spawnGroupData) {
         QuailVariants variant = Util.getRandom(QuailVariants.values(), this.random);
         setVariant(variant);
-        return super.finalizeSpawn(levelAccessor, difficultyInstance, spawnType, spawnGroupData, compoundTag);
+        return super.finalizeSpawn(levelAccessor, difficultyInstance, spawnType, spawnGroupData);
     }
 
 
@@ -125,9 +122,13 @@ public class Quail extends SittingAetherAnimal {
         return FOOD_ITEMS.test(pStack);
     }
 
+    private static final EntityDimensions BABY_DIMENSIONS = EntityType.CHICKEN.getDimensions().scale(0.5F).withEyeHeight(0.5F);
+    private static final EntityDimensions DIMENSIONS = EntityType.CHICKEN.getDimensions().withEyeHeight(0.8F);
 
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.5F : entityDimensions.height * 0.8F;
+
+    @Override
+    public EntityDimensions getDefaultDimensions(Pose pose) {
+        return this.isBaby() ? BABY_DIMENSIONS : DIMENSIONS;
     }
 
     protected boolean isFlapping() {
@@ -155,20 +156,17 @@ public class Quail extends SittingAetherAnimal {
     }
 
     @Override
-    protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
-        float f = Mth.sin(this.yBodyRot * ((float)Math.PI / 180F));
-        float f1 = Mth.cos(this.yBodyRot * ((float)Math.PI / 180F));
-        entity.setPos(this.getX() + (double)(0.1F * f), this.getY(0.5D) + entity.getMyRidingOffset(entity) + 0.0D, this.getZ() - (double)(0.1F * f1));
-        if (entity instanceof LivingEntity) {
-            ((LivingEntity)entity).yBodyRot = this.yBodyRot;
+    protected void positionRider(Entity passenger, Entity.MoveFunction moveFunction) {
+        super.positionRider(passenger, moveFunction);
+        if (passenger instanceof LivingEntity) {
+            ((LivingEntity)passenger).yBodyRot = this.yBodyRot;
         }
     }
 
-    // Data handling
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_ID_TYPE_VARIANT, 0);
     }
 
     @Override

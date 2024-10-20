@@ -29,9 +29,9 @@ public abstract class SittingAetherAnimal extends AetherAnimal {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_SITTING_ID, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_SITTING_ID, false);
     }
 
     @Override

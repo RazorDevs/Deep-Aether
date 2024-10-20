@@ -6,7 +6,7 @@ import io.github.razordevs.deep_aether.init.DABlocks;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.ToolAction;
+import net.neoforged.neoforge.common.ItemAbility;
 import org.jetbrains.annotations.Nullable;
 
 public class DALogBlock extends AetherLogBlock {
@@ -17,7 +17,7 @@ public class DALogBlock extends AetherLogBlock {
 
     @Nullable
     @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ItemAbility toolAction, boolean simulate) {
         if(context.getItemInHand().getItem() instanceof AxeItem) {
             if(state.is(DABlocks.ROSEROOT_LOG.get())) {
                 return DABlocks.STRIPPED_ROSEROOT_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));

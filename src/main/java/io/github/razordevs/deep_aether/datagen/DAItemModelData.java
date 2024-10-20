@@ -327,11 +327,11 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         //Skyjade set
         this.item(DAItems.SKYJADE.get());
-        this.handheldItem(DAItems.SKYJADE_TOOLS_SWORD.get());
-        this.handheldItem(DAItems.SKYJADE_TOOLS_AXE.get());
-        this.handheldItem(DAItems.SKYJADE_TOOLS_PICKAXE.get());
-        this.handheldItem(DAItems.SKYJADE_TOOLS_SHOVEL.get());
-        this.handheldItem(DAItems.SKYJADE_TOOLS_HOE.get());
+        this.handHeld(DAItems.SKYJADE_TOOLS_SWORD.get());
+        this.handHeld(DAItems.SKYJADE_TOOLS_AXE.get());
+        this.handHeld(DAItems.SKYJADE_TOOLS_PICKAXE.get());
+        this.handHeld(DAItems.SKYJADE_TOOLS_SHOVEL.get());
+        this.handHeld(DAItems.SKYJADE_TOOLS_HOE.get());
 
         this.bootsItem(DAItems.SKYJADE_BOOTS.get());
         this.leggingsItem(DAItems.SKYJADE_LEGGINGS.get());
@@ -339,15 +339,15 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.helmetItem(DAItems.SKYJADE_HELMET.get());
         this.glovesItem(DAItems.SKYJADE_GLOVES.get());
         this.item(DAItems.SKYJADE_RING.get());
-        this.item(DAItems.SKYJADE_MOA_ARMOR.get());
+        //this.item(DAItems.SKYJADE_MOA_ARMOR.get());
 
         //Stratus set
         this.item(DAItems.STRATUS_INGOT.get());
-        this.handheldItem(DAItems.STRATUS_SWORD.get());
-        this.handheldItem(DAItems.STRATUS_AXE.get());
-        this.handheldItem(DAItems.STRATUS_PICKAXE.get());
-        this.handheldItem(DAItems.STRATUS_SHOVEL.get());
-        this.handheldItem(DAItems.STRATUS_HOE.get());
+        this.handHeld(DAItems.STRATUS_SWORD.get());
+        this.handHeld(DAItems.STRATUS_AXE.get());
+        this.handHeld(DAItems.STRATUS_PICKAXE.get());
+        this.handHeld(DAItems.STRATUS_SHOVEL.get());
+        this.handHeld(DAItems.STRATUS_HOE.get());
 
         this.bootsItem(DAItems.STRATUS_BOOTS.get());
         this.leggingsItem(DAItems.STRATUS_LEGGINGS.get());
@@ -367,7 +367,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         //Brass loot
         this.bowItem(DAItems.STORM_BOW.get());
-        this.handheldItem(DAItems.STORM_SWORD.get());
+        this.handHeld(DAItems.STORM_SWORD.get());
         this.item(DAItems.AERCLOUD_NECKLACE.get());
         this.translucentItem(DAItems.CLOUD_CAPE.get());
 
@@ -448,13 +448,13 @@ public class DAItemModelData extends AetherItemModelProvider {
 
     public void translucentItem(Item item) {
         this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
-                .renderType(ResourceLocation.fromNamespaceAndPath("translucent"))
+                .renderType(ResourceLocation.withDefaultNamespace("translucent"))
                 .texture("layer0", modLoc("item/" + this.itemName(item)));
 
 
     }
 
-    public void handheldItem(Item item) {
+    public void handHeld(Item item) {
         this.withExistingParent(this.itemName(item), this.mcLoc("item/handheld"))
                 .texture("layer0", this.modLoc("item/"  + this.itemName(item)));
     }
@@ -549,7 +549,7 @@ public class DAItemModelData extends AetherItemModelProvider {
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
             this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", this.mcLoc("trims/items/" + type + "_trim_" + material));
-            builder.override().predicate(ResourceLocation.fromNamespaceAndPath("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
+            builder.override().predicate(ResourceLocation.withDefaultNamespace("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
 
     }
@@ -564,7 +564,7 @@ public class DAItemModelData extends AetherItemModelProvider {
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
             this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", ResourceLocation.fromNamespaceAndPath(Aether.MODID,"trims/items/gloves_trim_" + material));
-            builder.override().predicate(ResourceLocation.fromNamespaceAndPath("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
+            builder.override().predicate(ResourceLocation.withDefaultNamespace("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
     }
     public void bowItem(Item item) {
@@ -573,9 +573,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.withExistingParent(this.itemName(item) + "_pulling_2", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_2"));
         this.withExistingParent(this.itemName(item), this.mcLoc("item/bow"))
                 .texture("layer0", this.modLoc("item/" + this.itemName(item)))
-                .override().predicate(ResourceLocation.fromNamespaceAndPath("pulling"), 1).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0"))).end()
-                .override().predicate(ResourceLocation.fromNamespaceAndPath("pulling"), 1).predicate(ResourceLocation.fromNamespaceAndPath("pull"), 0.65F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1"))).end()
-                .override().predicate(ResourceLocation.fromNamespaceAndPath("pulling"), 1).predicate(ResourceLocation.fromNamespaceAndPath("pull"), 0.9F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2"))).end();
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0"))).end()
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(ResourceLocation.withDefaultNamespace("pull"), 0.65F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1"))).end()
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(ResourceLocation.withDefaultNamespace("pull"), 0.9F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2"))).end();
     }
 
 

@@ -17,7 +17,7 @@ public class AersmogBlock extends AercloudBlock {
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 250, 0, false, false));
+            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION, 250, 0, false, false));
         }
         super.entityInside(state, level, pos, entity);
     }

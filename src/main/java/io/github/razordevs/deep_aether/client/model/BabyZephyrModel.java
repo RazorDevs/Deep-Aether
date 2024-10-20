@@ -41,9 +41,9 @@ public class BabyZephyrModel extends EntityModel<BabyZephyr> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
         poseStack.scale(0.3F, 0.3F, 0.3F);
         poseStack.translate(0.0F, 1.667F, 0.0F);
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
     }
 }

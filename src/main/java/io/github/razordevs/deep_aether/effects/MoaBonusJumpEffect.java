@@ -19,9 +19,4 @@ public class MoaBonusJumpEffect extends MobEffect {
     public MoaBonusJumpEffect() {
         super(MobEffectCategory.BENEFICIAL, 5031241);
     }
-
-    @Override
-    public void applyEffectTick(@NotNull LivingEntity livingEntity, int amplifier) {
-
-    }
 }

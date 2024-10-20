@@ -177,7 +177,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .group("deep_aether:antidote")
                 .define('I', DAItems.BIO_CRYSTAL.get())
                 .define('G', DAItems.FROZEN_GOLDEN_BERRIES.get())
-                .define('#', Tags.Items.GLASS_COLORLESS)
+                .define('#', Tags.Items.GLASS_BLOCKS_COLORLESS)
                 .pattern("##")
                 .pattern("IG")
                 .pattern("##")

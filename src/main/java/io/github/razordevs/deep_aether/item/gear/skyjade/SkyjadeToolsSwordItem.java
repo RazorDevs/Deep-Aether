@@ -7,15 +7,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class SkyjadeToolsSwordItem extends SwordItem {
 	public SkyjadeToolsSwordItem() {
-		super(DATiers.SKYJADE, 3, -3f, new Properties());
+		super(DATiers.SKYJADE, new Properties().attributes(SwordItem.createAttributes(DATiers.SKYJADE, 3, -3f)));
 	}
 
 	@Override
-	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, Player player) {
+	public boolean canAttackBlock(BlockState state, Level level, BlockPos pos, Player player) {
 		((DisableSound) player.level().getBlockState(pos).getBlock()).deep_Aether$disableSound(true);
-		return false;
+		return super.canAttackBlock(state, level, pos, player);
 	}
 }

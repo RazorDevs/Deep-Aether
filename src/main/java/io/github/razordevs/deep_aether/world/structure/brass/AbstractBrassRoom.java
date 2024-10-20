@@ -6,6 +6,7 @@ import io.github.razordevs.deep_aether.datagen.loot.DALoot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.function.Function;
 
@@ -50,7 +52,7 @@ public abstract class AbstractBrassRoom extends BrassDungeonPiece {
         }
     }
 
-    protected void createChestLoot(ServerLevelAccessor level, BlockPos pos, RandomSource random, ResourceLocation lootTable) {
+    protected void createChestLoot(ServerLevelAccessor level, BlockPos pos, RandomSource random, ResourceKey<LootTable> lootTable) {
         BlockPos chest = pos.below();
         BlockEntity entity = level.getBlockEntity(chest);
 

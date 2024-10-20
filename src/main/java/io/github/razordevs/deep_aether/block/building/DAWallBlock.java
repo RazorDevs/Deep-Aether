@@ -50,9 +50,4 @@ public class DAWallBlock extends WallBlock {
 
         return super.getToolModifiedState(state, context, itemAbility, simulate);
     }
-
-    @Nullable
-    @Override
-    public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
-
 }

@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.datagen.loot.modifiers;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.util.RandomSource;
@@ -21,7 +22,7 @@ import java.util.function.Supplier;
  */
 public class DAAddDungeonLootModifier extends LootModifier {
 
-    public static final Supplier<Codec<DAAddDungeonLootModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst)
+    public static final Supplier<MapCodec<DAAddDungeonLootModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst -> codecStart(inst)
             .and(WeightedEntry.Wrapper.codec(ItemStack.CODEC).listOf().fieldOf("items").forGetter(m -> m.items))
             .and(Codec.INT.fieldOf("totalWeight").forGetter(m -> m.totalWeight))
             .and(Codec.FLOAT.fieldOf("chanceToSpawn").forGetter(m -> m.chance))
@@ -33,7 +34,7 @@ public class DAAddDungeonLootModifier extends LootModifier {
 
     public DAAddDungeonLootModifier(final LootItemCondition[] conditionsIn, List<WeightedEntry.Wrapper<ItemStack>> items, int totalWeight, float chance) {
         super(conditionsIn);
-        this.items = items.stream().map(wrapper -> WeightedEntry.wrap(wrapper.getData().copy(), wrapper.getWeight().asInt())).toList();
+        this.items = items.stream().map(wrapper -> WeightedEntry.wrap(wrapper.data().copy(), wrapper.getWeight().asInt())).toList();
         this.totalWeight = totalWeight;
         this.chance = chance;
     }
@@ -46,7 +47,7 @@ public class DAAddDungeonLootModifier extends LootModifier {
 
                 for (WeightedEntry.Wrapper<ItemStack> stack : items) {
                     if (random.nextInt(totalWeight) <= stack.getWeight().asInt()) {
-                        generatedLoot.add(stack.getData());
+                        generatedLoot.add(stack.data());
                     }
                 }
 
@@ -55,7 +56,7 @@ public class DAAddDungeonLootModifier extends LootModifier {
     }
 
     @Override
-    public Codec<? extends IGlobalLootModifier> codec() {
+    public MapCodec<? extends IGlobalLootModifier> codec() {
         return CODEC.get();
     }
 }

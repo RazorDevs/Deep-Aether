@@ -14,6 +14,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nonnull;
@@ -301,12 +302,12 @@ public class DAItemTagData extends ItemTagsProvider {
         );
 
 
-        tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
+        /*tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
-        );
+        );*/
 
-        tag(ItemTags.MUSIC_DISCS).add(
+        tag(Tags.Items.MUSIC_DISCS).add(
                 DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
                 DAItems.MUSIC_DISC_NABOORU.get()
         );
@@ -347,7 +348,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_GLOVES.get()
         );
 
-        tag(AetherTags.Items.AETHER_CAPE).add(
+        tag(AetherTags.Items.ACCESSORIES_CAPES).add(
                 DAItems.CLOUD_CAPE.get()
         );
 

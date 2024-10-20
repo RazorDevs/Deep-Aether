@@ -2,16 +2,20 @@ package io.github.razordevs.deep_aether.datagen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherItems;
+import io.github.razordevs.deep_aether.datagen.DAEnchantments;
 import io.github.razordevs.deep_aether.init.DABlocks;
-import io.github.razordevs.deep_aether.init.DAEnchantments;
 import io.github.razordevs.deep_aether.init.DAItems;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootTableReference;
+import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
 import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -19,14 +23,16 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
 
-public class DAChestLoot implements LootTableSubProvider {
+public record DAChestLoot(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
-    public void generate(BiConsumer<ResourceLocation, LootTable.Builder> builder) {
+    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> builder) {
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+
         builder.accept(DALoot.BRASS_DUNGEON, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 1.0F))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_LOOT).setWeight(8))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_DISC).setWeight(1))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_TRASH).setWeight(1))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_LOOT).setWeight(8))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_DISC).setWeight(1))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_TRASH).setWeight(1))
                 )
         );
         builder.accept(DALoot.BRASS_DUNGEON_LOOT, LootTable.lootTable()
@@ -91,13 +97,13 @@ public class DAChestLoot implements LootTableSubProvider {
         );
         builder.accept(DALoot.BRASS_DUNGEON_REWARD, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 1.0F))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_STORM_FORGED).setWeight(1))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_STORM_FORGED).setWeight(1))
                 )
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 1.0F))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_TREASURE).setWeight(1))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_TREASURE).setWeight(1))
                 )
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 2.0F))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_GUMMIES).setWeight(1))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_GUMMIES).setWeight(1))
                 )
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(3.0F, 5.0F))
                         .add(LootItem.lootTableItem(DAItems.SKYJADE_HELMET.get()).setWeight(2))
@@ -116,7 +122,7 @@ public class DAChestLoot implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(AetherBlocks.COLD_AERCLOUD.get()).setWeight(3))
                         //.add(LootItem.lootTableItem(AetherItems.VALKYRIE_LANCE.get()).setWeight(1))
                         //.add(LootItem.lootTableItem(AetherItems.HAMMER_OF_KINGBDOGZ.get()).setWeight(1))
-                        .add(LootTableReference.lootTableReference(DALoot.BRASS_DUNGEON_STORM_FORGED).setWeight(10))
+                        .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_STORM_FORGED).setWeight(10))
                         //.add(LootItem.lootTableItem(AetherItems.SENTRY_BOOTS.get()).setWeight(1))
                         .add(LootItem.lootTableItem(DABlocks.NIMBUS_STONE.get()).setWeight(1))
                         .add(LootItem.lootTableItem(DABlocks.NIMBUS_PILLAR.get()).setWeight(1))
@@ -134,7 +140,7 @@ public class DAChestLoot implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(DAItems.CLOUD_CAPE.get()).setWeight(3))
                         .add(LootItem.lootTableItem(DAItems.AERCLOUD_NECKLACE.get()).setWeight(3))
                         .add(LootItem.lootTableItem(Items.BOOK).setWeight(3)
-                                .apply(new EnchantRandomlyFunction.Builder().withEnchantment(DAEnchantments.GLOVES_REACH.get()))
+                                .apply(new EnchantRandomlyFunction.Builder().withEnchantment(registrylookup.getOrThrow(DAEnchantments.GLOVES_REACH)))
                         )
 
                 )
@@ -145,7 +151,7 @@ public class DAChestLoot implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(DAItems.STORMFORGED_CHESTPLATE.get()).setWeight(1))
                         .add(LootItem.lootTableItem(DAItems.STORMFORGED_LEGGINGS.get()).setWeight(1))
                         .add(LootItem.lootTableItem(DAItems.STORMFORGED_BOOTS.get()).setWeight(1))
-                        .add(LootItem.lootTableItem(DAItems.STORMFORGED_GLOVES.get()).setWeight(1))
+                        //.add(LootItem.lootTableItem(DAItems.STORMFORGED_GLOVES.get()).setWeight(1))
                 )
         );
         builder.accept(DALoot.BRASS_DUNGEON_GUMMIES, LootTable.lootTable()

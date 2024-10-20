@@ -1,13 +1,17 @@
 package io.github.razordevs.deep_aether.item.gear.other;
 
+import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import io.github.razordevs.deep_aether.client.keys.DeepAetherKeys;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DASounds;
-import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
+import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
+import io.wispforest.accessories.api.slot.SlotReference;
+import io.wispforest.accessories.api.slot.SlotType;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
@@ -20,18 +24,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
-import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public class SliderEye extends RingItem implements FlawlessDrop {
 
-    public SliderEye(Supplier<? extends SoundEvent> ringSound, Properties properties) {
+    public SliderEye(Holder<SoundEvent> ringSound, Properties properties) {
         super(ringSound, properties);
     }
 
@@ -39,12 +41,12 @@ public class SliderEye extends RingItem implements FlawlessDrop {
     private TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
         return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
     }
+
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
+    public void tick(ItemStack stack, SlotReference reference) {
+        Level level = reference.entity().level();
 
-        Level level = slotContext.entity().level();
-
-        if ((slotContext.entity() instanceof Player player)) {
+        if ((reference.entity() instanceof Player player)) {
             if(level.isClientSide()) {
                 HandleClient(player, stack, level);
             }
@@ -75,7 +77,7 @@ public class SliderEye extends RingItem implements FlawlessDrop {
                 AABB aabb = new AABB(player.position().add(-3,-1,-3), player.position().add(3,4,3));
 
                 List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
-                float knockback = EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+                float knockback = EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
 
 
                 //Pushes all entities within range
@@ -99,7 +101,7 @@ public class SliderEye extends RingItem implements FlawlessDrop {
     private void HandleClient(Player player, ItemStack stack, Level level) {
         if (mayUse(stack, player)) {
             if(!player.isCreative())
-                player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getCurios(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
+                player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
             player.setDeltaMovement(0F, 0F, 0F);
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
@@ -122,7 +124,7 @@ public class SliderEye extends RingItem implements FlawlessDrop {
 
             if (player.onGround()) {
                 maxFallTime = 0;
-                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS);
+                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.PLAYERS);
 
                 //Adds explosion
                 level.addParticle(ParticleTypes.EXPLOSION_EMITTER, player.getX(), player.getY(), player.getZ(), 1.0D, 0.0D, 0.0D);
@@ -135,15 +137,15 @@ public class SliderEye extends RingItem implements FlawlessDrop {
     }
 
     @Override
-    public int getUseDuration(@NotNull ItemStack stack) {
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 200;
     }
 
     int i = 0;
+
     @Override
-    public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
-        flawlessComponent(tagTooltips, i);
+    public void getAttributesTooltip(ItemStack stack, SlotType type, List<Component> tooltips, TooltipContext tooltipContext, TooltipFlag tooltipType) {
+        flawlessComponent(tooltips, i);
         i = i < 80 ? i + 1 : 0;
-        return super.getAttributesTooltip(tagTooltips, stack);
     }
 }

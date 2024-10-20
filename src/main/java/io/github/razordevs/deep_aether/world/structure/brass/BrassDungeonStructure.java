@@ -4,6 +4,7 @@ import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.world.structurepiece.LargeAercloudChunk;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.razordevs.deep_aether.world.structure.DAStructureTypes;
 import net.minecraft.core.BlockPos;
@@ -24,7 +25,7 @@ import java.util.*;
 //TODO: ADD ENTRANCE
 
 public class BrassDungeonStructure extends Structure {
-    public static final Codec<BrassDungeonStructure> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+    public static final MapCodec<BrassDungeonStructure> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
             settingsCodec(builder),
             Codec.INT.fieldOf("minY").forGetter(o -> o.minY),
             Codec.INT.fieldOf("rangeY").forGetter(o -> o.rangeY)

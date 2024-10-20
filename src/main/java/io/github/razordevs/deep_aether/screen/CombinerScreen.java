@@ -2,12 +2,14 @@ package io.github.razordevs.deep_aether.screen;
 
 import com.aetherteam.aether.client.gui.screen.inventory.AbstractRecipeBookScreen;
 import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.recipe.combiner.CombinderRecipeInput;
+import io.github.razordevs.deep_aether.recipe.combiner.CombinerRecipe;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> {
+public class CombinerScreen extends AbstractRecipeBookScreen<CombinderRecipeInput, CombinerRecipe, CombinerMenu, CombinerRecipeBookComponent> {
     //TODO: Make RecipeBook recipes work
 
     private static final ResourceLocation TEXTURE =

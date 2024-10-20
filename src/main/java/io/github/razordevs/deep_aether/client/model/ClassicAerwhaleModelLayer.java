@@ -24,7 +24,7 @@ public class ClassicAerwhaleModelLayer extends RenderLayer<Aerwhale, EntityModel
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Aerwhale aerwhale, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (((AerwhaleSaddleable) aerwhale).isSaddled() && !aerwhale.isInvisible()) {
             VertexConsumer consumer = buffer.getBuffer(SADDLED_AERWHALE_CLASSIC);
-            this.getParentModel().renderToBuffer(poseStack, consumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.getParentModel().renderToBuffer(poseStack, consumer, packedLight, OverlayTexture.NO_OVERLAY);
         }
     }
 }

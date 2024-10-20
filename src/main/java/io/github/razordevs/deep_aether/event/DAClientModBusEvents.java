@@ -6,8 +6,15 @@ import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.client.renderer.curios.SkyjadeGlovesRenderer;
-import io.github.razordevs.deep_aether.item.compat.lost_content.AddonItemModelPredicates;
+import io.github.razordevs.deep_aether.custom.EOTSExplosionParticle;
+import io.github.razordevs.deep_aether.custom.EOTSPreFightParticle;
+import io.github.razordevs.deep_aether.custom.MysticalParticle;
+import io.github.razordevs.deep_aether.custom.PoisonBubbles;
+import io.github.razordevs.deep_aether.init.*;
+import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
+import io.github.razordevs.deep_aether.item.component.DungeonTracker;
 import io.github.razordevs.deep_aether.screen.CombinerScreen;
+import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.CherryParticle;
 import net.minecraft.client.renderer.BiomeColors;
@@ -19,7 +26,7 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -35,15 +42,12 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.jetbrains.annotations.NotNull;
-import teamrazor.deepaether.init.*;
-import teamrazor.deepaether.particle.custom.*;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 import javax.annotation.Nullable;
 
@@ -69,7 +73,8 @@ public class DAClientModBusEvents {
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
 
-        LoreBookMenu.addLoreEntryOverride(stack -> stack.is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
+        LoreBookMenu.addLoreEntryOverride(registryAccess -> stack -> stack
+                .is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
 
         event.enqueueWork(() -> {
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);
@@ -78,15 +83,62 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
 
-            if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
+            /*if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 AddonItemModelPredicates.init();
-            }
+            }*/
 
-            clockRotation(DAItems.SUN_CLOCK.get());
+            registerItemModelPredicates();
 
             compassRotation(DAItems.BRONZE_COMPASS.get());
             compassRotation(DAItems.SILVER_COMPASS.get());
             compassRotation(DAItems.GOLD_COMPASS.get());
+        });
+    }
+
+    public static void registerItemModelPredicates() {
+        ItemProperties.register(DAItems.SUN_CLOCK.get(), ResourceLocation.withDefaultNamespace("time"), new ClampedItemPropertyFunction() {
+            private double rotation;
+            private double rota;
+            private long lastUpdateTick;
+
+            @Override
+            public float unclampedCall(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity p_entity, int seed) {
+                Entity entity = (p_entity != null ? p_entity : stack.getEntityRepresentation());
+                if (entity == null) {
+                    return 0.0F;
+                } else {
+                    if (level == null && entity.level() instanceof ClientLevel) {
+                        level = (ClientLevel)entity.level();
+                    }
+
+                    if (level == null) {
+                        return 0.0F;
+                    } else {
+                        double d0;
+                        if (level.dimensionType().natural()) {
+                            d0 = level.getTimeOfDay(1.0F);
+                        } else {
+                            d0 = Math.random();
+                        }
+
+                        d0 = this.wobble(level, d0);
+                        return (float)d0;
+                    }
+                }
+            }
+
+            private double wobble(Level level, double rotation) {
+                if (level.getGameTime() != this.lastUpdateTick) {
+                    this.lastUpdateTick = level.getGameTime();
+                    double d0 = rotation - this.rotation;
+                    d0 = Mth.positiveModulo(d0 + 0.5, 1.0) - 0.5;
+                    this.rota += d0 * 0.1;
+                    this.rota *= 0.9;
+                    this.rotation = Mth.positiveModulo(this.rotation + this.rota, 1.0);
+                }
+
+                return this.rotation;
+            }
         });
     }
 
@@ -113,10 +165,10 @@ public class DAClientModBusEvents {
     }
 
     public static void registerCuriosRenderers() {
-        CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), SkyjadeGlovesRenderer::new);
-        CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
-        CuriosRendererRegistry.register(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
-        CuriosRendererRegistry.register(DAItems.AERCLOUD_NECKLACE.get(), PendantRenderer::new);
+        AccessoriesRendererRegistry.registerRenderer(DAItems.SKYJADE_GLOVES.get(), SkyjadeGlovesRenderer::new);
+        AccessoriesRendererRegistry.registerRenderer(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
+        AccessoriesRendererRegistry.registerRenderer(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
+        AccessoriesRendererRegistry.registerRenderer(DAItems.AERCLOUD_NECKLACE.get(), PendantRenderer::new);
     }
 
     @SubscribeEvent
@@ -139,7 +191,7 @@ public class DAClientModBusEvents {
      *  Method responsible for the needle texture rotation.
      */
     public static void compassRotation(Item item){
-        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("angle"), new ItemPropertyFunction() {
+        ItemProperties.register(item, ResourceLocation.withDefaultNamespace("angle"), new ItemPropertyFunction() {
             @OnlyIn(Dist.CLIENT)
             private double rotation;
             @OnlyIn(Dist.CLIENT)
@@ -159,8 +211,8 @@ public class DAClientModBusEvents {
                     }
 
                     double d0;
-                    StructurePos globalPos = getStructurePos(stack);
-                    if (globalPos != null && clientLevel.dimension().location().equals(globalPos.dimensionLocation())) {
+                    GlobalPos globalPos = getStructurePos(stack);
+                    if (globalPos != null && clientLevel.dimension().equals(globalPos.dimension())) {
                         double d1 = livingExists ? (double) entity.getYRot() : this.getFrameRotation((ItemFrame) entity);
                         d1 = Mth.positiveModulo(d1 / 360.0D, 1.0D);
                         double d2 = this.getSpawnToAngle(entity, globalPos.pos()) / (double) ((float) Math.PI * 2F);
@@ -203,66 +255,16 @@ public class DAClientModBusEvents {
                 return Math.atan2((double) pos.getZ() - entityIn.getZ(), (double) pos.getX() - entityIn.getX());
             }
 
-            public StructurePos getStructurePos(ItemStack stack) {
-                if (stack.hasTag()) {
-                    final CompoundTag tag = stack.getTag();
-                    if (tag != null && tag.contains("deep_aether:structureFound") && tag.getBoolean("deep_aether:structureFound")) {
-                        if (tag.contains("deep_aether:structureLocation")) {
-                            final BlockPos structurePos = BlockPos.of(tag.getLong("deep_aether:structureLocation"));
-                            return new StructurePos(structurePos, ResourceLocation.fromNamespaceAndPath(Aether.MODID, "the_aether"));
+            public GlobalPos getStructurePos(ItemStack stack) {
+                if (stack.has(DADataComponentTypes.DUNGEON_TRACKER)) {
+                    DungeonTracker tracker = stack.get(DADataComponentTypes.DUNGEON_TRACKER);
+                    if (tracker != null && tracker.found()) {
+                        if (tracker.target().isPresent()) {
+                            return tracker.target().get();
                         }
                     }
                 }
                 return null;
-            }
-        });
-    }
-
-    /**
-     *  Method responsible for the clock day/night cycle texture rotation.
-     */
-    public static void clockRotation(Item item){
-        ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath("time"), new ClampedItemPropertyFunction() {
-            private double rotation;
-            private double rota;
-            private long lastUpdateTick;
-
-            public float unclampedCall(ItemStack itemStack, @Nullable ClientLevel clientLevel, @Nullable LivingEntity livingEntity, int i) {
-                Entity entity = livingEntity != null ? livingEntity : itemStack.getEntityRepresentation();
-                if (entity == null) {
-                    return 0.0F;
-                } else {
-                    if (clientLevel == null && entity.level() instanceof ClientLevel) {
-                        clientLevel = (ClientLevel) entity.level();
-                    }
-
-                    if (clientLevel == null) {
-                        return 0.0F;
-                    } else {
-                        double d0;
-                        if (clientLevel.dimensionType().natural()) {
-                            d0 = clientLevel.getTimeOfDay(1.0F);
-                        } else {
-                            d0 = Math.random();
-                        }
-
-                        d0 = this.wobble(clientLevel, d0);
-                        return (float)d0;
-                    }
-                }
-            }
-
-            private double wobble(Level level, double v) {
-                if (level.getGameTime() != this.lastUpdateTick) {
-                    this.lastUpdateTick = level.getGameTime();
-                    double d0 = v - this.rotation;
-                    d0 = Mth.positiveModulo(d0 + 0.5, 1.0) - 0.5;
-                    this.rota += d0 * 0.1;
-                    this.rota *= 0.9;
-                    this.rotation = Mth.positiveModulo(this.rotation + this.rota, 1.0);
-                }
-
-                return this.rotation;
             }
         });
     }

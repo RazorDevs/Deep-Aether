@@ -4,35 +4,37 @@ import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import io.github.razordevs.deep_aether.DeepAether;
-import io.github.razordevs.deep_aether.item.gear.EquipmentUtil;
+import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import io.github.razordevs.deep_aether.mixin.AetherSkyRenderEffectsAccessor;
+import io.wispforest.accessories.api.slot.SlotReference;
+import io.wispforest.accessories.api.slot.SlotType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.function.Supplier;
 
 public class SpookyRing extends RingItem {
-    public static final UUID SPOOKY_RING_UUID = UUID.fromString("48934393-2a67-4bd1-b5bd-88c18538cee1");
 
-    public SpookyRing(Supplier<? extends SoundEvent> ringSound, Properties properties) {
+    public SpookyRing(Holder<SoundEvent> ringSound, Properties properties) {
         super(ringSound, properties);
     }
 
     Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
 
-    private int calculateIncrease(SlotContext context) {
+    private int calculateIncrease(SlotReference context) {
         Level level = context.entity().level();
         int a = (int) level.getDayTime();
         if (level.isNight() && a < 13000) {
@@ -40,40 +42,42 @@ public class SpookyRing extends RingItem {
         } else return 0;
     }
 
-
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        super.curioTick(slotContext, stack);
-        SpookyMoonConditions(slotContext);
-        AttributeModifier attribute = slotContext.entity().getAttribute(Attributes.ATTACK_DAMAGE).getModifier(SPOOKY_RING_UUID);
-        if (attribute != null) {
+    public void tick(ItemStack stack, SlotReference reference) {
+        SpookyMoonConditions(reference);
+        AttributeInstance damage = reference.entity().getAttribute(Attributes.ATTACK_DAMAGE);
+        if(damage != null) {
+            AttributeModifier attribute = damage.getModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Gloves Damage Bonus"));
+            if (attribute != null) {
+                damage.removeModifier(attribute);
+                attributes.put(Attributes.ATTACK_DAMAGE.value(), createSpookyRingAttribute(this.calculateIncrease(reference)));
 
-            slotContext.entity().getAttribute(Attributes.ATTACK_DAMAGE).removeModifier(SPOOKY_RING_UUID);
-            attributes.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(SPOOKY_RING_UUID, "Gloves Damage Bonus", this.calculateIncrease(slotContext), AttributeModifier.Operation.ADDITION));
-
+            } else
+                attributes.put(Attributes.ATTACK_DAMAGE.value(), createSpookyRingAttribute(this.calculateIncrease(reference)));
         }
-        else
-            attributes.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(SPOOKY_RING_UUID, "Gloves Damage Bonus", this.calculateIncrease(slotContext), AttributeModifier.Operation.ADDITION));
-    }
-    @Override
-    public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
-        super.onUnequip(slotContext, newStack, stack);
-        SpookyMoonConditions(slotContext);
     }
 
+    private AttributeModifier createSpookyRingAttribute(double amount) {
+        return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Gloves Damage Bonus"), amount, AttributeModifier.Operation.ADD_VALUE);
+    }
+
+    @Override
+    public void onUnequip(ItemStack stack, SlotReference reference) {
+        super.onUnequip(stack, reference);
+        SpookyMoonConditions(reference);
+    }
 
     //Little easter egg
-    public static void SpookyMoonConditions(SlotContext slotContext) {
-        Level level = slotContext.entity().level();
+    public static void SpookyMoonConditions(SlotReference slotReference) {
+        Level level = slotReference.entity().level();
         if (level.isClientSide()) {
-            LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) & level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : ResourceLocation.fromNamespaceAndPath("textures/environment/moon_phases.png");
-            AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : ResourceLocation.fromNamespaceAndPath("textures/environment/moon_phases.png"));
+            LevelRenderer.MOON_LOCATION = DAEquipmentUtil.hasTwoSpookyRings(slotReference.entity()) & level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : ResourceLocation.withDefaultNamespace("textures/environment/moon_phases.png");
+            AetherSkyRenderEffectsAccessor.setMOON_LOCATION(DAEquipmentUtil.hasTwoSpookyRings(slotReference.entity()) && level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : ResourceLocation.withDefaultNamespace("textures/environment/moon_phases.png"));
         }
     }
 
     @Override
-    public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
-        tagTooltips.add(Component.translatable("gui.deep_aether.spooky_ring").withStyle(ChatFormatting.DARK_RED));
-        return super.getAttributesTooltip(tagTooltips, stack);
+    public void getAttributesTooltip(ItemStack stack, SlotType type, List<Component> tooltips, TooltipContext tooltipContext, TooltipFlag tooltipType) {
+        tooltips.add(Component.translatable("gui.deep_aether.spooky_ring").withStyle(ChatFormatting.DARK_RED));
     }
 }

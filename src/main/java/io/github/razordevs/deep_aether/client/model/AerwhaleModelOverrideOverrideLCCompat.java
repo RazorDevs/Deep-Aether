@@ -1,6 +1,6 @@
 package io.github.razordevs.deep_aether.client.model;
 
-import com.legacy.lost_aether.client.models.AerwhaleModelOverride;
+//import com.legacy.lost_aether.client.models.AerwhaleModelOverride;
 import io.github.razordevs.deep_aether.event.DAClientModBusEvents;
 
 /**

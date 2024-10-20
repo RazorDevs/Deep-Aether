@@ -25,7 +25,7 @@ public class LightCapMushroomBlock extends MushroomBlock {
         else if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
             return true;
         } else {
-            return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, this);
+            return blockstate.canSustainPlant(level, blockpos, net.minecraft.core.Direction.UP, state).isTrue();
         }
     }
 }
