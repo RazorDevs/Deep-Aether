@@ -25,6 +25,7 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
 import teamrazor.deepaether.item.compat.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.compat.lost_content.SkyjadeShieldItem;
+import teamrazor.deepaether.item.dungeon.brass.BladeOfLuckItem;
 import teamrazor.deepaether.item.dungeon.brass.CloudCapeItem;
 import teamrazor.deepaether.item.dungeon.brass.StormBowItem;
 import teamrazor.deepaether.item.dungeon.brass.StormSwordItem;
@@ -99,6 +100,7 @@ public class DAItems {
 
 	public static final DeferredItem<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(new ResourceLocation(DeepAether.MODID, "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties()));
 	public static final DeferredItem<Item> CLOUD_CAPE = ITEMS.register("cloud_cape", () -> new CloudCapeItem(new ResourceLocation(DeepAether.MODID, "cloud_cape"), new Item.Properties()));
+	public static final DeferredItem<Item> BLADE_OF_LUCK = ITEMS.register("blade_of_luck", () -> new BladeOfLuckItem(DATiers.LUCK, 0, -3.5F, (new Item.Properties())));
 
 	// ORES
 	public static final DeferredItem<Item> SKYJADE = ITEMS.register("skyjade", SkyjadeItem::new);

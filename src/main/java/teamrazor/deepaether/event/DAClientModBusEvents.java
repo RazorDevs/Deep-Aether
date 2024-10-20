@@ -18,6 +18,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.decoration.ItemFrame;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
@@ -39,6 +40,8 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.renderer.curios.SkyjadeGlovesRenderer;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.compat.lost_content.AddonItemModelPredicates;
+import teamrazor.deepaether.networking.attachment.DAAttachments;
+import teamrazor.deepaether.networking.attachment.DAPlayerAttachment;
 import teamrazor.deepaether.particle.custom.*;
 import teamrazor.deepaether.screen.CombinerScreen;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -51,7 +54,7 @@ public class DAClientModBusEvents {
     /**
      * See {@link com.legacy.lost_aether.client.LCEntityRendering}
      */
-    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4 (unlikely)
+    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.21+ (unlikely)
     /*
     @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
     public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
@@ -80,12 +83,39 @@ public class DAClientModBusEvents {
                 AddonItemModelPredicates.init();
             }
 
+            registerItemModelPredicates();
+
             clockRotation(DAItems.SUN_CLOCK.get());
 
             compassRotation(DAItems.BRONZE_COMPASS.get());
             compassRotation(DAItems.SILVER_COMPASS.get());
             compassRotation(DAItems.GOLD_COMPASS.get());
         });
+    }
+
+    private static void registerItemModelPredicates() {
+        ItemProperties.register(DAItems.BLADE_OF_LUCK.get(),
+                new ResourceLocation("sword_state"), (stack, world, entity, value) -> {
+                     if(entity instanceof Player player) {
+                         DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
+                         if(attachment.changeBladeOfLuckState) {
+                             if(player.swinging) {
+                                 if (attachment.getOldBladeOfLuckDamage() <= 3)
+                                     return 0.25F;
+                                 else if (attachment.getOldBladeOfLuckDamage() <= 10)
+                                     return 0.5F;
+                                 else if (attachment.getOldBladeOfLuckDamage() <= 15)
+                                     return 0.75F;
+                                 else return 1.0F;
+                             }
+                             else attachment.changeBladeOfLuckState = false;
+                         }
+                         else {
+                             return 0.5F;
+                         }
+                     }
+                     return 0.5F;
+                });
     }
 
     @SubscribeEvent
@@ -97,6 +127,11 @@ public class DAClientModBusEvents {
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(DAParticles.POISON_BUBBLES.get(), PoisonBubbles.Provider::new);
         event.registerSpriteSet(DAParticles.MYTHICAL_PARTICLE.get(), MysticalParticle.Provider::new);
+
+        event.registerSpriteSet(DAParticles.CLOVER_VERY_LUCKY.get(), LuckParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.CLOVER_LUCKY.get(), LuckParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.CLOVER.get(), LuckParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.CLOVER_UNLUCKY.get(), LuckParticle.Provider::new);
 
         event.registerSpriteSet(DAParticles.ROSEROOT_LEAVES.get(), (spriteSet)
                 -> (particleType, level, v, v1, v2, v3, v4, v5)

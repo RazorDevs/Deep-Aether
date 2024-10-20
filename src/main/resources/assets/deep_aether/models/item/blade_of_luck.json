@@ -1,0 +1,12 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "deep_aether:item/blade_of_luck_1"
+  },
+  "overrides": [
+    { "predicate": { "sword_state": 0.25 }, "model": "deep_aether:item/blade_of_luck_0" },
+    { "predicate": { "sword_state": 0.5 }, "model": "deep_aether:item/blade_of_luck_1" },
+    { "predicate": { "sword_state": 0.75 }, "model": "deep_aether:item/blade_of_luck_2" },
+    { "predicate": { "sword_state": 1.0 }, "model": "deep_aether:item/blade_of_luck_3" }
+  ]
+}

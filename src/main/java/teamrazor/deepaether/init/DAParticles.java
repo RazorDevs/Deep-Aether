@@ -27,4 +27,17 @@ public class DAParticles {
 
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> EOTS_PRE_FIGHT = PARTICLE_TYPES.register("eots_pre_fight",
             () -> new SimpleParticleType(true));
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> CLOVER_VERY_LUCKY = PARTICLE_TYPES.register("clover_very_lucky",
+            () -> new SimpleParticleType(true));
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> CLOVER_LUCKY = PARTICLE_TYPES.register("clover_lucky",
+            () -> new SimpleParticleType(true));
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> CLOVER = PARTICLE_TYPES.register("clover",
+            () -> new SimpleParticleType(true));
+
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> CLOVER_UNLUCKY = PARTICLE_TYPES.register("clover_unlucky",
+            () -> new SimpleParticleType(true));
+
 }
