@@ -59,9 +59,9 @@ public abstract class AerwhaleMixin extends FlyingMob implements AerwhaleSaddlea
     private static final EntityDataAccessor<Boolean> DATA_SADDLE_ID = SynchedEntityData.defineId(Aerwhale.class, EntityDataSerializers.BOOLEAN);
 
     @Inject(at = @At("TAIL"), method = "defineSynchedData")
-    protected void defineSynchedData(CallbackInfo ci) {
-        this.getEntityData().set(DATA_SADDLE_ID, false);
-        this.getEntityData().set(DATA_STILL_ID, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder, CallbackInfo ci) {
+        builder.define(DATA_SADDLE_ID, false);
+        builder.define(DATA_STILL_ID, false);
     }
 
     @Unique
