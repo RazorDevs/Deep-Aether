@@ -7,6 +7,8 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.razordevs.deep_aether.world.structure.DAStructureTypes;
+import io.github.razordevs.deep_aether.world.structure.brass.processor.BrassDungeonRoomProcessor;
+import io.github.razordevs.deep_aether.world.structure.brass.processor.BrassProcessorSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -28,16 +30,19 @@ public class BrassDungeonStructure extends Structure {
     public static final MapCodec<BrassDungeonStructure> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
             settingsCodec(builder),
             Codec.INT.fieldOf("minY").forGetter(o -> o.minY),
-            Codec.INT.fieldOf("rangeY").forGetter(o -> o.rangeY)
+            Codec.INT.fieldOf("rangeY").forGetter(o -> o.rangeY),
+            BrassProcessorSettings.CODEC.fieldOf("processor_settings").forGetter(o -> o.processors)
     ).apply(builder, BrassDungeonStructure::new));
 
     private final int minY;
     private final int rangeY;
+    private final BrassProcessorSettings processors;
 
-    public BrassDungeonStructure(StructureSettings settings, int minY, int rangeY) {
+    public BrassDungeonStructure(StructureSettings settings, int minY, int rangeY, BrassProcessorSettings processors) {
         super(settings);
         this.minY = minY;
         this.rangeY = rangeY;
+        this.processors = processors;
     }
 
     @Override
@@ -118,25 +123,23 @@ public class BrassDungeonStructure extends Structure {
                 templateManager,
                 "door",
                 elevatedPos.relative(rotation.rotate(Direction.EAST), 4),
-                rotation));
+                rotation, this.processors.roomSettings()));
     }
 
     private void createBossRoom(RandomSource random, StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {
         String room = this.getRandomRoomType(random);
         if(room.equals("garden")) {
-            if(parent) builder.addPiece(new GardenBrassRoom.BossRoom(templateManager, "garden_boss", pos, rotation));
-            else builder.addPiece(new GardenBrassRoom(templateManager, "garden", pos, rotation));
+            if(parent) builder.addPiece(new GardenBrassRoom.BossRoom(templateManager, "garden_boss", pos, rotation, this.processors.bossSettings()));
+            else builder.addPiece(new GardenBrassRoom(templateManager, "garden", pos, rotation, this.processors.roomSettings()));
 
         }
         else if(room.equals("infested")) {
-            if(parent) builder.addPiece(new InfestedBrassRoom.BossRoom(templateManager, "infested_boss", pos, rotation));
-            else builder.addPiece(new InfestedBrassRoom(templateManager, "infested", pos, rotation));
-
+            if(parent) builder.addPiece(new InfestedBrassRoom.BossRoom(templateManager, "infested_boss", pos, rotation, this.processors.bossSettings()));
+            else builder.addPiece(new InfestedBrassRoom(templateManager, "infested", pos, rotation, this.processors.roomSettings()));
         }
         else {
-            if(parent) builder.addPiece(new DefaultBrassRoom.BossRoom(templateManager, room +"_boss", pos, rotation));
-            else builder.addPiece(new DefaultBrassRoom(templateManager, room, pos, rotation));
-
+            if(parent) builder.addPiece(new DefaultBrassRoom.BossRoom(templateManager, room +"_boss", pos, rotation, this.processors.bossSettings()));
+            else builder.addPiece(new DefaultBrassRoom(templateManager, room, pos, rotation, this.processors.roomSettings()));
         }
 
         //Roof
@@ -144,7 +147,7 @@ public class BrassDungeonStructure extends Structure {
                 templateManager,
                 "room_part_up",
                 pos.above(32),
-                rotation));
+                rotation, this.processors.roomSettings()));
     }
 
     private void buildCloudBed(StructurePiecesBuilder builder, RandomSource random, BlockPos origin) {

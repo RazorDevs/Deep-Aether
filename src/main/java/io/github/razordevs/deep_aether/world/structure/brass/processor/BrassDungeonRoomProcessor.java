@@ -1,7 +1,9 @@
-package io.github.razordevs.deep_aether.world.structure.processor;
+package io.github.razordevs.deep_aether.world.structure.brass.processor;
 
 import com.aetherteam.nitrogen.entity.BossRoomTracker;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import io.github.razordevs.deep_aether.world.structure.processor.DAStructureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 public class BrassDungeonRoomProcessor extends StructureProcessor {
     public static final BrassDungeonRoomProcessor INSTANCE = new BrassDungeonRoomProcessor();
 
-    public static final Codec<BrassDungeonRoomProcessor> CODEC = Codec.unit(BrassDungeonRoomProcessor.INSTANCE);
+    public static final MapCodec<BrassDungeonRoomProcessor> CODEC = MapCodec.unit(BrassDungeonRoomProcessor.INSTANCE);
 
     @Override
     public StructureTemplate.StructureEntityInfo processEntity(LevelReader level, BlockPos seedPos, StructureTemplate.StructureEntityInfo rawEntityInfo, StructureTemplate.StructureEntityInfo entityInfo, StructurePlaceSettings placementSettings, StructureTemplate template) {

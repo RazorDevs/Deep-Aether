@@ -8,10 +8,7 @@ import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
 import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.block.behavior.DADispenseBehaviors;
 import io.github.razordevs.deep_aether.block.behavior.DaCauldronInteraction;
-import io.github.razordevs.deep_aether.datagen.DABlockstateData;
-import io.github.razordevs.deep_aether.datagen.DADataMapData;
-import io.github.razordevs.deep_aether.datagen.DAItemModelData;
-import io.github.razordevs.deep_aether.datagen.DARecipeData;
+import io.github.razordevs.deep_aether.datagen.*;
 import io.github.razordevs.deep_aether.datagen.loot.DALootTableData;
 import io.github.razordevs.deep_aether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import io.github.razordevs.deep_aether.datagen.loot.modifiers.DALootDataProvider;
@@ -145,7 +142,6 @@ public class DeepAether {
 
 		DABlocks.registerWoodTypes(); // Registered this early to avoid bugs with WoodTypes and signs.
 
-		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		mod.registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		mod.registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 

@@ -1,9 +1,12 @@
 package io.github.razordevs.deep_aether.datagen.strucutre;
 
 import com.aetherteam.aether.data.resources.builders.AetherStructureBuilders;
+import com.aetherteam.aether.data.resources.registries.AetherStructureProcessorLists;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
+import io.github.razordevs.deep_aether.world.structure.DAStructureProcessorLists;
 import io.github.razordevs.deep_aether.world.structure.brass.BrassDungeonStructure;
+import io.github.razordevs.deep_aether.world.structure.brass.processor.BrassProcessorSettings;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -16,6 +19,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -37,12 +41,14 @@ public class DAStructures {
         Map<MobCategory, StructureSpawnOverride> mobSpawnsPiece = Arrays.stream(MobCategory.values())
                 .collect(Collectors.toMap((category) -> category, (category) -> new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, WeightedRandomList.create())));
 
+        HolderGetter<StructureProcessorList> processors = context.lookup(Registries.PROCESSOR_LIST);
+
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
         context.register(BRASS_DUNGEON, new BrassDungeonStructure(AetherStructureBuilders.structure(
                 biomes.getOrThrow(DATags.Biomes.HAS_BRASS_DUNGEON),
                 mobSpawnsBox,
                 GenerationStep.Decoration.SURFACE_STRUCTURES,
                 TerrainAdjustment.NONE),
-                 184, 5));
+                 184, 5, new BrassProcessorSettings(processors.getOrThrow(DAStructureProcessorLists.BRASS_BOSS_ROOM), processors.getOrThrow(DAStructureProcessorLists.BRASS_ROOM))));
     }
 }

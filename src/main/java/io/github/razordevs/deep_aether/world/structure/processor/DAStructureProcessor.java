@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.world.structure.processor;
 
 import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.world.structure.brass.processor.BrassDungeonRoomProcessor;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.neoforged.neoforge.registries.DeferredHolder;

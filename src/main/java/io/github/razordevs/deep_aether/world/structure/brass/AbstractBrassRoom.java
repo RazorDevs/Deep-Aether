@@ -5,6 +5,8 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.loot.DALoot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraft.world.level.storage.loot.LootTable;
 
@@ -25,12 +28,12 @@ import java.util.function.Function;
 public abstract class AbstractBrassRoom extends BrassDungeonPiece {
 
 
-    public AbstractBrassRoom(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos) {
-        super(type, manager, name, settings, pos);
+    public AbstractBrassRoom(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos, Holder<StructureProcessorList>processors) {
+        super(type, manager, name, settings, pos, processors);
     }
 
-    public AbstractBrassRoom(StructurePieceType type, CompoundTag tag, StructureTemplateManager manager, Function<ResourceLocation, StructurePlaceSettings> settingsFactory) {
-        super(type, tag, manager, settingsFactory);
+    public AbstractBrassRoom(StructurePieceType type, RegistryAccess access, CompoundTag tag, StructureTemplateManager manager, Function<ResourceLocation, StructurePlaceSettings> settingsFactory) {
+        super(type, access, tag, manager, settingsFactory);
     }
 
     @Override
@@ -71,12 +74,12 @@ public abstract class AbstractBrassRoom extends BrassDungeonPiece {
 
     public static class AbstractBossRoom extends AbstractBrassRoom {
 
-        public AbstractBossRoom(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos) {
-            super(type, manager, name, settings, pos);
+        public AbstractBossRoom(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos, Holder<StructureProcessorList> processors) {
+            super(type, manager, name, settings, pos, processors);
         }
 
-        public AbstractBossRoom(StructurePieceType type, CompoundTag tag, StructureTemplateManager manager, Function<ResourceLocation, StructurePlaceSettings> settingsFactory) {
-            super(type, tag, manager, settingsFactory);
+        public AbstractBossRoom(StructurePieceType type, RegistryAccess access, CompoundTag tag, StructureTemplateManager manager, Function<ResourceLocation, StructurePlaceSettings> settingsFactory) {
+            super(type, access, tag, manager, settingsFactory);
         }
 
         @Override
