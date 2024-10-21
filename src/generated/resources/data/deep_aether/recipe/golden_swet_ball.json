@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:golden_grass_seeds"
+    },
+    {
+      "item": "aether:swet_ball"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "deep_aether:golden_swet_ball"
+  }
+}

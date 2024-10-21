@@ -5,8 +5,5 @@
     "translate": "trim_material.deep_aether.skyjade"
   },
   "ingredient": "deep_aether:skyjade",
-  "item_model_index": 0.7,
-  "override_armor_materials": {
-    "skyjade": "skyjade_darker"
-  }
+  "item_model_index": 0.7
 }

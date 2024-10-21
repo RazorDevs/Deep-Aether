@@ -7,15 +7,22 @@ import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.attachment.AttachmentType;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import oshi.util.tuples.Quartet;
 
 import java.util.function.Supplier;
 
 public class DAPlayerSyncPacket extends SyncEntityPacket<DAPlayerAttachment> {
-    public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "sync_da_player_attachment");
+    public static final Type<DAPlayerSyncPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "sync_da_player_attachment"));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, DAPlayerSyncPacket> STREAM_CODEC = CustomPacketPayload.codec(
+            DAPlayerSyncPacket::write,
+            DAPlayerSyncPacket::decode);
+
     public DAPlayerSyncPacket(Quartet<Integer, String, INBTSynchable.Type, Object> values) {
         super(values);
     }
@@ -35,6 +42,10 @@ public class DAPlayerSyncPacket extends SyncEntityPacket<DAPlayerAttachment> {
 
     @Override
     public Type<? extends CustomPacketPayload> type() {
-        return null;
+        return TYPE;
+    }
+
+    public static void execute(DAPlayerSyncPacket payload, IPayloadContext context) {
+        SyncEntityPacket.execute(payload, context.player());
     }
 }

@@ -1,0 +1,13 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_misc",
+  "cookingtime": 50,
+  "experience": 5.0,
+  "ingredient": {
+    "item": "minecraft:pumpkin_seeds"
+  },
+  "result": {
+    "count": 1,
+    "id": "deep_aether:squash_seeds"
+  }
+}

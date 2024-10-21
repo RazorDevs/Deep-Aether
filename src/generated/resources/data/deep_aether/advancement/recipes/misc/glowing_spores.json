@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glowing_spores": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:glowing_spores"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:glowing_spores"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_glowing_spores"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:glowing_spores"
+    ]
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "deep_aether:aseterite"
-  },
-  "result": "deep_aether:aseterite_bricks_slab"
-}

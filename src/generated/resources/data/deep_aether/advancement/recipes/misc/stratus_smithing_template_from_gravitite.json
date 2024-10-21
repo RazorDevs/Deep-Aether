@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stratus_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:stratus_smithing_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:stratus_smithing_template_from_gravitite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stratus_smithing_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:stratus_smithing_template_from_gravitite"
+    ]
+  }
+}

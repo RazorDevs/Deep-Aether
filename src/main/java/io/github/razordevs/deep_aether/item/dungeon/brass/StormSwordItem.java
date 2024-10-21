@@ -20,8 +20,10 @@ public class StormSwordItem extends SwordItem {
     }
 
     @SubscribeEvent
-    public static void onLivingDamage(LivingDamageEvent event) {
+    public static void onLivingDamage(LivingDamageEvent.Post event) {
         DamageSource damageSource = event.getEntity().getLastDamageSource();
+        if(damageSource == null)
+            return;
         if (canPerformAbility(damageSource)) {
             if(damageSource.getEntity() != null) {
                 LivingEntity target = event.getEntity();

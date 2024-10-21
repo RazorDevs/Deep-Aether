@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "deep_aether:stratus_ingot"
+  },
+  "base": {
+    "item": "deep_aether:gravitite_ring"
+  },
+  "result": {
+    "count": 1,
+    "id": "deep_aether:stratus_ring"
+  },
+  "template": {
+    "item": "deep_aether:stratus_smithing_template"
+  }
+}

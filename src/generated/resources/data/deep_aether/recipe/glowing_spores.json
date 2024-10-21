@@ -1,0 +1,13 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_misc",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "deep_aether:glowing_spores"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:wheat_seeds"
+  }
+}

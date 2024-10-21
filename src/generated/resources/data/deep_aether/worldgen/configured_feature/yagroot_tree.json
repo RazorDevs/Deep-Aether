@@ -62,10 +62,8 @@
       },
       "trunk_offset_y": {
         "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 1,
-          "min_inclusive": 0
-        }
+        "max_inclusive": 1,
+        "min_inclusive": 0
       },
       "yagroot_root_placer": {
         "can_grow_through": "#minecraft:mangrove_roots_can_grow_through",

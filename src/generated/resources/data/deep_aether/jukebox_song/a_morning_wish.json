@@ -1,0 +1,8 @@
+{
+  "comparator_output": 8,
+  "description": {
+    "translate": "jukebox_song.deep_aether.a_morning_wish"
+  },
+  "length_in_seconds": 283.0,
+  "sound_event": "deep_aether:item.music_disc.nabooru"
+}

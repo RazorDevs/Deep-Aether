@@ -13,13 +13,15 @@ import io.github.razordevs.deep_aether.datagen.loot.DALootTableData;
 import io.github.razordevs.deep_aether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import io.github.razordevs.deep_aether.datagen.loot.modifiers.DALootDataProvider;
 import io.github.razordevs.deep_aether.datagen.tags.*;
-import io.github.razordevs.deep_aether.datagen.world.DAWorldGenData;
+import io.github.razordevs.deep_aether.datagen.DARegistryDataGenerator;
 import io.github.razordevs.deep_aether.event.DAGeneralEvents;
 import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.*;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.gear.DAArmorMaterials;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
+import io.github.razordevs.deep_aether.networking.packet.DAPlayerSyncPacket;
+import io.github.razordevs.deep_aether.networking.packet.MoaEffectSyncPacket;
 import io.github.razordevs.deep_aether.recipe.DARecipeSerializers;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
 import io.github.razordevs.deep_aether.world.biomes.DARareRegion;
@@ -154,14 +156,14 @@ public class DeepAether {
 	public void registerPackets(RegisterPayloadHandlersEvent event) {
 		PayloadRegistrar registrar = event.registrar(MODID).versioned("1.0.0").optional();
 
-		//registrar.playBidirectional(DAPlayerSyncPacket.ID, DAPlayerSyncPacket::decode, DAPlayerSyncPacket::handle);
-		//registrar.playBidirectional(MoaEffectSyncPacket.ID, MoaEffectSyncPacket::decode, MoaEffectSyncPacket::handle);
+		registrar.playBidirectional(DAPlayerSyncPacket.TYPE, DAPlayerSyncPacket.STREAM_CODEC, DAPlayerSyncPacket::execute);
+		registrar.playBidirectional(MoaEffectSyncPacket.TYPE, MoaEffectSyncPacket.STREAM_CODEC, MoaEffectSyncPacket::execute);
 	}
 
 	public void dataSetup(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
 		ExistingFileHelper fileHelper = event.getExistingFileHelper();
-		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
 		PackOutput packOutput = generator.getPackOutput();
 
 		// Client Data
@@ -169,9 +171,9 @@ public class DeepAether {
 		generator.addProvider(event.includeClient(), new DAItemModelData(packOutput, fileHelper));
 
 		// Server Data
-		generator.addProvider(event.includeServer(), new DAWorldGenData(packOutput, lookupProvider));
+		generator.addProvider(event.includeServer(), new DARegistryDataGenerator(packOutput, event.getLookupProvider()));
+		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 		generator.addProvider(event.includeServer(), new DARecipeData(packOutput, lookupProvider));
-		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput, lookupProvider));
 		DABlockTagData blockTags = new DABlockTagData(packOutput, lookupProvider, fileHelper);
 		generator.addProvider(event.includeServer(), blockTags);
 		generator.addProvider(event.includeServer(), new DAItemTagData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
@@ -180,6 +182,7 @@ public class DeepAether {
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput, lookupProvider));
 		generator.addProvider(event.includeClient(), new DADataMapData(packOutput, lookupProvider));
+		generator.addProvider(event.includeServer(), DALootTableData.create(packOutput, lookupProvider));
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {

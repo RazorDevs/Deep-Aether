@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "minecraft:brewing_stand",
+  "key": {
+    "D": {
+      "item": "aether:holystone"
+    },
+    "I": {
+      "item": "deep_aether:bio_crystal"
+    }
+  },
+  "pattern": [
+    " I ",
+    "DDD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:brewing_stand"
+  }
+}

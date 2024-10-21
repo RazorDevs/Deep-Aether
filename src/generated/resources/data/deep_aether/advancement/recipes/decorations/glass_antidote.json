@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bio_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:bio_crystal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:glass_antidote"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bio_crystal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:glass_antidote"
+    ]
+  }
+}

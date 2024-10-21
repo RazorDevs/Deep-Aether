@@ -42,8 +42,8 @@ public class DAEquipmentUtil {
         return hasArmorSet(entity, DAItems.SKYJADE_HELMET.get(), DAItems.SKYJADE_CHESTPLATE.get(), DAItems.SKYJADE_LEGGINGS.get(), DAItems.SKYJADE_BOOTS.get(), DAItems.SKYJADE_GLOVES.asItem());
     }
 
-    protected static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Step Height Bonus"), 1.0, AttributeModifier.Operation.ADD_VALUE);
-    protected static final AttributeModifier SPEED_BONUS = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Speed Bonus"), 0.2, AttributeModifier.Operation.ADD_VALUE);
+    protected static final AttributeModifier STEP_HEIGHT_BONUS = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "step_height_bonus"), 1.0, AttributeModifier.Operation.ADD_VALUE);
+    protected static final AttributeModifier SPEED_BONUS = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "speed_bonus"), 0.2, AttributeModifier.Operation.ADD_VALUE);
 
     public static void updateSkyjadeBehavior(Player player, boolean enabled) {
         AttributeInstance step = player.getAttribute(Attributes.STEP_HEIGHT);

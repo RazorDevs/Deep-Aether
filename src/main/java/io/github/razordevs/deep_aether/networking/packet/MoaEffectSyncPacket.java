@@ -6,15 +6,22 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.MoaEffectAttachment;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.attachment.AttachmentType;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import oshi.util.tuples.Quartet;
 
 import java.util.function.Supplier;
 
 public class MoaEffectSyncPacket extends SyncEntityPacket<MoaEffectAttachment> {
-    public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "sync_moa_effect_attachment");
+    public static final Type<MoaEffectSyncPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "sync_moa_effect_attachment"));
+
+    public static final StreamCodec<RegistryFriendlyByteBuf, MoaEffectSyncPacket> STREAM_CODEC = CustomPacketPayload.codec(
+            MoaEffectSyncPacket::write,
+            MoaEffectSyncPacket::decode);
+
     public MoaEffectSyncPacket(Quartet<Integer, String, INBTSynchable.Type, Object> values) {
         super(values);
     }
@@ -34,6 +41,10 @@ public class MoaEffectSyncPacket extends SyncEntityPacket<MoaEffectAttachment> {
 
     @Override
     public Type<? extends CustomPacketPayload> type() {
-        return null;
+        return TYPE;
+    }
+
+    public static void execute(MoaEffectSyncPacket payload, IPayloadContext context) {
+        SyncEntityPacket.execute(payload, context.player());
     }
 }

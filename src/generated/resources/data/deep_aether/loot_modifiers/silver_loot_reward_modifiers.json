@@ -10,28 +10,28 @@
   "items": [
     {
       "data": {
-        "Count": 2,
+        "count": 2,
         "id": "deep_aether:skyjade"
       },
       "weight": 65
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "deep_aether:stratus_ingot"
       },
       "weight": 10
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "deep_aether:sterling_aercloud"
       },
       "weight": 15
     },
     {
       "data": {
-        "Count": 1,
+        "count": 1,
         "id": "deep_aether:stratus_smithing_template"
       },
       "weight": 25

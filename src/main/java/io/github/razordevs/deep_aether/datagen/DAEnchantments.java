@@ -38,7 +38,7 @@ public class DAEnchantments {
                 .withEffect(
                         EnchantmentEffectComponents.ATTRIBUTES,
                         new EnchantmentAttributeEffect(
-                                ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Gloves Reach Bonus"),
+                                ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "gloves_reach"),
                                 Attributes.BLOCK_INTERACTION_RANGE,
                                 LevelBasedValue.perLevel(1.0F),
                                 AttributeModifier.Operation.ADD_VALUE

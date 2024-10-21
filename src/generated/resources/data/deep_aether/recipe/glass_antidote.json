@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "deep_aether:antidote",
+  "key": {
+    "#": {
+      "tag": "c:glass_blocks/colorless"
+    },
+    "G": {
+      "item": "deep_aether:frozen_goldenleaf_berries"
+    },
+    "I": {
+      "item": "deep_aether:bio_crystal"
+    }
+  },
+  "pattern": [
+    "##",
+    "IG",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "deep_aether:antidote"
+  }
+}

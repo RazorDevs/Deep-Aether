@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "aether:holystone"
+  },
+  "result": {
+    "count": 1,
+    "id": "deep_aether:big_holystone_bricks_wall"
+  }
+}

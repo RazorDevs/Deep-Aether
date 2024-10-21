@@ -2,6 +2,7 @@ import net.neoforged.gradle.common.tasks.JarJar
 
 plugins {
     id 'java-library'
+    id 'eclipse'
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.gradle.userdev' version "${neogradle_version}"
@@ -44,8 +45,13 @@ runs {
         systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
     }
     data {
-        programArguments.addAll '--mod', 'deep_aether', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'aether'
+        programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'aether'
     }
+}
+
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
 }
 
 repositories {
@@ -61,11 +67,7 @@ repositories {
     maven { url 'https://maven.su5ed.dev/releases' }
     maven { url 'https://maven.fabricmc.net' }
     maven { url = "https://maven.blamejared.com" }
-
-    maven {
-        name = 'GeckoLib'
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-    }
+    maven { url = "https://jitpack.io" }
     maven {
         name "Modding Legacy Maven"
         url "https://maven.moddinglegacy.com/maven"
@@ -84,10 +86,6 @@ repositories {
         dir 'libs'
     }
     mavenCentral()
-}
-
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
 }
 
 dependencies {
@@ -127,21 +125,6 @@ dependencies {
     compileOnly "mezz.jei:jei-${project.mc_version}-neoforge:${project.jei_version}"
 }
 
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "deep_aether",
-                "Specification-Vendor"    : "razordevs",
-                "Specification-Version"   : "1",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "razordevs",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-    archiveClassifier = 'no-embeds'
-}
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -155,12 +138,27 @@ publishing {
     }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.compilerArgs << "-Xmaxerrs" << "9000"
+}
+
+tasks.named('jar', Jar).configure {
+    archiveClassifier = 'no-embeds'
+}
+
 tasks.named('jarJar', JarJar).configure {
     archiveClassifier = ''
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+tasks.register('sourceJar', Jar) {
+    dependsOn 'classes'
+    from sourceSets.main.allSource
+    archiveClassifier = 'sources'
+}
+
+compileJava {
+    options.incremental = false
 }
 
 build {

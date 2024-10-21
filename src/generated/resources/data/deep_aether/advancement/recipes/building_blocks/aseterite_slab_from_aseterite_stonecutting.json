@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aseterite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:aseterite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:aseterite_slab_from_aseterite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aseterite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:aseterite_slab_from_aseterite_stonecutting"
+    ]
+  }
+}

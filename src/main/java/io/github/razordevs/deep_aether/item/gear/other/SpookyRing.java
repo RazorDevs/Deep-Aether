@@ -47,7 +47,7 @@ public class SpookyRing extends RingItem {
         SpookyMoonConditions(reference);
         AttributeInstance damage = reference.entity().getAttribute(Attributes.ATTACK_DAMAGE);
         if(damage != null) {
-            AttributeModifier attribute = damage.getModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Gloves Damage Bonus"));
+            AttributeModifier attribute = damage.getModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "spooky_bonus_damage"));
             if (attribute != null) {
                 damage.removeModifier(attribute);
                 attributes.put(Attributes.ATTACK_DAMAGE.value(), createSpookyRingAttribute(this.calculateIncrease(reference)));
@@ -58,7 +58,7 @@ public class SpookyRing extends RingItem {
     }
 
     private AttributeModifier createSpookyRingAttribute(double amount) {
-        return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Gloves Damage Bonus"), amount, AttributeModifier.Operation.ADD_VALUE);
+        return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "spooky_bonus_damage"), amount, AttributeModifier.Operation.ADD_VALUE);
     }
 
     @Override

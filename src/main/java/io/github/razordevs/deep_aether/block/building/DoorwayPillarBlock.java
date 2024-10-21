@@ -32,8 +32,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
+import static com.aetherteam.aether.block.dungeon.DoorwayBlock.INVISIBLE;
+
 public class DoorwayPillarBlock extends Block {
-    public static final BooleanProperty INVISIBLE = BooleanProperty.create("invisible");
     public static final VoxelShape INVISIBLE_SHAPE = Block.box(5.0, 5.0, 5.0, 11.0, 11.0, 11.0);
     private final Supplier<EntityType<?>> blockedEntityTypeSupplier;
 

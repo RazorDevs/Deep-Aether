@@ -26,8 +26,7 @@ import java.util.function.BiConsumer;
 public record DAChestLoot(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> builder) {
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
-
+        HolderLookup.RegistryLookup<Enchantment> lookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         builder.accept(DALoot.BRASS_DUNGEON, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 1.0F))
                         .add(NestedLootTable.lootTableReference(DALoot.BRASS_DUNGEON_LOOT).setWeight(8))
@@ -139,12 +138,8 @@ public record DAChestLoot(HolderLookup.Provider registries) implements LootTable
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 2.0F))
                         .add(LootItem.lootTableItem(DAItems.CLOUD_CAPE.get()).setWeight(3))
                         .add(LootItem.lootTableItem(DAItems.AERCLOUD_NECKLACE.get()).setWeight(3))
-                        .add(LootItem.lootTableItem(Items.BOOK).setWeight(3)
-                                .apply(new EnchantRandomlyFunction.Builder().withEnchantment(registrylookup.getOrThrow(DAEnchantments.GLOVES_REACH)))
-                        )
-
-                )
-        );
+                        .add(LootItem.lootTableItem(Items.BOOK).apply(new EnchantRandomlyFunction.Builder().withEnchantment(lookup.getOrThrow(DAEnchantments.GLOVES_REACH))).setWeight(3))
+        ));
         builder.accept(DALoot.BRASS_DUNGEON_STORM_FORGED, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(DAItems.STORMFORGED_HELMET.get()).setWeight(1))

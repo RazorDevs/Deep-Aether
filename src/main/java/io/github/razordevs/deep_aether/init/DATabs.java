@@ -18,7 +18,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT, modid = DeepAether.MODID)
 public class DATabs {
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    @SubscribeEvent(priority = EventPriority.LOW)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         ResourceKey<CreativeModeTab> tab = event.getTabKey();
         if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey()) {
@@ -186,7 +186,7 @@ public class DATabs {
                 }, event);
             }
 
-            addToTab(AetherBlocks.AETHER_DIRT.get().asItem(), new Block[]{
+            addToTab(AetherBlocks.HOLYSTONE_BRICK_WALL.get().asItem(), new Block[]{
                     DABlocks.PACKED_AETHER_MUD.get(),
                     DABlocks.AETHER_MUD_BRICKS.get(),
                     DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
@@ -385,7 +385,6 @@ public class DATabs {
                     DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.SUN_CORE.get(),
                     DAItems.AFTERBURNER.get(),
-                    DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.AERWHALE_SADDLE.get(),
                     DAItems.FLOATY_SCARF.get(),
             }, event);

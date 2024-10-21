@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "deep_aether:aether_cattails"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:cyan_dye"
+  }
+}

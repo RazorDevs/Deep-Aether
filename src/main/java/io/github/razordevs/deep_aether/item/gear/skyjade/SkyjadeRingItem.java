@@ -30,7 +30,7 @@ public class SkyjadeRingItem extends RingItem {
         if (stepHeight != null) {
             int count = DAEquipmentUtil.getSkyjadeRingCount(livingEntity);
             for (int i = 1; i <= count; i++) {
-                if (!stepHeight.hasModifier(this.getStepHeightModifierLocation(i))) {
+                if (!stepHeight.hasModifier(this.getStepHeightModifier(i).id())) {
                     stepHeight.addTransientModifier(this.getStepHeightModifier(i));
                 }
             }
@@ -42,21 +42,15 @@ public class SkyjadeRingItem extends RingItem {
         LivingEntity livingEntity = reference.entity();
         AttributeInstance stepHeight = livingEntity.getAttribute(Attributes.STEP_HEIGHT);
         if (stepHeight != null) {
-            if (stepHeight.hasModifier(this.getStepHeightModifierLocation(DAEquipmentUtil.getSkyjadeRingCount(livingEntity)+1))) {
-                stepHeight.removeModifier(this.getStepHeightModifierLocation(DAEquipmentUtil.getSkyjadeRingCount(livingEntity)+1));
+            if (stepHeight.hasModifier(this.getStepHeightModifier(DAEquipmentUtil.getSkyjadeRingCount(livingEntity)+1).id())) {
+                stepHeight.removeModifier(this.getStepHeightModifier(DAEquipmentUtil.getSkyjadeRingCount(livingEntity)+1).id());
             }
         }
     }
 
     public AttributeModifier getStepHeightModifier(int count) {
         if(count == 1)
-            return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Step height increase"), 0.5, AttributeModifier.Operation.ADD_VALUE);
-        else return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Step height increase 1"), 0.5, AttributeModifier.Operation.ADD_VALUE);
-    }
-
-    public ResourceLocation getStepHeightModifierLocation(int count) {
-        if(count == 1)
-            return ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Step height increase");
-        else return ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "Step height increase 1");
+            return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "step_height_increase"), 0.5, AttributeModifier.Operation.ADD_VALUE);
+        else return new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "step_height_increase_1"), 0.5, AttributeModifier.Operation.ADD_VALUE);
     }
 }

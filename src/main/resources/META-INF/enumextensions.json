@@ -2,29 +2,37 @@
   "entries": [
     {
       "enum": "net/minecraft/world/inventory/RecipeBookType",
-      "name": "DEEP_AETHER_COMBINER"
+      "name": "DEEP_AETHER_COMBINER",
+      "constructor": "()V",
+      "parameters": {
+        "class": "io/github/razordevs/deep_aether/init/DARecipeBookTypes",
+        "field": "DEEP_AETHER_COMBINER"
+      }
     },
     {
       "enum": "net/minecraft/client/RecipeBookCategories",
       "name": "DEEP_AETHER_COMBINEABLE_SEARCH",
-      "parameters": {
-        "class": "io/github./razordevs/deep_aether/init/RecipeBookCategories",
+      "constructor": "(Ljava/util/function/Supplier;)V",
+      "parameters" : {
+        "class": "io/github/razordevs/deep_aether/init/DARecipeCategories",
         "field": "DEEP_AETHER_COMBINEABLE_SEARCH"
       }
     },
     {
       "enum": "net/minecraft/client/RecipeBookCategories",
       "name": "DEEP_AETHER_COMBINEABLE_FODDER",
+      "constructor": "(Ljava/util/function/Supplier;)V",
       "parameters": {
-        "class": "io/github./razordevs/deep_aether/init/RecipeBookCategories",
+        "class": "io/github/razordevs/deep_aether/init/DARecipeCategories",
         "field": "DEEP_AETHER_COMBINEABLE_FODDER"
       }
     },
     {
       "enum": "net/minecraft/client/RecipeBookCategories",
       "name": "DEEP_AETHER_COMBINEABLE_MISC",
+      "constructor": "(Ljava/util/function/Supplier;)V",
       "parameters": {
-        "class": "io/github./razordevs/deep_aether/init/RecipeBookCategories",
+        "class": "io/github/razordevs/deep_aether/init/DARecipeCategories",
         "field": "DEEP_AETHER_COMBINEABLE_MISC"
       }
     }

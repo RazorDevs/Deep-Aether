@@ -7,6 +7,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
+import io.github.razordevs.deep_aether.util.RendererUtil;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -26,16 +27,16 @@ public abstract class LivingEntityRendererMixin <T extends LivingEntity, M exten
     }
 
     @WrapOperation(method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/EntityModel;renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;IIFFFF)V"))
-    private void renderToBuffer(EntityModel<T> instance, PoseStack poseStack, VertexConsumer vertexConsumer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha, Operation<Void> original, @Local(argsOnly = true) T pEntity, @Local(argsOnly = true) MultiBufferSource pBuffer) {
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/EntityModel;renderToBuffer(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;III)V"))
+    private void renderToBuffer(EntityModel<T> instance, PoseStack poseStack, VertexConsumer vertexConsumer, int pPackedLight, int pPackedOverlay, int color, Operation<Void> original, @Local(argsOnly = true) T pEntity, @Local(argsOnly = true) MultiBufferSource pBuffer) {
         if(!pEntity.isInvisible() && pEntity.hasData(DAAttachments.PLAYER)) {
             DAPlayerAttachment attachment = pEntity.getData(DAAttachments.PLAYER.get());
             if (attachment.hasSkyjadeSet() && attachment.isSkyjadeAbilityActivated()) {
                 instance.renderToBuffer(poseStack, pBuffer.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pEntity))),
-                        pPackedLight, pPackedOverlay);
+                        pPackedLight, pPackedOverlay, RendererUtil.AddAlpha(color, 10));
             }
-            else original.call(instance, poseStack, vertexConsumer, pPackedLight, pPackedOverlay, pRed, pBlue, pGreen, pAlpha);
+            else original.call(instance, poseStack, vertexConsumer, pPackedLight, pPackedOverlay, color);
         }
-        else original.call(instance, poseStack, vertexConsumer, pPackedLight, pPackedOverlay, pRed, pBlue, pGreen, pAlpha);
+        else original.call(instance, poseStack, vertexConsumer, pPackedLight, pPackedOverlay, color);
     }
 }

@@ -23,4 +23,4 @@ public abstract class AerwhaleKingMixin implements AetherBossMob<AerwhaleKingEnt
     }
 }
 
- */
+*/

@@ -2,21 +2,25 @@
   "type": "deep_aether:brass_dungeon",
   "biomes": "#deep_aether:has_brass_dungeon",
   "minY": 184,
+  "processor_settings": {
+    "boss_room_processors": "deep_aether:bronze_boss_room",
+    "room_processors": "deep_aether:bronze_boss_room"
+  },
   "rangeY": 5,
   "spawn_overrides": {
-    "aether_aerwhale": {
+    "aether:aether_aerwhale": {
       "bounding_box": "full",
       "spawns": []
     },
-    "aether_darkness_monster": {
+    "aether:aether_darkness_monster": {
       "bounding_box": "full",
       "spawns": []
     },
-    "aether_sky_monster": {
+    "aether:aether_sky_monster": {
       "bounding_box": "full",
       "spawns": []
     },
-    "aether_surface_monster": {
+    "aether:aether_surface_monster": {
       "bounding_box": "full",
       "spawns": []
     },
