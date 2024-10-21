@@ -1,12 +1,11 @@
 package io.github.razordevs.deep_aether.item.gear.other;
 
 import com.aetherteam.aether.item.EquipmentUtil;
-import com.aetherteam.aether.item.accessories.ring.RingItem;
+import com.aetherteam.aether.item.accessories.AccessoryItem;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import io.github.razordevs.deep_aether.client.keys.DeepAetherKeys;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DASounds;
-import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -31,7 +30,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class SliderEye extends RingItem implements FlawlessDrop {
+public class SliderEye extends AccessoryItem implements FlawlessDrop {
 
     public SliderEye(Holder<SoundEvent> ringSound, Properties properties) {
         super(ringSound, properties);

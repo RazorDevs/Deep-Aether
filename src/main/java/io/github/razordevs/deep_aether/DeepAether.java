@@ -200,6 +200,7 @@ public class DeepAether {
 			if(!DeepAetherConfig.COMMON.disable_storm_cloud_and_skyroot_rainforest_biomes.get())
 				Regions.register(new DARareRegion(ResourceLocation.fromNamespaceAndPath(MODID, "rare"), DeepAetherConfig.COMMON.storm_cloud_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
+			DAItems.registerAccessories();
 			//BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));
 		});
 	}

@@ -21,6 +21,8 @@ import io.github.razordevs.deep_aether.item.gear.skyjade.*;
 import io.github.razordevs.deep_aether.item.gear.stratus.*;
 import io.github.razordevs.deep_aether.item.misc.*;
 import io.github.razordevs.deep_aether.item.moa_food.FodderItem;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
@@ -206,6 +208,25 @@ public class DAItems {
 	public static final DeferredItem<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final DeferredItem<Item> STRATUS_SHIELD = ITEMS.register("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 	*/
+
+	public static void registerAccessories() {
+		AccessoriesAPI.registerAccessory(DAItems.SKYJADE_RING.get(), (Accessory) DAItems.SKYJADE_RING.get());
+		AccessoriesAPI.registerAccessory(DAItems.GRAVITITE_RING.get(), (Accessory) DAItems.GRAVITITE_RING.get());
+		AccessoriesAPI.registerAccessory(DAItems.STRATUS_RING.get(), (Accessory) DAItems.STRATUS_RING.get());
+		AccessoriesAPI.registerAccessory(DAItems.SPOOKY_RING.get(), (Accessory) DAItems.SPOOKY_RING.get());
+
+		AccessoriesAPI.registerAccessory(DAItems.SKYJADE_GLOVES.get(), (Accessory) DAItems.SKYJADE_GLOVES.get());
+		AccessoriesAPI.registerAccessory(DAItems.STRATUS_GLOVES.get(), (Accessory) DAItems.STRATUS_GLOVES.get());
+		AccessoriesAPI.registerAccessory(DAItems.STORMFORGED_GLOVES.get(), (Accessory) DAItems.STORMFORGED_GLOVES.get());
+
+		AccessoriesAPI.registerAccessory(DAItems.SLIDER_EYE.get(), (Accessory) DAItems.SLIDER_EYE.get());
+		AccessoriesAPI.registerAccessory(DAItems.MEDAL_OF_HONOR.get(), (Accessory) DAItems.MEDAL_OF_HONOR.get());
+
+		AccessoriesAPI.registerAccessory(DAItems.AERCLOUD_NECKLACE.get(), (Accessory) DAItems.AERCLOUD_NECKLACE.get());
+		AccessoriesAPI.registerAccessory(DAItems.CLOUD_CAPE.get(), (Accessory) DAItems.CLOUD_CAPE.get());
+		AccessoriesAPI.registerAccessory(DAItems.FLOATY_SCARF.get(), (Accessory) DAItems.FLOATY_SCARF.get());
+
+	}
 
 	public static void setupBucketReplacements() {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
