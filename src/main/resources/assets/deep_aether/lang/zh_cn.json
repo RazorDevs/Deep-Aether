@@ -1,6 +1,34 @@
 {
+  "aether.pro_tips.line.deep_aether.deep_aether_tips": "§bTips from Deep Aether are light blue!",
+  "aether.pro_tips.line.deep_aether.squashes": "§bHave you ever tried enchanting Pumpkin Seeds in an Altar?",
+  "aether.pro_tips.line.deep_aether.poison_squashes": "§bSquashes become purple when thrown in Poison.",
+  "aether.pro_tips.line.deep_aether.sterling_aercloud": "§bSterling Aerclouds can rarely be found near the build limit.",
+  "aether.pro_tips.line.deep_aether.poison": "§bPoison can be used to un-enchant blocks and items from an Altar.",
+  "gui.deep_aether.pro_tip": "§bPro Tip:",
+  "gui.deep_aether.flawless_tier_1": "§6F§6l§6a§6w§el§ee§es§es",
+  "gui.deep_aether.flawless_tier_2": "§eF§6l§6a§6w§6l§ee§es§es",
+  "gui.deep_aether.flawless_tier_3": "§eF§el§6a§6w§6l§6e§es§es",
+  "gui.deep_aether.flawless_tier_4": "§eF§el§ea§6w§6l§6e§6s§es",
+  "gui.deep_aether.flawless_tier_5": "§eF§el§ea§ew§6l§6e§6s§6s",
+  "gui.deep_aether.flawless_tier_6": "§6F§el§ea§ew§el§6e§6s§6s",
+  "gui.deep_aether.flawless_tier_7": "§6F§6l§ea§ew§el§ee§6s§6s",
+  "gui.deep_aether.flawless_tier_8": "§6F§6l§6a§ew§el§ee§es§6s",
   "deep_aether.item.disabled_item": "禁用",
+  "gui.deep_aether.jei.poison_recipe": "Poison Conversion",
   "gui.deep_aether.spooky_ring": "在夜间至午夜时你造成更多伤害，最多额外增加2点伤害\n可能会带来些许诡异后果...",
+  "lore.item.deep_aether.spooky_ring": "You deal more damage during night towards midnight, with up to a maximum of 2 extra damage.",
+  "gui.deep_aether.slider_ring": "Increases your speed when your health is low\nCurrent Increase: ",
+  "lore.item.deep_aether.slider_eye": "A powerful part of the Slider dropped when defeating a Slider without taking a single hit. It allows you to slam into the ground when you're two block or more above the ground dealing knockback and damage to nearby enemies. ",
+  "item.deep_aether.slider_eye": "Eye Of The Slider",
+  "lore.item.deep_aether.medal_of_honor": "A powerful pendant dropped when defeating a Valkyrie Queen without taking a single hit. Wearing it grants you the Valkyries' Grace, that gives resistance against unholy mobs. ",
+  "item.deep_aether.medal_of_honor": "Medal of Honor",
+  "lore.item.deep_aether.sun_core": "A powerful core of the Sun Spirit dropped when defeating a Sun Spirit without taking a single hit. Maybe you can harness some of its power. ",
+  "item.deep_aether.sun_core": "Sun Core",
+  "lore.item.deep_aether.afterburner": "Crafted from a Sun Core, it's a weapon that allows you to shoot fire to nearby enemies just like a flamethrower. It doesn't break, but its charges run out. ",
+  "item.deep_aether.afterburner": "Afterburner",
+  "lore.item.deep_aether.aerwhale_saddle": "A saddle big enough to fit on an aerwhale. This legendary item is dropped from the Aerwhale King from the addon Lost Aether Content. However if Lost Aether Content isn't installed it's crafted with a sun core and a saddle.",
+  "item.deep_aether.aerwhale_saddle": "Aerwhale Saddle",
+  "effect.deep_aether.valkyrie_valor": "Valkyries' Grace",
   "item.deep_aether.spooky_ring": "诡异戒指",
   "item.deep_aether.skyjade_chestplate": "穹玉胸甲",
   "lore.item.deep_aether.skyjade_chestplate": "穹玉套装的一部分，具有很高的防护值，但耐久度较低，当耐久度减少时提供的防护效果也减弱。",
@@ -15,6 +43,7 @@
   "entity.deep_aether.quail": "鹌鹑",
   "entity.deep_aether.aerglow_fish": "天鳞",
   "entity.deep_aether.venomite": "毒蜂",
+  "entity.deep_aether.boat": "Boat",
   "block.deep_aether.aerglow_grass_path": "空光草径",
   "lore.block.deep_aether.aerglow_grass_path": "在空光草方块上使用铲子得到的方块。",
   "block.deep_aether.aersmog": "境雾",
@@ -23,7 +52,6 @@
   "lore.block.deep_aether.chromatic_aercloud": "在祭坛上附魔Sterling Aercloud的结果。用于制造一块平流层锭。",
   "block.deep_aether.sterling_aercloud": "银青境云",
   "lore.block.deep_aether.sterling_aercloud": "这种境云位于高处，难以到达。被踩踏时，会变成寒风境云。可以在祭坛中附神，变成炫彩境云。",
-
   "block.deep_aether.roseroot_wall": "瑰根木墙",
   "lore.block.deep_aether.roseroot_wall": "由瑰根原木制成。可用于装饰性的围栏和防御。非常适合防止讨厌的入侵者！",
   "block.deep_aether.aerglow_grass_block": "空光草方块",
@@ -174,7 +202,6 @@
   "lore.block.deep_aether.aether_mud": "这个方块主要生成在榴根森林中，但也可以通过在工作台中将天壤和水瓶组合而成。",
   "block.deep_aether.clorite_pillar": "绿泥石柱",
   "lore.block.deep_aether.clorite_pillar": "这是绿泥石的柱状形式，可以像门一样在2 x 3的形状中制作。",
-
   "block.deep_aether.packed_aether_mud": "天空泥坯",
   "lore.block.deep_aether.packed_aether_mud": "天境泥的一种更干燥和更固化的版本。你可以通过在工作台中与空光花结合来制作这个坯状版本。",
   "block.deep_aether.aether_mud_bricks": "天空泥砖",
@@ -185,7 +212,6 @@
   "lore.block.deep_aether.aether_mud_bricks_stairs": "由天空泥砖制成。楼梯可用于增加建筑的垂直性，通常也用于装饰！",
   "block.deep_aether.aether_mud_bricks_wall": "天空泥砖墙",
   "lore.block.deep_aether.aether_mud_bricks_wall": "由天空泥砖制成。可用于装饰性的围墙和防御工事。非常适合防止恶意入侵者！",
-
   "block.deep_aether.polished_clorite": "磨制绿泥石",
   "lore.block.deep_aether.polished_clorite": "作为一种原生建筑材料存在于天境。由绿泥石制成。",
   "block.deep_aether.raw_clorite": "粗绿泥石",
@@ -248,13 +274,11 @@
   "lore.item.deep_aether.stratus_ring": "重力晶戒指的升级变体",
   "item.deep_aether.stratus_gloves": "云母钢护手",
   "lore.item.deep_aether.stratus_gloves": "重力晶护手的升级版，需要完成云母钢套装。",
-
   "item.deep_aether.smithing_template.stratus_upgrade.additions_slot_description": "添加云母钢锭",
   "item.deep_aether.smithing_template.stratus_upgrade.applies_to": "重力晶装备",
   "item.deep_aether.smithing_template.stratus_upgrade.base_slot_description": "添加重力晶护甲、武器或工具",
   "item.deep_aether.smithing_template.stratus_upgrade.ingredients": "云母钢锭",
   "upgrade.deep_aether.stratus_upgrade": "云母钢升级",
-
   "item.deep_aether.raw_oratie": "粗奥拉石",
   "item.deep_aether.oratie_ingot": "奥拉锭",
   "block.deep_Aether.clorite_pillar": "绿泥石柱",
@@ -315,8 +339,6 @@
   "lore.item.deep_aether.cruderoot_boat": "虽然天境没有太多的大水域，但船在穿越大片冰面时偶尔会是一个有用的工具！",
   "item.deep_aether.cruderoot_chest_boat": "油根木运输船",
   "lore.item.deep_aether.cruderoot_chest_boat": "一艘油根木船，船尾有一个方便的箱子。用于在众所周知的难以找到的天境水域上长距离运输更多物品非常实用。",
-
-
   "block.deep_aether.conberry_log": "聚莓原木",
   "lore.block.deep_aether.conberry_log": "这些生成在聚莓树上。用聚莓木斧可以双倍掉落。放入工作台中，可以得到4块聚莓木板",
   "block.deep_aether.conberry_wood": "聚莓木",
@@ -359,7 +381,6 @@
   "lore.item.deep_aether.conberry_boat": "虽然天境没有太多的大水域，但船在穿越大片冰面时偶尔会是一个有用的工具！",
   "item.deep_aether.conberry_chest_boat": "聚莓木运输船",
   "lore.item.deep_aether.conberry_chest_boat": "一艘聚莓木船，船尾有一个方便的箱子。用于在众所周知的难以找到的天境水域上长距离运输更多物品非常实用。",
-
   "block.deep_aether.sunroot_log": "阳根原木",
   "lore.block.deep_aether.sunroot_log": "这些生成在阳根树上。用阳根木斧可以双倍掉落。放入工作台中，可以得到4块阳根木板。",
   "block.deep_aether.sunroot_wood": "阳根木",
@@ -403,7 +424,6 @@
   "item.deep_aether.sunroot_chest_boat": "阳根木运输船",
   "lore.item.deep_aether.sunroot_chest_boat": "一艘阳根木船，船尾有一个方便的箱子。用于在众所周知的难以找到的天境水域上长距离运输更多物品非常实用。",
   "block.deep_aether.sunroot_hanger": "阳根木垂穗",
-
   "item.deep_aether.raw_quail": "生鹌鹑肉",
   "lore.item.deep_aether.raw_quail": "在击败鹌鹑后获得，是天境的鸡的等效物。",
   "item.deep_aether.cooked_quail": "烤鹌鹑肉",
@@ -417,7 +437,6 @@
   "block.deep_aether.big_holystone_bricks_slab": "大圣石砖台阶",
   "block.deep_aether.big_holystone_bricks_stairs": "大圣石砖楼梯",
   "block.deep_aether.big_holystone_bricks_wall": "大圣石砖墙",
-
   "block.deep_aether.chiseled_holystone": "雕纹圣石",
   "block.deep_aether.holystone_pillar": "圣石柱",
   "block.deep_aether.holystone_pillar_up": "圣石柱顶",
@@ -426,7 +445,6 @@
   "lore.block.deep_aether.aether_cattails": "一种在榴根沼泽中发现的青色花朵。可以盆栽用于装饰，或用于制作青色染料。",
   "block.deep_aether.tall_aether_cattails": "高西风蒲",
   "lore.block.deep_aether.tall_aether_cattails": "一种在榴根沼泽中发现的青色花朵。可以盆栽用于装饰，或用于制作青色染料。",
-
   "entity.deep_aether.chest_boat": "运输船",
   "block.deep_aether.holystone_bricks_slab": "圣石砖台阶",
   "block.deep_aether.holystone_bricks_stairs": "圣石砖楼梯",
@@ -442,7 +460,6 @@
   "block.deep_aether.vertical_roseroot_planks": "立式瑰根木板",
   "block.deep_aether.aseterite_vertical_slab": "立式紫菀岩台阶",
   "block.deep_aether.polished_aseterite_vertical_slab": "立式磨制紫菀岩台阶",
-
   "block.deep_aether.holystone_bricks_vertical_slab": "立式圣石砖台阶",
   "block.deep_aether.aether_mud_bricks_vertical_slab": "立式天空泥砖台阶",
   "block.deep_aether.cruderoot_vertical_slab": "立式油根木台阶",
@@ -493,6 +510,7 @@
   "item.deep_aether.stratus_ingot": "云母钢锭",
   "lore.item.deep_aether.stratus_ingot": "由云母钢片和重力晶矿合成，锭体呈粉红色。可用于升级重力晶武器和护甲。",
   "key.deep_aether.stratus_dash_ability.desc": "激活云母冲刺",
+  "key.deep_aether.slider_eye_ability": "Activate Slider Slam",
   "item.deep_aether.stratus_axe": "云母钢斧",
   "lore.item.deep_aether.stratus_axe": "作为重力晶斧的升级版，这把斧头不仅能使木块漂浮，还能砍伐金琥珀树以获取金琥珀！",
   "item.deep_aether.stratus_sword": "云母钢剑",
@@ -505,19 +523,16 @@
   "lore.item.deep_aether.stratus_shovel": "作为重力晶锹的升级版，这把铲子具有特殊的能力，可以使土块或沙子漂浮！与效率等附魔结合使用时，它将立即破坏天壤！",
   "item.deep_aether.gravitite_ring": "重力晶戒指",
   "lore.item.deep_aether.gravitite_ring": "一枚强大的戒指，增强了云母钢装备的冲刺和重力晶装备的跳跃。",
-
   "block.deep_aether.blue_roseroot_leaves": "蓝瑰根树叶",
   "lore.block.deep_aether.blue_roseroot_leaves": "这些叶子与蓝瑰根树一同生成。它们在凋零时可以掉落蓝瑰根树苗。",
   "block.deep_aether.flowering_blue_roseroot_leaves": "盛开的蓝瑰根树叶",
   "lore.block.deep_aether.flowering_blue_roseroot_leaves": "这些叶子与蓝瑰根树一同生成。它们在凋零时可以掉落天鳞花，同时也会发光。",
   "block.deep_aether.blue_roseroot_sapling": "蓝瑰根树苗",
   "lore.block.deep_aether.blue_roseroot_sapling": "这些小蓝树苗会长成瑰根树。使用骨粉可以加速它们的生长。",
-
   "item.deep_aether.aerglow_fish_bucket": "天鳞鱼桶",
   "lore.item.deep_aether.aerglow_fish_bucket": "里面装有鳕鱼的水桶。确保保持水分充足，否则你的新朋友将无法在回家的途中生存。",
   "item.deep_aether.skyroot_aerglow_fish_bucket": "天根鳞鱼桶",
   "lore.item.deep_aether.skyroot_aerglow_fish_bucket": "里面装有天鳞鱼的水桶。确保保持水分充足，否则你的新朋友将无法在回家的途中生存。",
-
   "itemGroup.deep_aether.deep_aether_blocks": "深入天境 方块",
   "itemGroup.deep_aether.deep_aether_items": "深入天境 物品",
   "item.deep_aether.roseroot_boat": "瑰根木船",
@@ -528,8 +543,10 @@
   "advancements.deep_aether.explore_aether.description": "发现所有的天境生物群系",
   "advancements.deep_aether.stratus_armor.title": "圣光普照",
   "advancements.deep_aether.stratus_armor.description": "获得一整套云母钢盔甲",
-
-
+  "advancement.deep_aether.transform_poison": "Purple Magic",
+  "advancement.deep_aether.transform_poison.desc": "Transform an item by throwing it into Poison\n§b- Deep Aether -",
+  "advancements.deep_aether.aether_champion.title": "Champion Of The Aether",
+  "advancements.deep_aether.aether_champion.description": "Defeat all Aether bosses without taking a single hit\n§b- Deep Aether -",
   "block.deep_aether.holystone_tiles": "圣石瓦",
   "lore.block.deep_aether.holystone_tiles": "圣石的瓦变体。可用于装饰。",
   "block.deep_aether.holystone_tile_stairs": "圣石瓦楼梯",
@@ -570,7 +587,6 @@
   "lore.block.deep_aether.frosted_holystone_brick_slab": "由寒霜圣石砖制作。半砖块非常适合装饰和制作平滑坡道。尝试在建筑的屋顶添加一些吧！",
   "block.deep_aether.frosted_holystone_brick_wall": "寒霜圣石砖墙",
   "lore.block.deep_aether.frosted_holystone_brick_wall": "由寒霜圣石砖制作。可用于装饰性的围栏和防御。非常适合防止讨厌的入侵者！",
-
   "block.deep_aether.mossy_holystone_tiles": "覆苔圣石瓦",
   "lore.block.deep_aether.mossy_holystone_tiles": "圣石瓦的覆苔变体。可用于装饰。",
   "block.deep_aether.mossy_holystone_tile_stairs": "覆苔圣石瓦楼梯",
@@ -603,15 +619,12 @@
   "lore.block.deep_aether.frosted_holystone_tile_slab": "由寒霜圣石瓦制作。半砖块非常适合装饰和制作平滑坡道。尝试在建筑的屋顶添加一些吧！",
   "block.deep_aether.frosted_holystone_tile_wall": "寒霜圣石瓦墙",
   "lore.block.deep_aether.frosted_holystone_tile_wall": "由寒霜圣石瓦制作。可用于装饰性的围栏和防御。非常适合防止讨厌的入侵者！",
-
   "trim_material.deep_aether.skyjade": "穹玉材料",
   "trim_material.deep_aether.stratus": "云母钢材料",
-
   "block.deep_aether.feather_grass": "空羽草",
   "lore.block.deep_aether.feather_grass": "空羽草是空叶草的变种。这是正常的变种。",
   "block.deep_aether.tall_feather_grass": "高空羽草",
   "lore.block.deep_aether.tall_feather_grass": "空羽草是空叶草的变种。这是高的变种。",
-
   "block.deep_aether.mini_golden_grass": "小金空叶草",
   "lore.block.deep_aether.mini_golden_grass": "空叶草的一种变体，生长在辐金高地生物群系中。这是迷你变体。",
   "block.deep_aether.short_golden_grass": "矮金空叶草",
@@ -633,6 +646,8 @@
   "block.deep_aether.aether_coarse_dirt": "天境砂土",
   "block.deep_aether.lightcap_mushrooms": "光罩蘑菇",
   "lore.block.deep_aether.lightcap_mushrooms": "一种生长在空光森林中的天境蘑菇。也许它们会有用？",
+  "block.deep_aether.lightcap_mushroom_block": "Lightcap Mushroom Block",
+  "lore.block.deep_aether.lightcap_mushroom_block": "A block part of a Huge Lightcap Mushroom Tree.",
   "block.deep_aether.sky_tulips": "苍穹郁金香",
   "lore.block.deep_aether.sky_tulips": "众多天境花朵之一。据说食用时具有良好的效果。",
   "block.deep_aether.iaspove": "伊阿斯波花",
@@ -641,7 +656,6 @@
   "lore.block.deep_aether.golden_aspess": "众多天境花朵之一。据说食用时具有良好的效果。",
   "block.deep_aether.echaisy": "艾茜花",
   "lore.block.deep_aether.echaisy": "众多天境花朵之一。据说食用时具有良好的效果。",
-
   "item.deep_aether.squash_seeds": "南瓜种子",
   "block.deep_aether.blue_squash": "蓝色南瓜",
   "block.deep_aether.green_squash": "绿色南瓜",
@@ -649,12 +663,10 @@
   "item.deep_aether.blue_squash_slice": "蓝色南瓜片",
   "item.deep_aether.green_squash_slice": "绿色南瓜片",
   "item.deep_aether.purple_squash_slice": "紫色南瓜片",
-
   "item.deep_aether.golden_grass_seeds": "金空叶草种子",
   "lore.item.deep_aether.golden_grass_seeds": "这些种子来自于金空叶草。将其与史维特球结合可以制作金史维特球。",
   "item.deep_aether.golden_swet_ball": "金史维特球",
   "lore.item.deep_aether.golden_swet_ball": "一种粘稠的球体，由史维特球和金空叶草种子组合而成。可用于将天壤转化为金空草方块。",
-
   "biomes.deep_aether.aerglow_forest": "空光森林",
   "biomes.deep_aether.blue_aerglow_forest": "碧蓝空光森林",
   "biomes.deep_aether.mystic_aerglow_forest": "神秘空光森林",
@@ -667,15 +679,10 @@
   "biome.deep_aether.aerlavender_fields": "薰衣草原野",
   "biome.deep_aether.yagroot_swamp": "榴根沼泽",
   "biome.deep_aether.golden_heights": "辐金高地",
-
   "fluid_type.deep_aether.poison_fluid": "毒素",
-
-
-
-
+  "block.deep_aether.poison": "毒素",
   "item.deep_aether.skyjade_shield": "穹玉盾牌",
   "item.deep_aether.stratus_shield": "云母钢盾牌",
-
   "block.deep_aether.roseroot_log_wall": "瑰根原木墙",
   "block.deep_aether.stripped_roseroot_log_wall": "去皮瑰根原木墙",
   "block.deep_aether.cruderoot_log_wall": "油根原木墙",
@@ -685,7 +692,27 @@
   "block.deep_aether.conberry_log_wall": "聚莓原木墙",
   "block.deep_aether.stripped_conberry_log_wall": "去皮聚莓原木墙",
   "block.deep_aether.sunroot_log_wall": "阳根原木墙",
-  "block.deep_aether.stripped_sunroot_log_wall": "去皮阳根原木墙"
+  "block.deep_aether.stripped_sunroot_log_wall": "去皮阳根原木墙",
+  "item.deep_aether.chaos_emerald": "Chaos Emerald",
+  "lore.deep_aether.chaos_emerald": "You got me. Chaos Control!",
+  "subtitles.deep_aether.item.armor.equip_stratus": "Stratus armor clinks",
+  "subtitles.deep_aether.item.armor.equip_skyjade": "Skyjade armor clangs",
+  "subtitles.deep_aether.item.accessory.equip_skyjade_ring": "Skyjade Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_gravitite_ring": "Gravitite Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_stratus_ring": "Stratus Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_spooky_ring": "Spooky Ring jingles",
+  "subtitles.deep_aether.item.accessory.equip_slider_eye": "Slider Eye jingles",
+  "subtitles.deep_aether.item.accessory.ability_slider_eye": "Slider Eye howls",
+  "subtitles.deep_aether.item.tool.afterburner_fires": "Afterburner fires",
+  "subtitles.deep_aether.item.accessory.equip_medal_of_honor": "Medal of Honor jingles",
+  "subtitles.deep_aether.entity.quail.ambient": "Quail chirps",
+  "subtitles.deep_aether.entity.quail.death": "Quail dies",
+  "subtitles.deep_aether.entity.quail.hurt": "Quail hurts",
+  "subtitles.deep_aether.entity.venomite.ambient": "Venomite buzzes",
+  "subtitles.deep_aether.entity.venomite.death": "Venomite dies",
+  "subtitles.deep_aether.entity.venomite.hurt": "Venomite hurts",
+  "item.deep_aether.skyjade_moa_armor": "Skyjade Moa Armor",
+  "lore.deep_aether.skyjade_moa_armor": "A piece of skyjade armor for your Moa to wear, offering some amount of protection."
 }
 
 
