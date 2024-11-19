@@ -15,6 +15,38 @@
       }
     ]
   },
+  "item.music_disc.cyclone": {
+    "sounds": [
+      {
+        "name": "deep_aether:quizzly-cyclone",
+        "stream": true
+      }
+    ]
+  },
+  "item.music_disc.atta": {
+    "sounds": [
+      {
+        "name": "deep_aether:atta_mono",
+        "stream": true
+      }
+    ]
+  },
+  "item.music_disc.faent": {
+    "sounds": [
+      {
+        "name": "deep_aether:faent_mono",
+        "stream": true
+      }
+    ]
+  },
+  "item.music_disc.himininn": {
+    "sounds": [
+      {
+        "name": "deep_aether:himininn_mono",
+        "stream": true
+      }
+    ]
+  },
   "entity.quail.ambient": {
     "sounds": [
       "deep_aether:entity/quail/say1",
