@@ -13,6 +13,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.*;
+import teamrazor.deepaether.entity.eots.EOTSController;
+import teamrazor.deepaether.entity.eots.EOTSSegment;
 import teamrazor.deepaether.entity.quail.Quail;
 import teamrazor.deepaether.entity.quail.ThrownQuailEgg;
 
@@ -55,6 +57,17 @@ public class DAEntities {
 			EntityType.Builder.<Windfly>of(Windfly::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Windfly::new)
 					.sized(1F, 1F));
+
+	public static final RegistryObject<EntityType<EOTSController>> EOTS_CONTROLLER = register("eots_controller",
+			EOTSController::new, 3F, 3F);
+
+	public static final RegistryObject<EntityType<EOTSSegment>> EOTS_SEGMENT = register("eots_segment",
+			EOTSSegment::new, 1F, 1F);
+
+	public static final RegistryObject<EntityType<WindCrystal>> WIND_CRYSTAL = ENTITY_TYPES.register("wind_crystal",
+			() -> EntityType.Builder.<WindCrystal>of(WindCrystal::new, MobCategory.MISC).sized(0.85F, 0.85F)
+					.clientTrackingRange(4).updateInterval(10).fireImmune().build("wind_crystal"));
+
 
 	public static final RegistryObject<EntityType<FireProjectile>> FIRE_PROJECTILE = ENTITY_TYPES.register("fire_projectile",
 			() -> EntityType.Builder.<FireProjectile>of(FireProjectile::new, MobCategory.MISC).sized(0.35F, 0.35F).clientTrackingRange(4).updateInterval(10).build("fire_projectile"));
