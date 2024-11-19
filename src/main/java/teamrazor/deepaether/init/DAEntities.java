@@ -1,6 +1,7 @@
 package teamrazor.deepaether.init;
 
 
+import com.aetherteam.aether.data.resources.AetherMobCategory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -74,6 +75,15 @@ public class DAEntities {
 
 	public static final RegistryObject<EntityType<VenomiteBubble>> VENOMITE_BUBBLE = ENTITY_TYPES.register("venomite_bubble",
 			() -> EntityType.Builder.<VenomiteBubble>of(VenomiteBubble::new, MobCategory.MISC).sized(0.35F, 0.2F).clientTrackingRange(4).updateInterval(10).build("venomite_bubble"));
+
+	public static final RegistryObject<EntityType<BabyZephyr>> BABY_ZEPHYR = ENTITY_TYPES.register("baby_zephyr",
+			() -> EntityType.Builder.of(BabyZephyr::new,
+							AetherMobCategory.AETHER_SKY_MONSTER)
+					.sized(1.5F, 1.0F)
+					.clientTrackingRange(10).build("baby_zephyr"));
+
+	public static final RegistryObject<EntityType<BabyEots>> BABY_EOTS = register("baby_eots",
+			BabyEots::new, 1F, 0.3F);
 
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {

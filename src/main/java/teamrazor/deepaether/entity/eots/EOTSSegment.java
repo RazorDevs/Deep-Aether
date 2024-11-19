@@ -32,6 +32,7 @@ import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.entity.WindCrystal;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.init.DASounds;
 
 import java.util.EnumSet;
@@ -129,11 +130,11 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(DATA_HEAD_ID, true);
-        builder.define(DATA_OPEN_MOUTH, false);
-        builder.define(PARENT_DATA, this.getParent() != null && this.getParentUUID() != null ? this.getParentUUID().toString() : this.getStringUUID());
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_HEAD_ID, true);
+        this.entityData.define(DATA_OPEN_MOUTH, false);
+        this.entityData.define(PARENT_DATA, this.getParent() != null && this.getParentUUID() != null ? this.getParentUUID().toString() : this.getStringUUID());
     }
 
     /**
@@ -141,9 +142,9 @@ public class EOTSSegment extends FlyingMob implements Enemy {
      */
     @Nullable
     @SuppressWarnings("deprecation")
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor pLevel, @NotNull DifficultyInstance pDifficulty, @NotNull MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor pLevel, @NotNull DifficultyInstance pDifficulty, @NotNull MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag compoundTag) {
         new EOTSSegment(this.level(), this, 0); //Ensures multiple segments spawns in if spawn command is used
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, compoundTag);
     }
 
     @Override

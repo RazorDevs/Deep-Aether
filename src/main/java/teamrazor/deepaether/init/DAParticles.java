@@ -21,4 +21,22 @@ public class DAParticles {
 
     public static final RegistryObject<SimpleParticleType> FLOWERING_ROSEROOT_LEAVES = PARTICLE_TYPES.register("flowering_roseroot_leaves",
             () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> EOTS_EXPLOSION = PARTICLE_TYPES.register("eots_explosion",
+            () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> EOTS_PRE_FIGHT = PARTICLE_TYPES.register("eots_pre_fight",
+            () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> CLOVER_VERY_LUCKY = PARTICLE_TYPES.register("clover_very_lucky",
+            () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> CLOVER_LUCKY = PARTICLE_TYPES.register("clover_lucky",
+            () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> CLOVER = PARTICLE_TYPES.register("clover",
+            () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> CLOVER_UNLUCKY = PARTICLE_TYPES.register("clover_unlucky",
+            () -> new SimpleParticleType(true));
 }

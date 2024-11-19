@@ -24,7 +24,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.event.EventHooks;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DAEntities;
 
@@ -67,9 +66,9 @@ public class WindCrystal extends AbstractCrystal {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(IS_FRIENDLY, false);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(IS_FRIENDLY, false);
     }
 
     @Override

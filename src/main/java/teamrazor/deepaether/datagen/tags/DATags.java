@@ -3,6 +3,7 @@ package teamrazor.deepaether.datagen.tags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
@@ -51,10 +52,14 @@ public class DATags {
 
     public static class Entities {
         public static final TagKey<EntityType<?>> STERLING_AERCLOUD_BLACKLIST = tag("sterling_aercloud_blacklist");
+        public static final TagKey<EntityType<?>> WIND_CHARGE_BLACKLIST = tag("wind_charge_blacklist");
+        public static final TagKey<EntityType<?>> FRIENDLY_WIND_CHARGE_BLACKLIST = tag("friendly_wind_charge_blacklist");
+
         private static TagKey<EntityType<?>> tag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DeepAether.MODID, name));
         }
     }
+
     public static class Biomes {
 
         public static final TagKey<Biome> IS_NOT_SWAMP = tag("is_not_swamp");
@@ -70,6 +75,14 @@ public class DATags {
 
         private static TagKey<Fluid> tag(String name) {
             return TagKey.create(Registries.FLUID, new ResourceLocation(DeepAether.MODID, name));
+        }
+    }
+
+    public static class DamageTypes {
+        public static final TagKey<DamageType> EOTS_IMMUNE = tag("eots_immune");
+
+        private static TagKey<DamageType> tag(String name) {
+            return TagKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DeepAether.MODID, name));
         }
     }
 }

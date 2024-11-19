@@ -1,6 +1,5 @@
 package teamrazor.deepaether.entity;
 
-import io.wispforest.accessories.api.slot.SlotEntryReference;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -80,15 +79,15 @@ public class BabyEots extends FlyingMob {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(DATA_OWNER_ID, 0);
-        builder.define(IS_ON_NECK, false);
-        builder.define(COLOR_0, -1);
-        builder.define(COLOR_1, -1);
-        builder.define(COLOR_2, -1);
-        builder.define(COLOR_3, -1);
-        builder.define(COLOR_4, -1);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_OWNER_ID, 0);
+        this.entityData.define(IS_ON_NECK, false);
+        this.entityData.define(COLOR_0, -1);
+        this.entityData.define(COLOR_1, -1);
+        this.entityData.define(COLOR_2, -1);
+        this.entityData.define(COLOR_3, -1);
+        this.entityData.define(COLOR_4, -1);
     }
 
     private void setColors(List<Integer> colors) {
@@ -177,8 +176,8 @@ public class BabyEots extends FlyingMob {
     }
 
     @Override
-    public boolean canUsePortal(boolean use) {
-        return false;
+    public boolean isOnPortalCooldown() {
+        return true;
     }
 
     @Override
