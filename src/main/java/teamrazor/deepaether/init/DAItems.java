@@ -106,8 +106,7 @@ public class DAItems {
 	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH, (new Item.Properties()).stacksTo(1)));
 
 	// MOA FODDER
-	public static final RegistryObject<Item> JUMP_FODDER = ITEMS.register("jump_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.JUMP, -1, 1, true, true, true)));
-	public static final RegistryObject<Item> LEVITATION_FODDER = ITEMS.register("levitation_fodder", () -> new FodderItem(new Item.Properties(), new MobEffectInstance(MobEffects.LEVITATION, -1, 1, true, true, true)));
+	public static final RegistryObject<Item> MOA_FODDER = ITEMS.register("moa_fodder", () -> new FodderItem(new Item.Properties()));
 
 
 	// BOATS
@@ -148,6 +147,15 @@ public class DAItems {
 			() -> new RecordItem(7, DASounds.NABOORU, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));
 	public static final RegistryObject<Item> MUSIC_DISC_A_MORNING_WISH = ITEMS.register("music_disc_a_morning_wish",
 			() -> new RecordItem(7, DASounds.A_MORNING_WISH, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 5660));
+
+	public static final RegistryObject<Item> MUSIC_DISC_CYCLONE = ITEMS.register("music_disc_cyclone",
+			() -> new RecordItem(9,  DASounds.CYCLONE, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));
+	public static final RegistryObject<Item> MUSIC_DISC_ATTA = ITEMS.register("music_disc_atta",
+			() -> new RecordItem(10, DASounds.ATTA, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 2580));
+	public static final RegistryObject<Item> MUSIC_DISC_FAENT = ITEMS.register("music_disc_faent",
+			() -> new RecordItem(11, DASounds.FAENT, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4460));
+	public static final RegistryObject<Item> MUSIC_DISC_HIMININN = ITEMS.register("music_disc_himininn",
+			() -> new RecordItem(12, DASounds.HIMININN, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 3600));
 
 	public static final RegistryObject<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID, new Item.Properties().stacksTo(1)));

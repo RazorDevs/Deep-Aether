@@ -32,7 +32,6 @@ public class DAItemTagData extends ItemTagsProvider {
         return "Deep Aether Item Tags";
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
@@ -300,7 +299,11 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(ItemTags.MUSIC_DISCS).add(
                 DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
-                DAItems.MUSIC_DISC_NABOORU.get()
+                DAItems.MUSIC_DISC_NABOORU.get(),
+                DAItems.MUSIC_DISC_CYCLONE.get(),
+                DAItems.MUSIC_DISC_ATTA.get(),
+                DAItems.MUSIC_DISC_FAENT.get(),
+                DAItems.MUSIC_DISC_HIMININN.get()
         );
 
         tag(ItemTags.SAPLINGS).add(
@@ -360,6 +363,33 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(ItemTags.TRIM_TEMPLATES).add(
                 DAItems.STRATUS_SMITHING_TEMPLATE.get()
+        );
+
+        tag(DATags.Items.BRASS_DUNGEON_LOOT).add(
+                //DAItems.STORMFORGED_HELMET.get(),
+                //DAItems.STORMFORGED_CHESTPLATE.get(),
+                //DAItems.STORMFORGED_LEGGINGS.get(),
+                //DAItems.STORMFORGED_BOOTS.get(),
+                //DAItems.STORMFORGED_GLOVES.get(),
+                //DAItems.CLOUD_CAPE.get(),
+                //DAItems.WIND_SHIELD.get(),
+                //DAItems.AERCLOUD_NECKLACE.get(),
+                //DAItems.STORM_SWORD.get(),
+                //DAItems.STORM_BOW.get(),
+                //DAItems.BLADE_OF_LUCK.get(),
+                DAItems.MUSIC_DISC_CYCLONE.get()
+        );
+
+        tag(AetherTags.Items.BRONZE_DUNGEON_LOOT).add(
+                DAItems.MUSIC_DISC_ATTA.get()
+        );
+
+        tag(AetherTags.Items.SILVER_DUNGEON_LOOT).add(
+                DAItems.MUSIC_DISC_FAENT.get()
+        );
+
+        tag(AetherTags.Items.GOLD_DUNGEON_LOOT).add(
+                DAItems.MUSIC_DISC_HIMININN.get()
         );
     }
 }

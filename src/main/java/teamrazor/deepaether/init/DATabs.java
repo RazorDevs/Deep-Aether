@@ -5,7 +5,11 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -349,9 +353,14 @@ public class DATabs {
                     DAItems.SUNROOT_CHEST_BOAT.get(),
             }, event);
 
-            addToTab(AetherItems.MUSIC_DISC_ASCENDING_DAWN.get(), new Item[]{
+            addToTab(AetherItems.MUSIC_DISC_SLIDERS_WRATH.get(), new Item[]{
                     DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
-                    DAItems.MUSIC_DISC_NABOORU.get()
+                    DAItems.MUSIC_DISC_NABOORU.get(),
+                    DAItems.MUSIC_DISC_CYCLONE.get(),
+                    DAItems.MUSIC_DISC_ATTA.get(),
+                    DAItems.MUSIC_DISC_FAENT.get(),
+                    DAItems.MUSIC_DISC_HIMININN.get()
+
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey()) {
@@ -393,9 +402,10 @@ public class DATabs {
                     DAItems.COOKED_QUAIL.get(),
                     DAItems.RAW_AERGLOW_FISH.get(),
                     DAItems.COOKED_AERGLOW_FISH.get(),
-                    DAItems.JUMP_FODDER.get(),
-                    DAItems.LEVITATION_FODDER.get()
             }, event);
+            event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
+                    getMoaFodderStack(DAMobEffects.MOA_BONUS_JUMPS.getId()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
 
             addToTab(AetherItems.WHITE_APPLE.get(), new Item[]{
                     DAItems.GOLDEN_BERRIES.get(),
@@ -486,6 +496,16 @@ public class DATabs {
         for (int i = 1; i < stack.length; i++) {
             event.getEntries().putAfter(new ItemStack(stack[i-1]), new ItemStack(stack[i]), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
+    }
+
+    private static ItemStack getMoaFodderStack(ResourceLocation effect) {
+        ItemStack stack = new ItemStack(DAItems.MOA_FODDER.get());
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("amplifier", 1);
+        tag.putInt("time", 14400);
+        tag.putString("effect", effect.toString());
+        stack.setTag(tag);
+        return stack;
     }
 }
 

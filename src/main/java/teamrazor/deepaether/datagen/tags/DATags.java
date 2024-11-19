@@ -11,13 +11,13 @@ import net.minecraft.world.level.material.Fluid;
 import teamrazor.deepaether.DeepAether;
 
 public class DATags {
-    public class Items {
+    public static class Items {
         public static final TagKey<Item> ROSEROOT_LOGS = tag("roseroot_logs");
         public static final TagKey<Item> YAGROOT_LOGS = tag("yagroot_logs");
         public static final TagKey<Item> CRUDEROOT_LOGS = tag("cruderoot_logs");
         public static final TagKey<Item> CONBERRY_LOGS = tag("conberry_logs");
         public static final TagKey<Item> SUNROOT_LOGS = tag("sunroot_logs");
-
+        public static final TagKey<Item> BRASS_DUNGEON_LOOT = tag("brass_dungeon_loot");
         public static final TagKey<Item> CRAFTS_ROSEROOT_PLANKS = tag("crafts_roseroot_planks");
         public static final TagKey<Item> CRAFTS_YAGROOT_PLANKS = tag("crafts_yagroot_planks");
         public static final TagKey<Item> CRAFTS_CRUDEROOT_PLANKS = tag("crafts_cruderoot_planks");

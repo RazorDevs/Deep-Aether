@@ -9,6 +9,10 @@ import net.minecraft.client.particle.CherryParticle;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -20,6 +24,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.AerwhaleModelOverrideOverrideLCCompat;
 import teamrazor.deepaether.init.*;
+import teamrazor.deepaether.item.moa_food.FodderItem;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
 import teamrazor.deepaether.particle.custom.MysticalParticle;
 import teamrazor.deepaether.particle.custom.PoisonBubbles;
@@ -55,10 +60,31 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
 
+            registerItemModelPredicates();
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 AddonItemModelPredicates.init();
             }
         });
+    }
+
+    private static void registerItemModelPredicates() {
+        ItemProperties.register(DAItems.MOA_FODDER.get(), new ResourceLocation(DeepAether.MODID, "color"), (stack, level, entity, state) -> {
+            MobEffectInstance instance = ((FodderItem) stack.getItem()).getMobEffect(stack);
+                    if (instance != null) {
+                        if(instance.getEffect().equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
+                            return 0.1F;
+                        }
+                        else if(instance.getEffect().equals(MobEffects.FIRE_RESISTANCE)) {
+                            return 0.2F;
+                        }
+                        else if(instance.getEffect().equals(MobEffects.JUMP)) {
+                            return 0.3F;
+                        }
+                    }
+                    return  0.0F;
+                }
+
+        );
     }
 
     @SubscribeEvent

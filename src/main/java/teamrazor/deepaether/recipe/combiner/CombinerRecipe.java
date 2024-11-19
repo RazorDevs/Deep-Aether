@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -12,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-import teamrazor.deepaether.DeepAether;
 
 public class CombinerRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
@@ -77,12 +77,10 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
 
     public static class Type implements RecipeType<CombinerRecipe> {
         public static final Type INSTANCE = new Type();
-        public static final String ID = "combining";
     }
 
     public static class Serializer implements RecipeSerializer<CombinerRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "combining");
 
         @Override
         public CombinerRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
@@ -95,6 +93,17 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
+            int amplifier = GsonHelper.getAsInt(pSerializedRecipe, "amplifier", 0);
+            int time = GsonHelper.getAsInt(pSerializedRecipe, "time", 14400);
+            String effect = GsonHelper.getAsString(pSerializedRecipe, "effect");
+
+            CompoundTag tag = new CompoundTag();
+            tag.putInt("amplifier", amplifier);
+            tag.putInt("time", time);
+            tag.putString("effect", effect);
+
+            output.setTag(tag);
+
             return new CombinerRecipe(inputs, output, pRecipeId);
         }
 
@@ -102,9 +111,7 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
         public @Nullable CombinerRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
 
-            for(int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(pBuffer));
-            }
+            inputs.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
 
             ItemStack output = pBuffer.readItem();
             return new CombinerRecipe(inputs, output, pRecipeId);

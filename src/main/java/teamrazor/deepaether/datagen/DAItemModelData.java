@@ -367,8 +367,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.ENCHANTED_ANTIDOTE.get());
 
         //Moa Fodder
-        this.placeholder(DAItems.JUMP_FODDER.get());
-        this.placeholder(DAItems.LEVITATION_FODDER.get());
+        //this.placeholder(DAItems.JUMP_FODDER.get());
+        //this.placeholder(DAItems.LEVITATION_FODDER.get());
 
         //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
@@ -410,6 +410,10 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
+        this.item(DAItems.MUSIC_DISC_CYCLONE.get());
+        this.item(DAItems.MUSIC_DISC_ATTA.get());
+        this.item(DAItems.MUSIC_DISC_FAENT.get());
+        this.item(DAItems.MUSIC_DISC_HIMININN.get());
 
         this.item(DAItems.AERGLOW_BLOSSOM.get());
 
