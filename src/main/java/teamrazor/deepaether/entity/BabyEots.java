@@ -66,7 +66,8 @@ public class BabyEots extends FlyingMob {
     }
 
     public int getFromColor(int index) {
-        return FastColor.ARGB32.opaque(this.getColors()[index]);
+        //TODO: this is a temporary replacement
+        return FastColor.ARGB32.color(this.getColors()[index], this.getColors()[index], this.getColors()[index], this.getColors()[index]);
     }
 
     @Override
@@ -267,17 +268,17 @@ public class BabyEots extends FlyingMob {
                 return false;
             }
 
-            SlotEntryReference reference = DAEquipmentUtil.getFloatyScarf(livingentity);
-            if(reference == null) {
-                this.eots.discard();
-                return false;
-            }
-
-            FloatyScarf scarf = reference.stack().get(DADataComponentTypes.FLOATY_SCARF);
-            if(scarf == null || scarf.uuid() != this.eots.getId()) {
-                this.eots.discard();
-                return false;
-            }
+//            SlotEntryReference reference = DAEquipmentUtil.getFloatyScarf(livingentity);
+//            if(reference == null) {
+//                this.eots.discard();
+//                return false;
+//            }
+//
+//            FloatyScarf scarf = reference.stack().get(DADataComponentTypes.FLOATY_SCARF);
+//            if(scarf == null || scarf.uuid() != this.eots.getId()) {
+//                this.eots.discard();
+//                return false;
+//            }
 
             return !this.eots.isWrappedAroundNeck();
         }
@@ -416,7 +417,7 @@ public class BabyEots extends FlyingMob {
                 this.lookAt(this.eots.getTarget());
                 if(attackDelay <= 0) {
                     new WindCrystal(this.eots.level(), this.eots, this.eots.getLookAngle().multiply(0.7F,0.7F,0.7F).offsetRandom(this.eots.random, 0.15F), true);
-                    this.eots.level().playSound(null, this.eots.getX(), this.eots.getY(), this.eots.getZ(), DASounds.EOTS_SHOOT, SoundSource.HOSTILE, 1.0F, 2.0F);
+                    this.eots.level().playSound(null, this.eots.getX(), this.eots.getY(), this.eots.getZ(), DASounds.EOTS_SHOOT.get(), SoundSource.HOSTILE, 1.0F, 2.0F);
                     if(numberOfAttacks > 0) {
                         numberOfAttacks--;
                         attackDelay = 9;

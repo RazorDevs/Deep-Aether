@@ -72,7 +72,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 15;
     public static final int EXTRA_SEGMENT = 5;
-    private static final Music EOTS_MUSIC = new Music(DASounds.MUSIC_BOSS_EOTS, 0, 0, true);
+    private static final Music EOTS_MUSIC = new Music(DASounds.MUSIC_BOSS_EOTS.getHolder().get(), 0, 0, true);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
@@ -152,7 +152,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         if(this.soundCooldown != 0){
             this.soundCooldown--;
         }else{
-            this.level().playLocalSound(this, DASounds.EOTS_BLOWING.get(), SoundSource.HOSTILE, 1.0f, 1.0f);
+            this.level().playLocalSound(this.blockPosition(), DASounds.EOTS_BLOWING.get(), SoundSource.HOSTILE, 1.0f, 1.0f, true);
             this.soundCooldown = 50;
         }
     }
@@ -383,7 +383,8 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void startSeenByPlayer(@NotNull ServerPlayer player) {
         super.startSeenByPlayer(player);
-        PacketDistributor.sendToPlayer(player, new BossInfoPacket.Display(this.bossFight.getId(), this.getId()));
+        //TODO: Fix this too
+        //PacketDistributor.sendToPlayer(player, new BossInfoPacket.Display(this.bossFight.getId(), this.getId()));
         if (this.getDungeon() == null || this.getDungeon().isPlayerTracked(player)) {
             this.bossFight.addPlayer(player);
             AetherEventDispatch.onBossFightPlayerAdd(this, this.getDungeon(), player);
@@ -393,7 +394,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void stopSeenByPlayer(@NotNull ServerPlayer player) {
         super.stopSeenByPlayer(player);
-        PacketDistributor.sendToPlayer(player, new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
+        //PacketDistributor.sendToPlayer(player, new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
         PacketDistributor.PLAYER.with(() -> player).send((Packet<?>) new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
         this.bossFight.removePlayer(player);
         AetherEventDispatch.onBossFightPlayerRemove(this, this.getDungeon(), player);

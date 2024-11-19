@@ -116,9 +116,10 @@ public class WindCrystal extends AbstractCrystal {
             this.level().playSound(this, result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f);
 
             if (this.isBreakable(this.level().getBlockState(result.getBlockPos()))) {
-                if (EventHooks.canEntityGrief(this.level(), this)) {
+                //TODO: Replace EventHooks
+                //if (EventHooks.canEntityGrief(this.level(), this)) {
                     this.level().destroyBlock(result.getBlockPos(), true);
-                }
+                //}
             }
         }
 

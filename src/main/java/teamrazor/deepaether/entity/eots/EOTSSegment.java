@@ -790,7 +790,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 this.lookAt(this.segment.getTarget());
                 if(attackDelay <= 0) {
                     new WindCrystal(this.segment.level(), this.segment, this.segment.getLookAngle().multiply(0.7F,0.7F,0.7F).offsetRandom(this.segment.random, 0.3F));
-                    this.segment.level().playSound(null, this.segment.getX(), this.segment.getY(), this.segment.getZ(), DASounds.EOTS_SHOOT, SoundSource.HOSTILE, 2.0F, 1.0F);
+                    this.segment.level().playSound(null, this.segment.getX(), this.segment.getY(), this.segment.getZ(), DASounds.EOTS_SHOOT.get(), SoundSource.HOSTILE, 2.0F, 1.0F);
                     if(numberOfAttacks > 0) {
                         numberOfAttacks--;
                         attackDelay = 9;

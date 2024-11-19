@@ -4,6 +4,7 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -88,6 +89,10 @@ public class DAEntities {
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));
+	}
+
+	private static <T extends Mob> RegistryObject<EntityType<T>> register(String name, EntityType.EntityFactory<T> entity, float width, float height) {
+		return ENTITY_TYPES.register(name, () -> EntityType.Builder.of(entity, MobCategory.CREATURE).sized(width, height).build(name));
 	}
 
 	@SubscribeEvent
