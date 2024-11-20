@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "deep_aether:block/golden_flower_bottom"
+    },
+    "half=upper": {
+      "model": "deep_aether:block/golden_flower_top"
+    }
+  }
+}

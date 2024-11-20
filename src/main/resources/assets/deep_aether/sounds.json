@@ -47,6 +47,7 @@
       }
     ]
   },
+
   "entity.quail.ambient": {
     "sounds": [
       "deep_aether:entity/quail/say1",
@@ -86,6 +87,44 @@
     ],
     "subtitle": "subtitles.deep_aether.entity.venomite.death"
   },
+  "entity.windfly.ambient": {
+    "sounds": [
+      "deep_aether:entity/windfly/ambient"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.windfly.ambient"
+  },
+  "entity.windfly.hurt": {
+    "sounds": [
+      "deep_aether:entity/windfly/hurt"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.windfly.hurt"
+  },
+  "entity.eots.blowing": {
+    "sounds": [
+      "deep_aether:entity/eots/blowing"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.eots.blowing"
+  },
+  "entity.eots.shoot": {
+    "sounds": [
+      "aether:entity/zephyr/shoot"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.eots.shoot"
+  },
+  "entity.eots.hurt": {
+    "sounds": [
+      "aether:entity/zephyr/shoot"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.eots.hurt"
+  },
+  "music.boss.eots": {
+    "sounds": [
+      {
+        "name": "deep_aether:entity/eots/fight",
+        "stream": true
+      }
+    ]
+  },
   "item.armor.equip_skyjade": {
     "sounds": [
       "item/armor/equip_diamond1",
@@ -107,6 +146,17 @@
       "item/armor/equip_gold6"
     ],
     "subtitle": "subtitles.deep_aether.item.armor.equip_stratus"
+  },
+  "item.armor.equip_stormforged": {
+    "sounds": [
+      "item/armor/equip_gold1",
+      "item/armor/equip_gold2",
+      "item/armor/equip_gold3",
+      "item/armor/equip_gold4",
+      "item/armor/equip_gold5",
+      "item/armor/equip_gold6"
+    ],
+    "subtitle": "subtitles.deep_aether.item.armor.equip_stormforged"
   },
   "item.accessory.equip_skyjade_ring": {
     "sounds": [
@@ -185,5 +235,33 @@
       "item/armor/equip_chain6"
     ],
     "subtitle": "subtitles.deep_aether.item.accessory.equip_medal_of_honor"
+  },
+  "music.deep_aether": {
+    "sounds": [
+      {
+        "name": "deep_aether:wooshwoosh",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether1",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether2",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether3",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether4",
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether5",
+        "stream": true
+      }
+    ]
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "deep_aether:block/aercloud_mushroom_base",
+  "textures": {
+    "particle": "deep_aether:block/pink_aercloud_mushroom_block",
+    "texture": "deep_aether:block/pink_aercloud_mushroom_block"
+  }
+}

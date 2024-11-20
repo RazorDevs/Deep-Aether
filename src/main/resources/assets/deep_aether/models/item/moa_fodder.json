@@ -1,0 +1,11 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "deep_aether:item/fodder_red"
+  },
+  "overrides": [
+    { "predicate": { "deep_aether:color": 0.1 }, "model": "deep_aether:item/fodder_blue" },
+    { "predicate": { "deep_aether:color": 0.2 }, "model": "deep_aether:item/fodder_red" },
+    { "predicate": { "deep_aether:color": 0.3 }, "model": "deep_aether:item/fodder_green" }
+  ]
+}

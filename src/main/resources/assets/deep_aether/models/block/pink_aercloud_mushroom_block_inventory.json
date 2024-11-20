@@ -1,0 +1,7 @@
+{
+  "render_type": "minecraft:translucent",
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "deep_aether:block/pink_aercloud_mushroom_block"
+  }
+}
