@@ -98,7 +98,6 @@ public class DAEntities {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
-			AerglowFish.createAttributes();
 			Quail.init();
 			Venomite.init();
 			Windfly.init();
@@ -110,6 +109,10 @@ public class DAEntities {
 		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
+		event.put(EOTS_SEGMENT.get(), EOTSSegment.createMobAttributes().build());
+		event.put(EOTS_CONTROLLER.get(), EOTSController.createMobAttributes().build());
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
+		event.put(BABY_ZEPHYR.get(), BabyZephyr.createMobAttributes().build());
+		event.put(BABY_EOTS.get(), BabyEots.createMobAttributes().build());
 	}
 }

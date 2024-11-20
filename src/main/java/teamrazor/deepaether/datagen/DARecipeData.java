@@ -605,7 +605,7 @@ public class DARecipeData extends AetherRecipeProvider {
         dye(consumer, Items.PINK_DYE, DABlocks.AERLAVENDER.get());
         dye(consumer, Items.PINK_DYE, DABlocks.TALL_AERLAVENDER.get(), 2);
         dye(consumer, Items.PURPLE_DYE, DABlocks.RADIANT_ORCHID.get());
-        dye(consumer, Items.ORANGE_DYE, DABlocks.GOLDEN_FLOWER.get());
+        dye(consumer, Items.ORANGE_DYE, DABlocks.GOLDEN_FLOWER.get(), 2);
         dye(consumer, Items.WHITE_DYE, DABlocks.ENCHANTED_BLOSSOM.get());
         dye(consumer, Items.RED_DYE, DABlocks.SKY_TULIPS.get());
         dye(consumer, Items.BLUE_DYE, DABlocks.IASPOVE.get());

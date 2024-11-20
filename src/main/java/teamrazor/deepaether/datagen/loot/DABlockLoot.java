@@ -276,7 +276,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropNone(DABlocks.FEATHER_GRASS.get());
         this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
 
-        this.dropSelf(DABlocks.GOLDEN_FLOWER.get());
+        this.add(DABlocks.GOLDEN_FLOWER.get(), (flower) -> createSinglePropConditionTable(DABlocks.GOLDEN_FLOWER.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
 
         this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);

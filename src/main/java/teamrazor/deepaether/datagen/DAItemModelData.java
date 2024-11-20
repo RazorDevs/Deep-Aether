@@ -380,7 +380,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.FEATHER_GRASS.get());
         this.itemBlockFlatName(DABlocks.TALL_FEATHER_GRASS.get(), "tall_feather_grass_top");
 
-        this.itemBlockFlat(DABlocks.GOLDEN_FLOWER.get());
+        this.itemBlockFlatName(DABlocks.GOLDEN_FLOWER.get(), "golden_flower_top");
         this.itemBlockFlat(DABlocks.ENCHANTED_BLOSSOM.get());
         this.itemBlockFlat(DABlocks.SKY_TULIPS.get());
         this.itemBlockFlat(DABlocks.IASPOVE.get());

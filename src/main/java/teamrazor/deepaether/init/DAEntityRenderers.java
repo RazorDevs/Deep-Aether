@@ -38,6 +38,10 @@ public class DAEntityRenderers {
 
 		event.registerEntityRenderer(DAEntities.FIRE_PROJECTILE.get(), FireProjectileRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE_BUBBLE.get(), VenomiteBubbleRenderer::new);
+
+		event.registerEntityRenderer(DAEntities.EOTS_CONTROLLER.get(), EOTSRenderer::new);
+		event.registerEntityRenderer(DAEntities.EOTS_SEGMENT.get(), EOTSSegmentRenderer::new);
+		event.registerEntityRenderer(DAEntities.BABY_EOTS.get(), BabyEotsRenderer::new);
 		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), WindCrystalRenderer::new);
 		//event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
 		event.registerEntityRenderer(DAEntities.BABY_ZEPHYR.get(), BabyZephyrRenderer::new);
@@ -57,7 +61,7 @@ public class DAEntityRenderers {
 		event.registerLayerDefinition(DAModelLayers.WIND_SHIELD_SLIM, () -> LayerDefinition.create(PlayerModel.createMesh(new CubeDeformation(1.15F), true), 64, 64));
 		event.registerLayerDefinition(DAModelLayers.WIND_SHIELD_ARM, () -> LayerDefinition.create(PlayerModel.createMesh(new CubeDeformation(0.4F), false), 64, 64));
 
-		//event.registerLayerDefinition(DAModelLayers.SCARF, ScarfModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.SCARF, FloatyScarfModel::createBodyLayer);
 
 		for (DABoatEntity.Type type : DABoatEntity.Type.values()) {
 			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getModelLocation()), "main"), BoatModel::createBodyModel);

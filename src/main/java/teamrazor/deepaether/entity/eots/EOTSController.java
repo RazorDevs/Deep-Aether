@@ -385,6 +385,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         super.startSeenByPlayer(player);
         //TODO: Fix this too
         //PacketDistributor.sendToPlayer(player, new BossInfoPacket.Display(this.bossFight.getId(), this.getId()));
+        PacketDistributor.PLAYER.with(() -> player).send((Packet<?>) new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
         if (this.getDungeon() == null || this.getDungeon().isPlayerTracked(player)) {
             this.bossFight.addPlayer(player);
             AetherEventDispatch.onBossFightPlayerAdd(this, this.getDungeon(), player);
@@ -395,7 +396,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     public void stopSeenByPlayer(@NotNull ServerPlayer player) {
         super.stopSeenByPlayer(player);
         //PacketDistributor.sendToPlayer(player, new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
-        PacketDistributor.PLAYER.with(() -> player).send((Packet<?>) new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
         this.bossFight.removePlayer(player);
         AetherEventDispatch.onBossFightPlayerRemove(this, this.getDungeon(), player);
     }

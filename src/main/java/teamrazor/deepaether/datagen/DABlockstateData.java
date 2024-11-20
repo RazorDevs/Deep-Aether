@@ -191,7 +191,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.crossBlock(DABlocks.TALL_AERLAVENDER.get());
         this.crossBlock(DABlocks.AETHER_CATTAILS.get());
         this.crossBlock(DABlocks.RADIANT_ORCHID.get());
-        this.crossBlock(DABlocks.GOLDEN_FLOWER.get());
         this.crossBlock(DABlocks.ENCHANTED_BLOSSOM.get());
         this.crossBlock(DABlocks.SKY_TULIPS.get());
         this.crossBlock(DABlocks.IASPOVE.get());
