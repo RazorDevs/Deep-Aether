@@ -26,13 +26,15 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> VENOMITE_HURT = register("entity.venomite.hurt");
 	public static final RegistryObject<SoundEvent> VENOMITE_AMBIENT = register("entity.venomite.ambient");
 
+	public static final RegistryObject<SoundEvent> WINDFLY_HURT = register("entity.windfly.hurt");
+	public static final RegistryObject<SoundEvent> WINDFLY_AMBIENT = register("entity.windfly.ambient");
+
 	public static final RegistryObject<SoundEvent> EOTS_DEATH = register("entity.eots.death");
 	public static final RegistryObject<SoundEvent> EOTS_HURT = register("entity.eots.hurt");
 	public static final RegistryObject<SoundEvent> EOTS_AMBIENT = register("entity.eots.ambient");
 	public static final RegistryObject<SoundEvent> EOTS_BLOWING = register("entity.eots.blowing");
 	public static final RegistryObject<SoundEvent> EOTS_SHOOT = register("entity.eots.shoot");
 	public static final RegistryObject<SoundEvent> MUSIC_BOSS_EOTS = register("music.boss.eots");
-
 
 	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_SKYJADE = register("item.armor.equip_skyjade");
 	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_STRATUS = register("item.armor.equip_stratus");

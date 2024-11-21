@@ -98,10 +98,6 @@ repositories {
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven {
-        name = 'GeckoLib'
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-    }
-    maven {
         name "Modding Legacy Maven"
         url "https://maven.moddinglegacy.com/maven"
     }
@@ -141,7 +137,6 @@ dependencies {
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}:api")
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.mc_version}:${project.geckolib_version}")
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${project.terrablender_version}")
     implementation fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge")
     jarJar fg.deobf("local:aeroblender:1.20.1-1.0.2-rc1-neoforge") {

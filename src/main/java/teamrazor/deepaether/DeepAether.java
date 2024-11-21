@@ -40,7 +40,6 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
-import software.bernie.geckolib.GeckoLib;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.block.behavior.DADispenseBehaviors;
@@ -113,8 +112,6 @@ public class DeepAether {
 
 		MinecraftForge.EVENT_BUS.register(this);
 
-
-		GeckoLib.initialize();
 		DABlocks.BLOCKS.register(bus);
 		DAItems.ITEMS.register(bus);
 		DAParticles.PARTICLE_TYPES.register(bus);
@@ -193,7 +190,7 @@ public class DeepAether {
 			this.getFlawlessBossDrop(LCEntityTypes.AERWHALE_KING, DeepAetherConfig.COMMON.aerwhale_king_flawless_boss_drop.get(), DAItems.AERWHALE_SADDLE.get());
 	}
 
-	private void getFlawlessBossDrop(EntityType type, String string, Item fallBack) {
+	private void getFlawlessBossDrop(EntityType<?> type, String string, Item fallBack) {
 		if(string.equals("null")) {
 			DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, null);
 		}

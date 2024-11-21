@@ -56,6 +56,9 @@ public class DAEntityRenderers {
 		event.registerLayerDefinition(DAModelLayers.BABY_EOTS, BabyEotsModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.VENOMITE_BUBBLE, VenomiteBubbleModel::createBodyLayer);
 		event.registerLayerDefinition(DAModelLayers.BABY_ZEPHYR, BabyZephyrModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.WINDFLY, WindflyModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.VENOMITE, VenomiteModel::createBodyLayer);
+		event.registerLayerDefinition(DAModelLayers.QUAIL, QuailModel::createBodyLayer);
 
 		event.registerLayerDefinition(DAModelLayers.WIND_SHIELD, () -> LayerDefinition.create(PlayerModel.createMesh(new CubeDeformation(1.1F), false), 64, 64));
 		event.registerLayerDefinition(DAModelLayers.WIND_SHIELD_SLIM, () -> LayerDefinition.create(PlayerModel.createMesh(new CubeDeformation(1.15F), true), 64, 64));

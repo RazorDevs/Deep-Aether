@@ -46,19 +46,17 @@ public class DAEntities {
 					.sized(0.5f, 0.5f));
 
 	public static final RegistryObject<EntityType<Quail>> QUAIL = register("quail",
-			EntityType.Builder.<Quail>of(Quail::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Quail::new)
+			EntityType.Builder.of(Quail::new, MobCategory.CREATURE)
+					.setShouldReceiveVelocityUpdates(true)
+					.setTrackingRange(64).setUpdateInterval(3)
+					.clientTrackingRange(10)
 					.sized(0.35F, 0.7f));
 
 	public static final RegistryObject<EntityType<Venomite>> VENOMITE = register("venomite",
-			EntityType.Builder.<Venomite>of(Venomite::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Venomite::new)
-					.sized(0.7F, 0.6F));
+			Venomite::new, 0.7F, 0.6F);
 
 	public static final RegistryObject<EntityType<Windfly>> WINDFLY = register("windfly",
-			EntityType.Builder.<Windfly>of(Windfly::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true)
-					.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(Windfly::new)
-					.sized(1F, 1F));
+			Windfly::new, 1.0F, 0.3F);
 
 	public static final RegistryObject<EntityType<EOTSController>> EOTS_CONTROLLER = register("eots_controller",
 			EOTSController::new, 3F, 3F);
