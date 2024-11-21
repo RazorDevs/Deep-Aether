@@ -28,7 +28,10 @@
               },
               {
                 "data": {
-                  "Name": "deep_aether:golden_flower"
+                  "Name": "deep_aether:golden_flower",
+                  "Properties": {
+                    "half": "lower"
+                  }
                 },
                 "weight": 12
               },

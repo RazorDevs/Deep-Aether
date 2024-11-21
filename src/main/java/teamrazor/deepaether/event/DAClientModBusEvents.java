@@ -3,6 +3,7 @@ package teamrazor.deepaether.event;
 import com.aetherteam.aether.client.renderer.AetherModelLayers;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
+import com.aetherteam.aether.inventory.menu.LoreBookMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.particle.CherryParticle;
@@ -50,6 +51,9 @@ public class DAClientModBusEvents {
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
 
+        //LoreBookMenu.addLoreEntryOverride(registryAccess -> stack -> stack
+        //        .is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
+
         MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
 
 
@@ -85,6 +89,16 @@ public class DAClientModBusEvents {
                 }
 
         );
+
+
+        ItemProperties.register(DAItems.STORM_BOW.get(), new ResourceLocation("pull"), (p_344163_, p_344164_, p_344165_, p_344166_) -> {
+            if (p_344165_ == null) {
+                return 0.0F;
+            } else {
+                return p_344165_.getUseItem() != p_344163_ ? 0.0F : (float)(p_344163_.getUseDuration() - p_344165_.getUseItemRemainingTicks()) / 20.0F;
+            }
+        });
+        ItemProperties.register(DAItems.STORM_BOW.get(), new ResourceLocation("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F);
     }
 
     @SubscribeEvent

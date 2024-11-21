@@ -3,7 +3,9 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
+import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
+import com.aetherteam.aether.item.miscellaneous.DungeonKeyItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -24,6 +26,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.item.dungeon.brass.StormBowItem;
+import teamrazor.deepaether.item.dungeon.brass.StormSwordItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
 import teamrazor.deepaether.item.gear.other.*;
@@ -180,6 +184,23 @@ public class DAItems {
 
 	public static final RegistryObject<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
+	//BRASS LOOT
+	public static final RegistryObject<Item> BRASS_DUNGEON_KEY = ITEMS.register("brass_dungeon_key", () -> new DungeonKeyItem(new ResourceLocation(DeepAether.MODID, "brass"), new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final RegistryObject<Item> STORM_BOW = ITEMS.register("storm_bow", () -> new StormBowItem(new Item.Properties().durability(384).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> STORM_SWORD = ITEMS.register("storm_sword", () -> new StormSwordItem(DATiers.STRATUS, 2, -2.4F, new Item.Properties().durability(384)));
+	/*public static final RegistryObject<Item> BLADE_OF_LUCK = ITEMS.register("blade_of_luck", () -> new BladeOfLuckItem(DATiers.LUCK, (new Item.Properties()).attributes(SwordItem.createAttributes(DATiers.LUCK, 0, -3.5F)).rarity(AetherItems.AETHER_LOOT)));
+
+	public static final RegistryObject<Item> STORMFORGED_HELMET = ITEMS.register("stormforged_helmet", () -> new ArmorItem(DAArmorMaterials.STORMFORGED, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(33)).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> STORMFORGED_CHESTPLATE = ITEMS.register("stormforged_chestplate", () -> new ArmorItem(DAArmorMaterials.STORMFORGED, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(33)).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> STORMFORGED_LEGGINGS = ITEMS.register("stormforged_leggings", () -> new ArmorItem(DAArmorMaterials.STORMFORGED, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(33)).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> STORMFORGED_BOOTS = ITEMS.register("stormforged_boots", () -> new ArmorItem(DAArmorMaterials.STORMFORGED, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(33)).rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> STORMFORGED_GLOVES = ITEMS.register("stormforged_gloves", () -> new GlovesItem(DAArmorMaterials.STORMFORGED, 0.75, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "stormforged_gloves"), DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
+
+	public static final RegistryObject<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(new ResourceLocation(DeepAether.MODID, "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> CLOUD_CAPE = ITEMS.register("cloud_cape", () -> new CloudCapeItem(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "cloud_cape"), new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> WIND_SHIELD = ITEMS.register("wind_shield", () -> new WindShieldItem(new Item.Properties().stacksTo(1).durability(512).rarity(AetherItems.AETHER_LOOT)));
+
+	public static final RegistryObject<Item> FLOATY_SCARF = ITEMS.register("floaty_scarf", () -> new FloatyScarfItem(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "floaty_scarf"), SoundEvents.ARMOR_EQUIP_CHAIN, new Item.Properties().rarity(AetherItems.AETHER_LOOT).component(DADataComponentTypes.FLOATY_SCARF, FloatyScarf.withDefaultColor(0))));*/
 	//LOST CONTENT
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));

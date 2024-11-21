@@ -43,7 +43,7 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.EOTS_SEGMENT.get(), EOTSSegmentRenderer::new);
 		event.registerEntityRenderer(DAEntities.BABY_EOTS.get(), BabyEotsRenderer::new);
 		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), WindCrystalRenderer::new);
-		//event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
+		event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
 		event.registerEntityRenderer(DAEntities.BABY_ZEPHYR.get(), BabyZephyrRenderer::new);
 	}
 

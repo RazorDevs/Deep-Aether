@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:block/golden_flower"
+    "layer0": "deep_aether:block/golden_flower_top"
   }
 }

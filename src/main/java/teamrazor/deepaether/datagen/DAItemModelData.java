@@ -241,7 +241,17 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR.get());
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_UP.get());
         this.itemBlock(DABlocks.HOLYSTONE_PILLAR_DOWN.get());
+
+
         this.itemBlock(DABlocks.CHISELED_HOLYSTONE.get());
+
+        //Brass loot
+        this.bowItem(DAItems.STORM_BOW.get());
+        this.handheldItem(DAItems.STORM_SWORD.get());
+        //this.item(DAItems.WIND_SHIELD.get());
+        //this.item(DAItems.AERCLOUD_NECKLACE.get());
+        //this.translucentItem(DAItems.CLOUD_CAPE.get());
+
 
         //Brass Dungeon
         this.itemBlock(DABlocks.NIMBUS_STONE.get());
@@ -268,7 +278,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBossDoorwayDungeonBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
         this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
         this.itemTreasureDoorwayDungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
-
 
         //Plants
         this.itemBlockFlat(DABlocks.AERLAVENDER.get());
@@ -421,6 +430,31 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
 
+    }
+
+    public void bowItem(Item item) {
+        //Normal
+        this.withExistingParent(this.itemName(item) + "_pulling_0", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_0"));
+        this.withExistingParent(this.itemName(item) + "_pulling_1", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_1"));
+        this.withExistingParent(this.itemName(item) + "_pulling_2", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_2"));
+        //Special
+        this.withExistingParent(this.itemName(item) + "_pulling_0_special", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_0_special"));
+        this.withExistingParent(this.itemName(item) + "_pulling_1_special", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_1_special"));
+        this.withExistingParent(this.itemName(item) + "_pulling_2_special", this.mcLoc("item/bow")).texture("layer0", this.modLoc("item/" + this.itemName(item) + "_pulling_2_special"));
+
+        this.withExistingParent(this.itemName(item), this.mcLoc("item/bow"))
+                //Normal
+                .texture("layer0", this.modLoc("item/" + this.itemName(item)))
+                .override().predicate(new ResourceLocation("pulling"), 1).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0"))).end()
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.65F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1"))).end()
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.9F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2"))).end()
+                //Special
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
+                .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0_special"))).end()
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.65F).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
+                .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1_special"))).end()
+                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.9F).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
+                .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2_special"))).end();
     }
 
     public void handheldItem(Item item) {

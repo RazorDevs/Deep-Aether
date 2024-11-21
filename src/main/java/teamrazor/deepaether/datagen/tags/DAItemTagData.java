@@ -9,15 +9,19 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 
 public class DAItemTagData extends ItemTagsProvider {
@@ -41,6 +45,11 @@ public class DAItemTagData extends ItemTagsProvider {
         this.copy(DATags.Blocks.CONBERRY_LOGS, DATags.Items.CONBERRY_LOGS);
         this.copy(DATags.Blocks.SUNROOT_LOGS, DATags.Items.SUNROOT_LOGS);
         this.copy(DATags.Blocks.NIMBUS_BLOCKS, DATags.Items.NIMBUS_BLOCKS);
+
+        Collection<RegistryObject<Item>> items = DAItems.ITEMS.getEntries();
+
+        IntrinsicTagAppender<Item> tag = this.tag(AetherTags.Items.TREATED_AS_AETHER_ITEM);
+        items.forEach(item -> tag.add(item.get()));
 
         tag(AetherTags.Items.PLANKS_CRAFTING).add(
                 DABlocks.ROSEROOT_PLANKS.get().asItem(),
@@ -105,18 +114,6 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.STRATUS_PICKAXE.get().asItem()
-        );
-        tag(AetherTags.Items.TREATED_AS_AETHER_ITEM).add(
-                DAItems.SKYJADE_TOOLS_SWORD.get().asItem(),
-                DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
-                DAItems.SKYJADE_TOOLS_AXE.get().asItem(),
-                DAItems.SKYJADE_TOOLS_SHOVEL.get().asItem(),
-                DAItems.SKYJADE_TOOLS_HOE.get().asItem(),
-                DAItems.STRATUS_SWORD.get().asItem(),
-                DAItems.STRATUS_PICKAXE.get().asItem(),
-                DAItems.STRATUS_AXE.get().asItem(),
-                DAItems.STRATUS_SHOVEL.get().asItem(),
-                DAItems.STRATUS_HOE.get().asItem()
         );
         tag(ItemTags.SMALL_FLOWERS).add(
                 DABlocks.AERLAVENDER.get().asItem(),
@@ -283,6 +280,14 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(DATags.Items.SKYJADE_REPAIRING).add(
                 DAItems.SKYJADE.get()
         );
+        tag(DATags.Items.SKYJADE_ARMOR).add(
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.SKYJADE_GLOVES.get()
+
+        );
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
@@ -291,20 +296,37 @@ public class DAItemTagData extends ItemTagsProvider {
                 new ResourceLocation(DeepAether.AETHER_GENESIS,"golden_swet_ball")
         );
 
-
-        tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
-                DAItems.SKYJADE_SHIELD.get(),
-                DAItems.STRATUS_SHIELD.get()
+        tag(DATags.Items.BRASS_DUNGEON_LOOT).add(
+                //DAItems.STORMFORGED_HELMET.get(),
+               //DAItems.STORMFORGED_CHESTPLATE.get(),
+               //DAItems.STORMFORGED_LEGGINGS.get(),
+               //DAItems.STORMFORGED_BOOTS.get(),
+               //DAItems.STORMFORGED_GLOVES.get(),
+               //DAItems.CLOUD_CAPE.get(),
+               //DAItems.WIND_SHIELD.get(),
+               //DAItems.AERCLOUD_NECKLACE.get(),
+                DAItems.STORM_SWORD.get(),
+                DAItems.STORM_BOW.get(),
+                //DAItems.BLADE_OF_LUCK.get(),
+                DAItems.MUSIC_DISC_CYCLONE.get()
         );
 
-        tag(ItemTags.MUSIC_DISCS).add(
-                DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
-                DAItems.MUSIC_DISC_NABOORU.get(),
-                DAItems.MUSIC_DISC_CYCLONE.get(),
-                DAItems.MUSIC_DISC_ATTA.get(),
-                DAItems.MUSIC_DISC_FAENT.get(),
+        tag(AetherTags.Items.BRONZE_DUNGEON_LOOT).add(
+                DAItems.MUSIC_DISC_ATTA.get()
+        );
+
+        tag(AetherTags.Items.SILVER_DUNGEON_LOOT).add(
+                DAItems.MUSIC_DISC_FAENT.get()
+        );
+
+        tag(AetherTags.Items.GOLD_DUNGEON_LOOT).add(
                 DAItems.MUSIC_DISC_HIMININN.get()
         );
+
+        /*tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
+                DAItems.SKYJADE_SHIELD.get(),
+                DAItems.STRATUS_SHIELD.get()
+        );*/
 
         tag(ItemTags.SAPLINGS).add(
                 DABlocks.SUNROOT_SAPLING.get().asItem(),
@@ -325,6 +347,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_CHESTPLATE.get(),
                 DAItems.SKYJADE_LEGGINGS.get(),
                 DAItems.SKYJADE_BOOTS.get(),
+                //DAItems.STORMFORGED_HELMET.get(),
+                //DAItems.STORMFORGED_CHESTPLATE.get(),
+                //DAItems.STORMFORGED_LEGGINGS.get(),
+                //DAItems.STORMFORGED_BOOTS.get(),
                 DAItems.SKYJADE_GLOVES.get(),
                 DAItems.STRATUS_HELMET.get(),
                 DAItems.STRATUS_CHESTPLATE.get(),
@@ -338,6 +364,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_GLOVES.get()
         );
 
+        /*tag(AetherTags.Items.ACCESSORIES_CAPES).add(
+                DAItems.CLOUD_CAPE.get()
+        );*/
+
         tag(AetherTags.Items.ACCESSORIES_RINGS).add(
                 DAItems.SKYJADE_RING.get(),
                 DAItems.STRATUS_RING.get(),
@@ -349,8 +379,14 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SLIDER_EYE.get()
         );
 
+        /*tag(AetherTags.Items.ACCESSORIES_SHIELDS).add(
+                DAItems.WIND_SHIELD.asItem()
+        );*/
+
         tag(AetherTags.Items.ACCESSORIES_PENDANTS).add(
                 DAItems.MEDAL_OF_HONOR.get()
+                /*DAItems.AERCLOUD_NECKLACE.get(),
+                DAItems.FLOATY_SCARF.get()*/
         );
 
         tag(ItemTags.HANGING_SIGNS).add(
@@ -365,30 +401,33 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_SMITHING_TEMPLATE.get()
         );
 
-        tag(DATags.Items.BRASS_DUNGEON_LOOT).add(
-                //DAItems.STORMFORGED_HELMET.get(),
-                //DAItems.STORMFORGED_CHESTPLATE.get(),
-                //DAItems.STORMFORGED_LEGGINGS.get(),
-                //DAItems.STORMFORGED_BOOTS.get(),
-                //DAItems.STORMFORGED_GLOVES.get(),
-                //DAItems.CLOUD_CAPE.get(),
-                //DAItems.WIND_SHIELD.get(),
-                //DAItems.AERCLOUD_NECKLACE.get(),
-                //DAItems.STORM_SWORD.get(),
-                //DAItems.STORM_BOW.get(),
-                //DAItems.BLADE_OF_LUCK.get(),
-                DAItems.MUSIC_DISC_CYCLONE.get()
+        /*tag(ItemTags.COMPASSES).add(
+                DAItems.BRONZE_COMPASS.get(),
+                DAItems.SILVER_COMPASS.get(),
+                DAItems.GOLD_COMPASS.get()
+        );*/
+
+        tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
+                DAItems.SKYJADE.get(),
+                DAItems.STRATUS_INGOT.get()
         );
 
-        tag(AetherTags.Items.BRONZE_DUNGEON_LOOT).add(
-                DAItems.MUSIC_DISC_ATTA.get()
+        tag(Tags.Items.INGOTS).add(
+                DAItems.STRATUS_INGOT.get()
         );
 
-        tag(AetherTags.Items.SILVER_DUNGEON_LOOT).add(
-                DAItems.MUSIC_DISC_FAENT.get()
+
+        tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
+                DAItems.SKYJADE_SHIELD.get(),
+                DAItems.STRATUS_SHIELD.get()
         );
 
-        tag(AetherTags.Items.GOLD_DUNGEON_LOOT).add(
+        tag(ItemTags.MUSIC_DISCS).add(
+                DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
+                DAItems.MUSIC_DISC_NABOORU.get(),
+                DAItems.MUSIC_DISC_CYCLONE.get(),
+                DAItems.MUSIC_DISC_ATTA.get(),
+                DAItems.MUSIC_DISC_FAENT.get(),
                 DAItems.MUSIC_DISC_HIMININN.get()
         );
     }

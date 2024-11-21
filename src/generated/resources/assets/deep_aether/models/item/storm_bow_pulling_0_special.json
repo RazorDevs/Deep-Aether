@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "deep_aether:item/storm_bow_pulling_0_special"
+  }
+}

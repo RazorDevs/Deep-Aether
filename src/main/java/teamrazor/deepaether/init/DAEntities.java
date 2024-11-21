@@ -84,6 +84,10 @@ public class DAEntities {
 	public static final RegistryObject<EntityType<BabyEots>> BABY_EOTS = register("baby_eots",
 			BabyEots::new, 1F, 0.3F);
 
+	public static final RegistryObject<EntityType<StormArrow>> STORM_ARROW = ENTITY_TYPES.register("storm_arrow", () ->
+			EntityType.Builder.<StormArrow>of(StormArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("storm_arrow"));
+
+
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));
