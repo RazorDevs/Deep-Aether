@@ -2,6 +2,10 @@ package teamrazor.deepaether.recipe.combiner;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
@@ -9,24 +13,101 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.recipe.DABookCategory;
+import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 
-public class CombinerRecipe implements Recipe<SimpleContainer> {
-    private final NonNullList<Ingredient> inputItems;
-    private final ItemStack output;
+import java.util.List;
+
+public class CombinerRecipe implements Recipe<WorldlyContainer> {
     private final ResourceLocation id;
+    private final String group;
+    private final DABookCategory category;
+    public final NonNullList<Ingredient> inputItems = NonNullList.create();
+    public final ItemStack output;
+    protected final float experience;
+    protected final int processingTime;
 
-    public CombinerRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
-        this.inputItems = inputItems;
-        this.output = output;
+    public CombinerRecipe(ResourceLocation id, String group, DABookCategory category, List<Ingredient> inputItems, ItemStack output, float experience, int processingTime) {
         this.id = id;
+        this.group = group;
+        this.inputItems.addAll(inputItems);
+        this.output = output;
+        this.category = category;
+        this.experience = experience;
+        this.processingTime = processingTime;
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+    public ItemStack assemble(WorldlyContainer worldlyContainer, RegistryAccess registryAccess) {
+        return this.output.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
+        return this.output;
+    }
+
+    public ItemStack getResult(){
+        return output;
+    }
+
+    @Override
+    public String getGroup() {
+        return this.group;
+    }
+
+    public float getExperience() {
+        return this.experience;
+    }
+
+    public int getProcessingTime() {
+        return this.processingTime;
+    }
+
+    public DABookCategory daCategory() {
+        return this.category;
+    }
+
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(DABlocks.COMBINER.get());
+    }
+
+    @Override
+    public ResourceLocation getId() {
+        return this.id;
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return DARecipeTypes.COMBINER_RECIPE.get();
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return DARecipeSerializers.COMBINER_RECIPE.get();
+    }
+
+    @Override
+    public boolean matches(WorldlyContainer pContainer, Level pLevel) {
         if(pLevel.isClientSide())
             return false;
 
@@ -39,40 +120,10 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
      * Method that checks if the passed ingredient is present in only one of the 3
      * slots using the XOR operator. This enables "shapeless" recipes in the combiner.
      */
-    private boolean testEachSlot(SimpleContainer pContainer, Ingredient ingredient){
+    private boolean testEachSlot(WorldlyContainer pContainer, Ingredient ingredient){
         return ingredient.test(pContainer.getItem(0))
                 ^ ingredient.test(pContainer.getItem(1))
                 ^ ingredient.test(pContainer.getItem(2));
-    }
-
-    @Override
-    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
-        return output.copy();
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
-        return output.copy();
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return id;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
-    }
-
-    @Override
-    public RecipeType<?> getType() {
-        return Type.INSTANCE;
     }
 
     public static class Type implements RecipeType<CombinerRecipe> {
@@ -84,7 +135,9 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public CombinerRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+            String group = GsonHelper.getAsString(pSerializedRecipe, "group", "");
+            DABookCategory category = DABookCategory.COMBINEABLE_MISC;
+                    //DABookCategory.valueOf(DABookCategory.class ,GsonHelper.getAsString(pSerializedRecipe, "category", "combinable_misc"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
@@ -93,9 +146,14 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+
+            float experience = GsonHelper.getAsFloat(pSerializedRecipe, "experience", 0.0f);
+            int processingTime = GsonHelper.getAsInt(pSerializedRecipe, "processing_time", 200);
+
             int amplifier = GsonHelper.getAsInt(pSerializedRecipe, "amplifier", 0);
             int time = GsonHelper.getAsInt(pSerializedRecipe, "time", 14400);
-            String effect = GsonHelper.getAsString(pSerializedRecipe, "effect");
+            String effect = GsonHelper.getAsString(pSerializedRecipe, "effect", "");
 
             CompoundTag tag = new CompoundTag();
             tag.putInt("amplifier", amplifier);
@@ -104,28 +162,38 @@ public class CombinerRecipe implements Recipe<SimpleContainer> {
 
             output.setTag(tag);
 
-            return new CombinerRecipe(inputs, output, pRecipeId);
+            return new CombinerRecipe(pRecipeId, group, category, inputs, output, experience, processingTime);
         }
 
         @Override
-        public @Nullable CombinerRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+        public @Nullable CombinerRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf buffer) {
+            String group = buffer.readUtf();
+            DABookCategory daBookCategory = buffer.readEnum(DABookCategory.class);
 
-            inputs.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
+            NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
+            inputs.replaceAll(ignored -> Ingredient.fromNetwork(buffer));
 
-            ItemStack output = pBuffer.readItem();
-            return new CombinerRecipe(inputs, output, pRecipeId);
+            ItemStack output = buffer.readItem();
+
+            float experience = buffer.readFloat();
+            int processingTime = buffer.readInt();
+
+            return new CombinerRecipe(pRecipeId, group, daBookCategory, inputs, output, experience, processingTime);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, CombinerRecipe pRecipe) {
-            pBuffer.writeInt(pRecipe.inputItems.size());
+        public void toNetwork(FriendlyByteBuf buffer, CombinerRecipe recipe) {
+            buffer.writeUtf(recipe.getGroup());
+            buffer.writeEnum(recipe.daCategory());
 
-            for (Ingredient ingredient : pRecipe.getIngredients()) {
-                ingredient.toNetwork(pBuffer);
+            buffer.writeInt(recipe.inputItems.size());
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                ingredient.toNetwork(buffer);
             }
 
-            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+            buffer.writeItemStack(recipe.getResultItem(null), false);
+            buffer.writeFloat(recipe.getExperience());
+            buffer.writeInt(recipe.getProcessingTime());
         }
     }
 }

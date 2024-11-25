@@ -54,8 +54,6 @@ public class DAClientModBusEvents {
         //LoreBookMenu.addLoreEntryOverride(registryAccess -> stack -> stack
         //        .is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
 
-        MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
-
 
         event.enqueueWork(() -> {
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);
@@ -63,6 +61,8 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
+
+            MenuScreens.register(DAMenuTypes.COMBINER_MENU.get(), CombinerScreen::new);
 
             registerItemModelPredicates();
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {

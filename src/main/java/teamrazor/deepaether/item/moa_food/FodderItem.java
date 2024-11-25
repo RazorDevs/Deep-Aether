@@ -2,7 +2,10 @@ package teamrazor.deepaether.item.moa_food;
 
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
@@ -11,8 +14,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class FodderItem extends Item {
     public FodderItem(Properties properties) {
@@ -39,10 +47,22 @@ public class FodderItem extends Item {
     }
 
     private boolean applyMoaEffect(LivingEntity livingEntity, ItemStack stack) {
-        MobEffectInstance instance = getMobEffect(stack);
-        if(instance == null)
-            return false;
-        else return livingEntity.addEffect(instance);
+        MobEffectInstance fodder = getMobEffect(stack);
+        if(fodder == null) return false;
+
+        if (livingEntity.addEffect(fodder)) {
+            livingEntity.level().playLocalSound(livingEntity.blockPosition(), SoundEvents.PLAYER_BURP, SoundSource.AMBIENT, 1f, 0.2f, true);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        MobEffectInstance fodder = getMobEffect(stack);
+        if(fodder != null)
+            PotionUtils.addPotionTooltip(List.of(fodder), components, 1.0F);
+        super.appendHoverText(stack, level, components, flag);
     }
 
     @Nullable

@@ -7,12 +7,12 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
 
 public class PoisonRecipe extends AbstractPoisonRecipe {
     public PoisonRecipe(ResourceLocation id, String group, Ingredient ingredient, ItemStack result) {
-        super(DARecipe.POISON_RECIPE.get(), id, group, ingredient, result);
+        super(DARecipeTypes.POISON_RECIPE.get(), id, group, ingredient, result);
     }
 
     public ItemStack getToastSymbol() {

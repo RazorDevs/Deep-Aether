@@ -18,7 +18,7 @@ public class DARecipeSerializers {
             RECIPE_SERIALIZERS.register("poison_recipe", PoisonRecipe.Serializer::new);
 
     public static final RegistryObject<RecipeSerializer<CombinerRecipe>> COMBINER_RECIPE =
-            RECIPE_SERIALIZERS.register("combiner_recipe", CombinerRecipe.Serializer::new);
+            RECIPE_SERIALIZERS.register("combining", CombinerRecipe.Serializer::new);
 
     public static final RegistryObject<BlockStateRecipeSerializer<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_SERIALIZERS.register("golden_swet_ball_recipe", GoldenSwetBallRecipe.Serializer::new);
 }

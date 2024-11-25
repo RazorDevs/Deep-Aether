@@ -373,11 +373,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.GOLDEN_BERRIES.get());
         this.item(DAItems.ANTIDOTE.get());
-        this.item(DAItems.ENCHANTED_ANTIDOTE.get());
-
-        //Moa Fodder
-        //this.placeholder(DAItems.JUMP_FODDER.get());
-        //this.placeholder(DAItems.LEVITATION_FODDER.get());
+        this.altItem(DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get());
 
         //Plants
         this.itemBlockFlat(DABlocks.MEDIUM_GOLDEN_GRASS.get());
@@ -465,6 +461,11 @@ public class DAItemModelData extends AetherItemModelProvider {
     public void item(Item item) {
         this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + this.itemName(item)));
+    }
+
+    public void altItem(Item item, Item texture) {
+        this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + this.itemName(texture)));
     }
 
     public void placeholder(Item item) {

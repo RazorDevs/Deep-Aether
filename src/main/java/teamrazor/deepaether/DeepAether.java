@@ -23,6 +23,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -56,7 +57,9 @@ import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.networking.DAPacketHandler;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeBookTypes;
+import teamrazor.deepaether.recipe.DARecipeCategories;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
 import teamrazor.deepaether.util.BetterBrewingRecipe;
 import teamrazor.deepaether.world.biomes.DARegion;
@@ -112,6 +115,7 @@ public class DeepAether {
 
 		MinecraftForge.EVENT_BUS.register(this);
 
+		DAMenuTypes.MENUS.register(bus);
 		DABlocks.BLOCKS.register(bus);
 		DAItems.ITEMS.register(bus);
 		DAParticles.PARTICLE_TYPES.register(bus);
@@ -131,9 +135,8 @@ public class DeepAether {
 		DAPotions.POTIONS.register(bus);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
-		DARecipe.RECIPE_TYPES.register(bus);
+		DARecipeTypes.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
-		DAMenuTypes.MENUS.register(bus);
 		DAPacketHandler.register();
 	}
 
@@ -161,7 +164,9 @@ public class DeepAether {
 	}
 
 	public void commonSetup(FMLCommonSetupEvent event) {
+		Reflection.initialize(DARecipeBookTypes.class);
 		Reflection.initialize(DAPlacementModifiers.class);
+
 		DAAdvancementTriggers.init();
 		event.enqueueWork(() -> {
 			DaCauldronInteraction.bootStrap();

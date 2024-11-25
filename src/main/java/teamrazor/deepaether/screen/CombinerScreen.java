@@ -1,52 +1,66 @@
 package teamrazor.deepaether.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
+import com.aetherteam.aether.client.gui.screen.inventory.AbstractRecipeBookScreen;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.recipe.combiner.CombinerRecipeBookComponent;
+import teamrazor.deepaether.screen.CombinerMenu;
 
-public class CombinerScreen extends AbstractContainerScreen<CombinerMenu> {
+public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> implements RecipeUpdateListener {
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui.png");
 
-    public CombinerScreen(CombinerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
-        super(pMenu, pPlayerInventory, pTitle);
+    public CombinerScreen(CombinerMenu menu, Inventory pPlayerInventory, Component pTitle) {
+        super(menu, new CombinerRecipeBookComponent(), pPlayerInventory, pTitle);
     }
 
     @Override
     protected void init() {
         super.init();
-        this.inventoryLabelY = 10000;
-        this.titleLabelY = 10000;
+        this.initScreen(20);
     }
 
     @Override
+    public void containerTick() {
+        super.containerTick();
+        this.recipeBookComponent.tick();
+    }
+
+
+    @Override
     protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int left = this.getGuiLeft();
+        int top = this.getGuiTop();
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, left, top, 0, 0, this.getXSize(), this.getYSize());
 
-        renderProgressArrow(guiGraphics, x, y);
+        renderProgressArrow(guiGraphics, left, top);
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(TEXTURE, x + 85, y + 30, 176, 0, 8, menu.getScaledProgress());
+            guiGraphics.blit(TEXTURE, x + 63, y + 36, 176, 0, 51, menu.getScaledProgress());
         }
     }
 
+    /*
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
-        renderBackground(guiGraphics);
-        super.render(guiGraphics, mouseX, mouseY, delta);
-        renderTooltip(guiGraphics, mouseX, mouseY);
+    public void slotClicked(Slot slot, int slotId, int mouseButton, ClickType type) {
+        super.slotClicked(slot, slotId, mouseButton, type);
+        this.recipeBookComponent.slotClicked(slot);
     }
+
+    @Override
+    public void recipesUpdated() {
+        this.recipeBookComponent.recipesUpdated();
+    }
+
+    @Override
+    public RecipeBookComponent getRecipeBookComponent() {
+        return this.recipeBookComponent;
+    }*/
 }

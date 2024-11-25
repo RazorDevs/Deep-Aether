@@ -23,7 +23,7 @@ import net.minecraft.world.level.material.FluidState;
 import teamrazor.deepaether.advancement.PoisonTrigger;
 import teamrazor.deepaether.fluids.DAFluidInteraction;
 import teamrazor.deepaether.init.DAParticles;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
 import java.util.function.Supplier;
@@ -77,7 +77,7 @@ public class PoisonBlock extends LiquidBlock {
 
     /**
      * Used to apply inebriation effect to entities and convert items if they have a recipe
-     * See {@link DARecipe} for poison recipe serializer
+     * See {@link DARecipeTypes} for poison recipe serializer
      */
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos pos, Entity entity) {
@@ -97,7 +97,7 @@ public class PoisonBlock extends LiquidBlock {
 
             //Checks if any poison recipe matches the ingredient
             if (!level.isClientSide()) {
-                for (PoisonRecipe recipe : level.getRecipeManager().getAllRecipesFor(DARecipe.POISON_RECIPE.get())) {
+                for (PoisonRecipe recipe : level.getRecipeManager().getAllRecipesFor(DARecipeTypes.POISON_RECIPE.get())) {
                     if (recipe.getIngredients().get(0).getItems()[0].getItem() == itemEntity.getItem().getItem()) {
                         TRANSFORM_ITEM = recipe.getResult().getItem();
 

@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class GoldenSwetBallRecipe extends AbstractBlockStateRecipe implements MatchEventRecipe {
     public GoldenSwetBallRecipe(ResourceLocation id, BlockStateIngredient ingredient, BlockPropertyPair result, CommandFunction.CacheableFunction function) {
-        super(DARecipe.GOLDEN_SWET_BALL_RECIPE.get(), id, ingredient, result, function);
+        super(DARecipeTypes.GOLDEN_SWET_BALL_RECIPE.get(), id, ingredient, result, function);
     }
 
     @Override

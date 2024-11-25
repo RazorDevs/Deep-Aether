@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.recipe.DARecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 
 import java.util.Objects;
 
@@ -31,7 +31,7 @@ public class DAJEIPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        registration.addRecipes(PoisonRecipeCategory.RECIPE_TYPE, rm.getAllRecipesFor(DARecipe.POISON_RECIPE.get()));
+        registration.addRecipes(PoisonRecipeCategory.RECIPE_TYPE, rm.getAllRecipesFor(DARecipeTypes.POISON_RECIPE.get()));
 
     }
 
