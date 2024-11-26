@@ -2,23 +2,19 @@ package teamrazor.deepaether.recipe.combiner;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.Container;
+import net.minecraft.world.Container;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.recipe.DABookCategory;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
@@ -26,7 +22,7 @@ import teamrazor.deepaether.recipe.DARecipeTypes;
 
 import java.util.List;
 
-public class CombinerRecipe implements Recipe<WorldlyContainer> {
+public class CombinerRecipe implements Recipe<Container> {
     private final ResourceLocation id;
     private final String group;
     private final DABookCategory category;
@@ -46,7 +42,7 @@ public class CombinerRecipe implements Recipe<WorldlyContainer> {
     }
 
     @Override
-    public ItemStack assemble(WorldlyContainer worldlyContainer, RegistryAccess registryAccess) {
+    public ItemStack assemble(Container worldlyContainer, RegistryAccess registryAccess) {
         return this.output.copy();
     }
 
@@ -98,7 +94,7 @@ public class CombinerRecipe implements Recipe<WorldlyContainer> {
 
     @Override
     public RecipeType<?> getType() {
-        return DARecipeTypes.COMBINER_RECIPE.get();
+        return DARecipeTypes.COMBINING.get();
     }
 
     @Override
@@ -107,7 +103,7 @@ public class CombinerRecipe implements Recipe<WorldlyContainer> {
     }
 
     @Override
-    public boolean matches(WorldlyContainer pContainer, Level pLevel) {
+    public boolean matches(Container pContainer, Level pLevel) {
         if(pLevel.isClientSide())
             return false;
 
@@ -120,7 +116,7 @@ public class CombinerRecipe implements Recipe<WorldlyContainer> {
      * Method that checks if the passed ingredient is present in only one of the 3
      * slots using the XOR operator. This enables "shapeless" recipes in the combiner.
      */
-    private boolean testEachSlot(WorldlyContainer pContainer, Ingredient ingredient){
+    private boolean testEachSlot(Container pContainer, Ingredient ingredient){
         return ingredient.test(pContainer.getItem(0))
                 ^ ingredient.test(pContainer.getItem(1))
                 ^ ingredient.test(pContainer.getItem(2));
@@ -136,8 +132,8 @@ public class CombinerRecipe implements Recipe<WorldlyContainer> {
         @Override
         public CombinerRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             String group = GsonHelper.getAsString(pSerializedRecipe, "group", "");
-            DABookCategory category = DABookCategory.COMBINEABLE_MISC;
-                    //DABookCategory.valueOf(DABookCategory.class ,GsonHelper.getAsString(pSerializedRecipe, "category", "combinable_misc"));
+
+            DABookCategory category = DABookCategory.CODEC.byName(GsonHelper.getAsString(pSerializedRecipe, "category", null), DABookCategory.UNKNOWN);
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);

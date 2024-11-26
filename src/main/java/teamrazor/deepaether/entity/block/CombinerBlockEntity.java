@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity.block;
 
+import com.aetherteam.aether.recipe.AetherRecipeTypes;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -47,16 +48,15 @@ public class CombinerBlockEntity extends BaseContainerBlockEntity implements Wor
     int combiningDuration;
 
     private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
-    private final RecipeManager.CachedCheck<WorldlyContainer, CombinerRecipe> quickCheck;
-
+    private final RecipeManager.CachedCheck<Container, CombinerRecipe> quickCheck;
 
     public CombinerBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        this(DABlockEntityTypes.COMBINER_BE.get(), pPos, pBlockState);
+        this(DABlockEntityTypes.COMBINER.get(), pPos, pBlockState);
     }
 
     public CombinerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.quickCheck = RecipeManager.createCheck(DARecipeTypes.COMBINER_RECIPE.get());
+        this.quickCheck = RecipeManager.createCheck(DARecipeTypes.COMBINING.get());
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
@@ -134,7 +134,7 @@ public class CombinerBlockEntity extends BaseContainerBlockEntity implements Wor
     public static void serverTick(Level level, BlockPos pos, BlockState state, CombinerBlockEntity blockEntity) {
         boolean changed = false;
 
-        Recipe<WorldlyContainer> recipeHolder = blockEntity.quickCheck.getRecipeFor(blockEntity, level).orElse(null);
+        Recipe<Container> recipeHolder = blockEntity.quickCheck.getRecipeFor(blockEntity, level).orElse(null);
         int i = blockEntity.getMaxStackSize();
         boolean isCharging = false;
 
@@ -177,7 +177,7 @@ public class CombinerBlockEntity extends BaseContainerBlockEntity implements Wor
         }
     }
 
-    private boolean canProcess(RegistryAccess registryAccess, @Nullable Recipe<WorldlyContainer> recipeHolder, NonNullList<ItemStack> stacks, int maxStackSize) {
+    private boolean canProcess(RegistryAccess registryAccess, @Nullable Recipe<Container> recipeHolder, NonNullList<ItemStack> stacks, int maxStackSize) {
         ItemStack left = stacks.get(FIRST_SLOT);
         ItemStack middle = stacks.get(SECOND_SLOT);
         ItemStack right = stacks.get(THIRD_SLOT);
@@ -202,7 +202,7 @@ public class CombinerBlockEntity extends BaseContainerBlockEntity implements Wor
         }
     }
 
-    private boolean process(RegistryAccess registryAccess, @Nullable Recipe<WorldlyContainer> recipeHolder, NonNullList<ItemStack> stacks, int maxStackSize) {
+    private boolean process(RegistryAccess registryAccess, @Nullable Recipe<Container> recipeHolder, NonNullList<ItemStack> stacks, int maxStackSize) {
         if (recipeHolder != null && this.canProcess(registryAccess, recipeHolder, stacks, maxStackSize)) {
             ItemStack left = stacks.get(FIRST_SLOT);
             ItemStack middle = stacks.get(SECOND_SLOT);

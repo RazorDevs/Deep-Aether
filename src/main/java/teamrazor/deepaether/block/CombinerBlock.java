@@ -1,16 +1,12 @@
 package teamrazor.deepaether.block;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -20,14 +16,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.block.CombinerBlockEntity;
 import teamrazor.deepaether.init.DABlockEntityTypes;
 import teamrazor.deepaether.init.DABlockStateProperties;
-
-import static net.minecraft.world.level.levelgen.structure.Structure.simpleCodec;
 
 public class CombinerBlock extends AbstractFurnaceBlock {
     public static final BooleanProperty CHARGING = DABlockStateProperties.COMBINER_CHARGING;
@@ -62,7 +55,6 @@ public class CombinerBlock extends AbstractFurnaceBlock {
             BlockEntity entity = level.getBlockEntity(blockPos);
             if(entity instanceof CombinerBlockEntity combinerBlock) {
                 NetworkHooks.openScreen((ServerPlayer) player, combinerBlock, blockPos);
-                //player.openMenu((CombinerBlockEntity) entity);
             }
         }
     }
@@ -70,7 +62,7 @@ public class CombinerBlock extends AbstractFurnaceBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        return createTicker(level, blockEntityType, DABlockEntityTypes.COMBINER_BE.get());
+        return createTicker(level, blockEntityType, DABlockEntityTypes.COMBINER.get());
     }
 
     @Nullable

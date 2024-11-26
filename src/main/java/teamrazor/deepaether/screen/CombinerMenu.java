@@ -1,7 +1,6 @@
 package teamrazor.deepaether.screen;
 
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,11 +8,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.init.DAMenuTypes;
 import teamrazor.deepaether.recipe.DARecipeBookTypes;
-import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -165,8 +166,10 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
 
                 slot.onQuickCraft(itemStack1, itemStack);
             } else if (index > 3) {
-                if (!this.moveItemStackTo(itemStack1, 0, 3, false)) {
-                    return ItemStack.EMPTY;
+                if (this.canCombine(itemStack1)) {
+                    if (!this.moveItemStackTo(itemStack1, 0, 3, false)) {
+                        return ItemStack.EMPTY;
+                    }
                 }
             } else if (!this.moveItemStackTo(itemStack1, 4, 40, false)) {
                 return ItemStack.EMPTY;
@@ -186,5 +189,13 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
         }
 
         return itemStack;
+    }
+
+    /**
+     * Warning for "unchecked" is suppressed because of being based on vanilla code.
+     */
+    @SuppressWarnings("unchecked")
+    protected boolean canCombine(ItemStack stack) {
+        return this.level.getRecipeManager().getRecipeFor(DARecipeTypes.COMBINING.get(), new SimpleContainer(stack), this.level).isPresent();
     }
 }

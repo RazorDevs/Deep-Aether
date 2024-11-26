@@ -32,12 +32,10 @@ public class DARecipeCategories {
         event.registerBookCategories(DARecipeBookTypes.COMBINER, ImmutableList.of(COMBINEABLE_SEARCH.get(), COMBINEABLE_FODDER.get(), COMBINEABLE_MISC.get()));
         event.registerAggregateCategory(COMBINEABLE_SEARCH.get(), ImmutableList.of(COMBINEABLE_FODDER.get(), COMBINEABLE_MISC.get()));
 
-        event.registerRecipeCategoryFinder(DARecipeTypes.COMBINER_RECIPE.get(), recipe -> {
-            if(recipe instanceof CombinerRecipe value){
-                return value.daCategory() == DABookCategory.COMBINEABLE_FODDER ?
-                        COMBINEABLE_FODDER.get() :
-                        COMBINEABLE_MISC.get();
-            }
+        event.registerRecipeCategoryFinder(DARecipeTypes.COMBINING.get(), recipe -> {
+            if(recipe instanceof CombinerRecipe value)
+                if(value.daCategory() == DABookCategory.COMBINEABLE_FODDER)
+                    return COMBINEABLE_FODDER.get();
             return COMBINEABLE_MISC.get();
         });
     }

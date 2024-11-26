@@ -8,9 +8,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipeBookComponent;
-import teamrazor.deepaether.screen.CombinerMenu;
 
-public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> implements RecipeUpdateListener {
+public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> {
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui.png");
 
@@ -23,13 +22,6 @@ public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, Combi
         super.init();
         this.initScreen(20);
     }
-
-    @Override
-    public void containerTick() {
-        super.containerTick();
-        this.recipeBookComponent.tick();
-    }
-
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
@@ -46,21 +38,4 @@ public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, Combi
             guiGraphics.blit(TEXTURE, x + 63, y + 36, 176, 0, 51, menu.getScaledProgress());
         }
     }
-
-    /*
-    @Override
-    public void slotClicked(Slot slot, int slotId, int mouseButton, ClickType type) {
-        super.slotClicked(slot, slotId, mouseButton, type);
-        this.recipeBookComponent.slotClicked(slot);
-    }
-
-    @Override
-    public void recipesUpdated() {
-        this.recipeBookComponent.recipesUpdated();
-    }
-
-    @Override
-    public RecipeBookComponent getRecipeBookComponent() {
-        return this.recipeBookComponent;
-    }*/
 }

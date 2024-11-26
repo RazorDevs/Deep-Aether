@@ -1,5 +1,7 @@
 package teamrazor.deepaether.recipe;
 
+import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.recipe.recipes.item.IncubationRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,7 +16,7 @@ public class DARecipeTypes {
     public static final RegistryObject<RecipeType<PoisonRecipe>> POISON_RECIPE = RECIPE_TYPES.register("poison_recipe", () ->
             RecipeType.simple(new ResourceLocation(DeepAether.MODID, "poison_recipe")));
 
-    public static final RegistryObject<RecipeType<CombinerRecipe>> COMBINER_RECIPE = RECIPE_TYPES.register("combining", () ->
+    public static final RegistryObject<RecipeType<CombinerRecipe>> COMBINING = RECIPE_TYPES.register("combining", () ->
             RecipeType.simple(new ResourceLocation(DeepAether.MODID, "combining")));
 
     public static final RegistryObject<RecipeType<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_TYPES.register("golden_swet_ball_recipe", () -> RecipeType.simple(new ResourceLocation(DeepAether.MODID, "golden_swet_ball_recipe")));
