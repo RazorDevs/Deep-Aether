@@ -12,6 +12,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class DAPlayerCapability implements DeepAetherPlayer {
+    private int bladeOfLuckDamage;
+    private int oldBladeOfLuckDamage = 6;
+    public boolean changeBladeOfLuckState;
+
     private boolean sliderSlamActivated = true;
     private final Player player;
 
@@ -28,9 +32,10 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     }
 
     public DAPlayerCapability(Player player) {
-        this.synchableFunctions = Map.ofEntries(Map.entry("setSliderSlamActivated", Triple.of(Type.BOOLEAN, (object) -> {
-            this.setSliderSlamActivated((Boolean)object);
-        }, this::isSliderSlamActivated)));
+        this.synchableFunctions = Map.ofEntries(
+                Map.entry("setSliderSlamActivated", Triple.of(Type.BOOLEAN, (object) -> this.setSliderSlamActivated((Boolean) object), this::isSliderSlamActivated)),
+                Map.entry("setBladeOfLuckDamage", Triple.of(Type.INT, (object) -> this.setBladeOfLuckDamage((Integer) object), this::getBladeOfLuckDamage))
+                );
         this.player = player;
     }
 
@@ -61,5 +66,27 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     @Override
     public void deserializeNBT(CompoundTag nbt) {
 
+    }
+
+    public int getBladeOfLuckDamage() {
+        return bladeOfLuckDamage;
+    }
+
+    public int getOldBladeOfLuckDamage() {
+        return oldBladeOfLuckDamage;
+    }
+
+    public void setBladeOfLuckDamage(int bladeOfLuckDamage) {
+        this.oldBladeOfLuckDamage = this.getBladeOfLuckDamage();
+        changeBladeOfLuckState = true;
+        this.bladeOfLuckDamage = bladeOfLuckDamage;
+    }
+
+    public void setChangeBladeOfLuckState(boolean bool) {
+        this.changeBladeOfLuckState = bool;
+    }
+
+    public boolean getChangeBladeOfLuckState() {
+        return changeBladeOfLuckState;
     }
 }

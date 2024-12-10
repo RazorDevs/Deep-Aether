@@ -15,4 +15,10 @@ public interface DeepAetherPlayer extends INBTSynchable<CompoundTag> {
     boolean isSliderSlamActivated();
 
     void setSliderSlamActivated(boolean var1);
+
+    int getBladeOfLuckDamage();
+    int getOldBladeOfLuckDamage();
+    void setBladeOfLuckDamage(int bladeOfLuckDamage);
+    boolean getChangeBladeOfLuckState();
+    void setChangeBladeOfLuckState(boolean bool);
 }

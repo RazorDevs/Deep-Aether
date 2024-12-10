@@ -26,6 +26,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
+import teamrazor.deepaether.item.dungeon.brass.BladeOfLuckItem;
 import teamrazor.deepaether.item.dungeon.brass.StormBowItem;
 import teamrazor.deepaether.item.dungeon.brass.StormSwordItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
@@ -39,9 +40,6 @@ import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
 
 import java.util.function.Supplier;
-
-
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 
 public class DAItems {
 	public static final DeferredRegister<Item> ITEMS =
@@ -188,7 +186,7 @@ public class DAItems {
 	public static final RegistryObject<Item> BRASS_DUNGEON_KEY = ITEMS.register("brass_dungeon_key", () -> new DungeonKeyItem(new ResourceLocation(DeepAether.MODID, "brass"), new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 	public static final RegistryObject<Item> STORM_BOW = ITEMS.register("storm_bow", () -> new StormBowItem(new Item.Properties().durability(384).rarity(AetherItems.AETHER_LOOT)));
 	public static final RegistryObject<Item> STORM_SWORD = ITEMS.register("storm_sword", () -> new StormSwordItem(DATiers.STRATUS, 2, -2.4F, new Item.Properties().durability(384)));
-	//public static final RegistryObject<Item> BLADE_OF_LUCK = ITEMS.register("blade_of_luck", () -> new BladeOfLuckItem(DATiers.LUCK, (new Item.Properties()).attributes(SwordItem.createAttributes(DATiers.LUCK, 0, -3.5F)).rarity(AetherItems.AETHER_LOOT)));
+    public static final RegistryObject<Item> BLADE_OF_LUCK = ITEMS.register("blade_of_luck", () -> new BladeOfLuckItem(DATiers.LUCK, 0, -3.5F, (new Item.Properties()).stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
 
 	public static final RegistryObject<Item> STORMFORGED_HELMET = ITEMS.register("stormforged_helmet", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.HELMET, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
 	public static final RegistryObject<Item> STORMFORGED_CHESTPLATE = ITEMS.register("stormforged_chestplate", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.CHESTPLATE, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));

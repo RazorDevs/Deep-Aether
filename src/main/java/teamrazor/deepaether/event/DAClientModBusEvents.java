@@ -4,7 +4,6 @@ import com.aetherteam.aether.client.renderer.AetherModelLayers;
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.particle.CherryParticle;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -14,6 +13,7 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -27,8 +27,8 @@ import teamrazor.deepaether.client.model.AerwhaleModelOverrideOverrideLCCompat;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.moa_food.FodderItem;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
-import teamrazor.deepaether.particle.custom.MysticalParticle;
-import teamrazor.deepaether.particle.custom.PoisonBubbles;
+import teamrazor.deepaether.networking.DeepAetherPlayer;
+import teamrazor.deepaether.particle.custom.*;
 import teamrazor.deepaether.screen.CombinerScreen;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -51,9 +51,8 @@ public class DAClientModBusEvents {
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
 
-        //LoreBookMenu.addLoreEntryOverride(registryAccess -> stack -> stack
-        //        .is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
-
+        LoreBookMenu.addLoreEntryOverride(stack -> stack.is
+                (DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
 
         event.enqueueWork(() -> {
             Sheets.addWoodType(DAWoodTypes.ROSEROOT);
@@ -70,6 +69,8 @@ public class DAClientModBusEvents {
             }
         });
     }
+
+    static float returnState = 1.0F;
 
     private static void registerItemModelPredicates() {
         ItemProperties.register(DAItems.MOA_FODDER.get(), new ResourceLocation(DeepAether.MODID, "color"), (stack, level, entity, state) -> {
@@ -99,23 +100,57 @@ public class DAClientModBusEvents {
             }
         });
         ItemProperties.register(DAItems.STORM_BOW.get(), new ResourceLocation("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F);
+
+        ItemProperties.register(DAItems.BLADE_OF_LUCK.get(),
+                new ResourceLocation("sword_state"), (stack, world, entity, value) -> {
+                    if(entity instanceof Player player) {
+                        DeepAetherPlayer.get(player).ifPresent((daPlayer) -> {
+                            if (daPlayer.getChangeBladeOfLuckState()) {
+                                if (player.swinging) {
+                                    if (daPlayer.getOldBladeOfLuckDamage() <= 3)
+                                        returnState = 0.2F;
+                                    if (daPlayer.getOldBladeOfLuckDamage() <= 8)
+                                        returnState = 0.4F;
+                                    else if (daPlayer.getOldBladeOfLuckDamage() <= 12)
+                                        returnState = 0.6F;
+                                    else if (daPlayer.getOldBladeOfLuckDamage() <= 16)
+                                        returnState = 0.8F;
+                                    else returnState = 1.0F;
+                                } else daPlayer.setChangeBladeOfLuckState(false);
+                            } else {
+                                returnState = 0.5F;
+                            }
+                        });
+                        return returnState;
+                    }
+                    return 0.5F;
+                });
     }
 
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
-        Minecraft.getInstance().particleEngine.register(DAParticles.POISON_BUBBLES.get(),
+        event.registerSpriteSet(DAParticles.POISON_BUBBLES.get(),
                 PoisonBubbles.Provider::new);
 
-        Minecraft.getInstance().particleEngine.register(DAParticles.MYTHICAL_PARTICLE.get(),
+        event.registerSpriteSet(DAParticles.MYTHICAL_PARTICLE.get(),
                 MysticalParticle.Provider::new);
 
-        Minecraft.getInstance().particleEngine.register(DAParticles.ROSEROOT_LEAVES.get(), (spriteSet)
+        event.registerSpriteSet(DAParticles.ROSEROOT_LEAVES.get(), (spriteSet)
                 -> (particleType, level, v, v1, v2, v3, v4, v5)
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
 
-        Minecraft.getInstance().particleEngine.register(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (spriteSet)
+        event.registerSpriteSet(DAParticles.FLOWERING_ROSEROOT_LEAVES.get(), (spriteSet)
                 -> (particleType, level, v, v1, v2, v3, v4, v5)
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
+
+
+        //event.registerSpriteSet(DAParticles.EOTS_EXPLOSION.get(), EOTSExplosionParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.EOTS_PRE_FIGHT.get(), EOTSPreFightParticle.Provider::new);
+
+        event.registerSpriteSet(DAParticles.CLOVER_VERY_LUCKY.get(), LuckParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.CLOVER_LUCKY.get(), LuckParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.CLOVER.get(), LuckParticle.Provider::new);
+        event.registerSpriteSet(DAParticles.CLOVER_UNLUCKY.get(), LuckParticle.Provider::new);
     }
 
     public static void registerCuriosRenderers() {

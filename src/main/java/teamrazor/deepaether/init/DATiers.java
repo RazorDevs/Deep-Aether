@@ -1,5 +1,6 @@
 package teamrazor.deepaether.init;
 
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -11,7 +12,8 @@ public enum DATiers implements Tier {
     SKYJADE(2, 150, 10.0F, 2.0F, 0, () -> Ingredient.of(DATags.Items.SKYJADE_REPAIRING)),
     STRATUS(4, 2031, 9.0F, 4.0F, 15,  () -> Ingredient.of(DATags.Items.STRATUS_REPAIRING)),
     FIRE(0, 500, 0, 2.0F, 0, () -> Ingredient.of(Items.FIRE_CHARGE)),
-    STORM(2, 502, 8.0F, 3.0F, 10, () -> Ingredient.of(DATags.Items.STORM_REPAIRING));
+    STORM(2, 502, 8.0F, 3.0F, 10, () -> Ingredient.of(DATags.Items.STORM_REPAIRING)),
+    LUCK(0, 500, 9.0F, 1.0F, 15,  () -> Ingredient.of(ItemStack.EMPTY));
 
     private final int harvestLevel;
     private final int maxUses;
