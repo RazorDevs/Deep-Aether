@@ -120,6 +120,7 @@ public class DAClientModBusEvents {
 
     public static void registerCuriosRenderers() {
         CuriosRendererRegistry.register(DAItems.SKYJADE_GLOVES.get(), GlovesRenderer::new);
+        CuriosRendererRegistry.register(DAItems.STORMFORGED_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
     }

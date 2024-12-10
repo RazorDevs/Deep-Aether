@@ -9,6 +9,11 @@
     "deep_aether:stratus_chestplate",
     "deep_aether:stratus_leggings",
     "deep_aether:stratus_boots",
-    "deep_aether:stratus_gloves"
+    "deep_aether:stratus_gloves",
+    "deep_aether:stormforged_helmet",
+    "deep_aether:stormforged_chestplate",
+    "deep_aether:stormforged_leggings",
+    "deep_aether:stormforged_boots",
+    "deep_aether:stormforged_gloves"
   ]
 }

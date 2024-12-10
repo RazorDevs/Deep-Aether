@@ -379,6 +379,15 @@ public class DATabs {
                     DAItems.STRATUS_BOOTS.get(),
                     DAItems.STRATUS_GLOVES.get()
             }, event);
+
+            addToTab(AetherItems.NEPTUNE_GLOVES.get(), new Item[]{
+                    DAItems.STORMFORGED_HELMET.get(),
+                    DAItems.STORMFORGED_CHESTPLATE.get(),
+                    DAItems.STORMFORGED_LEGGINGS.get(),
+                    DAItems.STORMFORGED_BOOTS.get(),
+                    DAItems.STORMFORGED_GLOVES.get()
+            }, event);
+
             addToTab(AetherItems.ZANITE_PENDANT.get(), new Item[]{
                     DAItems.SKYJADE_RING.get(),
                     DAItems.GRAVITITE_RING.get(),

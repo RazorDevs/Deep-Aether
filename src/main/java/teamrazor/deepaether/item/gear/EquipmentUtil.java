@@ -1,5 +1,6 @@
 package teamrazor.deepaether.item.gear;
 
+import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,12 +18,16 @@ public class EquipmentUtil {
         return hasArmorSet(entity, DAItems.STRATUS_HELMET.get(), DAItems.STRATUS_CHESTPLATE.get(), DAItems.STRATUS_LEGGINGS.get(), DAItems.STRATUS_BOOTS.get(), DAItems.STRATUS_GLOVES.get());
     }
 
+    public static boolean hasFullStormForgedSet(LivingEntity entity) {
+        return hasArmorSet(entity, DAItems.STORMFORGED_HELMET.get(), DAItems.STORMFORGED_CHESTPLATE.get(), DAItems.STORMFORGED_LEGGINGS.get(), DAItems.STORMFORGED_BOOTS.get(), DAItems.STORMFORGED_GLOVES.get());
+    }
+
     private static boolean hasArmorSet(LivingEntity entity, Item helmet, Item chestplate, Item leggings, Item boots, Item gloves) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).is(helmet)
                 && entity.getItemBySlot(EquipmentSlot.CHEST).is(chestplate)
                 && entity.getItemBySlot(EquipmentSlot.LEGS).is(leggings)
                 && entity.getItemBySlot(EquipmentSlot.FEET).is(boots)
-                && CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent();
+                && (!AetherConfig.SERVER.require_gloves.get() || CuriosApi.getCuriosHelper().findFirstCurio(entity, gloves).isPresent());
     }
 
     public static boolean hasTwoSpookyRings(SlotContext context) {

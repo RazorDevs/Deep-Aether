@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "deep_aether:item/enchanted_antidote"
+    "layer0": "deep_aether:item/antidote"
   }
 }

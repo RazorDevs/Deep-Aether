@@ -286,7 +286,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_LEGGINGS.get(),
                 DAItems.SKYJADE_BOOTS.get(),
                 DAItems.SKYJADE_GLOVES.get()
-
         );
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
@@ -297,11 +296,11 @@ public class DAItemTagData extends ItemTagsProvider {
         );
 
         tag(DATags.Items.BRASS_DUNGEON_LOOT).add(
-                //DAItems.STORMFORGED_HELMET.get(),
-               //DAItems.STORMFORGED_CHESTPLATE.get(),
-               //DAItems.STORMFORGED_LEGGINGS.get(),
-               //DAItems.STORMFORGED_BOOTS.get(),
-               //DAItems.STORMFORGED_GLOVES.get(),
+                DAItems.STORMFORGED_HELMET.get(),
+                DAItems.STORMFORGED_CHESTPLATE.get(),
+                DAItems.STORMFORGED_LEGGINGS.get(),
+                DAItems.STORMFORGED_BOOTS.get(),
+                DAItems.STORMFORGED_GLOVES.get(),
                //DAItems.CLOUD_CAPE.get(),
                //DAItems.WIND_SHIELD.get(),
                //DAItems.AERCLOUD_NECKLACE.get(),
@@ -347,21 +346,23 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_CHESTPLATE.get(),
                 DAItems.SKYJADE_LEGGINGS.get(),
                 DAItems.SKYJADE_BOOTS.get(),
-                //DAItems.STORMFORGED_HELMET.get(),
-                //DAItems.STORMFORGED_CHESTPLATE.get(),
-                //DAItems.STORMFORGED_LEGGINGS.get(),
-                //DAItems.STORMFORGED_BOOTS.get(),
                 DAItems.SKYJADE_GLOVES.get(),
                 DAItems.STRATUS_HELMET.get(),
                 DAItems.STRATUS_CHESTPLATE.get(),
                 DAItems.STRATUS_LEGGINGS.get(),
                 DAItems.STRATUS_BOOTS.get(),
-                DAItems.STRATUS_GLOVES.get()
+                DAItems.STRATUS_GLOVES.get(),
+                DAItems.STORMFORGED_HELMET.get(),
+                DAItems.STORMFORGED_CHESTPLATE.get(),
+                DAItems.STORMFORGED_LEGGINGS.get(),
+                DAItems.STORMFORGED_BOOTS.get(),
+                DAItems.STORMFORGED_GLOVES.get()
         );
 
         tag(AetherTags.Items.ACCESSORIES_GLOVES).add(
                 DAItems.SKYJADE_GLOVES.get(),
-                DAItems.STRATUS_GLOVES.get()
+                DAItems.STRATUS_GLOVES.get(),
+                DAItems.STORMFORGED_GLOVES.get()
         );
 
         /*tag(AetherTags.Items.ACCESSORIES_CAPES).add(

@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -30,6 +31,7 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -146,6 +148,14 @@ public class DAGeneralEvents {
     public static void onLivingEntityHurt(LivingHurtEvent event) {
         if(event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {
             ((IPlayerBossFight) player).deep_Aether$setHasBeenHurt(true);
+        }
+        if (event.getSource().getDirectEntity() != null && event.getSource().getDirectEntity() instanceof LivingEntity target) {
+            if (EquipmentUtil.hasFullStormForgedSet(event.getEntity())) {
+                target.knockback(0.5F, event.getEntity().getX() - target.getX(), event.getEntity().getZ() - target.getZ());
+                if (target instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+                }
+            }
         }
     }
 }

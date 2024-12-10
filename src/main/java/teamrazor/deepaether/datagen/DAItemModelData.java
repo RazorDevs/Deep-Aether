@@ -252,6 +252,12 @@ public class DAItemModelData extends AetherItemModelProvider {
         //this.item(DAItems.AERCLOUD_NECKLACE.get());
         //this.translucentItem(DAItems.CLOUD_CAPE.get());
 
+        this.bootsItem(DAItems.STORMFORGED_BOOTS.get());
+        this.leggingsItem(DAItems.STORMFORGED_LEGGINGS.get());
+        this.chestplateItem(DAItems.STORMFORGED_CHESTPLATE.get());
+        this.helmetItem(DAItems.STORMFORGED_HELMET.get());
+        this.glovesItem(DAItems.STORMFORGED_GLOVES.get());
+
 
         //Brass Dungeon
         this.itemBlock(DABlocks.NIMBUS_STONE.get());
