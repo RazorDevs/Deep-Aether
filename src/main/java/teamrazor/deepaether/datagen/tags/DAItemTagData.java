@@ -301,8 +301,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STORMFORGED_LEGGINGS.get(),
                 DAItems.STORMFORGED_BOOTS.get(),
                 DAItems.STORMFORGED_GLOVES.get(),
-                //DAItems.CLOUD_CAPE.get(),
-               //DAItems.WIND_SHIELD.get(),
+                DAItems.CLOUD_CAPE.get(),
+                //DAItems.WIND_SHIELD.get(),
                 DAItems.AERCLOUD_NECKLACE.get(),
                 DAItems.STORM_SWORD.get(),
                 DAItems.STORM_BOW.get(),
@@ -322,10 +322,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.MUSIC_DISC_HIMININN.get()
         );
 
-        /*tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
+        tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
-        );*/
+        );
 
         tag(ItemTags.SAPLINGS).add(
                 DABlocks.SUNROOT_SAPLING.get().asItem(),
@@ -365,9 +365,9 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STORMFORGED_GLOVES.get()
         );
 
-        /*tag(AetherTags.Items.ACCESSORIES_CAPES).add(
+        tag(AetherTags.Items.ACCESSORIES_CAPES).add(
                 DAItems.CLOUD_CAPE.get()
-        );*/
+        );
 
         tag(AetherTags.Items.ACCESSORIES_RINGS).add(
                 DAItems.SKYJADE_RING.get(),

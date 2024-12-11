@@ -399,6 +399,8 @@ public class DATabs {
 
             addToTab(AetherItems.ICE_PENDANT.get(), DAItems.SPOOKY_RING.get(), event);
 
+            addToTab(AetherItems.SWET_CAPE.get(), DAItems.CLOUD_CAPE.get(), event);
+
             addToTab(AetherItems.SHIELD_OF_REPULSION.get(), new Item[]{
                     DAItems.SLIDER_EYE.get(),
                     DAItems.MEDAL_OF_HONOR.get(),

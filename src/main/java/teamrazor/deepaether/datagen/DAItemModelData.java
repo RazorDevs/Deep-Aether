@@ -250,7 +250,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.handheldItem(DAItems.STORM_SWORD.get());
         //this.item(DAItems.WIND_SHIELD.get());
         this.item(DAItems.AERCLOUD_NECKLACE.get());
-        //this.translucentItem(DAItems.CLOUD_CAPE.get());
+        this.translucentItem(DAItems.CLOUD_CAPE.get());
 
         this.bootsItem(DAItems.STORMFORGED_BOOTS.get());
         this.leggingsItem(DAItems.STORMFORGED_LEGGINGS.get());
@@ -459,6 +459,12 @@ public class DAItemModelData extends AetherItemModelProvider {
                 .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1_special"))).end()
                 .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.9F).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
                 .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2_special"))).end();
+    }
+
+    public void translucentItem(Item item) {
+        this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
+                .renderType(new ResourceLocation("translucent"))
+                .texture("layer0", modLoc("item/" + this.itemName(item)));
     }
 
     public void handheldItem(Item item) {
