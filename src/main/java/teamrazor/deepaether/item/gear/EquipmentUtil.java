@@ -34,6 +34,10 @@ public class EquipmentUtil {
         return CuriosApi.getCuriosHelper().findCurios(context.entity(), DAItems.SPOOKY_RING.get()).size() == 2;
     }
 
+    public static boolean hasCloudNecklace(LivingEntity entity) {
+        return CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.AERCLOUD_NECKLACE.get()).isPresent();
+    }
+
     public static void damageRing(LivingEntity entity, RingItem ring) {
         List<SlotResult> slotResults = getCurios(entity, ring);
         for (SlotResult slotResult : slotResults) {

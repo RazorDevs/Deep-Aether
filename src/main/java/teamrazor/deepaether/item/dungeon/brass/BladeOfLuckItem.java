@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.dungeon.brass;
 
 import com.aetherteam.nitrogen.capability.INBTSynchable;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -41,7 +40,7 @@ public class BladeOfLuckItem extends SwordItem {
 
                 RandomSource random = clientPlayer.getRandom();
                 for (int i = 0; i < 10; i++) {
-                    ((ClientLevel) clientPlayer.level()).addParticle(particleType, clientPlayer.getX() + random.nextFloat(), clientPlayer.getY() + random.nextFloat(), clientPlayer.getZ() + random.nextFloat(),
+                    clientPlayer.level().addParticle(particleType, entity.getX() + random.nextFloat(), entity.getY() + random.nextFloat(), entity.getZ() + random.nextFloat(),
                             0, 0, 0);
                 }
             });

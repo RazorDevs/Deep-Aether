@@ -249,7 +249,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.bowItem(DAItems.STORM_BOW.get());
         this.handheldItem(DAItems.STORM_SWORD.get());
         //this.item(DAItems.WIND_SHIELD.get());
-        //this.item(DAItems.AERCLOUD_NECKLACE.get());
+        this.item(DAItems.AERCLOUD_NECKLACE.get());
         //this.translucentItem(DAItems.CLOUD_CAPE.get());
 
         this.bootsItem(DAItems.STORMFORGED_BOOTS.get());
@@ -260,6 +260,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
 
         //Brass Dungeon
+        this.item(DAItems.BRASS_DUNGEON_KEY.get());
+
         this.itemBlock(DABlocks.NIMBUS_STONE.get());
         this.itemBlock(DABlocks.LIGHT_NIMBUS_STONE.get());
         this.itemBlock(DABlocks.NIMBUS_STAIRS.get());

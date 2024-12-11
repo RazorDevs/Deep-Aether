@@ -8,8 +8,6 @@ import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -314,6 +312,12 @@ public class DATabs {
 
             }, event);
 
+            addToTab(AetherItems.CLOUD_STAFF.get(), new Item[]{
+                    DAItems.STORM_SWORD.get(),
+                    DAItems.STORM_BOW.get(),
+                    DAItems.BLADE_OF_LUCK.get()
+            }, event);
+
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
             }
@@ -325,7 +329,6 @@ public class DATabs {
                     DAItems.STRATUS_AXE.get(),
                     DAItems.STRATUS_HOE.get()
             }, event);
-
 
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
@@ -401,8 +404,10 @@ public class DATabs {
                     DAItems.MEDAL_OF_HONOR.get(),
                     DAItems.SUN_CORE.get(),
                     DAItems.AFTERBURNER.get(),
-                    DAItems.MEDAL_OF_HONOR.get(),
-                    DAItems.AERWHALE_SADDLE.get()
+                    DAItems.AERWHALE_SADDLE.get(),
+                    DAItems.AERCLOUD_NECKLACE.get(),
+                    //DAItems.WIND_SHIELD.get(),
+                    //DAItems.FLOATY_SCARF.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {

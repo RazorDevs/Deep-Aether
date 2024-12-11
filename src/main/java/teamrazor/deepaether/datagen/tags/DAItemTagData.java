@@ -301,12 +301,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STORMFORGED_LEGGINGS.get(),
                 DAItems.STORMFORGED_BOOTS.get(),
                 DAItems.STORMFORGED_GLOVES.get(),
-               //DAItems.CLOUD_CAPE.get(),
+                //DAItems.CLOUD_CAPE.get(),
                //DAItems.WIND_SHIELD.get(),
-               //DAItems.AERCLOUD_NECKLACE.get(),
+                DAItems.AERCLOUD_NECKLACE.get(),
                 DAItems.STORM_SWORD.get(),
                 DAItems.STORM_BOW.get(),
-                //DAItems.BLADE_OF_LUCK.get(),
+                DAItems.BLADE_OF_LUCK.get(),
                 DAItems.MUSIC_DISC_CYCLONE.get()
         );
 
@@ -385,9 +385,9 @@ public class DAItemTagData extends ItemTagsProvider {
         );*/
 
         tag(AetherTags.Items.ACCESSORIES_PENDANTS).add(
-                DAItems.MEDAL_OF_HONOR.get()
-                /*DAItems.AERCLOUD_NECKLACE.get(),
-                DAItems.FLOATY_SCARF.get()*/
+                DAItems.MEDAL_OF_HONOR.get(),
+                DAItems.AERCLOUD_NECKLACE.get()
+                /*DAItems.FLOATY_SCARF.get()*/
         );
 
         tag(ItemTags.HANGING_SIGNS).add(

@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,13 +21,17 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
@@ -155,6 +160,28 @@ public class DAGeneralEvents {
                 if (target instanceof ServerPlayer serverPlayer) {
                     serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onTooltipAdd(ItemTooltipEvent event) {
+        ItemStack stack = event.getItemStack();
+        TooltipFlag flag = event.getFlags();
+        List<Component> itemTooltips = event.getToolTip();
+
+        if (flag.isCreative()) {
+            int position = itemTooltips.size();
+            Component itemName = stack.getItem().getName(stack);
+            for (int i = 0; i < position; i++) {
+                Component component = itemTooltips.get(i);
+                if (component.getString().equals(itemName.getString())) {
+                    position = i + 1;
+                    break;
+                }
+            }
+            if (stack.is(DATags.Items.BRASS_DUNGEON_LOOT)) {
+                itemTooltips.add(position, DAItems.BRASS_DUNGEON_TOOLTIP);
             }
         }
     }
