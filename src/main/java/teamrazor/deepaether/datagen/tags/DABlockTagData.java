@@ -303,16 +303,20 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(
                 DABlocks.AETHER_MOSS_BLOCK.get(),
                 DABlocks.AETHER_MOSS_CARPET.get(),
+                DABlocks.CLOUDBLOOM_CARPET.get(),
                 DABlocks.YAGROOT_LOG.get(),
                 DABlocks.AETHER_MUD.get(),
+                DABlocks.YAGROOT_ROOTS.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                 DABlocks.TALL_AETHER_CATTAILS.get(),
                 DABlocks.AETHER_CATTAILS.get()
         );
         tag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH).add(
                 DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.AETHER_MOSS_CARPET.get()
-        );
+                DABlocks.AETHER_MOSS_CARPET.get(),
+                DABlocks.CLOUDBLOOM_CARPET.get(),
+                DABlocks.YAGROOT_ROOTS.get()
+                );
         tag(BlockTags.SCULK_REPLACEABLE).add(
                 DABlocks.ASETERITE.get(),
                 DABlocks.CLORITE.get()
@@ -341,6 +345,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CRUDEROOT_LEAVES.get(),
                 DABlocks.AETHER_MOSS_BLOCK.get(),
                 DABlocks.AETHER_MOSS_CARPET.get(),
+                DABlocks.CLOUDBLOOM_CARPET.get(),
                 DABlocks.AERGLOW_BLOSSOM_BLOCK.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
                 DABlocks.SUNROOT_LEAVES.get(),

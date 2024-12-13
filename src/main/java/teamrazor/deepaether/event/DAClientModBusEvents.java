@@ -28,7 +28,10 @@ import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.moa_food.FodderItem;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
-import teamrazor.deepaether.particle.custom.*;
+import teamrazor.deepaether.particle.custom.EOTSPreFightParticle;
+import teamrazor.deepaether.particle.custom.LuckParticle;
+import teamrazor.deepaether.particle.custom.MysticalParticle;
+import teamrazor.deepaether.particle.custom.PoisonBubbles;
 import teamrazor.deepaether.screen.CombinerScreen;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -50,6 +53,9 @@ public class DAClientModBusEvents {
         registerCuriosRenderers();
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DAFluids.POISON_FLOWING.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(DABlocks.SKYJADE_CHAIN.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(DABlocks.SKYJADE_LANTERN.get(), RenderType.translucent());
 
         LoreBookMenu.addLoreEntryOverride(stack -> stack.is
                 (DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");

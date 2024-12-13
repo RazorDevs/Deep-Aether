@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "deep_aether:block/skyjade_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "deep_aether:block/skyjade_chain"
+    },
+    "axis=z": {
+      "model": "deep_aether:block/skyjade_chain",
+      "x": 90
+    }
+  }
+}

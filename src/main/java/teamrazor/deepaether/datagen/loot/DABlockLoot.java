@@ -261,6 +261,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         //Plants
         this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
         this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());
+        this.dropSelf(DABlocks.CLOUDBLOOM_CARPET.get());
 
         this.dropSelf(DABlocks.BLUE_SQUASH.get());
         this.dropSelf(DABlocks.GREEN_SQUASH.get());
@@ -273,8 +274,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
 
-        this.dropNone(DABlocks.FEATHER_GRASS.get());
-        this.dropNone(DABlocks.TALL_FEATHER_GRASS.get());
+        this.add(DABlocks.FEATHER_GRASS.get(), this::createFeatherGrassDrops);
+        this.add(DABlocks.TALL_FEATHER_GRASS.get(), this::createFeatherGrassDrops);
 
         this.add(DABlocks.GOLDEN_FLOWER.get(), (flower) -> createSinglePropConditionTable(DABlocks.GOLDEN_FLOWER.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
@@ -332,6 +333,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
 
         //Misc
         this.dropNone(DABlocks.VIRULENT_QUICKSAND.get());
+        this.dropSelf(DABlocks.SKYJADE_CHAIN.get());
+        this.dropSelf(DABlocks.SKYJADE_LANTERN.get());
 
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
 
@@ -403,6 +406,12 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
                         .when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).build()).build()), new BlockPos(0, -1, 0))));
     }
 
+    protected LootTable.Builder createFeatherGrassDrops(Block block) {
+        return createShearsDispatchTable(block, this.applyExplosionDecay(block,
+                LootItem.lootTableItem(DAItems.CLOUDBLOOM_BOUQUET.get()).when(LootItemRandomChanceCondition.randomChance(0.5F))
+                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.1F)));
+    }
 
     protected LootTable.Builder createGoldenGrassDrops(Block block) {
         return createShearsDispatchTable(block, this.applyExplosionDecay(block,
