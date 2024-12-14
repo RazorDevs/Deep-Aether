@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/carpet",
+  "render_type": "cutout",
+  "textures": {
+    "wool": "deep_aether:block/cloudbloom_carpet"
+  }
+}

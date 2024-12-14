@@ -300,6 +300,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.PURPLE_SQUASH.get());
 
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
+        this.itemBlock(DABlocks.CLOUDBLOOM_CARPET.get());
         this.itemBlock(DABlocks.AETHER_MOSS_BLOCK.get());
 
         this.item(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
@@ -337,6 +338,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         //Skyjade set
         this.item(DAItems.SKYJADE.get());
+        this.item(DAItems.SKYJADE_NUGGET.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_SWORD.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_AXE.get());
         this.handheldItem(DAItems.SKYJADE_TOOLS_PICKAXE.get());
@@ -399,7 +401,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(DABlocks.IASPOVE.get());
         this.itemBlockFlat(DABlocks.GOLDEN_ASPESS.get());
         this.itemBlockFlat(DABlocks.ECHAISY.get());
-
+        this.item(DAItems.CLOUDBLOOM_BOUQUET.get());
 
         this.item(DAItems.GOLDEN_GRASS_SEEDS.get());
         this.item(DAItems.SQUASH_SEEDS.get());
@@ -418,9 +420,9 @@ public class DAItemModelData extends AetherItemModelProvider {
         //Misc
         this.item(DAItems.CHAOS_EMERALD.get());
         this.item(DAItems.SPOOKY_RING.get());
-
         this.item(DAItems.BIO_CRYSTAL.get());
-
+        this.item(DABlocks.SKYJADE_CHAIN.get().asItem());
+        this.item(DABlocks.SKYJADE_LANTERN.get().asItem());
         this.item(DAItems.MUSIC_DISC_NABOORU.get());
         this.item(DAItems.MUSIC_DISC_A_MORNING_WISH.get());
         this.item(DAItems.MUSIC_DISC_CYCLONE.get());

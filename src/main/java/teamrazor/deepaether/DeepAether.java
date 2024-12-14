@@ -1,8 +1,6 @@
 package teamrazor.deepaether;
 
 
-import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.api.AetherMenus;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.google.common.reflect.Reflection;
 import com.legacy.lost_aether.registry.LCEntityTypes;
@@ -25,8 +23,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -62,9 +58,8 @@ import teamrazor.deepaether.fluids.DAFluidTypes;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.networking.DAPacketHandler;
 import teamrazor.deepaether.recipe.DARecipeBookTypes;
-import teamrazor.deepaether.recipe.DARecipeCategories;
-import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.util.BetterBrewingRecipe;
 import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
@@ -234,6 +229,7 @@ public class DeepAether {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.CLOUDBLOOM_CARPET.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.ROSEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_SAPLING.get().asItem(), 0.3F);
@@ -268,7 +264,9 @@ public class DeepAether {
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_BERRIES.get(), 0.2F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.GOLDEN_GRASS_SEEDS.get(), 0.1F);
 		ComposterBlock.COMPOSTABLES.put(DAItems.SQUASH_SEEDS.get(), 0.1F);
+		ComposterBlock.COMPOSTABLES.put(DAItems.CLOUDBLOOM_BOUQUET.get(), 0.1F);
 	}
+
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
