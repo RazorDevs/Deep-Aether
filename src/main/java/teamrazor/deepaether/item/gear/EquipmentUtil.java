@@ -12,6 +12,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.List;
+import java.util.Optional;
 
 public class EquipmentUtil {
     public static boolean hasFullStratusSet(LivingEntity entity) {
@@ -36,6 +37,10 @@ public class EquipmentUtil {
 
     public static boolean hasCloudNecklace(LivingEntity entity) {
         return CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.AERCLOUD_NECKLACE.get()).isPresent();
+    }
+
+    public static Optional<SlotResult> getFloatyScarf(LivingEntity entity) {
+        return CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.FLOATY_SCARF.get());
     }
 
     public static void damageRing(LivingEntity entity, RingItem ring) {

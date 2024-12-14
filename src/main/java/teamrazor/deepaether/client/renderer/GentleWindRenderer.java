@@ -11,21 +11,21 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.client.model.BabyEotsModel;
-import teamrazor.deepaether.entity.BabyEots;
+import teamrazor.deepaether.client.model.GentleWindModel;
+import teamrazor.deepaether.entity.GentleWind;
 
-public class BabyEotsRenderer extends MobRenderer<teamrazor.deepaether.entity.BabyEots, BabyEotsModel> {
-    public BabyEotsRenderer(EntityRendererProvider.Context context) {
-        super(context, new BabyEotsModel(context.bakeLayer(DAModelLayers.BABY_EOTS)), 0.5F);
+public class GentleWindRenderer extends MobRenderer<GentleWind, GentleWindModel> {
+    public GentleWindRenderer(EntityRendererProvider.Context context) {
+        super(context, new GentleWindModel(context.bakeLayer(DAModelLayers.BABY_EOTS)), 0.5F);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(BabyEots pEntity) {
+    public ResourceLocation getTextureLocation(GentleWind pEntity) {
         return new ResourceLocation(DeepAether.MODID, "textures/entity/baby_eots.png");
     }
 
     @Override
-    public void render(BabyEots eots, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight) {
+    public void render(GentleWind eots, float entityYaw, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int packedLight) {
         matrixStack.pushPose();
 
         boolean flag = eots.isWrappedAroundNeck();
@@ -79,19 +79,19 @@ public class BabyEotsRenderer extends MobRenderer<teamrazor.deepaether.entity.Ba
 
         matrixStack.popPose();
 
-        if (this.shouldShowName(eots) && eots.getDisplayName() != null && !eots.isWrappedAroundNeck()) {
+        if (this.shouldShowName(eots) && eots.hasCustomName() && !eots.isWrappedAroundNeck()) {
             this.renderNameTag(eots, eots.getDisplayName(), matrixStack, buffer, packedLight);
         }
     }
 
     @Override
-    protected void setupRotations(BabyEots pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
+    protected void setupRotations(GentleWind pEntityLiving, PoseStack pPoseStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks) {
         super.setupRotations(pEntityLiving, pPoseStack, pAgeInTicks, pRotationYaw, pPartialTicks);
         pPoseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(pAgeInTicks, pEntityLiving.xRotO, pEntityLiving.getXRot())));
     }
 
     @Override
-    protected float getBob(BabyEots eots, float partialTicks) {
+    protected float getBob(GentleWind eots, float partialTicks) {
         return partialTicks;
     }
 }

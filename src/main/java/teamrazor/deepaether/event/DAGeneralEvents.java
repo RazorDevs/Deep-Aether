@@ -26,6 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -36,12 +37,11 @@ import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
+import teamrazor.deepaether.item.dungeon.brass.FloatyScarfItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
+import top.theillusivec4.curios.api.SlotResult;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
@@ -162,6 +162,15 @@ public class DAGeneralEvents {
                 }
             }
         }
+    }
+
+
+    @SubscribeEvent
+    public static void playerLoggedOutEvent(PlayerEvent.PlayerLoggedOutEvent event) {
+        Player player = event.getEntity();
+        Optional<SlotResult> reference = EquipmentUtil.getFloatyScarf(player);
+
+        reference.ifPresent(slotResult -> FloatyScarfItem.tryDiscardGentleWind(slotResult.stack(), player.level()));
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)

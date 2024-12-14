@@ -386,8 +386,8 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(AetherTags.Items.ACCESSORIES_PENDANTS).add(
                 DAItems.MEDAL_OF_HONOR.get(),
-                DAItems.AERCLOUD_NECKLACE.get()
-                /*DAItems.FLOATY_SCARF.get()*/
+                DAItems.AERCLOUD_NECKLACE.get(),
+                DAItems.FLOATY_SCARF.get()
         );
 
         tag(ItemTags.HANGING_SIGNS).add(

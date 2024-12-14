@@ -1,11 +1,11 @@
 package teamrazor.deepaether.entity;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -26,48 +26,33 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
+import teamrazor.deepaether.item.gear.EquipmentUtil;
+import top.theillusivec4.curios.api.SlotResult;
 
 import javax.annotation.Nullable;
 import java.util.EnumSet;
-import java.util.List;
+import java.util.Optional;
 
-public class BabyEots extends FlyingMob {
-
-    private static final EntityDataAccessor<Integer> COLOR_0 = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Integer> COLOR_1 = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Integer> COLOR_2 = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Integer> COLOR_3 = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Integer> COLOR_4 = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.INT);
-
+public class GentleWind extends FlyingMob {
     private static final int RIDE_COOLDOWN = 300;
     private int rideCooldownCounter;
 
-    private static final EntityDataAccessor<Integer> DATA_OWNER_ID = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Boolean> IS_ON_NECK = SynchedEntityData.defineId(BabyEots.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> DATA_OWNER_ID = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> IS_ON_NECK = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.BOOLEAN);
 
-    public BabyEots(EntityType<? extends FlyingMob> type, Level level) {
+    public GentleWind(EntityType<? extends FlyingMob> type, Level level) {
         super(type, level);
-        this.moveControl = new BabyEotsMoveControl(this);
-        this.lookControl = new BabyEotsLookControl(this);
+        this.moveControl = new GentleWindMoveControl(this);
+        this.lookControl = new GentleWindLookControl(this);
     }
 
-    public BabyEots(Level level, Player owner) {
-        this(DAEntities.BABY_EOTS.get(), level);
+    public GentleWind(Level level, Player owner) {
+        this(DAEntities.GENTLE_WIND.get(), level);
         this.setOwner(owner);
         this.setPos(owner.position());
         this.setEntityAroundNeck();
 
         level.addFreshEntity(this);
-    }
-
-    public BabyEots(Level level, Player owner, List<Integer> colors) {
-        this(level, owner);
-        this.setColors(colors);
-    }
-
-    public int getFromColor(int index) {
-        //TODO: this is a temporary replacement
-        return FastColor.ARGB32.color(this.getColors()[index], this.getColors()[index], this.getColors()[index], this.getColors()[index]);
     }
 
     @Override
@@ -84,36 +69,13 @@ public class BabyEots extends FlyingMob {
         super.defineSynchedData();
         this.entityData.define(DATA_OWNER_ID, 0);
         this.entityData.define(IS_ON_NECK, false);
-        this.entityData.define(COLOR_0, -1);
-        this.entityData.define(COLOR_1, -1);
-        this.entityData.define(COLOR_2, -1);
-        this.entityData.define(COLOR_3, -1);
-        this.entityData.define(COLOR_4, -1);
-    }
-
-    private void setColors(List<Integer> colors) {
-        this.entityData.set(COLOR_0, colors.get(0));
-        this.entityData.set(COLOR_1, colors.get(1));
-        this.entityData.set(COLOR_2, colors.get(2));
-        this.entityData.set(COLOR_3, colors.get(3));
-        this.entityData.set(COLOR_4, colors.get(4));
-    }
-
-    private int[] getColors() {
-        int[] colors = new int[5];
-        colors[0] = this.entityData.get(COLOR_0);
-        colors[1] = this.entityData.get(COLOR_1);
-        colors[2] = this.entityData.get(COLOR_2);
-        colors[3] = this.entityData.get(COLOR_3);
-        colors[4] = this.entityData.get(COLOR_4);
-        return colors;
     }
 
     @Override
     protected void registerGoals() {
-        this.targetSelector.addGoal(1, new BabyEotsOwnerHurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new BabyEotsOwnerHurtTargetGoal(this));
-        this.goalSelector.addGoal(2, new BabyEotsAirChargeGoal(this));
+        this.targetSelector.addGoal(1, new GentleWindOwnerHurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new GentleWindOwnerHurtTargetGoal(this));
+        this.goalSelector.addGoal(2, new GentleWindAirChargeGoal(this));
         this.goalSelector.addGoal(3, new WrapAroundPlayerGoal(this));
         this.goalSelector.addGoal(4, new FollowPlayerGoal(this));
     }
@@ -159,7 +121,7 @@ public class BabyEots extends FlyingMob {
     }
 
     public boolean wantsToAttack(LivingEntity target, LivingEntity owner) {
-        if (target instanceof Creeper || target instanceof Ghast || target instanceof ArmorStand || target instanceof BabyEots) {
+        if (target instanceof Creeper || target instanceof Ghast || target instanceof ArmorStand || target instanceof GentleWind) {
             return false;
         } else if (target instanceof Wolf wolf) {
             return !wolf.isTame() || wolf.getOwner() != owner;
@@ -177,8 +139,7 @@ public class BabyEots extends FlyingMob {
     }
 
     @Override
-    public boolean isOnPortalCooldown() {
-        return true;
+    protected void processPortalCooldown() {
     }
 
     @Override
@@ -206,7 +167,7 @@ public class BabyEots extends FlyingMob {
         return true;
     }
 
-    public boolean removeEntityAroundNeck(){
+    public boolean removeEntityAroundNeck() {
         if(!isWrappedAroundNeck()) return false;
         this.rideCooldownCounter = 0;
         this.entityData.set(IS_ON_NECK, false);
@@ -215,10 +176,10 @@ public class BabyEots extends FlyingMob {
     }
 
     public static class WrapAroundPlayerGoal extends Goal {
-        private final BabyEots eots;
+        private final GentleWind eots;
         private ServerPlayer owner;
 
-        public WrapAroundPlayerGoal(BabyEots eots) {
+        public WrapAroundPlayerGoal(GentleWind eots) {
             this.eots = eots;
             this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
         }
@@ -253,11 +214,11 @@ public class BabyEots extends FlyingMob {
     }
 
     public static class FollowPlayerGoal extends Goal {
-        private final BabyEots eots;
+        private final GentleWind eots;
 
-        public FollowPlayerGoal(BabyEots eots) {
+        public FollowPlayerGoal(GentleWind eots) {
             this.eots = eots;
-            this.setFlags(EnumSet.of(Goal.Flag.TARGET));
+            this.setFlags(EnumSet.of(Flag.TARGET));
         }
 
         @Override
@@ -268,17 +229,17 @@ public class BabyEots extends FlyingMob {
                 return false;
             }
 
-//            SlotEntryReference reference = DAEquipmentUtil.getFloatyScarf(livingentity);
-//            if(reference == null) {
-//                this.eots.discard();
-//                return false;
-//            }
-//
-//            FloatyScarf scarf = reference.stack().get(DADataComponentTypes.FLOATY_SCARF);
-//            if(scarf == null || scarf.uuid() != this.eots.getId()) {
-//                this.eots.discard();
-//                return false;
-//            }
+            Optional<SlotResult> reference = EquipmentUtil.getFloatyScarf(livingentity);
+            if(reference.isEmpty()) {
+                this.eots.discard();
+                return false;
+            }
+
+            CompoundTag scarf = reference.get().stack().getTag();
+            if(scarf == null || scarf.getInt("UUID") != this.eots.getId()) {
+                this.eots.discard();
+                return false;
+            }
 
             return !this.eots.isWrappedAroundNeck();
         }
@@ -294,20 +255,20 @@ public class BabyEots extends FlyingMob {
         }
     }
 
-    public static class BabyEotsOwnerHurtByTargetGoal extends TargetGoal {
-        private final BabyEots eots;
+    public static class GentleWindOwnerHurtByTargetGoal extends TargetGoal {
+        private final GentleWind gentleWind;
         private LivingEntity ownerLastHurtBy;
         private int timestamp;
 
-        public BabyEotsOwnerHurtByTargetGoal(BabyEots eots) {
-            super(eots, false);
-            this.eots = eots;
-            this.setFlags(EnumSet.of(Goal.Flag.TARGET));
+        public GentleWindOwnerHurtByTargetGoal(GentleWind gentleWind) {
+            super(gentleWind, false);
+            this.gentleWind = gentleWind;
+            this.setFlags(EnumSet.of(Flag.TARGET));
         }
 
         @Override
         public boolean canUse() {
-            LivingEntity livingentity = this.eots.getOwner();
+            LivingEntity livingentity = this.gentleWind.getOwner();
             if (livingentity == null) {
                 return false;
             } else {
@@ -315,15 +276,15 @@ public class BabyEots extends FlyingMob {
                 int i = livingentity.getLastHurtByMobTimestamp();
                 return i != this.timestamp
                         && this.canAttack(this.ownerLastHurtBy, TargetingConditions.DEFAULT)
-                        && this.eots.wantsToAttack(this.ownerLastHurtBy, livingentity);
+                        && this.gentleWind.wantsToAttack(this.ownerLastHurtBy, livingentity);
             }
         }
 
         @Override
         public void start() {
-            this.eots.removeEntityAroundNeck();
+            this.gentleWind.removeEntityAroundNeck();
             this.mob.setTarget(this.ownerLastHurtBy);
-            LivingEntity livingentity = this.eots.getOwner();
+            LivingEntity livingentity = this.gentleWind.getOwner();
             if (livingentity != null) {
                 this.timestamp = livingentity.getLastHurtByMobTimestamp();
             }
@@ -332,20 +293,20 @@ public class BabyEots extends FlyingMob {
         }
     }
 
-    public static class BabyEotsOwnerHurtTargetGoal extends TargetGoal {
-        private final BabyEots eots;
+    public static class GentleWindOwnerHurtTargetGoal extends TargetGoal {
+        private final GentleWind gentleWind;
         private LivingEntity ownerLastHurt;
         private int timestamp;
 
-        public BabyEotsOwnerHurtTargetGoal(BabyEots eots) {
-            super(eots, false);
-            this.eots = eots;
-            this.setFlags(EnumSet.of(Goal.Flag.TARGET));
+        public GentleWindOwnerHurtTargetGoal(GentleWind gentleWind) {
+            super(gentleWind, false);
+            this.gentleWind = gentleWind;
+            this.setFlags(EnumSet.of(Flag.TARGET));
         }
 
         @Override
         public boolean canUse() {
-            LivingEntity livingentity = this.eots.getOwner();
+            LivingEntity livingentity = this.gentleWind.getOwner();
             if (livingentity == null) {
                 return false;
             } else {
@@ -353,15 +314,15 @@ public class BabyEots extends FlyingMob {
                 int i = livingentity.getLastHurtMobTimestamp();
                 return i != this.timestamp
                         && this.canAttack(this.ownerLastHurt, TargetingConditions.DEFAULT)
-                        && this.eots.wantsToAttack(this.ownerLastHurt, livingentity);
+                        && this.gentleWind.wantsToAttack(this.ownerLastHurt, livingentity);
             }
         }
 
         @Override
         public void start() {
-            this.eots.removeEntityAroundNeck();
+            this.gentleWind.removeEntityAroundNeck();
             this.mob.setTarget(this.ownerLastHurt);
-            LivingEntity livingentity = this.eots.getOwner();
+            LivingEntity livingentity = this.gentleWind.getOwner();
             if (livingentity != null) {
                 this.timestamp = livingentity.getLastHurtMobTimestamp();
             }
@@ -370,24 +331,25 @@ public class BabyEots extends FlyingMob {
         }
     }
 
-    protected static class BabyEotsAirChargeGoal extends Goal {
-        BabyEots eots;
+    protected static class GentleWindAirChargeGoal extends Goal {
+        GentleWind gentleWind;
         private int attackTimer = 10; //Delay between attacks
         private int attackDelay = 10; //Gives the segment time to rotate against the player before attacking
         private int numberOfAttacks = 0;
-        public BabyEotsAirChargeGoal(BabyEots eots) {
-            this.eots = eots;
+
+        public GentleWindAirChargeGoal(GentleWind gentleWind) {
+            this.gentleWind = gentleWind;
         }
 
         @Override
         public boolean canUse() {
-            if(this.eots.getTarget() == null || !this.eots.getTarget().isAlive() || !this.eots.hasLineOfSight(this.eots.getTarget()))
+            if(this.gentleWind.getTarget() == null || !this.gentleWind.getTarget().isAlive() || !this.gentleWind.hasLineOfSight(this.gentleWind.getTarget()))
                 return false;
             else if (this.attackTimer > 0) {
                 --this.attackTimer;
                 return false;
             } else {
-                this.attackTimer = 2 + this.eots.getRandom().nextInt(10);
+                this.attackTimer = 2 + this.gentleWind.getRandom().nextInt(10);
                 return true;
             }
         }
@@ -398,26 +360,26 @@ public class BabyEots extends FlyingMob {
             if(attackDelay < -2) {
                 return false;
             }
-            LivingEntity livingentity = this.eots.getTarget();
+            LivingEntity livingentity = this.gentleWind.getTarget();
             return livingentity != null && livingentity.isAlive();
         }
 
         @Override
         public void start() {
-            this.eots.removeEntityAroundNeck();
+            this.gentleWind.removeEntityAroundNeck();
             this.attackDelay = 10;
-            this.numberOfAttacks = this.eots.random.nextInt(2);
+            this.numberOfAttacks = this.gentleWind.random.nextInt(2);
             super.start();
         }
 
 
         @Override
         public void tick() {
-            if(this.eots.getTarget() != null) {
-                this.lookAt(this.eots.getTarget());
+            if(this.gentleWind.getTarget() != null) {
+                this.lookAt(this.gentleWind.getTarget());
                 if(attackDelay <= 0) {
-                    new WindCrystal(this.eots.level(), this.eots, this.eots.getLookAngle().multiply(0.7F,0.7F,0.7F).offsetRandom(this.eots.random, 0.15F), true);
-                    this.eots.level().playSound(null, this.eots.getX(), this.eots.getY(), this.eots.getZ(), DASounds.EOTS_SHOOT.get(), SoundSource.HOSTILE, 1.0F, 2.0F);
+                    new WindCrystal(this.gentleWind.level(), this.gentleWind, this.gentleWind.getLookAngle().multiply(0.7F,0.7F,0.7F).offsetRandom(this.gentleWind.random, 0.15F), true);
+                    this.gentleWind.level().playSound(null, this.gentleWind.getX(), this.gentleWind.getY(), this.gentleWind.getZ(), DASounds.EOTS_SHOOT.get(), SoundSource.HOSTILE, 1.0F, 2.0F);
                     if(numberOfAttacks > 0) {
                         numberOfAttacks--;
                         attackDelay = 9;
@@ -429,40 +391,40 @@ public class BabyEots extends FlyingMob {
         }
 
         private void lookAt(LivingEntity target) {
-            double d0 = target.getX() - this.eots.getX();
-            double d1 = target.getEyeY() - this.eots.getEyeY();
-            double d2 = target.getZ() - this.eots.getZ();
+            double d0 = target.getX() - this.gentleWind.getX();
+            double d1 = target.getEyeY() - this.gentleWind.getEyeY();
+            double d2 = target.getZ() - this.gentleWind.getZ();
 
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
-            this.eots.setXRot(Mth.wrapDegrees((float)(-(Mth.atan2(d1, d3) * 180.0F / (float)Math.PI))));
-            this.eots.setYRot(Mth.wrapDegrees((float)(Mth.atan2(d2, d0) * 180.0F / (float)Math.PI) - 90.0F));
+            this.gentleWind.setXRot(Mth.wrapDegrees((float)(-(Mth.atan2(d1, d3) * 180.0F / (float)Math.PI))));
+            this.gentleWind.setYRot(Mth.wrapDegrees((float)(Mth.atan2(d2, d0) * 180.0F / (float)Math.PI) - 90.0F));
 
-            this.eots.setYHeadRot(this.eots.getYRot());
-            this.eots.xRotO = this.eots.getXRot();
-            this.eots.yRotO = this.eots.getYRot();
+            this.gentleWind.setYHeadRot(this.gentleWind.getYRot());
+            this.gentleWind.xRotO = this.gentleWind.getXRot();
+            this.gentleWind.yRotO = this.gentleWind.getYRot();
         }
     }
 
-    public static class BabyEotsMoveControl extends MoveControl {
+    public static class GentleWindMoveControl extends MoveControl {
         private float speed = 0.1F;
 
-        private final BabyEots eots;
+        private final GentleWind gentleWind;
 
-        public BabyEotsMoveControl(BabyEots eots) {
-            super(eots);
-            this.eots = eots;
+        public GentleWindMoveControl(GentleWind gentleWind) {
+            super(gentleWind);
+            this.gentleWind = gentleWind;
         }
 
         @Override
         public void tick() {
-            if (this.eots.horizontalCollision) {
-                this.eots.setYRot(this.eots.getYRot() + 180.0F);
+            if (this.gentleWind.horizontalCollision) {
+                this.gentleWind.setYRot(this.gentleWind.getYRot() + 180.0F);
                 this.speed = 0.1F;
             }
 
-            double d0 = this.getWantedX() - this.eots.getX();
-            double d1 = this.getWantedY() - this.eots.getY();
-            double d2 = this.getWantedZ() - this.eots.getZ();
+            double d0 = this.getWantedX() - this.gentleWind.getX();
+            double d1 = this.getWantedY() - this.gentleWind.getY();
+            double d2 = this.getWantedZ() - this.gentleWind.getZ();
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 
             if (Math.abs(d3) > 1.0E-5F) {
@@ -471,34 +433,34 @@ public class BabyEots extends FlyingMob {
                 d2 *= d4;
                 d3 = Math.sqrt(d0 * d0 + d2 * d2);
                 double d5 = Math.sqrt(d0 * d0 + d2 * d2 + d1 * d1);
-                float f = this.eots.getYRot();
+                float f = this.gentleWind.getYRot();
                 float f1 = (float)Mth.atan2(d2, d0);
-                float f2 = Mth.wrapDegrees(this.eots.getYRot() + 90.0F);
+                float f2 = Mth.wrapDegrees(this.gentleWind.getYRot() + 90.0F);
                 float f3 = Mth.wrapDegrees(f1 * (180.0F / (float)Math.PI));
-                this.eots.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
-                this.eots.yBodyRot = this.eots.getYRot();
-                if (Mth.degreesDifferenceAbs(f, this.eots.getYRot()) < 3.0F) {
+                this.gentleWind.setYRot(Mth.approachDegrees(f2, f3, 4.0F) - 90.0F);
+                this.gentleWind.yBodyRot = this.gentleWind.getYRot();
+                if (Mth.degreesDifferenceAbs(f, this.gentleWind.getYRot()) < 3.0F) {
                     this.speed = Mth.approach(this.speed, 1.8F, 0.005F * (1.8F / this.speed));
                 } else {
                     this.speed = Mth.approach(this.speed, 0.2F, 0.025F);
                 }
 
                 float f4 = (float)(-(Mth.atan2(-d1, d3) * 180.0F / (float)Math.PI));
-                this.eots.setXRot(f4);
-                float f5 = this.eots.getYRot() + 90.0F;
+                this.gentleWind.setXRot(f4);
+                float f5 = this.gentleWind.getYRot() + 90.0F;
                 double d6 = (double)(this.speed * Mth.cos(f5 * (float) (Math.PI / 180.0))) * Math.abs(d0 / d5);
                 double d7 = (double)(this.speed * Mth.sin(f5 * (float) (Math.PI / 180.0))) * Math.abs(d2 / d5);
                 double d8 = (double)(this.speed * Mth.sin(f4 * (float) (Math.PI / 180.0))) * Math.abs(d1 / d5);
-                Vec3 vec3 = this.eots.getDeltaMovement();
-                this.eots.setDeltaMovement(vec3.add(new Vec3(d6, d8, d7).subtract(vec3).scale(0.2)));
+                Vec3 vec3 = this.gentleWind.getDeltaMovement();
+                this.gentleWind.setDeltaMovement(vec3.add(new Vec3(d6, d8, d7).subtract(vec3).scale(0.2)));
             }
         }
     }
 
 
-    protected static class BabyEotsLookControl extends LookControl {
-        public BabyEotsLookControl(BabyEots eots) {
-            super(eots);
+    protected static class GentleWindLookControl extends LookControl {
+        public GentleWindLookControl(GentleWind gentleWind) {
+            super(gentleWind);
         }
 
         /**

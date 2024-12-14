@@ -434,6 +434,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
 
+        this.item(DAItems.FLOATY_SCARF.get());
     }
 
     public void bowItem(Item item) {

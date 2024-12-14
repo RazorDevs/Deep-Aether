@@ -409,7 +409,7 @@ public class DATabs {
                     DAItems.AERWHALE_SADDLE.get(),
                     DAItems.AERCLOUD_NECKLACE.get(),
                     //DAItems.WIND_SHIELD.get(),
-                    //DAItems.FLOATY_SCARF.get()
+                    DAItems.FLOATY_SCARF.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
