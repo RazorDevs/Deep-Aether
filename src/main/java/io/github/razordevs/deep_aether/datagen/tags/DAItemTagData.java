@@ -109,10 +109,163 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.CONBERRY_PLANKS.get().asItem(),
                 DABlocks.SUNROOT_PLANKS.get().asItem()
         );
+
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.STRATUS_PICKAXE.get().asItem()
         );
+
+        tag(ItemTags.HEAD_ARMOR).add(
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.STRATUS_HELMET.get(),
+                DAItems.STORMFORGED_HELMET.get()
+        );
+
+        tag(ItemTags.HEAD_ARMOR_ENCHANTABLE).add(
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.STRATUS_HELMET.get(),
+                DAItems.STORMFORGED_HELMET.get()
+        );
+
+        tag(ItemTags.CHEST_ARMOR).add(
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.STRATUS_CHESTPLATE.get(),
+                DAItems.STORMFORGED_CHESTPLATE.get()
+        );
+
+        tag(ItemTags.CHEST_ARMOR_ENCHANTABLE).add(
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.STRATUS_CHESTPLATE.get(),
+                DAItems.STORMFORGED_CHESTPLATE.get()
+        );
+
+        tag(ItemTags.LEG_ARMOR).add(
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.STRATUS_LEGGINGS.get(),
+                DAItems.STORMFORGED_LEGGINGS.get()
+        );
+
+        tag(ItemTags.LEG_ARMOR_ENCHANTABLE).add(
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.STRATUS_LEGGINGS.get(),
+                DAItems.STORMFORGED_LEGGINGS.get()
+        );
+
+        tag(ItemTags.FOOT_ARMOR).add(
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.STRATUS_BOOTS.get(),
+                DAItems.STORMFORGED_BOOTS.get()
+        );
+
+        tag(ItemTags.FOOT_ARMOR_ENCHANTABLE).add(
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.STRATUS_BOOTS.get(),
+                DAItems.STORMFORGED_BOOTS.get()
+        );
+
+        tag(ItemTags.SWORDS).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get(),
+                DAItems.STRATUS_SWORD.get(),
+                DAItems.BLADE_OF_LUCK.get(),
+                DAItems.STORM_SWORD.get()
+        );
+
+        tag(ItemTags.PICKAXES).add(
+                DAItems.SKYJADE_TOOLS_PICKAXE.get(),
+                DAItems.STRATUS_PICKAXE.get()
+        );
+
+        tag(ItemTags.SHOVELS).add(
+                DAItems.SKYJADE_TOOLS_SHOVEL.get(),
+                DAItems.STRATUS_SHOVEL.get()
+        );
+
+        tag(ItemTags.AXES).add(
+                DAItems.SKYJADE_TOOLS_AXE.get(),
+                DAItems.STRATUS_AXE.get()
+        );
+
+        tag(ItemTags.HOES).add(
+                DAItems.SKYJADE_TOOLS_HOE.get(),
+                DAItems.STRATUS_HOE.get()
+        );
+
+        tag(ItemTags.DURABILITY_ENCHANTABLE).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get(),
+                DAItems.STRATUS_SWORD.get(),
+                DAItems.BLADE_OF_LUCK.get(),
+                DAItems.STORM_SWORD.get(),
+                DAItems.SKYJADE_TOOLS_PICKAXE.get(),
+                DAItems.STRATUS_PICKAXE.get(),
+                DAItems.SKYJADE_TOOLS_SHOVEL.get(),
+                DAItems.STRATUS_SHOVEL.get(),
+                DAItems.SKYJADE_TOOLS_AXE.get(),
+                DAItems.STRATUS_AXE.get(),
+                DAItems.SKYJADE_TOOLS_HOE.get(),
+                DAItems.STRATUS_HOE.get(),
+                DAItems.SKYJADE_HELMET.get(),
+                DAItems.STRATUS_HELMET.get(),
+                DAItems.SKYJADE_CHESTPLATE.get(),
+                DAItems.STRATUS_CHESTPLATE.get(),
+                DAItems.SKYJADE_LEGGINGS.get(),
+                DAItems.STRATUS_LEGGINGS.get(),
+                DAItems.SKYJADE_BOOTS.get(),
+                DAItems.STRATUS_BOOTS.get(),
+                DAItems.STORMFORGED_HELMET.get(),
+                DAItems.STORMFORGED_CHESTPLATE.get(),
+                DAItems.STORMFORGED_LEGGINGS.get(),
+                DAItems.STORMFORGED_BOOTS.get(),
+                DAItems.STORM_BOW.get(),
+                DAItems.SKYJADE_GLOVES.get(),
+                DAItems.STRATUS_GLOVES.get(),
+                DAItems.STORMFORGED_GLOVES.get(),
+                DAItems.SKYJADE_RING.get(),
+                DAItems.STRATUS_RING.get()
+        );
+
+        tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get(),
+                DAItems.STRATUS_SWORD.get(),
+                DAItems.BLADE_OF_LUCK.get(),
+                DAItems.STORM_SWORD.get()
+        );
+
+        tag(ItemTags.WEAPON_ENCHANTABLE).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get(),
+                DAItems.STRATUS_SWORD.get(),
+                DAItems.BLADE_OF_LUCK.get(),
+                DAItems.STORM_SWORD.get()
+        );
+
+        tag(ItemTags.FIRE_ASPECT_ENCHANTABLE).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get(),
+                DAItems.STRATUS_SWORD.get(),
+                DAItems.BLADE_OF_LUCK.get(),
+                DAItems.STORM_SWORD.get()
+        );
+
+        tag(ItemTags.SWORD_ENCHANTABLE).add(
+                DAItems.SKYJADE_TOOLS_SWORD.get(),
+                DAItems.STRATUS_SWORD.get(),
+                DAItems.BLADE_OF_LUCK.get(),
+                DAItems.STORM_SWORD.get()
+        );
+
+        tag(ItemTags.MINING_ENCHANTABLE).add(
+                DAItems.SKYJADE_TOOLS_PICKAXE.get(),
+                DAItems.STRATUS_PICKAXE.get(),
+                DAItems.SKYJADE_TOOLS_AXE.get(),
+                DAItems.STRATUS_AXE.get(),
+                DAItems.SKYJADE_TOOLS_SHOVEL.get(),
+                DAItems.STRATUS_SHOVEL.get(),
+                DAItems.SKYJADE_TOOLS_HOE.get(),
+                DAItems.STRATUS_HOE.get()
+        );
+
+        tag(ItemTags.BOW_ENCHANTABLE).add(
+                DAItems.STORM_BOW.get()
+        );
+
         tag(ItemTags.SMALL_FLOWERS).add(
                 DABlocks.AERLAVENDER.get().asItem(),
                 DABlocks.AETHER_CATTAILS.get().asItem(),
