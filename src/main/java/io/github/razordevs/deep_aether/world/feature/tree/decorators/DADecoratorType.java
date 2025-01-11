@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<P>{
+public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<P> {
 
     public static final DeferredRegister<TreeDecoratorType<?>> REGISTRY = DeferredRegister.create(BuiltInRegistries.TREE_DECORATOR_TYPE, DeepAether.MODID);
 
@@ -16,6 +16,8 @@ public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<YagrootVineDecorator>> YAGVINES = register("yagvines", YagrootVineDecorator.CODEC);
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<SunrootHangerDecorator>> SUNROOT_HANGER = register("sunroot_hanger", SunrootHangerDecorator.CODEC);
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GlowingVineDecorator>> GLOWING_VINE = register("glowing_vine", GlowingVineDecorator.CODEC);
+    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GlowingTrunkVineDecorator>> GLOWING_TRUNK_VINE = register("glowing_trunk_vine", GlowingTrunkVineDecorator.CODEC);
+
     private final MapCodec<P> codec;
 
     private static <P extends TreeDecorator> DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<P>> register(String s, MapCodec<P> codec) {

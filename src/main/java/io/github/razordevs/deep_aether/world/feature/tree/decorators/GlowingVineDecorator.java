@@ -82,7 +82,7 @@ public class GlowingVineDecorator extends TreeDecorator {
     }
 
     private static void placeVine(BlockPos pPos, BooleanProperty pSideProperty, TreeDecorator.Context context, Block block) {
-        context.setBlock(pPos, block.defaultBlockState().setValue(pSideProperty, Boolean.valueOf(true)));
+        context.setBlock(pPos, block.defaultBlockState().setValue(pSideProperty, Boolean.TRUE));
     }
 }
 

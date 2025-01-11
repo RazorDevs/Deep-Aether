@@ -7,6 +7,7 @@ import net.minecraft.world.item.Items;
 import java.util.List;
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class DAEnumExtensions {
     public static Object combiningSearchIcon(int idx, Class<?> type) {
         return type.cast(switch (idx) {

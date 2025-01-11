@@ -24,7 +24,7 @@ public class EOTSExplosionParticle extends SimpleAnimatedParticle {
         this.setSize(0.1F, 0.1F);
     }
 
-    SingleQuadParticle.FacingCameraMode NO_CAMERA_ROTATION_DOWNWARDS_ROTATING = (quaternionf, camera, partialTicks) -> {
+    private final SingleQuadParticle.FacingCameraMode NO_CAMERA_ROTATION_DOWNWARDS_ROTATING = (quaternionf, camera, partialTicks) -> {
         yDegrees+= partialTicks;
         yDegrees = Mth.wrapDegrees(yDegrees);
 

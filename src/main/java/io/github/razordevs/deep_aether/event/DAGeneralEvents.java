@@ -162,7 +162,7 @@ public class DAGeneralEvents {
      * See {@link DAAttachments#PLAYER_BOSS_FIGHT}
      */
 
-    public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
+    public static final HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
 
     @SubscribeEvent
     public static void onLivingIncomingDamageEvent(LivingIncomingDamageEvent event) {

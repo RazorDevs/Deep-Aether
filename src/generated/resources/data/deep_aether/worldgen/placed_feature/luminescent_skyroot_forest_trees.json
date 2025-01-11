@@ -1,9 +1,9 @@
 {
-  "feature": "deep_aether:luminescent_skyroot_forest_tree",
+  "feature": "deep_aether:luminescent_skyroot_forest_trees",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 5
+      "count": 10
     },
     {
       "type": "aether:improved_layer_placement",

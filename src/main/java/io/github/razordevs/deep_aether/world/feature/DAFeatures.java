@@ -16,14 +16,14 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class DAFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, DeepAether.MODID);
-    public static DeferredHolder<Feature<?>, Feature<FallenTreeConfiguration>> FALLEN_TREE = FEATURES.register("fallen_tree", () -> new FallenTreeFeature(FallenTreeConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> TOTEM = FEATURES.register("totem", () -> new TotemFeature(NoneFeatureConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<AercloudCloudConfiguration>> AERCLOUD_CLOUD = FEATURES.register("aercloud_cloud", () -> new AercloudCloudFeature(AercloudCloudConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<AercloudCloudConfiguration>> RAIN_AERCLOUD_CLOUD = FEATURES.register("rain_aercloud_cloud", () -> new RainAercloudCloudFeature(AercloudCloudConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, RootFeature> AERCLOUD_ROOTS = FEATURES.register("aercloud_roots", () -> new RootFeature(AercloudConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<ConfiguredBoulder.Config>> CONFIGURED_BOULDER = FEATURES.register("configured_boulder", () -> new ConfiguredBoulder(ConfiguredBoulder.Config.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<ColumnFeatureConfiguration>> CLORITE_COLUMNS = FEATURES.register("clorite_columns", () -> new CloriteColumnsFeature(ColumnFeatureConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<DAHugeMushroomFeatureConfiguration>> IMPROVED_MUSHROOM_FEATURE = FEATURES.register("improved_mushroom_feature", () -> new DAHugeMushroomFeature(DAHugeMushroomFeatureConfiguration.CODEC));
-    public static DeferredHolder<Feature<?>, Feature<AetherLakeConfiguration>> POISON_LAKE = FEATURES.register("poison_lake", () -> new PoisonLakeFeature(AetherLakeConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<FallenTreeConfiguration>> FALLEN_TREE = FEATURES.register("fallen_tree", () -> new FallenTreeFeature(FallenTreeConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> TOTEM = FEATURES.register("totem", () -> new TotemFeature(NoneFeatureConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<AercloudCloudConfiguration>> AERCLOUD_CLOUD = FEATURES.register("aercloud_cloud", () -> new AercloudCloudFeature(AercloudCloudConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<AercloudCloudConfiguration>> RAIN_AERCLOUD_CLOUD = FEATURES.register("rain_aercloud_cloud", () -> new RainAercloudCloudFeature(AercloudCloudConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, RootFeature> AERCLOUD_ROOTS = FEATURES.register("aercloud_roots", () -> new RootFeature(AercloudConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<ConfiguredBoulder.Config>> CONFIGURED_BOULDER = FEATURES.register("configured_boulder", () -> new ConfiguredBoulder(ConfiguredBoulder.Config.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<ColumnFeatureConfiguration>> CLORITE_COLUMNS = FEATURES.register("clorite_columns", () -> new CloriteColumnsFeature(ColumnFeatureConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<DAHugeMushroomFeatureConfiguration>> IMPROVED_MUSHROOM_FEATURE = FEATURES.register("improved_mushroom_feature", () -> new DAHugeMushroomFeature(DAHugeMushroomFeatureConfiguration.CODEC));
+    public static final DeferredHolder<Feature<?>, Feature<AetherLakeConfiguration>> POISON_LAKE = FEATURES.register("poison_lake", () -> new PoisonLakeFeature(AetherLakeConfiguration.CODEC));
 }
 

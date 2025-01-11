@@ -13,9 +13,9 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.JukeboxSong;
 
 public class DAJukeboxSongs {
-    public static ResourceKey<JukeboxSong> NABOORU = create("nabooru");
-    public static ResourceKey<JukeboxSong> A_MORNING_WISH = create("a_morning_wish");
-    public static ResourceKey<JukeboxSong> CYCLONE = create("cyclone");
+    public static final ResourceKey<JukeboxSong> NABOORU = create("nabooru");
+    public static final ResourceKey<JukeboxSong> A_MORNING_WISH = create("a_morning_wish");
+    public static final ResourceKey<JukeboxSong> CYCLONE = create("cyclone");
 
     public static final ResourceKey<JukeboxSong> ATTA = create("atta");
     public static final ResourceKey<JukeboxSong> FAENT = create("faent");

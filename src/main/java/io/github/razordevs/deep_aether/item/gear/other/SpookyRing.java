@@ -31,7 +31,7 @@ public class SpookyRing extends RingItem {
         super(ringSound, properties);
     }
 
-    Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
+    private final Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
 
     private int calculateIncrease(SlotReference context) {
         Level level = context.entity().level();

@@ -148,11 +148,6 @@ public class WindCrystal extends AbstractCrystal {
     }
 
     @Override
-    public boolean isPickable() {
-        return true;
-    }
-
-    @Override
     protected ParticleOptions getExplosionParticle() {
         return ParticleTypes.CLOUD;
     }

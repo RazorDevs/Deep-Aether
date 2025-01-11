@@ -23,11 +23,6 @@ public class MedalOfHonor extends PendantItem implements FlawlessDrop {
         reference.entity().addEffect(new MobEffectInstance(DAMobEffects.VALKYRIE_VALOR, 5, 0, true, false, true));
     }
 
-    @Override
-    public void setRenderTexture(String modId, String registryName) {
-        this.PENDANT_LOCATION = ResourceLocation.fromNamespaceAndPath(modId, "textures/models/accessory/pendant/" + registryName + "_accessory.png");
-    }
-
     int i = 0;
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {

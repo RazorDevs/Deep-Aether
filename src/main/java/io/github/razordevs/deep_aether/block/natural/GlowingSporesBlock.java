@@ -1,8 +1,6 @@
 package io.github.razordevs.deep_aether.block.natural;
 
 import com.aetherteam.aether.item.materials.behavior.ItemUseConversion;
-import com.aetherteam.aether.recipe.recipes.block.MatchEventRecipe;
-import com.aetherteam.nitrogen.recipe.recipes.BlockStateRecipe;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
 import io.github.razordevs.deep_aether.recipe.GlowingSporesRecipe;
 import net.minecraft.core.BlockPos;
@@ -27,8 +25,8 @@ public class GlowingSporesBlock extends PinkPetalsBlock implements ItemUseConver
     public ItemInteractionResult convertBlock(RecipeType<GlowingSporesRecipe> recipeType, Player player, Level level, BlockPos pos, ItemStack stack, BlockState oldBlockState) {
         for (RecipeHolder<GlowingSporesRecipe> glowingSporesRecipeRecipeHolder : level.getRecipeManager().getAllRecipesFor(recipeType)) {
             if (glowingSporesRecipeRecipeHolder != null) {
-                BlockState newState = ((BlockStateRecipe) glowingSporesRecipeRecipeHolder.value()).getResultState(oldBlockState);
-                if (((MatchEventRecipe) glowingSporesRecipeRecipeHolder.value()).matches(player, level, pos, stack, oldBlockState, newState, recipeType)) {
+                BlockState newState = glowingSporesRecipeRecipeHolder.value().getResultState(oldBlockState);
+                if (glowingSporesRecipeRecipeHolder.value().matches(player, level, pos, stack, oldBlockState, newState, recipeType)) {
                     if ( this.convertNoUpdate(level, pos, newState)) {
                         if (player != null && !player.getAbilities().instabuild) {
                             stack.shrink(1);

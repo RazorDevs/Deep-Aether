@@ -10,6 +10,7 @@ import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenConfiguredFeatureBuilders;
+import com.google.common.collect.ImmutableList;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.block.behavior.GoldenVines;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
@@ -19,10 +20,7 @@ import io.github.razordevs.deep_aether.world.feature.DAFeatures;
 import io.github.razordevs.deep_aether.world.feature.features.configuration.AercloudCloudConfiguration;
 import io.github.razordevs.deep_aether.world.feature.features.configuration.DAHugeMushroomFeatureConfiguration;
 import io.github.razordevs.deep_aether.world.feature.features.configuration.FallenTreeConfiguration;
-import io.github.razordevs.deep_aether.world.feature.tree.decorators.GlowingVineDecorator;
-import io.github.razordevs.deep_aether.world.feature.tree.decorators.SunrootHangerDecorator;
-import io.github.razordevs.deep_aether.world.feature.tree.decorators.YagrootRootPlacer;
-import io.github.razordevs.deep_aether.world.feature.tree.decorators.YagrootVineDecorator;
+import io.github.razordevs.deep_aether.world.feature.tree.decorators.*;
 import io.github.razordevs.deep_aether.world.feature.tree.foliage.RoserootFoliagePlacer;
 import io.github.razordevs.deep_aether.world.feature.tree.foliage.YagrootFoliagePlacer;
 import io.github.razordevs.deep_aether.world.feature.tree.trunk.SunrootTunkPlacer;
@@ -52,6 +50,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
@@ -59,6 +58,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
@@ -127,7 +127,10 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD_OVERGROWN = createKey("aercloud_cloud_overgrown");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_RAIN_CLOUD = createKey("aercloud_rain_cloud");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_TREE = createKey("luminescent_skyroot_forest_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_LARGE_SKYROOT_FOREST_TREE = createKey("luminescent_large_skyroot_forest_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SMALL_SKYROOT_FOREST_TREE = createKey("luminescent_small_skyroot_forest_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_TREES = createKey("luminescent_skyroot_forest_trees");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_GRASS = createKey("luminescent_skyroot_forest_grass");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_VEGETATION = createKey("luminescent_skyroot_forest_vegetation");
 
@@ -181,14 +184,26 @@ public class DAConfiguredFeatures {
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 
-        register(context, LUMINESCENT_SKYROOT_FOREST_TREE, Feature.TREE,
+        register(context, LUMINESCENT_SMALL_SKYROOT_FOREST_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
                         new StraightTrunkPlacer(7, 4, 0),
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
                         new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
                         new TwoLayersFeatureSize(1, 0, 1)
-                ).decorators(List.of(new GlowingVineDecorator(0.25F))).ignoreVines().build());
+                ).decorators(List.of(GlowingTrunkVineDecorator.INSTANCE, new GlowingVineDecorator(0.25F))).ignoreVines().build());
+
+        register(context, LUMINESCENT_LARGE_SKYROOT_FOREST_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                new MegaJungleTrunkPlacer(10, 2, 19),
+                BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
+                new MegaJungleFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 2),
+                new TwoLayersFeatureSize(1, 1, 2)
+        ).decorators(ImmutableList.of(GlowingTrunkVineDecorator.INSTANCE, new GlowingVineDecorator(0.25F))).ignoreVines().build());
+
+        register(context, LUMINESCENT_SKYROOT_FOREST_TREES, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LUMINESCENT_LARGE_SKYROOT_FOREST_TREE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.15F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LUMINESCENT_SMALL_SKYROOT_FOREST_TREE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()))));
 
         register(context, LUMINESCENT_SKYROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()

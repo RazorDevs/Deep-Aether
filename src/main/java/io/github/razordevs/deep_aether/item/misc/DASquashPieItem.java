@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class DASquashPieItem extends Item {
-    Holder<MobEffect>[] effects;
+    private final Holder<MobEffect>[] effects;
 
     public DASquashPieItem(Properties properties, Holder<MobEffect>... effects) {
         super(properties);

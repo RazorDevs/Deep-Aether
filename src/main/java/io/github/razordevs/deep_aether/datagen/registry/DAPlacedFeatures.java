@@ -162,7 +162,9 @@ public class DAPlacedFeatures {
         register(context, MYSTIC_AERGLOW_FOREST_TREES_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.ROSEROOT_TREES_PLACEMENT),
                 AetherPlacedFeatureBuilders.treePlacement(PlacementUtils.countExtra(10, 0.1F, 1)));
 
-        register(context, AERLAVENDER_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERLAVENDER_PATCH), NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, AERLAVENDER_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERLAVENDER_PATCH),
+                NoiseThresholdCountPlacement.of(-0.8D, 5, 9), InSquarePlacement.spread(),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
         register(context, AETHER_CATTAIL_PATCH, configuredFeatures.getOrThrow(DAConfiguredFeatures.AETHER_CATTAILS_PATCH), CountPlacement.of(15), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
@@ -239,18 +241,17 @@ public class DAPlacedFeatures {
                 PlacementUtils.HEIGHTMAP,
                 BiomeFilter.biome());
 
-        register(context, LUMINESCENT_SKYROOT_FOREST_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.LUMINESCENT_SKYROOT_FOREST_TREE),
-                    CountPlacement.of(5),
+        register(context, LUMINESCENT_SKYROOT_FOREST_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.LUMINESCENT_SKYROOT_FOREST_TREES),
+                    CountPlacement.of(10),
                     ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome(),
                         BiomeFilter.biome(),
                         PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()),
                         new DungeonBlacklistFilter());
 
         register(context, LUMINESCENT_SKYROOT_FOREST_VEGETATION, configuredFeatures.getOrThrow(DAConfiguredFeatures.LUMINESCENT_SKYROOT_FOREST_VEGETATION),
-                NoiseThresholdCountPlacement.of(-0.8D, 5, 9),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                NoiseThresholdCountPlacement.of(-0.8D, 1, 10),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 BiomeFilter.biome());
-
 
         register(context, AERCLOUD_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_TREE_CONFIGURATION),
                 CountPlacement.of(1),

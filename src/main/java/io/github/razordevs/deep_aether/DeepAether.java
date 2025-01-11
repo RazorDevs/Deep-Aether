@@ -97,8 +97,8 @@ public class DeepAether {
 	public static final String PROTECT_YOUR_MOA = "aether_protect_your_moa";
 	public static final String TREASURE_REFORGING = "aether_treasure_reforging";
 
-	static Calendar CALENDER = Calendar.getInstance();
-	public static boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
+	private static final Calendar CALENDER = Calendar.getInstance();
+	public static final boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
 			|| (CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER) && CALENDER.get(Calendar.DAY_OF_MONTH) < 10);
 
 	public static boolean IsHalloweenContentEnabled() {
