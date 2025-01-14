@@ -65,6 +65,10 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
     //Used to stop EOTS from moving when performing the air charge attack.
     private boolean shouldMove = true;
+
+    //Used to stop attacks from overlapping
+    private boolean isAttacking = false;
+
     private static final EntityDataAccessor<Boolean> DATA_HEAD_ID = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
     public static final EntityDataAccessor<String> PARENT_DATA = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.STRING);
     public static final EntityDataAccessor<Boolean> DATA_OPEN_MOUTH = SynchedEntityData.defineId(EOTSSegment.class, EntityDataSerializers.BOOLEAN);
@@ -271,7 +275,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     /**
-     * When a segment is hurt we also want to damage the controller, to keep track of the total remaining health
+     * When a segment is hurt we also want to damage the controller, to keep track of the total remaining health.
      */
     @Override
     public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
@@ -281,7 +285,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             return false;
 
         if (this.getController() != null) {
-            if (this.getController().segmentUUIDs.size() == 1 && (health - pAmount <= 0)) {
+            if (this.getController().segmentUUIDs.size() == 1 && (health - pAmount <= 0)) { //Triggers death animation
                 this.segmentDeathAnimation = true;
                 this.finishedDeathAnimation = false;
                 this.getController().hurt(createControllerDamageSource(this), this.getController().getHealth() - 0.5F);
@@ -345,9 +349,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.getEntityData().set(DATA_HEAD_ID, head);
     }
 
-    /**
-     * Used to open EOTS mouth while attacking
-     */
     public boolean isMouthOpen() {
         return this.getEntityData().get(DATA_OPEN_MOUTH);
     }
@@ -445,23 +446,27 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     }
 
     /**
-     * Used to determinate the movement speed of EOTS, increases as the health gets lower
+     * Used to determinate the movement speed of an EOTS segment, increases as the health gets lower
      * @return the {@link Float} speed multiplier
      */
     private float getGlobalSpeedModifier() {
         EOTSController controller = this.getController();
         if(controller != null) {
-            return Mth.lerp(Mth.abs(controller.getHealth()/controller.getMaxHealth()), 2.0F, 1.5F);
+            return Mth.lerp(Mth.abs(controller.getHealth()/controller.getMaxHealth()), 1.65F, 1.25F);
         }
-        else return 1.5F;
+        else return 1.25F;
     }
 
+    /**
+     * Used to determinate the attack frequency of an EOTS segment, increases as the health gets lower
+     * @return the {@link Float} speed multiplier
+     */
     private float getGlobalAttackModifier() {
         EOTSController controller = this.getController();
         if(controller != null) {
             if(controller.controllingSegments.size() == 1)
-                return Mth.lerp(Mth.abs(controller.getHealth()/controller.getMaxHealth()), 2.0F, 1.5F) * 10F; //Forces the boss to attack rapidly if no other segments are present
-            else return Mth.lerp(Mth.abs(controller.getHealth()/controller.getMaxHealth()), 2.0F, 1.5F);
+                return Mth.lerp(Mth.abs(controller.getHealth()/controller.getMaxHealth()), 1.65F, 1.25F) * 10F; //Forces the boss to attack rapidly if no other segments are present
+            else return Mth.lerp(Mth.abs(controller.getHealth()/controller.getMaxHealth()), 1.65F, 1.25F);
         }
         else return 1.5F;
     }
@@ -511,11 +516,6 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         double d2 = this.getZ() + vec2.y * 5 + this.getRandom().nextInt(2);
         this.getMoveControl().setWantedPosition(d0, this.getIdleYPos(), d2, speed);
     }
-
-    private void updateYAxisRandomness() {
-        this.randomYOffset = this.getRandom().nextInt(7);
-    }
-
 
 
     @Override
@@ -615,10 +615,13 @@ public class EOTSSegment extends FlyingMob implements Enemy {
             }
         }
 
+        /**
+         * EOTS can turn faster if it's attacking
+         */
         private float getTurnSpeed() {
-            if (this.segment.isAroundIdlePos())
-                return 5.0F;
-            else return 10.0F;
+            if (!this.segment.isAroundIdlePos() && this.segment.isAttacking)
+                return 10.0F;
+            else return 5.0F;
         }
 
         private float getSpeed() {
@@ -671,7 +674,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         int maxFollowingTimer = 150; //Used for following attack pattern
         Vec3 targetStartPos;
         private enum AttackType {
-            FOLLOWING, //Follows the player for a certain amount of time
+            FOLLOWING, //Follows the player for a certain amount of time. The segment moves slightly slower during this attack.
             SWEEPING //Sweeps down one time to then fly up again
         }
         private AttackType attackType = AttackType.SWEEPING;
@@ -681,7 +684,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public boolean canUse() {
-            if(!this.segment.isAroundIdlePos() || !this.segment.isControllingSegment() || !this.segment.shouldMove || this.segment.getTarget() == null || this.segment.segmentDeathAnimation)
+            if(this.segment.isAttacking || !this.segment.isAroundIdlePos() || !this.segment.isControllingSegment() || !this.segment.shouldMove || this.segment.getTarget() == null || this.segment.segmentDeathAnimation)
                 return false;
             else if (this.nextScanTick > 0) {
                 --this.nextScanTick;
@@ -695,6 +698,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public void start() {
+            this.segment.isAttacking = true;
             if(segment.getRandom().nextBoolean())
                 attackType = AttackType.SWEEPING;
             else attackType = AttackType.FOLLOWING;
@@ -706,8 +710,14 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public void stop() {
+            this.segment.isAttacking = false;
             segment.setMouthOpen(false);
-            segment.updateYAxisRandomness();
+            this.updateYAxisRandomness();
+        }
+
+        //Adds an offset to the segment idle position
+        private void updateYAxisRandomness() {
+            this.segment.randomYOffset = this.segment.getRandom().nextInt(7);
         }
 
         @Override
@@ -733,17 +743,17 @@ public class EOTSSegment extends FlyingMob implements Enemy {
                 }
                 else if(this.attackType == AttackType.SWEEPING) {
                     Vec3 pos = this.segment.getTarget().position();
-                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 1.75F);
+                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 1.65F);
                    if (this.segment.position().y < this.targetStartPos.y || this.segment.position().y < this.segment.getTarget().position().y)
                        this.hasAttacked = true;
                 }
                 else {
                     Vec3 pos = this.segment.getTarget().position().add(0.0D,1.0D,0.0D);
-                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 1.75F);
+                    this.segment.moveControl.setWantedPosition(pos.x(), pos.y(), pos.z(), 1.5F);
                     this.maxFollowingTimer--;
                 }
 
-                if (this.segment.getBoundingBox().inflate(0.2F).intersects(this.segment.getTarget().getBoundingBox())) {
+                if (this.segment.getBoundingBox().inflate(0.18F).intersects(this.segment.getTarget().getBoundingBox())) {
                     this.segment.doHurtTarget(this.segment.getTarget());
                     this.segment.getTarget().setDeltaMovement(this.segment.getLookAngle().multiply(1.5F,1.5F,1.5F));
                     this.hasAttacked = true;
@@ -763,7 +773,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public boolean canUse() {
-            if(!this.segment.isAroundIdlePos() || !this.segment.isControllingSegment() || this.segment.segmentDeathAnimation)
+            if(this.segment.isAttacking || !this.segment.isAroundIdlePos() || !this.segment.isControllingSegment() || this.segment.segmentDeathAnimation)
                 return false;
             else if (this.attackTimer > 0) {
                 --this.attackTimer;
@@ -788,6 +798,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public void start() {
+            this.segment.isAttacking = true;
             this.attackDelay = 13;
             this.numberOfAttacks = (int) (this.segment.random.nextInt(0,2) * this.segment.getGlobalSpeedModifier());
             this.segment.shouldMove = false;
@@ -797,6 +808,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
 
         @Override
         public void stop() {
+            this.segment.isAttacking = false;
             this.segment.shouldMove = true;
             this.segment.setMouthOpen(false);
             super.stop();
