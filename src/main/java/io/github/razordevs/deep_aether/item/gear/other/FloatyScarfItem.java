@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FloatyScarfItem extends PendantItem implements FlawlessDrop {
+public class FloatyScarfItem extends PendantItem {
     public FloatyScarfItem(ResourceLocation pendantLocation, Holder<SoundEvent> pendantSound, Properties properties) {
         super(pendantLocation, pendantSound, properties);
     }
@@ -94,11 +94,8 @@ public class FloatyScarfItem extends PendantItem implements FlawlessDrop {
         return entity;
     }
 
-    int i = 0;
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        flawlessComponent(tooltipComponents, i);
-        i = i < 80 ? i + 1 : 0;
         if (!tooltipFlag.hasShiftDown()) {
             return;
         }

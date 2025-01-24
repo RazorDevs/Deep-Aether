@@ -573,5 +573,13 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(Tags.Items.INGOTS).add(
                 DAItems.STRATUS_INGOT.get()
         );
+        tag(DATags.Items.FLAWLESS_ITEMS).add(
+                DAItems.SLIDER_EYE.get(),
+                DAItems.MEDAL_OF_HONOR.get(),
+                DAItems.SUN_CORE.get(),
+                DAItems.AFTERBURNER.get(),
+                DAItems.AERWHALE_SADDLE.get(),
+                DAItems.FLOATY_SCARF.get()
+        );
     }
 }

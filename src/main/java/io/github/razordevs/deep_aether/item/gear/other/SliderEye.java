@@ -11,7 +11,6 @@ import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -22,14 +21,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class SliderEye extends AccessoryItem implements FlawlessDrop {
+public class SliderEye extends AccessoryItem {
 
     public SliderEye(Holder<SoundEvent> ringSound, Properties properties) {
         super(ringSound, properties);
@@ -137,12 +135,5 @@ public class SliderEye extends AccessoryItem implements FlawlessDrop {
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 200;
-    }
-
-    int i = 0;
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        flawlessComponent(tooltipComponents, i);
-        i = i < 80 ? i + 1 : 0;
     }
 }
