@@ -46,7 +46,8 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> ITEM_ACCESSORY_ABILITY_SLIDER_EYE = register("item.accessory.ability_slider_eye");
 	public static final RegistryObject<SoundEvent> ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR = register("item.accessory.equip_medal_of_honor");
 	public static final RegistryObject<SoundEvent> ITEM_AFTERBURNER_FIRES = register("item.tool.afterburner_fires");
-	public static final RegistryObject<SoundEvent>  ITEM_ARMOR_EQUIP_STORMFORGED = register("item.armor.equip_stormforged");
+	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_STORMFORGED = register("item.armor.equip_stormforged");
+	public static final RegistryObject<SoundEvent> EQUIP_FLOATY_SCARF = register("item.armor.equip_floaty_scarf");
 
 	private static RegistryObject<SoundEvent> register(String name) {
 		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAether.MODID, name)));

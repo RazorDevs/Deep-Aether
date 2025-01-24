@@ -210,6 +210,7 @@ public class DATabs {
             addToTab(AetherBlocks.AETHER_FARMLAND.get().asItem(), new Block[]{
                     DABlocks.AETHER_MOSS_BLOCK.get(),
                     DABlocks.AETHER_MOSS_CARPET.get(),
+                    DABlocks.CLOUDBLOOM_CARPET.get(),
                     DABlocks.AETHER_MUD.get(),
                     DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                     DABlocks.YAGROOT_ROOTS.get()
@@ -287,6 +288,11 @@ public class DATabs {
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.getKey()) {
+            addToTab(AetherBlocks.AMBROSIUM_TORCH.get().asItem(), new Block[]{
+                    DABlocks.SKYJADE_LANTERN.get(),
+                    DABlocks.SKYJADE_CHAIN.get()
+            }, event);
+
             addToTab(AetherBlocks.SKYROOT_HANGING_SIGN.get().asItem(), new Block[]{
                     DABlocks.ROSEROOT_SIGN.get(),
                     DABlocks.ROSEROOT_HANGING_SIGN.get(),
@@ -409,7 +415,7 @@ public class DATabs {
                     DAItems.AERWHALE_SADDLE.get(),
                     DAItems.AERCLOUD_NECKLACE.get(),
                     DAItems.WIND_SHIELD.get(),
-                    //DAItems.FLOATY_SCARF.get()
+                    DAItems.FLOATY_SCARF.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
@@ -435,6 +441,12 @@ public class DATabs {
         }
 
         if (tab == AetherCreativeTabs.AETHER_INGREDIENTS.getKey()) {
+            addToTab(AetherItems.ZANITE_GEMSTONE.get(), new Item[] {
+                    DAItems.SKYJADE.get(),
+                    DAItems.SKYJADE_NUGGET.get(),
+                    DAItems.CLOUDBLOOM_BOUQUET.get()
+            }, event);
+
             addToTab(AetherItems.ZANITE_GEMSTONE.get(), DAItems.SKYJADE.get().asItem(), event);
 
             addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), new Item[]{

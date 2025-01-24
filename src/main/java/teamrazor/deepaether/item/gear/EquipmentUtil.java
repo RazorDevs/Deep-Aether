@@ -43,6 +43,10 @@ public class EquipmentUtil {
         return CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.AERCLOUD_NECKLACE.get()).isPresent();
     }
 
+    public static Optional<SlotResult> getFloatyScarf(LivingEntity entity) {
+        return CuriosApi.getCuriosHelper().findFirstCurio(entity, DAItems.FLOATY_SCARF.get());
+    }
+
     public static void damageRing(LivingEntity entity, RingItem ring) {
         List<SlotResult> slotResults = getCurios(entity, ring);
         for (SlotResult slotResult : slotResults) {

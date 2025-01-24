@@ -81,13 +81,11 @@ public class DAEntities {
 					.sized(1.5F, 1.0F)
 					.clientTrackingRange(10).build("baby_zephyr"));
 
-	public static final RegistryObject<EntityType<BabyEots>> BABY_EOTS = register("baby_eots",
-			BabyEots::new, 1F, 0.3F);
-
 	public static final RegistryObject<EntityType<StormArrow>> STORM_ARROW = ENTITY_TYPES.register("storm_arrow", () ->
 			EntityType.Builder.<StormArrow>of(StormArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("storm_arrow"));
 
-
+	public static final RegistryObject<EntityType<GentleWind>> GENTLE_WIND = register("gentle_wind",
+			GentleWind::new, 1F, 0.3F);
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));
@@ -115,6 +113,6 @@ public class DAEntities {
 		event.put(EOTS_CONTROLLER.get(), EOTSController.createMobAttributes().build());
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
 		event.put(BABY_ZEPHYR.get(), BabyZephyr.createMobAttributes().build());
-		event.put(BABY_EOTS.get(), BabyEots.createMobAttributes().build());
+		event.put(GENTLE_WIND.get(), GentleWind.createMobAttributes().build());
 	}
 }

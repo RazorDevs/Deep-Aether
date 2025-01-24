@@ -10,6 +10,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -36,8 +37,8 @@ public class PoisonBlock extends LiquidBlock {
 
     @Override
     public void stepOn(Level level, BlockPos blockPos, BlockState blockState, Entity entity) {
-        if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
+        if (entity instanceof LivingEntity livingEntity && !(livingEntity instanceof ArmorStand)) {
+            livingEntity.addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 80, 0, false, false));
         }
     }
 
@@ -85,6 +86,7 @@ public class PoisonBlock extends LiquidBlock {
         //Applies inebriation effect to living entities
         if (entity instanceof LivingEntity) {
             ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
+            this.playHissingSound(level, entity, pos);
         }
 
         //Poison recipe code
@@ -112,14 +114,8 @@ public class PoisonBlock extends LiquidBlock {
                 return;
 
             //We spawn particles around the ingredient to indicate that the ingredient is getting converted.
-            if (!level.isClientSide && itemEntity.isAlive()) {
-                BlockPos itemPos = itemEntity.getOnPos();
-                ServerLevel serverlevel = (ServerLevel) level;
-                serverlevel.sendParticles(DAParticles.POISON_BUBBLES.get(), (double) itemPos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) itemPos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.2D, 0.3D);
-                if (level.random.nextInt(25) == 0) {
-                    serverlevel.playSound(itemEntity, itemPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 0.2F + level.random.nextFloat() * 0.2F, 0.9F + level.random.nextFloat() * 0.15F);
-                }
-            }
+            this.spawnBubbleParticles(level, itemEntity, pos);
+            this.playHissingSound(level, itemEntity, pos);
 
             //Converts the ingredient when enough time has passed and the entity still is alive.
             if ((TIME > 2) && itemEntity.isAlive()) {
@@ -148,6 +144,20 @@ public class PoisonBlock extends LiquidBlock {
     public void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, BlockPos blockPos1, boolean b) {
         if (!DAFluidInteraction.canInteract(level, blockPos)) {
             level.scheduleTick(blockPos, blockState.getFluidState().getType(), this.getFluid().getTickDelay(level));
+        }
+    }
+
+    private void spawnBubbleParticles(Level level, Entity entity, BlockPos pos) {
+        if (!level.isClientSide && entity.isAlive()) {
+            BlockPos itemPos = entity.getOnPos();
+            ServerLevel serverlevel = (ServerLevel) level;
+            serverlevel.sendParticles(DAParticles.POISON_BUBBLES.get(), (double) itemPos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) itemPos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.2D, 0.3D);
+        }
+    }
+
+    private void playHissingSound(Level level, Entity entity, BlockPos pos){
+        if (level.random.nextInt(25) == 0) {
+            level.playSound(entity, pos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 0.2F + level.random.nextFloat() * 0.2F, 0.9F + level.random.nextFloat() * 0.15F);
         }
     }
 }

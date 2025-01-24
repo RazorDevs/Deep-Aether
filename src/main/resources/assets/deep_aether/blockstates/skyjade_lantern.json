@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "deep_aether:block/skyjade_lantern"
+    },
+    "hanging=true": {
+      "model": "deep_aether:block/skyjade_lantern_hanging"
+    }
+  }
+}

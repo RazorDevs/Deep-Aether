@@ -138,6 +138,12 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DABlocks.AETHER_MOSS_BLOCK.get()), has(DABlocks.AETHER_MOSS_BLOCK.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CLOUDBLOOM_CARPET.get(), 1)
+                .define('A', DAItems.CLOUDBLOOM_BOUQUET.get())
+                .pattern("AA")
+                .unlockedBy(getHasName(DAItems.CLOUDBLOOM_BOUQUET.get()), has(DAItems.CLOUDBLOOM_BOUQUET.get()))
+                .save(consumer);
+
         //Mud
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.PACKED_AETHER_MUD.get())
                 .requires(DABlocks.AETHER_MUD.get())
@@ -440,6 +446,24 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
                 .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
+                .requires(DABlocks.SKYJADE_BLOCK.get())
+                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
+                .save(consumer, name("skyjade_from_skyjade_block"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE_NUGGET.get(), 9)
+                .requires(DAItems.SKYJADE.get())
+                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get())
+                .define('A', DAItems.SKYJADE_NUGGET.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .unlockedBy(getHasName(DAItems.SKYJADE_NUGGET.get()), has(DAItems.SKYJADE_NUGGET.get()))
+                .save(consumer, name("skyjade_from_skyjade_nuggets"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.STRATUS_BLOCK.get())
                 .define('A', DAItems.STRATUS_INGOT.get())
                 .pattern("AAA")
@@ -452,12 +476,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(DABlocks.STRATUS_BLOCK.get())
                 .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
                 .save(consumer, name("stratus_ingot_from_stratus_block"));
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
-                .requires(DABlocks.SKYJADE_BLOCK.get())
-                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
-                .save(consumer, name("skyjade_from_skyjade_block"));
-
 
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
         blastingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 0.5F).save(consumer, name("skjyade_from_blasting"));

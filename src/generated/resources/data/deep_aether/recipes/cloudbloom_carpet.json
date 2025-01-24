@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "deep_aether:cloudbloom_bouquet"
+    }
+  },
+  "pattern": [
+    "AA"
+  ],
+  "result": {
+    "item": "deep_aether:cloudbloom_carpet"
+  },
+  "show_notification": true
+}

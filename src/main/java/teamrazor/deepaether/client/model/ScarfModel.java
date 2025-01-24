@@ -8,12 +8,12 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 
-public class FloatyScarfModel extends HumanoidModel<LivingEntity> {
+public class ScarfModel extends HumanoidModel<LivingEntity> {
 
     public final ModelPart head;
     public final ModelPart[] body = new ModelPart[4];
 
-    public FloatyScarfModel(ModelPart root) {
+    public ScarfModel(ModelPart root) {
         super(root);
         this.head = root.getChild("head2");
         body[0] = root.getChild("body_0");
@@ -59,9 +59,8 @@ public class FloatyScarfModel extends HumanoidModel<LivingEntity> {
         return LayerDefinition.create(meshdefinition, 32, 32);
     }
 
-
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float alpha, float red, float blue, float green) {
+    public void renderToBuffer(PoseStack p_102034_, VertexConsumer p_102035_, int p_102036_, int p_102037_, float p_102038_, float p_102039_, float p_102040_, float p_102041_) {
     }
 
     @Override
