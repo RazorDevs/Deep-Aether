@@ -302,7 +302,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STORMFORGED_BOOTS.get(),
                 DAItems.STORMFORGED_GLOVES.get(),
                 DAItems.CLOUD_CAPE.get(),
-                //DAItems.WIND_SHIELD.get(),
+                DAItems.WIND_SHIELD.get(),
                 DAItems.AERCLOUD_NECKLACE.get(),
                 DAItems.STORM_SWORD.get(),
                 DAItems.STORM_BOW.get(),
@@ -380,9 +380,9 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SLIDER_EYE.get()
         );
 
-        /*tag(AetherTags.Items.ACCESSORIES_SHIELDS).add(
-                DAItems.WIND_SHIELD.asItem()
-        );*/
+        tag(AetherTags.Items.ACCESSORIES_SHIELDS).add(
+                DAItems.WIND_SHIELD.get()
+        );
 
         tag(AetherTags.Items.ACCESSORIES_PENDANTS).add(
                 DAItems.MEDAL_OF_HONOR.get(),

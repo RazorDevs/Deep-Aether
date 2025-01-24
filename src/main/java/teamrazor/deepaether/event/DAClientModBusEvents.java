@@ -24,6 +24,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.client.model.AerwhaleModelOverrideOverrideLCCompat;
+import teamrazor.deepaether.client.renderer.WindShieldRenderer;
 import teamrazor.deepaether.init.*;
 import teamrazor.deepaether.item.moa_food.FodderItem;
 import teamrazor.deepaether.item.mods.lost_content.AddonItemModelPredicates;
@@ -158,5 +159,6 @@ public class DAClientModBusEvents {
         CuriosRendererRegistry.register(DAItems.STORMFORGED_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.STRATUS_GLOVES.get(), GlovesRenderer::new);
         CuriosRendererRegistry.register(DAItems.MEDAL_OF_HONOR.get(), PendantRenderer::new);
+        CuriosRendererRegistry.register(DAItems.WIND_SHIELD.get(), WindShieldRenderer::new);
     }
 }

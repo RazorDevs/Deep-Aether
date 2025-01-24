@@ -18,6 +18,7 @@ public class DAPlayerCapability implements DeepAetherPlayer {
 
     private boolean sliderSlamActivated = true;
     private final Player player;
+    public int windShieldCooldown;
 
     private final Map<String, Triple<INBTSynchable.Type, Consumer<Object>, Supplier<Object>>> synchableFunctions;
 
@@ -34,8 +35,9 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     public DAPlayerCapability(Player player) {
         this.synchableFunctions = Map.ofEntries(
                 Map.entry("setSliderSlamActivated", Triple.of(Type.BOOLEAN, (object) -> this.setSliderSlamActivated((Boolean) object), this::isSliderSlamActivated)),
-                Map.entry("setBladeOfLuckDamage", Triple.of(Type.INT, (object) -> this.setBladeOfLuckDamage((Integer) object), this::getBladeOfLuckDamage))
-                );
+                Map.entry("setBladeOfLuckDamage", Triple.of(Type.INT, (object) -> this.setBladeOfLuckDamage((Integer) object), this::getBladeOfLuckDamage)),
+                Map.entry("setWindShieldCooldown", Triple.of(Type.INT, (object) -> this.setWindShieldCooldown((int) object), this::getWindShieldCooldown))
+        );
         this.player = player;
     }
 
@@ -80,6 +82,15 @@ public class DAPlayerCapability implements DeepAetherPlayer {
         this.oldBladeOfLuckDamage = this.getBladeOfLuckDamage();
         changeBladeOfLuckState = true;
         this.bladeOfLuckDamage = bladeOfLuckDamage;
+    }
+
+
+    public void setWindShieldCooldown(int windShieldCooldown) {
+        this.windShieldCooldown = windShieldCooldown;
+    }
+
+    public int getWindShieldCooldown() {
+        return windShieldCooldown;
     }
 
     public void setChangeBladeOfLuckState(boolean bool) {

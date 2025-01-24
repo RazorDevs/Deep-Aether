@@ -21,4 +21,6 @@ public interface DeepAetherPlayer extends INBTSynchable<CompoundTag> {
     void setBladeOfLuckDamage(int bladeOfLuckDamage);
     boolean getChangeBladeOfLuckState();
     void setChangeBladeOfLuckState(boolean bool);
+    void setWindShieldCooldown(int windShieldCooldown);
+    int getWindShieldCooldown();
 }

@@ -3,12 +3,14 @@ package teamrazor.deepaether.event;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
@@ -37,11 +39,10 @@ import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
+import teamrazor.deepaether.networking.DeepAetherPlayer;
+import top.theillusivec4.curios.api.SlotResult;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
@@ -161,6 +162,23 @@ public class DAGeneralEvents {
                     serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                 }
             }
+        }
+
+        if (event.getEntity() instanceof Player player) {
+            DeepAetherPlayer.get(player).ifPresent((daPlayer) -> {
+
+                Optional<SlotResult> stack = EquipmentUtil.getWindShield(player);
+                if (stack.isPresent() && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY) && daPlayer.getWindShieldCooldown() <= 0) {
+                    daPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setWindShieldCooldown", 1200);
+                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+                    if (!player.level().isClientSide()) {
+                        stack.get().stack().hurtAndBreak(1, player, item -> {});
+                        player.invulnerableTime = 20;
+                    }
+                    event.setCanceled(true);
+                }
+            });
         }
     }
 
