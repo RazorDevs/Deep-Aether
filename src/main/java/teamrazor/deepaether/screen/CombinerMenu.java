@@ -1,6 +1,7 @@
 package teamrazor.deepaether.screen;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -15,6 +16,8 @@ import net.minecraft.world.level.Level;
 import teamrazor.deepaether.init.DAMenuTypes;
 import teamrazor.deepaether.recipe.DARecipeBookTypes;
 import teamrazor.deepaether.recipe.DARecipeTypes;
+import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
+import teamrazor.deepaether.recipe.combiner.CombinerServerPlaceRecipe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,17 +31,13 @@ public class CombinerMenu extends RecipeBookMenu<Container> {
         this(containerId, playerInventory, new SimpleContainer(4), new SimpleContainerData(2));
     }
 
-//    @SuppressWarnings("unchecked")
-//    @Override
-//    public void handlePlacement(boolean flag, Recipe<?> holder, ServerPlayer serverPlayer) {
-//        this.beginPlacingRecipe();
-//
-//        try {
-//            new CombinerServerPlaceRecipe(this).recipeClicked(serverPlayer, (Recipe<CombinerRecipe>) holder, flag);
-//        } finally {
-//            this.finishPlacingRecipe((Recipe<CombinerRecipe>)holder);
-//        }
-//    }
+    @SuppressWarnings("unchecked")
+    @Override
+    public void handlePlacement(boolean flag, Recipe<?> holder, ServerPlayer serverPlayer) {
+        new CombinerServerPlaceRecipe(this).recipeClicked(serverPlayer, (Recipe<Container>) holder, flag);
+    }
+
+
 
     public CombinerMenu(int pContainerId, Inventory inv, Container container, ContainerData data) {
         super(DAMenuTypes.COMBINER_MENU.get(), pContainerId);
