@@ -15,6 +15,20 @@
       },
       "trigger": "deep_aether:flawless_boss_trigger"
     },
+    "eots": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "deep_aether:eots_controller"
+            }
+          }
+        ]
+      },
+      "trigger": "deep_aether:flawless_boss_trigger"
+    },
     "valkyrie_queen": {
       "conditions": {
         "entity": [
@@ -62,6 +76,9 @@
   "requirements": [
     [
       "slider"
+    ],
+    [
+      "eots"
     ],
     [
       "valkyrie_queen"
