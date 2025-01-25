@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidType;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.joml.Vector3f;
 
 import java.util.function.Consumer;
@@ -42,37 +41,36 @@ public class BaseFluidType extends FluidType {
     @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
         consumer.accept(new IClientFluidTypeExtensions() {
-            @Override
             public ResourceLocation getStillTexture() {
-                return stillTexture;
+                return DAFluidTypes.POISON_STILL_RL;
             }
 
             @Override
             public ResourceLocation getFlowingTexture() {
-                return flowingTexture;
+                return DAFluidTypes.POISON_FLOWING_RL;
             }
 
             @Override
-            public @Nullable ResourceLocation getOverlayTexture() {
-                return overlayTexture;
+            public @NotNull ResourceLocation getOverlayTexture() {
+                return DAFluidTypes.POISON_OVERLAY_RL;
             }
 
             @Override
             public int getTintColor() {
-                return tintColor;
+                return 0xffAB5AFD;
             }
 
             @Override
             public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level,
                                                     int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
-                return fogColor;
+                return new Vector3f(180f / 255f, 60f / 255f, 230f / 255f);
             }
 
             @Override
             public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick,
                                         float nearDistance, float farDistance, FogShape shape) {
-                RenderSystem.setShaderFogStart(1f);
-                RenderSystem.setShaderFogEnd(6f); // distance when the fog starts
+                RenderSystem.setShaderFogStart(0f);
+                RenderSystem.setShaderFogEnd(7.5f); // distance when the fog starts
             }
         });
     }

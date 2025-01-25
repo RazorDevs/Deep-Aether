@@ -35,11 +35,6 @@ public class DAClientForgeBusEvents {
                     event.setFarPlaneDistance(1.8f);
                     event.setCanceled(true);
                 }
-                if (state.is(DABlocks.POISON_BLOCK.get())) {
-                    event.setNearPlaneDistance(0f);
-                    event.setFarPlaneDistance(7.5f);
-                    event.setCanceled(true);
-                }
             }
         }
     }
