@@ -20,6 +20,9 @@ public class DABiomes {
     public static final ResourceKey<Biome> GOLDEN_GROVE = createKey("golden_grove");
     public static final ResourceKey<Biome> SACRED_LANDS = createKey("sacred_lands");
 
+    public static final ResourceKey<Biome> CLOUD = createKey("cloud");
+    public static final ResourceKey<Biome> LUMINESCENT_FOREST = createKey("luminescent_forest");
+
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAether.MODID, name));
     }

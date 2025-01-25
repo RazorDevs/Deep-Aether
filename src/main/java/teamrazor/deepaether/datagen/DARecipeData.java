@@ -21,6 +21,7 @@ import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.GlowingSporesRecipe;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -189,7 +190,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         freezingRecipe(RecipeCategory.MISC, (ItemLike) DAItems.FROZEN_GOLDEN_BERRIES.get(), (ItemLike) DAItems.GOLDEN_BERRIES.get(), 1, 100).save(consumer, this.name("golden_berries_freezing"));
         enchantingRecipe(RecipeCategory.MISC, (ItemLike) DAItems.ENCHANTED_ANTIDOTE.get(), (ItemLike) DAItems.ANTIDOTE.get(), 1, 100).save(consumer, this.name("antidote_enchanting"));
-
+        enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DABlocks.GLOWING_SPORES.get(), 1, 100).save(consumer, this.name("glowing_spores"));
         //Stone types
         //Aseterite
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
@@ -665,6 +666,8 @@ public class DARecipeData extends AetherRecipeProvider {
         goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get()).save(consumer, "golden_grass_block_from_aether_dirt");
         goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get()).save(consumer, "golden_grass_block_from_aether_grass_block");
 
+        glowingSporesRecipe(DABlocks.TALL_GLOWING_GRASS.get(), Blocks.TALL_GRASS).save(consumer, "glowing_tall_grass_from_grass");
+        glowingSporesRecipe(DABlocks.GLOWING_VINE.get(), Blocks.VINE).save(consumer, "glowing_vine_from_vine");
 
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
@@ -796,6 +799,11 @@ public class DARecipeData extends AetherRecipeProvider {
     protected RecipeBuilder slab(Block slab, Supplier<? extends Block> material) {
         return slabBuilder(RecipeCategory.BUILDING_BLOCKS, slab, Ingredient.of(material.get())).unlockedBy(getHasName(material.get()), has(material.get()));
     }
+
+    protected static BlockStateRecipeBuilder glowingSporesRecipe(Block result, Block ingredient) {
+        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, DARecipeSerializers.GLOWING_SPORES_RECIPE.get());
+    }
+
     protected ResourceLocation name(String name) {
         return new ResourceLocation(DeepAether.MODID, name);
     }

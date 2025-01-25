@@ -9,6 +9,7 @@ import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenConfiguredFeatureBuilders;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -22,10 +23,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CaveVines;
-import net.minecraft.world.level.block.CaveVinesBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -35,6 +33,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.CherryFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaJungleFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.rootplacers.MangroveRootPlacement;
@@ -42,16 +41,16 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
-import teamrazor.deepaether.world.feature.tree.decorators.SunrootHangerDecorator;
-import teamrazor.deepaether.world.feature.tree.decorators.YagrootRootPlacer;
-import teamrazor.deepaether.world.feature.tree.decorators.YagrootVineDecorator;
+import teamrazor.deepaether.world.feature.tree.decorators.*;
 import teamrazor.deepaether.world.feature.tree.foliage.RoserootFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.foliage.YagrootFoliagePlacer;
 import teamrazor.deepaether.world.feature.tree.trunk.SunrootTunkPlacer;
@@ -107,7 +106,15 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ECHAISY = createKey("echaisy");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCKY_BUMPS = createKey("rocky_bumps");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_LARGE_SKYROOT_FOREST_TREE = createKey("luminescent_large_skyroot_forest_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SMALL_SKYROOT_FOREST_TREE = createKey("luminescent_small_skyroot_forest_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_TREES = createKey("luminescent_skyroot_forest_trees");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_GRASS = createKey("luminescent_skyroot_forest_grass");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINESCENT_SKYROOT_FOREST_VEGETATION = createKey("luminescent_skyroot_forest_vegetation");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_FLOWERS = createKey("glowing_flowers");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD = createKey("aercloud_cloud");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -352,8 +359,46 @@ public class DAConfiguredFeatures {
         register(context, STERLING_AERCLOUD_CONFIGURATION, AetherFeatures.AERCLOUD.get(), new AercloudConfiguration(2,
                 SimpleStateProvider.simple(DABlocks.STERLING_AERCLOUD.get())));
 
-        //register(context, ROCKY_BUMPS, DAFeatures.ROCKY_BUMPS.get(), NoneFeatureConfiguration.INSTANCE);
+        register(context, LUMINESCENT_SMALL_SKYROOT_FOREST_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                        new StraightTrunkPlacer(7, 4, 0),
+                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
+                        new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
+                        new TwoLayersFeatureSize(1, 0, 1)
+                ).decorators(List.of(GlowingTrunkVineDecorator.INSTANCE, new GlowingVineDecorator(0.25F))).ignoreVines().build());
 
+        register(context, LUMINESCENT_LARGE_SKYROOT_FOREST_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                new MegaJungleTrunkPlacer(10, 2, 19),
+                BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
+                new MegaJungleFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 2),
+                new TwoLayersFeatureSize(1, 1, 2)
+        ).decorators(ImmutableList.of(GlowingTrunkVineDecorator.INSTANCE, new GlowingVineDecorator(0.25F))).ignoreVines().build());
+
+        register(context, LUMINESCENT_SKYROOT_FOREST_TREES, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LUMINESCENT_LARGE_SKYROOT_FOREST_TREE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.15F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LUMINESCENT_SMALL_SKYROOT_FOREST_TREE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()))));
+
+        register(context, LUMINESCENT_SKYROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
+                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                        .add(Blocks.GRASS.defaultBlockState(),40)
+                        .add(DABlocks.TALL_GLOWING_GRASS.get().defaultBlockState(),20)
+                        .add(DAFeatureStates.RADIANT_ORCHID, 4)), 140));
+
+        SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
+
+        for(int i = 1; i <= 4; ++i) {
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                builder.add(DABlocks.GLOWING_SPORES.get().defaultBlockState().setValue(PinkPetalsBlock.AMOUNT, i).setValue(PinkPetalsBlock.FACING, direction), 1);
+            }
+        }
+        register(context, GLOWING_FLOWERS, Feature.FLOWER, new RandomPatchConfiguration(64, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder)))));
+        register(context, LUMINESCENT_SKYROOT_FOREST_VEGETATION, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LUMINESCENT_SKYROOT_FOREST_GRASS)), 0.5F)),
+                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GLOWING_FLOWERS))));
+
+        register(context, AERCLOUD_CLOUD, DAFeatures.AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(AetherFeatureStates.COLD_AERCLOUD, 10000).add(DABlocks.STERLING_AERCLOUD.get().defaultBlockState(), 1)), Boolean.FALSE));
     }
 
     static WeightedStateProvider weightedstateprovider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState(), 4).add(DABlocks.GOLDEN_VINES_PLANT.get().defaultBlockState().setValue(GoldenVines.BERRIES, Boolean.valueOf(true)), 1));

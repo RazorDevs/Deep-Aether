@@ -128,6 +128,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRIPPED_SUNROOT_WOOD.get()
         );
 
+        tag(DATags.Blocks.HAS_GLOWING_SPORES).add(
+                DABlocks.GLOWING_VINE.get(),
+                DABlocks.TALL_GLOWING_GRASS.get()
+        );
 
         tag(DATags.Blocks.NIMBUS_BLOCKS).add(
                 DABlocks.NIMBUS_STONE.get(),

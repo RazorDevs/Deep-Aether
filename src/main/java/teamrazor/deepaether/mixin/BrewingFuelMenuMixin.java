@@ -17,7 +17,7 @@ public abstract class BrewingFuelMenuMixin extends Slot {
         super(container, i, i1, i2);
     }
 
-    @Inject(at = @At("HEAD"), method = "mayPlaceItem", remap = false, cancellable = true)
+    @Inject(at = @At("HEAD"), method = "mayPlaceItem", cancellable = true)
     private static void shardCheck(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if (stack.is(DAItems.BIO_CRYSTAL.get())) {
             cir.setReturnValue(true);

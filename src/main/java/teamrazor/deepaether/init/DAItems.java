@@ -206,6 +206,8 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
+	public static final RegistryObject<Item> GLOWING_SPORES = DAItems.ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
+
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
 	}

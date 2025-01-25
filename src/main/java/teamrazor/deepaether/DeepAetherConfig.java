@@ -16,10 +16,13 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
         public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
         public final ConfigValue<Boolean> disable_sacred_lands_biomes;
+        public final ConfigValue<Boolean> disable_storm_cloud_and_skyroot_rainforest_biomes;
+        public final ConfigValue<Integer> storm_cloud_biome_weight;
         public final ConfigValue<String> slider_flawless_boss_drop;
         public final ConfigValue<String> valkyrie_queen_flawless_boss_drop;
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
         public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
+
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay");
@@ -112,6 +115,20 @@ public class DeepAetherConfig {
                     .comment("Disables Sacred Lands biomes from generating. Might make some content unobtainable")
                     .translation("config.deep_aether.common.gameplay.disable_sacred_lands_biomes")
                     .define("Disable Sacred Lands Biomes", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            disable_storm_cloud_and_skyroot_rainforest_biomes = builder
+                    .comment("Disables Storm Cloud and Skyroot Rainforest biomes from generating. Might make some content unobtainable")
+                    .translation("config.deep_aether.common.gameplay.disable_storm_cloud_and_skyroot_rainforest_biomes")
+                    .define("Disable Storm Cloud And Skyroot Rainforest Biomes", false);
+            builder.pop();
+
+            builder.push("Biomes");
+            storm_cloud_biome_weight = builder
+                    .comment("The weighting of Storm Cloud regions in the aether")
+                    .translation("config.deep_aether.common.gameplay.storm_cloud_biome_weight")
+                    .define("Storm Cloud Biome Weight", 1);
             builder.pop();
         }
     }

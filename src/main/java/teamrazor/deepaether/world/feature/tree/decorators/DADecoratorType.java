@@ -16,6 +16,9 @@ public class DADecoratorType<P extends TreeDecorator> extends TreeDecoratorType<
     public static final RegistryObject<TreeDecoratorType<YagrootVineDecorator>> YAGVINES = register("yagvines", YagrootVineDecorator.CODEC);
     public static final RegistryObject<TreeDecoratorType<SunrootHangerDecorator>> SUNROOT_HANGER = register("sunroot_hanger", SunrootHangerDecorator.CODEC);
 
+    public static final RegistryObject<TreeDecoratorType<GlowingVineDecorator>> GLOWING_VINE = register("glowing_vine", GlowingVineDecorator.CODEC);
+    public static final RegistryObject<TreeDecoratorType<GlowingTrunkVineDecorator>> GLOWING_TRUNK_VINE = register("glowing_trunk_vine", GlowingTrunkVineDecorator.CODEC);
+
     private final Codec<P> codec;
 
     private static <P extends TreeDecorator> RegistryObject<TreeDecoratorType<P>> register(String s, Codec<P> codec) {

@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:glowing_spores_recipe",
+  "ingredient": {
+    "block": "minecraft:vine"
+  },
+  "result": {
+    "block": "deep_aether:glowing_vine"
+  }
+}

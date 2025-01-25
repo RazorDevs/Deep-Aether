@@ -27,7 +27,9 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.YAGROOT_SWAMP,
                 DABiomes.GOLDEN_HEIGHTS,
                 DABiomes.GOLDEN_GROVE,
-                DABiomes.SACRED_LANDS
+                DABiomes.SACRED_LANDS,
+                DABiomes.LUMINESCENT_FOREST,
+                DABiomes.CLOUD
         );
 
         this.tag(DATags.Biomes.IS_NOT_SWAMP).add(
@@ -46,6 +48,9 @@ public class DABiomeTagData extends BiomeTagsProvider {
                 DABiomes.BLUE_AERGLOW_FOREST,
                 DABiomes.GOLDEN_HEIGHTS,
                 DABiomes.GOLDEN_GROVE
+        );
+        this.tag(DATags.Biomes.IS_CLOUD).add(
+                DABiomes.CLOUD
         );
     }
 }

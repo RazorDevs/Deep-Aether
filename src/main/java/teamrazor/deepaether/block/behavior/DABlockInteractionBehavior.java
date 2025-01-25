@@ -18,6 +18,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -46,11 +47,11 @@ public class DABlockInteractionBehavior {
 
     @SubscribeEvent
     public static void bonemealEvent(BonemealEvent event) {
-        //if (event.getBlock().is(DATags.Blocks.HAS_GLOWING_SPORES)) {
-          //  Block.popResource(event.getLevel(), event.getPos(), new ItemStack(DABlocks.GLOWING_SPORES.get()));
-            //event.getStack().shrink(1);
-            //event.setResult(Event.Result.ALLOW);
-        //}
+        if (event.getBlock().is(DATags.Blocks.HAS_GLOWING_SPORES)) {
+            Block.popResource(event.getLevel(), event.getPos(), new ItemStack(DABlocks.GLOWING_SPORES.get()));
+            event.getStack().shrink(1);
+            event.setResult(Event.Result.ALLOW);
+        }
     }
 
     /**
@@ -67,9 +68,9 @@ public class DABlockInteractionBehavior {
         if(itemstack.is(Tags.Items.SHEARS)) {
             handleShears(event, itemstack, pos, level, state, player);
         }
-        //else if ((event.getFace() != Direction.DOWN && itemstack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER))) {
-            //handleWatterBottle(event, itemstack, pos, level, state, player);
-        //}
+        else if ((event.getFace() != Direction.DOWN && PotionUtils.getPotion(itemstack) == Potions.WATER)) {
+            handleWatterBottle(event, itemstack, pos, level, state, player);
+        }
         else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             handleSkyrootPoisonBucket(event, itemstack, level, player);
         }
@@ -82,8 +83,6 @@ public class DABlockInteractionBehavior {
      * Handles shearing of Luminescent Spores
      */
     private static void handleShears(PlayerInteractEvent.RightClickBlock event, ItemStack itemstack, BlockPos pos, Level level, BlockState state, Player player) {
-        //TODO: Add respective stuff to this
-        /*
         if(state.getBlock().equals(DABlocks.GLOWING_VINE.get())) {
             Block.popResource(level, pos, new ItemStack(DABlocks.GLOWING_SPORES.get()));
             level.setBlock(pos, Blocks.VINE.defaultBlockState().setValue(PipeBlock.UP, state.getValue(PipeBlock.UP))
@@ -101,12 +100,12 @@ public class DABlockInteractionBehavior {
                 Block.popResource(level, pos, new ItemStack(DABlocks.GLOWING_SPORES.get()));
                 level.setBlock(pos.below(1), Blocks.TALL_GRASS.defaultBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER),18);
                 level.setBlock(pos, Blocks.TALL_GRASS.defaultBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 18);
-                level.playSound(player, pos, SoundEvents.BOGGED_SHEAR, SoundSource.PLAYERS, 1.0F, 1.0F);
+                level.playSound(player, pos, SoundEvents.BEEHIVE_SHEAR, SoundSource.PLAYERS, 1.0F, 1.0F);
                 if(!level.isClientSide())
                     itemstack.hurtAndBreak(1, player, item -> {});
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
             }
-        }*/
+        }
     }
 
     /**

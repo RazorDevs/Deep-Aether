@@ -61,6 +61,7 @@ import teamrazor.deepaether.recipe.DARecipeBookTypes;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
 import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.util.BetterBrewingRecipe;
+import teamrazor.deepaether.world.biomes.DARareRegion;
 import teamrazor.deepaether.world.biomes.DARegion;
 import teamrazor.deepaether.world.biomes.DASurfaceData;
 import teamrazor.deepaether.world.feature.DAFeatures;
@@ -188,6 +189,8 @@ public class DeepAether {
 		event.enqueueWork(() ->
 		{
 			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
+			if(!DeepAetherConfig.COMMON.disable_storm_cloud_and_skyroot_rainforest_biomes.get())
+				Regions.register(new DARareRegion(new ResourceLocation(MODID, "rare"), DeepAetherConfig.COMMON.storm_cloud_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));
 		});

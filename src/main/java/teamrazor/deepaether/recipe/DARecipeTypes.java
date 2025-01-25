@@ -20,4 +20,5 @@ public class DARecipeTypes {
             RecipeType.simple(new ResourceLocation(DeepAether.MODID, "combining")));
 
     public static final RegistryObject<RecipeType<GoldenSwetBallRecipe>> GOLDEN_SWET_BALL_RECIPE = RECIPE_TYPES.register("golden_swet_ball_recipe", () -> RecipeType.simple(new ResourceLocation(DeepAether.MODID, "golden_swet_ball_recipe")));
+    public static final RegistryObject<RecipeType<GlowingSporesRecipe>> GLOWING_SPORES_RECIPE = RECIPE_TYPES.register("glowing_spores_recipe", () -> RecipeType.simple(new ResourceLocation(DeepAether.MODID, "glowing_spores_recipe")));
 }

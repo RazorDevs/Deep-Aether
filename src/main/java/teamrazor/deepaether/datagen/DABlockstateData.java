@@ -282,7 +282,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.invisibleBlock(DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
         this.dungeonBlock(DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
         this.dungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
-
         //Misc
         this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
         this.translucentBlock(DABlocks.AERSMOG.get());
@@ -295,6 +294,11 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
         //GENESIS COMPATIBILITY
         this.makeLogWalls();
+    }
+
+    public void dungeonBlock(Block block, Block baseBlock) {
+        ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock))));
+        this.getVariantBuilder(block).partialState().setModels(dungeonBlock);
     }
 
     public ResourceLocation texture(String name, String suffix) {

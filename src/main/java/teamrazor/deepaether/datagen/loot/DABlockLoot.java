@@ -106,6 +106,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelfDouble(DABlocks.YAGROOT_ROOTS.get());
         this.dropSelf(DABlocks.MUDDY_YAGROOT_ROOTS.get());
         this.add(DABlocks.YAGROOT_VINE.get(), (vine) -> createYagrootVinesDrop(DABlocks.YAGROOT_VINE.get()));
+        this.add(DABlocks.GLOWING_VINE.get(), (vine) -> createYagrootVinesDrop(Blocks.VINE));
 
         //Cruderoot woodset
         this.dropSelf(DABlocks.CRUDEROOT_WOOD.get());
@@ -273,11 +274,13 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.add(DABlocks.SHORT_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.MEDIUM_GOLDEN_GRASS.get(), this::createGoldenGrassDrops);
         this.add(DABlocks.TALL_GOLDEN_GRASS.get(), (grass) -> this.createGoldenDoublePlantWithSeedDrops(grass, DABlocks.MEDIUM_GOLDEN_GRASS.get()));
+        this.add(DABlocks.TALL_GLOWING_GRASS.get(), (flower) -> createSinglePropConditionTable(Blocks.TALL_GRASS, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 
         this.add(DABlocks.FEATHER_GRASS.get(), this::createFeatherGrassDrops);
         this.add(DABlocks.TALL_FEATHER_GRASS.get(), this::createFeatherGrassDrops);
 
         this.add(DABlocks.GOLDEN_FLOWER.get(), (flower) -> createSinglePropConditionTable(DABlocks.GOLDEN_FLOWER.get(), DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+        this.add(DABlocks.GLOWING_SPORES.get(), this.createPetalsDrops(DABlocks.GLOWING_SPORES.get()));
         this.dropSelf(DABlocks.ENCHANTED_BLOSSOM.get());
 
         this.add(DABlocks.GOLDEN_VINES.get(), DABlockLoot::createGoldenVinesDrop);

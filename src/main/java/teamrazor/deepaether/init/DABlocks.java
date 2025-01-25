@@ -302,11 +302,22 @@ public class DABlocks {
 	public static final RegistryObject<Block> GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final RegistryObject<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final RegistryObject<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
+	public static final RegistryObject<Block> GLOWING_SPORES = BLOCKS.register("glowing_spores", () -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY).lightLevel(s -> 7)));
 
 	public static final RegistryObject<SquashBlock> BLUE_SQUASH = registerBlock("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final RegistryObject<SquashBlock> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final RegistryObject<SquashBlock> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-
+	public static final RegistryObject<Block> GLOWING_VINE = BLOCKS.register("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
+			.mapColor(MapColor.PLANT)
+			.replaceable()
+			.noCollission()
+			.randomTicks()
+			.strength(0.2F)
+			.sound(SoundType.VINE)
+			.ignitedByLava()
+			.lightLevel(s -> 7)
+			.pushReaction(PushReaction.DESTROY)));
+	public static final RegistryObject<Block> TALL_GLOWING_GRASS = BLOCKS.register("tall_glowing_grass", ()-> new GlowingGrassBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)));
 
 	public static final RegistryObject<Block> SQUASH_STEM = BLOCKS.register("squash_stem", () -> new SquashStemBlock(DAItems.SQUASH_SEEDS,
 			BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.HARD_CROP).pushReaction(PushReaction.DESTROY)));
@@ -451,7 +462,6 @@ public class DABlocks {
 		pot.addPlant(DABlocks.SUNROOT_SAPLING.getId(), DABlocks.POTTED_SUNROOT_SAPLING);
 
 	}
-
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
 		RegistryObject<T> toReturn = BLOCKS.register(name, block);

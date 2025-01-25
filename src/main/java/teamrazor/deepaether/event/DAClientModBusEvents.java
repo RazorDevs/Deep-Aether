@@ -6,6 +6,7 @@ import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.particle.CherryParticle;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -14,8 +15,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -169,4 +175,17 @@ public class DAClientModBusEvents {
         CuriosRendererRegistry.register(DAItems.WIND_SHIELD.get(), WindShieldRenderer::new);
         CuriosRendererRegistry.register(DAItems.FLOATY_SCARF.get(), FloatyScarfRenderer::new);
     }
+
+    @SubscribeEvent
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+        event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
+                        BiomeColors.getAverageGrassColor(pLevel, pState.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pPos.below() : pPos) : GrassColor.getDefaultColor(),
+                DABlocks.TALL_GLOWING_GRASS.get());
+        event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
+                BiomeColors.getAverageFoliageColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.GLOWING_VINE.get());
+        event.register((pState, pLevel, pPos, pTintIndex) -> pLevel != null && pPos != null ?
+                BiomeColors.getAverageGrassColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.GLOWING_SPORES.get());
+    }
+
+
 }

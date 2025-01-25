@@ -30,9 +30,9 @@ public abstract class BrewingFuelMixin extends BaseContainerBlockEntity implemen
         super(entityType, blockPos, blockState);
     }
 
-    @Inject(at = @At("HEAD"), method = "Lnet/minecraft/world/level/block/entity/BrewingStandBlockEntity;serverTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BrewingStandBlockEntity;)V", remap = false)
+    @Inject(at = @At("HEAD"), method = "serverTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BrewingStandBlockEntity;)V")
     private static void serverTick(Level level, BlockPos blockPos, BlockState blockState, BrewingStandBlockEntity blockEntity, CallbackInfo ci){
-        ItemStack itemstack = (ItemStack)blockEntity.items.get(4);
+        ItemStack itemstack = blockEntity.items.get(4);
         if (blockEntity.fuel <= 0 && itemstack.is(DAItems.BIO_CRYSTAL.get())) {
             blockEntity.fuel = 20;
             itemstack.shrink(1);

@@ -1,5 +1,6 @@
 package teamrazor.deepaether.world.feature;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
@@ -58,6 +59,10 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> STERLING_AERCLOUD_PLACEMENT = createKey("sterling_aercloud");
     public static final ResourceKey<PlacedFeature> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_GROVE_GRASS_PATCH = createKey("golden_grove_grass_patch");
+
+    public static final ResourceKey<PlacedFeature> LUMINESCENT_SKYROOT_FOREST_TREES = createKey("luminescent_skyroot_forest_trees");
+    public static final ResourceKey<PlacedFeature> LUMINESCENT_SKYROOT_FOREST_VEGETATION = createKey("luminescent_skyroot_forest_vegetation");
+    public static final ResourceKey<PlacedFeature> AERCLOUD_CLOUD = createKey("aercloud_cloud");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(DeepAether.MODID, name));
@@ -180,6 +185,24 @@ public class DAPlacedFeatures {
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 new DungeonBlacklistFilter());
+
+
+        register(context, LUMINESCENT_SKYROOT_FOREST_TREES, configuredFeatures.getOrThrow(DAConfiguredFeatures.LUMINESCENT_SKYROOT_FOREST_TREES),
+                CountPlacement.of(10),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), BiomeFilter.biome(),
+                BiomeFilter.biome(),
+                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get()),
+                new DungeonBlacklistFilter());
+
+        register(context, LUMINESCENT_SKYROOT_FOREST_VEGETATION, configuredFeatures.getOrThrow(DAConfiguredFeatures.LUMINESCENT_SKYROOT_FOREST_VEGETATION),
+                NoiseThresholdCountPlacement.of(-0.8D, 1, 10),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                BiomeFilter.biome());
+
+        register(context, AERCLOUD_CLOUD, configuredFeatures.getOrThrow(DAConfiguredFeatures.AERCLOUD_CLOUD),
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(175), VerticalAnchor.absolute(175)),
+                CountPlacement.of(1),
+                BiomeFilter.biome());
     }
 
 

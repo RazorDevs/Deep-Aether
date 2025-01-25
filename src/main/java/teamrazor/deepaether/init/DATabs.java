@@ -456,7 +456,8 @@ public class DATabs {
 
             addToTab(AetherItems.GOLDEN_AMBER.get(), new Item[]{
                     DAItems.GOLDEN_GRASS_SEEDS.get(),
-                    DAItems.GOLDEN_SWET_BALL.get()
+                    DAItems.GOLDEN_SWET_BALL.get(),
+                    DABlocks.GLOWING_SPORES.get().asItem()
             }, event);
             addToTab(AetherItems.AECHOR_PETAL.get(), DAItems.AERGLOW_BLOSSOM.get(), event);
             addToTab(AetherItems.SWET_BALL.get(), new Item[]{

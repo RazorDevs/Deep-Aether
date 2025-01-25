@@ -1,0 +1,24 @@
+{
+  "feature": "deep_aether:aercloud_cloud",
+  "placement": [
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "absolute": 175
+        },
+        "min_inclusive": {
+          "absolute": 175
+        }
+      }
+    },
+    {
+      "type": "minecraft:count",
+      "count": 1
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
