@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "deep_aether:yagroot_chest_boat"
+      "item": "deep_aether:yagroot_boat"
     },
     {
       "tag": "forge:chests/wooden"

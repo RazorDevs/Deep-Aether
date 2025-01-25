@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "deep_aether:conberry_chest_boat"
+      "item": "deep_aether:conberry_boat"
     },
     {
       "tag": "forge:chests/wooden"

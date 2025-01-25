@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "deep_aether:sunroot_chest_boat"
+      "item": "deep_aether:sunroot_boat"
     },
     {
       "tag": "forge:chests/wooden"
