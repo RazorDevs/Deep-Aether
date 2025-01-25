@@ -133,12 +133,13 @@ public class DeepAether {
 		DARecipeTypes.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 
+		DAEnchantments.ENCHANTMENTS.register(bus);
+
 		DistExecutor.unsafeRunForDist(() -> () -> {
 			DAMenuTypes.MENUS.register(bus);
 			return true;
 		}, () -> () -> false);
 
-		DIRECTORY.toFile().mkdirs(); // Ensures the Deep Aether's config folder is generated.
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
 	}
