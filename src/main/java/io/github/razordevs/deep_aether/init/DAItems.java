@@ -10,6 +10,7 @@ import com.aetherteam.aether.item.components.AetherDataComponents;
 import com.aetherteam.aether.item.components.DungeonKind;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootSolidBucketItem;
+import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.registry.DAJukeboxSongs;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
@@ -223,7 +224,7 @@ public class DAItems {
 	//ADDONS
 
 	//PROTECT YOUR MOA
-	//public static final DeferredItem<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+	public static final DeferredItem<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 
 	//LOST CONTENT
 	/*

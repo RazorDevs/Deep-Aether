@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.protect_your_moa.item.ProtectItems;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.MoaFodder;
@@ -428,9 +429,9 @@ public class DATabs {
                     DAItems.FLOATY_SCARF.get()
             }, event);
 
-            //if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
-                //addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), DAItems.SKYJADE_MOA_ARMOR.get(), event);
-            //}
+            if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
+                addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), DAItems.SKYJADE_MOA_ARMOR.get(), event);
+            }
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
             addToTab(AetherItems.CANDY_CANE.get(), new Item[]{

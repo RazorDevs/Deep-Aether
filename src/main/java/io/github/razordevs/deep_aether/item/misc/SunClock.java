@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.item.misc;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.attachment.AetherDataAttachments;
+import com.aetherteam.aether.attachment.AetherTimeAttachment;
 import com.aetherteam.aether.command.SunAltarWhitelist;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.network.packet.clientbound.OpenSunAltarPacket;
@@ -34,7 +35,7 @@ public class SunClock extends Item {
                 if (level.dimension().location().toString().equals("aether:the_aether")) {
                     if (level.hasData(AetherDataAttachments.AETHER_TIME)) { // Checks if the level has the capability used for Aether time, which determines if the Sun Altar has control over the time of a dimension.
                         if (!level.getData(AetherDataAttachments.AETHER_TIME).isEternalDay()) { // Checks if the time is locked into eternal day or not.
-                            this.openScreen(level, player, AetherDimensions.AETHER_TICKS_PER_DAY);
+                            this.openScreen(level, player, AetherTimeAttachment.getTicksPerDay());
                         } else {
                             player.displayClientMessage(Component.translatable(Aether.MODID + ".sun_altar.in_control"), true); // Sun Spirit is still in control of the realm.
                         }

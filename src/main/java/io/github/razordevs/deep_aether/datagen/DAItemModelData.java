@@ -337,7 +337,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.helmetItem(DAItems.SKYJADE_HELMET.get());
         this.glovesItem(DAItems.SKYJADE_GLOVES.get());
         this.item(DAItems.SKYJADE_RING.get());
-        //this.item(DAItems.SKYJADE_MOA_ARMOR.get());
+        this.item(DAItems.SKYJADE_MOA_ARMOR.get());
 
         //Stratus set
         this.item(DAItems.STRATUS_INGOT.get());
