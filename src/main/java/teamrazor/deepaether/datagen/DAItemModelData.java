@@ -55,6 +55,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.ROSEROOT_HANGING_SIGN.get());
         this.item(DAItems.ROSEROOT_BOAT.get());
         this.item(DAItems.ROSEROOT_CHEST_BOAT.get());
+        this.itemBlock(DABlocks.COMBINER.get());
 
         //Yagroot woodset
         this.itemBlock(DABlocks.YAGROOT_WOOD.get());
