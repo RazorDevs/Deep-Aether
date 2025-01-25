@@ -69,9 +69,6 @@ public class DABlockInteractionBehavior {
         if(itemstack.is(Tags.Items.TOOLS_SHEAR)) {
             handleShears(event, itemstack, pos, level, state, player);
         }
-        else if ((event.getFace() != Direction.DOWN && itemstack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER))) {
-            handleWatterBottle(event, itemstack, pos, level, state, player);
-        }
         else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
             handleSkyrootPoisonBucket(event, itemstack, level, player);
         }
@@ -106,40 +103,6 @@ public class DABlockInteractionBehavior {
                     itemstack.hurtAndBreak(1, (ServerLevel) level, player, item -> {});
                 event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide()));
             }
-        }
-    }
-
-    /**
-     * Handles interactions between Water Bottle and Aether Dirt. Converts Aether Dirt into Aether Mud.
-     */
-    private static void handleWatterBottle(PlayerInteractEvent.RightClickBlock event, ItemStack itemstack, BlockPos pos, Level level, BlockState state, Player player) {
-        if (state.getBlock() == AetherBlocks.AETHER_DIRT.get()) {
-
-            //Changes the Aether Dirt block into an Aether Mud Block.
-            BlockState newState = DABlocks.AETHER_MUD.get().defaultBlockState();
-            level.setBlockAndUpdate(pos, newState);
-
-            player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
-
-            //Shrinks stack
-            if (!player.getAbilities().instabuild) {
-                itemstack.shrink(1);
-                ItemStack bottleStack = new ItemStack(Items.GLASS_BOTTLE);
-                if (!player.addItem(bottleStack)) {
-                    Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bottleStack);
-                }
-            }
-            //Spawns splash particles
-            if (!level.isClientSide) {
-                ServerLevel serverlevel = (ServerLevel) level;
-                for (int i = 0; i < 5; ++i) {
-                    serverlevel.sendParticles(ParticleTypes.SPLASH, (double) pos.getX() + level.random.nextDouble(), pos.getY() + 1, (double) pos.getZ() + level.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
-                }
-            }
-
-            level.playSound(player, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.PLAYERS, 0.5F, 1F);
-            event.setCancellationResult(InteractionResult.SUCCESS);
-            event.setCanceled(true);
         }
     }
 

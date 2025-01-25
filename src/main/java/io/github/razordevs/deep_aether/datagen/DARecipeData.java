@@ -33,6 +33,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
+import net.zepalesque.unity.block.UnityBlocks;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
@@ -45,14 +46,6 @@ public class DARecipeData extends AetherRecipeProvider {
 
     @Override
     protected void buildRecipes(RecipeOutput consumer) {
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
-                .define('D', AetherBlocks.AETHER_DIRT.get().asItem())
-                .define('G', Blocks.GRAVEL)
-                .pattern("DG")
-                .pattern("GD")
-                .unlockedBy(getHasName(AetherBlocks.AETHER_DIRT.get()), has(AetherBlocks.AETHER_DIRT.get()))
-                .save(consumer, name("aether_coarse_dirt"));
 
         //Wood Types
         woodFromLogs(consumer, DABlocks.ROSEROOT_WOOD.get(), DABlocks.ROSEROOT_LOG.get());
@@ -142,14 +135,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .define('A', DAItems.AERGLOW_BLOSSOM.get())
                 .pattern("AA")
                 .pattern("AA")
-                .unlockedBy(getHasName(DAItems.AERGLOW_BLOSSOM.get()), has(DAItems.AERGLOW_BLOSSOM.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_MOSS_CARPET.get(), 3)
-                .define('A', DABlocks.AETHER_MOSS_BLOCK.get().asItem())
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.AETHER_MOSS_BLOCK.get()), has(DABlocks.AETHER_MOSS_BLOCK.get()))
-                .save(consumer);
+                .unlockedBy(getHasName(DAItems.AERGLOW_BLOSSOM.get()), has(DAItems.AERGLOW_BLOSSOM.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CLOUDBLOOM_CARPET.get(), 1)
                 .define('A', DAItems.CLOUDBLOOM_BOUQUET.get())
@@ -157,33 +143,10 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.CLOUDBLOOM_BOUQUET.get()), has(DAItems.CLOUDBLOOM_BOUQUET.get()))
                 .save(consumer);
 
-        //Mud
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.PACKED_AETHER_MUD.get())
-                .requires(DABlocks.AETHER_MUD.get())
-                .requires(DAItems.AERGLOW_BLOSSOM.get())
-                .unlockedBy(getHasName(DABlocks.AETHER_MUD.get()), has(DABlocks.AETHER_MUD.get()))
-                .save(consumer);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MUDDY_YAGROOT_ROOTS.get())
-                .requires(DABlocks.AETHER_MUD.get())
-                .requires(DABlocks.YAGROOT_ROOTS.get())
-                .unlockedBy(getHasName(DABlocks.AETHER_MUD.get()), has(DABlocks.AETHER_MUD.get()))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS.get(), 4)
-                .define('A', DABlocks.PACKED_AETHER_MUD.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.PACKED_AETHER_MUD.get()), has(DABlocks.PACKED_AETHER_MUD.get()))
-                .save(consumer);
-        stairs(DABlocks.AETHER_MUD_BRICKS_STAIRS, DABlocks.AETHER_MUD_BRICKS).save(consumer);
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), Ingredient.of(DABlocks.AETHER_MUD_BRICKS.get()))
-                .unlockedBy(getHasName(DABlocks.AETHER_MUD_BRICKS.get()), has(DABlocks.AETHER_MUD_BRICKS.get()))
-                .save(consumer);
-        wall(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.BREWING_STAND, 1)
                 .group("minecraft:brewing_stand")
                 .define('I', DAItems.BIO_CRYSTAL.get())
-                .define('D', AetherBlocks.HOLYSTONE.get().asItem())
+                .define('D', AetherBlocks.HOLYSTONE)
                 .pattern(" I ")
                 .pattern("DDD")
                 .unlockedBy(getHasName(DAItems.BIO_CRYSTAL.get()), has(DAItems.BIO_CRYSTAL.get()))
@@ -269,7 +232,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         enchantingRecipe(RecipeCategory.MISC, DABlocks.CLORITE.get(), DABlocks.RAW_CLORITE.get(), 0.15F, 50).save(consumer, this.name("raw_clorite_enchanting"));
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.RAW_CLORITE.get(), 4)
-                .define('A', DABlocks.ASETERITE.get().asItem())
+                .define('A', DABlocks.ASETERITE)
                 .define('B', AetherBlocks.HOLYSTONE.get())
                 .pattern("AB")
                 .pattern("BA")
@@ -283,7 +246,7 @@ public class DARecipeData extends AetherRecipeProvider {
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
         brick(consumer, DABlocks.POLISHED_CLORITE.get(), DABlocks.CLORITE.get());
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CLORITE_PILLAR.get(), 1)
-                .define('A', DABlocks.CLORITE_SLAB.get().asItem())
+                .define('A', DABlocks.CLORITE_SLAB)
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.CLORITE.get()), has(DABlocks.CLORITE.get()))
@@ -312,28 +275,28 @@ public class DARecipeData extends AetherRecipeProvider {
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get(), DABlocks.BIG_HOLYSTONE_BRICKS.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR.get(), 2)
-                .define('A', AetherBlocks.HOLYSTONE.get().asItem())
+                .define('A', AetherBlocks.HOLYSTONE)
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR.get()), has(DABlocks.HOLYSTONE_PILLAR.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR_UP.get(), 2)
-                .define('A', DABlocks.HOLYSTONE_PILLAR.get().asItem())
+                .define('A', DABlocks.HOLYSTONE_PILLAR)
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR_UP.get()), has(DABlocks.HOLYSTONE_PILLAR_UP.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR_DOWN.get(), 2)
-                .define('A', DABlocks.HOLYSTONE_PILLAR_UP.get().asItem())
+                .define('A', DABlocks.HOLYSTONE_PILLAR_UP)
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR_DOWN.get()), has(DABlocks.HOLYSTONE_PILLAR_DOWN.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CHISELED_HOLYSTONE.get(), 1)
-                .define('A', AetherBlocks.HOLYSTONE_SLAB.get().asItem())
+                .define('A', AetherBlocks.HOLYSTONE_SLAB)
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.CHISELED_HOLYSTONE.get()), has(DABlocks.CHISELED_HOLYSTONE.get()))
@@ -374,27 +337,27 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 1)
                 .group("mossy_holystone_bricks")
-                .requires(AetherBlocks.HOLYSTONE_BRICKS.get().asItem())
+                .requires(AetherBlocks.HOLYSTONE_BRICKS)
                 .requires(Blocks.MOSS_BLOCK.asItem())
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
                 .save(consumer, name("mossy_holystone_bricks_from_moss"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 1)
                 .group("mossy_holystone_bricks")
-                .requires(AetherBlocks.HOLYSTONE_BRICKS.get().asItem())
-                .requires(DABlocks.AETHER_MOSS_BLOCK.get().asItem())
+                .requires(AetherBlocks.HOLYSTONE_BRICKS)
+                .requires(UnityBlocks.FLUTEMOSS_BLOCK)
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
-                .save(consumer, name("mossy_holystone_bricks_from_aether_moss"));
+                .save(consumer, name("mossy_holystone_bricks_from_flutemoss"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 1)
                 .group("mossy_holystone_bricks")
-                .requires(AetherBlocks.HOLYSTONE_BRICKS.get().asItem())
+                .requires(AetherBlocks.HOLYSTONE_BRICKS)
                 .requires(Blocks.VINE.asItem())
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
                 .save(consumer, name("mossy_holystone_bricks_from_vines"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 4)
-                .define('A', AetherBlocks.MOSSY_HOLYSTONE.get().asItem())
+                .define('A', AetherBlocks.MOSSY_HOLYSTONE)
                 .pattern("AA")
                 .pattern("AA")
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
@@ -421,39 +384,31 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
                 .group("mossy_holystone_tiles")
-                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
+                .requires(DABlocks.HOLYSTONE_TILES)
                 .requires(Blocks.MOSS_BLOCK.asItem())
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
                 .save(consumer, name("mossy_holystone_tiles_from_moss"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
                 .group("mossy_holystone_tiles")
-                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
-                .requires(DABlocks.AETHER_MOSS_BLOCK.get().asItem())
+                .requires(DABlocks.HOLYSTONE_TILES)
+                .requires(UnityBlocks.FLUTEMOSS_BLOCK)
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
-                .save(consumer, name("mossy_holystone_tiles_from_aether_moss"));
+                .save(consumer, name("mossy_holystone_tiles_from_flutemoss"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
                 .group("mossy_holystone_tiles")
-                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
+                .requires(DABlocks.HOLYSTONE_TILES)
                 .requires(Blocks.VINE.asItem())
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
                 .save(consumer, name("mossy_holystone_tiles_from_vines"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 4)
-                .define('A', DABlocks.MOSSY_HOLYSTONE_BRICKS.get().asItem())
+                .define('A', DABlocks.MOSSY_HOLYSTONE_BRICKS)
                 .pattern("AA")
                 .pattern("AA")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
                 .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, AetherBlocks.MOSSY_HOLYSTONE.get(), 1)
-                .group("mossy_holystone")
-                .define('A', AetherBlocks.HOLYSTONE.get().asItem())
-                .define('B', DABlocks.AETHER_MOSS_BLOCK.get().asItem())
-                .pattern("AB")
-                .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get().asItem()))
-                .save(consumer, name("mossy_holystone_from_aether_moss"));
 
         //Skyjade
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
@@ -484,7 +439,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_LANTERN.get())
                 .define('A', DAItems.SKYJADE_NUGGET.get())
-                .define('B', AetherBlocks.AMBROSIUM_TORCH.get().asItem())
+                .define('B', AetherBlocks.AMBROSIUM_TORCH)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -780,8 +735,8 @@ public class DARecipeData extends AetherRecipeProvider {
                         0.1f, 100)
                 .requires(AetherItems.GOLDEN_AMBER.get())
                 .requires(DAItems.FROZEN_GOLDEN_BERRIES.get())
-                .requires(AetherBlocks.ICESTONE.get().asItem())
-                .unlockedBy(getHasName(AetherBlocks.ICESTONE.get().asItem()), has(AetherBlocks.ICESTONE.get().asItem()))
+                .requires(AetherBlocks.ICESTONE)
+                .unlockedBy(getHasName(AetherBlocks.ICESTONE), has(AetherBlocks.ICESTONE))
                 .save(consumer);
 
         fodder.set(DADataComponentTypes.MOA_FODDER, new MoaFodder(new MobEffectInstance(MobEffects.JUMP, 14400, 1)));

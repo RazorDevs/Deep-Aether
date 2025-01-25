@@ -192,14 +192,6 @@ public class DATabs {
                 }, event);
             }
 
-            addToTab(AetherBlocks.HOLYSTONE_BRICK_WALL.get().asItem(), new Block[]{
-                    DABlocks.PACKED_AETHER_MUD.get(),
-                    DABlocks.AETHER_MUD_BRICKS.get(),
-                    DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
-                    DABlocks.AETHER_MUD_BRICKS_SLAB.get(),
-                    DABlocks.AETHER_MUD_BRICKS_WALL.get(),
-            }, event);
-
             addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(), DABlocks.SKYJADE_BLOCK.get().asItem(), event);
 
             addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.STRATUS_BLOCK.get().asItem(), event);
@@ -208,12 +200,8 @@ public class DATabs {
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
             addToTab(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().asItem(), DABlocks.GOLDEN_GRASS_BLOCK.get().asItem(), event);
             addToTab(AetherBlocks.AETHER_DIRT_PATH.get().asItem(), DABlocks.GOLDEN_DIRT_PATH.get().asItem(), event);
-            addToTab(AetherBlocks.AETHER_DIRT.get().asItem(), DABlocks.AETHER_COARSE_DIRT.get().asItem(), event);
             addToTab(AetherBlocks.AETHER_FARMLAND.get().asItem(), new Block[]{
-                    DABlocks.AETHER_MOSS_BLOCK.get(),
-                    DABlocks.AETHER_MOSS_CARPET.get(),
                     DABlocks.CLOUDBLOOM_CARPET.get(),
-                    DABlocks.AETHER_MUD.get(),
                     DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                     DABlocks.YAGROOT_ROOTS.get()
             }, event);

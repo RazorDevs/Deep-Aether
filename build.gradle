@@ -90,6 +90,22 @@ dependencies {
             prefer "${project.terrablender_version}"
         }
     }
+    implementation "net.zepalesque.unity:aether_unity:${project.mc_version}-${project.unity_version}-neoforge"
+    jarJar("net.zepalesque.unity:aether_unity:${project.mc_version}-${project.unity_version}-neoforge") {
+        version {
+            strictly "[${project.mc_version}-${project.unity_version},)"
+            prefer "${project.mc_version}-${project.unity_version}"
+        }
+    }
+
+    // Unity Dependency
+    implementation "net.zepalesque.zenith:zenith:${project.mc_version}-${zenith_version}-neoforge"
+    jarJar("net.zepalesque.zenith:zenith:${project.mc_version}-${project.zenith_version}-neoforge") {
+        version {
+            strictly "[${project.mc_version}-${project.zenith_version},)"
+            prefer "${project.mc_version}-${project.zenith_version}"
+        }
+    }
 
     //Optional Dependencies
     compileOnly("mezz.jei:jei-${project.mc_version}-common-api:${project.jei_version}")
@@ -101,6 +117,8 @@ repositories {
     maven githubPackage.invoke("The-Aether-Team/Nitrogen")
     maven githubPackage.invoke("The-Aether-Team/Cumulus")
     maven githubPackage.invoke("The-Aether-Team/Protect-Your-Moa")
+    maven githubPackage.invoke("Zepalesque/The-Aether-Unity")
+    maven githubPackage.invoke("Zepalesque/Zenith")
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.wispforest.io" }

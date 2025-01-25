@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.zepalesque.unity.data.UnityTags;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -86,6 +87,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.SUNROOT_WOOD.get().asItem(),
                 DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
                 DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
+        );
+
+        tag(UnityTags.Items.PACKED_AETHER_MUD_CRAFTING).add(
+                DAItems.AERGLOW_BLOSSOM.get()
         );
 
         tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(
@@ -341,7 +346,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.COBBLED_ASETERITE_STAIRS.get().asItem(),
                 DABlocks.ASETERITE_BRICKS_STAIRS.get().asItem(),
                 DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get().asItem(),
-                DABlocks.AETHER_MUD_BRICKS_STAIRS.get().asItem(),
                 DABlocks.HOLYSTONE_TILE_STAIRS.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get().asItem(),
@@ -363,7 +367,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.COBBLED_ASETERITE_SLAB.get().asItem(),
                 DABlocks.ASETERITE_BRICKS_SLAB.get().asItem(),
                 DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get().asItem(),
-                DABlocks.AETHER_MUD_BRICKS_SLAB.get().asItem(),
                 DABlocks.HOLYSTONE_TILE_SLAB.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get().asItem(),
@@ -390,7 +393,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.COBBLED_ASETERITE_WALL.get().asItem(),
                 DABlocks.ASETERITE_BRICKS_WALL.get().asItem(),
                 DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get().asItem(),
-                DABlocks.AETHER_MUD_BRICKS_WALL.get().asItem(),
                 DABlocks.HOLYSTONE_TILE_WALL.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get().asItem(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get().asItem(),

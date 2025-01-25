@@ -141,15 +141,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.signBlock((StandingSignBlock) DABlocks.SUNROOT_SIGN.get(), (WallSignBlock) DABlocks.SUNROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
         this.hangingSignBlock(DABlocks.SUNROOT_HANGING_SIGN.get(), (WallHangingSignBlock) DABlocks.SUNROOT_WALL_HANGING_SIGN.get(), this.texture(this.name(DABlocks.STRIPPED_SUNROOT_LOG.get())));
 
-        //Mud blockset
-        this.blockDoubleDrops(DABlocks.AETHER_MUD.get());
-        this.blockDoubleDrops(DABlocks.AETHER_COARSE_DIRT.get());
-        this.block(DABlocks.PACKED_AETHER_MUD.get());
-        this.block(DABlocks.AETHER_MUD_BRICKS.get());
-        this.slab((SlabBlock) DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get());
-        this.stairs((StairBlock) DABlocks.AETHER_MUD_BRICKS_STAIRS.get(), DABlocks.AETHER_MUD_BRICKS.get());
-        this.wallBlock((WallBlock) DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
-
         //Ores
         this.block(DABlocks.SKYJADE_ORE.get());
         this.block(DABlocks.SKYJADE_BLOCK.get());
@@ -289,9 +280,6 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
         this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
         this.combiner(DABlocks.COMBINER.get());
-
-        //Moss
-        this.block(DABlocks.AETHER_MOSS_BLOCK.get());
 
         //GENESIS COMPATIBILITY
         this.makeLogWalls();

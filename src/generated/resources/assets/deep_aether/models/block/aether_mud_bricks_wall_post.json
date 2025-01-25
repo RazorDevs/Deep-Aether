@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_post",
-  "textures": {
-    "wall": "deep_aether:block/aether_mud_bricks"
-  }
-}

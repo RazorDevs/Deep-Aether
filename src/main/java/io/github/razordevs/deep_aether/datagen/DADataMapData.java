@@ -26,8 +26,6 @@ public class DADataMapData extends DataMapProvider {
         this.addCompost(compostables, DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get().asItem(), 0.3F);
         this.addCompost(compostables, DABlocks.YAGROOT_LEAVES.get().asItem(), 0.3F);
         this.addCompost(compostables, DABlocks.CRUDEROOT_LEAVES.get().asItem(), 0.3F);
-        this.addCompost(compostables, DABlocks.AETHER_MOSS_BLOCK.get().asItem(), 0.65F);
-        this.addCompost(compostables, DABlocks.AETHER_MOSS_CARPET.get().asItem(), 0.3F);
         this.addCompost(compostables, DABlocks.CLOUDBLOOM_CARPET.get().asItem(), 0.3F);
         this.addCompost(compostables, DABlocks.ROSEROOT_SAPLING.get().asItem(), 0.3F);
         this.addCompost(compostables, DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(), 0.3F);

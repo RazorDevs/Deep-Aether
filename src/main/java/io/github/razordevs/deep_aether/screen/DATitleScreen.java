@@ -2,10 +2,10 @@ package io.github.razordevs.deep_aether.screen;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.client.gui.component.menu.AetherMenuButton;
-import com.aetherteam.aether.client.gui.component.menu.DynamicMenuButton;
 import com.aetherteam.aether.client.gui.screen.menu.AetherTitleScreen;
 import com.aetherteam.aether.client.gui.screen.menu.TitleScreenBehavior;
 import com.aetherteam.aether.mixin.mixins.client.accessor.TitleScreenAccessor;
+import com.aetherteam.cumulus.client.gui.screen.DynamicMenuButton;
 import com.aetherteam.cumulus.mixin.mixins.client.accessor.SplashRendererAccessor;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

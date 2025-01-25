@@ -5,9 +5,10 @@ import com.aetherteam.cumulus.api.Menu;
 import io.github.razordevs.deep_aether.DeepAether;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class DAMenus {
-    public static final DeferredRegister<Menu> MENUS = DeferredRegister.create(Cumulus.MENU_REGISTRY_KEY, DeepAether.MODID);
 
+public class DAMenus {
+//    public static final DeferredRegister<Menu> MENUS = DeferredRegister.create(Cumulus.MENU_REGISTRY_KEY, DeepAether.MODID);
+//
 //    // Icons
 //    private static final ResourceLocation DEEP_AETHER_ICON = ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/gui/menu_api/menu_icon_deep_aether.png");
 //

@@ -7,7 +7,7 @@
     "ground_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "deep_aether:aether_moss_block",
+        "Name": "aether_unity:flutemoss_block",
         "Properties": {
           "double_drops": "false"
         }
@@ -17,7 +17,7 @@
     "surface": "floor",
     "vegetation_chance": 0.6,
     "vegetation_feature": {
-      "feature": "deep_aether:aether_moss_vegetation",
+      "feature": "aether_unity:flutemoss_vegetation",
       "placement": []
     },
     "vertical_range": 5,

@@ -197,14 +197,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.ZEPHYR_TOTEM.get());
         this.dropSelf(DABlocks.AERWHALE_TOTEM.get());
 
-        //Aether Mud set
-        this.dropSelfDouble(DABlocks.AETHER_MUD.get());
-        this.dropSelf(DABlocks.PACKED_AETHER_MUD.get());
-        this.dropSelf(DABlocks.AETHER_MUD_BRICKS.get());
-        this.add(DABlocks.AETHER_MUD_BRICKS_SLAB.get(), this::createSlabItemTable);
-        this.dropSelf(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
-        this.dropSelf(DABlocks.AETHER_MUD_BRICKS_WALL.get());
-
         //Ores
         this.add(DABlocks.SKYJADE_ORE.get(), (block) -> this.createOreDrop(block, DAItems.SKYJADE.get()));
         this.dropSelf(DABlocks.SKYJADE_BLOCK.get());
@@ -271,8 +263,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.CHISELED_HOLYSTONE.get());
 
         //Plants
-        this.dropSelf(DABlocks.AETHER_MOSS_BLOCK.get());
-        this.dropSelf(DABlocks.AETHER_MOSS_CARPET.get());
         this.dropSelf(DABlocks.CLOUDBLOOM_CARPET.get());
 
         this.dropSelf(DABlocks.BLUE_SQUASH.get());
@@ -367,7 +357,6 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropDoubleWithSilk(DABlocks.AERCLOUD_GRASS_BLOCK.get(), AetherBlocks.COLD_AERCLOUD.get());
         this.dropSelf(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get());
         this.dropSelf(DABlocks.PINK_AERCLOUD_MUSHROOMS.get());
-        this.dropSelfDouble(DABlocks.AETHER_COARSE_DIRT.get());
         this.dropSelf(DABlocks.COMBINER.get());
 
 

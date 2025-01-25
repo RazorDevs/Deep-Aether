@@ -26,51 +26,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 
 public class DADispenseBehaviors {
 
-    public static final DispenseItemBehavior WATER_BOTTLE_TO_AETHER_MUD_DISPENSE_BEHAVIOR = new DefaultDispenseItemBehavior() {
-
-        @Override
-        public ItemStack execute(BlockSource source, ItemStack stack) {
-            if (!stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER)) {
-                return super.execute(source, stack);
-            }
-
-            else {
-                ServerLevel serverlevel = source.level();
-                BlockPos blockpos = source.pos();
-                BlockPos blockpos1 = source.pos().relative(source.state().getValue(DispenserBlock.FACING));
-
-                if (serverlevel.getBlockState(blockpos1).is(AetherBlocks.AETHER_DIRT.get())) {
-                    if (!serverlevel.isClientSide) {
-                        for (int i = 0; i < 5; ++i) {
-                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), blockpos.getY() + 1, (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
-                        }
-                    }
-
-                    serverlevel.playSound(null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    serverlevel.gameEvent(null, GameEvent.FLUID_PLACE, blockpos);
-                    serverlevel.setBlockAndUpdate(blockpos1, DABlocks.AETHER_MUD.get().defaultBlockState());
-                    return new ItemStack(Items.GLASS_BOTTLE);
-                }
-
-                else if (serverlevel.getBlockState(blockpos1).getBlockHolder().is(BlockTags.CONVERTABLE_TO_MUD)) {
-                    if (!serverlevel.isClientSide) {
-                        for (int i = 0; i < 5; ++i) {
-                            serverlevel.sendParticles(ParticleTypes.SPLASH, (double) blockpos.getX() + serverlevel.random.nextDouble(), blockpos.getY() + 1, (double) blockpos.getZ() + serverlevel.random.nextDouble(), 1, 0.0D, 0.0D, 0.0D, 1.0D);
-                        }
-                    }
-
-                    serverlevel.playSound(null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    serverlevel.gameEvent(null, GameEvent.FLUID_PLACE, blockpos);
-                    serverlevel.setBlockAndUpdate(blockpos1, Blocks.MUD.defaultBlockState());
-                    return new ItemStack(Items.GLASS_BOTTLE);
-                }
-
-                else {
-                   return super.execute(source, stack);
-                }
-            }
-        }
-    };
 
     /**
      * [CODE COPY] - {@link DispenseItemBehavior#bootStrap()}.<br><br>

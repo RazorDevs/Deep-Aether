@@ -22,15 +22,6 @@
               },
               {
                 "data": {
-                  "Name": "minecraft:tall_grass",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                },
-                "weight": 16
-              },
-              {
-                "data": {
                   "Name": "aether:berry_bush",
                   "Properties": {
                     "double_drops": "true"
@@ -40,9 +31,13 @@
               },
               {
                 "data": {
-                  "Name": "minecraft:short_grass"
+                  "Name": "aether_unity:short_aether_grass",
+                  "Properties": {
+                    "enchanted": "false",
+                    "grass_size": "medium"
+                  }
                 },
-                "weight": 32
+                "weight": 48
               }
             ]
           }

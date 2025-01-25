@@ -56,7 +56,6 @@ public class DABlocks {
 	//GRASS
 	public static final DeferredBlock<Block> GOLDEN_GRASS_BLOCK = registerBlock("golden_heights_grass_block", () -> new GoldenGrassBlock(Block.Properties.of().mapColor(MapColor.GOLD).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 	public static final DeferredBlock<Block> GOLDEN_DIRT_PATH = registerBlock("golden_heights_dirt_path", () -> new AetherDirtPathBlock(Block.Properties.of().mapColor(MapColor.GOLD).strength(0.2F).sound(SoundType.GRASS)));
-	public static final DeferredBlock<Block> AETHER_COARSE_DIRT = registerBlock("aether_coarse_dirt", () -> new AetherCoarseDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COARSE_DIRT)));
 
 	public static final DeferredBlock<Block> MINI_GOLDEN_GRASS = registerBlock("mini_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
 	public static final DeferredBlock<Block> SHORT_GOLDEN_GRASS = registerBlock("short_golden_grass", ()-> new GoldenGrassPlant(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
@@ -357,21 +356,14 @@ public class DABlocks {
 
 	//MISC
 	public static final DeferredBlock<Block> AERGLOW_BLOSSOM_BLOCK = registerBlock("aerglow_blossom_block", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.MOSS).strength(1f, 10f).lightLevel(s -> 9)));
-	public static final DeferredBlock<Block> AETHER_MOSS_CARPET = registerBlock("aether_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)));
 	public static final DeferredBlock<Block> CLOUDBLOOM_CARPET = registerBlock("cloudbloom_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)));
-	public static final DeferredBlock<Block> AETHER_MOSS_BLOCK = registerBlock("aether_moss_block", () -> new DAMossBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK)));
 
 	public static final DeferredBlock<Block> VIRULENT_QUICKSAND = BLOCKS.register("virulent_quicksand", () -> new VirulentQuicksandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
 	public static final DeferredBlock<Block> SKYJADE_CHAIN = registerBlock("skyjade_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
 	public static final DeferredBlock<Block> SKYJADE_LANTERN = registerBlock("skyjade_lantern", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)));
 
-	//MUD
-	public static final DeferredBlock<Block> AETHER_MUD = registerBlock("aether_mud", () -> new DoubleDropMudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD).noOcclusion()));
-	public static final DeferredBlock<Block> PACKED_AETHER_MUD = registerBlock("packed_aether_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_MUD)));
-	public static final DeferredBlock<Block> AETHER_MUD_BRICKS = registerBlock("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
-	public static final DeferredBlock<Block> AETHER_MUD_BRICKS_SLAB = registerBlock("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICK_SLAB)));
-	public static final DeferredBlock<Block> AETHER_MUD_BRICKS_STAIRS = registerBlock("aether_mud_bricks_stairs", () -> new StairBlock(DABlocks.AETHER_MUD_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
-	public static final DeferredBlock<Block> AETHER_MUD_BRICKS_WALL = registerBlock("aether_mud_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.MUD_BRICKS).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+	// POISON
+
 	public static final DeferredBlock<LiquidBlock> POISON_BLOCK = BLOCKS.register("poison", () -> new PoisonBlock(DAFluids.POISON_FLUID.get(), BlockBehaviour.Properties.of()
 			.noCollission()
 			.replaceable()

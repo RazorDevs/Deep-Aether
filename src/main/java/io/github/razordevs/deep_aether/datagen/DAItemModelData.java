@@ -151,15 +151,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SUNROOT_BOAT.get());
         this.item(DAItems.SUNROOT_CHEST_BOAT.get());
 
-        //Mud blockset
-        this.itemBlock(DABlocks.AETHER_COARSE_DIRT.get());
-        this.itemBlock(DABlocks.AETHER_MUD.get());
-        this.itemBlock(DABlocks.PACKED_AETHER_MUD.get());
-        this.itemBlock(DABlocks.AETHER_MUD_BRICKS.get());
-        this.itemBlock(DABlocks.AETHER_MUD_BRICKS_SLAB.get());
-        this.itemBlock(DABlocks.AETHER_MUD_BRICKS_STAIRS.get());
-        this.itemWallBlock(DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
-
         //Ores
         this.itemBlock(DABlocks.SKYJADE_BLOCK.get());
         this.itemBlock(DABlocks.SKYJADE_ORE.get());
@@ -282,9 +273,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.GREEN_SQUASH.get());
         this.itemBlock(DABlocks.PURPLE_SQUASH.get());
 
-        this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
         this.itemBlock(DABlocks.CLOUDBLOOM_CARPET.get());
-        this.itemBlock(DABlocks.AETHER_MOSS_BLOCK.get());
 
         this.item(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
         this.item(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());

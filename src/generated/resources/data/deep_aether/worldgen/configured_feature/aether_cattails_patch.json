@@ -16,7 +16,11 @@
               },
               {
                 "data": {
-                  "Name": "minecraft:short_grass"
+                  "Name": "aether_unity:short_aether_grass",
+                  "Properties": {
+                    "enchanted": "false",
+                    "grass_size": "medium"
+                  }
                 },
                 "weight": 5
               },

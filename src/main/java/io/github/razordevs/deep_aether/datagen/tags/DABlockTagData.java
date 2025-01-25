@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.zepalesque.unity.block.UnityBlocks;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -231,7 +232,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.COBBLED_ASETERITE_WALL.get(),
                 DABlocks.ASETERITE_BRICKS_WALL.get(),
                 DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get(),
-                DABlocks.AETHER_MUD_BRICKS_WALL.get(),
                 DABlocks.HOLYSTONE_TILE_WALL.get(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
@@ -304,19 +304,15 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_HANGER.get()
         );
 
-        tag(BlockTags.DIRT).add(
-                DABlocks.AETHER_MUD.get(),
-                DABlocks.AETHER_MOSS_BLOCK.get(),
+        tag(AetherTags.Blocks.AETHER_DIRT).add(
                 DABlocks.GOLDEN_GRASS_BLOCK.get(),
-                DABlocks.AERCLOUD_GRASS_BLOCK.get(),
-                DABlocks.AETHER_COARSE_DIRT.get()
+                DABlocks.AERCLOUD_GRASS_BLOCK.get()
         );
         tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(
-                DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.AETHER_MOSS_CARPET.get(),
+                UnityBlocks.FLUTEMOSS_BLOCK.get(),
+                UnityBlocks.FLUTEMOSS_CARPET.get(),
                 DABlocks.CLOUDBLOOM_CARPET.get(),
                 DABlocks.YAGROOT_LOG.get(),
-                DABlocks.AETHER_MUD.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                 DABlocks.YAGROOT_ROOTS.get(),
                 DABlocks.TALL_AETHER_CATTAILS.get(),
@@ -324,8 +320,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AETHER_CATTAILS.get()
         );
         tag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH).add(
-                DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.AETHER_MOSS_CARPET.get(),
+                UnityBlocks.FLUTEMOSS_BLOCK.get(),
+                UnityBlocks.FLUTEMOSS_CARPET.get(),
                 DABlocks.CLOUDBLOOM_CARPET.get(),
                 DABlocks.YAGROOT_ROOTS.get()
         );
@@ -342,11 +338,9 @@ public class DABlockTagData extends BlockTagsProvider {
         );
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-                DABlocks.AETHER_MUD.get(),
                 DABlocks.MUDDY_YAGROOT_ROOTS.get(),
                 DABlocks.GOLDEN_GRASS_BLOCK.get(),
-                DABlocks.GOLDEN_DIRT_PATH.get(),
-                DABlocks.AETHER_COARSE_DIRT.get()
+                DABlocks.GOLDEN_DIRT_PATH.get()
         );
         tag(BlockTags.MINEABLE_WITH_HOE).add(
                 DABlocks.YAGROOT_LEAVES.get(),
@@ -355,8 +349,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get(),
                 DABlocks.BLUE_ROSEROOT_LEAVES.get(),
                 DABlocks.CRUDEROOT_LEAVES.get(),
-                DABlocks.AETHER_MOSS_BLOCK.get(),
-                DABlocks.AETHER_MOSS_CARPET.get(),
                 DABlocks.CLOUDBLOOM_CARPET.get(),
                 DABlocks.AERGLOW_BLOSSOM_BLOCK.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
@@ -540,12 +532,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(),
                 DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(),
-
-                DABlocks.PACKED_AETHER_MUD.get(),
-                DABlocks.AETHER_MUD_BRICKS.get(),
-                DABlocks.AETHER_MUD_BRICKS_SLAB.get(),
-                DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
-                DABlocks.AETHER_MUD_BRICKS_WALL.get(),
 
                 DABlocks.GILDED_HOLYSTONE_BRICKS.get(),
                 DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(),
