@@ -58,9 +58,9 @@ public class DARegion extends Region {
         //Aerglow
         addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(-1.5F, -0.6F), fullRange, fullRange, fullRange, fullRange, 0),
                 BlueAerglowForest);
-        addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(-0.6F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(-0.6F, 0.1F), fullRange, fullRange, fullRange, fullRange, 0),
                 AerglowForest);
-        addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(-0.2F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(0.1F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                 MysticAerglowForest);
         addBiome(mapper, new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(0.3F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_GROVE);

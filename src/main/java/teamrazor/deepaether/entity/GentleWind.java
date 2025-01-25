@@ -121,6 +121,9 @@ public class GentleWind extends FlyingMob {
     }
 
     public boolean wantsToAttack(LivingEntity target, LivingEntity owner) {
+        if(target.is(owner)) {
+            return false;
+        }
         if (target instanceof Creeper || target instanceof Ghast || target instanceof ArmorStand || target instanceof GentleWind) {
             return false;
         } else if (target instanceof Wolf wolf) {

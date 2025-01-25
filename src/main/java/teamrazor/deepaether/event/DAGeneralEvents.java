@@ -193,6 +193,8 @@ public class DAGeneralEvents {
         reference.ifPresent(slotResult -> FloatyScarfItem.tryDiscardGentleWind(slotResult.stack(), player.level()));
     }
 
+    private static int i = 0;
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onTooltipAdd(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
@@ -212,6 +214,33 @@ public class DAGeneralEvents {
             if (stack.is(DATags.Items.BRASS_DUNGEON_LOOT)) {
                 itemTooltips.add(position, DAItems.BRASS_DUNGEON_TOOLTIP);
             }
+
+            if (stack.is(DATags.Items.FLAWLESS_ITEMS)) {
+                flawlessComponent(itemTooltips, i);
+                i = i < 80 ? i + 1 : 0;
+            }
         }
+    }
+
+    private static void flawlessComponent(List<Component> tagTooltips, int i) {
+        if(i > 70)
+            printComponent(tagTooltips, 1);
+        else if(i > 60)
+            printComponent(tagTooltips, 2);
+        else if(i > 50)
+            printComponent(tagTooltips, 3);
+        else if(i > 40)
+            printComponent(tagTooltips, 4);
+        else if(i > 30)
+            printComponent(tagTooltips, 5);
+        else if(i > 20)
+            printComponent(tagTooltips, 6);
+        else if(i > 10)
+            printComponent(tagTooltips, 7);
+        else
+            printComponent(tagTooltips, 8);
+    }
+    private static void printComponent(List<Component> tagTooltips, int i){
+        tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_" + i));
     }
 }

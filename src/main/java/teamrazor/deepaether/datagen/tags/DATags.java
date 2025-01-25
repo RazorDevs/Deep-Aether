@@ -34,6 +34,8 @@ public class DATags {
         public static final TagKey<Item> IS_GOLDEN_SWET_BALL = tag("is_golden_swet_ball");
         public static final TagKey<Item> NIMBUS_BLOCKS = tag("nimbus_blocks");
 
+        public static final TagKey<Item> FLAWLESS_ITEMS = tag("flawless_items");
+
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.MODID, name));
         }

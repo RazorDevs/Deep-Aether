@@ -12,12 +12,6 @@
                 "data": {
                   "Name": "deep_aether:feather_grass"
                 },
-                "weight": 8
-              },
-              {
-                "data": {
-                  "Name": "minecraft:grass"
-                },
                 "weight": 12
               },
               {
@@ -27,7 +21,13 @@
                     "half": "lower"
                   }
                 },
-                "weight": 2
+                "weight": 3
+              },
+              {
+                "data": {
+                  "Name": "minecraft:grass"
+                },
+                "weight": 6
               },
               {
                 "data": {
@@ -36,19 +36,7 @@
                     "half": "lower"
                   }
                 },
-                "weight": 3
-              },
-              {
-                "data": {
-                  "Name": "aether:purple_flower"
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "aether:white_flower"
-                },
-                "weight": 1
+                "weight": 2
               },
               {
                 "data": {
@@ -73,7 +61,7 @@
         }
       ]
     },
-    "tries": 40,
+    "tries": 90,
     "xz_spread": 7,
     "y_spread": 3
   }

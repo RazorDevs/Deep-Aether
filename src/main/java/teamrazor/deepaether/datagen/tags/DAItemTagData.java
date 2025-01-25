@@ -430,5 +430,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.MUSIC_DISC_FAENT.get(),
                 DAItems.MUSIC_DISC_HIMININN.get()
         );
+        tag(DATags.Items.FLAWLESS_ITEMS).add(
+                DAItems.SLIDER_EYE.get(),
+                DAItems.MEDAL_OF_HONOR.get(),
+                DAItems.SUN_CORE.get(),
+                DAItems.AFTERBURNER.get(),
+                DAItems.AERWHALE_SADDLE.get(),
+                DAItems.FLOATY_SCARF.get()
+        );
     }
 }

@@ -33,13 +33,13 @@
                     "half": "lower"
                   }
                 },
-                "weight": 12
+                "weight": 1
               },
               {
                 "data": {
                   "Name": "deep_aether:enchanted_blossom"
                 },
-                "weight": 3
+                "weight": 4
               },
               {
                 "data": {

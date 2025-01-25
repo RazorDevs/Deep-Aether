@@ -97,7 +97,6 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_GRASS_BLOCK_BONEMEAL_PATCH = createKey("golden_grass_block_bonemeal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VIRULENT_QUICKSAND_PATCH = createKey("virulent_quicksand_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_HEIGHTS_FLOWERS = createKey("golden_heights_flowers");
     public static final ResourceKey<ConfiguredFeature<?, ?>> STERLING_AERCLOUD_CONFIGURATION = createKey("sterling_aercloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_COARSE_DIRT = createKey("aether_coarse_dirt");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_COARSE_DIRT_PATCH = createKey("aether_coarse_dirt_patch");
@@ -235,8 +234,8 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 32)
                         .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(), 32)
                         .add(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState(), 16)
-                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 8)
-                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)
+                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 1)
+                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 4)
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(), 2)), 418));
 
         register(context, GOLDEN_GROVE_GRASS_PATCH, Feature.FLOWER,
@@ -244,8 +243,8 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 16)
                         .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(), 16)
                         .add(DABlocks.MEDIUM_GOLDEN_GRASS.get().defaultBlockState(), 48)
-                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 12)
-                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)
+                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 1)
+                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 4)
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(), 8)), 218));
 
 
@@ -255,11 +254,6 @@ public class DAConfiguredFeatures {
                         .add(DABlocks.MINI_GOLDEN_GRASS.get().defaultBlockState(), 1)
                         .add(DABlocks.SHORT_GOLDEN_GRASS.get().defaultBlockState(),1)
                         .add(DABlocks.TALL_GOLDEN_GRASS.get().defaultBlockState(),1))));
-
-        register(context, GOLDEN_HEIGHTS_FLOWERS,  Feature.FLOWER,
-                NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DABlocks.GOLDEN_FLOWER.get().defaultBlockState(), 3)
-                        .add(DABlocks.ENCHANTED_BLOSSOM.get().defaultBlockState(), 3)), 64));
 
         register(context, GOLDEN_VINES_PATCH, Feature.RANDOM_PATCH,
                new RandomPatchConfiguration(1, 1, 0,
@@ -291,7 +285,7 @@ public class DAConfiguredFeatures {
         register(context, ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                         .add(DAFeatureStates.RADIANT_ORCHID,8)
-                        .add(DAFeatureStates.IASPOVE,4)), 90));
+                        .add(DAFeatureStates.IASPOVE,4)), 50));
 
         register(context, MYSTIC_ROSEROOT_FOREST_FLOWERS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -299,7 +293,7 @@ public class DAConfiguredFeatures {
                         .add(DAFeatureStates.SKY_TULIPS,1)
                         .add(DAFeatureStates.IASPOVE,1)
                         .add(DAFeatureStates.GOLDEN_ASPESS,1)
-                        .add(DAFeatureStates.ECHAISY,1)), 100));
+                        .add(DAFeatureStates.ECHAISY,1)), 50));
 
         register(context, SKY_TULIPS, Feature.FLOWER,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -315,13 +309,11 @@ public class DAConfiguredFeatures {
 
         register(context, ROSEROOT_FOREST_GRASS, Feature.RANDOM_PATCH,
                 NitrogenConfiguredFeatureBuilders.grassPatch(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                        .add(DAFeatureStates.FEATHER_GRASS,8)
-                        .add(Blocks.GRASS.defaultBlockState(),12)
-                        .add(DAFeatureStates.TALL_FEATHER_GRASS,2)
-                        .add(Blocks.TALL_GRASS.defaultBlockState(),3)
-                        .add(AetherFeatureStates.PURPLE_FLOWER, 1)
-                        .add(AetherFeatureStates.WHITE_FLOWER, 1)
-                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 40));
+                        .add(DAFeatureStates.FEATHER_GRASS,12)
+                        .add(DAFeatureStates.TALL_FEATHER_GRASS,3)
+                        .add(Blocks.GRASS.defaultBlockState(),6)
+                        .add(Blocks.TALL_GRASS.defaultBlockState(),2)
+                        .add(AetherFeatureStates.BERRY_BUSH, 1)), 90));
 
         register(context, ROSEROOT_TREES_PLACEMENT, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ROSEROOT_TREE_LARGE), PlacementUtils.filteredByBlockSurvival(DABlocks.ROSEROOT_SAPLING.get())), 0.33F)),
