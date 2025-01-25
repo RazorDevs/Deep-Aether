@@ -52,7 +52,7 @@ public class Afterburner extends TieredItem {
         if(entity instanceof Player player)
             if(count < stack.getUseDuration() - 20 && stack.getMaxDamage() > stack.getDamageValue()) {
                 if(!player.isCreative()) {
-                    player.getCooldowns().addCooldown(this, 100);
+                    player.getCooldowns().addCooldown(this, 60);
                     stack.hurt(10, RandomSource.create(), null);
                 }
             }

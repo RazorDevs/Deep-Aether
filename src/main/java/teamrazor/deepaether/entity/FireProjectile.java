@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity;
 
+import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.HammerProjectileLaunchPacket;
 import com.aetherteam.nitrogen.network.PacketRelay;
@@ -89,7 +90,7 @@ public class FireProjectile extends ThrowableProjectile {
 
     protected void onHitBlock(BlockHitResult result) {
         super.onHitBlock(result);
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide && !this.level().dimension().equals(AetherDimensions.AETHER_LEVEL)) {
             Entity entity = this.getOwner();
             if (!(entity instanceof Mob) || ForgeEventFactory.getMobGriefingEvent(this.level(), entity)) {
                 BlockPos blockpos = result.getBlockPos().relative(result.getDirection());
