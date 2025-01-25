@@ -97,8 +97,8 @@ public class DeepAether {
 	private static final String PROTOCOL_VERSION = "1";
 	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(DeepAether.MODID);
 
-	static Calendar CALENDER = Calendar.getInstance();
-	public static boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
+	private static final Calendar CALENDER = Calendar.getInstance();
+	public static final boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
 			|| (CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER) && CALENDER.get(Calendar.DAY_OF_MONTH) < 10);
 
 	public static boolean IsHalloweenContentEnabled() {

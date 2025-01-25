@@ -9,17 +9,11 @@ import teamrazor.deepaether.DeepAether;
 public class DABiomes {
     public static final ResourceKey<Biome> AERLAVENDER_FIELDS = createKey("aerlavender_fields");
     public static final ResourceKey<Biome> AERGLOW_FOREST = createKey("aerglow_forest");
-
     public static final ResourceKey<Biome> BLUE_AERGLOW_FOREST = createKey("blue_aerglow_forest");
-
     public static final ResourceKey<Biome> MYSTIC_AERGLOW_FOREST = createKey("mystic_aerglow_forest");
-
     public static final ResourceKey<Biome> YAGROOT_SWAMP = createKey("yagroot_swamp");
-
     public static final ResourceKey<Biome> GOLDEN_HEIGHTS = createKey("golden_heights");
     public static final ResourceKey<Biome> GOLDEN_GROVE = createKey("golden_grove");
-    public static final ResourceKey<Biome> SACRED_LANDS = createKey("sacred_lands");
-
     public static final ResourceKey<Biome> CLOUD = createKey("cloud");
     public static final ResourceKey<Biome> LUMINESCENT_FOREST = createKey("luminescent_forest");
 
