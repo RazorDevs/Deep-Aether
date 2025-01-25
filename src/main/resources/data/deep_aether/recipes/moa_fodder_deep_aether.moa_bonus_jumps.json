@@ -1,0 +1,24 @@
+{
+  "type": "deep_aether:combining",
+  "category": "combinable_fodder",
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "aether:golden_amber"
+    },
+    {
+      "item": "deep_aether:frozen_goldenleaf_berries"
+    },
+    {
+      "item": "deep_aether:quail_egg"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "deep_aether:moa_fodder"
+  },
+  "processing_time": 100,
+  "amplifier" : 1,
+  "duration": 14400,
+  "effect" : "deep_aether:moa_bonus_jumps"
+}

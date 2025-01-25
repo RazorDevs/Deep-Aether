@@ -8,6 +8,8 @@ import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -427,6 +429,13 @@ public class DATabs {
             }, event);
             event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
                     getMoaFodderStack(DAMobEffects.MOA_BONUS_JUMPS.getId()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
+                    getMoaFodderStack(new ResourceLocation("fire_resistance")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
+                    getMoaFodderStack(new ResourceLocation("jump_boost")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
 
 
             addToTab(AetherItems.WHITE_APPLE.get(), new Item[]{

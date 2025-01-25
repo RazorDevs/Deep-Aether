@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "deep_aether:skyjade_nugget"
+    },
+    "B": {
+      "item": "aether:skyroot_stick"
+    }
+  },
+  "pattern": [
+    "A",
+    "B",
+    "A"
+  ],
+  "result": {
+    "item": "deep_aether:skyjade_chain"
+  },
+  "show_notification": true
+}

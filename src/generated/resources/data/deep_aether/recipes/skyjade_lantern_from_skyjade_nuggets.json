@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "deep_aether:skyjade_nugget"
+    },
+    "B": {
+      "item": "aether:ambrosium_torch"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "result": {
+    "item": "deep_aether:skyjade_lantern"
+  },
+  "show_notification": true
+}

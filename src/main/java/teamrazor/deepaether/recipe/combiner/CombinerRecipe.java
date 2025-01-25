@@ -148,7 +148,7 @@ public class CombinerRecipe implements Recipe<Container> {
             int processingTime = GsonHelper.getAsInt(pSerializedRecipe, "processing_time", 200);
 
             int amplifier = GsonHelper.getAsInt(pSerializedRecipe, "amplifier", 0);
-            int time = GsonHelper.getAsInt(pSerializedRecipe, "time", 14400);
+            int time = GsonHelper.getAsInt(pSerializedRecipe, "duration", 14400);
             String effect = GsonHelper.getAsString(pSerializedRecipe, "effect", "");
 
             CompoundTag tag = new CompoundTag();

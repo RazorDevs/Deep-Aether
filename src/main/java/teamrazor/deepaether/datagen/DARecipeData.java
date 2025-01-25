@@ -451,6 +451,24 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
                 .save(consumer, name("skyjade_from_skyjade_block"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_LANTERN.get())
+                .define('A', DAItems.SKYJADE_NUGGET.get())
+                .define('B', AetherBlocks.AMBROSIUM_TORCH.get().asItem())
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .unlockedBy(getHasName(DAItems.SKYJADE_NUGGET.get()), has(DAItems.SKYJADE_NUGGET.get()))
+                .save(consumer, name("skyjade_lantern_from_skyjade_nuggets"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_CHAIN.get())
+                .define('A', DAItems.SKYJADE_NUGGET.get())
+                .define('B', AetherItems.SKYROOT_STICK.get())
+                .pattern("A")
+                .pattern("B")
+                .pattern("A")
+                .unlockedBy(getHasName(DAItems.SKYJADE_NUGGET.get()), has(DAItems.SKYJADE_NUGGET.get()))
+                .save(consumer, name("skyjade_chain_from_skyjade_nuggets"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE_NUGGET.get(), 9)
                 .requires(DAItems.SKYJADE.get())
                 .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
