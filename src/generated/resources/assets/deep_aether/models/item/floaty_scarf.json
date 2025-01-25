@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "deep_aether:item/floaty_scarf"
-  }
-}

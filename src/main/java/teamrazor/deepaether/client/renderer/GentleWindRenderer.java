@@ -21,7 +21,7 @@ public class GentleWindRenderer extends MobRenderer<GentleWind, GentleWindModel>
 
     @Override
     public ResourceLocation getTextureLocation(GentleWind pEntity) {
-        return new ResourceLocation(DeepAether.MODID, "textures/entity/baby_eots.png");
+        return new ResourceLocation(DeepAether.MODID, "textures/entity/gentle_wind.png");
     }
 
     @Override
