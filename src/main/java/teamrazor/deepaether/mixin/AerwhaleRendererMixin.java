@@ -24,7 +24,6 @@ public abstract class AerwhaleRendererMixin extends MobRenderer<Aerwhale, Entity
     private void AerwhaleRenderer(EntityRendererProvider.Context context, CallbackInfo ci) {
         if(AetherConfig.CLIENT.legacy_models.get())
             this.addLayer(new ClassicAerwhaleModelLayer(this));
-        else if(AetherConfig.CLIENT.legacy_models.get())
-            this.addLayer(new AerwhaleModelLayer(this));
+        else this.addLayer(new AerwhaleModelLayer(this));
     }
 }
