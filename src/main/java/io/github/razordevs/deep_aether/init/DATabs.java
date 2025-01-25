@@ -375,6 +375,7 @@ public class DATabs {
                     DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
                     DAItems.MUSIC_DISC_NABOORU.get(),
                     DAItems.MUSIC_DISC_CYCLONE.get(),
+                    DAItems.MUSIC_DISC_ABOVE_THE_RAIN.get(),
                     DAItems.MUSIC_DISC_ATTA.get(),
                     DAItems.MUSIC_DISC_FAENT.get(),
                     DAItems.MUSIC_DISC_HIMININN.get()

@@ -86,9 +86,11 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                 List.of(
                         WeightedEntry.wrap(new ItemStack(DAItems.RAW_AERGLOW_FISH.get(), 1), 100),
                         WeightedEntry.wrap(new ItemStack(DAItems.AERGLOW_BLOSSOM.get(), 1), 12),
-                        WeightedEntry.wrap(new ItemStack(AetherItems.SKYROOT_STICK.get(), 1), 12)
+                        WeightedEntry.wrap(new ItemStack(AetherItems.SKYROOT_STICK.get(), 1), 12),
+                        WeightedEntry.wrap(new ItemStack(DAItems.MUSIC_DISC_ABOVE_THE_RAIN.get(), 1), 11)
+
                 ),
-                124,
+                135,
                 0.75f
         ));
     }
