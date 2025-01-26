@@ -24,7 +24,7 @@ import teamrazor.deepaether.entity.DABoatEntity;
 public class DAEntityRenderers {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(DAEntities.AETHER_FISH.get(), AetherFishRenderer::new);
+		event.registerEntityRenderer(DAEntities.AERGLOW_FISH.get(), AetherFishRenderer::new);
 		event.registerEntityRenderer(DAEntities.QUAIL.get(), QuailRenderer::new);
 		event.registerEntityRenderer(DAEntities.VENOMITE.get(), VenomiteRenderer::new);
 		event.registerEntityRenderer(DAEntities.WINDFLY.get(), WindflyRenderer::new);

@@ -38,7 +38,7 @@ public class DAEntities {
 					.updateInterval(10)
 					.build("quail_egg"));
 
-	public static final RegistryObject<EntityType<AerglowFish>> AETHER_FISH = register("aerglow_fish",
+	public static final RegistryObject<EntityType<AerglowFish>> AERGLOW_FISH = register("aerglow_fish",
 			EntityType.Builder.of(AerglowFish::new, MobCategory.WATER_CREATURE)
 					.setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3)
@@ -99,6 +99,7 @@ public class DAEntities {
 	public static void init(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			Quail.init();
+			AerglowFish.init();
 			Venomite.init();
 			Windfly.init();
 		});
@@ -106,7 +107,7 @@ public class DAEntities {
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
+		event.put(AERGLOW_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
 		event.put(EOTS_SEGMENT.get(), EOTSSegment.createMobAttributes().build());
