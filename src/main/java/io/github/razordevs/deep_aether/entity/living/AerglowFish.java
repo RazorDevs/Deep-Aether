@@ -11,8 +11,8 @@ import net.minecraft.world.level.Level;
 
 public class AerglowFish extends AbstractSchoolingFish {
 
-	public AerglowFish(EntityType<? extends AerglowFish> type, Level level) {
-		super(type, level);
+	public AerglowFish(EntityType<? extends AerglowFish> entityType, Level level) {
+		super(entityType, level);
 	}
 
 	public int getMaxSchoolSize() {

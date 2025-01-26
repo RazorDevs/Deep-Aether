@@ -22,6 +22,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -47,7 +48,7 @@ public class DAEntities {
 					.updateInterval(10)
 					.build("quail_egg"));
 
-	public static final DeferredHolder<EntityType<?>,EntityType<AerglowFish>> AETHER_FISH = register("aerglow_fish",
+	public static final DeferredHolder<EntityType<?>,EntityType<AerglowFish>> AERGLOW_FISH = register("aerglow_fish",
 			EntityType.Builder.of(AerglowFish::new, MobCategory.WATER_CREATURE)
 					.setShouldReceiveVelocityUpdates(true)
 					.setTrackingRange(64).setUpdateInterval(3)
@@ -107,6 +108,10 @@ public class DAEntities {
 
 	@SubscribeEvent
 	public static void spawnPlacementRegisterEvent(RegisterSpawnPlacementsEvent event) {
+		event.register(DAEntities.AERGLOW_FISH.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.WORLD_SURFACE,
+				(entityType, world, reason, pos,
+				 random) -> (world.getBlockState(pos).getFluidState().isSourceOfType(Fluids.WATER)), RegisterSpawnPlacementsEvent.Operation.OR);
+
 		event.register(DAEntities.QUAIL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.OR);
 		event.register(DAEntities.WINDFLY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				DAEntities::checkWindFly, RegisterSpawnPlacementsEvent.Operation.OR);
@@ -120,7 +125,7 @@ public class DAEntities {
 
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
-		event.put(AETHER_FISH.get(), AerglowFish.createAttributes().build());
+		event.put(AERGLOW_FISH.get(), AerglowFish.createAttributes().build());
 		event.put(QUAIL.get(), Quail.createAttributes().build());
 		event.put(VENOMITE.get(), Venomite.createAttributes().build());
 		event.put(EOTS_SEGMENT.get(), EOTSSegment.createMobAttributes().build());
