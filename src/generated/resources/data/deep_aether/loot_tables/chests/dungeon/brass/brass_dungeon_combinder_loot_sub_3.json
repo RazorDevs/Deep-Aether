@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether:golden_amber"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 6.0,
+        "min": 4.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "deep_aether:frozen_goldenleaf_berries"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 6.0,
+        "min": 4.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether:blue_berry"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 6.0,
+        "min": 4.0
+      }
+    }
+  ],
+  "random_sequence": "deep_aether:chests/dungeon/brass/brass_dungeon_combinder_loot_sub_3"
+}

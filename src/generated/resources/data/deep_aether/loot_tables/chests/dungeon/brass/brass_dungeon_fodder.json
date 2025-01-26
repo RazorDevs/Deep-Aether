@@ -1,0 +1,72 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.3,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "deep_aether:moa_fodder"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_nbt",
+          "tag": "{amplifier:1,effect:\"minecraft:fire_resistance\",time:14400}"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.3,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "deep_aether:moa_fodder"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_nbt",
+          "tag": "{amplifier:1,effect:\"minecraft:jump_boost\",time:14400}"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.3,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "deep_aether:moa_fodder"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_nbt",
+          "tag": "{amplifier:1,effect:\"deep_aether:moa_bonus_jumps\",time:14400}"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "deep_aether:chests/dungeon/brass/brass_dungeon_fodder"
+}

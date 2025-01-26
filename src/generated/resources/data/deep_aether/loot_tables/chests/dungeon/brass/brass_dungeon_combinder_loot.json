@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_combinder_loot_sub_1"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_combinder_loot_sub_2"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "deep_aether:chests/dungeon/brass/brass_dungeon_combinder_loot_sub_3"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 1.0
+      }
+    }
+  ],
+  "random_sequence": "deep_aether:chests/dungeon/brass/brass_dungeon_combinder_loot"
+}
