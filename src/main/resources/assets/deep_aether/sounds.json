@@ -23,6 +23,14 @@
       }
     ]
   },
+  "item.music_disc.above_the_rain": {
+    "sounds": [
+      {
+        "name": "deep_aether:quizzly-above-the-rain",
+        "stream": true
+      }
+    ]
+  },
   "item.music_disc.atta": {
     "sounds": [
       {

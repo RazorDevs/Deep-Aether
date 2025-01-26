@@ -13,7 +13,10 @@ public class DASounds {
 
 	public static final RegistryObject<SoundEvent> NABOORU = register("item.music_disc.nabooru");
 	public static final RegistryObject<SoundEvent> A_MORNING_WISH = register("item.music_disc.a_morning_wish");
+
 	public static final RegistryObject<SoundEvent> CYCLONE = register("item.music_disc.cyclone");
+	public static final RegistryObject<SoundEvent> ABOVE_THE_RAIN = register("item.music_disc.above_the_rain");
+
 	public static final RegistryObject<SoundEvent> ATTA = register("item.music_disc.atta");
 	public static final RegistryObject<SoundEvent> FAENT = register("item.music_disc.faent");
 	public static final RegistryObject<SoundEvent> HIMININN = register("item.music_disc.himininn");

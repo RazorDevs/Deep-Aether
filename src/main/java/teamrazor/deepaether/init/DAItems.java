@@ -155,6 +155,9 @@ public class DAItems {
 
 	public static final RegistryObject<Item> MUSIC_DISC_CYCLONE = ITEMS.register("music_disc_cyclone",
 			() -> new RecordItem(9,  DASounds.CYCLONE, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 7280));
+	public static final RegistryObject<Item> MUSIC_DISC_ABOVE_THE_RAIN = ITEMS.register("music_disc_above_the_rain",
+			() -> new RecordItem(9,  DASounds.ABOVE_THE_RAIN, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4980));
+
 	public static final RegistryObject<Item> MUSIC_DISC_ATTA = ITEMS.register("music_disc_atta",
 			() -> new RecordItem(10, DASounds.ATTA, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 2580));
 	public static final RegistryObject<Item> MUSIC_DISC_FAENT = ITEMS.register("music_disc_faent",

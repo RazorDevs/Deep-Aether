@@ -1,0 +1,41 @@
+{
+  "type": "deep_aether:aether_fish_loot",
+  "chanceToSpawn": 0.75,
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/fishing"
+    }
+  ],
+  "items": [
+    {
+      "data": {
+        "Count": 1,
+        "id": "deep_aether:raw_aerglow_fish"
+      },
+      "weight": 100
+    },
+    {
+      "data": {
+        "Count": 1,
+        "id": "deep_aether:aerglow_blossom"
+      },
+      "weight": 12
+    },
+    {
+      "data": {
+        "Count": 1,
+        "id": "aether:skyroot_stick"
+      },
+      "weight": 12
+    },
+    {
+      "data": {
+        "Count": 1,
+        "id": "deep_aether:music_disc_above_the_rain"
+      },
+      "weight": 11
+    }
+  ],
+  "totalWeight": 135
+}
