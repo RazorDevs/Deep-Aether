@@ -24,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.ForgeEventFactory;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DAEntities;
 
@@ -116,10 +117,9 @@ public class WindCrystal extends AbstractCrystal {
             this.level().playSound(this, result.getBlockPos(), AetherSoundEvents.ENTITY_ICE_CRYSTAL_EXPLODE.get(), SoundSource.HOSTILE, 1.0f, 1.0f);
 
             if (this.isBreakable(this.level().getBlockState(result.getBlockPos()))) {
-                //TODO: Replace EventHooks
-                //if (EventHooks.canEntityGrief(this.level(), this)) {
+                if (ForgeEventFactory.getMobGriefingEvent(this.level(), this)) {
                     this.level().destroyBlock(result.getBlockPos(), true);
-                //}
+                }
             }
         }
 
