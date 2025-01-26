@@ -4,8 +4,6 @@
     "aether:evil_whirlwind",
     "aether:whirlwind",
     "aether:zephyr",
-    "aether:zephyr_snowball",
-    "deep_aether:eots_segment",
-    "deep_aether:eots_controller"
+    "aether:zephyr_snowball"
   ]
 }

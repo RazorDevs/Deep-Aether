@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 4325807,
+    "separation": 12,
+    "spacing": 20
+  },
+  "structures": [
+    {
+      "structure": "deep_aether:brass_dungeon",
+      "weight": 1
+    }
+  ]
+}

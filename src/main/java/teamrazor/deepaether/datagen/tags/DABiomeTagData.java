@@ -50,5 +50,8 @@ public class DABiomeTagData extends BiomeTagsProvider {
         this.tag(DATags.Biomes.IS_CLOUD).add(
                 DABiomes.CLOUD
         );
+        this.tag(DATags.Biomes.HAS_BRASS_DUNGEON).add(
+                DABiomes.CLOUD
+        );
     }
 }

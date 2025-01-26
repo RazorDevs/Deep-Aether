@@ -70,6 +70,8 @@ import teamrazor.deepaether.world.feature.tree.decorators.DARootPlacers;
 import teamrazor.deepaether.world.feature.tree.foliage.DAFoliagePlacers;
 import teamrazor.deepaether.world.feature.tree.trunk.DaTrunkPlacerTypes;
 import teamrazor.deepaether.world.placementmodifier.DAPlacementModifiers;
+import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
+import teamrazor.deepaether.world.structure.DAStructureTypes;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
@@ -133,7 +135,8 @@ public class DeepAether {
 		DAPotions.POTIONS.register(bus);
 		DARecipeTypes.RECIPE_TYPES.register(bus);
 		DARecipeSerializers.RECIPE_SERIALIZERS.register(bus);
-
+		DAStructurePieceTypes.STRUCTURE_PIECE_TYPES.register(bus);
+		DAStructureTypes.STRUCTURE_TYPES.register(bus);
 		DAEnchantments.ENCHANTMENTS.register(bus);
 
 		DistExecutor.unsafeRunForDist(() -> () -> {

@@ -156,7 +156,9 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(),
                 DABlocks.BOSS_DOORWAY_LIGHT_NIMBUS_PILLAR.get(),
                 DABlocks.TREASURE_DOORWAY_NIMBUS_PILLAR.get(),
-                DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get()
+                DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.LOCKED_SKYROOT_PLANKS.get(),
+                DABlocks.TRAPPED_SKYROOT_PLANKS.get()
         );
 
         tag(BlockTags.ALL_SIGNS).add(

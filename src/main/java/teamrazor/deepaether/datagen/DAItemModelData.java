@@ -1,6 +1,7 @@
 package teamrazor.deepaether.datagen;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import com.aetherteam.nitrogen.data.providers.NitrogenItemModelProvider;
 import net.minecraft.core.Direction;

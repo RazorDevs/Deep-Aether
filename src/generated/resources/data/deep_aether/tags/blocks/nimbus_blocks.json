@@ -22,6 +22,8 @@
     "deep_aether:boss_doorway_nimbus_pillar",
     "deep_aether:boss_doorway_light_nimbus_pillar",
     "deep_aether:treasure_doorway_nimbus_pillar",
-    "deep_aether:treasure_doorway_light_nimbus_pillar"
+    "deep_aether:treasure_doorway_light_nimbus_pillar",
+    "deep_aether:locked_skyroot_planks",
+    "deep_aether:trapped_skyroot_planks"
   ]
 }

@@ -5,6 +5,7 @@ import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.world.structure.brass.BrassDungeonStructure;
 
 public class DAStructureTypes {
     public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registries.STRUCTURE_TYPE, DeepAether.MODID);

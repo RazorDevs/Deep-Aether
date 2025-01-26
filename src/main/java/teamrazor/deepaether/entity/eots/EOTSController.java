@@ -7,9 +7,11 @@ import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.ai.controller.BlankMoveControl;
 import com.aetherteam.aether.entity.monster.dungeon.boss.BossNameGenerator;
 import com.aetherteam.aether.event.AetherEventDispatch;
+import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.BossInfoPacket;
 import com.aetherteam.nitrogen.entity.BossRoomTracker;
 import com.aetherteam.nitrogen.network.BasePacket;
+import com.aetherteam.nitrogen.network.PacketRelay;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -46,6 +48,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -63,16 +66,15 @@ import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.init.DASounds;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.function.Function;
 
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy, IEntityAdditionalSpawnData {
     protected List<EOTSSegment> controllingSegments = new ArrayList<>();
     protected List<UUID> segmentUUIDs = new ArrayList<>();
-    public static final int SEGMENT_COUNT = 15;
-    public static final int EXTRA_SEGMENT = 5;
-    private static final Music EOTS_MUSIC = new Music(DASounds.MUSIC_BOSS_EOTS.getHolder().get(), 0, 0, true);
+    public static final int SEGMENT_COUNT = 22;
+    public static final int EXTRA_SEGMENT = 4;
+    private static final Music EOTS_MUSIC = new Music(DASounds.MUSIC_BOSS_EOTS.getHolder().orElseThrow(), 0, 0, true);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
@@ -80,6 +82,23 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
     private int chatCooldown;
     private int soundCooldown;
+    private static UUID EOTS_BONUS_HEALTH_UUID = UUID.fromString("5a542b1e-8309-4f25-a064-610353094828");
+
+    public static final Map<Block, Function<BlockState, BlockState>> DUNGEON_BLOCK_CONVERSIONS = new HashMap<>(Map.ofEntries(
+            Map.entry(DABlocks.LOCKED_NIMBUS_STONE.get(), (blockState) -> DABlocks.NIMBUS_STONE.get().defaultBlockState()),
+            Map.entry(DABlocks.TRAPPED_NIMBUS_STONE.get(), (blockState) -> DABlocks.NIMBUS_STONE.get().defaultBlockState()),
+            Map.entry(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get(), (blockState) -> DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState()),
+            Map.entry(DABlocks.TRAPPED_LIGHT_NIMBUS_STONE.get(), (blockState) -> DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState()),
+            Map.entry(DABlocks.LOCKED_NIMBUS_PILLAR.get(), (blockState) -> DABlocks.NIMBUS_PILLAR.get().defaultBlockState()),
+            Map.entry(DABlocks.TRAPPED_NIMBUS_PILLAR.get(), (blockState) -> DABlocks.NIMBUS_PILLAR.get().defaultBlockState()),
+            Map.entry(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(), (blockState) -> DABlocks.LIGHT_NIMBUS_PILLAR.get().defaultBlockState()),
+            Map.entry(DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get(), (blockState) -> DABlocks.LIGHT_NIMBUS_PILLAR.get().defaultBlockState()),
+            Map.entry(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get(), (blockState) -> Blocks.AIR.defaultBlockState()),
+            Map.entry(DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get(), (blockState) -> Blocks.AIR.defaultBlockState()),
+            Map.entry(DABlocks.LOCKED_SKYROOT_PLANKS.get(), (blockState) -> AetherBlocks.SKYROOT_PLANKS.get().defaultBlockState()),
+            Map.entry(DABlocks.TRAPPED_SKYROOT_PLANKS.get(), (blockState) -> AetherBlocks.SKYROOT_PLANKS.get().defaultBlockState()),
+            Map.entry(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get(), (blockState) -> AetherBlocks.SKYROOT_TRAPDOOR.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, blockState.getValue(HorizontalDirectionalBlock.FACING)))
+    ));
 
     public EOTSController(EntityType<? extends EOTSController> type, Level level) {
         super(type, level);
@@ -93,8 +112,8 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         this.soundCooldown = 0;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
+    @SuppressWarnings("deprecation")
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag compoundTag) {
         this.setBossName(generateEOTSName(this.getRandom()));
         this.moveTo(Mth.floor(this.getX()), this.getY(), Mth.floor(this.getZ()));
@@ -111,7 +130,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
 
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 225.1).add(Attributes.FOLLOW_RANGE, 96.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 220.1).add(Attributes.FOLLOW_RANGE, 96.0);
     }
 
     @Override
@@ -247,16 +266,13 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         this.setInvisible(false);
         this.setTarget(null);
         AttributeInstance instance = this.getAttribute(Attributes.MAX_HEALTH);
-        //TODO: Fix this
         if(instance != null)
-            instance.removeModifier(getBonusHealth(0));
+            instance.removeModifier(EOTS_BONUS_HEALTH_UUID);
 
         if (this.getDungeon() != null) {
             this.setPos(this.getDungeon().originCoordinates());
-            this.openRoom();
+            this.getDungeon().modifyRoom((state) -> state.getBlock() instanceof DoorwayBlock || state.getBlock() instanceof DoorwayPillarBlock ? state.setValue(DoorwayBlock.INVISIBLE, true) : null);
         }
-
-        this.setHealth(this.getMaxHealth());
 
         this.setInvisible(false);
         this.removeAllSegments();
@@ -293,8 +309,9 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         }
     }
 
+
     private static AttributeModifier getBonusHealth(int extra) {
-        return new AttributeModifier("eots_health_multiplayer", extra*15.0F, AttributeModifier.Operation.ADDITION);
+        return new AttributeModifier(EOTS_BONUS_HEALTH_UUID, "eots_health_multiplayer",extra*10.0F, AttributeModifier.Operation.ADDITION);
     }
 
     protected void spawnSegments() {
@@ -364,28 +381,13 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Nullable
     @Override
     public BlockState convertBlock(BlockState state) {
-        if (state.is(DABlocks.LOCKED_NIMBUS_STONE.get())) {
-            return DABlocks.NIMBUS_STONE.get().defaultBlockState();
-        } else if (state.is(DABlocks.LOCKED_LIGHT_NIMBUS_STONE.get())) {
-            return DABlocks.LIGHT_NIMBUS_STONE.get().defaultBlockState();
-        }
-        else if (state.is(DABlocks.LOCKED_NIMBUS_PILLAR.get())) {
-            return DABlocks.NIMBUS_PILLAR.get().defaultBlockState();
-        } else if (state.is(DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get())) {
-            return DABlocks.LIGHT_NIMBUS_PILLAR.get().defaultBlockState();
-        } else if (state.is(DABlocks.BOSS_DOORWAY_NIMBUS_STONE.get()) || state.is(DABlocks.BOSS_DOORWAY_NIMBUS_PILLAR.get())) {
-            return Blocks.AIR.defaultBlockState();
-        } else {
-            return state.is(DABlocks.TREASURE_DOORWAY_NIMBUS_STONE.get()) ? AetherBlocks.SKYROOT_TRAPDOOR.get().defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, state.getValue(HorizontalDirectionalBlock.FACING)) : null;
-        }
+        return DUNGEON_BLOCK_CONVERSIONS.getOrDefault(state.getBlock(), (blockState) -> null).apply(state);
     }
 
     @Override
     public void startSeenByPlayer(@NotNull ServerPlayer player) {
         super.startSeenByPlayer(player);
-        //TODO: Fix this too
-        //PacketDistributor.sendToPlayer(player, new BossInfoPacket.Display(this.bossFight.getId(), this.getId()));
-        //PacketDistributor.PLAYER.with(() -> player).send((Packet<?>) new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
+        PacketRelay.sendToPlayer(AetherPacketHandler.INSTANCE, new BossInfoPacket.Display(this.bossFight.getId(), this.getId()), player);
         if (this.getDungeon() == null || this.getDungeon().isPlayerTracked(player)) {
             this.bossFight.addPlayer(player);
             AetherEventDispatch.onBossFightPlayerAdd(this, this.getDungeon(), player);
@@ -395,7 +397,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Override
     public void stopSeenByPlayer(@NotNull ServerPlayer player) {
         super.stopSeenByPlayer(player);
-        //PacketDistributor.sendToPlayer(player, new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()));
+        PacketRelay.sendToPlayer(AetherPacketHandler.INSTANCE, new BossInfoPacket.Remove(this.bossFight.getId(), this.getId()), player);
         this.bossFight.removePlayer(player);
         AetherEventDispatch.onBossFightPlayerRemove(this, this.getDungeon(), player);
     }
@@ -415,7 +417,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
             this.bossFight.removePlayer(serverPlayer);
             AetherEventDispatch.onBossFightPlayerRemove(this, this.getDungeon(), serverPlayer);
         }
-
     }
 
     protected void setHasBeenContactedBySegment() {
@@ -469,18 +470,8 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Nullable
     @Override
     public ResourceLocation getBossBarTexture() {
-        return new ResourceLocation(DeepAether.MODID, "boss_bar/eots");
+        return new ResourceLocation(DeepAether.MODID, "textures/gui/sprites/boss_bar/eots.png");
     }
-
-    /**
-     * @return The {@link ResourceLocation} for this boss's health bar background.
-     */
-    @Nullable
-    public ResourceLocation getBossBarBackgroundTexture() {
-        return new ResourceLocation(DeepAether.MODID, "boss_bar/eots_background");
-    }
-    
-    
 
     /**
      * @return The {@link Music} for this boss's fight.

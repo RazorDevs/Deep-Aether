@@ -336,6 +336,8 @@ public class DATabs {
                     DAItems.STRATUS_HOE.get()
             }, event);
 
+            addToTab(AetherItems.BRONZE_DUNGEON_KEY.get(), DAItems.BRASS_DUNGEON_KEY.get(), event);
+
             if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
                 addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
             }
