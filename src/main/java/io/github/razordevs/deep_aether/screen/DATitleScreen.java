@@ -2,7 +2,6 @@ package io.github.razordevs.deep_aether.screen;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.client.gui.component.menu.AetherMenuButton;
-import com.aetherteam.aether.client.gui.component.menu.DynamicMenuButton;
 import com.aetherteam.aether.client.gui.screen.menu.AetherTitleScreen;
 import com.aetherteam.aether.client.gui.screen.menu.TitleScreenBehavior;
 import com.aetherteam.aether.mixin.mixins.client.accessor.TitleScreenAccessor;
@@ -18,7 +17,7 @@ import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.internal.BrandingControl;
-
+/*
 public class DATitleScreen extends AetherTitleScreen implements TitleScreenBehavior {
 
     //TODO: for Winds and Storms part 2
@@ -110,3 +109,4 @@ public class DATitleScreen extends AetherTitleScreen implements TitleScreenBehav
         guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
     }
 }
+*/

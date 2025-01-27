@@ -94,6 +94,7 @@ dependencies {
     //Optional Dependencies
     compileOnly("mezz.jei:jei-${project.mc_version}-common-api:${project.jei_version}")
     compileOnly("mezz.jei:jei-${project.mc_version}-neoforge:${project.jei_version}")
+    implementation "curse.maven:aether-protect-your-moa-1016303:6040716"
 }
 
 repositories {

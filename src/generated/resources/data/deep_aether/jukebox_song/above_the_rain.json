@@ -1,0 +1,8 @@
+{
+  "comparator_output": 13,
+  "description": {
+    "translate": "jukebox_song.deep_aether.above_the_rain"
+  },
+  "length_in_seconds": 249.0,
+  "sound_event": "deep_aether:item.music_disc.above_the_rain"
+}

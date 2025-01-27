@@ -10,6 +10,7 @@ import com.aetherteam.aether.item.components.AetherDataComponents;
 import com.aetherteam.aether.item.components.DungeonKind;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootSolidBucketItem;
+import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.registry.DAJukeboxSongs;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
@@ -124,8 +125,8 @@ public class DAItems {
 
 	public static final DeferredItem<Item> BIO_CRYSTAL = ITEMS.register("bio_crystal", () -> new Item(new Item.Properties()));
 
-	public static final DeferredItem<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AETHER_FISH.get(), (new Item.Properties()).craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
-	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AETHER_FISH.get(), (new Item.Properties()).stacksTo(1)));
+	public static final DeferredItem<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AERGLOW_FISH.get(), (new Item.Properties()).craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
+	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AERGLOW_FISH.get(), (new Item.Properties()).stacksTo(1)));
 
 	// MOA FODDER
 	public static final DeferredItem<Item> MOA_FODDER = ITEMS.register("moa_fodder", () -> new FodderItem(new Item.Properties()));
@@ -156,7 +157,7 @@ public class DAItems {
 	public static final DeferredItem<Item> CLOUDBLOOM_BOUQUET = ITEMS.register("cloudbloom_bouquet", () -> new Item((new Item.Properties())));
 
 	public static final DeferredItem<Item> AETHER_FISH_SPAWN_EGG = ITEMS.register("aether_fish_spawn_egg",
-			() -> new DeferredSpawnEggItem(DAEntities.AETHER_FISH, 698060, 16776960, new Item.Properties()));
+			() -> new DeferredSpawnEggItem(DAEntities.AERGLOW_FISH, 698060, 16776960, new Item.Properties()));
 
 	public static final DeferredItem<Item> QUAIL_SPAWN_EGG = ITEMS.register("quail_spawn_egg",
 			() -> new DeferredSpawnEggItem(DAEntities.QUAIL,6373632,16776960, new Item.Properties()));
@@ -192,6 +193,10 @@ public class DAItems {
 	public static final DeferredItem<Item> MUSIC_DISC_HIMININN = ITEMS.register("music_disc_himininn",
 			() -> new Item( new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(DAJukeboxSongs.HIMININN)));
 
+	public static final DeferredItem<Item> MUSIC_DISC_ABOVE_THE_RAIN = ITEMS.register("music_disc_above_the_rain",
+			() -> new Item( new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(DAJukeboxSongs.ABOVE_THE_RAIN)));
+
+
 
 	public static final DeferredItem<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID.get(), new Item.Properties().stacksTo(1)));
@@ -219,7 +224,7 @@ public class DAItems {
 	//ADDONS
 
 	//PROTECT YOUR MOA
-	//public static final DeferredItem<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+	public static final DeferredItem<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 
 	//LOST CONTENT
 	/*

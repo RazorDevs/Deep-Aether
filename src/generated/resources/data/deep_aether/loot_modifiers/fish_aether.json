@@ -28,7 +28,14 @@
         "id": "aether:skyroot_stick"
       },
       "weight": 12
+    },
+    {
+      "data": {
+        "count": 1,
+        "id": "deep_aether:music_disc_above_the_rain"
+      },
+      "weight": 11
     }
   ],
-  "totalWeight": 124
+  "totalWeight": 135
 }
