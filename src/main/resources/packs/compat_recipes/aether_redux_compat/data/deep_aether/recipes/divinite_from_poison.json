@@ -4,6 +4,6 @@
     "item": "minecraft:glowstone"
   },
   "result": {
-    "item": "aether_redux:divinite"
+    "id": "aether_redux:divinite"
   }
 }
