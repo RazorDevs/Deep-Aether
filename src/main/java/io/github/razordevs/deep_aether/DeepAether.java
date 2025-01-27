@@ -102,7 +102,7 @@ public class DeepAether {
 			|| (CALENDER.get(Calendar.MONTH) == Calendar.NOVEMBER) && CALENDER.get(Calendar.DAY_OF_MONTH) < 10);
 
 	public static boolean IsHalloweenContentEnabled() {
-		return IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
+		return IS_HALLOWEEN || DeepAetherConfig.SERVER.always_enable_halloween_content.get();
 	}
 
 	public DeepAether(ModContainer mod, IEventBus bus, Dist dist) {
@@ -143,6 +143,8 @@ public class DeepAether {
 
 		mod.registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		mod.registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
+		mod.registerConfig(ModConfig.Type.SERVER, DeepAetherConfig.SERVER_SPEC);
+
 
 		if (dist == Dist.CLIENT) {
 			//DAMenus.MENUS.register(bus);

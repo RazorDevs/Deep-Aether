@@ -289,8 +289,7 @@ public class DAClientModBusEvents {
     }
 
     public static void registerAccessoriesRenderers() {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get())
-            AccessoriesRendererRegistry.registerRenderer(DAItems.SKYJADE_GLOVES.get(), SkyjadeGlovesRenderer::new);
+        AccessoriesRendererRegistry.registerRenderer(DAItems.SKYJADE_GLOVES.get(), SkyjadeGlovesRenderer::new);
         AccessoriesRendererRegistry.registerRenderer(DAItems.FLOATY_SCARF.get(), FloatyScarfRenderer::new);
         AccessoriesRendererRegistry.registerRenderer(DAItems.WIND_SHIELD.get(), WindShieldRenderer::new);
         AccessoriesRendererRegistry.registerRenderer(DAItems.STORMFORGED_GLOVES.get(), GlovesRenderer::new);

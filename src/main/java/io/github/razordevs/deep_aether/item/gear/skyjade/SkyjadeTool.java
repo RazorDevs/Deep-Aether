@@ -12,7 +12,7 @@ public interface SkyjadeTool {
     }
 
     default void disableSound(Player player, BlockPos pos) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get())
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get())
             ((DisableSound) player.level().getBlockState(pos).getBlock()).deep_Aether$disableSound(true);
     }
 }

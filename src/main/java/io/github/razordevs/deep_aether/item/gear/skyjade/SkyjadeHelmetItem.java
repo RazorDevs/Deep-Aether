@@ -20,7 +20,7 @@ public class SkyjadeHelmetItem extends SkyjadeArmorItem {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get() && pSlotId == 39 && pEntity instanceof Player player) {
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get() && pSlotId == 39 && pEntity instanceof Player player) {
             DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
             if(pLevel.isClientSide() && attachment.isSkyjadeAbilityActivated() != DeepAetherKeys.TOGGLE_SKYJADE_TRANSPARENCY.isDown()) {
                 attachment.setSynched(player.getId(), INBTSynchable.Direction.SERVER, "setSkyjadeAbilityActivated", DeepAetherKeys.TOGGLE_SKYJADE_TRANSPARENCY.isDown());
