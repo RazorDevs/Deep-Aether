@@ -220,8 +220,11 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_GLOVES.get(),
                 DAItems.STORMFORGED_GLOVES.get(),
                 DAItems.SKYJADE_RING.get(),
-                DAItems.STRATUS_RING.get()
-        );
+                DAItems.STRATUS_RING.get(),
+                DAItems.WIND_SHIELD.get(),
+                DAItems.SLIDER_EYE.get(),
+                DAItems.AFTERBURNER.get()
+                );
 
         tag(ItemTags.SHARP_WEAPON_ENCHANTABLE).add(
                 DAItems.SKYJADE_TOOLS_SWORD.get(),
