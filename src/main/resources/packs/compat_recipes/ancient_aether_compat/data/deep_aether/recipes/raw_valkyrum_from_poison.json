@@ -4,6 +4,6 @@
     "item": "ancient_aether:valkyrum"
   },
   "result": {
-    "item": "ancient_aether:raw_valkyrum"
+    "id": "ancient_aether:raw_valkyrum"
   }
 }
