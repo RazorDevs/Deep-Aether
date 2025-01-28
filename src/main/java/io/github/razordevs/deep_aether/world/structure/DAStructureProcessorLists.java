@@ -19,27 +19,13 @@ public class DAStructureProcessorLists {
 
     public static final ResourceKey<StructureProcessorList> BRASS_BOSS_ROOM = createKey("bronze_boss_room");
 
-    public static final ResourceKey<StructureProcessorList> INFESTED_BRASS_ROOM = createKey("infested_bronze_room");
-
-    public static final ResourceKey<StructureProcessorList> INFESTED_BRASS_BOSS_ROOM = createKey("infested_bronze_boss_room");
-
-    public static final ResourceKey<StructureProcessorList> GARDEN_BRASS_ROOM = createKey("garden_bronze_room");
-
-    public static final ResourceKey<StructureProcessorList> GARDEN_BRASS_BOSS_ROOM = createKey("garden_bronze_boss_room");
-
     private static ResourceKey<StructureProcessorList> createKey(String name) {
         return ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, name));
     }
 
     public static void bootstrap(BootstrapContext<StructureProcessorList> context) {
-        register(context, BRASS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_NORMAL));
-        register(context, BRASS_BOSS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_NORMAL, BrassDungeonRoomProcessor.INSTANCE));
-
-        register(context, INFESTED_BRASS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_COCKATRICE));
-        register(context, INFESTED_BRASS_BOSS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_COCKATRICE, BrassDungeonRoomProcessor.INSTANCE));
-
-        register(context, GARDEN_BRASS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_PLANT));
-        register(context, GARDEN_BRASS_BOSS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_PLANT, BrassDungeonRoomProcessor.INSTANCE));
+        register(context, BRASS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS));
+        register(context, BRASS_BOSS_ROOM, createBrassDungeonList(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS, BrassDungeonRoomProcessor.INSTANCE));
     }
 
     private static void register(BootstrapContext<StructureProcessorList> context, ResourceKey<StructureProcessorList> key, List<StructureProcessor> processors) {
@@ -49,6 +35,10 @@ public class DAStructureProcessorLists {
     private static List<StructureProcessor> createBrassDungeonList(StructureProcessor... ruleProcessor) {
         List<StructureProcessor> list = new ArrayList<>() {{
             add(BrassDungeonPiece.LOCKED_NIMBUS_STONE);
+            add(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS);
+                    add(BrassDungeonPiece.MOSS_CARPET);
+                    add(BrassDungeonPiece.COBWEB);
+                    add(BrassDungeonPiece.FLOWERING_ROSEROOT_LEAVES);
             add(DoubleDropsProcessor.INSTANCE);
         }};
         list.addAll(List.of(ruleProcessor));

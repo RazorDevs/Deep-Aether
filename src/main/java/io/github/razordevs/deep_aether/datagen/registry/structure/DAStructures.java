@@ -51,9 +51,7 @@ public class DAStructures {
                 mobSpawnsBox,
                 GenerationStep.Decoration.SURFACE_STRUCTURES,
                 TerrainAdjustment.NONE),
-                 184, 5, new BrassProcessorSettings(processors.getOrThrow(DAStructureProcessorLists.BRASS_BOSS_ROOM), processors.getOrThrow(DAStructureProcessorLists.BRASS_ROOM),
-                processors.getOrThrow(DAStructureProcessorLists.INFESTED_BRASS_BOSS_ROOM), processors.getOrThrow(DAStructureProcessorLists.INFESTED_BRASS_ROOM),
-                processors.getOrThrow(DAStructureProcessorLists.GARDEN_BRASS_BOSS_ROOM), processors.getOrThrow(DAStructureProcessorLists.GARDEN_BRASS_ROOM))));
+                 184, 5, new BrassProcessorSettings(processors.getOrThrow(DAStructureProcessorLists.BRASS_BOSS_ROOM), processors.getOrThrow(DAStructureProcessorLists.BRASS_ROOM))));
 
         /*
         context.register(ALTAR_CAMP, new DAJigsawStructure(AetherStructureBuilders.structure(

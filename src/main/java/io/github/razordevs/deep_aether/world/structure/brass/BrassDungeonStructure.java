@@ -123,19 +123,11 @@ public class BrassDungeonStructure extends Structure {
     private void createBossRoom(RandomSource random, StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {
         String room = this.getRandomRoomType(random);
 
-        if(room.equals("brass_dungeon_room_2")) {
-            if(parent) builder.addPiece(new BrassRoom.BossRoom(templateManager, room +"_boss", pos, rotation, this.processors.gardenBossSettings()));
-            else builder.addPiece(new BrassRoom(templateManager, room, pos, rotation, this.processors.gardenRoomSettings()));
 
-        }
-        else if(room.equals("brass_dungeon_room_3")) {
-            if(parent) builder.addPiece(new BrassRoom.BossRoom(templateManager, room +"_boss", pos, rotation, this.processors.infestedBossSettings()));
-            else builder.addPiece(new BrassRoom(templateManager, room, pos, rotation, this.processors.infestedRoomSettings()));
-        }
-        else {
-            if(parent) builder.addPiece(new BrassRoom.BossRoom(templateManager, room +"_boss", pos, rotation, this.processors.bossSettings()));
-            else builder.addPiece(new BrassRoom(templateManager, room, pos, rotation, this.processors.roomSettings()));
-        }
+        if (parent)
+            builder.addPiece(new BrassRoom.BossRoom(templateManager, room + "_boss", pos, rotation, this.processors.bossSettings()));
+        else builder.addPiece(new BrassRoom(templateManager, room, pos, rotation, this.processors.roomSettings()));
+
 
         //Roof
         builder.addPiece(new BrassRoom(

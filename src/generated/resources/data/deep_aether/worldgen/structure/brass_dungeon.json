@@ -4,10 +4,6 @@
   "minY": 184,
   "processor_settings": {
     "boss_room_processors": "deep_aether:bronze_boss_room",
-    "garden_boss_room_processors": "deep_aether:garden_bronze_boss_room",
-    "garden_room_processors": "deep_aether:garden_bronze_room",
-    "infested_boss_room_processors": "deep_aether:infested_bronze_room",
-    "infested_room_processors": "deep_aether:infested_bronze_room",
     "room_processors": "deep_aether:bronze_boss_room"
   },
   "rangeY": 5,

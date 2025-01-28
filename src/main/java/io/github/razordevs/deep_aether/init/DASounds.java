@@ -18,6 +18,7 @@ public class DASounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent> ATTA = register("item.music_disc.atta");
 	public static final DeferredHolder<SoundEvent, SoundEvent> FAENT = register("item.music_disc.faent");
 	public static final DeferredHolder<SoundEvent, SoundEvent> HIMININN = register("item.music_disc.himininn");
+	public static final DeferredHolder<SoundEvent, SoundEvent> LOCUS_FOR_WINDS = register("item.music_disc.locus_for_winds");
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> ABOVE_THE_RAIN = register("item.music_disc.above_the_rain");
 
