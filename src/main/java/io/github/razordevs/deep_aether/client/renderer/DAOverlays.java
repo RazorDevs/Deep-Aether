@@ -25,7 +25,7 @@ public class DAOverlays {
         event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "stratus"), (guiGraphics, deltaTracker) -> {
             Minecraft minecraft = Minecraft.getInstance();
             LocalPlayer player = minecraft.player;
-            if (player != null && !player.isSpectator() && DeepAetherConfig.COMMON.stratus_dash_cooldown.get() > 0) {
+            if (player != null && !player.isSpectator() && DeepAetherConfig.SERVER.stratus_dash_cooldown.get() > 0) {
                 if (StratusAbility.coolDown > 0)
                     renderStratusCooldown(guiGraphics);
             }
@@ -39,7 +39,7 @@ public class DAOverlays {
     }
 
     private static void stratusCooldown(GuiGraphics guiGraphics, int pX, int pY) {
-        float m =  (StratusAbility.coolDown / DeepAetherConfig.COMMON.stratus_dash_cooldown.get());
+        float m =  (StratusAbility.coolDown / DeepAetherConfig.SERVER.stratus_dash_cooldown.get());
         ResourceLocation sprite;
         if(m > 0.667)
             sprite = STRATUS_COOLDOWN_1;

@@ -7,11 +7,8 @@ import org.apache.commons.lang3.tuple.Pair;
 public class DeepAetherConfig {
 
     public static class Common {
-        public final ConfigValue<Boolean> skyjade_enchant;
-        public final ConfigValue<Boolean> enable_skyjade_rework;
+
         public final ConfigValue<Integer> deep_aether_biome_weight;
-        public final ConfigValue<Integer> stratus_dash_cooldown;
-        public final ConfigValue<Boolean> always_enable_halloween_content;
         public final ConfigValue<Boolean> disable_roseroot_forest_biomes;
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
@@ -19,6 +16,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_sacred_lands_biomes;
         public final ConfigValue<Boolean> disable_storm_cloud_and_skyroot_rainforest_biomes;
         public final ConfigValue<Integer> storm_cloud_biome_weight;
+
         public final ConfigValue<String> slider_flawless_boss_drop;
         public final ConfigValue<String> valkyrie_queen_flawless_boss_drop;
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
@@ -26,27 +24,6 @@ public class DeepAetherConfig {
         public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
 
         public Common(ModConfigSpec.Builder builder) {
-            builder.push("Gameplay");
-            skyjade_enchant = builder
-                    .comment("Skyjade tools will be enchantable. Only takes effect if \"Enable Skyjade Rework\" is disabled. ")
-                    .translation("config.deep_aether.common.gameplay.skyjade_enchant")
-                    .define("Skyjade Enchant", false);
-            builder.pop();
-
-            builder.push("Gameplay");
-            enable_skyjade_rework = builder
-                    .comment("Enables the new skyjade armor and toolset rework. ")
-                    .translation("config.deep_aether.common.gameplay.enable_skyjade_rework")
-                    .define("Enable Skyjade Rework", false);
-            builder.pop();
-
-            builder.push("Gameplay");
-            always_enable_halloween_content = builder
-                    .comment("Always Enable halloween content, excluding the halloween slider")
-                    .translation("config.deep_aether.common.gameplay.always_enable_halloween_content")
-                    .define("Always Enable Halloween Content", false);
-            builder.pop();
-
             builder.push("Gameplay");
             slider_flawless_boss_drop = builder
                     .comment("The item dropped when the Slider is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the slider")
@@ -80,13 +57,6 @@ public class DeepAetherConfig {
                     .comment("The item dropped when the Aerwhale King is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Aerwhale King. This Config Does nothing if Aether Lost Content isn't installed.")
                     .translation("config.deep_aether.common.flawless.aerwhale_king_flawless_boss_drop")
                     .define("Aerwhale King Flawless Boss Drop", "deep_aether:aerwhale_saddle");
-            builder.pop();
-
-            builder.push("Gameplay");
-            stratus_dash_cooldown = builder
-                    .comment("The cooldown of the stratus dash. Set to a value below zero to disable the cooldown.")
-                    .translation("config.deep_aether.common.stratus_dash_cooldown")
-                    .define("Stratus dash cooldown", 5);
             builder.pop();
 
             builder.push("Biomes");
@@ -194,6 +164,45 @@ public class DeepAetherConfig {
         }
     }
 
+    public static class Server {
+        public final ConfigValue<Boolean> skyjade_enchant;
+        public final ConfigValue<Boolean> enable_skyjade_rework;
+        public final ConfigValue<Integer> stratus_dash_cooldown;
+        public final ConfigValue<Boolean> always_enable_halloween_content;
+
+        public Server(ModConfigSpec.Builder builder) {
+            builder.push("Gameplay");
+            always_enable_halloween_content = builder
+                    .comment("Always Enable halloween content, excluding the halloween slider")
+                    .translation("config.deep_aether.common.gameplay.always_enable_halloween_content")
+                    .define("Always Enable Halloween Content", false);
+            builder.pop();
+
+            builder.push("Gameplay");
+            skyjade_enchant = builder
+                    .comment("Skyjade tools will be enchantable. Only takes effect if \"Enable Skyjade Rework\" is disabled. ")
+                    .translation("config.deep_aether.common.gameplay.skyjade_enchant")
+                    .define("Skyjade Enchant", false);
+            builder.pop();
+
+            builder.push("Gameplay");
+            enable_skyjade_rework = builder
+                    .comment("Enables the new skyjade armor and toolset rework. ")
+                    .translation("config.deep_aether.common.gameplay.enable_skyjade_rework")
+                    .define("Enable Skyjade Rework", false);
+            builder.pop();
+
+            builder.push("Gameplay");
+            stratus_dash_cooldown = builder
+                    .comment("The cooldown of the stratus dash. Set to a value below zero to disable the cooldown.")
+                    .translation("config.deep_aether.common.stratus_dash_cooldown")
+                    .define("Stratus dash cooldown", 5);
+            builder.pop();
+        }
+    }
+
+    public static final ModConfigSpec SERVER_SPEC;
+    public static final Server SERVER;
 
     public static final ModConfigSpec COMMON_SPEC;
     public static final Common COMMON;
@@ -202,6 +211,10 @@ public class DeepAetherConfig {
     public static final Client CLIENT;
 
     static {
+        final Pair<Server, ModConfigSpec> serverSpecPair = new ModConfigSpec.Builder().configure(Server::new);
+        SERVER_SPEC = serverSpecPair.getRight();
+        SERVER = serverSpecPair.getLeft();
+
         final Pair<Common, ModConfigSpec> commonSpecPair = new ModConfigSpec.Builder().configure(Common::new);
         COMMON_SPEC = commonSpecPair.getRight();
         COMMON = commonSpecPair.getLeft();

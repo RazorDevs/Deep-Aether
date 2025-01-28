@@ -26,7 +26,7 @@ public class ToolAbilityListener {
 
     @SubscribeEvent
     public static void modifyBreakSpeed(PlayerEvent.BreakSpeed event) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get())
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get())
             return;
 
         Player player = event.getEntity();

@@ -21,7 +21,7 @@ public class SkyjadeGlovesItem extends GlovesItem {
 
     @Override
     public void getDynamicModifiers(ItemStack stack, SlotReference reference, AccessoryAttributeBuilder builder) {
-        if (!DeepAetherConfig.COMMON.enable_skyjade_rework.get() && reference.slotName().equals(AetherAccessorySlots.GLOVES_SLOT_LOCATION.toString())) {
+        if (!DeepAetherConfig.SERVER.enable_skyjade_rework.get() && reference.slotName().equals(AetherAccessorySlots.GLOVES_SLOT_LOCATION.toString())) {
             builder.addStackable(Attributes.ATTACK_DAMAGE, new AttributeModifier(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "gloves_damage_bonus"), calculateIncrease(stack), AttributeModifier.Operation.ADD_VALUE));
         }
     }
@@ -47,11 +47,11 @@ public class SkyjadeGlovesItem extends GlovesItem {
 
     @Override
     public boolean isEnchantable(ItemStack itemStack) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get() && !DeepAetherConfig.COMMON.enable_skyjade_rework.get();
+        return DeepAetherConfig.SERVER.skyjade_enchant.get() && !DeepAetherConfig.SERVER.enable_skyjade_rework.get();
     }
 
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return DeepAetherConfig.COMMON.skyjade_enchant.get() && !DeepAetherConfig.COMMON.enable_skyjade_rework.get();
+        return DeepAetherConfig.SERVER.skyjade_enchant.get() && !DeepAetherConfig.SERVER.enable_skyjade_rework.get();
     }
 }

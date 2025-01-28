@@ -46,7 +46,7 @@ public class DaAbilityListener {
 
     @SubscribeEvent
     public static void onMiningSpeed(PlayerEvent.BreakSpeed event) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get())
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get())
             return;
 
         Player player = event.getEntity();
@@ -57,7 +57,7 @@ public class DaAbilityListener {
 
     @SubscribeEvent
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get())
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get())
             return;
 
         Player player = event.getPlayer();

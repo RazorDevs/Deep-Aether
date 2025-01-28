@@ -26,7 +26,7 @@ public class SkyjadeRingItem extends RingItem implements SkyjadeAccessory {
 
     @Override
     public void onEquip(ItemStack stack, SlotReference reference) {
-        if(!DeepAetherConfig.COMMON.enable_skyjade_rework.get())
+        if(!DeepAetherConfig.SERVER.enable_skyjade_rework.get())
             return;
 
         LivingEntity livingEntity = reference.entity();
@@ -43,7 +43,7 @@ public class SkyjadeRingItem extends RingItem implements SkyjadeAccessory {
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        if(!DeepAetherConfig.COMMON.enable_skyjade_rework.get())
+        if(!DeepAetherConfig.SERVER.enable_skyjade_rework.get())
             return;
 
         LivingEntity livingEntity = reference.entity();

@@ -22,11 +22,11 @@ public class SkyjadeToolsSwordItem extends SwordItem implements SkyjadeTool, Sky
 
 	@Override
 	public boolean isEnchantable(ItemStack itemStack) {
-		return DeepAetherConfig.COMMON.skyjade_enchant.get() && !DeepAetherConfig.COMMON.enable_skyjade_rework.get();
+		return DeepAetherConfig.SERVER.skyjade_enchant.get() && !DeepAetherConfig.SERVER.enable_skyjade_rework.get();
 	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return DeepAetherConfig.COMMON.skyjade_enchant.get() && !DeepAetherConfig.COMMON.enable_skyjade_rework.get();
+		return DeepAetherConfig.SERVER.skyjade_enchant.get() && !DeepAetherConfig.SERVER.enable_skyjade_rework.get();
 	}
 }

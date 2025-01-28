@@ -60,7 +60,7 @@ public class StratusAbility extends ArmorItem {
                 a = 1 - a;
                 if (StratusAbility.isStratusDashActive(player)) {
                     hasBeenOnGround = false;
-                    coolDown = (float) DeepAetherConfig.COMMON.stratus_dash_cooldown.get();
+                    coolDown = (float) DeepAetherConfig.SERVER.stratus_dash_cooldown.get();
                     dashMultiplier = (float) DAEquipmentUtil.handleStratusRingBoost(player);
                     player.push(x * a * dashMultiplier, y * dashMultiplier, z * a * dashMultiplier);
                     if (player instanceof ServerPlayer serverPlayer) {

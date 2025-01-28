@@ -200,7 +200,7 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onEquip(LivingEquipmentChangeEvent event) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get()) {
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get()) {
             if (event.getEntity() instanceof Player player) {
                 DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
                 boolean skyjade = DAEquipmentUtil.hasFullSkyjadeSet(player);
@@ -214,7 +214,7 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void livingVisibilityModification(LivingEvent.LivingVisibilityEvent event) {
-        if(DeepAetherConfig.COMMON.enable_skyjade_rework.get()) {
+        if(DeepAetherConfig.SERVER.enable_skyjade_rework.get()) {
             if (event.getLookingEntity() instanceof LivingEntity living) {
                 boolean enabled = true;
                 if (living instanceof Player player) {
