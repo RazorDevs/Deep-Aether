@@ -75,7 +75,9 @@ public class BrassDungeonStructure extends Structure {
     private void generatePieces(StructurePiecesBuilder builder, GenerationContext context, BlockPos elevatedPos) {
         RandomSource random = context.random();
         StructureTemplateManager templateManager = context.structureTemplateManager();
-        this.buildCloudBed(builder, random, elevatedPos.above().relative(Direction.NORTH, 34).west(10));
+        this.buildCloudBed(builder, random, elevatedPos.above().relative(Direction.NORTH, 32).above().east(5), 55, 55);
+        this.buildCloudBed(builder, random, elevatedPos.above().relative(Direction.NORTH, 19).below(3).east(12), 33, 33);
+
 
         Rotation rotation = Rotation.getRandom(random);
         this.createBossRoom(random,
@@ -137,9 +139,7 @@ public class BrassDungeonStructure extends Structure {
                 rotation, this.processors.roomSettings()));
     }
 
-    private void buildCloudBed(StructurePiecesBuilder builder, RandomSource random, BlockPos origin) {
-        int xBounds = 77;
-        int zBounds = 77;
+    private void buildCloudBed(StructurePiecesBuilder builder, RandomSource random, BlockPos origin, int xBounds, int zBounds) {
         BlockPos.MutableBlockPos offset = origin.mutable().move(0, -1, 0);
 
         Map<ChunkPos, Set<BlockPos>> chunks = new HashMap<>();
