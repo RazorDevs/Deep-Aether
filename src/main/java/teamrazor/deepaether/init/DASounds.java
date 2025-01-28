@@ -21,6 +21,9 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> FAENT = register("item.music_disc.faent");
 	public static final RegistryObject<SoundEvent> HIMININN = register("item.music_disc.himininn");
 
+	public static final RegistryObject<SoundEvent> LOCUS_FOR_WINDS = register("item.music_disc.locus_for_winds");
+
+
 	public static final RegistryObject<SoundEvent> QUAIL_DEATH = register("entity.quail.death");
 	public static final RegistryObject<SoundEvent> QUAIL_HURT = register("entity.quail.hurt");
 	public static final RegistryObject<SoundEvent> QUAIL_AMBIENT = register("entity.quail.ambient");
@@ -37,7 +40,6 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> EOTS_AMBIENT = register("entity.eots.ambient");
 	public static final RegistryObject<SoundEvent> EOTS_BLOWING = register("entity.eots.blowing");
 	public static final RegistryObject<SoundEvent> EOTS_SHOOT = register("entity.eots.shoot");
-	public static final RegistryObject<SoundEvent> MUSIC_BOSS_EOTS = register("music.boss.eots");
 
 	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_SKYJADE = register("item.armor.equip_skyjade");
 	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_STRATUS = register("item.armor.equip_stratus");

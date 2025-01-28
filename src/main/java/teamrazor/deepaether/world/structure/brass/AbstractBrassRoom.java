@@ -1,22 +1,21 @@
 package teamrazor.deepaether.world.structure.brass;
 
-import com.aetherteam.aether.blockentity.TreasureChestBlockEntity;
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
-import teamrazor.deepaether.DeepAether;
-import teamrazor.deepaether.datagen.loot.DALoot;
+import teamrazor.deepaether.init.DABlocks;
 
 import java.util.function.Function;
 
@@ -37,6 +36,63 @@ public abstract class AbstractBrassRoom extends BrassDungeonPiece {
         return settings;
     }
 
+    @Override
+    protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {
+        switch (name) {
+            case "Aerlavender Flowers" -> {
+                Block block = getRandomAerlavenderFlower(random);
+
+                level.setBlock(pos.below(), AetherBlocks.AETHER_GRASS_BLOCK.get().defaultBlockState(), 2);
+                level.setBlock(pos, block.defaultBlockState(), 2);
+
+                if (block instanceof DoublePlantBlock) {
+                    level.setBlock(pos.above(), block.defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 2);
+                }
+            }
+            case "Golden Flowers" -> {
+                Block block = getRandomGoldenFlower(random);
+
+                level.setBlock(pos.below(), DABlocks.GOLDEN_GRASS_BLOCK.get().defaultBlockState(), 2);
+                level.setBlock(pos, block.defaultBlockState(), 2);
+
+                if (block instanceof DoublePlantBlock) {
+                    level.setBlock(pos.above(), block.defaultBlockState().setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 2);
+                }
+            }
+            case "Squash" -> {
+                Block block = getRandomSquash(random);
+                level.setBlock(pos, block.defaultBlockState(), 2);
+            }
+        }
+    }
+
+    public static Block getRandomAerlavenderFlower(RandomSource random) {
+        return switch (random.nextInt(4)) {
+            case 0 -> DABlocks.TALL_AERLAVENDER.get();
+            case 1 -> DABlocks.FEATHER_GRASS.get();
+            case 2 -> DABlocks.TALL_FEATHER_GRASS.get();
+            default -> DABlocks.AERLAVENDER.get();
+        };
+    }
+
+    public static Block getRandomGoldenFlower(RandomSource random) {
+        return switch (random.nextInt(4)) {
+            case 0 -> DABlocks.GOLDEN_ASPESS.get();
+            case 1 -> DABlocks.MINI_GOLDEN_GRASS.get();
+            case 2 -> DABlocks.MEDIUM_GOLDEN_GRASS.get();
+            default -> DABlocks.GOLDEN_FLOWER.get();
+        };
+    }
+
+    public static Block getRandomSquash(RandomSource random) {
+        return switch (random.nextInt(3)) {
+            case 0 -> DABlocks.GREEN_SQUASH.get();
+            case 1 -> DABlocks.BLUE_SQUASH.get();
+            default -> DABlocks.PURPLE_SQUASH.get();
+        };
+    }
+
+
     public static class AbstractBossRoom extends AbstractBrassRoom {
 
         public AbstractBossRoom(StructurePieceType type, StructureTemplateManager manager, String name, StructurePlaceSettings settings, BlockPos pos) {
@@ -49,17 +105,7 @@ public abstract class AbstractBrassRoom extends BrassDungeonPiece {
 
         @Override
         protected void handleDataMarker(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {
-            if (name.equals("Treasure Chest")) {
-                BlockPos chest = pos.below();
-                BlockEntity entity = level.getBlockEntity(chest);
-
-                if (entity instanceof RandomizableContainerBlockEntity container) {
-                    container.setLootTable(DALoot.BRASS_DUNGEON_REWARD, random.nextLong());
-                }
-                TreasureChestBlockEntity.setDungeonType(level, chest, new ResourceLocation(DeepAether.MODID, "brass"));
-
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
-            }
+            super.handleDataMarker(name, pos, level, random, box);
         }
     }
 }

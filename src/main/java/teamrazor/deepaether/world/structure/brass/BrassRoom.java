@@ -22,7 +22,10 @@ public class BrassRoom extends AbstractBrassRoom {
     protected static StructurePlaceSettings makeSettings() {
         return new StructurePlaceSettings()
                 .addProcessor(BrassDungeonPiece.LOCKED_NIMBUS_STONE)
-                .addProcessor(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS_NORMAL);
+                .addProcessor(BrassDungeonPiece.TRAPPED_SKYROOT_PLANKS)
+                .addProcessor(BrassDungeonPiece.MOSS_CARPET)
+                .addProcessor(BrassDungeonPiece.COBWEB)
+                .addProcessor(BrassDungeonPiece.FLOWERING_ROSEROOT_LEAVES);
     }
 
     public static class BossRoom extends AbstractBossRoom {

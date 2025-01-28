@@ -55,6 +55,14 @@
       }
     ]
   },
+  "item.music_disc.locus_for_winds": {
+    "sounds": [
+      {
+        "name": "deep_aether:aethyus-locus-for-winds",
+        "stream": true
+      }
+    ]
+  },
 
   "entity.quail.ambient": {
     "sounds": [
@@ -124,14 +132,6 @@
       "aether:entity/zephyr/shoot"
     ],
     "subtitle": "subtitles.deep_aether.entity.eots.hurt"
-  },
-  "music.boss.eots": {
-    "sounds": [
-      {
-        "name": "deep_aether:entity/eots/fight",
-        "stream": true
-      }
-    ]
   },
   "item.armor.equip_skyjade": {
     "sounds": [

@@ -10,15 +10,12 @@ import com.aetherteam.aether.event.AetherEventDispatch;
 import com.aetherteam.aether.network.AetherPacketHandler;
 import com.aetherteam.aether.network.packet.serverbound.BossInfoPacket;
 import com.aetherteam.nitrogen.entity.BossRoomTracker;
-import com.aetherteam.nitrogen.network.BasePacket;
 import com.aetherteam.nitrogen.network.PacketRelay;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -45,7 +42,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -55,7 +51,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.IEntityAdditionalSpawnData;
-import net.minecraftforge.network.PacketDistributor;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -74,7 +69,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 22;
     public static final int EXTRA_SEGMENT = 4;
-    private static final Music EOTS_MUSIC = new Music(DASounds.MUSIC_BOSS_EOTS.getHolder().orElseThrow(), 0, 0, true);
+    private static final Music EOTS_MUSIC = new Music(DASounds.LOCUS_FOR_WINDS.getHolder().orElseThrow(), 0, 0, true);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
@@ -82,7 +77,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected @Nullable BossRoomTracker<EOTSController> brassDungeon;
     private int chatCooldown;
     private int soundCooldown;
-    private static UUID EOTS_BONUS_HEALTH_UUID = UUID.fromString("5a542b1e-8309-4f25-a064-610353094828");
+    private static final UUID EOTS_BONUS_HEALTH_UUID = UUID.fromString("5a542b1e-8309-4f25-a064-610353094828");
 
     public static final Map<Block, Function<BlockState, BlockState>> DUNGEON_BLOCK_CONVERSIONS = new HashMap<>(Map.ofEntries(
             Map.entry(DABlocks.LOCKED_NIMBUS_STONE.get(), (blockState) -> DABlocks.NIMBUS_STONE.get().defaultBlockState()),

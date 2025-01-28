@@ -116,7 +116,6 @@ public class BrassDungeonStructure extends Structure {
 
     private void createBossRoom(RandomSource random, StructurePiecesBuilder builder, BlockPos pos, Rotation rotation, StructureTemplateManager templateManager, boolean parent) {
         String room = this.getRandomRoomType(random);
-
         if (parent) builder.addPiece(new BrassRoom.BossRoom(templateManager, room + "_boss", pos, rotation));
         else builder.addPiece(new BrassRoom(templateManager, room, pos, rotation));
 
