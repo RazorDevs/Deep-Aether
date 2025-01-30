@@ -12,7 +12,7 @@
 
 # What is this about?
 
-The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.4 and beyond.
+The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.2 and beyond.
 It aims to add lots of new features to give players a chance to venture deeper into the Aether dimension, while also maintaining its original style.
 Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatment.
  
