@@ -439,6 +439,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
 
         this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
+
+        this.item((Item) DAItems.SKYJADE_MOA_ARMOR.get());
     }
 
     public void bowItem(Item item) {

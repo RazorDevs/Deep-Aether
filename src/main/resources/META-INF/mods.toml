@@ -31,7 +31,7 @@ side="BOTH"
 [[dependencies.deep_aether]]
 modId="aether"
 mandatory=true
-versionRange="[1.2.0,)"
+versionRange="[1.5.0,)"
 ordering="AFTER"
 side="BOTH"
 

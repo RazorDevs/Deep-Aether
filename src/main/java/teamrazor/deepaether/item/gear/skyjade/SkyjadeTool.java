@@ -1,4 +1,4 @@
-package teamrazor.deepaether.tags;
+package teamrazor.deepaether.item.gear.skyjade;
 import net.minecraft.world.item.ItemStack;
 
 public interface SkyjadeTool {

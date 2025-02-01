@@ -1,8 +1,6 @@
 {
   "pack": {
-    "description": "Textures from Deep Aether that replaces a few Aether textures",
-    "pack_format": 13,
-    "forge:resource_pack_format": 13,
-    "forge:data_pack_format": 12
+    "description": "Optional Deep Aether texture overrides",
+    "pack_format": 15
   }
 }

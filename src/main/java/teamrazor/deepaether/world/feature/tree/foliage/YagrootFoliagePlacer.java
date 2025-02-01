@@ -12,11 +12,9 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 
 public class YagrootFoliagePlacer extends FoliagePlacer {
-    public static final Codec<YagrootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> {
-        return foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer) -> {
-            return foliagePlacer.trunkHeight;
-        })).apply(p2, YagrootFoliagePlacer::new);
-    });
+    public static final Codec<YagrootFoliagePlacer> CODEC = RecordCodecBuilder.create((p2)
+            -> foliagePlacerParts(p2).and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((foliagePlacer)
+            -> foliagePlacer.trunkHeight)).apply(p2, YagrootFoliagePlacer::new));
     private final IntProvider trunkHeight;
 
     public YagrootFoliagePlacer(IntProvider intProvider, IntProvider intProvider1, IntProvider intProvider2) {

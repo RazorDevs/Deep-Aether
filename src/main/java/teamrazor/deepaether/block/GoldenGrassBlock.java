@@ -19,7 +19,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
-import teamrazor.deepaether.world.feature.DAPlacedFeatures;
+import teamrazor.deepaether.datagen.world.DAPlacedFeatures;
 
 import java.util.List;
 import java.util.Optional;

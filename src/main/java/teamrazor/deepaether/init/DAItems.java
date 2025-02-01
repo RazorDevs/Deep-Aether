@@ -7,6 +7,7 @@ import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.miscellaneous.DungeonKeyItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
@@ -209,6 +210,9 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
+	//PROTECT YOUR MOA
+	public static final RegistryObject<?> SKYJADE_MOA_ARMOR = registerPYMItem();
+
 	public static final RegistryObject<Item> GLOWING_SPORES = DAItems.ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
 
 	public static void register(IEventBus eventBus) {
@@ -218,6 +222,14 @@ public class DAItems {
 
 	public static void setupBucketReplacements() {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
+	}
+
+	private static RegistryObject<?> registerPYMItem() {
+		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
+			return ITEMS.register("skyjade_moa_armor", ()-> new MoaArmorItem(7, new ResourceLocation(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+		}
+		else return ITEMS.register("skyjade_moa_armor", () -> new Item(new Item.Properties()));
 	}
 
 	private static <T extends Item> RegistryObject<T> registerLostContentItem(String name, Supplier<T> item) {

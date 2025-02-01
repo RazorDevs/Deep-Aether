@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "deep_aether:skyjade"
+    },
+    "B": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "  A",
+    "ABA",
+    "A A"
+  ],
+  "result": {
+    "item": "deep_aether:skyjade_moa_armor"
+  },
+  "show_notification": true
+}

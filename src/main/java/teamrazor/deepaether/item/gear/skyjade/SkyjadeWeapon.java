@@ -1,4 +1,4 @@
-package teamrazor.deepaether.tags;
+package teamrazor.deepaether.item.gear.skyjade;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;

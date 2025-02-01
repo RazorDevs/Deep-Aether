@@ -1,4 +1,4 @@
-package teamrazor.deepaether.tags;
+package teamrazor.deepaether.item.gear;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.world.item.ItemStack;
@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import teamrazor.deepaether.init.DABlocks;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeTool;
 
 import java.util.Map;
 

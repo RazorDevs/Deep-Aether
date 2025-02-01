@@ -5,6 +5,7 @@ package teamrazor.deepaether.init;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.protect_your_moa.item.ProtectItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -244,7 +245,8 @@ public class DATabs {
                     DABlocks.YAGROOT_LEAVES.get(),
                     DABlocks.CRUDEROOT_LEAVES.get(),
                     DABlocks.CONBERRY_LEAVES.get(),
-                    DABlocks.SUNROOT_LEAVES.get()
+                    DABlocks.SUNROOT_LEAVES.get(),
+                    DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get()
             }, event);
 
             addToTab(AetherBlocks.GOLDEN_OAK_SAPLING.get().asItem(), new Block[]{
@@ -420,6 +422,11 @@ public class DATabs {
                     DAItems.WIND_SHIELD.get(),
                     DAItems.FLOATY_SCARF.get()
             }, event);
+
+            if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
+                addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), (Item) DAItems.SKYJADE_MOA_ARMOR.get(), event);
+            }
+
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey()) {
             addToTab(AetherItems.CANDY_CANE.get(), new Item[]{
