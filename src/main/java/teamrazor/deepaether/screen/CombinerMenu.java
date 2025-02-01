@@ -9,14 +9,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import teamrazor.deepaether.init.DAMenuTypes;
 import teamrazor.deepaether.recipe.DARecipeBookTypes;
 import teamrazor.deepaether.recipe.DARecipeTypes;
-import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 import teamrazor.deepaether.recipe.combiner.CombinerServerPlaceRecipe;
 
 import java.util.ArrayList;

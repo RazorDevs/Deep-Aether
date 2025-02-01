@@ -7,8 +7,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import teamrazor.deepaether.init.DAItems;
-import teamrazor.deepaether.recipe.DARecipeTypes;
 import teamrazor.deepaether.recipe.DARecipeSerializers;
+import teamrazor.deepaether.recipe.DARecipeTypes;
 
 public class PoisonRecipe extends AbstractPoisonRecipe {
     public PoisonRecipe(ResourceLocation id, String group, Ingredient ingredient, ItemStack result) {

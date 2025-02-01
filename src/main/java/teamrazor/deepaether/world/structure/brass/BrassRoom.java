@@ -4,7 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import teamrazor.deepaether.world.structure.DAStructurePieceTypes;
 import teamrazor.deepaether.world.structure.brass.processor.BrassDungeonRoomProcessor;
 

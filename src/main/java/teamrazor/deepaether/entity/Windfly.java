@@ -22,7 +22,6 @@ import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;

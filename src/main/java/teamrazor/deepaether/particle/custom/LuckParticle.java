@@ -6,7 +6,6 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SimpleAnimatedParticle;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.core.particles.SimpleParticleType;
-
 import org.jetbrains.annotations.NotNull;
 
 public class LuckParticle extends SimpleAnimatedParticle {

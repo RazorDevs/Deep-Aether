@@ -9,8 +9,6 @@ import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-
-
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;

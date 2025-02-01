@@ -2,7 +2,6 @@ package teamrazor.deepaether.screen;
 
 import com.aetherteam.aether.client.gui.screen.inventory.AbstractRecipeBookScreen;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;

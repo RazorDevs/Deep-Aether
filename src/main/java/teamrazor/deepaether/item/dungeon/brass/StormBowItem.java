@@ -3,7 +3,6 @@ package teamrazor.deepaether.item.dungeon.brass;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.BowItem;
-import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.entity.StormArrow;
 
 public class StormBowItem extends BowItem {

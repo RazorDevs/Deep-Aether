@@ -1,8 +1,6 @@
 package teamrazor.deepaether.datagen.loot;
 
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.storage.loot.LootTable;
 import teamrazor.deepaether.DeepAether;
 
 import java.util.Collections;

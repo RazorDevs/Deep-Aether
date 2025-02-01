@@ -3,7 +3,6 @@ package teamrazor.deepaether.recipe.combiner;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;

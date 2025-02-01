@@ -1,7 +1,5 @@
 package teamrazor.deepaether.world.feature;
 
-import com.aetherteam.aether.world.configuration.AercloudConfiguration;
-import com.aetherteam.aether.world.configuration.AetherLakeConfiguration;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -9,8 +7,6 @@ import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.world.feature.features.AercloudCloudFeature;
 import teamrazor.deepaether.world.feature.features.FallenTreeFeature;
-import teamrazor.deepaether.world.feature.features.ModifiedAercloudFeature;
-import teamrazor.deepaether.world.feature.features.PoisonLakeFeature;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 import teamrazor.deepaether.world.feature.features.configuration.FallenTreeConfiguration;
 

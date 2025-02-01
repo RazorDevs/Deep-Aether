@@ -3,25 +3,15 @@ package teamrazor.deepaether.datagen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherItems;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-
 import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
-
-import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SetNbtFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;

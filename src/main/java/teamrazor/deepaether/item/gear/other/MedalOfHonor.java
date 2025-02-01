@@ -1,7 +1,6 @@
 package teamrazor.deepaether.item.gear.other;
 
 import com.aetherteam.aether.item.accessories.pendant.PendantItem;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
@@ -9,8 +8,6 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DAMobEffects;
 import teamrazor.deepaether.init.DASounds;
 import top.theillusivec4.curios.api.SlotContext;
-
-import java.util.List;
 
 public class MedalOfHonor extends PendantItem {
     public MedalOfHonor(Properties properties) {

@@ -11,7 +11,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import teamrazor.deepaether.datagen.tags.DATags;
-import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.world.feature.features.configuration.AercloudCloudConfiguration;
 
 import java.util.List;

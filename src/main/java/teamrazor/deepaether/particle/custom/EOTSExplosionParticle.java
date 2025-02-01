@@ -1,14 +1,5 @@
 package teamrazor.deepaether.particle.custom;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.Camera;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.particle.*;
-import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.util.Mth;
-import net.minecraft.world.phys.AABB;
-
-import javax.annotation.Nullable;
 /*
 public class EOTSExplosionParticle extends SimpleAnimatedParticle {
     float yDegrees = 0;

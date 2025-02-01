@@ -1,7 +1,5 @@
 package teamrazor.deepaether.recipe;
 
-import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.recipe.recipes.item.IncubationRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.DeferredRegister;

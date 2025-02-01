@@ -3,7 +3,6 @@ package teamrazor.deepaether.networking;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.apache.commons.lang3.tuple.Triple;
 

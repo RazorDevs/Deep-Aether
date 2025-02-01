@@ -3,7 +3,6 @@ package teamrazor.deepaether.datagen;
 import com.aetherteam.aether.data.resources.builders.AetherStructureBuilders;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -14,8 +13,6 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
-import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.world.structure.brass.BrassDungeonStructure;

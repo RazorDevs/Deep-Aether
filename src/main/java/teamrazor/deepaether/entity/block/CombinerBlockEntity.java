@@ -1,6 +1,5 @@
 package teamrazor.deepaether.entity.block;
 
-import com.aetherteam.aether.recipe.AetherRecipeTypes;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -9,7 +8,10 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.*;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.Containers;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
