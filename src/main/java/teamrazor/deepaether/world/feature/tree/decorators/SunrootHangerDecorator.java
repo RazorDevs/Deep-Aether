@@ -37,14 +37,14 @@ public class SunrootHangerDecorator extends TreeDecorator {
     }
 
     private void addHangingVine(BlockPos blockPos, Context context) {
-        placeVine(blockPos, context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.THREE_SHAPES, 0));
+        placeVine(blockPos, context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.BOTTOM, false));
         int i = 4;
 
         for(BlockPos blockpos = blockPos.below(); context.isAir(blockpos) && i > 0; --i) {
             if(i != 1 && context.isAir(blockpos.below())) {
-                placeVine(blockPos.below(i), context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.THREE_SHAPES, 1));
+                placeVine(blockPos.below(i), context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.BOTTOM, false));
             }
-            else placeVine(blockPos.below(i), context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.THREE_SHAPES, 2));
+            else placeVine(blockPos.below(i), context, DABlocks.SUNROOT_HANGER.get().defaultBlockState().setValue(SunrootHangerBlock.BOTTOM, true));
         }
 
     }

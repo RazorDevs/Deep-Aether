@@ -21,7 +21,9 @@
                     {
                       "condition": "minecraft:match_tool",
                       "predicate": {
-                        "tag": "forge:shears"
+                        "items": [
+                          "minecraft:shears"
+                        ]
                       }
                     },
                     {
@@ -40,7 +42,7 @@
                   ]
                 }
               ],
-              "name": "deep_aether:flowering_blue_roseroot_leaves"
+              "name": "deep_aether:flowering_roseroot_leaves"
             },
             {
               "type": "minecraft:item",
@@ -130,9 +132,24 @@
             }
           ],
           "name": "aether:skyroot_stick"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:ore_drops",
+              "function": "minecraft:apply_bonus"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "deep_aether:aerglow_blossom"
         }
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "deep_aether:blocks/flowering_blue_roseroot_leaves"
 }

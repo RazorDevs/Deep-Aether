@@ -348,4 +348,5 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         return DABlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }
+
 */
