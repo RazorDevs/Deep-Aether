@@ -224,7 +224,7 @@ public class DAItems {
 	//ADDONS
 
 	//PROTECT YOUR MOA
-	public static final DeferredItem<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+	public static final DeferredItem<?> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 
 	//LOST CONTENT
 	/*
@@ -273,10 +273,10 @@ public class DAItems {
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
 	}
 
-	private static DeferredItem<Item> registerPYMItem(String name, Supplier<Item> item) {
+	private static DeferredItem<?> registerPYMItem(String name, Supplier<?> item) {
 		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
-			return ITEMS.register(name, item);
+			return ITEMS.register(name, (Supplier<? extends Item>) item);
 		}
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
 	}
