@@ -11,7 +11,6 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.client.model.VenomiteModel;
 import teamrazor.deepaether.entity.Venomite;
-import teamrazor.deepaether.entity.quail.Quail;
 
 public class VenomiteRenderer extends GeoEntityRenderer<Venomite> {
 

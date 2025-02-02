@@ -1,6 +1,5 @@
 package teamrazor.deepaether.mixin;
 
-import com.aetherteam.aether.client.renderer.entity.model.AerwhaleModel;
 import com.aetherteam.aether.client.renderer.entity.model.ClassicAerwhaleModel;
 import com.aetherteam.aether.entity.passive.Aerwhale;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -13,16 +12,12 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraftforge.fml.ModList;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import teamrazor.deepaether.DeepAetherMod;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
 
 @Mixin(ClassicAerwhaleModel.class)

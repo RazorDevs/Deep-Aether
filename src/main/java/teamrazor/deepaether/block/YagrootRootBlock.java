@@ -3,8 +3,6 @@ package teamrazor.deepaether.block;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.MangroveRootsBlock;
-import net.minecraft.world.level.block.RootsBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
