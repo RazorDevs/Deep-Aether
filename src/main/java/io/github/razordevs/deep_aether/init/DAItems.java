@@ -273,7 +273,8 @@ public class DAItems {
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
 	}
 
-	private static DeferredItem<?> registerPYMItem(String name, Supplier<?> item) {
+	@SuppressWarnings({"unchecked", "SameParameterValue"})
+    private static DeferredItem<?> registerPYMItem(String name, Supplier<?> item) {
 		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
 			return ITEMS.register(name, (Supplier<? extends Item>) item);
