@@ -854,7 +854,10 @@
   "menu.deep_aether.brass_treasure_chest": "Brass Treasure Chest",
   "key.deep_aether.toggle_skyjade_transparency": "Toggle Skyjade Transparency",
   "deep_aether.moa.healed_health": "Health",
-  "gui.deep_aether.recipebook.toggleRecipes.combinable": "Showing Combinable"
+  "gui.deep_aether.recipebook.toggleRecipes.combinable": "Showing Combinable",
+
+  "enchantment.deep_aether.gloves_reach.desc": "Increases the block placement reach when equipped on a glove.",
+  "effect.deep_aether.valkyrie_valor.description": "Increases damage against undead mobs."
 }
 
 
