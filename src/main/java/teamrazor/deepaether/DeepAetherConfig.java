@@ -20,6 +20,7 @@ public class DeepAetherConfig {
         public final ConfigValue<String> slider_flawless_boss_drop;
         public final ConfigValue<String> valkyrie_queen_flawless_boss_drop;
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
+        public final ConfigValue<String> eots_flawless_boss_drop;
         public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
 
 
@@ -57,6 +58,13 @@ public class DeepAetherConfig {
                     .comment("The item dropped when the Sun Spirit is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Sun Spirit")
                     .translation("config.deep_aether.common.flawless.valkyrie_queen_flawless_boss_drop")
                     .define("Sun Spirit Flawless Boss Drop", "deep_aether:sun_core");
+            builder.pop();
+
+            builder.push("Gameplay");
+            eots_flawless_boss_drop = builder
+                    .comment("The item dropped when the Eye of the Storm is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Eye of the Storm")
+                    .translation("config.deep_aether.common.flawless.eots_flawless_boss_drop")
+                    .define("Eye of the Storm Flawless Boss Drop", "deep_aether:floaty_scarf");
             builder.pop();
 
             builder.push("Gameplay");
