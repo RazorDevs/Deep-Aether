@@ -1,5 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -61,6 +62,13 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
                 DAEntities.STORM_ARROW.get()
         );
         tag(DATags.Entities.SLIDER_SLAM_BLACKLIST).add(
+                DAEntities.EOTS_CONTROLLER.get()
+        );
+        tag(AetherTags.Entities.UNHOOKABLE).add(
+                DAEntities.EOTS_CONTROLLER.get(),
+                DAEntities.EOTS_SEGMENT.get()
+        );
+        tag(AetherTags.Entities.UNHOOKABLE).add(
                 DAEntities.EOTS_CONTROLLER.get()
         );
     }
