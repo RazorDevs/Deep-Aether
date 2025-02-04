@@ -201,11 +201,11 @@ public class DAItems {
 	public static final RegistryObject<Item> STORMFORGED_BOOTS = ITEMS.register("stormforged_boots", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.BOOTS, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
 	public static final RegistryObject<Item> STORMFORGED_GLOVES = ITEMS.register("stormforged_gloves", () -> new GlovesItem(DaArmorMaterials.STORMFORGED, 0.75, new ResourceLocation(DeepAether.MODID, "stormforged_gloves"), DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, new Item.Properties().rarity(AetherItems.AETHER_LOOT).durability(1561)));
 
-	public static final RegistryObject<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(new ResourceLocation(DeepAether.MODID, "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
-	public static final RegistryObject<Item> CLOUD_CAPE = ITEMS.register("cloud_cape", () -> new CloudCapeItem(new ResourceLocation(DeepAether.MODID, "cloud_cape"), new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
+	public static final RegistryObject<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(new ResourceLocation(DeepAether.MODID, "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
+	public static final RegistryObject<Item> CLOUD_CAPE = ITEMS.register("cloud_cape", () -> new CloudCapeItem(new ResourceLocation(DeepAether.MODID, "cloud_cape"), new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
     public static final RegistryObject<Item> WIND_SHIELD = ITEMS.register("wind_shield", () -> new WindShieldItem(new Item.Properties().stacksTo(1).durability(512).rarity(AetherItems.AETHER_LOOT)));
 
-    public static final RegistryObject<Item> FLOATY_SCARF = ITEMS.register("floaty_scarf", () -> new FloatyScarfItem(new ResourceLocation(DeepAether.MODID, "floaty_scarf"), DASounds.EQUIP_FLOATY_SCARF, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
+    public static final RegistryObject<Item> FLOATY_SCARF = ITEMS.register("floaty_scarf", () -> new FloatyScarfItem(new ResourceLocation(DeepAether.MODID, "floaty_scarf"), DASounds.EQUIP_FLOATY_SCARF, new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
 	//LOST CONTENT
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
