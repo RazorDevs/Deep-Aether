@@ -68,7 +68,7 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
                 DAEntities.EOTS_CONTROLLER.get(),
                 DAEntities.EOTS_SEGMENT.get()
         );
-        tag(AetherTags.Entities.UNHOOKABLE).add(
+        tag(AetherTags.Entities.UNLAUNCHABLE).add(
                 DAEntities.EOTS_CONTROLLER.get()
         );
     }
