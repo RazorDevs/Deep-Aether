@@ -18,6 +18,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.client.keys.DeepAetherKeys;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
@@ -78,17 +79,19 @@ public class SliderEye extends RingItem {
 
                 //Pushes all entities within range
                 for (LivingEntity target : entities) {
-                    target.hurt(level.damageSources().playerAttack(player), 1.4F);
+                    if(!target.getType().is(DATags.Entities.SLIDER_SLAM_BLACKLIST)) {
+                        target.hurt(level.damageSources().playerAttack(player), 1.4F);
 
 
-                    Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
+                        Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
 
-                    if (push.y < 0)
-                        push.multiply(1, -1, 1);
+                        if (push.y < 0)
+                            push.multiply(1, -1, 1);
 
-                    push.add(0F, 1, 0F);
+                        push.add(0F, 1, 0F);
 
-                    target.addDeltaMovement(push);
+                        target.addDeltaMovement(push);
+                    }
                 }
             }
         }
