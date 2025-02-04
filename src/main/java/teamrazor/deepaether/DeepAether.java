@@ -134,10 +134,7 @@ public class DeepAether {
 		DAEnchantments.ENCHANTMENTS.register(bus);
 		DAStructureProcessor.STRUCTURE_PROCESSOR_TYPES.register(bus);
 
-		DistExecutor.unsafeRunForDist(() -> () -> {
-			DAMenuTypes.MENUS.register(bus);
-			return true;
-		}, () -> () -> false);
+		DAMenuTypes.MENUS.register(bus);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
