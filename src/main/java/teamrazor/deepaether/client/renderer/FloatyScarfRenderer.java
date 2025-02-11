@@ -28,22 +28,24 @@ public class FloatyScarfRenderer implements ICurioRenderer {
 
     @Override
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext reference, PoseStack poseStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource buffer, int packedLight, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(stack, reference.entity().level());
+        try {
+            GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(stack, reference.entity().level());
 
-        if(gentleWind == null || !gentleWind.isWrappedAroundNeck()) return;
+            if (gentleWind == null || !gentleWind.isWrappedAroundNeck()) return;
 
-        ICurioRenderer.followBodyRotations(reference.entity(), this.scarfModel);
-        VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(new ResourceLocation(DeepAether.MODID, "textures/models/accessory/pendant/scarf.png")));
+            ICurioRenderer.followBodyRotations(reference.entity(), this.scarfModel);
+            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(new ResourceLocation(DeepAether.MODID, "textures/models/accessory/pendant/scarf.png")));
 
-        Player owner = gentleWind.getOwner();
-        if(owner != null && owner.isCrouching()) {
-            poseStack.translate(0, 0.23, 0);
-        }
+            Player owner = gentleWind.getOwner();
+            if (owner != null && owner.isCrouching()) {
+                poseStack.translate(0, 0.23, 0);
+            }
 
-        this.scarfModel.head.render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-        this.scarfModel.body[0].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-        this.scarfModel.body[1].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-        this.scarfModel.body[2].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-        this.scarfModel.body[3].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+            this.scarfModel.head.render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+            this.scarfModel.body[0].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+            this.scarfModel.body[1].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+            this.scarfModel.body[2].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+            this.scarfModel.body[3].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+        } catch (ClassCastException ignored) {}
     }
 }
