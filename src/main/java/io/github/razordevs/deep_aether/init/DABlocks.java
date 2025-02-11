@@ -366,7 +366,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> SKYJADE_LANTERN = registerBlock("skyjade_lantern", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)));
 
 	//MUD
-	public static final DeferredBlock<Block> AETHER_MUD = registerBlock("aether_mud", () -> new DoubleDropMudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD).noOcclusion()));
+	public static final DeferredBlock<Block> AETHER_MUD = registerBlock("aether_mud", () -> new DoubleDropMudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)));
 	public static final DeferredBlock<Block> PACKED_AETHER_MUD = registerBlock("packed_aether_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_MUD)));
 	public static final DeferredBlock<Block> AETHER_MUD_BRICKS = registerBlock("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
 	public static final DeferredBlock<Block> AETHER_MUD_BRICKS_SLAB = registerBlock("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICK_SLAB)));

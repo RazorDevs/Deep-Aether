@@ -17,3 +17,6 @@
   - Improved Leaves
   - Sunroot wood set
   - Ancient Aether compat
+
+### AriaElidove
+- Fixed incorrect key translation
