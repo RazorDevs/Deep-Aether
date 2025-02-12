@@ -54,6 +54,8 @@ public class DASounds {
 	public static final RegistryObject<SoundEvent> ITEM_ARMOR_EQUIP_STORMFORGED = register("item.armor.equip_stormforged");
 	public static final RegistryObject<SoundEvent> EQUIP_FLOATY_SCARF = register("item.armor.equip_floaty_scarf");
 
+	public static final RegistryObject<SoundEvent> DEEP_AETHER_MUSIC = register("music.deep_aether");
+
 	private static RegistryObject<SoundEvent> register(String name) {
 		return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DeepAether.MODID, name)));
 	}

@@ -10,7 +10,7 @@
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": true,
-      "sound": "aether:music.aether"
+      "sound": "deep_aether:music.deep_aether"
     },
     "particle": {
       "options": {
