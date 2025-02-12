@@ -16,7 +16,7 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     private int oldBladeOfLuckDamage = 6;
     public boolean changeBladeOfLuckState;
 
-    private boolean sliderSlamActivated = true;
+    private boolean sliderSlamActivated = false;
     private final Player player;
     public int windShieldCooldown;
 
