@@ -3,15 +3,17 @@ package teamrazor.deepaether.entity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.network.NetworkHooks;
 import teamrazor.deepaether.init.DAEntities;
+import teamrazor.deepaether.init.DAItems;
 
 public class VenomiteBubble extends ThrowableProjectile {
     private int ticksInAir = 0;
@@ -23,6 +25,7 @@ public class VenomiteBubble extends ThrowableProjectile {
     public VenomiteBubble(Level level) {
         super(DAEntities.VENOMITE_BUBBLE.get(), level);
     }
+
     @Override
     protected void defineSynchedData() {
     }
@@ -45,7 +48,6 @@ public class VenomiteBubble extends ThrowableProjectile {
     }
 
     protected void onHitEntity(EntityHitResult result) {
-        Entity target = result.getEntity();
         if (!this.level().isClientSide()) {
             this.explode();
             this.level().broadcastEntityEvent(this, (byte) 70);
@@ -61,12 +63,13 @@ public class VenomiteBubble extends ThrowableProjectile {
 
     private void explode(){
         level().explode(this, this.getX(),this.getY(),this.getZ(),1, Level.ExplosionInteraction.NONE);
+        level().addFreshEntity(new ItemEntity(level(), this.getX(),this.getY(),this.getZ(), new ItemStack(DAItems.BIO_CRYSTAL.get())));
     }
-
 
     protected float getGravity() {
         return 0.07F;
     }
+
     public void handleEntityEvent(byte id) {
         super.handleEntityEvent(id);
     }
@@ -81,13 +84,10 @@ public class VenomiteBubble extends ThrowableProjectile {
         if (tag.contains("TicksInAir")) {
             this.ticksInAir = tag.getInt("TicksInAir");
         }
-
     }
 
     public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
-
-
 }
 

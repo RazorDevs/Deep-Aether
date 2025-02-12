@@ -200,7 +200,7 @@ public class Venomite extends AetherAnimal implements NeutralMob, FlyingAnimal {
     @Override
     public void remove(RemovalReason removalReason) {
         if(!this.level().isClientSide && this.isDeadOrDying() && random.nextBoolean()) {
-            VenomiteBubble bubble = new VenomiteBubble(DAEntities.VENOMITE_BUBBLE.get(), this.level());
+            VenomiteBubble bubble = new VenomiteBubble(this.level());
             bubble.moveTo(this.getPosition(0));
             this.level().addFreshEntity(bubble);
         }
