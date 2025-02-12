@@ -41,13 +41,17 @@ public class DAFishingLootModifier extends LootModifier {
             if(context.getRandom().nextFloat() > chance) {
 
                 int itemNum = context.getRandom().nextInt(totalWeight);
+                int num = 0;
+
                 ItemStack modifiedStack = null;
 
                 for (WeightedEntry.Wrapper<ItemStack> stack : items) {
-                    if (stack.getWeight().asInt() >= itemNum) {
+                    num += stack.getWeight().asInt();
+                    if (num >= itemNum) {
                         modifiedStack = stack.getData();
                         break;
                     }
+
                 }
 
                 if(modifiedStack != null)
