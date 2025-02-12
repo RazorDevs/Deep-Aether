@@ -314,7 +314,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.NIMBUS_STONE.get());
         this.dropSelf(DABlocks.LIGHT_NIMBUS_STONE.get());
         this.dropSelf(DABlocks.NIMBUS_STAIRS.get());
-        this.dropSelf(DABlocks.NIMBUS_SLAB.get());
+        this.add(DABlocks.NIMBUS_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(DABlocks.NIMBUS_WALL.get());
         this.dropNone(DABlocks.LOCKED_SKYROOT_PLANKS.get());
         this.dropNone(DABlocks.TRAPPED_SKYROOT_PLANKS.get());
