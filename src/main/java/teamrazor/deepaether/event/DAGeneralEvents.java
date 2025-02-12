@@ -1,5 +1,7 @@
 package teamrazor.deepaether.event;
 
+import com.aetherteam.aether.capability.player.AetherPlayer;
+import com.aetherteam.aether.capability.player.AetherPlayerCapability;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
@@ -36,12 +38,14 @@ import net.minecraftforge.fml.common.Mod;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.advancement.DAAdvancementTriggers;
 import teamrazor.deepaether.datagen.tags.DATags;
+import teamrazor.deepaether.entity.GentleWind;
 import teamrazor.deepaether.entity.IPlayerBossFight;
 import teamrazor.deepaether.entity.MoaBonusJump;
 import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 import teamrazor.deepaether.item.dungeon.brass.FloatyScarfItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
+import teamrazor.deepaether.networking.DAPlayerCapability;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotResult;
 
@@ -196,7 +200,7 @@ public class DAGeneralEvents {
         Player player = event.getEntity();
         Optional<SlotResult> reference = EquipmentUtil.getFloatyScarf(player);
 
-        reference.ifPresent(slotResult -> FloatyScarfItem.tryDiscardGentleWind(slotResult.stack(), player.level()));
+        reference.ifPresent(slotResult -> FloatyScarfItem.discardGentleWind(slotResult.stack(), player.level()));
     }
 
     private static int i = 0;
@@ -224,6 +228,41 @@ public class DAGeneralEvents {
             if (stack.is(DATags.Items.FLAWLESS_ITEMS)) {
                 flawlessComponent(itemTooltips, i);
                 i = i < 80 ? i + 1 : 0;
+            }
+        }
+    }
+
+
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        syncGentleWind(event.getEntity());
+    }
+
+    private static void syncGentleWind(Player player) {
+        Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
+
+        if(deepAetherPlayer.isPresent()) {
+            if(!player.level().isClientSide()) {
+                Optional<SlotResult> result = EquipmentUtil.getFloatyScarf(player);
+
+                if(result.isPresent()) {
+                    GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(result.get().stack(), player.level());
+
+                    if (gentleWind != null) {
+                        deepAetherPlayer.get().setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", gentleWind.isWrappedAroundNeck());
+
+                        List<? extends Player> players = player.level().players();
+
+                        for(Player serverPlayer : players) {
+                            if (!serverPlayer.getUUID().equals(player.getUUID())) {
+                                DeepAetherPlayer.get(serverPlayer).ifPresent((aetherPlayer) -> {
+                                    aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", gentleWind.isWrappedAroundNeck());
+                                });
+                            }
+                        }
+                    }
+                }
             }
         }
     }

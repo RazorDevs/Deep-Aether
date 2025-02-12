@@ -20,6 +20,13 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     private final Player player;
     public int windShieldCooldown;
 
+    private boolean isFloatyScarfWrappedAroundNeck = false;
+
+    int floatyScarfColor0;
+    int floatyScarfColor1;
+    int floatyScarfColor2;
+    int floatyScarfColor3;
+
     private final Map<String, Triple<INBTSynchable.Type, Consumer<Object>, Supplier<Object>>> synchableFunctions;
 
     @Override
@@ -36,7 +43,13 @@ public class DAPlayerCapability implements DeepAetherPlayer {
         this.synchableFunctions = Map.ofEntries(
                 Map.entry("setSliderSlamActivated", Triple.of(Type.BOOLEAN, (object) -> this.setSliderSlamActivated((Boolean) object), this::isSliderSlamActivated)),
                 Map.entry("setBladeOfLuckDamage", Triple.of(Type.INT, (object) -> this.setBladeOfLuckDamage((Integer) object), this::getBladeOfLuckDamage)),
-                Map.entry("setWindShieldCooldown", Triple.of(Type.INT, (object) -> this.setWindShieldCooldown((int) object), this::getWindShieldCooldown))
+                Map.entry("setWindShieldCooldown", Triple.of(Type.INT, (object) -> this.setWindShieldCooldown((int) object), this::getWindShieldCooldown)),
+                Map.entry("setFloatyScarfWrappedAroundNeck", Triple.of(Type.BOOLEAN, (object) -> this.setFloatyScarfWrappedAroundNeck((boolean) object), this::isFloatyScarfWrappedAroundNeck)),
+
+                Map.entry("setFloatyScarfColor0", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor0((int) object), this::getFloatyScarfColor0)),
+                Map.entry("setFloatyScarfColor1", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor1((int) object), this::getFloatyScarfColor1)),
+                Map.entry("setFloatyScarfColor2", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor2((int) object), this::getFloatyScarfColor2)),
+                Map.entry("setFloatyScarfColor3", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor3((int) object), this::getFloatyScarfColor3))
         );
         this.player = player;
     }
@@ -67,7 +80,6 @@ public class DAPlayerCapability implements DeepAetherPlayer {
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-
     }
 
     public int getBladeOfLuckDamage() {
@@ -99,5 +111,39 @@ public class DAPlayerCapability implements DeepAetherPlayer {
 
     public boolean getChangeBladeOfLuckState() {
         return changeBladeOfLuckState;
+    }
+
+    public boolean isFloatyScarfWrappedAroundNeck() {
+        return isFloatyScarfWrappedAroundNeck;
+    }
+
+    public void setFloatyScarfWrappedAroundNeck(boolean bool) {
+        this.isFloatyScarfWrappedAroundNeck = bool;
+    }
+
+    public int getFloatyScarfColor0() {
+        return this.floatyScarfColor0;
+    }
+    public int getFloatyScarfColor1() {
+        return this.floatyScarfColor1;
+    }
+    public int getFloatyScarfColor2() {
+        return this.floatyScarfColor2;
+    }
+    public int getFloatyScarfColor3() {
+        return this.floatyScarfColor3;
+    }
+
+    public void setFloatyScarfColor0(int color) {
+        this.floatyScarfColor0 = color;
+    }
+    public void setFloatyScarfColor1(int color) {
+        this.floatyScarfColor1 = color;
+    }
+    public void setFloatyScarfColor2(int color) {
+        this.floatyScarfColor2 = color;
+    }
+    public void setFloatyScarfColor3(int color) {
+        this.floatyScarfColor3 = color;
     }
 }

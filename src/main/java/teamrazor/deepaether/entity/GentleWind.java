@@ -1,5 +1,6 @@
 package teamrazor.deepaether.entity;
 
+import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -27,6 +28,7 @@ import net.minecraft.world.phys.Vec3;
 import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DASounds;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
+import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotResult;
 
 import javax.annotation.Nullable;
@@ -164,18 +166,24 @@ public class GentleWind extends FlyingMob {
         return this.entityData.get(IS_ON_NECK);
     }
 
-    public boolean setEntityAroundNeck() {
-        if(isWrappedAroundNeck()) return false;
+    public void setEntityAroundNeck() {
+        if(isWrappedAroundNeck()) return;
+
+        if(!this.level().isClientSide()) {
+            Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(this.getOwner()).resolve();
+            deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
+        }
         this.entityData.set(IS_ON_NECK, true);
-        return true;
     }
 
-    public boolean removeEntityAroundNeck() {
-        if(!isWrappedAroundNeck()) return false;
+    public void removeEntityAroundNeck() {
         this.rideCooldownCounter = 0;
         this.entityData.set(IS_ON_NECK, false);
-        this.setPos(getOwner().getX(), getOwner().getY() + 1.2, getOwner().getZ());
-        return true;
+        this.setPos(this.getOwner().getX(), getOwner().getY() + 1.2, getOwner().getZ());
+        if(!this.level().isClientSide()) {
+            Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(this.getOwner()).resolve();
+            deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", false));
+        }
     }
 
     public static class WrapAroundPlayerGoal extends Goal {
