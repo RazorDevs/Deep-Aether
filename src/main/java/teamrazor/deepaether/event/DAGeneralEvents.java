@@ -1,7 +1,5 @@
 package teamrazor.deepaether.event;
 
-import com.aetherteam.aether.capability.player.AetherPlayer;
-import com.aetherteam.aether.capability.player.AetherPlayerCapability;
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.passive.Moa;
@@ -45,7 +43,6 @@ import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.init.DAMobEffects;
 import teamrazor.deepaether.item.dungeon.brass.FloatyScarfItem;
 import teamrazor.deepaether.item.gear.EquipmentUtil;
-import teamrazor.deepaether.networking.DAPlayerCapability;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotResult;
 
@@ -239,29 +236,37 @@ public class DAGeneralEvents {
         syncGentleWind(event.getEntity());
     }
 
+    @SubscribeEvent
+    public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        syncGentleWind(event.getEntity());
+    }
+
+
     private static void syncGentleWind(Player player) {
-        Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
+        if (!player.level().isClientSide()) {
+            Optional<SlotResult> result = EquipmentUtil.getFloatyScarf(player);
 
-        if(deepAetherPlayer.isPresent()) {
-            if(!player.level().isClientSide()) {
-                Optional<SlotResult> result = EquipmentUtil.getFloatyScarf(player);
+            //Sync the new player's floaty scarf with the other players
+            if (result.isPresent()) {
+                GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(result.get().stack(), player.level());
 
-                if(result.isPresent()) {
-                    GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(result.get().stack(), player.level());
+                if (gentleWind == null || !gentleWind.isAlive()) {
+                    Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
 
-                    if (gentleWind != null) {
-                        deepAetherPlayer.get().setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", gentleWind.isWrappedAroundNeck());
+                    deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
+                }
+            }
 
-                        List<? extends Player> players = player.level().players();
+            //Sync the new player with the other players' floaty scarf
+            List<? extends Player> players = player.level().players();
+            for (Player serverPlayer : players) {
+                if (!serverPlayer.getUUID().equals(player.getUUID())) {
+                    DeepAetherPlayer.get(serverPlayer).ifPresent((aetherPlayer) ->
+                    {
+                        System.out.println(serverPlayer.getDisplayName().getString() + aetherPlayer.isFloatyScarfWrappedAroundNeck() );
+                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfWrappedAroundNeck", aetherPlayer.isFloatyScarfWrappedAroundNeck(), player);
 
-                        for(Player serverPlayer : players) {
-                            if (!serverPlayer.getUUID().equals(player.getUUID())) {
-                                DeepAetherPlayer.get(serverPlayer).ifPresent((aetherPlayer) -> {
-                                    aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", gentleWind.isWrappedAroundNeck());
-                                });
-                            }
-                        }
-                    }
+                    });
                 }
             }
         }
