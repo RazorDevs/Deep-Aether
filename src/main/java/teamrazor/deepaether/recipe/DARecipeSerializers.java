@@ -2,6 +2,7 @@ package teamrazor.deepaether.recipe;
 
 import com.aetherteam.nitrogen.recipe.serializer.BlockStateRecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -24,4 +25,7 @@ public class DARecipeSerializers {
 
     public static final RegistryObject<BlockStateRecipeSerializer<GlowingSporesRecipe>> GLOWING_SPORES_RECIPE =
             RECIPE_SERIALIZERS.register("glowing_spores_recipe", GlowingSporesRecipe.Serializer::new);
+
+    public static final RegistryObject<RecipeSerializer<FloatyScarfColoring>> FLOATY_SCARF_COLORING =
+            RECIPE_SERIALIZERS.register("floaty_scarf_coloring", () -> new SimpleCraftingRecipeSerializer<>(FloatyScarfColoring::new));
 }

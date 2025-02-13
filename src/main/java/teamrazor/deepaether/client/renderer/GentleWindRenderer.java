@@ -71,17 +71,24 @@ public class GentleWindRenderer extends MobRenderer<GentleWind, GentleWindModel>
         VertexConsumer vertexconsumer = buffer.getBuffer(rendertype);
         int i = getOverlayCoords(eots, this.getWhiteOverlayProgress(eots, partialTicks));
 
-        this.model.head.render(matrixStack, vertexconsumer, packedLight, i);
-        this.model.body[0].render(matrixStack, vertexconsumer, packedLight, i);
-        this.model.body[1].render(matrixStack, vertexconsumer, packedLight, i);
-        this.model.body[2].render(matrixStack, vertexconsumer, packedLight, i);
-        this.model.body[3].render(matrixStack, vertexconsumer, packedLight, i);
+        renderModel(this.model.head, matrixStack, vertexconsumer, packedLight, i, eots.getColor(0));
+        renderModel(this.model.body[0], matrixStack, vertexconsumer, packedLight, i, eots.getColor(1));
+        renderModel(this.model.body[1], matrixStack, vertexconsumer, packedLight, i, eots.getColor(2));
+        renderModel(this.model.body[2], matrixStack, vertexconsumer, packedLight, i, eots.getColor(3));
+        renderModel(this.model.body[3], matrixStack, vertexconsumer, packedLight, i, eots.getColor(4));
 
         matrixStack.popPose();
 
         if (this.shouldShowName(eots) && eots.hasCustomName() && !eots.isWrappedAroundNeck()) {
             this.renderNameTag(eots, eots.getDisplayName(), matrixStack, buffer, packedLight);
         }
+    }
+
+    public static void renderModel(ModelPart part, PoseStack matrixStack, VertexConsumer vertexConsumer, int packedLight, int i, int color) {
+        float red = (float)(color >> 16 & 255) / 255.0F;
+        float green = (float)(color >> 8 & 255) / 255.0F;
+        float blue = (float)(color & 255) / 255.0F;
+        part.render(matrixStack, vertexConsumer, packedLight, i, red, green, blue, 1.0F);
     }
 
     @Override

@@ -22,10 +22,11 @@ public class DAPlayerCapability implements DeepAetherPlayer {
 
     private boolean isFloatyScarfWrappedAroundNeck = false;
 
-    int floatyScarfColor0;
-    int floatyScarfColor1;
-    int floatyScarfColor2;
-    int floatyScarfColor3;
+    int floatyScarfColor0 = -1;
+    int floatyScarfColor1 = -1;
+    int floatyScarfColor2 = -1;
+    int floatyScarfColor3 = -1;
+    int floatyScarfColor4 = -1;
 
     private final Map<String, Triple<INBTSynchable.Type, Consumer<Object>, Supplier<Object>>> synchableFunctions;
 
@@ -49,7 +50,9 @@ public class DAPlayerCapability implements DeepAetherPlayer {
                 Map.entry("setFloatyScarfColor0", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor0((int) object), this::getFloatyScarfColor0)),
                 Map.entry("setFloatyScarfColor1", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor1((int) object), this::getFloatyScarfColor1)),
                 Map.entry("setFloatyScarfColor2", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor2((int) object), this::getFloatyScarfColor2)),
-                Map.entry("setFloatyScarfColor3", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor3((int) object), this::getFloatyScarfColor3))
+                Map.entry("setFloatyScarfColor3", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor3((int) object), this::getFloatyScarfColor3)),
+                Map.entry("setFloatyScarfColor4", Triple.of(Type.INT, (object) -> this.setFloatyScarfColor4((int) object), this::getFloatyScarfColor4))
+
         );
         this.player = player;
     }
@@ -133,6 +136,9 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     public int getFloatyScarfColor3() {
         return this.floatyScarfColor3;
     }
+    public int getFloatyScarfColor4() {
+        return this.floatyScarfColor4;
+    }
 
     public void setFloatyScarfColor0(int color) {
         this.floatyScarfColor0 = color;
@@ -145,5 +151,8 @@ public class DAPlayerCapability implements DeepAetherPlayer {
     }
     public void setFloatyScarfColor3(int color) {
         this.floatyScarfColor3 = color;
+    }
+    public void setFloatyScarfColor4(int color) {
+        this.floatyScarfColor4 = color;
     }
 }

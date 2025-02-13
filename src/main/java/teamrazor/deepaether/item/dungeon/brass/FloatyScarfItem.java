@@ -2,20 +2,25 @@ package teamrazor.deepaether.item.dungeon.brass;
 
 import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.entity.GentleWind;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotContext;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -29,8 +34,22 @@ public class FloatyScarfItem extends PendantItem {
         if(!stack.isEmpty()) {
             try {
                 if(!slotContext.entity().level().isClientSide()) {
-                    Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get((Player) slotContext.entity()).resolve();
-                    deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", false));
+                    DeepAetherPlayer.get((Player) slotContext.entity()).ifPresent(aetherPlayer ->
+                    {
+                        aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true);
+
+                        CompoundTag tag = stack.getOrCreateTag();
+                        if (tag.contains("Colors")) {
+
+                            int[] colors = tag.getIntArray("Colors");
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor0", colors[0]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor1", colors[1]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor2", colors[2]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor3", colors[3]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor4", colors[4]);
+
+                        }
+                    });
                 }
                 addGentleWind(stack, (Player) slotContext.entity());
             } catch (ClassCastException ignored) {}
@@ -76,8 +95,12 @@ public class FloatyScarfItem extends PendantItem {
 
     public static void addGentleWind(@NotNull ItemStack stack, Player player) {
         CompoundTag scarf = stack.getOrCreateTag();
-
-        GentleWind eots = new GentleWind(player.level(), player);
+        GentleWind eots;
+        if (scarf.contains("Colors")) {
+            eots = new GentleWind(player.level(), player, scarf.getIntArray("Colors"));
+        } else {
+            eots = new GentleWind(player.level(), player);
+        }
 
         MutableComponent mutablecomponent = Component.empty().append(stack.getHoverName());
         if (stack.hasCustomHoverName()) {
@@ -85,12 +108,32 @@ public class FloatyScarfItem extends PendantItem {
         }
 
         scarf.putInt("UUID", eots.getId());
-
         stack.setTag(scarf);
     }
 
     public static Entity getGentleWind(ItemStack stack, Level level){
         CompoundTag scarf = stack.getTag();
         return scarf != null ? level.getEntity(scarf.getInt("UUID")) : null;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        CompoundTag tag = stack.getOrCreateTag();
+        if (tag.contains("Colors")) {
+            int[] colors = tag.getIntArray("Colors");
+            this.chatFormat(tooltipComponents, colors[0], 0, tag);
+            this.chatFormat(tooltipComponents, colors[1], 1, tag);
+            this.chatFormat(tooltipComponents, colors[2], 2, tag);
+            this.chatFormat(tooltipComponents, colors[3], 3, tag);
+            this.chatFormat(tooltipComponents, colors[4], 4, tag);
+        }
+    }
+
+    private void chatFormat(List<Component> tooltipComponents, int color, int mod, CompoundTag tag) {
+        if (tag.getInt("currentModification") == mod) {
+            tooltipComponents.add(Component.literal("Color").withStyle(Style.EMPTY.withColor(color)).withStyle(ChatFormatting.ITALIC));
+        } else {
+            tooltipComponents.add(Component.literal("Color").withStyle(Style.EMPTY.withColor(color)));
+        }
     }
 }

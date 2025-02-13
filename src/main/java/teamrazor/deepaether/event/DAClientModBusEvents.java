@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.DoublePlantBlock;
@@ -187,5 +188,9 @@ public class DAClientModBusEvents {
                 BiomeColors.getAverageGrassColor(pLevel, pPos) : FoliageColor.getDefaultColor(), DABlocks.GLOWING_SPORES.get());
     }
 
-
+    @SubscribeEvent
+    public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
+        event.register((ItemStack stack, int tintindex) -> stack.getOrCreateTag().contains("Colors") ?
+                stack.getOrCreateTag().getIntArray("Colors")[tintindex] : -1, DAItems.FLOATY_SCARF.get());
+    }
 }

@@ -41,6 +41,11 @@ public class GentleWind extends FlyingMob {
 
     private static final EntityDataAccessor<Integer> DATA_OWNER_ID = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> IS_ON_NECK = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> COLOR_0 = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> COLOR_1 = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> COLOR_2 = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> COLOR_3 = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> COLOR_4 = SynchedEntityData.defineId(GentleWind.class, EntityDataSerializers.INT);
 
     public GentleWind(EntityType<? extends FlyingMob> type, Level level) {
         super(type, level);
@@ -57,6 +62,11 @@ public class GentleWind extends FlyingMob {
         level.addFreshEntity(this);
     }
 
+    public GentleWind(Level level, Player owner, int[] colors) {
+        this(level, owner);
+        this.setColors(colors);
+    }
+
     @Override
     public boolean canBeHitByProjectile() {
         return false;
@@ -71,6 +81,34 @@ public class GentleWind extends FlyingMob {
         super.defineSynchedData();
         this.entityData.define(DATA_OWNER_ID, 0);
         this.entityData.define(IS_ON_NECK, false);
+        this.entityData.define(COLOR_0, -1);
+        this.entityData.define(COLOR_1, -1);
+        this.entityData.define(COLOR_2, -1);
+        this.entityData.define(COLOR_3, -1);
+        this.entityData.define(COLOR_4, -1);
+    }
+
+    private void setColors(int[] colors) {
+        this.entityData.set(COLOR_0, colors[0]);
+        this.entityData.set(COLOR_1, colors[1]);
+        this.entityData.set(COLOR_2, colors[2]);
+        this.entityData.set(COLOR_3, colors[3]);
+        this.entityData.set(COLOR_4, colors[4]);
+    }
+
+    public int getColor(int id) {
+        return opaque(switch (id) {
+            case 0 -> this.entityData.get(COLOR_0);
+            case 1 -> this.entityData.get(COLOR_1);
+            case 2 -> this.entityData.get(COLOR_2);
+            case 3 -> this.entityData.get(COLOR_3);
+            case 4 -> this.entityData.get(COLOR_4);
+            default -> -1;
+        });
+    }
+
+    public static int opaque(int color) {
+        return color | -16777216;
     }
 
     @Override
@@ -115,10 +153,15 @@ public class GentleWind extends FlyingMob {
     private void followOwner() {
         Player player = this.getOwner();
         if(player != null) {
-            if(this.distanceTo(player) > 40)
-                this.setPos(player.position().add(0, 2,0));
+            float distance = this.distanceTo(player);
+            if(distance > 50)
+                this.setPos(player.position().add(0, 1.2,0));
 
-            this.moveControl.setWantedPosition(player.getX(), player.getY() + 2, player.getZ(), 1.0F);
+            else if(distance < 5.0) {
+                this.moveControl.setWantedPosition(player.getX() + this.getDeltaMovement().x * 2, player.getY() + 2, player.getZ() + this.getDeltaMovement().z * 2, 1.0F);
+            }
+            else this.moveControl.setWantedPosition(player.getX(), player.getY() + 2, player.getZ(), 1.0F);
+
         }
     }
 
@@ -167,22 +210,30 @@ public class GentleWind extends FlyingMob {
     }
 
     public void setEntityAroundNeck() {
-        if(isWrappedAroundNeck()) return;
+        if (isWrappedAroundNeck()) return;
 
-        if(!this.level().isClientSide()) {
-            Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(this.getOwner()).resolve();
-            deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
+        if (!this.level().isClientSide()) {
+            Player owner = this.getOwner();
+            if (owner != null) {
+                DeepAetherPlayer.get(owner).ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
+            }
         }
         this.entityData.set(IS_ON_NECK, true);
     }
 
     public void removeEntityAroundNeck() {
         this.rideCooldownCounter = 0;
+        if(!this.isWrappedAroundNeck())
+            return;
+
         this.entityData.set(IS_ON_NECK, false);
-        this.setPos(this.getOwner().getX(), getOwner().getY() + 1.2, getOwner().getZ());
-        if(!this.level().isClientSide()) {
-            Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(this.getOwner()).resolve();
-            deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", false));
+
+        Player owner = this.getOwner();
+        if(owner != null) {
+            this.setPos(owner.getX(), getOwner().getY() + 1.2, getOwner().getZ());
+            if (!this.level().isClientSide()) {
+                DeepAetherPlayer.get(owner).ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", false));
+            }
         }
     }
 
@@ -218,7 +269,7 @@ public class GentleWind extends FlyingMob {
         }
 
         public void tick() {
-            if (!this.eots.isWrappedAroundNeck() && this.eots.getBoundingBox().intersects(this.owner.getBoundingBox().inflate(0, 2, 0))) {
+            if (!this.eots.isWrappedAroundNeck() && this.eots.getBoundingBox().intersects(this.owner.getBoundingBox().inflate(1.3, 2, 1.3))) {
                 this.eots.setEntityAroundNeck();
             }
         }
@@ -379,7 +430,7 @@ public class GentleWind extends FlyingMob {
         public void start() {
             this.gentleWind.removeEntityAroundNeck();
             this.attackDelay = 10;
-            this.numberOfAttacks = this.gentleWind.random.nextInt(2);
+            this.numberOfAttacks = this.gentleWind.random.nextInt(3);
             super.start();
         }
 

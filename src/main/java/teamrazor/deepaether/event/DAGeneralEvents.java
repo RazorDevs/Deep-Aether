@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -253,7 +254,20 @@ public class DAGeneralEvents {
                 if (gentleWind == null || !gentleWind.isAlive()) {
                     Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
 
-                    deepAetherPlayer.ifPresent(aetherPlayer -> aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
+                    deepAetherPlayer.ifPresent(aetherPlayer ->
+                    {
+                        aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true);
+
+                        CompoundTag tag = result.get().stack().getOrCreateTag();
+                        if (tag.contains("Colors")) {
+                            int[] colors = tag.getIntArray("Colors");
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor0", colors[0]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor1", colors[1]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor2", colors[2]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor3", colors[3]);
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor4", colors[4]);
+                        }
+                    });
                 }
             }
 
@@ -263,9 +277,13 @@ public class DAGeneralEvents {
                 if (!serverPlayer.getUUID().equals(player.getUUID())) {
                     DeepAetherPlayer.get(serverPlayer).ifPresent((aetherPlayer) ->
                     {
-                        System.out.println(serverPlayer.getDisplayName().getString() + aetherPlayer.isFloatyScarfWrappedAroundNeck() );
                         aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfWrappedAroundNeck", aetherPlayer.isFloatyScarfWrappedAroundNeck(), player);
 
+                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor0", aetherPlayer.getFloatyScarfColor0(), player);
+                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor1", aetherPlayer.getFloatyScarfColor1(), player);
+                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor2", aetherPlayer.getFloatyScarfColor2(), player);
+                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor3", aetherPlayer.getFloatyScarfColor3(), player);
+                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor4", aetherPlayer.getFloatyScarfColor4(), player);
                     });
                 }
             }

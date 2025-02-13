@@ -42,11 +42,11 @@ public class FloatyScarfRenderer implements ICurioRenderer {
                         poseStack.translate(0, 0.23, 0);
                     }
 
-                    this.scarfModel.head.render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-                    this.scarfModel.body[0].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-                    this.scarfModel.body[1].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-                    this.scarfModel.body[2].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
-                    this.scarfModel.body[3].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
+                    GentleWindRenderer.renderModel(this.scarfModel.head, poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor0());
+                    GentleWindRenderer.renderModel(this.scarfModel.body[0], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor1());
+                    GentleWindRenderer.renderModel(this.scarfModel.body[1], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor2());
+                    GentleWindRenderer.renderModel(this.scarfModel.body[2], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor3());
+                    GentleWindRenderer.renderModel(this.scarfModel.body[3], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor4());
                 }
             }
         } catch (ClassCastException ignored) {}

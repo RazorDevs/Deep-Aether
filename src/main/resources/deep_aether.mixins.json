@@ -10,6 +10,7 @@
     "AerwhaleMixin",
     "BrewingFuelMenuMixin",
     "BrewingFuelMixin",
+    "DyeColorMixin",
     "GlovesMixin",
     "MoaMixin",
     "PowderSnowBlockMixin",
