@@ -222,11 +222,10 @@ public class DAGeneralEvents {
             if (stack.is(DATags.Items.BRASS_DUNGEON_LOOT)) {
                 itemTooltips.add(position, DAItems.BRASS_DUNGEON_TOOLTIP);
             }
-
-            if (stack.is(DATags.Items.FLAWLESS_ITEMS)) {
-                flawlessComponent(itemTooltips, i);
-                i = i < 80 ? i + 1 : 0;
-            }
+        }
+        if (stack.is(DATags.Items.FLAWLESS_ITEMS)) {
+            flawlessComponent(itemTooltips, i);
+            i = i < 80 ? i + 1 : 0;
         }
     }
 
