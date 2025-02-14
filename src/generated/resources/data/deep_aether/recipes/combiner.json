@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "aether:ambrosium_shard"
+    },
+    "H": {
+      "item": "aether:holystone"
+    },
+    "O": {
+      "item": "deep_aether:skyjade"
+    },
+    "W": {
+      "item": "aether:skyroot_planks"
+    }
+  },
+  "pattern": [
+    "WHW",
+    "OAO",
+    "HOH"
+  ],
+  "result": {
+    "item": "deep_aether:combiner"
+  },
+  "show_notification": true
+}
