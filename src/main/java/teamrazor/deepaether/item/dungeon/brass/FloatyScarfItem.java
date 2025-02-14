@@ -41,21 +41,7 @@ public class FloatyScarfItem extends PendantItem {
             try {
                 if(!slotContext.entity().level().isClientSide()) {
                     DeepAetherPlayer.get((Player) slotContext.entity()).ifPresent(aetherPlayer ->
-                    {
-                        aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true);
-
-                        CompoundTag tag = stack.getOrCreateTag();
-                        if (tag.contains("Colors")) {
-
-                            int[] colors = tag.getIntArray("Colors");
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor0", colors[0]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor1", colors[1]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor2", colors[2]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor3", colors[3]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor4", colors[4]);
-
-                        }
-                    });
+                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
                 }
                 addGentleWind(stack, (Player) slotContext.entity());
             } catch (ClassCastException ignored) {}

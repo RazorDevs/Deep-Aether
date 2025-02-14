@@ -28,16 +28,4 @@ public interface DeepAetherPlayer extends INBTSynchable<CompoundTag> {
     //Nothing to see here
     boolean isFloatyScarfWrappedAroundNeck();
     void setFloatyScarfWrappedAroundNeck(boolean bool);
-
-    int getFloatyScarfColor0();
-    int getFloatyScarfColor1();
-    int getFloatyScarfColor2();
-    int getFloatyScarfColor3();
-    int getFloatyScarfColor4();
-
-    void setFloatyScarfColor0(int color);
-    void setFloatyScarfColor1(int color);
-    void setFloatyScarfColor2(int color);
-    void setFloatyScarfColor3(int color);
-    void setFloatyScarfColor4(int color);
 }

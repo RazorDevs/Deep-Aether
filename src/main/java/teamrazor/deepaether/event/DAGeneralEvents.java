@@ -6,7 +6,6 @@ import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -248,25 +247,16 @@ public class DAGeneralEvents {
 
             //Sync the new player's floaty scarf with the other players
             if (result.isPresent()) {
-                GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(result.get().stack(), player.level());
+                try {
+                    GentleWind gentleWind = (GentleWind) FloatyScarfItem.getGentleWind(result.get().stack(), player.level());
 
-                if (gentleWind == null || !gentleWind.isAlive()) {
-                    Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
+                    if (gentleWind == null || !gentleWind.isAlive()) {
+                        Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
 
-                    deepAetherPlayer.ifPresent(aetherPlayer ->
-                    {
-                        aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true);
-
-                        CompoundTag tag = result.get().stack().getOrCreateTag();
-                        if (tag.contains("Colors")) {
-                            int[] colors = tag.getIntArray("Colors");
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor0", colors[0]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor1", colors[1]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor2", colors[2]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor3", colors[3]);
-                            aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfColor4", colors[4]);
-                        }
-                    });
+                        deepAetherPlayer.ifPresent(aetherPlayer ->
+                                aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true));
+                    }
+                } catch (ClassCastException ignore) {
                 }
             }
 
@@ -275,15 +265,7 @@ public class DAGeneralEvents {
             for (Player serverPlayer : players) {
                 if (!serverPlayer.getUUID().equals(player.getUUID())) {
                     DeepAetherPlayer.get(serverPlayer).ifPresent((aetherPlayer) ->
-                    {
-                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfWrappedAroundNeck", aetherPlayer.isFloatyScarfWrappedAroundNeck(), player);
-
-                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor0", aetherPlayer.getFloatyScarfColor0(), player);
-                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor1", aetherPlayer.getFloatyScarfColor1(), player);
-                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor2", aetherPlayer.getFloatyScarfColor2(), player);
-                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor3", aetherPlayer.getFloatyScarfColor3(), player);
-                        aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfColor4", aetherPlayer.getFloatyScarfColor4(), player);
-                    });
+                            aetherPlayer.setSynched(INBTSynchable.Direction.PLAYER, "setFloatyScarfWrappedAroundNeck", aetherPlayer.isFloatyScarfWrappedAroundNeck(), player));
                 }
             }
         }

@@ -44,11 +44,20 @@ public class FloatyScarfRenderer implements ICurioRenderer {
                         poseStack.translate(0, 0.23, 0);
                     }
 
-                    GentleWindRenderer.renderModel(this.scarfModel.head, poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor0());
-                    GentleWindRenderer.renderModel(this.scarfModel.body[0], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor1());
-                    GentleWindRenderer.renderModel(this.scarfModel.body[1], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor2());
-                    GentleWindRenderer.renderModel(this.scarfModel.body[2], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor3());
-                    GentleWindRenderer.renderModel(this.scarfModel.body[3], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, deepAetherPlayer.get().getFloatyScarfColor4());
+                    CompoundTag tag = stack.getOrCreateTag();
+                    int[] colors;
+                    if(tag.contains("Colors")) {
+                        colors = tag.getIntArray("Colors");
+                    }
+                    else {
+                        colors = new int[]{-1, -1, -1, -1, -1};
+                    }
+
+                    GentleWindRenderer.renderModel(this.scarfModel.head, poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, colors[0]);
+                    GentleWindRenderer.renderModel(this.scarfModel.body[0], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, colors[1]);
+                    GentleWindRenderer.renderModel(this.scarfModel.body[1], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, colors[2]);
+                    GentleWindRenderer.renderModel(this.scarfModel.body[2], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, colors[3]);
+                    GentleWindRenderer.renderModel(this.scarfModel.body[3], poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, colors[4]);
                 }
             }
         } else if (reference.entity().getType() == EntityType.ARMOR_STAND) {
