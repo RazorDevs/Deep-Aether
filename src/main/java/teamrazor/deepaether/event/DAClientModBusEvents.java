@@ -159,7 +159,6 @@ public class DAClientModBusEvents {
                 -> new CherryParticle(level, v, v1, v2, spriteSet));
 
 
-        //event.registerSpriteSet(DAParticles.EOTS_EXPLOSION.get(), EOTSExplosionParticle.Provider::new);
         event.registerSpriteSet(DAParticles.EOTS_PRE_FIGHT.get(), EOTSPreFightParticle.Provider::new);
 
         event.registerSpriteSet(DAParticles.CLOVER_VERY_LUCKY.get(), LuckParticle.Provider::new);
