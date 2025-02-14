@@ -20,3 +20,9 @@
 
 ### AriaElidove
 - Fixed incorrect key translation
+
+### AriaElidove
+- Fixed incorrect key translation
+
+### VoidLeech 
+- Fixed poison on lava interaction for 1.20.1 
