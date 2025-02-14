@@ -273,8 +273,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_LEAVES.get(),
                 DABlocks.CRUDEROOT_LEAVES.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
-                DABlocks.SUNROOT_LEAVES.get(),
-                DABlocks.YAGROOT_ROOTS.get()
+                DABlocks.SUNROOT_LEAVES.get()
         );
 
         tag(BlockTags.NEEDS_STONE_TOOL).add(
