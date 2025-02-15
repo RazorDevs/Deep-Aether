@@ -20,10 +20,13 @@ Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatmen
 
 New Biomes:
  - Aerglow Forest
- - Blue Aerglow Forest
  - Aerlavender Fields
- - Yagroot Swamp
+ - Blue Aerglow Forest
+ - Golden Grove
  - Golden Heights
+ - Luminescent Forest
+ - Mystic Aerglow Forest
+ - Yagroot Forest
  
 New Ores, Tools, and Armor:
  - Skyjade (found in Holystone; has blocks, armor, tools, and weapons)
