@@ -35,11 +35,11 @@ New Ores, Tools, and Armor:
    - Stratus's ability is slow falling, an upgrade of Gravitite's ability (high jump), and a dash ability: press R with a full set (including the gloves).
   
 New Trees and Wood Sets:
- - Roseroot and Blue Roseroot (Aerglow and Blue Aerglow Forests)
+ - Roseroot and Blue Roseroot (Aerglow Forests)
  - Yagroot (Yagroot Swamp)
  - Cruderoot (Yagroot Swamp)
- - Conberry (Golden Heights)
- - Sunroot (Golden Heights)
+ - Conberry (Golden Heights / Golden Grove)
+ - Sunroot (Golden Heights / Golden Grove)
  
 New Mobs:
  - Aerglow Fish
