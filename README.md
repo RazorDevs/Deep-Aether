@@ -80,9 +80,9 @@ Mod Cross Compat:
 # Requirements
 
 You'll need of course:
- - Forge
+ - Forge (1.19.2 to 1.20.1) or NeoForge (1.20.4+)
  - Aeroblender - This mod is **REQUIRED** for the biomes to work!!
- - The Aether Mod (The 1.19.4 version)
+ - The Aether Mod (1.19.2+)
  
  You will also need:
  - GeckoLib
