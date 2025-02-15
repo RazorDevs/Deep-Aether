@@ -108,7 +108,13 @@ __Q: Can I listen to Deep Aether's Original Soundtrack outside of the game?__
 
 # Credits
 
-Deep Aether is property of RazorDevs, including 345boneshoss, Aethyus, TunefulTurnip and darksonic300. Art lead and music by Aethyus, Development by TunefulTurnip, darksonic300 and 345boneshoss. Art and music by Quizzly. Logo and background are by Simeeow and Aethyus. Special thanks to careful#4376 (on Discord) for contributing art. Music rights for "Nabooru" and "A Morning Wish" goes to Emile van Krieken. 
+- Deep Aether is property of RazorDevs, including 345boneshoss, Aethyus, TunefulTurnip and darksonic300.
+- Development by TunefulTurnip, darksonic300 and 345boneshoss.
+- Art lead and music by Aethyus.
+- Art and music by Quizzly.
+- Logo and background are by Simeeow and Aethyus.
+- Special thanks to careful#4376 (on Discord) for contributing art.
+- Music rights for "Nabooru" and "A Morning Wish" goes to Emile van Krieken.
 
 # Former Members
 
