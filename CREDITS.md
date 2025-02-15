@@ -20,3 +20,7 @@
 
 ### AriaElidove
 - Fixed incorrect key translation
+- Update atlas for 1.21 Armor Trims 
+
+### VoidLeech 
+- Fixed poison on lava interaction for 1.20.1 
