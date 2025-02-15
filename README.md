@@ -16,7 +16,7 @@ The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.2 and beyo
 It aims to add lots of new features to give players a chance to venture deeper into the Aether dimension, while also maintaining its original style.
 Basically, we aim to give the Aether the "1.16 Nether Expansion Update" treatment.
  
- # What is new?
+# What is new?
 
 New Biomes:
  - Aerglow Forest
@@ -52,9 +52,9 @@ New Stone Types:
  
 New Blocks:
  - Aether Mud and Aether Mud Bricks
- - Unique grass and path blocks for the Golden Heights biome, as well as the Aether Moss Block for the Yagroot Swamp
- - Normal decorative variants for new wood, stone, and ores
- - Unique flora for all added biomes, and the Golden Vine Fruit for the Golden Heights biome
+ - Unique grass and path blocks for the Golden Heights biome, as well as the Aether Moss Block for the Yagroot Swamp.
+ - Normal decorative variants for new wood, stone, and ores.
+ - Unique flora for all added biomes, and the Golden Vine Fruit for the Golden Heights biome.
  - Aerglow Block (crafted from Aerglow Petals, which come from Radiant Orchids and Flowering Roseroot Leaves)
  - Virulent Quicksand (functions like how quicksand does in real life, as well as Powdered Snow; immediate suffocation when fallen through)
  - Aersmog: A type of Aercloud that is created from the mixture of Water and Poison. Inflicts the Inebration effect when stepped on.
@@ -69,13 +69,13 @@ New Dungeon Loot:
  - Spooky Ring: Increases damage dealt during the nighttime.
 
 New Liquid:
- - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and it naturally spawns in the Yagroot Swamp biome
+ - Poison: It's the normal poison bucket from the Aether I mod, but now you can place it as a liquid (like water), and naturally spawns in the Yagroot Swamp biome.
 
 Mod Cross Compat:
  - Aether Lost Content
-    - Skyjade and Stratus Shields
+    - Skyjade and Stratus Shields.
  - Aether Redux
-    - Brick and Tile variants for Gilded, Frosted, and Blightmoss Holystone
+    - Brick and tile variants for Gilded, Frosted, and Blightmoss Holystone.
 
 # Requirements
 
@@ -86,14 +86,13 @@ You'll need of course:
  
  You will also need:
  - GeckoLib
-
  
 # FAQ
 
 __Q: Do you plan on backporting to other versions?__
   - A: No we don't. The Aether I Mod only plans releases from 1.19.2 and onwards, meaning this addon cannot reach versions that are prior to that.
   - This also includes future unofficial backports and all the legacy versions: our team only disposes of 2 coders that work on Deep Aether as a hobby, and maintaining older versions with a completely different codebase, while also fixing and updating the newer ones in acceptable timescales would be impossible.
-  - We have no issues with people that want to backport Deep Aether by themselves, letting us know first, and reminding that the backport is not official nor maintained by us..
+  - We have no issues with people that want to backport Deep Aether by themselves, letting us know first, and reminding that the backport is not official nor maintained by us.
 
 __Q: Where can I get Sterling Aerclouds? I can't find any!__
   - A: Sterling Aerclouds are found high up in the Aether skies, above Y = 200. If you're playing with a low render distance it might be harder to spot the clusters, but __they're there!__
@@ -107,11 +106,9 @@ __Q: I am interested in joining your team to help with the development of the mo
 __Q: Can I listen to Deep Aether's Original Soundtrack outside of the game?__
   - A: Absolutely! It is available on [Bandcamp](https://aethyus.bandcamp.com/album/deep-aether-original-soundtrack) (in high quality: 24-bit/96kHz) and [SoundCloud](https://soundcloud.com/aethyus/sets/deep-aether-ost) (16-bit/44.1kHz)! 
 
-
 # Credits
 
 Deep Aether is property of RazorDevs, including 345boneshoss, Aethyus, TunefulTurnip and darksonic300. Art lead and music by Aethyus, Development by TunefulTurnip, darksonic300 and 345boneshoss. Art and music by Quizzly. Logo and background are by Simeeow and Aethyus. Special thanks to careful#4376 (on Discord) for contributing art. Music rights for "Nabooru" and "A Morning Wish" goes to Emile van Krieken. 
-
 
 # Former Members
 
@@ -119,8 +116,6 @@ bagu_chan: https://github.com/baguchan
   - Role: Developer
   - Reason for leaving: Real life and health stuff getting in the way
 
-
 # License
 
 [![License (LGPL v3.0)](https://img.shields.io/badge/License-LGPL%20v3.0-green.svg?style=flat-square)](https://github.com/The-Aether-Team/The-Aether/blob/1.20.1-develop/LICENSE.txt)
-
