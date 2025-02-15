@@ -70,7 +70,7 @@ New Liquid:
 
 Mod Cross Compat:
  - Aether Lost Content
-    - Skyjade and Cloudium Shields
+    - Skyjade and Stratus Shields
  - Aether Redux
     - Brick and Tile variants for Gilded, Frosted, and Blightmoss Holystone
 
