@@ -60,5 +60,8 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
         tag(EntityTypeTags.ARROWS).add(
                 DAEntities.STORM_ARROW.get()
         );
+        tag(DATags.Entities.SLIDER_SLAM_BLACKLIST).add(
+                DAEntities.EOTS_CONTROLLER.get()
+        );
     }
 }
