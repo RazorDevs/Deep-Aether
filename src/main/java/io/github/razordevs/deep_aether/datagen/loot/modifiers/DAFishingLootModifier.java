@@ -40,12 +40,13 @@ public class DAFishingLootModifier extends LootModifier {
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         if(context.getLevel().dimension() == AetherDimensions.AETHER_LEVEL)
             if(context.getRandom().nextFloat() > chance) {
-
                 int itemNum = context.getRandom().nextInt(totalWeight);
+                int num = 0;
                 ItemStack modifiedStack = null;
 
                 for (WeightedEntry.Wrapper<ItemStack> stack : items) {
-                    if (stack.getWeight().asInt() >= itemNum) {
+                    num += stack.getWeight().asInt();
+                    if (num >= itemNum) {
                         modifiedStack = stack.data();
                         break;
                     }
