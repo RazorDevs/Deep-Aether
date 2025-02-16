@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.datagen.tags;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAEntities;
@@ -61,6 +62,13 @@ public class DAEntityTagData extends EntityTypeTagsProvider {
                 DAEntities.STORM_ARROW.get()
         );
         tag(DATags.Entities.SLIDER_SLAM_BLACKLIST).add(
+                DAEntities.EOTS_CONTROLLER.get()
+        );
+        tag(AetherTags.Entities.UNHOOKABLE).add(
+                DAEntities.EOTS_CONTROLLER.get(),
+                DAEntities.EOTS_SEGMENT.get()
+        );
+        tag(AetherTags.Entities.UNLAUNCHABLE).add(
                 DAEntities.EOTS_CONTROLLER.get()
         );
     }
