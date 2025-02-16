@@ -515,6 +515,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.RAW_CLORITE_WALL.get(),
                 DABlocks.CLORITE_PILLAR.get(),
 
+                DABlocks.SKYJADE_CHAIN.get(),
+                DABlocks.SKYJADE_LANTERN.get(),
+                DABlocks.COMBINER.get(),
+
                 DABlocks.SKYJADE_ORE.get(),
                 DABlocks.SKYJADE_BLOCK.get(),
                 DABlocks.STRATUS_BLOCK.get(),
@@ -570,7 +574,9 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.LIGHT_NIMBUS_STONE.get(),
                 DABlocks.NIMBUS_STAIRS.get(),
                 DABlocks.NIMBUS_SLAB.get(),
-                DABlocks.NIMBUS_WALL.get()
+                DABlocks.NIMBUS_WALL.get(),
+                DABlocks.NIMBUS_PILLAR.get(),
+                DABlocks.LIGHT_NIMBUS_PILLAR.get()
         );
 
         tag(BlockTags.SNAPS_GOAT_HORN).add(
