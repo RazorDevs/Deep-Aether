@@ -4,6 +4,7 @@ import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.aether.item.accessories.AccessoryItem;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import io.github.razordevs.deep_aether.client.DeepAetherKeys;
+import io.github.razordevs.deep_aether.datagen.tags.DATags;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DASounds;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
@@ -11,7 +12,9 @@ import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.protocol.game.ClientboundCooldownPacket;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -51,83 +54,69 @@ public class SliderEye extends AccessoryItem {
     }
 
     private void HandleServer(Player player, Level level) {
-        if(player.hasData(DAAttachments.PLAYER)) {
+        if (player.hasData(DAAttachments.PLAYER)) {
             DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
             if (attachment.isSliderSlamActivated()) {
-                maxFallTime = 200;
-                attachment.setSynched(player.getId(), INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
-            }
-        }
-
-        if (maxFallTime > 0) {
-
-            maxFallTime--;
-
-            //Triggers the shockwave if the entity hits a block
-            if (player.onGround()) {
-                if(!(player instanceof ServerPlayer)) {
-                    maxFallTime = 0;
+                player.addDeltaMovement(new Vec3(0F, -0.3F, 0F));
+                if (player instanceof ServerPlayer serverPlayer) {
+                    serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
                 }
 
-                //Range of shockwave
-                AABB aabb = new AABB(player.position().add(-3,-1,-3), player.position().add(3,4,3));
+                if (player.onGround()) {
+                    attachment.setSynched(player.getId(), INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
 
-                List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
-                float knockback = EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
+                    //Range of shockwave
+                    AABB aabb = new AABB(player.position().add(-3, -1, -3), player.position().add(3, 4, 3));
 
+                    List<LivingEntity> entities = level.getNearbyEntities(LivingEntity.class, targetingConditions(aabb, player), player, aabb);
+                    float knockback = EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 2.5F : 2F;
 
-                //Pushes all entities within range
-                for (LivingEntity target : entities) {
-                    target.hurt(level.damageSources().playerAttack(player), 1.4F);
+                    //Pushes all entities within range
+                    for (LivingEntity target : entities) {
+                        if (!target.getType().is(DATags.Entities.SLIDER_SLAM_BLACKLIST)) {
+                            Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
 
+                            if (push.y < 0)
+                                push.multiply(1, -1, 1);
 
-                    Vec3 push = target.position().vectorTo(player.position()).reverse().normalize().multiply(knockback, knockback, knockback);
+                            push.add(0F, 1, 0F);
 
-                    if (push.y < 0)
-                        push.multiply(1, -1, 1);
-
-                    push.add(0F, 1, 0F);
-
-                    target.addDeltaMovement(push);
+                            target.addDeltaMovement(push);
+                            target.hurt(level.damageSources().playerAttack(player), 1.0F);
+                            if (target instanceof ServerPlayer serverPlayer) {
+                                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+                            }
+                        }
+                    }
+                    ((ServerLevel) level).sendParticles(ParticleTypes.EXPLOSION_EMITTER, player.getX(), player.getY(), player.getZ(), 1, 0.0, 0.0, 0.0, 0.0);
+                    level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    //Allows Creative Players to use Slider Eye's ability without cooldown
+                    if (player.isCreative()) {
+                        if (player instanceof ServerPlayer serverPlayer) {
+                            serverPlayer.connection.send(new ClientboundCooldownPacket(DAItems.SLIDER_EYE.get(), 0));
+                        } else player.getCooldowns().addCooldown(DAItems.SLIDER_EYE.get(), 0);
+                    }
                 }
             }
         }
     }
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
-        if (mayUse(stack, player)) {
-            if(!player.isCreative())
-                player.getCooldowns().addCooldown(stack.getItem(), EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200);
-            player.setDeltaMovement(0F, 0F, 0F);
-            if (player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
+        if(player.hasData(DAAttachments.PLAYER)) {
+            DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
+            if (mayUse(stack, player)) {
+                int cooldown = EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200;
+                player.getCooldowns().addCooldown(stack.getItem(), cooldown);
+                player.setDeltaMovement(0F, 0F, 0F);
+                attachment.setSynched(player.getId(), INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
+                level.playSound(player, player.getOnPos(), DASounds.ITEM_ACCESSORY_ABILITY_SLIDER_EYE.get(), SoundSource.PLAYERS);
             }
 
-            if(player.hasData(DAAttachments.PLAYER)) {
-                 player.getData(DAAttachments.PLAYER).setSynched(player.getId(), INBTSynchable.Direction.SERVER, "setSliderSlamActivated", true);
-            }
-            level.playSound(player, player.getOnPos(), DASounds.ITEM_ACCESSORY_ABILITY_SLIDER_EYE.get(), SoundSource.PLAYERS);
-            maxFallTime = 200;
-        }
-
-        if (maxFallTime > 0) {
-            maxFallTime--;
-
-            player.addDeltaMovement(new Vec3(0F, -0.3F, 0F));
-            if (player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
-            }
-
-            if (player.onGround()) {
-                maxFallTime = 0;
-                level.playSound(player, player.getOnPos(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.PLAYERS);
-
-                //Adds explosion
-                level.addParticle(ParticleTypes.EXPLOSION_EMITTER, player.getX(), player.getY(), player.getZ(), 1.0D, 0.0D, 0.0D);
+            if (attachment.isSliderSlamActivated() && !player.getCooldowns().isOnCooldown(DAItems.SLIDER_EYE.get())) {
+                attachment.setSynched(player.getId(), INBTSynchable.Direction.SERVER, "setSliderSlamActivated", false);
             }
         }
     }
-
     public boolean mayUse(ItemStack stack, Player player) {
         return DeepAetherKeys.SLIDER_EYE_SLAM_ABILITY.isDown() && !player.getCooldowns().isOnCooldown(stack.getItem()) && !player.onGround();
     }
