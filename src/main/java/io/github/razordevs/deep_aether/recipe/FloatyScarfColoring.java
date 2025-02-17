@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.recipe;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.FloatyScarf;
+import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.item.DyeItem;

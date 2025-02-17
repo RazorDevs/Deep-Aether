@@ -12,6 +12,7 @@ import io.github.razordevs.deep_aether.client.particle.*;
 import io.github.razordevs.deep_aether.client.renderer.accessory.FloatyScarfRenderer;
 import io.github.razordevs.deep_aether.client.renderer.accessory.SkyjadeGlovesRenderer;
 import io.github.razordevs.deep_aether.client.renderer.accessory.WindShieldRenderer;
+import io.github.razordevs.deep_aether.entity.living.GentleWind;
 import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.*;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
@@ -312,6 +313,8 @@ public class DAClientModBusEvents {
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         event.register((ItemStack pStack, int pTintIndex) -> 10021818, DABlocks.AERCLOUD_GRASS_BLOCK.get());
+        event.register((ItemStack stack, int tintindex) -> stack.has(DADataComponentTypes.FLOATY_SCARF) ?
+                GentleWind.getFromColor(stack.get(DADataComponentTypes.FLOATY_SCARF).colors(), tintindex) : -1, DAItems.FLOATY_SCARF.get());
     }
 
     /**

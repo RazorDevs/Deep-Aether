@@ -9,6 +9,7 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.DeepAetherConfig;
 import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
+import io.github.razordevs.deep_aether.entity.living.GentleWind;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DAMobEffects;
 import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
@@ -43,6 +44,8 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.*;
 
@@ -62,7 +65,7 @@ public class DAGeneralEvents {
         SlotEntryReference reference = DAEquipmentUtil.getFloatyScarf(player);
 
         if (reference != null) {
-            FloatyScarfItem.tryDiscardGentleWind(reference.stack(), player.level());
+            FloatyScarfItem.discardGentleWind(reference.stack(), player.level());
         }
     }
 
@@ -236,6 +239,18 @@ public class DAGeneralEvents {
             event.replaceModifier(attributeEntry.attribute(), attributeEntry.modifier(), attributeEntry.slot());
         }
     }
+
+    @SubscribeEvent
+    public static void onPlayerUpdate(EntityTickEvent.Post event) {
+        if (event.getEntity().hasData(DAAttachments.PLAYER))
+            event.getEntity().getData(DAAttachments.PLAYER).onUpdate(((Player) event.getEntity()));
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        event.getEntity().getData(DAAttachments.PLAYER).onLogin(event.getEntity());
+    }
+
 
     private static int i = 0;
 

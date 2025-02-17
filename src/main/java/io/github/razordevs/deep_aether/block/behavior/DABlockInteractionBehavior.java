@@ -202,8 +202,6 @@ public class DABlockInteractionBehavior {
                 relativePos = blockpos;
             }
 
-            System.out.println(item);
-
             if(item != null)
                 skyrootBucketInteractionResult(event, level, relativePos, player, itemstack, item);
         }

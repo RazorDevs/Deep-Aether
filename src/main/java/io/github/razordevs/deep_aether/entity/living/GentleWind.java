@@ -1,11 +1,14 @@
 package io.github.razordevs.deep_aether.entity.living;
 
+import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import io.github.razordevs.deep_aether.entity.projectile.WindCrystal;
 import io.github.razordevs.deep_aether.init.DAEntities;
 import io.github.razordevs.deep_aether.init.DASounds;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.FloatyScarf;
 import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
+import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
+import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
 import io.wispforest.accessories.api.slot.SlotEntryReference;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -72,6 +75,10 @@ public class GentleWind extends FlyingMob {
 
     public int getFromColor(int index) {
         return FastColor.ARGB32.opaque(this.getColors()[index]);
+    }
+
+    public static int getFromColor(List<Integer> list, int index) {
+        return FastColor.ARGB32.opaque(list.get(index));
     }
 
     @Override
@@ -155,10 +162,13 @@ public class GentleWind extends FlyingMob {
     private void followOwner() {
         Player player = this.getOwner();
         if(player != null) {
-            if(this.distanceTo(player) > 40)
-                this.setPos(player.position().add(0, 2,0));
-
-            this.moveControl.setWantedPosition(player.getX(), player.getY() + 2, player.getZ(), 1.0F);
+            float distance = this.distanceTo(player);
+            if(distance > 50)
+                this.setPos(player.position().add(0, 1.2,0));
+            else if(distance < 5.0) {
+                this.moveControl.setWantedPosition(player.getX() + this.getDeltaMovement().x * 2, player.getY() + 2, player.getZ() + this.getDeltaMovement().z * 2, 1.0F);
+            }
+            else this.moveControl.setWantedPosition(player.getX(), player.getY() + 2, player.getZ(), 1.0F);
         }
     }
 
@@ -207,18 +217,34 @@ public class GentleWind extends FlyingMob {
         return this.entityData.get(IS_ON_NECK);
     }
 
-    public boolean setEntityAroundNeck() {
-        if(isWrappedAroundNeck()) return false;
+    public void setEntityAroundNeck() {
+        if(isWrappedAroundNeck()) return;
         this.entityData.set(IS_ON_NECK, true);
-        return true;
+        if(this.level().isClientSide()) return;
+        Player owner = this.getOwner();
+        if(owner != null && owner.hasData(DAAttachments.PLAYER)) {
+            DAPlayerAttachment attachment = owner.getData(DAAttachments.PLAYER);
+            attachment.setSynched(owner.getId(), INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", true);
+        }
+
     }
 
-    public boolean removeEntityAroundNeck(){
-        if(!isWrappedAroundNeck()) return false;
+    public void removeEntityAroundNeck() {
         this.rideCooldownCounter = 0;
+        if(!this.isWrappedAroundNeck())
+            return;
         this.entityData.set(IS_ON_NECK, false);
-        this.setPos(getOwner().getX(), getOwner().getY() + 1.2, getOwner().getZ());
-        return true;
+        if(this.level().isClientSide()) return;
+
+        Player owner = this.getOwner();
+
+        if(owner == null) return;
+
+        this.setPos(owner.getX(), getOwner().getY() + 1.2, getOwner().getZ());
+        if (owner.hasData(DAAttachments.PLAYER)) {
+            DAPlayerAttachment attachment = owner.getData(DAAttachments.PLAYER);
+            attachment.setSynched(owner.getId(), INBTSynchable.Direction.CLIENT, "setFloatyScarfWrappedAroundNeck", false);
+        }
     }
 
     public static class WrapAroundPlayerGoal extends Goal {
@@ -253,7 +279,7 @@ public class GentleWind extends FlyingMob {
         }
 
         public void tick() {
-            if (!this.eots.isWrappedAroundNeck() && this.eots.getBoundingBox().intersects(this.owner.getBoundingBox().inflate(0, 2, 0))) {
+            if (!this.eots.isWrappedAroundNeck() && this.eots.getBoundingBox().intersects(this.owner.getBoundingBox().inflate(1.3, 2, 1.3))) {
                 this.eots.setEntityAroundNeck();
             }
         }
