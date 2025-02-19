@@ -76,19 +76,19 @@ public class WindCrystal extends AbstractCrystal {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
-        if (entity instanceof LivingEntity livingEntity) {
-            if(this.getOwner() != null) {
-                Player player = ((GentleWind) this.getOwner()).getOwner();
-                if(player != null && !(((GentleWind) this.getOwner()).wantsToAttack(livingEntity, player))) {
-                    return;
+            if (entity instanceof LivingEntity livingEntity) {
+                if(this.getOwner() != null && this.getOwner() instanceof GentleWind gentleWind) {
+                        Player player = (gentleWind).getOwner();
+                        if(player != null && !((gentleWind).wantsToAttack(livingEntity, player))) {
+                            return;
+                        }
+                }
+
+                if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), DamageTypes.MOB_PROJECTILE, this, this.getOwner()), this.getDamage())) {
+                    this.level().playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
+                    this.discard();
                 }
             }
-
-            if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), DamageTypes.MOB_PROJECTILE, this, this.getOwner()), this.getDamage())) {
-                this.level().playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
-                this.discard();
-            }
-        }
     }
 
     private float getDamage() {
