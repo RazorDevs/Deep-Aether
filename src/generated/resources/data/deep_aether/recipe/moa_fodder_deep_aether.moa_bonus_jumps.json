@@ -21,8 +21,8 @@
           "duration": 14400,
           "id": "deep_aether:moa_bonus_jumps",
           "neoforge:cures": [
-            "milk",
-            "protected_by_totem"
+            "protected_by_totem",
+            "milk"
           ],
           "show_icon": true
         }
