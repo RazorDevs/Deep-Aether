@@ -14,13 +14,19 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class FloatyScarfItem extends PendantItem {
@@ -103,6 +109,32 @@ public class FloatyScarfItem extends PendantItem {
         chatFormat(tooltipComponents, 2, stack);
         chatFormat(tooltipComponents, 3, stack);
         chatFormat(tooltipComponents, 4, stack);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+
+
+        BlockState state = context.getLevel().getBlockState(context.getClickedPos());
+
+        if(state.is(Blocks.WATER_CAULDRON)) {
+            if (context.getPlayer() != null && context.getPlayer().isShiftKeyDown())
+                return InteractionResult.PASS;
+
+
+            FloatyScarf scarf =  context.getItemInHand().get(DADataComponentTypes.FLOATY_SCARF);
+
+            if(scarf != null) {
+                List<Integer> colors = scarf.colors();
+                if(colors.stream().anyMatch(value -> value != -1)) {
+                    LayeredCauldronBlock.lowerFillLevel(state, context.getLevel(), context.getClickedPos());
+
+                    context.getItemInHand().set(DADataComponentTypes.FLOATY_SCARF, FloatyScarf.withDefaultColor(scarf.uuid()));
+                    return InteractionResult.SUCCESS;
+                }
+            }
+        }
+        return InteractionResult.PASS;
     }
 
     private void chatFormat(List<Component> tooltipComponents, int color, ItemStack stack) {
