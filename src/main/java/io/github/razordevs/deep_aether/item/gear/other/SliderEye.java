@@ -36,7 +36,6 @@ public class SliderEye extends AccessoryItem {
         super(ringSound, properties);
     }
 
-    public int maxFallTime = 0;
     private TargetingConditions targetingConditions(AABB aabb, Entity entity2) {
         return TargetingConditions.forCombat().selector((entity) -> !entity.is(entity2) && entity.level().getWorldBorder().isWithinBounds(aabb));
     }
@@ -102,7 +101,7 @@ public class SliderEye extends AccessoryItem {
     }
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
-        if(player.hasData(DAAttachments.PLAYER)) {
+        if(player.isLocalPlayer() && player.hasData(DAAttachments.PLAYER)) {
             DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
             if (mayUse(stack, player)) {
                 int cooldown = EquipmentUtil.getAccessories(player, DAItems.SLIDER_EYE.get()).size() == 2 ? 150 : 200;
