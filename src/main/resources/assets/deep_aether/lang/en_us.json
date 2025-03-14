@@ -21,6 +21,7 @@
   "advancement.deep_aether.brass_dungeon.desc": "Defeat the brass boss\n§b- Deep Aether -",
   "deep_aether.item.disabled_item": "Disabled",
   "gui.deep_aether.jei.poison_recipe": "Poison Conversion",
+  "gui.deep_aether.jei.combiner_recipe": "Combining",
   "gui.deep_aether.spooky_ring": "Might have spooky consequences...",
   "lore.item.deep_aether.spooky_ring": "You deal more damage during night towards midnight, with up to a maximum of 2 extra damage.",
   "gui.deep_aether.slider_ring": "Increases your speed when your health is low\nCurrent Increase: ",
