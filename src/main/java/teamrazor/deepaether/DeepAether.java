@@ -241,6 +241,7 @@ public class DeepAether {
 		ComposterBlock.COMPOSTABLES.put(DABlocks.SUNROOT_SAPLING.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_ROOTS.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.YAGROOT_VINE.get().asItem(), 0.3F);
+		ComposterBlock.COMPOSTABLES.put(DABlocks.GLOWING_SPORES.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.SUNROOT_HANGER.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.AERGLOW_BLOSSOM_BLOCK.get().asItem(), 0.3F);
 		ComposterBlock.COMPOSTABLES.put(DABlocks.MINI_GOLDEN_GRASS.get().asItem(), 0.3F);
