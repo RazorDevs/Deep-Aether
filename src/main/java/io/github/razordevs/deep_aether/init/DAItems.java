@@ -9,6 +9,7 @@ import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.components.AetherDataComponents;
 import com.aetherteam.aether.item.components.DungeonKind;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootSolidBucketItem;
 import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import io.github.razordevs.deep_aether.DeepAether;
@@ -26,6 +27,7 @@ import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
@@ -34,6 +36,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -125,8 +129,17 @@ public class DAItems {
 
 	public static final DeferredItem<Item> BIO_CRYSTAL = ITEMS.register("bio_crystal", () -> new Item(new Item.Properties()));
 
-	public static final DeferredItem<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AERGLOW_FISH.get(), (new Item.Properties()).craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
-	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AERGLOW_FISH.get(), (new Item.Properties()).stacksTo(1)));
+	public static final DeferredItem<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new SkyrootMobBucketItem(
+			DAEntities.AERGLOW_FISH.get(),
+			Fluids.WATER,
+			SoundEvents.BUCKET_EMPTY_FISH,
+			new Item.Properties().craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
+
+	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new MobBucketItem(
+			DAEntities.AERGLOW_FISH.get(),
+			Fluids.WATER,
+			SoundEvents.BUCKET_EMPTY_FISH,
+			new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
 
 	// MOA FODDER
 	public static final DeferredItem<Item> MOA_FODDER = ITEMS.register("moa_fodder", () -> new FodderItem(new Item.Properties()));
