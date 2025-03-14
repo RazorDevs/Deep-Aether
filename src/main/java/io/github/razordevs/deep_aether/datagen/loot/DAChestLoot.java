@@ -196,7 +196,7 @@ public record DAChestLoot(HolderLookup.Provider registries) implements LootTable
                         .add(LootItem.lootTableItem(DABlocks.NIMBUS_STONE.get()).setWeight(1))
                         .add(LootItem.lootTableItem(DABlocks.NIMBUS_PILLAR.get()).setWeight(1))
                 )
-                .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(4.0F, 15.0F))
+                .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(3.0F, 6.0F))
                         //.add(LootItem.lootTableItem(AetherItems.LIGHTNING_KNIFE.get()).setWeight(5))
                         .add(LootItem.lootTableItem(AetherItems.GOLDEN_DART.get()).setWeight(3))
                         .add(LootItem.lootTableItem(Items.ARROW).setWeight(2))
