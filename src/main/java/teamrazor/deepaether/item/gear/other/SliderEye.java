@@ -110,7 +110,7 @@ public class SliderEye extends RingItem {
 
     private void HandleClient(Player player, ItemStack stack, Level level) {
         Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
-        if(deepAetherPlayer.isEmpty()) {
+        if(deepAetherPlayer.isEmpty() || !player.isLocalPlayer()) {
             return;
         }
         if (mayUse(stack, player)) {
