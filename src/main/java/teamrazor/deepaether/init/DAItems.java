@@ -7,6 +7,7 @@ import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.miscellaneous.DungeonKeyItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -19,6 +20,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
@@ -106,8 +108,17 @@ public class DAItems {
 
 	public static final RegistryObject<Item> BIO_CRYSTAL = ITEMS.register("bio_crystal", () -> new Item(new Item.Properties()));
 
-	public static final RegistryObject<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AERGLOW_FISH, (new Item.Properties()).craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
-	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AERGLOW_FISH, (new Item.Properties()).stacksTo(1)));
+	public static final RegistryObject<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () -> new SkyrootMobBucketItem(
+			DAEntities.AERGLOW_FISH,
+			() -> Fluids.WATER,
+			() -> SoundEvents.BUCKET_EMPTY_FISH,
+			new Item.Properties().craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
+
+	public static final RegistryObject<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new MobBucketItem(
+			DAEntities.AERGLOW_FISH,
+			() -> Fluids.WATER,
+			() -> SoundEvents.BUCKET_EMPTY_FISH,
+			new Item.Properties().stacksTo(1)));
 
 	// MOA FODDER
 	public static final RegistryObject<Item> MOA_FODDER = ITEMS.register("moa_fodder", () -> new FodderItem(new Item.Properties()));
