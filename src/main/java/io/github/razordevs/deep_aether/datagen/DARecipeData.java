@@ -189,17 +189,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.BIO_CRYSTAL.get()), has(DAItems.BIO_CRYSTAL.get()))
                 .save(consumer, name("crystal_brewing_stand"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DAItems.ANTIDOTE.get(), 4)
-                .group("deep_aether:antidote")
-                .define('I', DAItems.BIO_CRYSTAL.get())
-                .define('G', DAItems.FROZEN_GOLDEN_BERRIES.get())
-                .define('#', Tags.Items.GLASS_BLOCKS_COLORLESS)
-                .pattern("##")
-                .pattern("IG")
-                .pattern("##")
-                .unlockedBy(getHasName(DAItems.BIO_CRYSTAL.get()), has(DAItems.BIO_CRYSTAL.get()))
-                .save(consumer, name("glass_antidote"));
-
         freezingRecipe(RecipeCategory.MISC, DAItems.FROZEN_GOLDEN_BERRIES.get(), DAItems.GOLDEN_BERRIES.get(), 1, 100).save(consumer, this.name("golden_berries_freezing"));
         enchantingRecipe(RecipeCategory.MISC, DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get(), 1, 100).save(consumer, this.name("antidote_enchanting"));
         enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DABlocks.GLOWING_SPORES.get(), 1, 100).save(consumer, this.name("glowing_spores"));
