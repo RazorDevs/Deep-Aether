@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -35,8 +36,7 @@ public class FloatyScarfRenderer implements AccessoryRenderer {
 
     @Override
     public <M extends LivingEntity> void render(ItemStack stack, SlotReference reference, PoseStack poseStack, EntityModel<M> entityModel, MultiBufferSource buffer, int packedLight, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        try {
-            Player owner = (Player) reference.entity();
+        if (reference.entity() instanceof Player owner) {
             if (owner.hasData(DAAttachments.PLAYER)) {
                 DAPlayerAttachment attachment  = owner.getData(DAAttachments.PLAYER);
                 if (attachment.isFloatyScarfWrappedAroundNeck()) {
@@ -67,7 +67,26 @@ public class FloatyScarfRenderer implements AccessoryRenderer {
                 }
             }
         }
-        catch (ClassCastException ignored) {
+        else if (reference.entity().getType() == EntityType.ARMOR_STAND) {
+            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/models/accessory/pendant/scarf.png")));
+
+            List<Integer> colors = new ArrayList<>();
+
+            FloatyScarf data = stack.get(DADataComponentTypes.FLOATY_SCARF);
+            if(data != null) {
+                colors = data.colors();
+            }
+            else {
+                for (int i = 0; i < 5; i++) {
+                    colors.add(-1);
+                }
+            }
+
+            this.scarfModel.head.render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, GentleWind.getFromColor(colors, 0));
+            this.scarfModel.body[0].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, GentleWind.getFromColor(colors, 1));
+            this.scarfModel.body[1].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, GentleWind.getFromColor(colors, 2));
+            this.scarfModel.body[2].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, GentleWind.getFromColor(colors, 3));
+            this.scarfModel.body[3].render(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, GentleWind.getFromColor(colors, 4));
         }
     }
 }
