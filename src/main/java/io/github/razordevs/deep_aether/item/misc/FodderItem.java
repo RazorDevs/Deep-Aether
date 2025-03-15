@@ -72,4 +72,8 @@ public class FodderItem extends Item {
         }
         return false;
     }
+
+    public static MoaFodder getFodderEffect(ItemStack itemStack) {
+        return itemStack.get(DADataComponentTypes.MOA_FODDER);
+    }
 }
