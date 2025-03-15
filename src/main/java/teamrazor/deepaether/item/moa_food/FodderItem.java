@@ -66,7 +66,7 @@ public class FodderItem extends Item {
     }
 
     @Nullable
-    public MobEffectInstance getMobEffect(ItemStack stack) {
+    public static MobEffectInstance getMobEffect(ItemStack stack) {
         CompoundTag tag = stack.getTag();
         if(tag != null) {
 
