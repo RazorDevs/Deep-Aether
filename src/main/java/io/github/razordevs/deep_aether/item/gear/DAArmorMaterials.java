@@ -37,9 +37,9 @@ public class DAArmorMaterials {
                 map.put(ArmorItem.Type.LEGGINGS, 5);
                 map.put(ArmorItem.Type.CHESTPLATE, 7);
                 map.put(ArmorItem.Type.HELMET, 3);
-            }), 10, DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, ()->Ingredient.of(ItemStack.EMPTY),
+            }), 15, DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, ()->Ingredient.of(ItemStack.EMPTY),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "stormforged"))),
-            0.75F, 0F
+            0F, 0.15F
     ));
 
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> SKYJADE = ARMOR_MATERIALS.register("skyjade", () -> new ArmorMaterial(
