@@ -82,7 +82,10 @@ public class PoisonBlock extends LiquidBlock {
 
         //If we're not dealing with an ItemEntity, apply Inebriation and return.
         if (!(entity instanceof ItemEntity itemEntity)) {
-            ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
+            try {
+                ((LivingEntity) entity).addEffect(new MobEffectInstance(AetherEffects.INEBRIATION.get(), 100, 0, false, false));
+            }
+            catch (ClassCastException ignore) {}
             return;
         }
 
