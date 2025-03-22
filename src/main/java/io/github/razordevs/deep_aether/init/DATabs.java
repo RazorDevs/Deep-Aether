@@ -233,9 +233,9 @@ public class DATabs {
                     DABlocks.CRUDEROOT_LOG.get(),
                     DABlocks.CONBERRY_LOG.get(),
                     DABlocks.SUNROOT_LOG.get(),
-                    //DABlocks.AERWHALE_TOTEM.get(),
-                    //DABlocks.MOA_TOTEM.get(),
-                    //DABlocks.ZEPHYR_TOTEM.get()
+                    DABlocks.AERWHALE_TOTEM.get(),
+                    DABlocks.MOA_TOTEM.get(),
+                    DABlocks.ZEPHYR_TOTEM.get()
             }, event);
 
             addToTab(AetherBlocks.DECORATED_HOLIDAY_LEAVES.get().asItem(), new Block[]{
@@ -318,11 +318,11 @@ public class DATabs {
                     DAItems.SKYJADE_TOOLS_SHOVEL.get(),
                     DAItems.SKYJADE_TOOLS_PICKAXE.get(),
                     DAItems.SKYJADE_TOOLS_AXE.get(),
-                    DAItems.SKYJADE_TOOLS_HOE.get()
-                    //DAItems.SUN_CLOCK.get(),
-                    //DAItems.BRONZE_COMPASS.get(),
-                    //DAItems.SILVER_COMPASS.get(),
-                    //DAItems.GOLD_COMPASS.get()
+                    DAItems.SKYJADE_TOOLS_HOE.get(),
+                    DAItems.SUN_CLOCK.get(),
+                    DAItems.BRONZE_COMPASS.get(),
+                    DAItems.SILVER_COMPASS.get(),
+                    DAItems.GOLD_COMPASS.get()
             }, event);
 
             addToTab(AetherItems.CLOUD_STAFF.get(), new Item[]{
