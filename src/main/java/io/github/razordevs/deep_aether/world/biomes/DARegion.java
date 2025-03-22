@@ -64,7 +64,7 @@ public class DARegion extends Region {
                 AetherBiomes.SKYROOT_GROVE);
 
         // Sacred Lands
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.33F, 0.33F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.3F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                 SacredLands);
 
         // Row 3

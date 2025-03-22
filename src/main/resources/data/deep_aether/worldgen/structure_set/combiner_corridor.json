@@ -12,10 +12,10 @@
     "type": "minecraft:random_spread",
 
     // Make sure this is unique and does not match any other structure set's salt
-    "salt": 9847685947,
+    "salt": 7847685947,
 
     // The average distance apart in chunks for spawn attempts
-    "spacing": 8,
+    "spacing": 6,
 
     // Minimum distance apart in chunks for spawn attempts
     // MUST ALWAYS BE SMALLER THAN spacing ABOVE

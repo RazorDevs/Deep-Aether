@@ -4,7 +4,7 @@
   "structures": [
     {
       "structure": "deep_aether:altar_camp",
-      "weight": 1
+      "weight": 2
     }
   ],
   "placement": {
@@ -15,7 +15,7 @@
     "salt": 9738476839,
 
     // The average distance apart in chunks for spawn attempts
-    "spacing": 8,
+    "spacing": 9,
 
     // Minimum distance apart in chunks for spawn attempts
     // MUST ALWAYS BE SMALLER THAN spacing ABOVE

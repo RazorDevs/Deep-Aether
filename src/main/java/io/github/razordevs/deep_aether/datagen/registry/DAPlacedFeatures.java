@@ -236,7 +236,7 @@ public class DAPlacedFeatures {
                 BiomeFilter.biome());
 
         register(context, PATCH_SQUASH, configuredFeatures.getOrThrow(DAConfiguredFeatures.PATCH_SQUASH),
-                RarityFilter.onAverageOnceEvery(100),
+                RarityFilter.onAverageOnceEvery(50),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP,
                 BiomeFilter.biome());
