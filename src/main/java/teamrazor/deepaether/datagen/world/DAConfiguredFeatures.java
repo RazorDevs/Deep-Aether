@@ -402,7 +402,7 @@ public class DAConfiguredFeatures {
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LUMINESCENT_SKYROOT_FOREST_GRASS)), 0.5F)),
                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GLOWING_FLOWERS))));
 
-        register(context, AERCLOUD_CLOUD, DAFeatures.AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(AetherFeatureStates.COLD_AERCLOUD, 10000).add(DABlocks.STERLING_AERCLOUD.get().defaultBlockState(), 1)), Boolean.FALSE));
+        register(context, AERCLOUD_CLOUD, DAFeatures.AERCLOUD_CLOUD.get(), new AercloudCloudConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(AetherFeatureStates.COLD_AERCLOUD, 10000).add(DABlocks.STERLING_AERCLOUD.get().defaultBlockState(), 1)), 155));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {

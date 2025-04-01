@@ -19,7 +19,6 @@ public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
 
     public static final PerlinSimplexNoise NOISE = new PerlinSimplexNoise(new XoroshiroRandomSource(42), List.of(0,1, 0, 0, 0, 1, 0, 1));
 
-    public static final int lowestY  = 155;
     public AercloudCloudFeature(Codec<AercloudCloudConfiguration> codec) {
         super(codec);
     }
@@ -47,6 +46,8 @@ public class AercloudCloudFeature extends Feature<AercloudCloudConfiguration> {
 
         int chunkX = pos.getX() - (pos.getX() % 16);
         int chunkZ = pos.getZ() - (pos.getZ() % 16);
+
+        int lowestY = config.height();
 
         //Fills a chunk with blocks with a noise-based terrain
         for (int x = 0; x < 16; x++) {

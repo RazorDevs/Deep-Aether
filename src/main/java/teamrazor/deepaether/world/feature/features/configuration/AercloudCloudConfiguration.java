@@ -6,10 +6,10 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-public record AercloudCloudConfiguration(BlockStateProvider block, Boolean hasGrass) implements FeatureConfiguration {
+public record AercloudCloudConfiguration(BlockStateProvider block, Integer height) implements FeatureConfiguration {
     public static final Codec<AercloudCloudConfiguration> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
                     BlockStateProvider.CODEC.fieldOf("block").forGetter(AercloudCloudConfiguration::block),
-                    Codec.BOOL.fieldOf("hasGrass").forGetter(AercloudCloudConfiguration::hasGrass))
+                    Codec.INT.fieldOf("height").forGetter(AercloudCloudConfiguration::height))
 
             .apply(instance, AercloudCloudConfiguration::new));
 

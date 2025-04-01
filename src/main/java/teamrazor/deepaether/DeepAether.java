@@ -272,33 +272,33 @@ public class DeepAether {
 	@SubscribeEvent
 	public static void addAetherAdditionalResourcesPack(AddPackFindersEvent event) {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-			setupCompatPack("overrides/deep_aether_additional_assets", "Deep Aether Additional Assets", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
+			setupCompatPack("client/deep_aether_additional_assets", "Deep Aether Additional Assets", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
 
 			if (ModList.get().isLoaded(EMISSIVITY))
-				setupCompatPack("overrides/deep_aether_emissivity", "Deep Aether Emissivity", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, true);
+				setupCompatPack("client/deep_aether_emissivity", "Deep Aether Emissivity", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, true);
 
 			if (ModList.get().isLoaded(AETHER_GENESIS) || ModList.get().isLoaded(AETHER_REDUX))
-				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallFixClient", "Deep Aether Golden Swet Ball Texture Fix", event, PackType.CLIENT_RESOURCES, PackSource.DEFAULT, true);
+				setupCompatPack("client/golden_swet_ball/DAGoldenSwetBallFixClient", "Deep Aether Golden Swet Ball Texture Fix", event, PackType.CLIENT_RESOURCES, PackSource.DEFAULT, true);
 		}
 
 		if (event.getPackType() == PackType.SERVER_DATA) {
 			if (ModList.get().isLoaded(PROTECT_YOUR_MOA))
-				setupCompatPack("compat_recipes/protect_your_moa_compat", "Deep Aether Protect Your Moa Compat", event);
+				setupCompatPack("server/protect_your_moa_compat", "Deep Aether Protect Your Moa Compat", event);
 
 			if (ModList.get().isLoaded(AETHER_GENESIS))
-				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData", "Deep Aether Golden Swet Ball Aether Genesis Fix", event);
+				setupCompatPack("client/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData", "Deep Aether Golden Swet Ball Aether Genesis Fix", event);
 			else if (ModList.get().isLoaded(AETHER_REDUX))
-				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData", "Deep Aether Golden Swet Ball Aether Redux Fix", event);
+				setupCompatPack("client/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData", "Deep Aether Golden Swet Ball Aether Redux Fix", event);
 
 			if (ModList.get().isLoaded(LOST_AETHER_CONTENT))
-				setupCompatPack("compat_recipes/aether_lost_content_compat", "Lost Aether Content Compat", event);
-			else setupCompatPack("compat_recipes/aether_lost_content_not_compat", "Deep Aether Aerwhale Saddle Recipe", event);
+				setupCompatPack("server/aether_lost_content_compat", "Lost Aether Content Compat", event);
+			else setupCompatPack("server/aether_lost_content_not_compat", "Deep Aether Aerwhale Saddle Recipe", event);
 
 			if (ModList.get().isLoaded(AETHER_REDUX))
-				setupCompatPack("compat_recipes/aether_redux_compat", "Aether Redux Compat", event);
+				setupCompatPack("server/aether_redux_compat", "Aether Redux Compat", event);
 
 			if (ModList.get().isLoaded(ANCIENT_AETHER))
-				setupCompatPack("compat_recipes/ancient_aether_compat", "Ancient Aether Compat", event);
+				setupCompatPack("server/ancient_aether_compat", "Ancient Aether Compat", event);
 
 		}
 	}
