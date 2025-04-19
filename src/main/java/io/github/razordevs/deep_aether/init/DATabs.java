@@ -477,7 +477,8 @@ public class DATabs {
             addToTab(AetherItems.SWET_BALL.get(), new Item[]{
                     DAItems.QUAIL_EGG.get(),
                     DAItems.BIO_CRYSTAL.get(),
-                    DAItems.STRATUS_SMITHING_TEMPLATE.get()
+                    DAItems.STRATUS_SMITHING_TEMPLATE.get(),
+                    DAItems.STORMFORGED_SMITHING_TEMPLATE.get()
             }, event);
         }
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {

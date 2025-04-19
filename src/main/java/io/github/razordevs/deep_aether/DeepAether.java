@@ -299,4 +299,8 @@ public class DeepAether {
                 new PathPackResources.PathResourcesSupplier(resourcePath), type, new PackSelectionConfig(force, Pack.Position.TOP, false));
 		event.addRepositorySource(consumer -> consumer.accept(pack));
 	}
+
+	public static ResourceLocation getResource(String resourceName) {
+		return ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, resourceName);
+	}
 }

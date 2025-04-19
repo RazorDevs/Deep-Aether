@@ -10,7 +10,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
-import net.neoforged.neoforge.client.model.generators.*;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.Map;
@@ -295,6 +298,9 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
         //GENESIS COMPATIBILITY
         this.makeLogWalls();
+
+        //TREASURE REFORGING COMPATIBILITY
+        this.block(DABlocks.SQUALL_BLOCK.get());
     }
 
     public void dungeonBlock(Block block, Block baseBlock) {
