@@ -23,7 +23,6 @@ import io.github.razordevs.deep_aether.world.feature.tree.DATreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
@@ -434,6 +433,10 @@ public class DABlocks {
 	public static final DeferredBlock<WallBlock> SUNROOT_LOG_WALL = registerAetherGenesisBlock("sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final DeferredBlock<WallBlock> STRIPPED_SUNROOT_LOG_WALL = registerAetherGenesisBlock("stripped_sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 
+	//TREASURE REFORGING COMPATIBILITY
+
+	public static final DeferredBlock<Block> SQUALL_BLOCK = registerCompatBlock(DeepAether.TREASURE_REFORGING, "squall_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(DABlocks.SKYJADE_BLOCK.get())));
+
 	//Deep Aether 1.2/Experimental
 	public static final DeferredBlock<Block> AERCLOUD_ROOT_CARPET = registerDisabledBlock("aercloud_root_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).isViewBlocking(DABlocks::never).noOcclusion()));
 	public static final DeferredBlock<Block> TALL_ALIEN_PLANT = registerDisabledBlock("tall_alien_plant", ()-> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
@@ -671,7 +674,7 @@ public class DABlocks {
 		public static final ResourceKey<Block> ATTACHED_SQUASH_STEM = createKey("attached_squash_stem");
 
 		private static ResourceKey<Block> createKey(String pId) {
-			return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, pId));
+			return ResourceKey.create(Registries.BLOCK, DeepAether.getResource( pId));
 		}
 	}
 
@@ -679,7 +682,7 @@ public class DABlocks {
 		public static final ResourceKey<Item> SQUASH_SEEDS = createKey("squash_seeds");
 
 		private static ResourceKey<Item> createKey(String pId) {
-			return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, pId));
+			return ResourceKey.create(Registries.ITEM, DeepAether.getResource( pId));
 		}
 	}
 }
