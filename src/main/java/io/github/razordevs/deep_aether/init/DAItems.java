@@ -240,7 +240,7 @@ public class DAItems {
 	//ADDONS
 
 	//PROTECT YOUR MOA
-    public static final DeferredItem<?> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<?> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, DeepAether.getResource("textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 
 	//TREASURE REFORGING
 	public static final DeferredItem<Item> SQUALL_PLATE = registerTRItem("squall_plate", ()-> new Item( new Item.Properties()));

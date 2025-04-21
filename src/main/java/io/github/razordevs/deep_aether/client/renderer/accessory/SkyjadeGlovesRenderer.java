@@ -13,6 +13,7 @@ import io.wispforest.accessories.api.client.AccessoryRenderer;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -101,7 +102,7 @@ public class SkyjadeGlovesRenderer extends GlovesRenderer {
      * Modified version of {@link GlovesRenderer#renderFirstPerson(ItemStack, PoseStack, MultiBufferSource, int, AbstractClientPlayer, HumanoidArm)}
      */
     @Override
-    public void renderFirstPerson(ItemStack stack, PoseStack poseStack, MultiBufferSource buffer, int packedLight, AbstractClientPlayer player, HumanoidArm arm) {
+    public void renderFirstPerson(ItemStack stack, PoseStack poseStack, MultiBufferSource buffer, int packedLight, AbstractClientPlayer player, HumanoidModel<?> humanoidModel, HumanoidArm arm) {
         GlovesModel model = this.glovesFirstPerson;
         GlovesModel trimModel = this.glovesTrimFirstPerson;
 
