@@ -54,8 +54,8 @@
     "creature": [
       {
         "type": "aether:aerbunny",
-        "maxCount": 6,
-        "minCount": 7,
+        "maxCount": 7,
+        "minCount": 6,
         "weight": 11
       }
     ],
