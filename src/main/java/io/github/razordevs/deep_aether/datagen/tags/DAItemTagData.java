@@ -477,6 +477,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.MUSIC_DISC_HIMININN.get()
         );
 
+        this.tag(DATags.Items.BRASS_DUNGEON_LOOT).add(DAItems.STORMFORGED_SMITHING_TEMPLATE.get());
+
         /*tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
@@ -499,7 +501,8 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(ItemTags.TRIM_MATERIALS).add(
                 DAItems.SKYJADE.get(),
-                DAItems.STRATUS_INGOT.get()
+                DAItems.STRATUS_INGOT.get(),
+                DAItems.SQUALL_PLATE.get()
         );
 
         tag(ItemTags.TRIMMABLE_ARMOR).add(
@@ -570,7 +573,12 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
                 DAItems.SKYJADE.get(),
-                DAItems.STRATUS_INGOT.get()
+                DAItems.STRATUS_INGOT.get(),
+                DAItems.SQUALL_PLATE.get()
+        );
+
+        tag(DATags.Items.STORM_REPAIRING).add(
+                DAItems.SQUALL_PLATE.get()
         );
 
         tag(Tags.Items.INGOTS).add(

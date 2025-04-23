@@ -4,6 +4,8 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.protect_your_moa.item.ProtectItems;
+import com.aetherteam.treasure_reforging.block.ReforgingBlocks;
+import com.aetherteam.treasure_reforging.item.ReforgingItems;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.MoaFodder;
@@ -204,6 +206,10 @@ public class DATabs {
             addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(), DABlocks.SKYJADE_BLOCK.get().asItem(), event);
 
             addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.STRATUS_BLOCK.get().asItem(), event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingBlocks.PYRAL_BLOCK.asItem(), DABlocks.SQUALL_BLOCK.asItem(), event);
+            }
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
@@ -358,7 +364,9 @@ public class DATabs {
                     DAItems.PLACEABLE_POISON_BUCKET.get(),
                     DAItems.AERGLOW_FISH_BUCKET.get()
             }, event);
+
             addToTab(AetherItems.BLACK_MOA_EGG.get(), DAItems.QUAIL_EGG.get(), event);
+
             addToTab(AetherItems.SKYROOT_CHEST_BOAT.get(), new Item[]{
                     DAItems.ROSEROOT_BOAT.get(),
                     DAItems.ROSEROOT_CHEST_BOAT.get(),
@@ -382,7 +390,12 @@ public class DATabs {
                     DAItems.MUSIC_DISC_HIMININN.get()
 
             }, event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingItems.PHOENIX_UPGRADE_SMITHING_TEMPLATE.asItem(), DAItems.STORMFORGED_SMITHING_TEMPLATE.asItem(), event);
+            }
         }
+
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey()) {
             addToTab(AetherItems.ZANITE_GLOVES.get(), new Item[]{
                     DAItems.SKYJADE_HELMET.get(),
@@ -480,7 +493,12 @@ public class DATabs {
                     DAItems.STRATUS_SMITHING_TEMPLATE.get(),
                     DAItems.STORMFORGED_SMITHING_TEMPLATE.get()
             }, event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingItems.PYRAL_INGOT.asItem(), DAItems.SQUALL_PLATE.asItem(), event);
+            }
         }
+
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {
             addToTab(AetherItems.AERBUNNY_SPAWN_EGG.get(), new Item[]{
                     DAItems.AETHER_FISH_SPAWN_EGG.get()

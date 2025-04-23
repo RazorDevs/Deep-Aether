@@ -1,0 +1,9 @@
+{
+  "asset_name": "stormforged",
+  "description": {
+    "color": "#C8DDDE",
+    "translate": "trim_material.deep_aether.stormforged"
+  },
+  "ingredient": "deep_aether:squall_plate",
+  "item_model_index": 0.9
+}

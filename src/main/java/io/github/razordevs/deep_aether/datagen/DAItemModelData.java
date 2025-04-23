@@ -373,6 +373,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         //Treasure Reforging compat
         this.item(DAItems.STORMFORGED_SMITHING_TEMPLATE.get());
+        this.item(DAItems.SQUALL_PLATE.get());
         this.itemBlock(DABlocks.SQUALL_BLOCK.get());
 
         //Food

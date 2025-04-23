@@ -103,7 +103,8 @@ dependencies {
 
 
     compileOnly "curse.maven:aether-protect-your-moa-1016303:6040716"
-    implementation "curse.maven:aether-emissivity-916028:6392126"
+    compileOnly "curse.maven:aether-emissivity-916028:6392126"
+    implementation "curse.maven:aether-treasure-reforging-1016302:6040710"
 }
 
 repositories {
@@ -111,6 +112,7 @@ repositories {
     maven githubPackage.invoke("The-Aether-Team/Nitrogen")
     maven githubPackage.invoke("The-Aether-Team/Cumulus")
     maven githubPackage.invoke("The-Aether-Team/Protect-Your-Moa")
+    maven githubPackage.invoke("The-Aether-Team/Treasure-Reforging")
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.wispforest.io" }

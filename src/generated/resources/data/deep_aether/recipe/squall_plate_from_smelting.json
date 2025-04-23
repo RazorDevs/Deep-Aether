@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "squall_plate_from_smelting",
+  "ingredient": [
+    {
+      "item": "deep_aether:stormforged_boots"
+    },
+    {
+      "item": "deep_aether:stormforged_leggings"
+    },
+    {
+      "item": "deep_aether:stormforged_chestplate"
+    },
+    {
+      "item": "deep_aether:stormforged_helmet"
+    },
+    {
+      "item": "deep_aether:stormforged_gloves"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "deep_aether:squall_plate"
+  }
+}
