@@ -213,6 +213,7 @@ public class DAItems {
 			() -> new Item( new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(DAJukeboxSongs.ABOVE_THE_RAIN)));
 
 
+	//TODO: Possible Iron bucket for remedy?
 
 	public static final DeferredItem<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID.get(), new Item.Properties().stacksTo(1)));

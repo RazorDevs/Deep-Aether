@@ -37,6 +37,7 @@ public abstract class PoisonFluid extends FlowingFluid {
     protected void beforeDestroyingBlock(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
         this.fizz(pLevel, pPos);
     }
+
     @Override
     public Fluid getFlowing() {
         return DAFluids.POISON_FLOWING.get();

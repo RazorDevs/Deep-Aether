@@ -784,6 +784,16 @@ public class DARecipeData extends AetherRecipeProvider {
 
         SpecialRecipeBuilder.special(FloatyScarfColoring::new).save(consumer, "floaty_scarf_coloring");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.POISON_DART.get(), 8)
+                .define('D', AetherItems.GOLDEN_DART.get())
+                .define('B', DAItems.PLACEABLE_POISON_BUCKET.get())
+                .pattern("DDD")
+                .pattern("DBD")
+                .pattern("DDD")
+                .unlockedBy(getHasName(AetherItems.GOLDEN_DART.get()), has(AetherItems.GOLDEN_DART.get()))
+                .unlockedBy(getHasName(DAItems.PLACEABLE_POISON_BUCKET.get()), has(DAItems.PLACEABLE_POISON_BUCKET.get()))
+                .save(consumer);
+
         // Treasure Reforging Compat
         this.copyDungeonSmithingTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
 
