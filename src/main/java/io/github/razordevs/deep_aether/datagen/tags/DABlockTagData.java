@@ -663,5 +663,10 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(),
                 DABlocks.LOCKED_SKYROOT_PLANKS.get()
         );
+
+        tag(AetherTags.Blocks.ALLOWED_BUCKET_PICKUP).add(
+                DABlocks.POISON_BLOCK.get(),
+                DABlocks.VIRULENT_QUICKSAND.get()
+        );
     }
 }
