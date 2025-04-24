@@ -219,6 +219,7 @@ public record DAChestLoot(HolderLookup.Provider registries) implements LootTable
                         .add(LootItem.lootTableItem(DAItems.STORMFORGED_GLOVES.get()).setWeight(1))
                 )
         );
+
         builder.accept(DALoot.BRASS_DUNGEON_GUMMIES, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(2.0F, 4.0F))
                         .add(LootItem.lootTableItem(AetherItems.BLUE_GUMMY_SWET.get()).setWeight(4))

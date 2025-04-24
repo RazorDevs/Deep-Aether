@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether_treasure_reforging"
+    }
+  ],
+  "type": "nitrogen_internals:add_dungeon_loot",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "deep_aether:chests/dungeon/brass/brass_dungeon_reward"
+    }
+  ],
+  "entries": [
+    {
+      "data": {
+        "count": 1,
+        "id": "deep_aether:stormforged_smithing_template"
+      },
+      "weight": 2
+    }
+  ],
+  "rolls": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 1,
+    "min_inclusive": 1
+  }
+}
