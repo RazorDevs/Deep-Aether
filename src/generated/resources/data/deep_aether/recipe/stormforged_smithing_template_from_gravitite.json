@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:diamond"
+      "tag": "aether:processed/gravitite"
     },
     "C": {
       "item": "deep_aether:nimbus_stone"

@@ -795,7 +795,8 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
         // Treasure Reforging Compat
-        this.copyDungeonSmithingTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
+        copyTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
+        copyTemplateGravitite(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
 
         SimpleCookingRecipeBuilder.smelting(
                         Ingredient.of(DAItems.STORMFORGED_BOOTS.get(), DAItems.STORMFORGED_LEGGINGS.get(), DAItems.STORMFORGED_CHESTPLATE.get(), DAItems.STORMFORGED_HELMET.get(), DAItems.STORMFORGED_GLOVES.get()),
@@ -1018,18 +1019,5 @@ public class DARecipeData extends AetherRecipeProvider {
     }
     protected ResourceLocation packNameSpace(String name, String pack) {
         return ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, pack+"/"+name);
-    }
-
-    // Copied from Treasure Reforging code
-    public void copyDungeonSmithingTemplate(RecipeOutput recipeOutput, ItemLike result, ItemLike baseItem) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 2)
-                .define('#', AetherTags.Items.PROCESSED_GRAVITITE)
-                .define('C', baseItem)
-                .define('S', result)
-                .pattern("#S#")
-                .pattern("#C#")
-                .pattern("###")
-                .unlockedBy(getHasName(result), has(result))
-                .save(recipeOutput);
     }
 }
