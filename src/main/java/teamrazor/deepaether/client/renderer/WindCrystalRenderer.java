@@ -9,7 +9,7 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.WindCrystal;
 
 public class WindCrystalRenderer extends IceCrystalRenderer<WindCrystal> {
-    private static final ResourceLocation WIND_CRYSTAL_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/projectile/wind_ball.png");
+    private static final ResourceLocation WIND_CRYSTAL_TEXTURE = DeepAether.getResource( "textures/entity/projectile/wind_ball.png");
     public WindCrystalRenderer(EntityRendererProvider.Context context) {
         super(context);
     }

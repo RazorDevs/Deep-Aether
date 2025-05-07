@@ -9,12 +9,11 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.AerwhaleSaddleable;
 
 public class ClassicAerwhaleModelLayer extends RenderLayer<Aerwhale, EntityModel<Aerwhale>> {
-    private static final RenderType SADDLED_AERWHALE_CLASSIC = RenderType.armorCutoutNoCull(new ResourceLocation(DeepAether.MODID, "textures/entity/aerwhale_saddled_classic.png"));
+    private static final RenderType SADDLED_AERWHALE_CLASSIC = RenderType.armorCutoutNoCull(DeepAether.getResource( "textures/entity/aerwhale_saddled_classic.png"));
 
     public ClassicAerwhaleModelLayer(RenderLayerParent<Aerwhale, EntityModel<Aerwhale>> parent) {
         super(parent);

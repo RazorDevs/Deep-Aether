@@ -3,7 +3,6 @@ package teamrazor.deepaether.networking;
 
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.nitrogen.capability.CapabilityProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.capabilities.Capability;
@@ -31,9 +30,9 @@ public class DACapabilities {
         @SubscribeEvent
         public static void attachPlayerCapabilities(AttachCapabilitiesEvent<Entity> event) {
             if(event.getObject() instanceof Player player)
-                event.addCapability(new ResourceLocation(DeepAether.MODID, "deep_aether_player"), new CapabilityProvider(DACapabilities.DEEP_AETHER_PLAYER_CAPABILITY, new DAPlayerCapability(player)));
+                event.addCapability(DeepAether.getResource( "deep_aether_player"), new CapabilityProvider(DACapabilities.DEEP_AETHER_PLAYER_CAPABILITY, new DAPlayerCapability(player)));
             else if(event.getObject() instanceof  Moa moa) {
-                event.addCapability(new ResourceLocation(DeepAether.MODID, "moa_effect"), new CapabilityProvider(DACapabilities.MOA_CAPABILITY, new MoaEffectCapability(moa)));
+                event.addCapability(DeepAether.getResource( "moa_effect"), new CapabilityProvider(DACapabilities.MOA_CAPABILITY, new MoaEffectCapability(moa)));
             }
         }
     }

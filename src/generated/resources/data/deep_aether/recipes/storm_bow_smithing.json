@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "deep_aether:squall_plate"
+  },
+  "base": {
+    "item": "minecraft:bow"
+  },
+  "result": {
+    "item": "deep_aether:storm_bow"
+  },
+  "template": {
+    "item": "deep_aether:stormforged_smithing_template"
+  }
+}

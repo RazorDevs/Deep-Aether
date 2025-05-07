@@ -25,7 +25,7 @@ public class DAModelLayers {
     }
 
     private static ModelLayerLocation register(String name, String type) {
-        return register(new ResourceLocation(DeepAether.MODID, name), type);
+        return register(DeepAether.getResource( name), type);
     }
 
     private static ModelLayerLocation register(ResourceLocation identifier, String type) {

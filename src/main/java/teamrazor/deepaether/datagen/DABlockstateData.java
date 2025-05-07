@@ -294,6 +294,9 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
         //GENESIS COMPATIBILITY
         this.makeLogWalls();
+
+        //TREASURE REFORGING COMPATIBILITY
+        this.block(DABlocks.SQUALL_BLOCK.get());
     }
 
     public void combiner(Block block) {
@@ -322,7 +325,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
     }
 
     public ModelFile cubeAllTranslucent(Block block) {
-        return (this.models().cubeAll(this.name(block), this.texture(this.name(block)))).renderType(new ResourceLocation("translucent"));
+        return (this.models().cubeAll(this.name(block), this.texture(this.name(block)))).renderType(ResourceLocation.withDefaultNamespace("translucent"));
     }
     public void fenceColumn(CrossCollisionBlock block, String side) {
         String baseName = this.name(block);
@@ -351,20 +354,20 @@ public class DABlockstateData extends AetherBlockStateProvider {
     }
 
     public void crossBlock(Block block) {
-        this.crossBlock(block, models().cross(this.name(block), this.texture(this.name(block))).renderType(new ResourceLocation("cutout")));
+        this.crossBlock(block, models().cross(this.name(block), this.texture(this.name(block))).renderType(ResourceLocation.withDefaultNamespace("cutout")));
     }
     public void pottedPlant(Block block, Block flower) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), this.mcLoc("block/flower_pot_cross")).texture("plant", this.modLoc("block/"  + this.name(flower))).renderType(new ResourceLocation("cutout"));
+        ModelFile pot = this.models().withExistingParent(this.name(block), this.mcLoc("block/flower_pot_cross")).texture("plant", this.modLoc("block/"  + this.name(flower))).renderType(ResourceLocation.withDefaultNamespace("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
     public void pottedPlantFix(Block block, Block flower) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), this.mcLoc("block/flower_pot_cross")).texture("plant", this.modLoc("block/"  + this.name(flower) + "_pot")).renderType(new ResourceLocation("cutout"));
+        ModelFile pot = this.models().withExistingParent(this.name(block), this.mcLoc("block/flower_pot_cross")).texture("plant", this.modLoc("block/"  + this.name(flower) + "_pot")).renderType(ResourceLocation.withDefaultNamespace("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
     public void saplingBlock(Block block) {
-        ModelFile sapling = models().cross(this.name(block), this.texture(this.name(block))).renderType(new ResourceLocation("cutout"));
+        ModelFile sapling = models().cross(this.name(block), this.texture(this.name(block))).renderType(ResourceLocation.withDefaultNamespace("cutout"));
         this.getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(sapling).build(), SaplingBlock.STAGE);
     }
 

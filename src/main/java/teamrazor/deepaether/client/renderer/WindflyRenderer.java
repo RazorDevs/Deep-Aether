@@ -16,6 +16,6 @@ public class WindflyRenderer extends MobRenderer<Windfly, WindflyModel> {
     @Override
     @NotNull
     public ResourceLocation getTextureLocation(@NotNull Windfly instance) {
-        return new ResourceLocation(DeepAether.MODID, "textures/entity/windfly/windfly.png");
+        return DeepAether.getResource( "textures/entity/windfly/windfly.png");
     }
 }

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "aether:enchanted_gravitite"
+      "tag": "aether:processed/gravitite"
     },
     "C": {
       "item": "aether:holystone"

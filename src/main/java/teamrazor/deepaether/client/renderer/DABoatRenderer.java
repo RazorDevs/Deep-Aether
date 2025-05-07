@@ -38,8 +38,8 @@ public class DABoatRenderer<T extends DABoatEntity> extends EntityRenderer<T> {
 
     private ListModel<Boat> createBoatModel(EntityRendererProvider.Context renderer, DABoatEntity.Type type, boolean hasChest) {
         ModelLayerLocation modelLayerLocation = hasChest ?
-                new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getChestModelLocation()), "main")
-                : new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getModelLocation()), "main");
+                new ModelLayerLocation(DeepAether.getResource(type.getChestModelLocation()), "main")
+                : new ModelLayerLocation(DeepAether.getResource(type.getModelLocation()), "main");
         ModelPart modelPart = renderer.bakeLayer(modelLayerLocation);
         return hasChest ? new ChestBoatModel(modelPart) : new BoatModel(modelPart);
     }

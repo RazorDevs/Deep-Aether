@@ -15,11 +15,11 @@ import teamrazor.deepaether.client.model.EOTSSegmentModel;
 import teamrazor.deepaether.entity.eots.EOTSSegment;
 
 public class EOTSSegmentRenderer extends MultiModelRenderer<EOTSSegment, EntityModel<EOTSSegment>, EOTSSegmentModel, ClassicEOTSSegmentModel> {
-    private static final ResourceLocation EOTS_SEGMENT_LOCATION = new ResourceLocation(DeepAether.MODID, "textures/entity/eots/eots_segment.png");
-    private static final ResourceLocation EOTS_SEGMENT_CONTROLLING_LOCATION = new ResourceLocation(DeepAether.MODID, "textures/entity/eots/eots_segment_controlling.png");
+    private static final ResourceLocation EOTS_SEGMENT_LOCATION = DeepAether.getResource( "textures/entity/eots/eots_segment.png");
+    private static final ResourceLocation EOTS_SEGMENT_CONTROLLING_LOCATION = DeepAether.getResource( "textures/entity/eots/eots_segment_controlling.png");
 
-    private static final ResourceLocation EOTS_SEGMENT_LOCATION_CLASSIC = new ResourceLocation(DeepAether.MODID, "textures/entity/eots/eots_segment_classic.png");
-    private static final ResourceLocation EOTS_SEGMENT_CONTROLLING_LOCATION_CLASSIC = new ResourceLocation(DeepAether.MODID, "textures/entity/eots/eots_segment_controlling_classic.png");
+    private static final ResourceLocation EOTS_SEGMENT_LOCATION_CLASSIC = DeepAether.getResource( "textures/entity/eots/eots_segment_classic.png");
+    private static final ResourceLocation EOTS_SEGMENT_CONTROLLING_LOCATION_CLASSIC = DeepAether.getResource( "textures/entity/eots/eots_segment_controlling_classic.png");
 
     private final EOTSSegmentModel defaultModel;
     private final ClassicEOTSSegmentModel oldModel;

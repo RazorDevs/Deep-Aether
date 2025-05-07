@@ -43,6 +43,6 @@ public class BrassDungeonPiece extends AetherTemplateStructurePiece {
     }
 
     protected static ResourceLocation makeLocation(String name) {
-        return new ResourceLocation(DeepAether.MODID, "brass_dungeon/" + name);
+        return DeepAether.getResource( "brass_dungeon/" + name);
     }
 }

@@ -329,6 +329,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemLogWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), "", DeepAether.MODID);
         this.itemLogWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAether.MODID);
 
+        //Treasure Reforging compat
+        this.item(DAItems.STORMFORGED_SMITHING_TEMPLATE.get());
+        this.item(DAItems.SQUALL_PLATE.get());
+        this.itemBlock(DABlocks.SQUALL_BLOCK.get());
 
         //Flawless boss drops
         this.item(DAItems.AFTERBURNER.get());
@@ -455,21 +459,21 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.withExistingParent(this.itemName(item), this.mcLoc("item/bow"))
                 //Normal
                 .texture("layer0", this.modLoc("item/" + this.itemName(item)))
-                .override().predicate(new ResourceLocation("pulling"), 1).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0"))).end()
-                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.65F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1"))).end()
-                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.9F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2"))).end()
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0"))).end()
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(ResourceLocation.withDefaultNamespace("pull"), 0.65F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1"))).end()
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(ResourceLocation.withDefaultNamespace("pull"), 0.9F).model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2"))).end()
                 //Special
-                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(DeepAether.getResource( "enchanted"), 1.0F)
                 .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_0_special"))).end()
-                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.65F).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(ResourceLocation.withDefaultNamespace("pull"), 0.65F).predicate(DeepAether.getResource( "enchanted"), 1.0F)
                 .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_1_special"))).end()
-                .override().predicate(new ResourceLocation("pulling"), 1).predicate(new ResourceLocation("pull"), 0.9F).predicate(new ResourceLocation(DeepAether.MODID, "enchanted"), 1.0F)
+                .override().predicate(ResourceLocation.withDefaultNamespace("pulling"), 1).predicate(ResourceLocation.withDefaultNamespace("pull"), 0.9F).predicate(DeepAether.getResource( "enchanted"), 1.0F)
                 .model(this.getExistingFile(this.modLoc("item/" + this.itemName(item) + "_pulling_2_special"))).end();
     }
 
     public void translucentItem(Item item) {
         this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
-                .renderType(new ResourceLocation("translucent"))
+                .renderType(ResourceLocation.withDefaultNamespace("translucent"))
                 .texture("layer0", modLoc("item/" + this.itemName(item)));
     }
 
@@ -568,7 +572,7 @@ public class DAItemModelData extends AetherItemModelProvider {
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
             this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", this.mcLoc("trims/items/" + type + "_trim_" + material));
-            builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
+            builder.override().predicate(ResourceLocation.withDefaultNamespace("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
 
     }
@@ -583,7 +587,7 @@ public class DAItemModelData extends AetherItemModelProvider {
             String var10000 = this.itemName(item);
             String name = var10000 + "_" + material + "_trim";
             this.withExistingParent(name, this.mcLoc("item/generated")).texture("layer0", this.modLoc("item/" + this.itemName(item))).texture("layer1", new ResourceLocation(Aether.MODID,"trims/items/gloves_trim_" + material));
-            builder.override().predicate(new ResourceLocation("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
+            builder.override().predicate(ResourceLocation.withDefaultNamespace("trim_type"), (float)index).model(this.getExistingFile(this.modLoc("item/" + name))).end();
         }
 
     }

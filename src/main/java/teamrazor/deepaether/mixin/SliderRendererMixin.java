@@ -22,13 +22,13 @@ import teamrazor.deepaether.DeepAetherConfig;
 public abstract class SliderRendererMixin extends MobRenderer<Slider, SliderModel> {
 
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_asleep.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_TEXTURE = DeepAether.getResource( "textures/entity/slider/halloween_slider_asleep.png");
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_CRITICAL_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_asleep_critical.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_ASLEEP_CRITICAL_TEXTURE = DeepAether.getResource( "textures/entity/slider/halloween_slider_asleep_critical.png");
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_awake.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_TEXTURE = DeepAether.getResource( "textures/entity/slider/halloween_slider_awake.png");
     @Unique
-    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_awake_critical.png");
+    private static final ResourceLocation HALLOWEEN_SLIDER_AWAKE_CRITICAL_TEXTURE = DeepAether.getResource( "textures/entity/slider/halloween_slider_awake_critical.png");
 
 
     public SliderRendererMixin(EntityRendererProvider.Context context, SliderModel sliderModel, float v) {

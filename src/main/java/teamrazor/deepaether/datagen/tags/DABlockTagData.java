@@ -567,7 +567,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.NIMBUS_SLAB.get(),
                 DABlocks.NIMBUS_WALL.get(),
                 DABlocks.NIMBUS_PILLAR.get(),
-                DABlocks.LIGHT_NIMBUS_PILLAR.get()
+                DABlocks.LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.SQUALL_BLOCK.get()
                 );
 
         tag(BlockTags.SNAPS_GOAT_HORN).add(

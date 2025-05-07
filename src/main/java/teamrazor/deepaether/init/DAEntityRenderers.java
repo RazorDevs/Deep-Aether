@@ -9,7 +9,6 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -67,8 +66,8 @@ public class DAEntityRenderers {
 		event.registerLayerDefinition(DAModelLayers.SCARF, ScarfModel::createBodyLayer);
 
 		for (DABoatEntity.Type type : DABoatEntity.Type.values()) {
-			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getModelLocation()), "main"), BoatModel::createBodyModel);
-			event.registerLayerDefinition(new ModelLayerLocation(new ResourceLocation(DeepAether.MODID, type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
+			event.registerLayerDefinition(new ModelLayerLocation(DeepAether.getResource( type.getModelLocation()), "main"), BoatModel::createBodyModel);
+			event.registerLayerDefinition(new ModelLayerLocation(DeepAether.getResource( type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
 		}
 
 	}

@@ -17,7 +17,7 @@ import teamrazor.deepaether.entity.VenomiteBubble;
 
 @OnlyIn(Dist.CLIENT)
 public class VenomiteBubbleRenderer extends EntityRenderer<VenomiteBubble> {
-	private static final ResourceLocation LOCATION = new ResourceLocation(DeepAether.MODID, "textures/entity/venomite/venomite_bubble.png");
+	private static final ResourceLocation LOCATION = DeepAether.getResource( "textures/entity/venomite/venomite_bubble.png");
 
 	private final VenomiteBubbleModel<VenomiteBubble> bubble;
 

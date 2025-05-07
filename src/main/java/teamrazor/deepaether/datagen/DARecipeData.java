@@ -680,6 +680,17 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.GOLDEN_GRASS_SEEDS.get()), has(DAItems.GOLDEN_GRASS_SEEDS.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.POISON_DART.get(), 8)
+                .define('D', AetherItems.GOLDEN_DART.get())
+                .define('B', DAItems.PLACEABLE_POISON_BUCKET.get())
+                .pattern("DDD")
+                .pattern("DBD")
+                .pattern("DDD")
+                .unlockedBy(getHasName(AetherItems.GOLDEN_DART.get()), has(AetherItems.GOLDEN_DART.get()))
+                .unlockedBy(getHasName(DAItems.PLACEABLE_POISON_BUCKET.get()), has(DAItems.PLACEABLE_POISON_BUCKET.get()))
+                .save(consumer);
+
+
         goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get()).save(consumer, "golden_grass_block_from_aether_dirt");
         goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get()).save(consumer, "golden_grass_block_from_aether_grass_block");
 
@@ -691,6 +702,82 @@ public class DARecipeData extends AetherRecipeProvider {
         enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
 
         SpecialRecipeBuilder.special(DARecipeSerializers.FLOATY_SCARF_COLORING.get()).save(consumer, "floaty_scarf_coloring");
+
+
+        // Treasure Reforging Compat
+        this.copyTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
+        this.copyTemplateGravitite(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
+
+        SimpleCookingRecipeBuilder.smelting(
+                        Ingredient.of(DAItems.STORMFORGED_BOOTS.get(), DAItems.STORMFORGED_LEGGINGS.get(), DAItems.STORMFORGED_CHESTPLATE.get(), DAItems.STORMFORGED_HELMET.get(), DAItems.STORMFORGED_GLOVES.get()),
+                        RecipeCategory.MISC,
+                        DAItems.SQUALL_PLATE.get(),
+                        0.1F,
+                        200)
+                .unlockedBy("has_boots", has(DAItems.STORMFORGED_BOOTS.get()))
+                .unlockedBy("has_leggings", has(DAItems.STORMFORGED_LEGGINGS.get()))
+                .unlockedBy("has_chestplate", has(DAItems.STORMFORGED_CHESTPLATE.get()))
+                .unlockedBy("has_helmet", has(DAItems.STORMFORGED_HELMET.get()))
+                .unlockedBy("has_gloves", has(DAItems.STORMFORGED_GLOVES.get()))
+                .group(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(DAItems.SKYJADE_BOOTS.get()),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems.STORMFORGED_BOOTS.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_BOOTS.get()) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(DAItems.SKYJADE_LEGGINGS.get()),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems.STORMFORGED_LEGGINGS.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_LEGGINGS.get()) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(DAItems.SKYJADE_CHESTPLATE.get()),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems.STORMFORGED_CHESTPLATE.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_CHESTPLATE.get()) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(DAItems.SKYJADE_HELMET.get()),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems.STORMFORGED_HELMET.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_HELMET.get()) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(DAItems.SKYJADE_GLOVES.get()),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems. STORMFORGED_GLOVES.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_GLOVES.get()) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(DAItems.SKYJADE_TOOLS_SWORD.get()),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems.STORM_SWORD.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORM_SWORD.get()) + "_smithing"));
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
+                        Ingredient.of(Items.BOW),
+                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
+                        RecipeCategory.COMBAT,
+                        DAItems.STORM_BOW.get())
+                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getItemName(DAItems.STORM_BOW.get()) + "_smithing"));
     }
 
     protected void copyTemplate(Consumer<FinishedRecipe> p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
@@ -704,7 +791,8 @@ public class DARecipeData extends AetherRecipeProvider {
     }
 
     protected void copyTemplateGravitite(Consumer<FinishedRecipe> p_266734_, ItemLike p_267133_, ItemLike p_267023_) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2).define('#', AetherBlocks.ENCHANTED_GRAVITITE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, p_267133_, 2)
+                .define('#', AetherTags.Items.PROCESSED_GRAVITITE)
                 .define('C', p_267023_)
                 .define('S', p_267133_)
                 .pattern("#S#")
@@ -824,12 +912,12 @@ public class DARecipeData extends AetherRecipeProvider {
     }
 
     protected ResourceLocation name(String name) {
-        return new ResourceLocation(DeepAether.MODID, name);
+        return DeepAether.getResource( name);
     }
     protected ResourceLocation packName(String name) {
         return packNameSpace(name, "pack");
     }
     protected ResourceLocation packNameSpace(String name, String pack) {
-        return new ResourceLocation(DeepAether.MODID, pack+"/"+name);
+        return DeepAether.getResource( pack+"/"+name);
     }
 }

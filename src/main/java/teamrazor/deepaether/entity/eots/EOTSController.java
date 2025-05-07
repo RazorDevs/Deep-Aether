@@ -465,7 +465,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     @Nullable
     @Override
     public ResourceLocation getBossBarTexture() {
-        return new ResourceLocation(DeepAether.MODID, "textures/gui/sprites/boss_bar/eots.png");
+        return DeepAether.getResource("textures/gui/sprites/boss_bar/eots.png");
     }
 
     /**

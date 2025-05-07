@@ -87,7 +87,7 @@ public class FodderItem extends Item {
             }
             else return null;
 
-            MobEffect mobEffect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(effect));
+            MobEffect mobEffect = ForgeRegistries.MOB_EFFECTS.getValue(ResourceLocation.parse(effect));
             if(mobEffect == null)
                 return null;
             else {

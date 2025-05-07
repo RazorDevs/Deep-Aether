@@ -6,6 +6,8 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.protect_your_moa.item.ProtectItems;
+import com.aetherteam.treasure_reforging.block.ReforgingBlocks;
+import com.aetherteam.treasure_reforging.item.ReforgingItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -202,6 +204,10 @@ public class DATabs {
             addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(), DABlocks.SKYJADE_BLOCK.get().asItem(), event);
 
             addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.STRATUS_BLOCK.get().asItem(), event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingBlocks.PYRAL_BLOCK.get().asItem(), DABlocks.SQUALL_BLOCK.get().asItem(), event);
+            }
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
@@ -376,6 +382,10 @@ public class DATabs {
                     DAItems.MUSIC_DISC_HIMININN.get()
 
             }, event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingItems.PHOENIX_UPGRADE_SMITHING_TEMPLATE.get(), DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), event);
+            }
         }
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey()) {
             addToTab(AetherItems.ZANITE_GLOVES.get(), new Item[]{
@@ -439,10 +449,10 @@ public class DATabs {
                     getMoaFodderStack(DAMobEffects.MOA_BONUS_JUMPS.getId()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
-                    getMoaFodderStack(new ResourceLocation("fire_resistance")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    getMoaFodderStack(ResourceLocation.withDefaultNamespace("fire_resistance")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
-                    getMoaFodderStack(new ResourceLocation("jump_boost")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    getMoaFodderStack(ResourceLocation.withDefaultNamespace("jump_boost")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
 
 
@@ -482,6 +492,10 @@ public class DATabs {
                     DAItems.BIO_CRYSTAL.get(),
                     DAItems.STRATUS_SMITHING_TEMPLATE.get()
             }, event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingItems.PYRAL_INGOT.get(), DAItems.SQUALL_PLATE.get(), event);
+            }
         }
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {
             addToTab(AetherItems.AERBUNNY_SPAWN_EGG.get(), new Item[]{

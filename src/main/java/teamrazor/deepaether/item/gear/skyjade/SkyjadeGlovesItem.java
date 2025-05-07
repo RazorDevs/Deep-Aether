@@ -3,7 +3,6 @@ package teamrazor.deepaether.item.gear.skyjade;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -19,7 +18,7 @@ import java.util.UUID;
 
 public class SkyjadeGlovesItem extends GlovesItem {
     public SkyjadeGlovesItem(double punchDamage, Item.Properties properties) {
-        super(DaArmorMaterials.SKYJADE, punchDamage, new ResourceLocation(DeepAether.MODID,"skyjade_gloves"), DASounds.ITEM_ARMOR_EQUIP_SKYJADE, properties);
+        super(DaArmorMaterials.SKYJADE, punchDamage, DeepAether.getResource("skyjade_gloves"), DASounds.ITEM_ARMOR_EQUIP_SKYJADE, properties);
     }
 
     @Override

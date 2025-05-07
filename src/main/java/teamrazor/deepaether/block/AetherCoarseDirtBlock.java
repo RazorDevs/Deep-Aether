@@ -6,7 +6,8 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public class AetherCoarseDirtBlock extends AetherDoubleDropBlock {
     public AetherCoarseDirtBlock(Properties p_49795_) {

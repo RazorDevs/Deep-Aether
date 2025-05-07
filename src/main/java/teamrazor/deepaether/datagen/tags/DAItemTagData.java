@@ -127,6 +127,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.ECHAISY.get().asItem()
         );
 
+        this.tag(DATags.Items.BRASS_DUNGEON_LOOT).add(DAItems.STORMFORGED_SMITHING_TEMPLATE.get());
+
         tag(ItemTags.LOGS).add(
                 DABlocks.ROSEROOT_LOG.get().asItem(),
                 DABlocks.ROSEROOT_WOOD.get().asItem(),

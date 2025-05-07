@@ -2,14 +2,17 @@ package teamrazor.deepaether.datagen.loot.modifiers;
 
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.AetherLoot;
+import com.aetherteam.nitrogen.loot.AddDungeonLootModifier;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import teamrazor.deepaether.DeepAether;
+import teamrazor.deepaether.datagen.loot.DALoot;
 import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.init.DAItems;
 
@@ -91,5 +94,12 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                 135,
                 0.75f
         ));
+
+        this.add("stormforged_upgrade_treasure", new AddDungeonLootModifier(
+                        new LootItemCondition[] { LootTableIdCondition.builder(DALoot.BRASS_DUNGEON_REWARD).build() },
+                        List.of(WeightedEntry.wrap(new ItemStack(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()), 2)),
+                        UniformInt.of(1, 1))
+                //new ModLoadedCondition(DeepAether.TREASURE_REFORGING)
+        );
     }
 }

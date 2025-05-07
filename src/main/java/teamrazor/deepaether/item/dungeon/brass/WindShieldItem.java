@@ -9,7 +9,7 @@ import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotContext;
 
 public class WindShieldItem extends AccessoryItem {
-    private static final ResourceLocation SHIELD_OF_REPULSION = new ResourceLocation(DeepAether.MODID, "textures/models/accessory/wind_shield/wind_shield_accessory.png");
+    private static final ResourceLocation SHIELD_OF_REPULSION = DeepAether.getResource( "textures/models/accessory/wind_shield/wind_shield_accessory.png");
 
     public WindShieldItem(Properties properties) {
         super(properties);

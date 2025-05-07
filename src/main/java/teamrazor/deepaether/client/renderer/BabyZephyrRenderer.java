@@ -31,6 +31,6 @@ public class BabyZephyrRenderer extends MobRenderer<BabyZephyr, BabyZephyrModel>
 
     @Override
     public ResourceLocation getTextureLocation(BabyZephyr pEntity) {
-        return new ResourceLocation(DeepAether.MODID, "textures/entity/baby_zephyr.png");
+        return DeepAether.getResource("textures/entity/baby_zephyr.png");
     }
 }

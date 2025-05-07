@@ -16,7 +16,7 @@ import teamrazor.deepaether.init.DAItems;
 import teamrazor.deepaether.recipe.poison.PoisonRecipe;
 
 public class PoisonRecipeCategory extends AbstractRecipeCategory<PoisonRecipe> {
-    public static final ResourceLocation UID = new ResourceLocation(DeepAether.MODID, "poison_recipe");
+    public static final ResourceLocation UID = DeepAether.getResource( "poison_recipe");
     public static final ResourceLocation TEXTURE = new ResourceLocation(Aether.MODID, "textures/gui/menu/jei_render.png");
     public static final RecipeType<PoisonRecipe> RECIPE_TYPE = RecipeType.create(DeepAether.MODID, "poison_recipe", PoisonRecipe.class);
 

@@ -23,19 +23,19 @@ public class QuailRenderer extends MobRenderer<Quail, QuailModel> {
     public static final Map<QuailVariants, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(QuailVariants.class), (map) -> {
                 map.put(QuailVariants.OLD_GREEN,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_old_green.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_old_green.png"));
                 map.put(QuailVariants.PINK,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_pink.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_pink.png"));
                 map.put(QuailVariants.PURPLE,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_purple.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_purple.png"));
                 map.put(QuailVariants.TROPICAL_BLUE,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_tropical_blue.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_tropical_blue.png"));
                 map.put(QuailVariants.FADED_YELLOW,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_faded_yellow.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_faded_yellow.png"));
                 map.put(QuailVariants.LIGHT_BLUE,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_light_blue.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_light_blue.png"));
                 map.put(QuailVariants.COPPER,
-                        new ResourceLocation(DeepAether.MODID, "textures/entity/quail/quail_copper.png"));
+                        DeepAether.getResource( "textures/entity/quail/quail_copper.png"));
 
             });
 

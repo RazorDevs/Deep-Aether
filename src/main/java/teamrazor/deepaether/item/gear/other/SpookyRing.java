@@ -66,8 +66,8 @@ public class SpookyRing extends RingItem {
     public static void SpookyMoonConditions(SlotContext slotContext) {
         Level level = slotContext.entity().level();
         if (level.isClientSide()) {
-            LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) & level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? new ResourceLocation(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png");
-            AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? new ResourceLocation(DeepAether.MODID, "textures/environment/spooky_moon_phases.png") : new ResourceLocation("textures/environment/moon_phases.png"));
+            LevelRenderer.MOON_LOCATION = EquipmentUtil.hasTwoSpookyRings(slotContext) & level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? DeepAether.getResource( "textures/environment/spooky_moon_phases.png") : ResourceLocation.withDefaultNamespace("textures/environment/moon_phases.png");
+            AetherSkyRenderEffectsAccessor.setMOON_LOCATION(EquipmentUtil.hasTwoSpookyRings(slotContext) && level.getMoonPhase() == 0 && DeepAether.IS_HALLOWEEN ? DeepAether.getResource( "textures/environment/spooky_moon_phases.png") : ResourceLocation.withDefaultNamespace("textures/environment/moon_phases.png"));
         }
     }
 

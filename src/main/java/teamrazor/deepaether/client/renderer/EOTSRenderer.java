@@ -22,6 +22,6 @@ public class EOTSRenderer extends MobRenderer<EOTSController, EOTSModel> {
 
     @Override
     public ResourceLocation getTextureLocation(EOTSController instance) {
-        return new ResourceLocation(DeepAether.MODID, "textures/entity/eots/eots_controller.png");
+        return DeepAether.getResource( "textures/entity/eots/eots_controller.png");
     }
 }

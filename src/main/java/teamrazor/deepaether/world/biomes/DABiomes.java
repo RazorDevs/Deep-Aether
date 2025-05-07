@@ -2,7 +2,6 @@ package teamrazor.deepaether.world.biomes;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import teamrazor.deepaether.DeepAether;
 
@@ -18,6 +17,6 @@ public class DABiomes {
     public static final ResourceKey<Biome> LUMINESCENT_FOREST = createKey("luminescent_forest");
 
     private static ResourceKey<Biome> createKey(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation(DeepAether.MODID, name));
+        return ResourceKey.create(Registries.BIOME, DeepAether.getResource( name));
     }
 }

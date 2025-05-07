@@ -105,6 +105,8 @@
     "deep_aether:stratus_shield",
     "deep_aether:skyjade_moa_armor",
     "deep_aether:glowing_spores",
+    "deep_aether:squall_plate",
+    "deep_aether:stormforged_smithing_template",
     "deep_aether:golden_heights_grass_block",
     "deep_aether:golden_heights_dirt_path",
     "deep_aether:aether_coarse_dirt",
@@ -344,6 +346,7 @@
     "deep_aether:conberry_log_wall",
     "deep_aether:stripped_conberry_log_wall",
     "deep_aether:sunroot_log_wall",
-    "deep_aether:stripped_sunroot_log_wall"
+    "deep_aether:stripped_sunroot_log_wall",
+    "deep_aether:squall_block"
   ]
 }

@@ -1,0 +1,25 @@
+{
+  "type": "nitrogen_internals:add_dungeon_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "deep_aether:chests/dungeon/brass/brass_dungeon_reward"
+    }
+  ],
+  "entries": [
+    {
+      "data": {
+        "Count": 1,
+        "id": "deep_aether:stormforged_smithing_template"
+      },
+      "weight": 2
+    }
+  ],
+  "rolls": {
+    "type": "minecraft:uniform",
+    "value": {
+      "max_inclusive": 1,
+      "min_inclusive": 1
+    }
+  }
+}

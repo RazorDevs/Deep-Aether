@@ -20,9 +20,9 @@ import teamrazor.deepaether.init.DABlocks;
 import teamrazor.deepaether.recipe.combiner.CombinerRecipe;
 
 public class CombinerRecipeCategory extends AbstractRecipeCategory<CombinerRecipe> {
-    public static final ResourceLocation UID = new ResourceLocation(DeepAether.MODID, "combiner_recipe");
-    public static final ResourceLocation TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui_jei.png");
-    public static final ResourceLocation ARROW_TEXTURE = new ResourceLocation(DeepAether.MODID, "textures/gui/sprites/combiner_arrow.png");
+    public static final ResourceLocation UID = DeepAether.getResource( "combiner_recipe");
+    public static final ResourceLocation TEXTURE = DeepAether.getResource( "textures/gui/combiner_gui_jei.png");
+    public static final ResourceLocation ARROW_TEXTURE = DeepAether.getResource( "textures/gui/sprites/combiner_arrow.png");
     public static final RecipeType<CombinerRecipe> RECIPE_TYPE = RecipeType.create(DeepAether.MODID, "combiner_recipe", CombinerRecipe.class);
 
     private IDrawableAnimated animatedProgressArrow;

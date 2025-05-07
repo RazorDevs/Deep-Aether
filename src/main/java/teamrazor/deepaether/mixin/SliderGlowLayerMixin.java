@@ -3,7 +3,6 @@ package teamrazor.deepaether.mixin;
 import com.aetherteam.aether.client.renderer.entity.layers.SliderGlowLayer;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,9 +17,9 @@ import teamrazor.deepaether.DeepAetherConfig;
 @Mixin(SliderGlowLayer.class)
 public abstract class SliderGlowLayerMixin {
     @Unique
-    private static final RenderType HALLOWEEN_SLIDER_AWAKE_GLOW = RenderType.eyes(new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_awake_glow.png"));
+    private static final RenderType HALLOWEEN_SLIDER_AWAKE_GLOW = RenderType.eyes(DeepAether.getResource( "textures/entity/slider/halloween_slider_awake_glow.png"));
     @Unique
-    private static final RenderType HALLOWEEN_AWAKE_CRITICAL_GLOW = RenderType.eyes(new ResourceLocation(DeepAether.MODID, "textures/entity/slider/halloween_slider_awake_critical_glow.png"));
+    private static final RenderType HALLOWEEN_AWAKE_CRITICAL_GLOW = RenderType.eyes(DeepAether.getResource( "textures/entity/slider/halloween_slider_awake_critical_glow.png"));
 
     @Inject(at = @At("HEAD"), remap = false, method = "renderType(Lcom/aetherteam/aether/entity/monster/dungeon/boss/Slider;)Lnet/minecraft/client/renderer/RenderType;", cancellable = true)
     public void renderType(Slider slider, CallbackInfoReturnable<RenderType> cir) {

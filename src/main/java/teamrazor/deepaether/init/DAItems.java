@@ -14,7 +14,6 @@ import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
@@ -82,7 +81,7 @@ public class DAItems {
 	public static final RegistryObject<Item> STRATUS_CHESTPLATE = ITEMS.register("stratus_chestplate", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 	public static final RegistryObject<Item> STRATUS_LEGGINGS = ITEMS.register("stratus_leggings", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.LEGGINGS, new Item.Properties()));
 	public static final RegistryObject<Item> STRATUS_BOOTS = ITEMS.register("stratus_boots", () -> new DaArmorItem(DaArmorMaterials.STRATUS, ArmorItem.Type.BOOTS, new Item.Properties()));
-	public static final RegistryObject<Item> STRATUS_GLOVES = ITEMS.register("stratus_gloves", () -> new GlovesItem(DaArmorMaterials.STRATUS, 1.0,new ResourceLocation(DeepAether.MODID, "stratus_gloves"), DASounds.ITEM_ARMOR_EQUIP_STRATUS, new Item.Properties().defaultDurability(2031)));
+	public static final RegistryObject<Item> STRATUS_GLOVES = ITEMS.register("stratus_gloves", () -> new GlovesItem(DaArmorMaterials.STRATUS, 1.0,DeepAether.getResource( "stratus_gloves"), DASounds.ITEM_ARMOR_EQUIP_STRATUS, new Item.Properties().defaultDurability(2031)));
 	public static final RegistryObject<Item> STRATUS_RING = ITEMS.register("stratus_ring", () -> new RingItem(DASounds.ITEM_ACCESSORY_EQUIP_STRATUS_RING, new Item.Properties().stacksTo(1).durability(100)));
 	public static final RegistryObject<Item> SPOOKY_RING = ITEMS.register("spooky_ring", () -> new SpookyRing(DASounds.ITEM_ACCESSORY_EQUIP_SPOOKY_RING, new Item.Properties().stacksTo(1).durability(500)));
 	public static final RegistryObject<Item> SLIDER_EYE = ITEMS.register("slider_eye", () -> new SliderEye(DASounds.ITEM_ACCESSORY_EQUIP_SLIDER_EYE, new Item.Properties().stacksTo(1).durability(500).rarity(AetherItems.AETHER_LOOT).fireResistant()));
@@ -201,7 +200,7 @@ public class DAItems {
 	public static final RegistryObject<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
 	//BRASS LOOT
-	public static final RegistryObject<Item> BRASS_DUNGEON_KEY = ITEMS.register("brass_dungeon_key", () -> new DungeonKeyItem(new ResourceLocation(DeepAether.MODID, "brass"), new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final RegistryObject<Item> BRASS_DUNGEON_KEY = ITEMS.register("brass_dungeon_key", () -> new DungeonKeyItem(DeepAether.getResource( "brass"), new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 	public static final RegistryObject<Item> STORM_BOW = ITEMS.register("storm_bow", () -> new StormBowItem(new Item.Properties().durability(384).rarity(AetherItems.AETHER_LOOT)));
 	public static final RegistryObject<Item> STORM_SWORD = ITEMS.register("storm_sword", () -> new StormSwordItem(DATiers.STRATUS, 2, -2.4F, new Item.Properties().durability(384)));
     public static final RegistryObject<Item> BLADE_OF_LUCK = ITEMS.register("blade_of_luck", () -> new BladeOfLuckItem(DATiers.LUCK, 0, -3.5F, (new Item.Properties()).stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
@@ -210,13 +209,14 @@ public class DAItems {
 	public static final RegistryObject<Item> STORMFORGED_CHESTPLATE = ITEMS.register("stormforged_chestplate", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.CHESTPLATE, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
 	public static final RegistryObject<Item> STORMFORGED_LEGGINGS = ITEMS.register("stormforged_leggings", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.LEGGINGS, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
 	public static final RegistryObject<Item> STORMFORGED_BOOTS = ITEMS.register("stormforged_boots", () -> new DaArmorItem(DaArmorMaterials.STORMFORGED, ArmorItem.Type.BOOTS, new Item.Properties().rarity(AetherItems.AETHER_LOOT)));
-	public static final RegistryObject<Item> STORMFORGED_GLOVES = ITEMS.register("stormforged_gloves", () -> new GlovesItem(DaArmorMaterials.STORMFORGED, 0.75, new ResourceLocation(DeepAether.MODID, "stormforged_gloves"), DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, new Item.Properties().rarity(AetherItems.AETHER_LOOT).durability(1561)));
+	public static final RegistryObject<Item> STORMFORGED_GLOVES = ITEMS.register("stormforged_gloves", () -> new GlovesItem(DaArmorMaterials.STORMFORGED, 0.75, DeepAether.getResource( "stormforged_gloves"), DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, new Item.Properties().rarity(AetherItems.AETHER_LOOT).durability(1561)));
 
-	public static final RegistryObject<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(new ResourceLocation(DeepAether.MODID, "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
-	public static final RegistryObject<Item> CLOUD_CAPE = ITEMS.register("cloud_cape", () -> new CloudCapeItem(new ResourceLocation(DeepAether.MODID, "cloud_cape"), new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
+	public static final RegistryObject<Item> AERCLOUD_NECKLACE = ITEMS.register("aercloud_necklace", () -> new PendantItem(DeepAether.getResource( "aercloud_necklace"), DASounds.ITEM_ACCESSORY_EQUIP_MEDAL_OF_HONOR, new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
+	public static final RegistryObject<Item> CLOUD_CAPE = ITEMS.register("cloud_cape", () -> new CloudCapeItem(DeepAether.getResource( "cloud_cape"), new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
     public static final RegistryObject<Item> WIND_SHIELD = ITEMS.register("wind_shield", () -> new WindShieldItem(new Item.Properties().stacksTo(1).durability(512).rarity(AetherItems.AETHER_LOOT)));
 
-    public static final RegistryObject<Item> FLOATY_SCARF = ITEMS.register("floaty_scarf", () -> new FloatyScarfItem(new ResourceLocation(DeepAether.MODID, "floaty_scarf"), DASounds.EQUIP_FLOATY_SCARF, new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
+    public static final RegistryObject<Item> FLOATY_SCARF = ITEMS.register("floaty_scarf", () -> new FloatyScarfItem(DeepAether.getResource( "floaty_scarf"), DASounds.EQUIP_FLOATY_SCARF, new Item.Properties().rarity(AetherItems.AETHER_LOOT).stacksTo(1)));
+	
 	//LOST CONTENT
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
@@ -225,6 +225,15 @@ public class DAItems {
 	public static final RegistryObject<?> SKYJADE_MOA_ARMOR = registerPYMItem();
 
 	public static final RegistryObject<Item> GLOWING_SPORES = DAItems.ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
+
+	//TREASURE REFORGING
+	public static final RegistryObject<Item> SQUALL_PLATE = registerTRItem("squall_plate", ()-> new Item( new Item.Properties()));
+	public static final RegistryObject<Item> STORMFORGED_SMITHING_TEMPLATE = ITEMS.register("stormforged_smithing_template", () -> new SmithingTemplateItem(
+			DAItems.STORMFORGED_UPGRADE_APPLIES_TO, DAItems.STORMFORGED_UPGRADE_INGREDIENTS, DAItems.STORMFORGED_UPGRADE,
+			DAItems.STORMFORGED_UPGRADE_BASE_SLOT_DESCRIPTION, DAItems.STORMFORGED_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
+			SmithingTemplateItem.createNetheriteUpgradeIconList(),  SmithingTemplateItem.createNetheriteUpgradeMaterialList())
+	);
+	
 
 	public static void register(IEventBus eventBus) {
 		ITEMS.register(eventBus);
@@ -238,7 +247,7 @@ public class DAItems {
 	private static RegistryObject<?> registerPYMItem() {
 		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
-			return ITEMS.register("skyjade_moa_armor", ()-> new MoaArmorItem(7, new ResourceLocation(DeepAether.MODID, "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+			return ITEMS.register("skyjade_moa_armor", ()-> new MoaArmorItem(7, DeepAether.getResource( "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 		}
 		else return ITEMS.register("skyjade_moa_armor", () -> new Item(new Item.Properties()));
 	}
@@ -250,12 +259,26 @@ public class DAItems {
 		return ITEMS.register(name, item);
 	}
 
+	private static RegistryObject<Item> registerTRItem(String name, Supplier<Item> item) {
+		if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Treasure Reforging compat items");
+			return ITEMS.register(name, item);
+		}
+		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
+	}
+
 	//For Stratus Template
 	public static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
 	public static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.LIGHT_PURPLE;
-	public static final Component STRATUS_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(DeepAether.MODID, "stratus_upgrade"))).withStyle(DAItems.TITLE_FORMAT);
-	public static final Component STRATUS_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.applies_to"))).withStyle(DAItems.DESCRIPTION_FORMAT);
-	public static final Component STRATUS_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.ingredients"))).withStyle(DAItems.DESCRIPTION_FORMAT);
-	public static final Component STRATUS_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.base_slot_description")));
-	public static final Component STRATUS_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(DeepAether.MODID,"smithing_template.stratus_upgrade.additions_slot_description")));
+	public static final Component STRATUS_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", DeepAether.getResource( "stratus_upgrade"))).withStyle(DAItems.TITLE_FORMAT);
+	public static final Component STRATUS_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stratus_upgrade.applies_to"))).withStyle(DAItems.DESCRIPTION_FORMAT);
+	public static final Component STRATUS_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stratus_upgrade.ingredients"))).withStyle(DAItems.DESCRIPTION_FORMAT);
+	public static final Component STRATUS_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stratus_upgrade.base_slot_description")));
+	public static final Component STRATUS_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stratus_upgrade.additions_slot_description")));
+
+	public static final Component STORMFORGED_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", DeepAether.getResource( "stormforged_upgrade"))).withStyle(DAItems.TITLE_FORMAT);
+	public static final Component STORMFORGED_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stormforged_upgrade.applies_to"))).withStyle(DAItems.DESCRIPTION_FORMAT);
+	public static final Component STORMFORGED_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stormforged_upgrade.ingredients"))).withStyle(DAItems.DESCRIPTION_FORMAT);
+	public static final Component STORMFORGED_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stormforged_upgrade.base_slot_description")));
+	public static final Component STORMFORGED_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", DeepAether.getResource("smithing_template.stormforged_upgrade.additions_slot_description")));
 }

@@ -1,7 +1,6 @@
 package teamrazor.deepaether.datagen.tags;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
@@ -37,7 +36,7 @@ public class DATags {
         public static final TagKey<Item> FLAWLESS_ITEMS = tag("flawless_items");
 
         private static TagKey<Item> tag(String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.MODID, name));
+            return TagKey.create(Registries.ITEM, DeepAether.getResource(name));
         }
     }
     public static class Blocks {
@@ -52,7 +51,7 @@ public class DATags {
         public static final TagKey<Block> HAS_GLOWING_SPORES = tag("has_glowing_spores");
 
         private static TagKey<Block> tag(String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation(DeepAether.MODID, name));
+            return TagKey.create(Registries.BLOCK, DeepAether.getResource( name));
         }
     }
 
@@ -63,7 +62,7 @@ public class DATags {
         public static final TagKey<EntityType<?>> SLIDER_SLAM_BLACKLIST = tag("slider_slam_blacklist");
 
         private static TagKey<EntityType<?>> tag(String name) {
-            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(DeepAether.MODID, name));
+            return TagKey.create(Registries.ENTITY_TYPE, DeepAether.getResource( name));
         }
     }
 
@@ -74,7 +73,7 @@ public class DATags {
         public static final TagKey<Biome> IS_CLOUD = tag("is_cloud");
         public static final TagKey<Biome> HAS_BRASS_DUNGEON = tag("is_cloud");
         private static TagKey<Biome> tag(String name) {
-            return TagKey.create(Registries.BIOME, new ResourceLocation(DeepAether.MODID, name));
+            return TagKey.create(Registries.BIOME, DeepAether.getResource( name));
         }
 
     }
@@ -83,7 +82,7 @@ public class DATags {
         public static final TagKey<Fluid> POISON = tag("poison");
 
         private static TagKey<Fluid> tag(String name) {
-            return TagKey.create(Registries.FLUID, new ResourceLocation(DeepAether.MODID, name));
+            return TagKey.create(Registries.FLUID, DeepAether.getResource( name));
         }
     }
 
@@ -91,7 +90,7 @@ public class DATags {
         public static final TagKey<DamageType> EOTS_IMMUNE = tag("eots_immune");
 
         private static TagKey<DamageType> tag(String name) {
-            return TagKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DeepAether.MODID, name));
+            return TagKey.create(Registries.DAMAGE_TYPE, DeepAether.getResource( name));
         }
     }
 }

@@ -388,6 +388,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.SUNROOT_LOG_WALL.get());
         this.dropSelf(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
 
+        //Treasure Reforging compat
+        this.dropSelf(DABlocks.SQUALL_BLOCK.get());
     }
 
 

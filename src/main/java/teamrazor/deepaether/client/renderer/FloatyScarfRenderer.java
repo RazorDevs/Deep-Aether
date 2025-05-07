@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,7 +37,7 @@ public class FloatyScarfRenderer implements ICurioRenderer {
                 if (deepAetherPlayer.get().isFloatyScarfWrappedAroundNeck()) {
 
                     ICurioRenderer.followBodyRotations(reference.entity(), this.scarfModel);
-                    VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(new ResourceLocation(DeepAether.MODID, "textures/models/accessory/pendant/scarf.png")));
+                    VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(DeepAether.getResource( "textures/models/accessory/pendant/scarf.png")));
 
                     if (owner.isCrouching()) {
                         poseStack.translate(0, 0.23, 0);
@@ -62,7 +61,7 @@ public class FloatyScarfRenderer implements ICurioRenderer {
             }
         } else if (reference.entity().getType() == EntityType.ARMOR_STAND) {
             ICurioRenderer.followBodyRotations(reference.entity(), this.scarfModel);
-            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(new ResourceLocation(DeepAether.MODID, "textures/models/accessory/pendant/scarf.png")));
+            VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(DeepAether.getResource( "textures/models/accessory/pendant/scarf.png")));
 
             CompoundTag tag = stack.getOrCreateTag();
             int[] colors;

@@ -10,7 +10,7 @@ import teamrazor.deepaether.recipe.combiner.CombinerRecipeBookComponent;
 
 public class CombinerScreen extends AbstractRecipeBookScreen<CombinerMenu, CombinerRecipeBookComponent> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(DeepAether.MODID, "textures/gui/combiner_gui.png");
+            DeepAether.getResource( "textures/gui/combiner_gui.png");
 
     public CombinerScreen(CombinerMenu menu, Inventory pPlayerInventory, Component pTitle) {
         super(menu, new CombinerRecipeBookComponent(), pPlayerInventory, pTitle);

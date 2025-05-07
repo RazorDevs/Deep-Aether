@@ -14,7 +14,7 @@ import teamrazor.deepaether.entity.AerglowFish;
 
 @OnlyIn(Dist.CLIENT)
 public class AetherFishRenderer extends MobRenderer<AerglowFish, AerglowFishModel<AerglowFish>> {
-	private static final ResourceLocation AERGLOW_FISH_LOCATION = new ResourceLocation(DeepAether.MODID, "textures/entity/aerglow_fish.png");
+	private static final ResourceLocation AERGLOW_FISH_LOCATION = DeepAether.getResource("textures/entity/aerglow_fish.png");
 
 	public AetherFishRenderer(EntityRendererProvider.Context renderer) {
 		super(renderer, new AerglowFishModel<>(renderer.bakeLayer(DAModelLayers.AERGLOW_FISH)), 0.4F);

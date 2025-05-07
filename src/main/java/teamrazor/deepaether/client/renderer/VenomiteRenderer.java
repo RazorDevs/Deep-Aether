@@ -14,7 +14,7 @@ public class VenomiteRenderer extends MobRenderer<Venomite, VenomiteModel> {
 
     @Override
     public ResourceLocation getTextureLocation(Venomite instance) {
-        if (instance.isAngry()) return new ResourceLocation(DeepAether.MODID, "textures/entity/venomite/venomite_angry.png");
-        return new ResourceLocation(DeepAether.MODID, "textures/entity/venomite/venomite.png");
+        if (instance.isAngry()) return DeepAether.getResource( "textures/entity/venomite/venomite_angry.png");
+        return DeepAether.getResource( "textures/entity/venomite/venomite.png");
     }
 }

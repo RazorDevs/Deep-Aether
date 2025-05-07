@@ -22,7 +22,7 @@ import java.util.Objects;
 public class DAJEIPlugin implements IModPlugin {
     @Override
     public @NotNull ResourceLocation getPluginUid() {
-        return new ResourceLocation(DeepAether.MODID, "jei");
+        return DeepAether.getResource( "jei");
     }
 
     @Override

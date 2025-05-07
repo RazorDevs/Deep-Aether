@@ -440,6 +440,9 @@ public class DABlocks {
 	public static final RegistryObject<WallBlock> SUNROOT_LOG_WALL = registerAetherGenesisBlock("sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 	public static final RegistryObject<WallBlock> STRIPPED_SUNROOT_LOG_WALL = registerAetherGenesisBlock("stripped_sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
 
+	//TREASURE REFORGING COMPATIBILITY
+
+	public static final RegistryObject<Block> SQUALL_BLOCK = registerCompatBlock(DeepAether.TREASURE_REFORGING, "squall_block", () -> new Block(BlockBehaviour.Properties.copy(DABlocks.SKYJADE_BLOCK.get())));
 
 
 	public static void registerPots() {
@@ -503,6 +506,15 @@ public class DABlocks {
 			registerBlockItemDisabled(name, toReturn);
 
 		return  toReturn;
+	}
+
+	private static <T extends Block> RegistryObject<T> registerCompatBlock(String modid, String name, Supplier<T> block) {
+		RegistryObject<T> toReturn = BLOCKS.register(name, block);
+		if(ModList.get().isLoaded(modid)) {
+			registerBlockItem(name, toReturn);
+		}
+		else registerBlockItemDisabled(name, toReturn);
+		return toReturn;
 	}
 
 	private static <T extends Block> RegistryObject<T> registerBlock(int burnTime, String name, Supplier<T> block) {

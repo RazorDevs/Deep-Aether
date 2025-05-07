@@ -27,7 +27,7 @@ public class DALoot {
     public static final ResourceLocation BRASS_DUNGEON_GUMMIES = register("chests/dungeon/brass/brass_dungeon_gummies");
 
     private static ResourceLocation register(String id) {
-        return register(new ResourceLocation(DeepAether.MODID, id));
+        return register(DeepAether.getResource( id));
     }
     private static ResourceLocation register(ResourceLocation id) {
         if (LOOT_TABLES.add(id)) {

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "deep_aether:squall_plate"
+  },
+  "base": {
+    "item": "deep_aether:skyjade_gloves"
+  },
+  "result": {
+    "item": "deep_aether:stormforged_gloves"
+  },
+  "template": {
+    "item": "deep_aether:stormforged_smithing_template"
+  }
+}

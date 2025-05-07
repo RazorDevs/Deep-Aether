@@ -91,9 +91,9 @@ public class DABoatEntity extends Boat implements SkyrootBoatBehavior {
 
         public ResourceLocation getTexture(boolean hasChest) {
             if (hasChest) {
-                return new ResourceLocation(DeepAether.MODID, "textures/entity/chest_boat/" + name + ".png");
+                return DeepAether.getResource( "textures/entity/chest_boat/" + name + ".png");
             }
-            return new ResourceLocation(DeepAether.MODID, "textures/entity/boat/" + name + ".png");
+            return DeepAether.getResource( "textures/entity/boat/" + name + ".png");
         }
 
         public String getModelLocation() {

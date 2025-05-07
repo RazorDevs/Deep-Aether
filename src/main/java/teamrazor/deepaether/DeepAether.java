@@ -90,6 +90,7 @@ public class DeepAether {
 	public static final String ANCIENT_AETHER = "ancient_aether";
 	public static final String EMISSIVITY = "aether_emissivity";
 	public static final String PROTECT_YOUR_MOA = "aether_protect_your_moa";
+	public static final String TREASURE_REFORGING = "aether_treasure_reforging";
 
 	private static final String PROTOCOL_VERSION = "1";
 	public static final Path DIRECTORY = FMLPaths.CONFIGDIR.get().resolve(DeepAether.MODID);
@@ -311,5 +312,9 @@ public class DeepAether {
 		Pack pack = Pack.readMetaAndCreate("builtin/"+location, Component.literal(name), force,
 				path -> new PathPackResources(path, resourcePath, true), type, Pack.Position.TOP, source);
 		event.addRepositorySource(consumer -> consumer.accept(pack));
+	}
+
+	public static ResourceLocation getResource(String resourceName) {
+		return ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, resourceName);
 	}
 }

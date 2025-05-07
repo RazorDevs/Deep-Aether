@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import teamrazor.deepaether.DeepAether;
 
 public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance> {
-    private static final ResourceLocation ID = new ResourceLocation(DeepAether.MODID, "poison_trigger");
+    private static final ResourceLocation ID = DeepAether.getResource("poison_trigger");
     public static final PoisonTrigger INSTANCE = new PoisonTrigger();
 
     @Override

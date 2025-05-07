@@ -88,7 +88,7 @@ public class DAClientModBusEvents {
     static float returnState = 1.0F;
 
     private static void registerItemModelPredicates() {
-        ItemProperties.register(DAItems.MOA_FODDER.get(), new ResourceLocation(DeepAether.MODID, "color"), (stack, level, entity, state) -> {
+        ItemProperties.register(DAItems.MOA_FODDER.get(), DeepAether.getResource( "color"), (stack, level, entity, state) -> {
             MobEffectInstance instance = ((FodderItem) stack.getItem()).getMobEffect(stack);
                     if (instance != null) {
                         if(instance.getEffect().equals(DAMobEffects.MOA_BONUS_JUMPS.get())) {
@@ -107,17 +107,17 @@ public class DAClientModBusEvents {
         );
 
 
-        ItemProperties.register(DAItems.STORM_BOW.get(), new ResourceLocation("pull"), (p_344163_, p_344164_, p_344165_, p_344166_) -> {
+        ItemProperties.register(DAItems.STORM_BOW.get(), ResourceLocation.withDefaultNamespace("pull"), (p_344163_, p_344164_, p_344165_, p_344166_) -> {
             if (p_344165_ == null) {
                 return 0.0F;
             } else {
                 return p_344165_.getUseItem() != p_344163_ ? 0.0F : (float)(p_344163_.getUseDuration() - p_344165_.getUseItemRemainingTicks()) / 20.0F;
             }
         });
-        ItemProperties.register(DAItems.STORM_BOW.get(), new ResourceLocation("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F);
+        ItemProperties.register(DAItems.STORM_BOW.get(), ResourceLocation.withDefaultNamespace("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F);
 
         ItemProperties.register(DAItems.BLADE_OF_LUCK.get(),
-                new ResourceLocation("sword_state"), (stack, world, entity, value) -> {
+                ResourceLocation.withDefaultNamespace("sword_state"), (stack, world, entity, value) -> {
                     if(entity instanceof Player player) {
                         DeepAetherPlayer.get(player).ifPresent((daPlayer) -> {
                             if (daPlayer.getChangeBladeOfLuckState()) {
