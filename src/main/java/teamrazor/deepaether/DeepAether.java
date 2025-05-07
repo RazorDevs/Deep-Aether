@@ -162,6 +162,7 @@ public class DeepAether {
 		generator.addProvider(event.includeServer(), new DABiomeTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAFluidTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DAEntityTagData(packOutput, lookupProvider, fileHelper));
+		generator.addProvider(event.includeServer(), new DASoundTagData(packOutput, lookupProvider, fileHelper));
 		generator.addProvider(event.includeServer(), new DALootDataProvider(packOutput));
 	}
 

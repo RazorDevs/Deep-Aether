@@ -477,7 +477,6 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
         return EOTS_MUSIC;
     }
 
-
     @Override
     public int getDeathScore() {
         return this.deathScore;
