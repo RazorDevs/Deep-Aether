@@ -30,7 +30,7 @@ public class DASoundTagData extends TagsProvider<SoundEvent> {
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
         tag(AetherTags.SoundEvents.BOSS_MUSIC).add(
-                DASounds.LOCUS_FOR_WINDS.getKey()
+                DASounds.MUSIC_BOSS_EOTS.getKey()
         );
     }
 }

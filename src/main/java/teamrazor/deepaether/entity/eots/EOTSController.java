@@ -25,6 +25,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
@@ -34,7 +35,12 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -61,7 +67,11 @@ import teamrazor.deepaether.init.DAEntities;
 import teamrazor.deepaether.init.DAParticles;
 import teamrazor.deepaether.init.DASounds;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.function.Function;
 
 public class EOTSController extends Mob implements AetherBossMob<EOTSController>, Enemy, IEntityAdditionalSpawnData {
@@ -69,7 +79,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 22;
     public static final int EXTRA_SEGMENT = 4;
-    private static final Music EOTS_MUSIC = new Music(DASounds.LOCUS_FOR_WINDS.getHolder().orElseThrow(), 0, 0, true);
+    private static final Music EOTS_MUSIC = new Music(DASounds.LOCUS_FOR_WINDS.getHolder().orElse(SoundEvents.AMBIENT_CAVE), 0, 0, true);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;

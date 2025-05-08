@@ -340,7 +340,8 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(ItemTags.TRIM_MATERIALS).add(
                 DAItems.SKYJADE.get(),
-                DAItems.STRATUS_INGOT.get()
+                DAItems.STRATUS_INGOT.get(),
+                DAItems.SQUALL_PLATE.get()
         );
 
         tag(ItemTags.TRIMMABLE_ARMOR).add(
@@ -412,9 +413,12 @@ public class DAItemTagData extends ItemTagsProvider {
 
         tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
                 DAItems.SKYJADE.get(),
-                DAItems.STRATUS_INGOT.get()
+                DAItems.SQUALL_PLATE.get()
         );
 
+        tag(DATags.Items.STORM_REPAIRING).add(
+                DAItems.SQUALL_PLATE.get()
+        );
         tag(Tags.Items.INGOTS).add(
                 DAItems.STRATUS_INGOT.get()
         );
