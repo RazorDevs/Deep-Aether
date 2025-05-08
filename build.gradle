@@ -150,7 +150,7 @@ dependencies {
     modLocalRuntime(("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
     modCompileOnly ("curse.maven:ancient-aether-886751:${ancient_aether_version}")
 
-    modCompileOnly ("curse.maven:aether-treasure-reforging-1016302:5759738")
+    modImplementation ("curse.maven:aether-treasure-reforging-1016302:5759738")
     
     implementation("org.jetbrains:annotations:23.0.0")
 }
