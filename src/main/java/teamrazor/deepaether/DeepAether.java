@@ -47,7 +47,12 @@ import teamrazor.deepaether.datagen.DARecipeData;
 import teamrazor.deepaether.datagen.loot.DALootTableData;
 import teamrazor.deepaether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import teamrazor.deepaether.datagen.loot.modifiers.DALootDataProvider;
-import teamrazor.deepaether.datagen.tags.*;
+import teamrazor.deepaether.datagen.tags.DABiomeTagData;
+import teamrazor.deepaether.datagen.tags.DABlockTagData;
+import teamrazor.deepaether.datagen.tags.DAEntityTagData;
+import teamrazor.deepaether.datagen.tags.DAFluidTagData;
+import teamrazor.deepaether.datagen.tags.DAItemTagData;
+import teamrazor.deepaether.datagen.tags.DASoundTagData;
 import teamrazor.deepaether.datagen.world.DAWorldGenData;
 import teamrazor.deepaether.event.DAGeneralEvents;
 import teamrazor.deepaether.fluids.DAFluidTypes;
@@ -79,8 +84,6 @@ import java.util.concurrent.CompletableFuture;
 @Mod("deep_aether")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAether {
-
-	//Test
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
@@ -103,12 +106,17 @@ public class DeepAether {
 		return IS_HALLOWEEN || DeepAetherConfig.COMMON.always_enable_halloween_content.get();
 	}
 
-	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION,
+	public static final SimpleChannel PACKET_HANDLER =
+			NetworkRegistry.newSimpleChannel(
+					ResourceLocation.fromNamespaceAndPath(MODID, MODID),
+					() -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 
 
-	public DeepAether() {
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+	public DeepAether(final ModLoadingContext context,
+					  final FMLJavaModLoadingContext javaContext) {
+
+		IEventBus bus = javaContext.getModEventBus();
 		bus.addListener(this::dataSetup);
 		bus.addListener(this::commonSetup);
 
@@ -138,8 +146,10 @@ public class DeepAether {
 
 		DAMenuTypes.MENUS.register(bus);
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DeepAetherConfig.COMMON_SPEC);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DeepAetherConfig.CLIENT_SPEC);
+		context.registerConfig(ModConfig.Type.COMMON,
+				DeepAetherConfig.COMMON_SPEC);
+		context.registerConfig(ModConfig.Type.CLIENT,
+				DeepAetherConfig.CLIENT_SPEC);
 	}
 
 	public void dataSetup(GatherDataEvent event) {
@@ -186,9 +196,9 @@ public class DeepAether {
 
 		event.enqueueWork(() ->
 		{
-			Regions.register(new DARegion(new ResourceLocation(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
+			Regions.register(new DARegion(getResource("deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
 			if(!DeepAetherConfig.COMMON.disable_storm_cloud_and_skyroot_rainforest_biomes.get())
-				Regions.register(new DARareRegion(new ResourceLocation(MODID, "rare"), DeepAetherConfig.COMMON.storm_cloud_biome_weight.get()));
+				Regions.register(new DARareRegion(getResource("rare"), DeepAetherConfig.COMMON.storm_cloud_biome_weight.get()));
 			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
 			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));
 		});
@@ -209,8 +219,8 @@ public class DeepAether {
 		}
 		else {
 			String[] SliderItemId = string.split(":");
-			if (ForgeRegistries.ITEMS.containsKey(new ResourceLocation(SliderItemId[0], SliderItemId[1])))
-				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, ForgeRegistries.ITEMS.getValue(new ResourceLocation(SliderItemId[0], SliderItemId[1])));
+			if (ForgeRegistries.ITEMS.containsKey(ResourceLocation.fromNamespaceAndPath(SliderItemId[0], SliderItemId[1])))
+				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(SliderItemId[0], SliderItemId[1])));
 			else {
 				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, fallBack);
 				LOGGER.info("Config value " + string + " is referring to a missing item! Resolving to default value");
