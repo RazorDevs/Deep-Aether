@@ -33,7 +33,12 @@ import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.block.*;
 import teamrazor.deepaether.block.behavior.GoldenVines;
 import teamrazor.deepaether.datagen.world.DAConfiguredFeatures;
-import teamrazor.deepaether.world.feature.tree.grower.*;
+import teamrazor.deepaether.world.feature.tree.grower.BlueRoserootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.grower.ConberryTreeGrower;
+import teamrazor.deepaether.world.feature.tree.grower.CruderootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.grower.RoserootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.grower.SunrootTreeGrower;
+import teamrazor.deepaether.world.feature.tree.grower.YagrootTreeGrower;
 
 import java.util.function.Supplier;
 
@@ -372,7 +377,7 @@ public class DABlocks {
 	public static final RegistryObject<Block> SKYJADE_LANTERN = registerBlock("skyjade_lantern", () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN)));
 
 	//MUD
-	public static final RegistryObject<Block> AETHER_MUD = registerBlock("aether_mud", () -> new DoubleDropMudBlock(BlockBehaviour.Properties.copy(Blocks.MUD).noOcclusion()));
+	public static final RegistryObject<Block> AETHER_MUD = registerBlock("aether_mud", () -> new DoubleDropMudBlock(BlockBehaviour.Properties.copy(Blocks.MUD)));
 	public static final RegistryObject<Block> PACKED_AETHER_MUD = registerBlock("packed_aether_mud", () -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_MUD)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS = registerBlock("aether_mud_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUD_BRICKS)));
 	public static final RegistryObject<Block> AETHER_MUD_BRICKS_SLAB = registerBlock("aether_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MUD_BRICK_SLAB)));

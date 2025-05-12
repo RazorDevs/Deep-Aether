@@ -6,20 +6,17 @@ plugins {
 
 version = "${project.mc_version}-${project.mod_version}"
 group = 'com.teamrazor.deep_aether'
-archivesBaseName = 'deep_aether'
+
+base {
+    archivesName = mod_id
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
 legacyForge {
-    version = project.mc_version + '-' + project.forge_version
-
-    parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
-    }
-
+    version = "${project.mc_version}-${project.forge_version}"
     accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -170,22 +167,35 @@ jar {
     ])
 }
 
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : project.mod_name,
-                "Specification-Vendor"    : project.mod_authors,
-                "Specification-Version"   : "1",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : project.mod_authors,
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-    finalizedBy 'reobfJar'
 
-    archiveClassifier = 'no-embeds'
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_version            : mod_version,
+            mod_license            : mod_license,
+            mod_url                : mod_url,
+            mod_update             : mod_update,
+            mod_tracker            : mod_tracker,
+            mod_credits            : mod_credits,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+            mc_version             : mc_version,
+            mc_version_range       : mc_version_range,
+            forge_version          : forge_version,
+            forge_version_range    : forge_version_range,
+            loader_version_range   : loader_version_range
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
 }
+// Include the output of "generateModMetadata" as an input directory for the build
+// this works with both building through Gradle and the IDE.
+sourceSets.main.resources.srcDir generateModMetadata
+// To avoid having to run "generateModMetadata" manually, make it run on every project reload
+legacyForge.ideSyncTask generateModMetadata
 
 mixin {
     config "${project.mod_id}.mixins.json"
@@ -210,6 +220,10 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+compileJava {
+    options.incremental = false
 }
 
 build {

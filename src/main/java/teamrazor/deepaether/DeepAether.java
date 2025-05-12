@@ -81,7 +81,7 @@ import java.nio.file.Path;
 import java.util.Calendar;
 import java.util.concurrent.CompletableFuture;
 
-@Mod("deep_aether")
+@Mod(DeepAether.MODID)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DeepAether {
 	public static final Logger LOGGER = LogUtils.getLogger();
@@ -113,10 +113,9 @@ public class DeepAether {
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 
 
-	public DeepAether(final ModLoadingContext context,
-					  final FMLJavaModLoadingContext javaContext) {
+	public DeepAether() {
 
-		IEventBus bus = javaContext.getModEventBus();
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		bus.addListener(this::dataSetup);
 		bus.addListener(this::commonSetup);
 
@@ -146,9 +145,9 @@ public class DeepAether {
 
 		DAMenuTypes.MENUS.register(bus);
 
-		context.registerConfig(ModConfig.Type.COMMON,
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON,
 				DeepAetherConfig.COMMON_SPEC);
-		context.registerConfig(ModConfig.Type.CLIENT,
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT,
 				DeepAetherConfig.CLIENT_SPEC);
 	}
 
