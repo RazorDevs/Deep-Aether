@@ -136,7 +136,7 @@
   "music.boss.eots": {
     "sounds": [
       {
-        "name": "deep_aether:entity/eots/fight",
+        "name": "deep_aether:aethyus-locus-for-winds",
         "stream": true
       }
     ]
