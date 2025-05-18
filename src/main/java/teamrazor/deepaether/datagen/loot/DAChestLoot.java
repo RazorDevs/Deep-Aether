@@ -80,9 +80,9 @@ public class DAChestLoot implements LootTableSubProvider {
 
         builder.accept(DALoot.BRASS_DUNGEON_FODDER_LOOT, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.3F))
-                        .add(LootItem.lootTableItem(DAItems.MOA_FODDER.get())).apply(SetNbtFunction.setTag(getMoaFodderNBT(ResourceLocation.withDefaultNamespace("fire_resistance")))))
+                        .add(LootItem.lootTableItem(DAItems.MOA_FODDER.get())).apply(SetNbtFunction.setTag(getMoaFodderNBT(new ResourceLocation("fire_resistance")))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.3F))
-                        .add(LootItem.lootTableItem(DAItems.MOA_FODDER.get())).apply(SetNbtFunction.setTag(getMoaFodderNBT(ResourceLocation.withDefaultNamespace("jump_boost")))))
+                        .add(LootItem.lootTableItem(DAItems.MOA_FODDER.get())).apply(SetNbtFunction.setTag(getMoaFodderNBT(new ResourceLocation("jump_boost")))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(LootItemRandomChanceCondition.randomChance(0.3F))
                         .add(LootItem.lootTableItem(DAItems.MOA_FODDER.get())).apply(SetNbtFunction.setTag(getMoaFodderNBT(DeepAether.getResource( "moa_bonus_jumps")))))
         );

@@ -449,10 +449,10 @@ public class DATabs {
                     getMoaFodderStack(DAMobEffects.MOA_BONUS_JUMPS.getId()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
-                    getMoaFodderStack(ResourceLocation.withDefaultNamespace("fire_resistance")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    getMoaFodderStack(new ResourceLocation("fire_resistance")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             event.getEntries().putAfter(new ItemStack(DAItems.COOKED_AERGLOW_FISH.get()),
-                    getMoaFodderStack(ResourceLocation.withDefaultNamespace("jump_boost")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    getMoaFodderStack(new ResourceLocation("jump_boost")), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
 
 

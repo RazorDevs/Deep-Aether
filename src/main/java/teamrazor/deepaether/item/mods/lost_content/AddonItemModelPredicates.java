@@ -20,6 +20,6 @@ public class AddonItemModelPredicates {
      */
     private static void createActivePredicate(Item item, String predicateName)
     {
-        ItemProperties.register(item, ResourceLocation.withDefaultNamespace(predicateName), (stack, world, entity, value) -> (entity != null && entity.isUsingItem() && entity.getUseItem() == stack) ? 1.0F : 0.0F);
+        ItemProperties.register(item, new ResourceLocation(predicateName), (stack, world, entity, value) -> (entity != null && entity.isUsingItem() && entity.getUseItem() == stack) ? 1.0F : 0.0F);
     }
 }

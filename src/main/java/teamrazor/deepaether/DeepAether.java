@@ -108,7 +108,7 @@ public class DeepAether {
 
 	public static final SimpleChannel PACKET_HANDLER =
 			NetworkRegistry.newSimpleChannel(
-					ResourceLocation.fromNamespaceAndPath(MODID, MODID),
+					new ResourceLocation(MODID, MODID),
 					() -> PROTOCOL_VERSION,
 			PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 
@@ -218,8 +218,8 @@ public class DeepAether {
 		}
 		else {
 			String[] SliderItemId = string.split(":");
-			if (ForgeRegistries.ITEMS.containsKey(ResourceLocation.fromNamespaceAndPath(SliderItemId[0], SliderItemId[1])))
-				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(SliderItemId[0], SliderItemId[1])));
+			if (ForgeRegistries.ITEMS.containsKey(new ResourceLocation(SliderItemId[0], SliderItemId[1])))
+				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, ForgeRegistries.ITEMS.getValue(new ResourceLocation(SliderItemId[0], SliderItemId[1])));
 			else {
 				DAGeneralEvents.FLAWLESS_BOSS_DROP.put(type, fallBack);
 				LOGGER.info("Config value " + string + " is referring to a missing item! Resolving to default value");
@@ -325,6 +325,6 @@ public class DeepAether {
 	}
 
 	public static ResourceLocation getResource(String resourceName) {
-		return ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, resourceName);
+		return new ResourceLocation(DeepAether.MODID, resourceName);
 	}
 }

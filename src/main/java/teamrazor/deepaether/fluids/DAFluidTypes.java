@@ -10,9 +10,9 @@ import org.joml.Vector3f;
 import teamrazor.deepaether.DeepAether;
 
 public class DAFluidTypes {
-    public static final ResourceLocation POISON_STILL_RL = ResourceLocation.withDefaultNamespace("block/water_still");
-    public static final ResourceLocation POISON_FLOWING_RL = ResourceLocation.withDefaultNamespace("block/water_flow");
-    public static final ResourceLocation POISON_OVERLAY_RL = ResourceLocation.withDefaultNamespace("block/water_overlay");
+    public static final ResourceLocation POISON_STILL_RL = new ResourceLocation("block/water_still");
+    public static final ResourceLocation POISON_FLOWING_RL = new ResourceLocation("block/water_flow");
+    public static final ResourceLocation POISON_OVERLAY_RL = new ResourceLocation("block/water_overlay");
 
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, DeepAether.MODID);
 
