@@ -57,7 +57,7 @@ public class FloatyScarfItem extends PendantItem {
             return;
 
         CompoundTag scarf = stack.getTag();
-        if(scarf != null)
+        if(scarf == null)
             return;
 
         Entity entity = getGentleWind(stack, slotContext.entity().level());
