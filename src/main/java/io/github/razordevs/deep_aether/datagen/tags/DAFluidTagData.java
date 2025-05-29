@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.datagen.tags;
 
+import com.aetherteam.aether.AetherTags;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DAFluids;
 import net.minecraft.core.HolderLookup;
@@ -26,6 +27,9 @@ public class DAFluidTagData extends FluidTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider p_256380_) {
         tag(DATags.Fluids.POISON).add(
+                DAFluids.POISON_FLUID.get()
+        );
+        tag(AetherTags.Fluids.ALLOWED_BUCKET_PICKUP).add(
                 DAFluids.POISON_FLUID.get()
         );
     }

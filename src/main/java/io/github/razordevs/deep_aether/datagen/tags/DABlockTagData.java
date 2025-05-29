@@ -576,7 +576,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.NIMBUS_SLAB.get(),
                 DABlocks.NIMBUS_WALL.get(),
                 DABlocks.NIMBUS_PILLAR.get(),
-                DABlocks.LIGHT_NIMBUS_PILLAR.get()
+                DABlocks.LIGHT_NIMBUS_PILLAR.get(),
+                DABlocks.SQUALL_BLOCK.get()
         );
 
         tag(BlockTags.SNAPS_GOAT_HORN).add(
@@ -661,6 +662,11 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.LOCKED_NIMBUS_PILLAR.get(),
                 DABlocks.LOCKED_LIGHT_NIMBUS_PILLAR.get(),
                 DABlocks.LOCKED_SKYROOT_PLANKS.get()
+        );
+
+        tag(AetherTags.Blocks.ALLOWED_BUCKET_PICKUP).add(
+                DABlocks.POISON_BLOCK.get(),
+                DABlocks.VIRULENT_QUICKSAND.get()
         );
     }
 }

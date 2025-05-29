@@ -353,12 +353,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.helmetItem(DAItems.STRATUS_HELMET.get());
         this.glovesItem(DAItems.STRATUS_GLOVES.get());
 
-        this.bootsItem(DAItems.STORMFORGED_BOOTS.get());
-        this.leggingsItem(DAItems.STORMFORGED_LEGGINGS.get());
-        this.chestplateItem(DAItems.STORMFORGED_CHESTPLATE.get());
-        this.helmetItem(DAItems.STORMFORGED_HELMET.get());
-        this.glovesItem(DAItems.STORMFORGED_GLOVES.get());
-
         this.item(DAItems.STRATUS_RING.get());
         this.item(DAItems.STRATUS_SMITHING_TEMPLATE.get());
 
@@ -370,6 +364,17 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.WIND_SHIELD.get());
         this.item(DAItems.AERCLOUD_NECKLACE.get());
         this.translucentItem(DAItems.CLOUD_CAPE.get());
+
+        this.bootsItem(DAItems.STORMFORGED_BOOTS.get());
+        this.leggingsItem(DAItems.STORMFORGED_LEGGINGS.get());
+        this.chestplateItem(DAItems.STORMFORGED_CHESTPLATE.get());
+        this.helmetItem(DAItems.STORMFORGED_HELMET.get());
+        this.glovesItem(DAItems.STORMFORGED_GLOVES.get());
+
+        //Treasure Reforging compat
+        this.item(DAItems.STORMFORGED_SMITHING_TEMPLATE.get());
+        this.item(DAItems.SQUALL_PLATE.get());
+        this.itemBlock(DABlocks.SQUALL_BLOCK.get());
 
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
