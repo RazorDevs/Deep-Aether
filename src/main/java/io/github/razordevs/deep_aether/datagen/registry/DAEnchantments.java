@@ -8,13 +8,8 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
-import net.minecraft.world.item.enchantment.LevelBasedValue;
-import net.minecraft.world.item.enchantment.effects.EnchantmentAttributeEffect;
 
 public class DAEnchantments {
     public static final ResourceKey<Enchantment> GLOVES_REACH = registerKey("gloves_reach");
@@ -33,16 +28,7 @@ public class DAEnchantments {
                 Enchantment.dynamicCost(25, 25),
                 Enchantment.dynamicCost(75, 25),
                 8,
-                EquipmentSlotGroup.ANY))
-                .withEffect(
-                        EnchantmentEffectComponents.ATTRIBUTES,
-                        new EnchantmentAttributeEffect(
-                                ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "gloves_reach"),
-                                Attributes.BLOCK_INTERACTION_RANGE,
-                                LevelBasedValue.perLevel(1.0F),
-                                AttributeModifier.Operation.ADD_VALUE
-                        )
-                ));
+                EquipmentSlotGroup.ANY)));
 
     }
 
