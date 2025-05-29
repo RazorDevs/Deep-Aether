@@ -46,7 +46,7 @@ public class VirulentQuicksandBlock extends PowderSnowBlock {
         return 2;
     }
 
-    public static boolean isFree(BlockState blockState) {;
+    public static boolean isFree(BlockState blockState) {
         return blockState.isAir() || blockState.is(BlockTags.FIRE) || blockState.liquid() || blockState.canBeReplaced();
     }
 
