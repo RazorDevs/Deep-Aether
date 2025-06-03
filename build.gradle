@@ -108,11 +108,10 @@ dependencies {
 }
 
 repositories {
-    maven githubPackage.invoke("The-Aether-Team/The-Aether")
-    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
-    maven githubPackage.invoke("The-Aether-Team/Cumulus")
-    maven githubPackage.invoke("The-Aether-Team/Protect-Your-Moa")
-    maven githubPackage.invoke("The-Aether-Team/Treasure-Reforging")
+    maven { url = "https://packages.aether-mod.net/The-Aether" }
+    maven { url = "https://packages.aether-mod.net/Emissivity" }
+    maven { url = "https://packages.aether-mod.net/Treasure-Reforging" }
+    maven { url = "https://packages.aether-mod.net/Protect-Your-Moa" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.wispforest.io" }
