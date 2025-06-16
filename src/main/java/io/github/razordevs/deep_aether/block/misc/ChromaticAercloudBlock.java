@@ -91,7 +91,7 @@ public class ChromaticAercloudBlock extends HalfTransparentBlock {
                 data.setFlightModifier(1.0F);
             }
             // Modifies the player's upwards movement based on the set flight modifier and timer values.
-            if (data.isJumping() && !player.onGround() && data.getFlightTimer() > 2 && data.getFlightTimer() < data.getFlightTimerMax() && data.getFlightModifier() > 1.0F) {
+            if (data.isJumping() && !player.onGround() && data.getFlightTimer() > 2 && data.getFlightModifier() > 1.0F) {
                 player.setDeltaMovement(deltaMovement.x(), 0.025F * data.getFlightModifier(), deltaMovement.z());
             }
             if (player instanceof ServerPlayer serverPlayer) { // Prevents the player from being kicked for flying.
