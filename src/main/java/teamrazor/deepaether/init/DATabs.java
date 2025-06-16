@@ -286,7 +286,10 @@ public class DATabs {
                     DABlocks.MINI_GOLDEN_GRASS.get(),
                     DABlocks.SHORT_GOLDEN_GRASS.get(),
                     DABlocks.MEDIUM_GOLDEN_GRASS.get(),
-                    DABlocks.TALL_GOLDEN_GRASS.get()
+                    DABlocks.TALL_GOLDEN_GRASS.get(),
+                    DABlocks.BLUE_SQUASH.get(),
+                    DABlocks.GREEN_SQUASH.get(),
+                    DABlocks.PURPLE_SQUASH.get()
             }, event);
 
             addToTab(AetherBlocks.GOLDEN_AERCLOUD.get().asItem(), new Block[]{
