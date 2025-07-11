@@ -19,8 +19,10 @@
   - Ancient Aether compat
 
 ### AriaElidove
-- Fixed incorrect key translation
-- Update atlas for 1.21 Armor Trims 
+- Fixed multiple incorrect key translations
+- Update atlas for 1.21 Armor Trims
+- Added missing #C:Gems tag
+- Fixed culling issue on Blue Aercloud Mushroom Blocks & Aercloud Grass
 - Restructured en_us.json
 
 ### VoidLeech 
