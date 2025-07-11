@@ -142,6 +142,7 @@ public class DATabs {
                     DABlocks.POLISHED_ASETERITE.get(),
                     DABlocks.POLISHED_ASETERITE_STAIRS.get(),
                     DABlocks.POLISHED_ASETERITE_SLAB.get(),
+                    DABlocks.POLISHED_ASETERITE_WALL.get(),
 
                     DABlocks.ASETERITE_BRICKS.get(),
                     DABlocks.ASETERITE_BRICKS_STAIRS.get(),
@@ -152,13 +153,17 @@ public class DATabs {
                     DABlocks.RAW_CLORITE_STAIRS.get(),
                     DABlocks.RAW_CLORITE_SLAB.get(),
                     DABlocks.RAW_CLORITE_WALL.get(),
+
                     DABlocks.CLORITE.get(),
                     DABlocks.CLORITE_STAIRS.get(),
                     DABlocks.CLORITE_SLAB.get(),
                     DABlocks.CLORITE_WALL.get(),
+
                     DABlocks.POLISHED_CLORITE.get(),
                     DABlocks.POLISHED_CLORITE_STAIRS.get(),
                     DABlocks.POLISHED_CLORITE_SLAB.get(),
+                    DABlocks.POLISHED_CLORITE_WALL.get(),
+
                     DABlocks.CLORITE_PILLAR.get(),
 
             }, event);

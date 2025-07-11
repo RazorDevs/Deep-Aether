@@ -171,6 +171,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.POLISHED_ASETERITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_ASETERITE_SLAB.get(), DABlocks.POLISHED_ASETERITE.get());
+        this.wallBlock((WallBlock) DABlocks.POLISHED_ASETERITE_WALL.get(), DABlocks.POLISHED_ASETERITE.get());
         this.block(DABlocks.ASETERITE_BRICKS.get());
         this.stairs((StairBlock) DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.ASETERITE_BRICKS.get());
         this.slab((SlabBlock) DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE_BRICKS.get());
@@ -184,6 +185,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.slab((SlabBlock) DABlocks.CLORITE_SLAB.get(), DABlocks.CLORITE.get());
         this.wallBlock((WallBlock) DABlocks.CLORITE_WALL.get(), DABlocks.CLORITE.get());
         this.wallBlock((WallBlock) DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
+        this.wallBlock((WallBlock) DABlocks.POLISHED_CLORITE_WALL.get(), DABlocks.POLISHED_CLORITE.get());
         this.block(DABlocks.POLISHED_CLORITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_CLORITE_STAIRS.get(), DABlocks.POLISHED_CLORITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_CLORITE_SLAB.get(), DABlocks.POLISHED_CLORITE.get());

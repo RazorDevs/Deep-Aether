@@ -223,8 +223,8 @@ public class DABlocks {
 
 	public static final DeferredBlock<Block> POLISHED_ASETERITE = registerBlock("polished_aseterite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE)));
 	public static final DeferredBlock<Block> POLISHED_ASETERITE_STAIRS = registerBlock("polished_aseterite_stairs", () -> new StairBlock(DABlocks.POLISHED_ASETERITE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_ANDESITE)));
-
 	public static final DeferredBlock<Block> POLISHED_ASETERITE_SLAB = registerBlock("polished_aseterite_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE)));
+	public static final DeferredBlock<Block> POLISHED_ASETERITE_WALL = registerBlock("polished_aseterite_wall", () -> new WallBlock(BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops()));
 
 	public static final DeferredBlock<Block> ASETERITE_BRICKS= registerBlock("aseterite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
 	public static final DeferredBlock<Block> ASETERITE_BRICKS_STAIRS = registerBlock("aseterite_bricks_stairs", () -> new StairBlock(DABlocks.ASETERITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS)));
@@ -232,19 +232,21 @@ public class DABlocks {
 	public static final DeferredBlock<Block> ASETERITE_BRICKS_WALL = registerBlock("aseterite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops()));
 
 	public static final DeferredBlock<Block> RAW_CLORITE = registerBlock("raw_clorite", () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
-
 	public static final DeferredBlock<Block> CLORITE = registerBlock("clorite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 	public static final DeferredBlock<Block> POLISHED_CLORITE = registerBlock("polished_clorite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE)));
-	public static final DeferredBlock<Block> RAW_CLORITE_SLAB = registerBlock("raw_clorite_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 
+	public static final DeferredBlock<Block> RAW_CLORITE_SLAB = registerBlock("raw_clorite_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 	public static final DeferredBlock<Block> CLORITE_SLAB = registerBlock("clorite_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
 	public static final DeferredBlock<Block> POLISHED_CLORITE_SLAB = registerBlock("polished_clorite_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE)));
-	public static final DeferredBlock<Block> RAW_CLORITE_STAIRS = registerBlock("raw_clorite_stairs", () -> new StairBlock(DABlocks.CLORITE.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 
+	public static final DeferredBlock<Block> RAW_CLORITE_STAIRS = registerBlock("raw_clorite_stairs", () -> new StairBlock(DABlocks.CLORITE.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> CLORITE_STAIRS = registerBlock("clorite_stairs", () -> new StairBlock(DABlocks.CLORITE.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> POLISHED_CLORITE_STAIRS = registerBlock("polished_clorite_stairs", () -> new StairBlock(DABlocks.POLISHED_CLORITE.get().defaultBlockState(), BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+
 	public static final DeferredBlock<Block> CLORITE_WALL = registerBlock("clorite_wall", () -> new WallBlock(BlockBehaviour.Properties.of().strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> RAW_CLORITE_WALL = registerBlock("raw_clorite_wall", () -> new WallBlock(BlockBehaviour.Properties.of().strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+	public static final DeferredBlock<Block> POLISHED_CLORITE_WALL = registerBlock("polished_clorite_wall", () -> new WallBlock(BlockBehaviour.Properties.of().strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
+
 
 	public static final DeferredBlock<Block> CLORITE_PILLAR = registerBlock("clorite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 
