@@ -443,7 +443,7 @@ public class DABlocks {
 
 	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOM_BLOCK = registerDisabledBlock("pink_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock((Block.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
 	public static final DeferredBlock<Block> PINK_AERCLOUD_MUSHROOMS = registerDisabledBlock("pink_aercloud_mushrooms", () -> new AercloudMushroomBlock(DAConfiguredFeatures.HUGE_PINK_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
-	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOM_BLOCK = registerDisabledBlock("blue_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASS).strength(0.2F).sound(SoundType.WOOD).ignitedByLava()));
+	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOM_BLOCK = registerDisabledBlock("blue_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock((Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
 	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOMS = registerDisabledBlock("blue_aercloud_mushrooms", () -> new AercloudMushroomBlock(DAConfiguredFeatures.HUGE_BLUE_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
 
 	public static final DeferredBlock<Block> MOA_TOTEM = registerDisabledBlock("moa_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
@@ -453,7 +453,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> RAIN_AERCLOUD = registerDisabledBlock("rain_aercloud", () -> new AercloudBlock(BlockBehaviour.Properties.ofFullCopy(AetherBlocks.COLD_AERCLOUD.get()).forceSolidOn()));
 
 	public static final DeferredBlock<Block> AERCLOUD_GRASS_BLOCK = registerDisabledBlock("aercloud_grass_block", () -> new AercloudGrassBlock(Block.Properties.of()
-			.mapColor(MapColor.COLOR_PINK).randomTicks().strength(0.2F).sound(SoundType.GRASS).forceSolidOn()));
+			.mapColor(MapColor.COLOR_PINK).randomTicks().strength(0.2F).sound(SoundType.GRASS).noOcclusion().forceSolidOn()));
 	public static final DeferredBlock<Block> AERCLOUD_ROOTS = registerDisabledBlock("aercloud_roots", () -> new AetherDoubleDropsLeaves (
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
 
