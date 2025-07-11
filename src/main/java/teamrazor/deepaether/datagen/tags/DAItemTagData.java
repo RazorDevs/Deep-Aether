@@ -422,7 +422,9 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(Tags.Items.INGOTS).add(
                 DAItems.STRATUS_INGOT.get()
         );
-
+        tag(Tags.Items.GEMS).add(
+                DAItems.SKYJADE.get()
+        );
         tag(TagKey.create(Registries.ITEM, new ResourceLocation(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
                 DAItems.SKYJADE_SHIELD.get(),
                 DAItems.STRATUS_SHIELD.get()
