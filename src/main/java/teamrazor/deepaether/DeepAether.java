@@ -285,6 +285,8 @@ public class DeepAether {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
 			setupCompatPack("client/deep_aether_additional_assets", "Deep Aether Additional Assets", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
 
+			setupCompatPack("client/deep_aether_tooltips", "Deep Aether Ability Tooltips", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
+
 			if (ModList.get().isLoaded(EMISSIVITY))
 				setupCompatPack("client/deep_aether_emissivity", "Deep Aether Emissivity", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, true);
 
@@ -317,6 +319,7 @@ public class DeepAether {
 	private static void setupCompatPack(String location, String name, AddPackFindersEvent event) {
 		setupCompatPack(location, name, event, PackType.SERVER_DATA, PackSource.SERVER, true);
 	}
+
 	private static void setupCompatPack(String location, String name, AddPackFindersEvent event, PackType type, PackSource source, boolean force) {
 		Path resourcePath = ModList.get().getModFileById(DeepAether.MODID).getFile().findResource("packs/"+location);
 		Pack pack = Pack.readMetaAndCreate("builtin/"+location, Component.literal(name), force,
