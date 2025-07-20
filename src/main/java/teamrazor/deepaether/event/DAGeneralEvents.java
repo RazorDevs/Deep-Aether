@@ -26,7 +26,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -46,7 +50,11 @@ import teamrazor.deepaether.item.gear.EquipmentUtil;
 import teamrazor.deepaether.networking.DeepAetherPlayer;
 import top.theillusivec4.curios.api.SlotResult;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
@@ -290,6 +298,6 @@ public class DAGeneralEvents {
             printComponent(tagTooltips, 8);
     }
     private static void printComponent(List<Component> tagTooltips, int i){
-        tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_" + i));
+        tagTooltips.add(1, Component.translatable("gui.deep_aether.flawless_tier_" + i));
     }
 }
