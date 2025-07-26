@@ -46,10 +46,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemWallBlock(DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.ROSEROOT_SAPLING.get());
         this.itemBlockFlat(DABlocks.BLUE_ROSEROOT_SAPLING.get());
-        this.itemBlock(DABlocks.ROSEROOT_LEAVES.get());
-        this.itemBlock(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
-        this.itemBlock(DABlocks.BLUE_ROSEROOT_LEAVES.get());
-        this.itemBlock(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
+        this.cutoutItemBlock(DABlocks.ROSEROOT_LEAVES.get());
+        this.cutoutItemBlock(DABlocks.FLOWERING_ROSEROOT_LEAVES.get());
+        this.cutoutItemBlock(DABlocks.BLUE_ROSEROOT_LEAVES.get());
+        this.cutoutItemBlock(DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get());
         this.itemBlock(DABlocks.AERGLOW_BLOSSOM_BLOCK.get());
         this.item(DAItems.ROSEROOT_SIGN.get());
         this.item(DAItems.ROSEROOT_HANGING_SIGN.get());
@@ -475,6 +475,14 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.withExistingParent(this.itemName(item), mcLoc("item/generated"))
                 .renderType(new ResourceLocation("translucent"))
                 .texture("layer0", modLoc("item/" + this.itemName(item)));
+    }
+
+    public void translucentItemBlock(Block block) {
+        this.withExistingParent(this.blockName(block), this.texture(this.blockName(block))).renderType(ResourceLocation.withDefaultNamespace("translucent"));
+    }
+
+    public void cutoutItemBlock(Block block) {
+        this.withExistingParent(this.blockName(block), this.texture(this.blockName(block))).renderType(ResourceLocation.withDefaultNamespace("cutout"));
     }
 
     public void handheldItem(Item item) {

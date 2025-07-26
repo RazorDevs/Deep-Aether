@@ -137,7 +137,7 @@ dependencies {
 
     //Optional Dependencies
     modCompileOnly ("com.aetherteam.protect-your-moa:aether_protect_your_moa:${project.protect_your_moa_version}")
-    modCompileOnly ("com.aetherteam.emissivity:aether_emissivity:${project.emissivity_version}")
+    modImplementation ("com.aetherteam.emissivity:aether_emissivity:${project.emissivity_version}")
     //modCompileOnly ("com.aetherteam.treasure_reforging:aether_treasure_reforging:${project.treasure_reforging_version}")
     modCompileOnly ("curse.maven:aether-lost-content-318602:${project.lost_aether_content_version}")
     modCompileOnly ("com.legacy:structure-gel:${project.structure_gel_version}")
@@ -147,7 +147,7 @@ dependencies {
     modLocalRuntime(("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
     modCompileOnly ("curse.maven:ancient-aether-886751:${ancient_aether_version}")
 
-    modImplementation ("curse.maven:aether-treasure-reforging-1016302:5759738")
+    modCompileOnly ("curse.maven:aether-treasure-reforging-1016302:5759738")
     
     implementation("org.jetbrains:annotations:23.0.0")
 }

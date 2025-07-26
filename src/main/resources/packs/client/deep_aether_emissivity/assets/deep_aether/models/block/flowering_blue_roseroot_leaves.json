@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
-  "render_type": "cutout",
+  "render_type": "translucent",
   "textures": {
     "all": "deep_aether:block/flowering_blue_roseroot_leaves",
     "overlay": "deep_aether:block/flowering_roseroot_leaves_overlay"
