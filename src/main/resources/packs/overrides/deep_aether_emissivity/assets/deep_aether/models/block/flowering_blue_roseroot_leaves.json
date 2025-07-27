@@ -3,7 +3,7 @@
   "render_type": "cutout",
   "textures": {
     "all": "deep_aether:block/flowering_blue_roseroot_leaves",
-    "overlay": "deep_aether:block/flowering_roseroot_leaves_overlay"
+    "overlay": "deep_aether:block/flowering_blue_roseroot_leaves_overlay"
   },
   "elements": [
     {

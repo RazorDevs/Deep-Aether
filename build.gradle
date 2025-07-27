@@ -103,7 +103,7 @@ dependencies {
 
 
     compileOnly "curse.maven:aether-protect-your-moa-1016303:6040716"
-    compileOnly "curse.maven:aether-emissivity-916028:6392126"
+    implementation "curse.maven:aether-emissivity-916028:6392126"
     implementation "curse.maven:aether-treasure-reforging-1016302:6040710"
 }
 
