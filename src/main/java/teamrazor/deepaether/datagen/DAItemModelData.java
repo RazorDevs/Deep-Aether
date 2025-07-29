@@ -376,6 +376,8 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         this.item(DAItems.GRAVITITE_RING.get());
 
+        this.item(DAItems.METAL_MIXTURE.get());
+
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
         this.item(DAItems.COOKED_AERGLOW_FISH.get());

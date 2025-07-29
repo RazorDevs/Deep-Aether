@@ -560,6 +560,8 @@
   "block.deep_aether.clorite_bricks_vertical_slab": "Clorite Bricks Vertical Slab",
   "block.deep_aether.polished_clorite_bricks_wall": "Polished Clorite Bricks Wall",
   "block.deep_aether.rain_aercloud": "Rain Aercloud",
+  "item.deep_aether.metal_mixture": "Metal Mixture",
+  "lore.item.deep_aether.metal_mixture": "A mix of metals such as Veridium and Refined Sentrite. Might be a good alternative for crafting Stratus Ingots.",
   "item.deep_aether.stratus_ingot": "Stratus Ingot",
   "lore.item.deep_aether.stratus_ingot": "Crafted from Stratus Scrap and Gravitite giving the ingot a pink color. Can be used to upgrade Gravitite Weapons and Armors.",
   "key.deep_aether.stratus_dash_ability.desc": "Activate Stratus Dash",

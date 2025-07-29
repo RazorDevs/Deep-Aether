@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "aether_redux"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "aether:ambrosium_shard"
+          },
+          {
+            "item": "aether_redux:refined_sentrite"
+          },
+          {
+            "item": "aether_redux:veridium_ingot"
+          }
+        ],
+        "result": {
+          "item": "deep_aether:metal_mixture"
+        }
+      }
+    }
+  ]
+}

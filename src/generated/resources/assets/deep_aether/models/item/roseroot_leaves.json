@@ -1,3 +1,4 @@
 {
-  "parent": "deep_aether:block/roseroot_leaves"
+  "parent": "deep_aether:block/roseroot_leaves",
+  "render_type": "minecraft:cutout"
 }

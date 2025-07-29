@@ -7,7 +7,15 @@ import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.data.recipes.SpecialRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -16,6 +24,10 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
+import net.zepalesque.redux.item.ReduxItems;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DABlocks;
@@ -545,18 +557,52 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
                 .requires(DABlocks.CHROMATIC_AERCLOUD.get(), 5)
-                .requires(AetherBlocks.ENCHANTED_GRAVITITE.get())
+                .requires(AetherTags.Items.PROCESSED_GRAVITITE)
+                .requires(AetherItems.ZANITE_GEMSTONE.get())
+                .requires(DAItems.SKYJADE.get())
+                .requires(DAItems.METAL_MIXTURE.get())
+                .unlockedBy(getHasName(DABlocks.STERLING_AERCLOUD.get()), has(DABlocks.STERLING_AERCLOUD.get()))
+                .save(finishedRecipe ->
+                    ConditionalRecipe.builder()
+                            .addCondition(new ModLoadedCondition(DeepAether.AETHER_REDUX))
+                            .addRecipe(finishedRecipe)
+                            .generateAdvancement()
+                            .build(consumer, DeepAether.getResource("stratus_redux_recipe"))
+                );
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get())
+                .requires(DABlocks.CHROMATIC_AERCLOUD.get(), 5)
+                .requires(AetherTags.Items.PROCESSED_GRAVITITE)
                 .requires(AetherItems.ZANITE_GEMSTONE.get())
                 .requires(AetherItems.AMBROSIUM_SHARD.get())
                 .requires(DAItems.SKYJADE.get())
                 .unlockedBy(getHasName(DABlocks.STERLING_AERCLOUD.get()), has(DABlocks.STERLING_AERCLOUD.get()))
-                .save(consumer);
+                .save(finishedRecipe ->
+                        ConditionalRecipe.builder()
+                                .addCondition(new NotCondition(new ModLoadedCondition(DeepAether.AETHER_REDUX)))
+                                .addRecipe(finishedRecipe)
+                                .generateAdvancement()
+                                .build(consumer, DeepAether.getResource("stratus_normal_recipe"))
+                );
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.METAL_MIXTURE.get())
+                .requires(AetherItems.AMBROSIUM_SHARD.get())
+                .requires(ReduxItems.REFINED_SENTRITE.get())
+                .requires(ReduxItems.VERIDIUM_INGOT.get())
+                .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
+                .save(finishedRecipe ->
+                        ConditionalRecipe.builder()
+                                .addCondition(new ModLoadedCondition(DeepAether.AETHER_REDUX))
+                                .addRecipe(finishedRecipe)
+                                .generateAdvancement()
+                                .build(consumer, DeepAether.getResource("metal_mixture_recipe"))
+                );
 
         //Food
         smeltingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer);
         smeltingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer);
-        SmokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, name("cooked_quail_from_smoker"));
-        SmokingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer, name("cooked_aerglow_fish_from_smoker"));
+        smokingFoodRecipe(DAItems.COOKED_QUAIL.get(), DAItems.RAW_QUAIL.get(), 0.35F).save(consumer, name("cooked_quail_from_smoker"));
+        smokingFoodRecipe(DAItems.COOKED_AERGLOW_FISH.get(), DAItems.RAW_AERGLOW_FISH.get(), 0.35F).save(consumer, name("cooked_aerglow_fish_from_smoker"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, DAItems.BLUE_SQUASH_SLICE.get(), 4)
                 .requires(DABlocks.BLUE_SQUASH.get(), 1)
@@ -823,7 +869,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(ingredient), has(ingredient));
     }
 
-    protected SimpleCookingRecipeBuilder SmokingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
+    protected SimpleCookingRecipeBuilder smokingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
         return SimpleCookingRecipeBuilder.smoking(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, 100)
                 .unlockedBy(getHasName(ingredient), has(ingredient));
     }

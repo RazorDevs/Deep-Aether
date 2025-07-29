@@ -28,13 +28,43 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.entity.DABoatEntity;
-import teamrazor.deepaether.item.dungeon.brass.*;
+import teamrazor.deepaether.item.dungeon.brass.BladeOfLuckItem;
+import teamrazor.deepaether.item.dungeon.brass.CloudCapeItem;
+import teamrazor.deepaether.item.dungeon.brass.FloatyScarfItem;
+import teamrazor.deepaether.item.dungeon.brass.StormBowItem;
+import teamrazor.deepaether.item.dungeon.brass.StormSwordItem;
+import teamrazor.deepaether.item.dungeon.brass.WindShieldItem;
 import teamrazor.deepaether.item.gear.DaArmorItem;
 import teamrazor.deepaether.item.gear.DaArmorMaterials;
-import teamrazor.deepaether.item.gear.other.*;
-import teamrazor.deepaether.item.gear.skyjade.*;
-import teamrazor.deepaether.item.gear.stratus.*;
-import teamrazor.deepaether.item.misc.*;
+import teamrazor.deepaether.item.gear.other.AerwhaleSaddle;
+import teamrazor.deepaether.item.gear.other.Afterburner;
+import teamrazor.deepaether.item.gear.other.MedalOfHonor;
+import teamrazor.deepaether.item.gear.other.SliderEye;
+import teamrazor.deepaether.item.gear.other.SpookyRing;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeArmorItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeGlovesItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeRingItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeToolsAxeItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeToolsHoeItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeToolsPickaxeItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeToolsShovelItem;
+import teamrazor.deepaether.item.gear.skyjade.SkyjadeToolsSwordItem;
+import teamrazor.deepaether.item.gear.stratus.StratusAbility;
+import teamrazor.deepaether.item.gear.stratus.StratusAxeItem;
+import teamrazor.deepaether.item.gear.stratus.StratusHoeItem;
+import teamrazor.deepaether.item.gear.stratus.StratusPickaxeItem;
+import teamrazor.deepaether.item.gear.stratus.StratusShovelItem;
+import teamrazor.deepaether.item.gear.stratus.StratusSwordItem;
+import teamrazor.deepaether.item.misc.AntidoteItem;
+import teamrazor.deepaether.item.misc.ChaosEmerald;
+import teamrazor.deepaether.item.misc.DABoatItem;
+import teamrazor.deepaether.item.misc.DAFoods;
+import teamrazor.deepaether.item.misc.DASquashPieItem;
+import teamrazor.deepaether.item.misc.DrinkableBucketItem;
+import teamrazor.deepaether.item.misc.GlowingSporesItem;
+import teamrazor.deepaether.item.misc.QuailEggItem;
+import teamrazor.deepaether.item.misc.SunCore;
 import teamrazor.deepaether.item.moa_food.FodderItem;
 import teamrazor.deepaether.item.mods.lost_content.LCDAShieldItem;
 import teamrazor.deepaether.item.mods.lost_content.SkyjadeShieldItem;
@@ -221,6 +251,9 @@ public class DAItems {
 	public static final RegistryObject<Item> SKYJADE_SHIELD = registerLostContentItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
 	public static final RegistryObject<Item> STRATUS_SHIELD = registerLostContentItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
 
+	//AETHER REDUX
+	public static final RegistryObject<Item> METAL_MIXTURE = registerReduxItem("metal_mixture", () -> new Item(new Item.Properties()));
+
 	//PROTECT YOUR MOA
 	public static final RegistryObject<?> SKYJADE_MOA_ARMOR = registerPYMItem();
 
@@ -262,6 +295,14 @@ public class DAItems {
 	private static RegistryObject<Item> registerTRItem(String name, Supplier<Item> item) {
 		if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Treasure Reforging compat items");
+			return ITEMS.register(name, item);
+		}
+		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
+	}
+
+	private static RegistryObject<Item> registerReduxItem(String name, Supplier<Item> item) {
+		if(ModList.get().isLoaded(DeepAether.AETHER_REDUX)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Redux compat items");
 			return ITEMS.register(name, item);
 		}
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));

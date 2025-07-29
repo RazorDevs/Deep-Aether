@@ -1,0 +1,49 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "aether_redux"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "deep_aether:chromatic_aercloud"
+          },
+          {
+            "item": "deep_aether:chromatic_aercloud"
+          },
+          {
+            "item": "deep_aether:chromatic_aercloud"
+          },
+          {
+            "item": "deep_aether:chromatic_aercloud"
+          },
+          {
+            "item": "deep_aether:chromatic_aercloud"
+          },
+          {
+            "tag": "aether:processed/gravitite"
+          },
+          {
+            "item": "aether:zanite_gemstone"
+          },
+          {
+            "item": "deep_aether:skyjade"
+          },
+          {
+            "item": "deep_aether:metal_mixture"
+          }
+        ],
+        "result": {
+          "item": "deep_aether:stratus_ingot"
+        }
+      }
+    }
+  ]
+}
