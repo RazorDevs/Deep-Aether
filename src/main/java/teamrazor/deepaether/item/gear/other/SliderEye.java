@@ -47,13 +47,13 @@ public class SliderEye extends RingItem {
 
         if ((slotContext.entity() instanceof Player player)) {
             if(level.isClientSide()) {
-                HandleClient(player, stack, level);
+                handleClient(player, stack, level);
             }
-            else HandleServer(player, level);
+            else handleServer(player, level);
         }
     }
 
-    private void HandleServer(Player player, Level level) {
+    private void handleServer(Player player, Level level) {
         Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
         if (deepAetherPlayer.isEmpty() || !deepAetherPlayer.get().isSliderSlamActivated()) {
             return;
@@ -108,7 +108,7 @@ public class SliderEye extends RingItem {
 
     }
 
-    private void HandleClient(Player player, ItemStack stack, Level level) {
+    private void handleClient(Player player, ItemStack stack, Level level) {
         Optional<DeepAetherPlayer> deepAetherPlayer = DeepAetherPlayer.get(player).resolve();
         if(deepAetherPlayer.isEmpty() || !player.isLocalPlayer()) {
             return;
