@@ -165,8 +165,8 @@ public class DAGeneralEvents {
      * Used to check if a player has been hurt during a boss fight
      * See {@link IPlayerBossFight}
      */
-
     public static HashMap<EntityType<?>, Item> FLAWLESS_BOSS_DROP = new HashMap<>();
+
     @SubscribeEvent
     public static void onLivingEntityHurt(LivingHurtEvent event) {
         if(event.getEntity() instanceof ServerPlayer player && !event.getEntity().isDamageSourceBlocked(event.getSource())) {

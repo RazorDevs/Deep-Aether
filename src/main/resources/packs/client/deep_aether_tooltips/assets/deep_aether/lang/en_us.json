@@ -34,5 +34,18 @@
   "item.deep_aether.slider_eye.nitrogen_internals.ability.tooltip.2": "§3Use:§r Mid-Air",
   "item.deep_aether.medal_of_honor.nitrogen_internals.ability.tooltip.1": "§9Ability:§r Undead Resistance",
   "item.deep_aether.sun_core.nitrogen_internals.ability.tooltip.1": "§eTrophy/Material§r",
-  "item.deep_aether.afterburner.nitrogen_internals.ability.tooltip.1": "§9Ability:§r Flamethrower"
+  "item.deep_aether.afterburner.nitrogen_internals.ability.tooltip.1": "§9Ability:§r Flamethrower",
+  "item.deep_aether.storm_sword.nitrogen_internals.ability.tooltip.1": "§9Ability:§r Pushes Back Enemies",
+  "item.deep_aether.storm_bow.nitrogen_internals.ability.tooltip.1": "§9Ability:§r Spawns Whirlwinds",
+  "item.deep_aether.blade_of_luck.nitrogen_internals.ability.tooltip.1": "§9Ability:§r Randomized Damage",
+  "item.deep_aether.stormforged_helmet.nitrogen_internals.ability.tooltip.1": "§7When Wearing Full Set:§r",
+  "item.deep_aether.stormforged_helmet.nitrogen_internals.ability.tooltip.2": "§9Ability:§r Pushes Back Attackers",
+  "item.deep_aether.stormforged_chestplate.nitrogen_internals.ability.tooltip.1": "§7When Wearing Full Set:§r",
+  "item.deep_aether.stormforged_chestplate.nitrogen_internals.ability.tooltip.2": "§9Ability:§r Pushes Back Attackers",
+  "item.deep_aether.stormforged_leggings.nitrogen_internals.ability.tooltip.1": "§7When Wearing Full Set:§r",
+  "item.deep_aether.stormforged_leggings.nitrogen_internals.ability.tooltip.2": "§9Ability:§r Pushes Back Attackers",
+  "item.deep_aether.stormforged_boots.nitrogen_internals.ability.tooltip.1": "§7When Wearing Full Set:§r",
+  "item.deep_aether.stormforged_boots.nitrogen_internals.ability.tooltip.2": "§9Ability:§r Pushes Back Attackers",
+  "item.deep_aether.stormforged_gloves.nitrogen_internals.ability.tooltip.1": "§7When Wearing Full Set:§r",
+  "item.deep_aether.stormforged_gloves.nitrogen_internals.ability.tooltip.2": "§9Ability:§r Pushes Back Attackers"
 }
