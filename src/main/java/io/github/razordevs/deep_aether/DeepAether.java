@@ -269,6 +269,8 @@ public class DeepAether {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
 			setupCompatPack("overrides/deep_aether_additional_assets", "Deep Aether Additional Assets", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
 
+			setupCompatPack("client/deep_aether_tooltips", "Deep Aether Ability Tooltips", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
+
 			if (ModList.get().isLoaded(EMISSIVITY))
 				setupCompatPack("overrides/deep_aether_emissivity", "Deep Aether Emissivity", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, true);
 
