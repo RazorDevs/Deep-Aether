@@ -9,7 +9,6 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.DeepAetherConfig;
 import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
-import io.github.razordevs.deep_aether.entity.living.GentleWind;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DAMobEffects;
 import io.github.razordevs.deep_aether.item.gear.DAEquipmentUtil;
@@ -41,13 +40,20 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ItemAttributeModifierEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import net.neoforged.neoforge.event.entity.living.*;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
@@ -301,6 +307,6 @@ public class DAGeneralEvents {
     }
 
     private static void printComponent(List<Component> tagTooltips, int i){
-        tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_" + i));
+        tagTooltips.add(1, Component.translatable("gui.deep_aether.flawless_tier_" + i));
     }
 }
