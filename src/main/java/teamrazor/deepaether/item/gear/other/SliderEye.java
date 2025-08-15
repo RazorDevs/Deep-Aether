@@ -60,6 +60,11 @@ public class SliderEye extends RingItem {
         }
 
         if (deepAetherPlayer.get().isSliderSlamActivated()) {
+            if (player.isSpectator()) {
+                deepAetherPlayer.get().setSynched(INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
+                return;
+            }
+
             player.addDeltaMovement(new Vec3(0F, -0.3F, 0F));
             if (player instanceof ServerPlayer serverPlayer) {
                 serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
