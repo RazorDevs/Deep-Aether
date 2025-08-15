@@ -56,6 +56,11 @@ public class SliderEye extends AccessoryItem {
         if (player.hasData(DAAttachments.PLAYER)) {
             DAPlayerAttachment attachment = player.getData(DAAttachments.PLAYER);
             if (attachment.isSliderSlamActivated()) {
+                if (player.isSpectator()) {
+                    attachment.setSynched(player.getId(), INBTSynchable.Direction.CLIENT, "setSliderSlamActivated", false);
+                    return;
+                }
+
                 player.addDeltaMovement(new Vec3(0F, -0.3F, 0F));
                 if (player instanceof ServerPlayer serverPlayer) {
                     serverPlayer.connection.send(new ClientboundSetEntityMotionPacket(serverPlayer));
