@@ -2,6 +2,7 @@ package teamrazor.deepaether.event;
 
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.entity.monster.AechorPlant;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.event.BossFightEvent;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
@@ -15,6 +16,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
@@ -22,9 +25,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -33,6 +34,7 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -236,7 +238,25 @@ public class DAGeneralEvents {
         }
     }
 
+    /**
+     * Mimics behavior of {@link AechorPlant#mobInteract(Player player, InteractionHand hand)} for vanilla Buckets
+     */
+    @SubscribeEvent
+    public static void mobInteract(PlayerInteractEvent.EntityInteractSpecific event) {
+        if (event.getTarget().getType() == AetherEntityTypes.AECHOR_PLANT.get()) {
+            AechorPlant aechorPlant = ((AechorPlant) event.getTarget());
+            Player player = event.getEntity();
 
+            ItemStack itemStack = player.getItemInHand(event.getHand());
+            if (itemStack.is(Items.BUCKET) && aechorPlant.getPoisonRemaining() > 0) {
+                aechorPlant.setPoisonRemaining(aechorPlant.getPoisonRemaining() - 1);
+                ItemStack itemStack1 = ItemUtils.createFilledResult(itemStack, player, DAItems.PLACEABLE_POISON_BUCKET.get().getDefaultInstance());
+                player.setItemInHand(event.getHand(), itemStack1);
+                player.swing(event.getHand());
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            }
+        }
+    }
 
     @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
