@@ -599,5 +599,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.AERWHALE_SADDLE.get(),
                 DAItems.FLOATY_SCARF.get()
         );
+
+        tag(Tags.Items.FOODS_BERRY).add(
+                DAItems.FROZEN_GOLDEN_BERRIES.get(),
+                DAItems.GOLDEN_BERRIES.get()
+        );
     }
 }
