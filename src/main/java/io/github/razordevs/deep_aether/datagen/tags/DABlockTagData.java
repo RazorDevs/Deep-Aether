@@ -53,6 +53,22 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.STRATUS_BLOCK.get()
         );
 
+        tag(AetherTags.Blocks.AERCLOUDS).add(
+                DABlocks.CHROMATIC_AERCLOUD.get(),
+                DABlocks.STERLING_AERCLOUD.get(),
+                DABlocks.AERCLOUD_GRASS_BLOCK.get(),
+                DABlocks.AERSMOG.get(),
+                DABlocks.RAIN_AERCLOUD.get()
+        );
+
+        tag(BlockTags.FALL_DAMAGE_RESETTING).add(
+                DABlocks.CHROMATIC_AERCLOUD.get(),
+                DABlocks.STERLING_AERCLOUD.get(),
+                DABlocks.AERCLOUD_GRASS_BLOCK.get(),
+                DABlocks.AERSMOG.get(),
+                DABlocks.RAIN_AERCLOUD.get()
+        );
+
         tag(DATags.Blocks.ROSEROOT_LOGS).add(
                 DABlocks.ROSEROOT_LOG.get(),
                 DABlocks.ROSEROOT_WOOD.get(),
@@ -363,7 +379,12 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AERGLOW_BLOSSOM_BLOCK.get(),
                 DABlocks.CONBERRY_LEAVES.get(),
                 DABlocks.SUNROOT_LEAVES.get(),
-                DABlocks.SUNROOT_HANGER.get()
+                DABlocks.SUNROOT_HANGER.get(),
+                DABlocks.CHROMATIC_AERCLOUD.get(),
+                DABlocks.STERLING_AERCLOUD.get(),
+                DABlocks.AERSMOG.get(),
+                DABlocks.AERCLOUD_GRASS_BLOCK.get(),
+                DABlocks.RAIN_AERCLOUD.get()
         );
         tag(BlockTags.MINEABLE_WITH_AXE).add(
                 DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get(),
