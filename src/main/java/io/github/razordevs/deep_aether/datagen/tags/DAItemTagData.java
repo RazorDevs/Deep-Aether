@@ -528,6 +528,11 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_INGOT.get(),
                 DAItems.SQUALL_PLATE.get()
         );
+        tag(Tags.Items.STORAGE_BLOCKS).add(
+                DABlocks.SKYJADE_BLOCK.get().asItem(),
+                DABlocks.STRATUS_BLOCK.get().asItem(),
+                DABlocks.SQUALL_BLOCK.get().asItem()
+        );
         tag(ItemTags.TRIM_MATERIALS).add(
                 DAItems.SKYJADE.get(),
                 DAItems.STRATUS_INGOT.get(),

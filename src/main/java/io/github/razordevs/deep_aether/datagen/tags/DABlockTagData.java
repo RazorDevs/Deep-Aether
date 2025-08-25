@@ -9,6 +9,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -50,7 +51,13 @@ public class DABlockTagData extends BlockTagsProvider {
         );
         tag(BlockTags.BEACON_BASE_BLOCKS).add(
                 DABlocks.SKYJADE_BLOCK.get(),
-                DABlocks.STRATUS_BLOCK.get()
+                DABlocks.STRATUS_BLOCK.get(),
+                DABlocks.SQUALL_BLOCK.get()
+        );
+        tag(Tags.Blocks.STORAGE_BLOCKS).add(
+                DABlocks.SKYJADE_BLOCK.get(),
+                DABlocks.STRATUS_BLOCK.get(),
+                DABlocks.SQUALL_BLOCK.get()
         );
 
         tag(AetherTags.Blocks.AERCLOUDS).add(
@@ -308,7 +315,8 @@ public class DABlockTagData extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_IRON_TOOL).add(
                 DABlocks.SKYJADE_BLOCK.get(),
-                DABlocks.SKYJADE_ORE.get()
+                DABlocks.SKYJADE_ORE.get(),
+                DABlocks.SQUALL_BLOCK.get()
         );
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
