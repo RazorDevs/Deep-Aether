@@ -585,6 +585,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.FROZEN_GOLDEN_BERRIES.get(),
                 DAItems.GOLDEN_BERRIES.get()
         );
+        tag(ItemTags.FOX_FOOD).add(
+                DAItems.GOLDEN_BERRIES.get()
+        );
+
         tag(ItemTags.FISHES).add(
                 DAItems.RAW_AERGLOW_FISH.get(),
                 DAItems.COOKED_AERGLOW_FISH.get()
@@ -601,18 +605,12 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(Tags.Items.FOODS_COOKED_FISH).add(
                 DAItems.COOKED_AERGLOW_FISH.get()
         );
-        tag(ItemTags.MEAT).add(
-                DAItems.RAW_QUAIL.get(),
-                DAItems.COOKED_QUAIL.get()
-        );
+
         tag(ItemTags.WOLF_FOOD).add(
                 DAItems.RAW_QUAIL.get(),
                 DAItems.COOKED_QUAIL.get()
         );
-        tag(Tags.Items.ANIMAL_FOODS).add(
-                DAItems.SQUASH_SEEDS.get(),
-                DAItems.GOLDEN_GRASS_SEEDS.get(),
-                DAItems.RAW_AERGLOW_FISH.get(),
+        tag(ItemTags.MEAT).add(
                 DAItems.RAW_QUAIL.get(),
                 DAItems.COOKED_QUAIL.get()
         );
@@ -622,6 +620,7 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(Tags.Items.FOODS_COOKED_MEAT).add(
                 DAItems.COOKED_QUAIL.get()
         );
+
         tag(ItemTags.CHICKEN_FOOD).add(
                 DAItems.SQUASH_SEEDS.get(),
                 DAItems.GOLDEN_GRASS_SEEDS.get()
@@ -634,11 +633,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SQUASH_SEEDS.get(),
                 DAItems.GOLDEN_GRASS_SEEDS.get()
         );
-        tag(Tags.Items.FOODS_FRUIT).add(
-                DAItems.GREEN_SQUASH_SLICE.get(),
-                DAItems.BLUE_SQUASH_SLICE.get(),
-                DAItems.PURPLE_SQUASH_SLICE.get()
-        );
+
         tag(Tags.Items.EGGS).add(
                 DAItems.QUAIL_EGG.get()
         );
@@ -650,9 +645,22 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.BLUE_SQUASH.get().asItem(),
                 DABlocks.PURPLE_SQUASH.get().asItem()
         );
+        tag(Tags.Items.FOODS_FRUIT).add(
+                DAItems.GREEN_SQUASH_SLICE.get(),
+                DAItems.BLUE_SQUASH_SLICE.get(),
+                DAItems.PURPLE_SQUASH_SLICE.get()
+        );
 
-        // Misc.
+        tag(Tags.Items.ANIMAL_FOODS).add(
+                DAItems.SQUASH_SEEDS.get(),
+                DAItems.GOLDEN_GRASS_SEEDS.get(),
+                DAItems.RAW_AERGLOW_FISH.get(),
+                DAItems.GOLDEN_BERRIES.get(),
+                DAItems.RAW_QUAIL.get(),
+                DAItems.COOKED_QUAIL.get()
+        );
 
+        // Miscellaneous
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
                 DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
                 DAItems.STRATUS_PICKAXE.get().asItem()
@@ -683,7 +691,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYROOT_AERGLOW_FISH_BUCKET.get()
         );
 
-
         tag(DATags.Items.IS_GOLDEN_SWET_BALL).add(
                 DAItems.GOLDEN_SWET_BALL.get()
         ).addOptional(
@@ -699,9 +706,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DABlocks.AERCLOUD_GRASS_BLOCK.get().asItem(),
                 DABlocks.RAIN_AERCLOUD.get().asItem()
         );
-        tag(Tags.Items.CHAINS).add(
-                DABlocks.SKYJADE_CHAIN.get().asItem()
-        );
 
         tag(Tags.Items.MUSIC_DISCS).add(
                 DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
@@ -711,6 +715,10 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.MUSIC_DISC_FAENT.get(),
                 DAItems.MUSIC_DISC_HIMININN.get(),
                 DAItems.MUSIC_DISC_NABOORU.get()
+        );
+
+        tag(Tags.Items.CHAINS).add(
+                DABlocks.SKYJADE_CHAIN.get().asItem()
         );
     }
 }
