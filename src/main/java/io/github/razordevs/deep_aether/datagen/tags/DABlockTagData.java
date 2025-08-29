@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
+import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -395,6 +396,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.RAIN_AERCLOUD.get()
         );
         tag(BlockTags.MINEABLE_WITH_AXE).add(
+                DABlocks.LIGHTCAP_MUSHROOMS.get(),
                 DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get(),
                 DABlocks.ROSEROOT_WOOD.get(),
                 DABlocks.STRIPPED_ROSEROOT_WOOD.get(),
@@ -688,6 +690,19 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.TRAPPED_LIGHT_NIMBUS_PILLAR.get()
         );
 
+        tag(Tags.Blocks.CHAINS).add(
+                DABlocks.SKYJADE_CHAIN.get()
+        );
+
+        tag(BlockTags.MAINTAINS_FARMLAND).add(
+                DABlocks.SQUASH_STEM.get()
+        );
+        tag(BlockTags.BEE_GROWABLES).add(
+                DABlocks.SQUASH_STEM.get()
+        );
+        tag(BlockTags.CROPS).add(
+                DABlocks.SQUASH_STEM.get()
+        );
 
         tag(AetherTags.Blocks.LOCKED_DUNGEON_BLOCKS).add(
                 DABlocks.LOCKED_NIMBUS_STONE.get(),
