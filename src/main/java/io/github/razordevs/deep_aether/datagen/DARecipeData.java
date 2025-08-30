@@ -635,34 +635,22 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Items.CAKE)
                 .group("minecraft:cake")
-                .define('U', Items.MILK_BUCKET)
+                .define('U', Tags.Items.BUCKETS_MILK)
                 .define('S', Items.SUGAR)
                 .define('Y', Items.WHEAT)
-                .define('O', DAItems.QUAIL_EGG.get())
+                .define('O', Tags.Items.EGGS)
                 .pattern("UUU")
                 .pattern("SOS")
                 .pattern("YYY")
-                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(Tags.Items.EGGS))
                 .save(consumer, name("cake"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Blocks.CAKE)
-                .group("minecraft:cake")
-                .define('A', AetherItems.SKYROOT_MILK_BUCKET.get())
-                .define('B', Items.SUGAR)
-                .define('C', Items.WHEAT)
-                .define('E', DAItems.QUAIL_EGG.get())
-                .pattern("AAA")
-                .pattern("BEB")
-                .pattern("CCC")
-                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
-                .save(consumer, name("skyroot_milk_bucket_cake"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.PUMPKIN_PIE)
                 .group("minecraft:pumpkin_pie")
-                .requires(DATags.Items.EGGS)
+                .requires(Tags.Items.EGGS)
                 .requires(Items.PUMPKIN)
                 .requires(Items.SUGAR)
-                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(DATags.Items.EGGS))
+                .unlockedBy(getHasName(DAItems.QUAIL_EGG.get()), has(Tags.Items.EGGS))
                 .save(consumer, name("pumpkin_pie"));
 
         //Boats
