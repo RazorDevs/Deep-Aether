@@ -557,6 +557,15 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(DATags.Items.STORM_REPAIRING).add(
                 DAItems.SQUALL_PLATE.get()
         );
+        tag(AetherTags.Items.ORES_IN_GROUND_HOLYSTONE).add(
+                DABlocks.SKYJADE_ORE.get().asItem()
+        );
+        tag(Tags.Items.ORES).add(
+                DABlocks.SKYJADE_ORE.get().asItem()
+        );
+        tag(Tags.Items.ORE_RATES_SINGULAR).add(
+                DABlocks.SKYJADE_ORE.get().asItem()
+        );
 
         // Boats & Chests
         tag(ItemTags.BOATS).add(

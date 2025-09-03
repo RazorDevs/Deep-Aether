@@ -675,6 +675,16 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.TALL_GLOWING_GRASS.get()
         );
 
+        tag(AetherTags.Blocks.ORES_IN_GROUND_HOLYSTONE).add(
+                DABlocks.SKYJADE_ORE.get()
+        );
+        tag(Tags.Blocks.ORES).add(
+                DABlocks.SKYJADE_ORE.get()
+        );
+        tag(Tags.Blocks.ORE_RATES_SINGULAR).add(
+                DABlocks.SKYJADE_ORE.get()
+        );
+
         tag(AetherTags.Blocks.DUNGEON_BLOCKS).add(
                 DABlocks.NIMBUS_STONE.get(),
                 DABlocks.LIGHT_NIMBUS_STONE.get(),
