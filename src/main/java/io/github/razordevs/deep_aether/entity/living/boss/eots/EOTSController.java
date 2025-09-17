@@ -70,7 +70,7 @@ public class EOTSController extends Mob implements AetherBossMob<EOTSController>
     protected List<UUID> segmentUUIDs = new ArrayList<>();
     public static final int SEGMENT_COUNT = 22;
     public static final int EXTRA_SEGMENT = 4;
-    private static final Music EOTS_MUSIC = new Music(DASounds.LOCUS_FOR_WINDS, 0, 0, true);
+    private static final Music EOTS_MUSIC = new Music(DASounds.VARIATIONS, 0, 0, true);
     private static final EntityDataAccessor<Boolean> DATA_AWAKE_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Component> DATA_BOSS_NAME_ID = SynchedEntityData.defineId(EOTSController.class, EntityDataSerializers.COMPONENT);
     private final ServerBossEvent bossFight;
