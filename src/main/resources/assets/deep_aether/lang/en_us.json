@@ -24,6 +24,7 @@
   "biome.deep_aether.mystic_aerglow_forest": "Mystic Aerglow Forest",
   "biome.deep_aether.overgrown_cloud": "Overgrown Cloud",
   "biome.deep_aether.storm_cloud": "Storm Cloud",
+  "biome.deep_aether.sacred_lands": "Sacred Lands",
   "biome.deep_aether.yagroot_swamp": "Yagroot Swamp",
   "block.deep_aether.poison": "Poison",
   "block.deep_aether.virulent_quicksand": "Virulent Quicksand",
@@ -129,6 +130,7 @@
   "subtitles.deep_aether.item.tool.afterburner_fires": "Afterburner fires",
   "trim_material.deep_aether.skyjade": "Skyjade Material",
   "trim_material.deep_aether.stratus": "Stratus Material",
+  "trim_material.deep_aether.stormforged": "Stormforged Material",
   "upgrade.deep_aether.stratus_upgrade": "Stratus Upgrade",
   "upgrade.deep_aether.stormforged_upgrade": "Stormforged Upgrade",
 
