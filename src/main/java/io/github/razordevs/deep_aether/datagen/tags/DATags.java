@@ -36,6 +36,8 @@ public class DATags {
         public static final TagKey<Item> BRASS_DUNGEON_LOOT = tag("brass_dungeon_loot");
         public static final TagKey<Item> FLAWLESS_ITEMS = tag("flawless_items");
 
+        public static final TagKey<Item> QUAIL_FOOD = tag("quail_food");
+
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, name));
         }

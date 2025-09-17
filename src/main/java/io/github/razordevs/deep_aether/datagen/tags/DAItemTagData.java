@@ -634,6 +634,17 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SQUASH_SEEDS.get(),
                 DAItems.GOLDEN_GRASS_SEEDS.get()
         );
+        tag(DATags.Items.QUAIL_FOOD).add(
+                Items.WHEAT_SEEDS,
+                Items.MELON_SEEDS,
+                Items.PUMPKIN_SEEDS,
+                Items.BEETROOT_SEEDS,
+                Items.TORCHFLOWER_SEEDS,
+                Items.PITCHER_POD,
+                DAItems.SQUASH_SEEDS.get(),
+                DAItems.GOLDEN_GRASS_SEEDS.get()
+        );
+
         tag(ItemTags.PARROT_FOOD).add(
                 DAItems.SQUASH_SEEDS.get(),
                 DAItems.GOLDEN_GRASS_SEEDS.get()
