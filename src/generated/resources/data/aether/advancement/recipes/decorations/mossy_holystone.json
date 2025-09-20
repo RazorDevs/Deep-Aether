@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone": {
+    "has_mossy_holystone": {
       "conditions": {
         "items": [
           {
-            "items": "aether:holystone"
+            "items": "aether:mossy_holystone"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:mossy_holystone_from_aether_moss"
+        "recipe": "aether:mossy_holystone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_holystone"
+      "has_mossy_holystone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:mossy_holystone_from_aether_moss"
+      "aether:mossy_holystone"
     ]
   }
 }

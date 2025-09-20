@@ -7,7 +7,7 @@
       "item": "deep_aether:holystone_tiles"
     },
     {
-      "item": "deep_aether:aether_moss_block"
+      "tag": "deep_aether:crafts_mossy_blocks"
     }
   ],
   "result": {

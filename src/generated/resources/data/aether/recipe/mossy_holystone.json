@@ -4,14 +4,14 @@
   "group": "mossy_holystone_tiles",
   "ingredients": [
     {
-      "item": "deep_aether:holystone_tiles"
+      "item": "aether:mossy_holystone"
     },
     {
-      "item": "minecraft:vine"
+      "tag": "deep_aether:crafts_mossy_blocks"
     }
   ],
   "result": {
     "count": 1,
-    "id": "deep_aether:mossy_holystone_tiles"
+    "id": "aether:mossy_holystone"
   }
 }

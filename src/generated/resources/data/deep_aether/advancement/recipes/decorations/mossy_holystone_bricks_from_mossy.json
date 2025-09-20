@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:mossy_holystone_bricks_from_vines"
+        "recipe": "deep_aether:mossy_holystone_bricks_from_mossy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:mossy_holystone_bricks_from_vines"
+      "deep_aether:mossy_holystone_bricks_from_mossy"
     ]
   }
 }

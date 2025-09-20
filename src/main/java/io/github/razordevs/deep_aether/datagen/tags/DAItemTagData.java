@@ -13,6 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -267,6 +268,11 @@ public class DAItemTagData extends ItemTagsProvider {
         );
 
         // Blocks >> Items
+        tag(DATags.Items.CRAFTS_MOSSY_BLOCKS).add(
+                DABlocks.AETHER_MOSS_BLOCK.get().asItem(),
+                Blocks.MOSS_BLOCK.asItem(),
+                Blocks.VINE.asItem()
+        );
         tag(ItemTags.LOGS).add(
                 DABlocks.ROSEROOT_LOG.get().asItem(),
                 DABlocks.ROSEROOT_WOOD.get().asItem(),

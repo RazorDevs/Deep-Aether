@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:mossy_holystone_tiles_from_moss"
+        "recipe": "deep_aether:mossy_holystone_tiles_from_mossy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:mossy_holystone_tiles_from_moss"
+      "deep_aether:mossy_holystone_tiles_from_mossy"
     ]
   }
 }
