@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
 public class DATags {
+
     public static class Items {
         public static final TagKey<Item> ROSEROOT_LOGS = tag("roseroot_logs");
         public static final TagKey<Item> YAGROOT_LOGS = tag("yagroot_logs");
@@ -35,6 +36,7 @@ public class DATags {
 
         public static final TagKey<Item> BRASS_DUNGEON_LOOT = tag("brass_dungeon_loot");
         public static final TagKey<Item> FLAWLESS_ITEMS = tag("flawless_items");
+        public static final TagKey<Item> POISON_BUCKET = tag("poison_bucket");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, name));

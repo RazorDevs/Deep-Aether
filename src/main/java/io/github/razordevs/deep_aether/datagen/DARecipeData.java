@@ -779,12 +779,12 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, AetherItems.POISON_DART.get(), 8)
                 .define('D', AetherItems.GOLDEN_DART.get())
-                .define('B', DAItems.PLACEABLE_POISON_BUCKET.get())
+                .define('B', DATags.Items.POISON_BUCKET)
                 .pattern("DDD")
                 .pattern("DBD")
                 .pattern("DDD")
                 .unlockedBy(getHasName(AetherItems.GOLDEN_DART.get()), has(AetherItems.GOLDEN_DART.get()))
-                .unlockedBy(getHasName(DAItems.PLACEABLE_POISON_BUCKET.get()), has(DAItems.PLACEABLE_POISON_BUCKET.get()))
+                .unlockedBy(getHasName(DATags.Items.POISON_BUCKET), has(DATags.Items.POISON_BUCKET))
                 .save(consumer);
 
         // Treasure Reforging Compat

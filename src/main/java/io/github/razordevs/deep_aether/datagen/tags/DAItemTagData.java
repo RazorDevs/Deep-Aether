@@ -720,5 +720,10 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(Tags.Items.CHAINS).add(
                 DABlocks.SKYJADE_CHAIN.get().asItem()
         );
+
+        tag(DATags.Items.POISON_BUCKET).add(
+                DAItems.PLACEABLE_POISON_BUCKET.get(),
+                AetherItems.SKYROOT_POISON_BUCKET.get()
+        );
     }
 }
