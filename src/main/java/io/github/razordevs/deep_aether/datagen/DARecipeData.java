@@ -622,13 +622,19 @@ public class DARecipeData extends AetherRecipeProvider {
         this.stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
         this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STAIRS.get(), DABlocks.NIMBUS_STONE.get());
         this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE.get(), 2);
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
 
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
         this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
         this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
 
         //Misc
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.AFTERBURNER.get(), 1)
