@@ -792,16 +792,12 @@ public class DARecipeData extends AetherRecipeProvider {
         copyTemplateGravitite(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
 
         SimpleCookingRecipeBuilder.smelting(
-                        Ingredient.of(DAItems.STORMFORGED_BOOTS.get(), DAItems.STORMFORGED_LEGGINGS.get(), DAItems.STORMFORGED_CHESTPLATE.get(), DAItems.STORMFORGED_HELMET.get(), DAItems.STORMFORGED_GLOVES.get()),
+                        Ingredient.of(DATags.Items.STORM_ARMOR),
                         RecipeCategory.MISC,
                         DAItems.SQUALL_PLATE.get(),
                         0.1F,
                         200)
-                .unlockedBy("has_boots", has(DAItems.STORMFORGED_BOOTS.get()))
-                .unlockedBy("has_leggings", has(DAItems.STORMFORGED_LEGGINGS.get()))
-                .unlockedBy("has_chestplate", has(DAItems.STORMFORGED_CHESTPLATE.get()))
-                .unlockedBy("has_helmet", has(DAItems.STORMFORGED_HELMET.get()))
-                .unlockedBy("has_gloves", has(DAItems.STORMFORGED_GLOVES.get()))
+                .unlockedBy(getHasName(DATags.Items.STORM_ARMOR), has(DATags.Items.STORM_ARMOR))
                 .group(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get()))
                 .save(consumer, this.name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
 
