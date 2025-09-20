@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blue_squash": {
+    "has_squash_slice": {
       "conditions": {
         "items": [
           {
-            "items": "deep_aether:blue_squash"
+            "items": "#deep_aether:squash_slice"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:seeds_from_blue_squash_slice"
+        "recipe": "deep_aether:seeds_from_squash_slice"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_blue_squash"
+      "has_squash_slice"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:seeds_from_blue_squash_slice"
+      "deep_aether:seeds_from_squash_slice"
     ]
   }
 }

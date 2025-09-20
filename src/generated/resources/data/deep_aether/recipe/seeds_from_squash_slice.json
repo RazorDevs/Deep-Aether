@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "deep_aether:green_squash_slice"
+      "tag": "deep_aether:squash_slice"
     }
   ],
   "result": {

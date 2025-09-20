@@ -650,6 +650,11 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.BLUE_SQUASH_SLICE.get(),
                 DAItems.PURPLE_SQUASH_SLICE.get()
         );
+        tag(DATags.Items.SQUASH_SLICE).add(
+                DAItems.GREEN_SQUASH_SLICE.get(),
+                DAItems.BLUE_SQUASH_SLICE.get(),
+                DAItems.PURPLE_SQUASH_SLICE.get()
+        );
 
         tag(Tags.Items.ANIMAL_FOODS).add(
                 DAItems.SQUASH_SEEDS.get(),
