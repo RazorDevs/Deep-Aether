@@ -180,6 +180,10 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
+        this.stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_STAIRS.get(), DABlocks.AETHER_MUD_BRICKS.get());
+        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get(), 2);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.BREWING_STAND, 1)
                 .group("minecraft:brewing_stand")
                 .define('I', DAItems.BIO_CRYSTAL.get())
