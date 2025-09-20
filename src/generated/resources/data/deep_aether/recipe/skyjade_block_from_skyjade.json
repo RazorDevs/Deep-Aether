@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "deep_aether:stratus_ingot"
+    "#": {
+      "item": "deep_aether:skyjade"
     }
   },
   "pattern": [
-    "AAA",
-    "AAA",
-    "AAA"
+    "###",
+    "###",
+    "###"
   ],
   "result": {
     "count": 1,
-    "id": "deep_aether:stratus_block"
+    "id": "deep_aether:skyjade_block"
   }
 }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stratus_ingot": {
+    "has_squall_block": {
       "conditions": {
         "items": [
           {
-            "items": "deep_aether:stratus_ingot"
+            "items": "deep_aether:squall_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:stratus_ingot_from_stratus_block"
+        "recipe": "deep_aether:squall_from_squall_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stratus_ingot"
+      "has_squall_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:stratus_ingot_from_stratus_block"
+      "deep_aether:squall_from_squall_block"
     ]
   }
 }

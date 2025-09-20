@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyjade_block": {
+    "has_stratus_block": {
       "conditions": {
         "items": [
           {
-            "items": "deep_aether:skyjade_block"
+            "items": "deep_aether:stratus_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:skyjade_from_skyjade_block"
+        "recipe": "deep_aether:stratus_from_stratus_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_skyjade_block"
+      "has_stratus_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:skyjade_from_skyjade_block"
+      "deep_aether:stratus_from_stratus_block"
     ]
   }
 }

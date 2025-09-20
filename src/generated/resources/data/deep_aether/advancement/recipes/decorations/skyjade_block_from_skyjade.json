@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "deep_aether:skyjade_block"
+        "recipe": "deep_aether:skyjade_block_from_skyjade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "deep_aether:skyjade_block"
+      "deep_aether:skyjade_block_from_skyjade"
     ]
   }
 }

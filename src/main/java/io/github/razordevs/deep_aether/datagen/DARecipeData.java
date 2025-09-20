@@ -410,18 +410,8 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
         //Skyjade
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_BLOCK.get())
-                .define('A', DAItems.SKYJADE.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE.get(), 9)
-                .requires(DABlocks.SKYJADE_BLOCK.get())
-                .unlockedBy(getHasName(DAItems.SKYJADE.get()), has(DAItems.SKYJADE.get()))
-                .save(consumer, name("skyjade_from_skyjade_block"));
+        makeFullBlock(DAItems.SKYJADE.get(), DABlocks.SKYJADE_BLOCK.get()).save(consumer, name("skyjade_block_from_skyjade"));
+        materialFromBlock(DABlocks.SKYJADE_BLOCK.get(), DAItems.SKYJADE.get()).save(consumer, name("skyjade_from_skyjade_block"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SKYJADE_NUGGET.get(), 9)
                 .requires(DAItems.SKYJADE.get())
@@ -454,20 +444,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.SKYJADE_NUGGET.get()), has(DAItems.SKYJADE_NUGGET.get()))
                 .save(consumer, name("skyjade_chain_from_skyjade_nuggets"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.STRATUS_BLOCK.get())
-                .define('A', DAItems.STRATUS_INGOT.get())
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern("AAA")
-                .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.STRATUS_INGOT.get(), 9)
-                .requires(DABlocks.STRATUS_BLOCK.get())
-                .unlockedBy(getHasName(DAItems.STRATUS_INGOT.get()), has(DAItems.STRATUS_INGOT.get()))
-                .save(consumer, name("stratus_ingot_from_stratus_block"));
-
-
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
         blastingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 0.5F).save(consumer, name("skjyade_from_blasting"));
 
@@ -498,6 +474,9 @@ public class DARecipeData extends AetherRecipeProvider {
         makeRing(DAItems.GRAVITITE_RING, AetherTags.Items.PROCESSED_GRAVITITE).save(consumer);
 
         //Stratus
+        makeFullBlock(DAItems.STRATUS_INGOT.get(), DABlocks.STRATUS_BLOCK.get()).save(consumer, name("stratus_block_from_stratus"));
+        materialFromBlock(DABlocks.STRATUS_BLOCK.get(), DAItems.STRATUS_INGOT.get()).save(consumer, name("stratus_from_stratus_block"));
+
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_SWORD.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_sword_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_AXE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_axe_repairing"));
         repairingRecipe(RecipeCategory.COMBAT, DAItems.STRATUS_PICKAXE.get(), 1500).group("altar_sword_repair").save(consumer, name("stratus_pickaxe_repairing"));
@@ -740,6 +719,9 @@ public class DARecipeData extends AetherRecipeProvider {
         // Treasure Reforging Compat
         copyTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
         copyTemplateGravitite(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
+
+        makeFullBlock(DAItems.SQUALL_PLATE.get(), DABlocks.SQUALL_BLOCK.get()).save(consumer, name("squall_block_from_squall"));
+        materialFromBlock(DABlocks.SQUALL_BLOCK.get(), DAItems.SQUALL_PLATE.get()).save(consumer, name("squall_from_squall_block"));
 
         SimpleCookingRecipeBuilder.smelting(
                         Ingredient.of(DATags.Items.STORM_ARMOR),
