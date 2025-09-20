@@ -237,6 +237,48 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_HANGING_SIGN.get()
         );
 
+        tag(BlockTags.STAIRS).add(
+                DABlocks.ROSEROOT_STAIRS.get(),
+                DABlocks.YAGROOT_STAIRS.get(),
+                DABlocks.CRUDEROOT_STAIRS.get(),
+                DABlocks.CONBERRY_STAIRS.get(),
+                DABlocks.SUNROOT_STAIRS.get(),
+                DABlocks.CLORITE_STAIRS.get(),
+                DABlocks.ASETERITE_STAIRS.get(),
+                DABlocks.COBBLED_ASETERITE_STAIRS.get(),
+                DABlocks.ASETERITE_BRICKS_STAIRS.get(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get(),
+                DABlocks.AETHER_MUD_BRICKS_STAIRS.get(),
+                DABlocks.HOLYSTONE_TILE_STAIRS.get(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(),
+                DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(),
+                DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get(),
+                DABlocks.NIMBUS_STAIRS.get()
+        );
+        tag(BlockTags.SLABS).add(
+                DABlocks.ROSEROOT_SLAB.get(),
+                DABlocks.YAGROOT_SLAB.get(),
+                DABlocks.CRUDEROOT_SLAB.get(),
+                DABlocks.CONBERRY_SLAB.get(),
+                DABlocks.SUNROOT_SLAB.get(),
+                DABlocks.CLORITE_SLAB.get(),
+                DABlocks.ASETERITE_SLAB.get(),
+                DABlocks.COBBLED_ASETERITE_SLAB.get(),
+                DABlocks.ASETERITE_BRICKS_SLAB.get(),
+                DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get(),
+                DABlocks.AETHER_MUD_BRICKS_SLAB.get(),
+                DABlocks.HOLYSTONE_TILE_SLAB.get(),
+                DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(),
+                DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(),
+                DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get(),
+                DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get(),
+                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get(),
+                DABlocks.NIMBUS_SLAB.get()
+        );
 
         tag(BlockTags.WALLS).add(
                 DABlocks.ROSEROOT_WALL.get(),
@@ -569,7 +611,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.HOLYSTONE_PILLAR_UP.get(),
                 DABlocks.HOLYSTONE_PILLAR_DOWN.get(),
 
-
                 DABlocks.MOSSY_HOLYSTONE_BRICKS.get(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(),
                 DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(),
@@ -660,7 +701,6 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.TALL_GLOWING_GRASS.get()
         );
 
-
         tag(BlockTags.SAPLINGS).add(
                 DABlocks.SUNROOT_SAPLING.get(),
                 DABlocks.BLUE_ROSEROOT_SAPLING.get(),
@@ -668,6 +708,17 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CRUDEROOT_SAPLING.get(),
                 DABlocks.ROSEROOT_SAPLING.get(),
                 DABlocks.YAGROOT_SAPLING.get()
+        );
+        tag(BlockTags.SMALL_FLOWERS).add(
+                DABlocks.AERLAVENDER.get(),
+                DABlocks.AETHER_CATTAILS.get(),
+                DABlocks.GOLDEN_FLOWER.get(),
+                DABlocks.RADIANT_ORCHID.get(),
+                DABlocks.ENCHANTED_BLOSSOM.get(),
+                DABlocks.SKY_TULIPS.get(),
+                DABlocks.IASPOVE.get(),
+                DABlocks.GOLDEN_ASPESS.get(),
+                DABlocks.ECHAISY.get()
         );
 
         tag(DATags.Blocks.HAS_GLOWING_SPORES).add(

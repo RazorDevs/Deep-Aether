@@ -9,9 +9,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
@@ -44,6 +44,18 @@ public class DAItemTagData extends ItemTagsProvider {
         this.copy(DATags.Blocks.CONBERRY_LOGS, DATags.Items.CONBERRY_LOGS);
         this.copy(DATags.Blocks.SUNROOT_LOGS, DATags.Items.SUNROOT_LOGS);
         this.copy(DATags.Blocks.NIMBUS_BLOCKS, DATags.Items.NIMBUS_BLOCKS);
+        this.copy(AetherTags.Blocks.AERCLOUDS, AetherTags.Items.AERCLOUDS);
+        this.copy(Tags.Blocks.CHAINS, Tags.Items.CHAINS);
+        this.copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
+        this.copy(BlockTags.LOGS, ItemTags.LOGS);
+        this.copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
+        this.copy(BlockTags.STAIRS, ItemTags.STAIRS);
+        this.copy(BlockTags.SLABS, ItemTags.SLABS);
+        this.copy(BlockTags.WALLS, ItemTags.WALLS);
+        this.copy(BlockTags.FENCE_GATES, ItemTags.FENCE_GATES);
+        this.copy(BlockTags.LEAVES, ItemTags.LEAVES);
+        this.copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
+        this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
 
         Collection<DeferredHolder<Item, ? extends Item>> items = DAItems.ITEMS.getEntries();
 
@@ -159,11 +171,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE_LEGGINGS.get(),
                 DAItems.SKYJADE_BOOTS.get(),
                 DAItems.SKYJADE_GLOVES.get(),
+
                 DAItems.STORMFORGED_HELMET.get(),
                 DAItems.STORMFORGED_CHESTPLATE.get(),
                 DAItems.STORMFORGED_LEGGINGS.get(),
                 DAItems.STORMFORGED_BOOTS.get(),
                 DAItems.STORMFORGED_GLOVES.get(),
+
                 DAItems.STRATUS_HELMET.get(),
                 DAItems.STRATUS_CHESTPLATE.get(),
                 DAItems.STRATUS_LEGGINGS.get(),
@@ -273,171 +287,12 @@ public class DAItemTagData extends ItemTagsProvider {
                 Blocks.MOSS_BLOCK.asItem(),
                 Blocks.VINE.asItem()
         );
-        tag(ItemTags.LOGS).add(
-                DABlocks.ROSEROOT_LOG.get().asItem(),
-                DABlocks.ROSEROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_ROSEROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_ROSEROOT_WOOD.get().asItem(),
-                DABlocks.YAGROOT_LOG.get().asItem(),
-                DABlocks.YAGROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_YAGROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_YAGROOT_WOOD.get().asItem(),
-                DABlocks.CRUDEROOT_LOG.get().asItem(),
-                DABlocks.CRUDEROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_CRUDEROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_CRUDEROOT_WOOD.get().asItem(),
-                DABlocks.CONBERRY_LOG.get().asItem(),
-                DABlocks.CONBERRY_WOOD.get().asItem(),
-                DABlocks.STRIPPED_CONBERRY_LOG.get().asItem(),
-                DABlocks.STRIPPED_CONBERRY_WOOD.get().asItem(),
-                DABlocks.SUNROOT_LOG.get().asItem(),
-                DABlocks.SUNROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
-        );
-        tag(ItemTags.LOGS_THAT_BURN).add(
-                DABlocks.ROSEROOT_LOG.get().asItem(),
-                DABlocks.ROSEROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_ROSEROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_ROSEROOT_WOOD.get().asItem(),
-                DABlocks.YAGROOT_LOG.get().asItem(),
-                DABlocks.YAGROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_YAGROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_YAGROOT_WOOD.get().asItem(),
-                DABlocks.CRUDEROOT_LOG.get().asItem(),
-                DABlocks.CRUDEROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_CRUDEROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_CRUDEROOT_WOOD.get().asItem(),
-                DABlocks.CONBERRY_LOG.get().asItem(),
-                DABlocks.CONBERRY_WOOD.get().asItem(),
-                DABlocks.STRIPPED_CONBERRY_LOG.get().asItem(),
-                DABlocks.STRIPPED_CONBERRY_WOOD.get().asItem(),
-                DABlocks.SUNROOT_LOG.get().asItem(),
-                DABlocks.SUNROOT_WOOD.get().asItem(),
-                DABlocks.STRIPPED_SUNROOT_LOG.get().asItem(),
-                DABlocks.STRIPPED_SUNROOT_WOOD.get().asItem()
-        );
-        tag(ItemTags.SIGNS).add(
-                DABlocks.ROSEROOT_SIGN.get().asItem(),
-                DABlocks.YAGROOT_SIGN.get().asItem(),
-                DABlocks.CRUDEROOT_SIGN.get().asItem(),
-                DABlocks.CONBERRY_SIGN.get().asItem(),
-                DABlocks.SUNROOT_SIGN.get().asItem()
-        );
         tag(ItemTags.HANGING_SIGNS).add(
                 DAItems.CONBERRY_HANGING_SIGN.get(),
                 DAItems.CRUDEROOT_HANGING_SIGN.get(),
                 DAItems.ROSEROOT_HANGING_SIGN.get(),
                 DAItems.YAGROOT_HANGING_SIGN.get(),
                 DAItems.SUNROOT_HANGING_SIGN.get()
-        );
-        tag(ItemTags.STAIRS).add(
-                DABlocks.ROSEROOT_STAIRS.get().asItem(),
-                DABlocks.YAGROOT_STAIRS.get().asItem(),
-                DABlocks.CRUDEROOT_STAIRS.get().asItem(),
-                DABlocks.CONBERRY_STAIRS.get().asItem(),
-                DABlocks.SUNROOT_STAIRS.get().asItem(),
-                DABlocks.CLORITE_STAIRS.get().asItem(),
-                DABlocks.ASETERITE_STAIRS.get().asItem(),
-                DABlocks.COBBLED_ASETERITE_STAIRS.get().asItem(),
-                DABlocks.ASETERITE_BRICKS_STAIRS.get().asItem(),
-                DABlocks.BIG_HOLYSTONE_BRICKS_STAIRS.get().asItem(),
-                DABlocks.AETHER_MUD_BRICKS_STAIRS.get().asItem(),
-                DABlocks.HOLYSTONE_TILE_STAIRS.get().asItem(),
-                DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get().asItem(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get().asItem(),
-                DABlocks.GILDED_HOLYSTONE_BRICK_STAIRS.get().asItem(),
-                DABlocks.GILDED_HOLYSTONE_TILE_STAIRS.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_STAIRS.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_STAIRS.get().asItem(),
-                DABlocks.NIMBUS_STAIRS.get().asItem()
-        );
-        tag(ItemTags.SLABS).add(
-                DABlocks.ROSEROOT_SLAB.get().asItem(),
-                DABlocks.YAGROOT_SLAB.get().asItem(),
-                DABlocks.CRUDEROOT_SLAB.get().asItem(),
-                DABlocks.CONBERRY_SLAB.get().asItem(),
-                DABlocks.SUNROOT_SLAB.get().asItem(),
-                DABlocks.CLORITE_SLAB.get().asItem(),
-                DABlocks.ASETERITE_SLAB.get().asItem(),
-                DABlocks.COBBLED_ASETERITE_SLAB.get().asItem(),
-                DABlocks.ASETERITE_BRICKS_SLAB.get().asItem(),
-                DABlocks.BIG_HOLYSTONE_BRICKS_SLAB.get().asItem(),
-                DABlocks.AETHER_MUD_BRICKS_SLAB.get().asItem(),
-                DABlocks.HOLYSTONE_TILE_SLAB.get().asItem(),
-                DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get().asItem(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get().asItem(),
-                DABlocks.GILDED_HOLYSTONE_BRICK_SLAB.get().asItem(),
-                DABlocks.GILDED_HOLYSTONE_TILE_SLAB.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_SLAB.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_SLAB.get().asItem(),
-                DABlocks.NIMBUS_SLAB.get().asItem()
-        );
-        tag(ItemTags.WALLS).add(
-                DABlocks.ROSEROOT_WALL.get().asItem(),
-                DABlocks.STRIPPED_ROSEROOT_WALL.get().asItem(),
-                DABlocks.YAGROOT_WALL.get().asItem(),
-                DABlocks.STRIPPED_YAGROOT_WALL.get().asItem(),
-                DABlocks.CRUDEROOT_WALL.get().asItem(),
-                DABlocks.STRIPPED_CRUDEROOT_WALL.get().asItem(),
-                DABlocks.CONBERRY_WALL.get().asItem(),
-                DABlocks.STRIPPED_CONBERRY_WALL.get().asItem(),
-                DABlocks.SUNROOT_WALL.get().asItem(),
-                DABlocks.STRIPPED_SUNROOT_WALL.get().asItem(),
-                DABlocks.CLORITE_WALL.get().asItem(),
-                DABlocks.POLISHED_CLORITE_WALL.get().asItem(),
-                DABlocks.ASETERITE_WALL.get().asItem(),
-                DABlocks.COBBLED_ASETERITE_WALL.get().asItem(),
-                DABlocks.POLISHED_ASETERITE_WALL.get().asItem(),
-                DABlocks.ASETERITE_BRICKS_WALL.get().asItem(),
-                DABlocks.BIG_HOLYSTONE_BRICKS_WALL.get().asItem(),
-                DABlocks.AETHER_MUD_BRICKS_WALL.get().asItem(),
-                DABlocks.HOLYSTONE_TILE_WALL.get().asItem(),
-                DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get().asItem(),
-                DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get().asItem(),
-                DABlocks.GILDED_HOLYSTONE_BRICK_WALL.get().asItem(),
-                DABlocks.GILDED_HOLYSTONE_TILE_WALL.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_BRICK_WALL.get().asItem(),
-                DABlocks.BLIGHTMOSS_HOLYSTONE_TILE_WALL.get().asItem(),
-                DABlocks.NIMBUS_WALL.get().asItem()
-        );
-        tag(ItemTags.FENCE_GATES).add(
-                DABlocks.ROSEROOT_FENCE_GATE.get().asItem(),
-                DABlocks.YAGROOT_FENCE_GATE.get().asItem(),
-                DABlocks.CRUDEROOT_FENCE_GATE.get().asItem(),
-                DABlocks.CONBERRY_FENCE_GATE.get().asItem(),
-                DABlocks.SUNROOT_FENCE_GATE.get().asItem()
-        );
-
-        // Flora & Related
-        tag(ItemTags.LEAVES).add(
-                DABlocks.ROSEROOT_LEAVES.get().asItem(),
-                DABlocks.BLUE_ROSEROOT_LEAVES.get().asItem(),
-                DABlocks.FLOWERING_ROSEROOT_LEAVES.get().asItem(),
-                DABlocks.FLOWERING_BLUE_ROSEROOT_LEAVES.get().asItem(),
-                DABlocks.YAGROOT_LEAVES.get().asItem(),
-                DABlocks.CRUDEROOT_LEAVES.get().asItem(),
-                DABlocks.CONBERRY_LEAVES.get().asItem(),
-                DABlocks.SUNROOT_LEAVES.get().asItem()
-        );
-        tag(ItemTags.SAPLINGS).add(
-                DABlocks.SUNROOT_SAPLING.get().asItem(),
-                DABlocks.BLUE_ROSEROOT_SAPLING.get().asItem(),
-                DABlocks.CONBERRY_SAPLING.get().asItem(),
-                DABlocks.CRUDEROOT_SAPLING.get().asItem(),
-                DABlocks.ROSEROOT_SAPLING.get().asItem(),
-                DABlocks.YAGROOT_SAPLING.get().asItem()
-        );
-        tag(ItemTags.SMALL_FLOWERS).add(
-                DABlocks.AERLAVENDER.get().asItem(),
-                DABlocks.AETHER_CATTAILS.get().asItem(),
-                DABlocks.GOLDEN_FLOWER.get().asItem(),
-                DABlocks.RADIANT_ORCHID.get().asItem(),
-                DABlocks.ENCHANTED_BLOSSOM.get().asItem(),
-                DABlocks.SKY_TULIPS.get().asItem(),
-                DABlocks.IASPOVE.get().asItem(),
-                DABlocks.GOLDEN_ASPESS.get().asItem(),
-                DABlocks.ECHAISY.get().asItem()
         );
 
         // Skyjade Related
@@ -519,7 +374,7 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.CLOUD_CAPE.get()
         );
         tag(AetherTags.Items.ACCESSORIES_SHIELDS).add(
-                DAItems.WIND_SHIELD.asItem()
+                DAItems.WIND_SHIELD.get()
         );
         tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
                 DAItems.SLIDER_EYE.get()
@@ -534,11 +389,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SKYJADE.get(),
                 DAItems.STRATUS_INGOT.get(),
                 DAItems.SQUALL_PLATE.get()
-        );
-        tag(Tags.Items.STORAGE_BLOCKS).add(
-                DABlocks.SKYJADE_BLOCK.get().asItem(),
-                DABlocks.STRATUS_BLOCK.get().asItem(),
-                DABlocks.SQUALL_BLOCK.get().asItem()
         );
         tag(ItemTags.TRIM_MATERIALS).add(
                 DAItems.SKYJADE.get(),
@@ -673,8 +523,8 @@ public class DAItemTagData extends ItemTagsProvider {
 
         // Miscellaneous
         tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(
-                DAItems.SKYJADE_TOOLS_PICKAXE.get().asItem(),
-                DAItems.STRATUS_PICKAXE.get().asItem()
+                DAItems.SKYJADE_TOOLS_PICKAXE.get(),
+                DAItems.STRATUS_PICKAXE.get()
         );
 
         tag(ItemTags.COMPASSES).add(
@@ -710,14 +560,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 ResourceLocation.fromNamespaceAndPath(DeepAether.AETHER_GENESIS,"golden_swet_ball")
         );
 
-        tag(AetherTags.Items.AERCLOUDS).add(
-                DABlocks.CHROMATIC_AERCLOUD.get().asItem(),
-                DABlocks.STERLING_AERCLOUD.get().asItem(),
-                DABlocks.AERSMOG.get().asItem(),
-                DABlocks.AERCLOUD_GRASS_BLOCK.get().asItem(),
-                DABlocks.RAIN_AERCLOUD.get().asItem()
-        );
-
         tag(Tags.Items.MUSIC_DISCS).add(
                 DAItems.MUSIC_DISC_A_MORNING_WISH.get(),
                 DAItems.MUSIC_DISC_ABOVE_THE_RAIN.get(),
@@ -726,10 +568,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.MUSIC_DISC_FAENT.get(),
                 DAItems.MUSIC_DISC_HIMININN.get(),
                 DAItems.MUSIC_DISC_NABOORU.get()
-        );
-
-        tag(Tags.Items.CHAINS).add(
-                DABlocks.SKYJADE_CHAIN.get().asItem()
         );
 
         tag(DATags.Items.POISON_BUCKET).add(
