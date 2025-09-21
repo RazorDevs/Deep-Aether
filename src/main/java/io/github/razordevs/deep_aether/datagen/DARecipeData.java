@@ -734,13 +734,18 @@ public class DARecipeData extends AetherRecipeProvider {
         materialFromBlock(DABlocks.SQUALL_BLOCK.get(), DAItems.SQUALL_PLATE.get()).save(consumer, name("squall_from_squall_block"));
 
         SimpleCookingRecipeBuilder.smelting(
-                        Ingredient.of(DATags.Items.STORM_ARMOR),
+                        Ingredient.of(DAItems.STORMFORGED_BOOTS.get(), DAItems.STORMFORGED_LEGGINGS.get(), DAItems.STORMFORGED_CHESTPLATE.get(), DAItems.STORMFORGED_HELMET.get(), DAItems.STORMFORGED_GLOVES.get()),
                         RecipeCategory.MISC,
                         DAItems.SQUALL_PLATE.get(),
                         0.1F,
                         200)
-                .unlockedBy(getHasName(DATags.Items.STORM_ARMOR), has(DATags.Items.STORM_ARMOR))
-                .save(consumer, name("squall_from_storm_armor"));
+                .unlockedBy("has_boots", has(DAItems.STORMFORGED_BOOTS.get()))
+                .unlockedBy("has_leggings", has(DAItems.STORMFORGED_LEGGINGS.get()))
+                .unlockedBy("has_chestplate", has(DAItems.STORMFORGED_CHESTPLATE.get()))
+                .unlockedBy("has_helmet", has(DAItems.STORMFORGED_HELMET.get()))
+                .unlockedBy("has_gloves", has(DAItems.STORMFORGED_GLOVES.get()))
+                .group(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, this.name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),

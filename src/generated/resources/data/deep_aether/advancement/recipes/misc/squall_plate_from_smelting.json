@@ -1,11 +1,51 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_storm_repairing": {
+    "has_boots": {
       "conditions": {
         "items": [
           {
-            "items": "#deep_aether:storm_repairing"
+            "items": "deep_aether:stormforged_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:stormforged_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gloves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:stormforged_gloves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:stormforged_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:stormforged_leggings"
           }
         ]
       },
@@ -21,7 +61,11 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_storm_repairing"
+      "has_boots",
+      "has_leggings",
+      "has_chestplate",
+      "has_helmet",
+      "has_gloves"
     ]
   ],
   "rewards": {
