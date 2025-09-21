@@ -148,31 +148,24 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(DABlocks.YAGROOT_ROOTS.get())
                 .unlockedBy(getHasName(DABlocks.AETHER_MUD.get()), has(DABlocks.AETHER_MUD.get()))
                 .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS.get(), 4)
-                .define('A', DABlocks.PACKED_AETHER_MUD.get().asItem())
-                .pattern("AA")
-                .pattern("AA")
-                .unlockedBy(getHasName(DABlocks.PACKED_AETHER_MUD.get()), has(DABlocks.PACKED_AETHER_MUD.get()))
-                .save(consumer);
 
+        stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_STAIRS.get(), DABlocks.AETHER_MUD_BRICKS.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get(), 2);
+
+        brick(consumer, DABlocks.AETHER_MUD_BRICKS.get(), DABlocks.PACKED_AETHER_MUD.get());
         stairs(DABlocks.AETHER_MUD_BRICKS_STAIRS, DABlocks.AETHER_MUD_BRICKS).save(consumer);
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), Ingredient.of(DABlocks.AETHER_MUD_BRICKS.get()))
-                .unlockedBy(getHasName(DABlocks.AETHER_MUD_BRICKS.get()), has(DABlocks.AETHER_MUD_BRICKS.get()))
-                .save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
 
-        this.stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.AETHER_MUD_BRICKS_WALL.get(), DABlocks.AETHER_MUD_BRICKS.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_STAIRS.get(), DABlocks.AETHER_MUD_BRICKS.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_MUD_BRICKS_SLAB.get(), DABlocks.AETHER_MUD_BRICKS.get(), 2);
-
         //Aseterite
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get(), 2);
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_WALL.get(), DABlocks.ASETERITE.get());
-
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.COBBLED_ASETERITE_STAIRS.get(), DABlocks.COBBLED_ASETERITE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.COBBLED_ASETERITE_SLAB.get(), DABlocks.COBBLED_ASETERITE.get(), 2);
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.COBBLED_ASETERITE_WALL.get(), DABlocks.COBBLED_ASETERITE.get());
+
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_SLAB.get(), DABlocks.ASETERITE.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.ASETERITE_WALL.get(), DABlocks.ASETERITE.get());
 
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_ASETERITE.get(), DABlocks.ASETERITE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.ASETERITE.get());
@@ -215,14 +208,14 @@ public class DARecipeData extends AetherRecipeProvider {
 
         //Clorite
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.RAW_CLORITE.get(), 4)
-                .define('A', DABlocks.ASETERITE.get().asItem())
+                .define('A', DABlocks.ASETERITE.get())
                 .define('B', AetherBlocks.HOLYSTONE.get())
                 .pattern("AB")
                 .pattern("BA")
                 .unlockedBy(getHasName(DABlocks.ASETERITE.get()), has(DABlocks.ASETERITE.get()))
                 .save(consumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CLORITE_PILLAR.get(), 1)
-                .define('A', DABlocks.CLORITE_SLAB.get().asItem())
+                .define('A', DABlocks.CLORITE_SLAB.get())
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.CLORITE.get()), has(DABlocks.CLORITE.get()))
@@ -286,21 +279,21 @@ public class DARecipeData extends AetherRecipeProvider {
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_PILLAR_DOWN.get(), AetherBlocks.HOLYSTONE.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR.get(), 2)
-                .define('A', AetherBlocks.HOLYSTONE.get().asItem())
+                .define('A', AetherBlocks.HOLYSTONE.get())
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR.get()), has(DABlocks.HOLYSTONE_PILLAR.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR_UP.get(), 2)
-                .define('A', DABlocks.HOLYSTONE_PILLAR.get().asItem())
+                .define('A', DABlocks.HOLYSTONE_PILLAR.get())
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR_UP.get()), has(DABlocks.HOLYSTONE_PILLAR_UP.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_PILLAR_DOWN.get(), 2)
-                .define('A', DABlocks.HOLYSTONE_PILLAR_UP.get().asItem())
+                .define('A', DABlocks.HOLYSTONE_PILLAR_UP.get())
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.HOLYSTONE_PILLAR_DOWN.get()), has(DABlocks.HOLYSTONE_PILLAR_DOWN.get()))
@@ -308,7 +301,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         // Chiseled Holystone
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.CHISELED_HOLYSTONE.get(), 1)
-                .define('A', AetherBlocks.HOLYSTONE_SLAB.get().asItem())
+                .define('A', AetherBlocks.HOLYSTONE_SLAB.get())
                 .pattern("A")
                 .pattern("A")
                 .unlockedBy(getHasName(DABlocks.CHISELED_HOLYSTONE.get()), has(DABlocks.CHISELED_HOLYSTONE.get()))
@@ -317,6 +310,13 @@ public class DARecipeData extends AetherRecipeProvider {
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.CHISELED_HOLYSTONE.get(), AetherBlocks.HOLYSTONE.get());
 
         // Mossy Holystone Bricks
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 1)
+                .group("mossy_holystone_bricks")
+                .requires(AetherBlocks.HOLYSTONE_BRICKS.get())
+                .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
+                .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
+                .save(consumer, name("mossy_holystone_bricks_from_mossy"));
+
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
@@ -329,13 +329,6 @@ public class DARecipeData extends AetherRecipeProvider {
         stairs(DABlocks.MOSSY_HOLYSTONE_BRICK_STAIRS, DABlocks.MOSSY_HOLYSTONE_BRICKS).save(consumer);
         slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_BRICK_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICK_WALL.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_BRICKS.get(), 1)
-                .group("mossy_holystone_bricks")
-                .requires(AetherBlocks.HOLYSTONE_BRICKS.get().asItem())
-                .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
-                .unlockedBy(getHasName(AetherBlocks.HOLYSTONE_BRICKS.get()), has(AetherBlocks.HOLYSTONE_BRICKS.get()))
-                .save(consumer, name("mossy_holystone_bricks_from_mossy"));
 
         // Holystone Tiles
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.HOLYSTONE_TILES.get(), AetherBlocks.HOLYSTONE.get());
@@ -356,6 +349,13 @@ public class DARecipeData extends AetherRecipeProvider {
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.HOLYSTONE_TILE_WALL.get(), DABlocks.HOLYSTONE_TILES.get());
 
         // Mossy Holystone Tiles
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
+                .group("mossy_holystone_tiles")
+                .requires(DABlocks.HOLYSTONE_TILES.get())
+                .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
+                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
+                .save(consumer, name("mossy_holystone_tiles_from_mossy"));
+        
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
         stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_STAIRS.get(), AetherBlocks.MOSSY_HOLYSTONE.get());
@@ -373,31 +373,24 @@ public class DARecipeData extends AetherRecipeProvider {
         slab(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.MOSSY_HOLYSTONE_TILE_SLAB.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILE_WALL.get(), DABlocks.MOSSY_HOLYSTONE_TILES.get());
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DABlocks.MOSSY_HOLYSTONE_TILES.get(), 1)
-                .group("mossy_holystone_tiles")
-                .requires(DABlocks.HOLYSTONE_TILES.get().asItem())
-                .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
-                .unlockedBy(getHasName(DABlocks.HOLYSTONE_TILES.get()), has(DABlocks.HOLYSTONE_TILES.get()))
-                .save(consumer, name("mossy_holystone_tiles_from_mossy"));
-
         // Mossy Blocks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, AetherBlocks.MOSSY_HOLYSTONE.get(), 1)
                 .group("mossy_holystone")
-                .requires(AetherBlocks.HOLYSTONE.get().asItem())
+                .requires(AetherBlocks.HOLYSTONE.get())
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get()))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.COBBLESTONE, 1)
                 .group("mossy_holystone")
-                .requires(Blocks.COBBLESTONE.asItem())
+                .requires(Blocks.COBBLESTONE)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.STONE_BRICKS, 1)
                 .group("mossy_holystone")
-                .requires(Blocks.STONE_BRICKS.asItem())
+                .requires(Blocks.STONE_BRICKS)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(Blocks.STONE_BRICKS), has(Blocks.STONE_BRICKS))
                 .save(consumer);
@@ -407,22 +400,22 @@ public class DARecipeData extends AetherRecipeProvider {
         slab(DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE).save(consumer);
         wall(consumer, RecipeCategory.DECORATIONS, DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
 
-        this.stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STAIRS.get(), DABlocks.NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE.get(), 2);
+        stonecuttingRecipe(consumer, RecipeCategory.DECORATIONS, DABlocks.NIMBUS_WALL.get(), DABlocks.NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STAIRS.get(), DABlocks.NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_SLAB.get(), DABlocks.NIMBUS_STONE.get(), 2);
 
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
-        this.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.NIMBUS_PILLAR.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_STONE.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_STONE.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.NIMBUS_PILLAR.get());
+        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, DABlocks.LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_STONE.get());
 
         // Skyjade
         smeltingOreRecipe(DAItems.SKYJADE.get(), DABlocks.SKYJADE_ORE.get(), 1F).save(consumer);
@@ -446,7 +439,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_LANTERN.get())
                 .define('A', DAItems.SKYJADE_NUGGET.get())
-                .define('B', AetherBlocks.AMBROSIUM_TORCH.get().asItem())
+                .define('B', AetherBlocks.AMBROSIUM_TORCH.get())
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -625,7 +618,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy("has_helmet", has(DAItems.STORMFORGED_HELMET.get()))
                 .unlockedBy("has_gloves", has(DAItems.STORMFORGED_GLOVES.get()))
                 .group(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
+                .save(consumer, name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
 
         stormSmithingRecipe(consumer, DAItems.SKYJADE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_BOOTS.get());
         stormSmithingRecipe(consumer, DAItems.SKYJADE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_LEGGINGS.get());
@@ -637,7 +630,7 @@ public class DARecipeData extends AetherRecipeProvider {
 
         // Misc
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
-                .define('D', AetherBlocks.AETHER_DIRT.get().asItem())
+                .define('D', AetherBlocks.AETHER_DIRT.get())
                 .define('G', Blocks.GRAVEL)
                 .pattern("DG")
                 .pattern("GD")
@@ -696,7 +689,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_MOSS_CARPET.get(), 3)
-                .define('A', DABlocks.AETHER_MOSS_BLOCK.get().asItem())
+                .define('A', DABlocks.AETHER_MOSS_BLOCK.get())
                 .pattern("AA")
                 .unlockedBy(getHasName(DABlocks.AETHER_MOSS_BLOCK.get()), has(DABlocks.AETHER_MOSS_BLOCK.get()))
                 .save(consumer);
@@ -710,7 +703,7 @@ public class DARecipeData extends AetherRecipeProvider {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.BREWING_STAND, 1)
                 .group("minecraft:brewing_stand")
                 .define('I', DAItems.BIO_CRYSTAL.get())
-                .define('D', AetherBlocks.HOLYSTONE.get().asItem())
+                .define('D', AetherBlocks.HOLYSTONE.get())
                 .pattern(" I ")
                 .pattern("DDD")
                 .unlockedBy(getHasName(DAItems.BIO_CRYSTAL.get()), has(DAItems.BIO_CRYSTAL.get()))
@@ -730,16 +723,16 @@ public class DARecipeData extends AetherRecipeProvider {
         glowingSporesRecipe(DABlocks.GLOWING_VINE.get(), Blocks.VINE).save(consumer, "glowing_vine_from_vine");
 
         // Freezer Recipes
-        freezingRecipe(RecipeCategory.MISC, DAItems.FROZEN_GOLDEN_BERRIES.get(), DAItems.GOLDEN_BERRIES.get(), 1, 50).save(consumer, this.name("golden_berries_freezing"));
+        freezingRecipe(RecipeCategory.MISC, DAItems.FROZEN_GOLDEN_BERRIES.get(), DAItems.GOLDEN_BERRIES.get(), 1, 50).save(consumer, name("golden_berries_freezing"));
 
         // Altar Recipes
-        enchantingRecipe(RecipeCategory.MISC, DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get(), 1, 750).save(consumer, this.name("antidote_enchanting"));
-        enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DABlocks.GLOWING_SPORES.get(), 1, 50).save(consumer, this.name("glowing_spores"));
-        enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
-        enchantingRecipe(RecipeCategory.MISC, DABlocks.CLORITE.get(), DABlocks.RAW_CLORITE.get(), 0.15F, 50).save(consumer, this.name("raw_clorite_enchanting"));
-        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.COLD_AERCLOUD.get(), DABlocks.AERCLOUD_ROOTS.get(), 1, 50).save(consumer, this.name("cold_aercloud_from_aercloud_roots"));
-        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 250).save(consumer, this.name("blue_aercloud_from_blue_aercloud_mushroom_blocks"));
-        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.GOLDEN_AERCLOUD.get(), DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 500).save(consumer, this.name("golden_aercloud_from_pink_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get(), 1, 750).save(consumer, name("antidote_enchanting"));
+        enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DABlocks.GLOWING_SPORES.get(), 1, 50).save(consumer, name("glowing_spores"));
+        enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, name("squash_seeds_enchanting"));
+        enchantingRecipe(RecipeCategory.MISC, DABlocks.CLORITE.get(), DABlocks.RAW_CLORITE.get(), 0.15F, 50).save(consumer, name("raw_clorite_enchanting"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.COLD_AERCLOUD.get(), DABlocks.AERCLOUD_ROOTS.get(), 1, 50).save(consumer, name("cold_aercloud_from_aercloud_roots"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 250).save(consumer, name("blue_aercloud_from_blue_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.GOLDEN_AERCLOUD.get(), DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 500).save(consumer, name("golden_aercloud_from_pink_aercloud_mushroom_blocks"));
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.CHROMATIC_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
 
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 500).save(consumer, name("a_moring_wish_enchanting"));
@@ -769,8 +762,8 @@ public class DARecipeData extends AetherRecipeProvider {
                         0.1f, 100)
                 .requires(AetherItems.GOLDEN_AMBER.get())
                 .requires(DAItems.FROZEN_GOLDEN_BERRIES.get())
-                .requires(AetherBlocks.ICESTONE.get().asItem())
-                .unlockedBy(getHasName(AetherBlocks.ICESTONE.get().asItem()), has(AetherBlocks.ICESTONE.get().asItem()))
+                .requires(AetherBlocks.ICESTONE.get())
+                .unlockedBy(getHasName(AetherBlocks.ICESTONE.get()), has(AetherBlocks.ICESTONE.get()))
                 .save(consumer);
 
         fodder.set(DADataComponentTypes.MOA_FODDER, new MoaFodder(new MobEffectInstance(MobEffects.JUMP, 14400, 1)));
