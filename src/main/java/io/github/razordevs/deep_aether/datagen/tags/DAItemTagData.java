@@ -401,6 +401,14 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.STRATUS_SHIELD.get()
         );*/
 
+        // Storm Bow
+        tag(Tags.Items.TOOLS_BOW).add(
+                DAItems.STORM_BOW.get()
+        );
+        tag(Tags.Items.RANGED_WEAPON_TOOLS).add(
+                DAItems.STORM_BOW.get()
+        );
+
         // Materials & Related
         tag(ItemTags.BEACON_PAYMENT_ITEMS).add(
                 DAItems.SKYJADE.get(),
