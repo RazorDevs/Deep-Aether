@@ -3,16 +3,11 @@ package io.github.razordevs.deep_aether.world.biomes;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import io.github.razordevs.aerolith.biome.BiomePlacementHelper;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 
 
 public class DARareRegion {
-
-    public DARareRegion(ResourceLocation name, int weight)
-    {
-    }
 
     public static void addBiomes() {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);

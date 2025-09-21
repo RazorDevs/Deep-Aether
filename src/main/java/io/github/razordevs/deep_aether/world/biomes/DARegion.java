@@ -4,16 +4,14 @@ import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import io.github.razordevs.aerolith.biome.BiomePlacementHelper;
 import io.github.razordevs.deep_aether.DeepAetherConfig;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 
 
 public class DARegion {
+    //TODO: Massive Biome rebalancing
 
-    public DARegion(ResourceLocation name, int weight)
-    {
-    }
+    //TODO: Weight parameter reintroduction?
 
     public static void addBiomes() {
         ResourceKey<Biome> YagrootSwamp = DeepAetherConfig.COMMON.disable_yagroot_swap_biomes.get() ? AetherBiomes.SKYROOT_WOODLAND : DABiomes.YAGROOT_SWAMP;
