@@ -193,13 +193,13 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.BIO_CRYSTAL.get()), has(DAItems.BIO_CRYSTAL.get()))
                 .save(consumer, name("crystal_brewing_stand"));
 
-        freezingRecipe(RecipeCategory.MISC, DAItems.FROZEN_GOLDEN_BERRIES.get(), DAItems.GOLDEN_BERRIES.get(), 1, 100).save(consumer, this.name("golden_berries_freezing"));
-        enchantingRecipe(RecipeCategory.MISC, DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get(), 1, 100).save(consumer, this.name("antidote_enchanting"));
-        enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DABlocks.GLOWING_SPORES.get(), 1, 100).save(consumer, this.name("glowing_spores"));
+        freezingRecipe(RecipeCategory.MISC, DAItems.FROZEN_GOLDEN_BERRIES.get(), DAItems.GOLDEN_BERRIES.get(), 1, 50).save(consumer, this.name("golden_berries_freezing"));
+        enchantingRecipe(RecipeCategory.MISC, DAItems.ENCHANTED_ANTIDOTE.get(), DAItems.ANTIDOTE.get(), 1, 750).save(consumer, this.name("antidote_enchanting"));
+        enchantingRecipe(RecipeCategory.MISC, Items.WHEAT_SEEDS, DABlocks.GLOWING_SPORES.get(), 1, 50).save(consumer, this.name("glowing_spores"));
 
-        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 100).save(consumer, this.name("blue_aercloud_from_blue_aercloud_mushroom_blocks"));
-        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.GOLDEN_AERCLOUD.get(), DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 400).save(consumer, this.name("golden_aercloud_from_pink_aercloud_mushroom_blocks"));
-        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.COLD_AERCLOUD.get(), DABlocks.AERCLOUD_ROOTS.get(), 1, 30).save(consumer, this.name("cold_aercloud_from_aercloud_roots"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 250).save(consumer, this.name("blue_aercloud_from_blue_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.GOLDEN_AERCLOUD.get(), DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 500).save(consumer, this.name("golden_aercloud_from_pink_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, AetherBlocks.COLD_AERCLOUD.get(), DABlocks.AERCLOUD_ROOTS.get(), 1, 50).save(consumer, this.name("cold_aercloud_from_aercloud_roots"));
 
         //Stone types
         //Aseterite
@@ -673,8 +673,8 @@ public class DARecipeData extends AetherRecipeProvider {
         glowingSporesRecipe(DABlocks.TALL_GLOWING_GRASS.get(), Blocks.TALL_GRASS).save(consumer, "glowing_tall_grass_from_grass");
         glowingSporesRecipe(DABlocks.GLOWING_VINE.get(), Blocks.VINE).save(consumer, "glowing_vine_from_vine");
 
-        hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 2500).save(consumer, name("a_moring_wish_enchanting"));
-        hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 2500).save(consumer, name("nabooru_enchanting"));
+        hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 500).save(consumer, name("a_moring_wish_enchanting"));
+        hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_NABOORU.get(), Items.MUSIC_DISC_PIGSTEP, 1.0F, 500).save(consumer, name("nabooru_enchanting"));
         enchantingRecipe(RecipeCategory.MISC, DAItems.SQUASH_SEEDS.get(), Items.PUMPKIN_SEEDS, 5, 50).save(consumer, this.name("squash_seeds_enchanting"));
 
 
