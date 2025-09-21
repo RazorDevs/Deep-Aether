@@ -55,10 +55,10 @@
       }
     ]
   },
-  "item.music_disc.locus_for_winds": {
+  "item.music_disc.variations": {
     "sounds": [
       {
-        "name": "deep_aether:aethyus-locus-for-winds",
+        "name": "deep_aether:aethyus-variations",
         "stream": true
       }
     ]

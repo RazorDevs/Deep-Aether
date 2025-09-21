@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.entity.living.quail;
 
+import io.github.razordevs.deep_aether.datagen.tags.DATags;
 import io.github.razordevs.deep_aether.init.DAEntities;
 import io.github.razordevs.deep_aether.init.DAItems;
 import io.github.razordevs.deep_aether.init.DASounds;
@@ -34,11 +35,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 
 public class Quail extends SittingAetherAnimal {
-
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(
-            Items.WHEAT_SEEDS, Items.TORCHFLOWER_SEEDS, DAItems.GOLDEN_BERRIES.get()
-    );
-
     private static final EntityDimensions BABY_DIMENSIONS = EntityType.CHICKEN.getDimensions().scale(0.5F).withEyeHeight(0.5F);
     private static final EntityDimensions DIMENSIONS = EntityType.CHICKEN.getDimensions().withEyeHeight(0.8F);
 
@@ -62,7 +58,7 @@ public class Quail extends SittingAetherAnimal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.4D));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, FOOD_ITEMS, false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, (itemStack -> itemStack.is(DATags.Items.QUAIL_FOOD)), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -118,8 +114,8 @@ public class Quail extends SittingAetherAnimal {
         return baby;
     }
     @Override
-    public boolean isFood(@NotNull ItemStack pStack) {
-        return FOOD_ITEMS.test(pStack);
+    public boolean isFood(@NotNull ItemStack stack) {
+        return stack.is(DATags.Items.QUAIL_FOOD);
     }
 
     @Override
