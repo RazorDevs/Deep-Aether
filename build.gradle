@@ -82,18 +82,13 @@ dependencies {
     compileOnly("me.shedaniel.cloth:cloth-config-neoforge:${cloth_config_version}")
 
     //Included Dependencies
-    implementation("com.github.razordevs:aeroblender:${project.aeroblender_version}")
-    jarJar("com.github.razordevs:aeroblender:${project.aeroblender_version}") {
+    implementation(files("libs/aerolith-0.0.1.jar"))
+
+    implementation "com.terraformersmc:biolith-neoforge:${project.biolith_version}"
+    jarJar("com.terraformersmc:biolith-neoforge:${project.biolith_version}") {
         version {
-            strictly "[${project.aeroblender_version},)"
-            prefer "${project.aeroblender_version}"
-        }
-    }
-    implementation("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}")
-    jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
-        version {
-            strictly "[${project.terrablender_version},)"
-            prefer "${project.terrablender_version}"
+            strictly "[${project.biolith_version},)"
+            prefer "${project.biolith_version}"
         }
     }
 
@@ -130,6 +125,10 @@ repositories {
         content {
             includeGroup "curse.maven"
         }
+    }
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/'
     }
     maven {
         name = "ModMaven"

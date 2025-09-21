@@ -37,10 +37,10 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="aeroblender"
+modId="aerolith"
 type = "required"
-versionRange="[1.0.0,)"
-ordering="NONE"
+versionRange="[0.0.1,)"
+ordering="AFTER"
 side="BOTH"
 
 [[mixins]]

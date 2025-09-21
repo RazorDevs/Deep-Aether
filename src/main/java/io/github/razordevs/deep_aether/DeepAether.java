@@ -6,7 +6,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
-import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
+import io.github.razordevs.aerolith.surface.AetherSurfaceGeneration;
 import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.block.behavior.DADispenseBehaviors;
 import io.github.razordevs.deep_aether.block.behavior.DaCauldronInteraction;
@@ -79,8 +79,6 @@ import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
-import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Calendar;
@@ -211,12 +209,11 @@ public class DeepAether {
 			DABlocks.registerFlammability();
 			DAItems.setupBucketReplacements();
 			this.registerDispenserBehaviors();
-			Regions.register(new DARegion(ResourceLocation.fromNamespaceAndPath(MODID, "deep_aether"), DeepAetherConfig.COMMON.deep_aether_biome_weight.get()));
+            DARegion.addBiomes();
 			if(!DeepAetherConfig.COMMON.disable_storm_cloud_and_skyroot_rainforest_biomes.get())
-				Regions.register(new DARareRegion(ResourceLocation.fromNamespaceAndPath(MODID, "rare"), DeepAetherConfig.COMMON.storm_cloud_biome_weight.get()));
-			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, MODID, DASurfaceData.makeRules());
+                DARareRegion.addBiomes();
+			AetherSurfaceGeneration.addAetherSurfaceRules(ResourceLocation.fromNamespaceAndPath("aether", "rules/aether"), DASurfaceData.makeRules());
 			DAItems.registerAccessories();
-			//BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER, DAItems.BIO_CRYSTAL.get(), DAPotions.REMEDY_POTION.get()));
 		});
 	}
 
