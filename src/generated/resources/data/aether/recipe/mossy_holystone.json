@@ -1,10 +1,10 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "mossy_holystone_tiles",
+  "group": "mossy_holystone",
   "ingredients": [
     {
-      "item": "aether:mossy_holystone"
+      "item": "aether:holystone"
     },
     {
       "tag": "deep_aether:crafts_mossy_blocks"

@@ -407,8 +407,8 @@ public class DARecipeData extends AetherRecipeProvider {
         brick(consumer, DABlocks.MOSSY_HOLYSTONE_TILES.get(), DABlocks.MOSSY_HOLYSTONE_BRICKS.get());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, AetherBlocks.MOSSY_HOLYSTONE.get(), 1)
-                .group("mossy_holystone_tiles")
-                .requires(AetherBlocks.MOSSY_HOLYSTONE.get().asItem())
+                .group("mossy_holystone")
+                .requires(AetherBlocks.HOLYSTONE.get().asItem())
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(AetherBlocks.MOSSY_HOLYSTONE.get()), has(AetherBlocks.MOSSY_HOLYSTONE.get()))
                 .save(consumer);
@@ -740,8 +740,7 @@ public class DARecipeData extends AetherRecipeProvider {
                         0.1F,
                         200)
                 .unlockedBy(getHasName(DATags.Items.STORM_ARMOR), has(DATags.Items.STORM_ARMOR))
-                .group(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
+                .save(consumer, name("squall_from_storm_armor"));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
