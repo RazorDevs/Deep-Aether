@@ -627,62 +627,13 @@ public class DARecipeData extends AetherRecipeProvider {
                 .group(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get()))
                 .save(consumer, this.name(getSmeltingRecipeName(DAItems.SQUALL_PLATE.get())));
 
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(DAItems.SKYJADE_BOOTS.get()),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems.STORMFORGED_BOOTS.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_BOOTS.get()) + "_smithing"));
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(DAItems.SKYJADE_LEGGINGS.get()),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems.STORMFORGED_LEGGINGS.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_LEGGINGS.get()) + "_smithing"));
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(DAItems.SKYJADE_CHESTPLATE.get()),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems.STORMFORGED_CHESTPLATE.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_CHESTPLATE.get()) + "_smithing"));
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(DAItems.SKYJADE_HELMET.get()),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems.STORMFORGED_HELMET.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_HELMET.get()) + "_smithing"));
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(DAItems.SKYJADE_GLOVES.get()),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems. STORMFORGED_GLOVES.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORMFORGED_GLOVES.get()) + "_smithing"));
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(DAItems.SKYJADE_TOOLS_SWORD.get()),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems.STORM_SWORD.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORM_SWORD.get()) + "_smithing"));
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()),
-                        Ingredient.of(Items.BOW),
-                        Ingredient.of(DAItems.SQUALL_PLATE.get()),
-                        RecipeCategory.COMBAT,
-                        DAItems.STORM_BOW.get())
-                .unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get()))
-                .save(consumer, this.name(getItemName(DAItems.STORM_BOW.get()) + "_smithing"));
+        stormSmithingRecipe(consumer, DAItems.SKYJADE_BOOTS.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_BOOTS.get());
+        stormSmithingRecipe(consumer, DAItems.SKYJADE_LEGGINGS.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_LEGGINGS.get());
+        stormSmithingRecipe(consumer, DAItems.SKYJADE_CHESTPLATE.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_CHESTPLATE.get());
+        stormSmithingRecipe(consumer, DAItems.SKYJADE_HELMET.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_HELMET.get());
+        stormSmithingRecipe(consumer, DAItems.SKYJADE_GLOVES.get(), RecipeCategory.COMBAT, DAItems.STORMFORGED_GLOVES.get());
+        stormSmithingRecipe(consumer, DAItems.SKYJADE_TOOLS_SWORD.get(), RecipeCategory.COMBAT, DAItems.STORM_SWORD.get());
+        stormSmithingRecipe(consumer, Items.BOW, RecipeCategory.COMBAT, DAItems.STORM_BOW.get());
 
         // Misc
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
@@ -875,6 +826,10 @@ public class DARecipeData extends AetherRecipeProvider {
 
     protected void stratusSmithingRecipe(RecipeOutput consumer, Item ingredient, RecipeCategory category, Item item) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(DAItems.STRATUS_SMITHING_TEMPLATE.get()), Ingredient.of(ingredient), Ingredient.of(DAItems.STRATUS_INGOT.get()), category, item).unlocks("has_stratus_ingot", has(DAItems.STRATUS_INGOT.get())).save(consumer, name(getItemName(item)) + "_smithing");
+    }
+
+    protected void stormSmithingRecipe(RecipeOutput consumer, Item ingredient, RecipeCategory category, Item item) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()), Ingredient.of(ingredient), Ingredient.of(DAItems.SQUALL_PLATE.get()), category, item).unlocks("has_squall_plate", has(DAItems.SQUALL_PLATE.get())).save(consumer, name(getItemName(item)) + "_smithing");
     }
 
     protected SimpleCookingRecipeBuilder smeltingFoodRecipe(ItemLike result, ItemLike ingredient, float experience) {
