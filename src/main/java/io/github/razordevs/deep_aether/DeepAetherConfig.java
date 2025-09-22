@@ -12,7 +12,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_roseroot_forest_biomes;
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
-        public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
+        public final ConfigValue<Boolean> disable_aerlavender_field_biomes;
         public final ConfigValue<Boolean> disable_sacred_lands_biomes;
         public final ConfigValue<Boolean> disable_storm_cloud_and_skyroot_rainforest_biomes;
         public final ConfigValue<Integer> storm_cloud_biome_weight;
@@ -89,7 +89,7 @@ public class DeepAetherConfig {
             builder.pop();
 
             builder.push("Biomes");
-            disable_aerlavenender_field_biomes = builder
+            disable_aerlavender_field_biomes = builder
                     .comment("Disables Aerlavender Fields biomes from generating. Might make some content unobtainable")
                     .translation("config.deep_aether.common.gameplay.disable_aerlavenender_field_biomes")
                     .define("Disable Aerlavender Fields Biomes", false);
