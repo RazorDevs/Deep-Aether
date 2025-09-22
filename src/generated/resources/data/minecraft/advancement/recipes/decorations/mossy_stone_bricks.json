@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:stone_bricks"
+        "recipe": "minecraft:mossy_stone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:stone_bricks"
+      "minecraft:mossy_stone_bricks"
     ]
   }
 }

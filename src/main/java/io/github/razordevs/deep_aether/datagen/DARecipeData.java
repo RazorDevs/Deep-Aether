@@ -381,14 +381,14 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.COBBLESTONE, 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.MOSSY_COBBLESTONE, 1)
                 .group("mossy_holystone")
                 .requires(Blocks.COBBLESTONE)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.STONE_BRICKS, 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.MOSSY_STONE_BRICKS, 1)
                 .group("mossy_holystone")
                 .requires(Blocks.STONE_BRICKS)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
