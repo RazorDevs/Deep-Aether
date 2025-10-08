@@ -1,9 +1,10 @@
 {
   "type": "deep_aether:poison_recipe",
   "ingredient": {
-    "item": "aether:enchanted_dart"
+    "item": "aether:healing_stone"
   },
   "result": {
-    "id": "aether:golden_dart"
+    "count": 1,
+    "id": "aether:holystone"
   }
 }

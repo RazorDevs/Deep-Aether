@@ -1,9 +1,10 @@
 {
   "type": "deep_aether:poison_recipe",
   "ingredient": {
-    "item": "aether:quicksoil_glass"
+    "item": "aether:enchanted_berry"
   },
   "result": {
-    "id": "aether:quicksoil"
+    "count": 1,
+    "id": "aether:blue_berry"
   }
 }

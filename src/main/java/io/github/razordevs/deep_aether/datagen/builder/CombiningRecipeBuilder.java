@@ -18,8 +18,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -29,7 +29,7 @@ public class CombiningRecipeBuilder implements RecipeBuilder {
     private final ItemStack resultStack;
     private final NonNullList<Ingredient> ingredients;
     private final Map<String, Criterion<?>> criteria;
-    @javax.annotation.Nullable
+    @Nullable
     private String group;
     private final float experience;
     private final int processingTime;

@@ -1,9 +1,10 @@
 {
   "type": "deep_aether:poison_recipe",
   "ingredient": {
-    "item": "aether:healing_stone"
+    "item": "aether:quicksoil_glass"
   },
   "result": {
-    "id": "aether:holystone"
+    "count": 1,
+    "id": "aether:quicksoil"
   }
 }

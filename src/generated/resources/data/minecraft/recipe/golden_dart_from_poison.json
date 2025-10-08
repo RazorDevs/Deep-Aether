@@ -1,9 +1,10 @@
 {
   "type": "deep_aether:poison_recipe",
   "ingredient": {
-    "item": "aether:enchanted_berry"
+    "item": "aether:enchanted_dart"
   },
   "result": {
-    "id": "aether:blue_berry"
+    "count": 1,
+    "id": "aether:golden_dart"
   }
 }
