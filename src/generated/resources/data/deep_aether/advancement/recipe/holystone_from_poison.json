@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:holystone_from_poison"
+        "recipe": "deep_aether:holystone_from_poison"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:holystone_from_poison"
+      "deep_aether:holystone_from_poison"
     ]
   }
 }

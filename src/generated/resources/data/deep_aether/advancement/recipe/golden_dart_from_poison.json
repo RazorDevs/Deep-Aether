@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_green_squash": {
+    "has_enchanted_dart": {
       "conditions": {
         "items": [
           {
-            "items": "deep_aether:green_squash"
+            "items": "aether:enchanted_dart"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:purple_squash_from_green_squash"
+        "recipe": "deep_aether:golden_dart_from_poison"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_green_squash"
+      "has_enchanted_dart"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:purple_squash_from_green_squash"
+      "deep_aether:golden_dart_from_poison"
     ]
   }
 }

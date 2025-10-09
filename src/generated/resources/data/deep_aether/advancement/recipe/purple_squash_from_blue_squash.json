@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:purple_squash_from_blue_squash"
+        "recipe": "deep_aether:purple_squash_from_blue_squash"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:purple_squash_from_blue_squash"
+      "deep_aether:purple_squash_from_blue_squash"
     ]
   }
 }

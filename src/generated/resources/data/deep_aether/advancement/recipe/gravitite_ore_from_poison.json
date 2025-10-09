@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyroot_remedy_bucket": {
+    "has_enchanted_gravitite": {
       "conditions": {
         "items": [
           {
-            "items": "aether:skyroot_remedy_bucket"
+            "items": "aether:enchanted_gravitite"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:skyroot_poison_bucket_from_poison"
+        "recipe": "deep_aether:gravitite_ore_from_poison"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_skyroot_remedy_bucket"
+      "has_enchanted_gravitite"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:skyroot_poison_bucket_from_poison"
+      "deep_aether:gravitite_ore_from_poison"
     ]
   }
 }

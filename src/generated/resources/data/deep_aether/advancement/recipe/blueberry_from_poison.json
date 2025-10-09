@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_enchanted_gravitite": {
+    "has_enchanted_berry": {
       "conditions": {
         "items": [
           {
-            "items": "aether:enchanted_gravitite"
+            "items": "aether:enchanted_berry"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:gravitite_ore_from_poison"
+        "recipe": "deep_aether:blueberry_from_poison"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_enchanted_gravitite"
+      "has_enchanted_berry"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:gravitite_ore_from_poison"
+      "deep_aether:blueberry_from_poison"
     ]
   }
 }

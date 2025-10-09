@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_enchanted_dart": {
+    "has_skyroot_remedy_bucket": {
       "conditions": {
         "items": [
           {
-            "items": "aether:enchanted_dart"
+            "items": "aether:skyroot_remedy_bucket"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:golden_dart_from_poison"
+        "recipe": "deep_aether:skyroot_poison_bucket_from_poison"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_enchanted_dart"
+      "has_skyroot_remedy_bucket"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:golden_dart_from_poison"
+      "deep_aether:skyroot_poison_bucket_from_poison"
     ]
   }
 }

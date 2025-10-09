@@ -714,36 +714,36 @@ public class DARecipeData extends AetherRecipeProvider {
         PoisonConversionRecipeBuilder.conversion(DABlocks.GREEN_SQUASH.asItem(), DABlocks.PURPLE_SQUASH.asItem())
                 .unlockedBy(getHasName(DABlocks.GREEN_SQUASH.get()), has(DABlocks.GREEN_SQUASH.get()))
                 .group("poison_squash")
-                .save(consumer, "purple_squash_from_green_squash");
+                .save(consumer, name("purple_squash_from_green_squash"));
 
         PoisonConversionRecipeBuilder.conversion(DABlocks.BLUE_SQUASH.asItem(), DABlocks.PURPLE_SQUASH.asItem())
                 .unlockedBy(getHasName(DABlocks.BLUE_SQUASH.get()), has(DABlocks.BLUE_SQUASH.get()))
                 .group("poison_squash")
-                .save(consumer, "purple_squash_from_blue_squash");
+                .save(consumer, name("purple_squash_from_blue_squash"));
 
         PoisonConversionRecipeBuilder.conversion(AetherItems.ENCHANTED_BERRY.asItem(), AetherItems.BLUE_BERRY.get())
                 .unlockedBy(getHasName(AetherItems.ENCHANTED_BERRY.get()), has(AetherItems.ENCHANTED_BERRY.get()))
-                .save(consumer, "blueberry_from_poison");
+                .save(consumer, name("blueberry_from_poison"));
 
         PoisonConversionRecipeBuilder.conversion(AetherBlocks.QUICKSOIL_GLASS.asItem(), AetherBlocks.QUICKSOIL.get())
                 .unlockedBy(getHasName(AetherBlocks.QUICKSOIL_GLASS.get()), has(AetherBlocks.QUICKSOIL_GLASS.get()))
-                .save(consumer, "quicksoil_from_poison");
+                .save(consumer, name("quicksoil_from_poison"));
 
         PoisonConversionRecipeBuilder.conversion(AetherItems.SKYROOT_REMEDY_BUCKET.asItem(), AetherItems.SKYROOT_POISON_BUCKET.get())
                 .unlockedBy(getHasName(AetherItems.SKYROOT_REMEDY_BUCKET.get()), has(AetherItems.SKYROOT_REMEDY_BUCKET.get()))
-                .save(consumer, "skyroot_poison_bucket_from_poison");
+                .save(consumer, name("skyroot_poison_bucket_from_poison"));
 
         PoisonConversionRecipeBuilder.conversion(AetherItems.HEALING_STONE.asItem(), AetherBlocks.HOLYSTONE.get())
                 .unlockedBy(getHasName(AetherItems.HEALING_STONE.get()), has(AetherItems.HEALING_STONE.get()))
-                .save(consumer, "holystone_from_poison");
+                .save(consumer, name("holystone_from_poison"));
 
         PoisonConversionRecipeBuilder.conversion(AetherBlocks.ENCHANTED_GRAVITITE.asItem(), AetherBlocks.GRAVITITE_ORE.get())
                 .unlockedBy(getHasName(AetherBlocks.ENCHANTED_GRAVITITE.get()), has(AetherBlocks.ENCHANTED_GRAVITITE.get()))
-                .save(consumer, "gravitite_ore_from_poison");
+                .save(consumer, name("gravitite_ore_from_poison"));
 
         PoisonConversionRecipeBuilder.conversion(AetherItems.ENCHANTED_DART.asItem(), AetherItems.GOLDEN_DART.get())
                 .unlockedBy(getHasName(AetherItems.ENCHANTED_DART.get()), has(AetherItems.ENCHANTED_DART.get()))
-                .save(consumer, "golden_dart_from_poison");
+                .save(consumer, name("golden_dart_from_poison"));
 
         //Misc
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.AFTERBURNER.get(), 1)

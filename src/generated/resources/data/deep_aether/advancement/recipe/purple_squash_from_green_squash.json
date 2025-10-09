@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_enchanted_berry": {
+    "has_green_squash": {
       "conditions": {
         "items": [
           {
-            "items": "aether:enchanted_berry"
+            "items": "deep_aether:green_squash"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blueberry_from_poison"
+        "recipe": "deep_aether:purple_squash_from_green_squash"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_enchanted_berry"
+      "has_green_squash"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blueberry_from_poison"
+      "deep_aether:purple_squash_from_green_squash"
     ]
   }
 }
