@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether:golden_aercloud"
+  },
+  "result": {
+    "count": 1,
+    "id": "aether:cold_aercloud"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "deep_aether:clorite"
+  },
+  "result": {
+    "count": 1,
+    "id": "deep_aether:raw_clorite"
+  }
+}
