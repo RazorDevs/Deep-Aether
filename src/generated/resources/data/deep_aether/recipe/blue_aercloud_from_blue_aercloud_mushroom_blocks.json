@@ -1,7 +1,7 @@
 {
   "type": "aether:enchanting",
   "category": "enchanting_misc",
-  "cookingtime": 100,
+  "cookingtime": 250,
   "experience": 1.0,
   "ingredient": {
     "item": "deep_aether:blue_aercloud_mushroom_block"

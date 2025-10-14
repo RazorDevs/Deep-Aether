@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skyjade": {
+    "has_skyjade_block": {
       "conditions": {
         "items": [
           {
-            "items": "deep_aether:skyjade"
+            "items": "deep_aether:skyjade_block"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_skyjade"
+      "has_skyjade_block"
     ]
   ],
   "rewards": {

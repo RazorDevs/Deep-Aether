@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_holystone_tiles": {
+    "has_mossy_holystone_bricks": {
       "conditions": {
         "items": [
           {
-            "items": "deep_aether:holystone_tiles"
+            "items": "deep_aether:mossy_holystone_bricks"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_holystone_tiles"
+      "has_mossy_holystone_bricks"
     ]
   ],
   "rewards": {

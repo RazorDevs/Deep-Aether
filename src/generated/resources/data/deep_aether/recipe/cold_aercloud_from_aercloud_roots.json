@@ -1,7 +1,7 @@
 {
   "type": "aether:enchanting",
   "category": "enchanting_misc",
-  "cookingtime": 30,
+  "cookingtime": 50,
   "experience": 1.0,
   "ingredient": {
     "item": "deep_aether:aercloud_roots"
