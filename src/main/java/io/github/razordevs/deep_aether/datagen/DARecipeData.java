@@ -814,6 +814,10 @@ public class DARecipeData extends AetherRecipeProvider {
         PoisonConversionRecipeBuilder.conversion(AetherBlocks.ENCHANTED_GRAVITITE.asItem(), AetherBlocks.GRAVITITE_ORE.get())
                 .unlockedBy(getHasName(AetherBlocks.ENCHANTED_GRAVITITE.get()), has(AetherBlocks.ENCHANTED_GRAVITITE.get()))
                 .save(consumer, name("gravitite_ore_from_poison"));
+
+        PoisonConversionRecipeBuilder.conversion(Items.POTATO, Items.POISONOUS_POTATO)
+                .unlockedBy(getHasName(Items.POTATO), has(Items.POTATO))
+                .save(consumer, name("poisonous_poison_from_poison"));
     }
 
     protected ShapedRecipeBuilder makeRing(Supplier<? extends Item> ring, TagKey<Item> material) {
