@@ -239,6 +239,7 @@ public class DAItems {
 
 	public static final DeferredItem<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
+	public static final DeferredItem<Item> GLOWING_SPORES = ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
 	//ADDONS
 
 	//PROTECT YOUR MOA

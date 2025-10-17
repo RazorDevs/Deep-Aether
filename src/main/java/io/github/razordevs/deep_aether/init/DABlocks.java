@@ -9,7 +9,6 @@ import com.aetherteam.aether.block.natural.AercloudBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.effect.AetherEffects;
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.block.behavior.GoldenVines;
@@ -298,7 +297,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> GOLDEN_VINES = BLOCKS.register("golden_vines", () -> new GoldenVinesBlock(BlockBehaviour.Properties.of().randomTicks().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final DeferredBlock<Block> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant", () -> new GoldenVinesPlantBlock(BlockBehaviour.Properties.of().noCollission().lightLevel(GoldenVines.emission(1)).instabreak().sound(SoundType.CAVE_VINES)));
 	public static final DeferredBlock<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
-	public static final DeferredBlock<Block> GLOWING_SPORES = registerBlock("glowing_spores", () -> new GlowingSporesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY).lightLevel(s -> 7)));
+	public static final DeferredBlock<Block> GLOWING_SPORES = BLOCKS.register("glowing_spores", () -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY).lightLevel(s -> 7)));
 
 	public static final DeferredBlock<Block> BLUE_SQUASH = registerBlock("blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
