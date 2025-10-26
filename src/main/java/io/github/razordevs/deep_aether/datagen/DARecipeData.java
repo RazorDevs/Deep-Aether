@@ -380,21 +380,21 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(AetherBlocks.HOLYSTONE.get())
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(AetherBlocks.HOLYSTONE.get()), has(AetherBlocks.HOLYSTONE.get()))
-                .save(consumer);
+                .save(consumer, name("mossy_holystone"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.MOSSY_COBBLESTONE, 1)
                 .group("mossy_holystone")
                 .requires(Blocks.COBBLESTONE)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
-                .save(consumer);
+                .save(consumer, name("mossy_cobblestone"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Blocks.MOSSY_STONE_BRICKS, 1)
                 .group("mossy_holystone")
                 .requires(Blocks.STONE_BRICKS)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(Blocks.STONE_BRICKS), has(Blocks.STONE_BRICKS))
-                .save(consumer);
+                .save(consumer, "mossy_stone_bricks");
 
         // Nimbus Stone
         stairs(DABlocks.NIMBUS_STAIRS, DABlocks.NIMBUS_STONE).save(consumer);
@@ -598,7 +598,7 @@ public class DARecipeData extends AetherRecipeProvider {
         dye(consumer, Items.ORANGE_DYE, DABlocks.GOLDEN_ASPESS.get());
         dye(consumer, Items.PURPLE_DYE, DABlocks.ECHAISY.get());
 
-        SpecialRecipeBuilder.special(FloatyScarfColoring::new).save(consumer, "floaty_scarf_coloring");
+        SpecialRecipeBuilder.special(FloatyScarfColoring::new).save(consumer, name("floaty_scarf_coloring"));
 
         // Treasure Reforging Compat
         copyTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
@@ -664,7 +664,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .pattern("DDD")
                 .unlockedBy(getHasName(AetherItems.GOLDEN_DART.get()), has(AetherItems.GOLDEN_DART.get()))
                 .unlockedBy(getHasName(DATags.Items.POISON_BUCKET), has(DATags.Items.POISON_BUCKET))
-                .save(consumer);
+                .save(consumer, name("poison_dart"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.CRAFTING_TABLE, 1)
                 .group("minecraft:crafting_table")
@@ -708,12 +708,12 @@ public class DARecipeData extends AetherRecipeProvider {
         makeRing(DAItems.GRAVITITE_RING, AetherTags.Items.PROCESSED_GRAVITITE).save(consumer);
 
         // Swet Recipes
-        goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get()).save(consumer, "golden_grass_block_from_aether_dirt");
-        goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get()).save(consumer, "golden_grass_block_from_aether_grass_block");
+        goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get()).save(consumer, name("golden_grass_block_from_aether_dirt"));
+        goldBallRecipe(DABlocks.GOLDEN_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get()).save(consumer, name("golden_grass_block_from_aether_grass_block"));
 
         // Spore Recipes
-        glowingSporesRecipe(DABlocks.TALL_GLOWING_GRASS.get(), Blocks.TALL_GRASS).save(consumer, "glowing_tall_grass_from_grass");
-        glowingSporesRecipe(DABlocks.GLOWING_VINE.get(), Blocks.VINE).save(consumer, "glowing_vine_from_vine");
+        glowingSporesRecipe(DABlocks.TALL_GLOWING_GRASS.get(), Blocks.TALL_GRASS).save(consumer, name("glowing_tall_grass_from_grass"));
+        glowingSporesRecipe(DABlocks.GLOWING_VINE.get(), Blocks.VINE).save(consumer, name("glowing_vine_from_vine"));
 
         // Freezer Recipes
         freezingRecipe(RecipeCategory.MISC, DAItems.FROZEN_GOLDEN_BERRIES.get(), DAItems.GOLDEN_BERRIES.get(), 1, 50).save(consumer, name("golden_berries_freezing"));
