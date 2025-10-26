@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "B": {
-      "item": "deep_aether:poison_bucket"
+      "tag": "deep_aether:poison_bucket"
     },
     "D": {
       "item": "aether:golden_dart"

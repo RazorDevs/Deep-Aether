@@ -24,8 +24,8 @@
                 "duration": 14400,
                 "id": "minecraft:fire_resistance",
                 "neoforge:cures": [
-                  "milk",
-                  "protected_by_totem"
+                  "protected_by_totem",
+                  "milk"
                 ],
                 "show_icon": true
               }
@@ -59,8 +59,8 @@
                 "duration": 14400,
                 "id": "minecraft:jump_boost",
                 "neoforge:cures": [
-                  "milk",
-                  "protected_by_totem"
+                  "protected_by_totem",
+                  "milk"
                 ],
                 "show_icon": true
               }
@@ -94,8 +94,8 @@
                 "duration": 14400,
                 "id": "deep_aether:moa_bonus_jumps",
                 "neoforge:cures": [
-                  "milk",
-                  "protected_by_totem"
+                  "protected_by_totem",
+                  "milk"
                 ],
                 "show_icon": true
               }

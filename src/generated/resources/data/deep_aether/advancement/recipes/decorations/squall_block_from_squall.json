@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_squall_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "deep_aether:squall_plate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:squall_block_from_squall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_squall_plate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:squall_block_from_squall"
+    ]
+  }
+}

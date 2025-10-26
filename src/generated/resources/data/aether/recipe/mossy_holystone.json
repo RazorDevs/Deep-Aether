@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mossy_holystone",
+  "ingredients": [
+    {
+      "item": "aether:holystone"
+    },
+    {
+      "tag": "deep_aether:crafts_mossy_blocks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "aether:mossy_holystone"
+  }
+}

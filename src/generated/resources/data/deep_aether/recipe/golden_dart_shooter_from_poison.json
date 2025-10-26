@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether:enchanted_dart_shooter"
+  },
+  "result": {
+    "count": 1,
+    "id": "aether:golden_dart_shooter"
+  }
+}
