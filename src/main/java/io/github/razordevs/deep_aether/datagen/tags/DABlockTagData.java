@@ -792,6 +792,8 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(BlockTags.NEEDS_STONE_TOOL).add(
                 DABlocks.NIMBUS_STONE.get(),
                 DABlocks.LIGHT_NIMBUS_STONE.get(),
+                DABlocks.NIMBUS_PILLAR.get(),
+                DABlocks.LIGHT_NIMBUS_PILLAR.get(),
                 DABlocks.NIMBUS_STAIRS.get(),
                 DABlocks.NIMBUS_SLAB.get(),
                 DABlocks.NIMBUS_WALL.get()

@@ -2,6 +2,8 @@
   "values": [
     "deep_aether:nimbus_stone",
     "deep_aether:light_nimbus_stone",
+    "deep_aether:nimbus_pillar",
+    "deep_aether:light_nimbus_pillar",
     "deep_aether:nimbus_stairs",
     "deep_aether:nimbus_slab",
     "deep_aether:nimbus_wall"
