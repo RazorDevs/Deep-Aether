@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mossy_stone_bricks"
+        "recipe": "deep_aether:mossy_stone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mossy_stone_bricks"
+      "deep_aether:mossy_stone_bricks"
     ]
   }
 }

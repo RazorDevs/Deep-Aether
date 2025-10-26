@@ -394,7 +394,7 @@ public class DARecipeData extends AetherRecipeProvider {
                 .requires(Blocks.STONE_BRICKS)
                 .requires(DATags.Items.CRAFTS_MOSSY_BLOCKS)
                 .unlockedBy(getHasName(Blocks.STONE_BRICKS), has(Blocks.STONE_BRICKS))
-                .save(consumer, "mossy_stone_bricks");
+                .save(consumer, name("mossy_stone_bricks"));
 
         // Nimbus Stone
         stairs(DABlocks.NIMBUS_STAIRS, DABlocks.NIMBUS_STONE).save(consumer);
@@ -630,6 +630,14 @@ public class DARecipeData extends AetherRecipeProvider {
         stormSmithingRecipe(consumer, Items.BOW, RecipeCategory.COMBAT, DAItems.STORM_BOW.get());
 
         //Misc
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
+                .define('D', AetherBlocks.AETHER_DIRT.get().asItem())
+                .define('G', Blocks.GRAVEL)
+                .pattern("DG")
+                .pattern("GD")
+                .unlockedBy(getHasName(AetherBlocks.AETHER_DIRT.get()), has(AetherBlocks.AETHER_DIRT.get()))
+                .save(consumer, name("aether_coarse_dirt"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, DAItems.AFTERBURNER.get(), 1)
                 .define('O', DAItems.SUN_CORE.get())
                 .define('P', Blocks.OBSIDIAN)

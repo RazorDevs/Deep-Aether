@@ -90,6 +90,9 @@ public class DABlockTagData extends BlockTagsProvider {
                 AetherBlocks.QUICKSOIL.get(),
                 Blocks.SAND
         );
+        tag(AetherTags.Blocks.ORES_IN_GROUND_HOLYSTONE).add(
+                DABlocks.SKYJADE_ORE.get()
+        );
 
         // Logs
         tag(DATags.Blocks.ROSEROOT_LOGS).add(
@@ -886,6 +889,12 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SKYJADE_BLOCK.get(),
                 DABlocks.STRATUS_BLOCK.get(),
                 DABlocks.SQUALL_BLOCK.get()
+        );
+        tag(Tags.Blocks.ORES).add(
+                DABlocks.SKYJADE_ORE.get()
+        );
+        tag(Tags.Blocks.ORE_RATES_SINGULAR).add(
+                DABlocks.SKYJADE_ORE.get()
         );
         tag(AetherTags.Blocks.AERCLOUDS).add(
                 DABlocks.CHROMATIC_AERCLOUD.get(),

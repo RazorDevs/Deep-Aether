@@ -305,6 +305,13 @@ public class DAItemTagData extends ItemTagsProvider {
                 Blocks.MOSS_BLOCK.asItem(),
                 Blocks.VINE.asItem()
         );
+        tag(ItemTags.SIGNS).add(
+                DABlocks.ROSEROOT_SIGN.get().asItem(),
+                DABlocks.YAGROOT_SIGN.get().asItem(),
+                DABlocks.CRUDEROOT_SIGN.get().asItem(),
+                DABlocks.CONBERRY_SIGN.get().asItem(),
+                DABlocks.SUNROOT_SIGN.get().asItem()
+        );
         tag(ItemTags.HANGING_SIGNS).add(
                 DAItems.CONBERRY_HANGING_SIGN.get(),
                 DAItems.CRUDEROOT_HANGING_SIGN.get(),
