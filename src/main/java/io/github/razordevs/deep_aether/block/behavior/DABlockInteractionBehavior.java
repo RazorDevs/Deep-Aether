@@ -17,7 +17,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -148,7 +147,7 @@ public class DABlockInteractionBehavior {
         if (blockRayTraceResult.getType() == HitResult.Type.MISS ||
                 blockRayTraceResult.getType() != HitResult.Type.BLOCK ||
                 blockHitState.getBlock() == Blocks.CAULDRON ||
-                (!(player.isShiftKeyDown()) && blockHitState.hasBlockEntity() && (level.getBlockEntity(blockRayTraceResult.getBlockPos()) instanceof MenuProvider))) {
+                (!(player.isShiftKeyDown()) && blockHitState.hasBlockEntity())) {
             event.setCancellationResult(InteractionResult.PASS);
         }
         else {
@@ -168,8 +167,8 @@ public class DABlockInteractionBehavior {
                 level.playSound(null, relativePos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
                 level.gameEvent(null, GameEvent.FLUID_PLACE, relativePos);
                 event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
             }
         }
-        event.setCanceled(true);
     }
- }
+}

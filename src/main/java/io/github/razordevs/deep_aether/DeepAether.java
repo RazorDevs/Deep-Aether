@@ -30,6 +30,7 @@ import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.*;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.gear.DAArmorMaterials;
+import io.github.razordevs.deep_aether.item.misc.SkyrootPoisonBucketWrapper;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.packet.DAPlayerSyncPacket;
 import io.github.razordevs.deep_aether.recipe.DARecipeSerializers;
@@ -70,12 +71,15 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
+import net.neoforged.neoforge.fluids.capability.wrappers.FluidBucketWrapper;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -118,6 +122,7 @@ public class DeepAether {
 	public DeepAether(ModContainer mod, IEventBus bus, Dist dist) {
 		bus.addListener(this::dataSetup);
 		bus.addListener(this::commonSetup);
+        bus.addListener(this::registerCapabilities);
 		bus.addListener(this::registerPackets);
 		bus.addListener(this::addAetherAdditionalResourcesPack);
 
@@ -241,6 +246,14 @@ public class DeepAether {
 				NeoForgeMod.LAVA_TYPE.value(), state -> Blocks.CRYING_OBSIDIAN.defaultBlockState()
 		));
 	}
+
+
+
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new FluidBucketWrapper(stack), DAItems.PLACEABLE_POISON_BUCKET.get());
+        event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new SkyrootPoisonBucketWrapper(stack), AetherItems.SKYROOT_POISON_BUCKET.get());
+
+    }
 
 	private void getFlawlessBossDrop(EntityType<?> type, String string, Item fallBack) {
 		if(string.equals("null")) {
