@@ -734,6 +734,7 @@ public class DARecipeData extends AetherRecipeProvider {
         enchantingRecipe(RecipeCategory.MISC, AetherBlocks.COLD_AERCLOUD.get(), DABlocks.AERCLOUD_ROOTS.get(), 1, 50).save(consumer, name("cold_aercloud_from_aercloud_roots"));
         enchantingRecipe(RecipeCategory.MISC, AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.BLUE_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 250).save(consumer, name("blue_aercloud_from_blue_aercloud_mushroom_blocks"));
         enchantingRecipe(RecipeCategory.MISC, AetherBlocks.GOLDEN_AERCLOUD.get(), DABlocks.PINK_AERCLOUD_MUSHROOM_BLOCK.get(), 1, 500).save(consumer, name("golden_aercloud_from_pink_aercloud_mushroom_blocks"));
+        enchantingRecipe(RecipeCategory.MISC, DAItems.REMEDY_BUCKET.get(), DAItems.PLACEABLE_POISON_BUCKET.get(), 0.35F, 500).save(consumer, name("iron_remedy_bucket_enchanting"));
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, DABlocks.CHROMATIC_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get(), 2.0F, 2000).save(consumer, name("stratus_enchanting"));
 
         hiddenEnchantingRecipe(RecipeCategory.MISC, DAItems.MUSIC_DISC_A_MORNING_WISH.get(), Items.MUSIC_DISC_OTHERSIDE, 2.0F, 500).save(consumer, name("a_moring_wish_enchanting"));
@@ -802,6 +803,10 @@ public class DARecipeData extends AetherRecipeProvider {
         PoisonConversionRecipeBuilder.conversion(AetherItems.SKYROOT_REMEDY_BUCKET.asItem(), AetherItems.SKYROOT_POISON_BUCKET.get())
                 .unlockedBy(getHasName(AetherItems.SKYROOT_REMEDY_BUCKET.get()), has(AetherItems.SKYROOT_REMEDY_BUCKET.get()))
                 .save(consumer, name("skyroot_poison_bucket_from_poison"));
+
+        PoisonConversionRecipeBuilder.conversion(DAItems.REMEDY_BUCKET.asItem(), DAItems.PLACEABLE_POISON_BUCKET.get())
+                .unlockedBy(getHasName(DAItems.REMEDY_BUCKET.get()), has(DAItems.REMEDY_BUCKET.get()))
+                .save(consumer, name("poison_bucket_from_poison"));
 
         PoisonConversionRecipeBuilder.conversion(AetherItems.ENCHANTED_BERRY.asItem(), AetherItems.BLUE_BERRY.get())
                 .unlockedBy(getHasName(AetherItems.ENCHANTED_BERRY.get()), has(AetherItems.ENCHANTED_BERRY.get()))

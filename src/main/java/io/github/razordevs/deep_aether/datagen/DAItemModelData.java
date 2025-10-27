@@ -445,6 +445,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.MUSIC_DISC_ABOVE_THE_RAIN.get());
         this.item(DAItems.AERGLOW_BLOSSOM.get());
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+        this.item(DAItems.REMEDY_BUCKET.get());
         this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.COMBINER.get());
         this.item(DAItems.MUSIC_DISC_ATTA.get());

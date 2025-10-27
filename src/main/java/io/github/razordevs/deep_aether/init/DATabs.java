@@ -369,6 +369,7 @@ public class DATabs {
             addToTab(AetherItems.SKYROOT_AXOLOTL_BUCKET.get(), DAItems.SKYROOT_AERGLOW_FISH_BUCKET.get(), event);
             addToTab(AetherItems.SKYROOT_POISON_BUCKET.get(), new Item[]{
                     DAItems.VIRULENT_QUICKSAND_BUCKET.get(),
+                    DAItems.REMEDY_BUCKET.get(),
                     DAItems.PLACEABLE_POISON_BUCKET.get(),
                     DAItems.AERGLOW_FISH_BUCKET.get()
             }, event);

@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "deep_aether:remedy_bucket"
+  },
+  "result": {
+    "count": 1,
+    "id": "deep_aether:poison_bucket"
+  }
+}

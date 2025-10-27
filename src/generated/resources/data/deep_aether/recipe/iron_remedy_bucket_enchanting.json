@@ -1,0 +1,13 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_misc",
+  "cookingtime": 500,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "deep_aether:poison_bucket"
+  },
+  "result": {
+    "count": 1,
+    "id": "deep_aether:remedy_bucket"
+  }
+}
