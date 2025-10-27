@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.recipe.jei;
 
+import com.aetherteam.aether.item.AetherItems;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAItems;
@@ -41,7 +42,7 @@ public class DAJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(DAItems.PLACEABLE_POISON_BUCKET.get()), PoisonRecipeCategory.RECIPE_TYPE);
+        registration.addRecipeCatalysts(PoisonRecipeCategory.RECIPE_TYPE, AetherItems.SKYROOT_POISON_BUCKET, DAItems.PLACEABLE_POISON_BUCKET);
         registration.addRecipeCatalyst(new ItemStack(DABlocks.COMBINER.get()), CombinerRecipeCategory.RECIPE_TYPE);
     }
 
