@@ -12,6 +12,7 @@
     "block.AercloudMixin",
     "block.BlockBehaviourMixin",
     "block.LavaFluidMixin",
+    "block.PointedDripstoneBlockMixin",
     "block.PowderedSnowMixin",
     "entity.AerwhaleMixin",
     "entity.ItemEntityMixin"
