@@ -64,19 +64,6 @@ import javax.annotation.Nullable;
 @EventBusSubscriber(modid = DeepAether.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class DAClientModBusEvents {
 
-    /**
-     * See {@link com.legacy.lost_aether.client.LCEntityRendering}
-     */
-    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4 (unlikely)
-    /*
-    @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
-    public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
-    {
-        if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
-            event.registerLayerDefinition(AetherModelLayers.AERWHALE, AerwhaleModelOverrideOverrideLCCompat::createOverrideLayerButWithChest);
-    }
-    */
-
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         registerAccessoriesRenderers();
@@ -95,10 +82,6 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
-
-            /*if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-                AddonItemModelPredicates.init();
-            }*/
 
             registerItemModelPredicates();
             Moa.registerJumpOverlayTextureOverride(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "effect_extra_jumps"),

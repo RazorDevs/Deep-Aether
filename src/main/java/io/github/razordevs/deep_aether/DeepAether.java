@@ -103,7 +103,10 @@ public class DeepAether {
 
 	public static final String MODID = "deep_aether";
 	public static final String MOD_VERSION = "1.1.4";
+
+	// We lost hope on LC's side. Code removed and will be reintroduced in future versions if needed.
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
+
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
 	public static final String ANCIENT_AETHER = "ancient_aether";
@@ -231,9 +234,6 @@ public class DeepAether {
 		this.getFlawlessBossDrop(AetherEntityTypes.VALKYRIE_QUEEN.get(), DeepAetherConfig.COMMON.valkyrie_queen_flawless_boss_drop.get(), DAItems.MEDAL_OF_HONOR.get());
 		this.getFlawlessBossDrop(AetherEntityTypes.SUN_SPIRIT.get(), DeepAetherConfig.COMMON.sun_spirit_flawless_boss_drop.get(), DAItems.SUN_CORE.get());
 		this.getFlawlessBossDrop(DAEntities.EOTS_CONTROLLER.get(), DeepAetherConfig.COMMON.eots_flawless_boss_drop.get(), DAItems.FLOATY_SCARF.get());
-
-		//if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)){}
-			//this.getFlawlessBossDrop(LCEntityTypes.AERWHALE_KING, DeepAetherConfig.COMMON.aerwhale_king_flawless_boss_drop.get(), DAItems.AERWHALE_SADDLE.get());
 	}
 
 	private void registerFluidInteractions(){
@@ -301,9 +301,8 @@ public class DeepAether {
 			else if (ModList.get().isLoaded(AETHER_REDUX))
 				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData", "Deep Aether Golden Swet Ball Aether Redux Fix", event);
 
-			if (ModList.get().isLoaded(LOST_AETHER_CONTENT))
-				setupCompatPack("compat_recipes/aether_lost_content_compat", "Lost Aether Content Compat", event);
-			else setupCompatPack("compat_recipes/aether_lost_content_not_compat", "Deep Aether Aerwhale Saddle Recipe", event);
+
+			setupCompatPack("compat_recipes/aether_lost_content_not_compat", "Deep Aether Aerwhale Saddle Recipe", event);
 
 			if (ModList.get().isLoaded(AETHER_REDUX))
 				setupCompatPack("compat_recipes/aether_redux_compat", "Aether Redux Compat", event);

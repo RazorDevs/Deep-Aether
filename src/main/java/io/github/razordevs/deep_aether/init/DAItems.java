@@ -244,6 +244,8 @@ public class DAItems {
 	public static final DeferredItem<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
 	public static final DeferredItem<Item> GLOWING_SPORES = ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
+
+
 	//ADDONS
 
 	//PROTECT YOUR MOA
@@ -257,11 +259,8 @@ public class DAItems {
 			SmithingTemplateItem.createNetheriteUpgradeIconList(),  SmithingTemplateItem.createNetheriteUpgradeMaterialList())
 	);
 
-	//LOST CONTENT
-	/*
-	public static final DeferredItem<Item> SKYJADE_SHIELD = registerLCItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
-	public static final DeferredItem<Item> STRATUS_SHIELD = registerLCItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
-	*/
+	//GENESIS
+
 
 	//Deep Aether 1.2/Experimental
 	public static final DeferredItem<Item> SUN_CLOCK = ITEMS.register("sun_clock", ()-> new SunClock(new Item.Properties()));
@@ -294,14 +293,6 @@ public class DAItems {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.AERGLOW_FISH_BUCKET, DAItems.SKYROOT_AERGLOW_FISH_BUCKET);
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.VIRULENT_QUICKSAND_BUCKET, DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET);
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.PLACEABLE_POISON_BUCKET, AetherItems.SKYROOT_POISON_BUCKET);
-	}
-
-	private static DeferredItem<Item> registerLCItem(String name, Supplier<Item> item) {
-		if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-			DeepAether.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
-			return ITEMS.register(name, item);
-		}
-		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
 	}
 
 	@SuppressWarnings({"unchecked", "SameParameterValue"})

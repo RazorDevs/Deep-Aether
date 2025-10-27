@@ -124,10 +124,6 @@ repositories {
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://jitpack.io" }
     maven {
-        name "Modding Legacy Maven"
-        url "https://maven.moddinglegacy.com/maven"
-    }
-    maven {
         url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"

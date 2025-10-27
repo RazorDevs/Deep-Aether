@@ -409,10 +409,6 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
                 DAItems.SLIDER_EYE.get()
         );
-        /*tag(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields"))).add(
-                DAItems.SKYJADE_SHIELD.get(),
-                DAItems.STRATUS_SHIELD.get()
-        );*/
 
         // Storm Bow
         tag(Tags.Items.TOOLS_BOW).add(
