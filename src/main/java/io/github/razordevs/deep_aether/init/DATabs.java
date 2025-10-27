@@ -313,7 +313,10 @@ public class DATabs {
                     DABlocks.TALL_GOLDEN_GRASS.get(),
                     DABlocks.BLUE_SQUASH.get(),
                     DABlocks.GREEN_SQUASH.get(),
-                    DABlocks.PURPLE_SQUASH.get()
+                    DABlocks.PURPLE_SQUASH.get(),
+                    DABlocks.CARVED_BLUE_SQUASH.get(),
+                    DABlocks.CARVED_GREEN_SQUASH.get(),
+                    DABlocks.CARVED_PURPLE_SQUASH.get()
             }, event);
 
             addToTab(AetherBlocks.GOLDEN_AERCLOUD.get().asItem(), new Block[]{

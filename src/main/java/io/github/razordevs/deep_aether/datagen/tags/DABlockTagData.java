@@ -688,6 +688,9 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.BLUE_SQUASH.get(),
                 DABlocks.GREEN_SQUASH.get(),
                 DABlocks.PURPLE_SQUASH.get(),
+                DABlocks.CARVED_BLUE_SQUASH.get(),
+                DABlocks.CARVED_GREEN_SQUASH.get(),
+                DABlocks.CARVED_PURPLE_SQUASH.get(),
                 DABlocks.LIGHTCAP_MUSHROOMS.get(),
                 DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get()
         );

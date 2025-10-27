@@ -34,8 +34,8 @@ public abstract class AerwhaleModelMixin extends EntityModel<Aerwhale> {
 
     @Inject(at = @At("TAIL"), remap = false, method = "<init>")
     private void AerwhaleModel(ModelPart root, CallbackInfo ci) {
-        deep_Aether$leftChest = this.head.getChild("middle_body").getChild("left_chest");
-        deep_Aether$rightChest = this.head.getChild("middle_body").getChild("right_chest");
+        deep_Aether$leftChest = this.head.getChild("middle_top").getChild("left_chest");
+        deep_Aether$rightChest = this.head.getChild("middle_top").getChild("right_chest");
     }
 
     @Inject(at = @At("RETURN"), method = "createBodyLayer", remap = false)

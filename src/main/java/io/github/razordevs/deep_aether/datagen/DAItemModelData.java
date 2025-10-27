@@ -284,6 +284,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.GREEN_SQUASH.get());
         this.itemBlock(DABlocks.PURPLE_SQUASH.get());
 
+        this.itemBlock(DABlocks.CARVED_BLUE_SQUASH.get());
+        this.itemBlock(DABlocks.CARVED_GREEN_SQUASH.get());
+        this.itemBlock(DABlocks.CARVED_PURPLE_SQUASH.get());
+
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
         this.itemBlock(DABlocks.CLOUDBLOOM_CARPET.get());
         this.itemBlock(DABlocks.AETHER_MOSS_BLOCK.get());

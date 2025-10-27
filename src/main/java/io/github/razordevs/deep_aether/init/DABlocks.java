@@ -292,6 +292,11 @@ public class DABlocks {
 	public static final DeferredBlock<Block> BLUE_SQUASH = registerBlock("blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 	public static final DeferredBlock<Block> PURPLE_SQUASH = registerBlock("purple_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
+	public static final DeferredBlock<Block> CARVED_BLUE_SQUASH = registerBlock("carved_blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final DeferredBlock<Block> CARVED_GREEN_SQUASH = registerBlock("carved_green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final DeferredBlock<Block> CARVED_PURPLE_SQUASH = registerBlock("carved_purple_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
 	public static final DeferredBlock<Block> GLOWING_VINE = BLOCKS.register("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.PLANT)
 			.replaceable()

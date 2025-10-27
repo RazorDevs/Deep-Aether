@@ -550,7 +550,10 @@ public class DAItemTagData extends ItemTagsProvider {
         tag(Tags.Items.CROPS).add(
                 DABlocks.GREEN_SQUASH.get().asItem(),
                 DABlocks.BLUE_SQUASH.get().asItem(),
-                DABlocks.PURPLE_SQUASH.get().asItem()
+                DABlocks.PURPLE_SQUASH.get().asItem(),
+                DABlocks.CARVED_BLUE_SQUASH.get().asItem(),
+                DABlocks.CARVED_GREEN_SQUASH.get().asItem(),
+                DABlocks.CARVED_PURPLE_SQUASH.get().asItem()
         );
         tag(Tags.Items.FOODS_FRUIT).add(
                 DAItems.GREEN_SQUASH_SLICE.get(),
