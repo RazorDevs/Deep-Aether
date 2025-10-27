@@ -2,13 +2,12 @@ package io.github.razordevs.deep_aether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.beyondparity.BeyondParityTags;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
-import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
@@ -443,16 +442,16 @@ public class DABlockTagData extends BlockTagsProvider {
 
         // Walls
         tag(BlockTags.WALLS).add(
-                DABlocks.ROSEROOT_WALL.get(),
-                DABlocks.STRIPPED_ROSEROOT_WALL.get(),
-                DABlocks.YAGROOT_WALL.get(),
-                DABlocks.STRIPPED_YAGROOT_WALL.get(),
-                DABlocks.CRUDEROOT_WALL.get(),
-                DABlocks.STRIPPED_CRUDEROOT_WALL.get(),
-                DABlocks.CONBERRY_WALL.get(),
-                DABlocks.STRIPPED_CONBERRY_WALL.get(),
-                DABlocks.SUNROOT_WALL.get(),
-                DABlocks.STRIPPED_SUNROOT_WALL.get(),
+                DABlocks.ROSEROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(),
+                DABlocks.YAGROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(),
+                DABlocks.CRUDEROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(),
+                DABlocks.CONBERRY_WOOD_WALL.get(),
+                DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(),
+                DABlocks.SUNROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(),
                 DABlocks.CLORITE_WALL.get(),
                 DABlocks.RAW_CLORITE_WALL.get(),
                 DABlocks.POLISHED_CLORITE_WALL.get(),
@@ -582,8 +581,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.ROSEROOT_TRAPDOOR.get(),
                 DABlocks.ROSEROOT_PRESSURE_PLATE.get(),
                 DABlocks.ROSEROOT_BUTTON.get(),
-                DABlocks.ROSEROOT_WALL.get(),
-                DABlocks.STRIPPED_ROSEROOT_WALL.get(),
+                DABlocks.ROSEROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(),
                 DABlocks.ROSEROOT_LOG_WALL.get(),
                 DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(),
                 DABlocks.ROSEROOT_SAPLING.get(),
@@ -605,8 +604,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.YAGROOT_TRAPDOOR.get(),
                 DABlocks.YAGROOT_PRESSURE_PLATE.get(),
                 DABlocks.YAGROOT_BUTTON.get(),
-                DABlocks.YAGROOT_WALL.get(),
-                DABlocks.STRIPPED_YAGROOT_WALL.get(),
+                DABlocks.YAGROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(),
                 DABlocks.YAGROOT_LOG_WALL.get(),
                 DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(),
                 DABlocks.YAGROOT_SAPLING.get(),
@@ -628,8 +627,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CRUDEROOT_TRAPDOOR.get(),
                 DABlocks.CRUDEROOT_PRESSURE_PLATE.get(),
                 DABlocks.CRUDEROOT_BUTTON.get(),
-                DABlocks.CRUDEROOT_WALL.get(),
-                DABlocks.STRIPPED_CRUDEROOT_WALL.get(),
+                DABlocks.CRUDEROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(),
                 DABlocks.CRUDEROOT_LOG_WALL.get(),
                 DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(),
                 DABlocks.CRUDEROOT_SAPLING.get(),
@@ -651,8 +650,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.CONBERRY_TRAPDOOR.get(),
                 DABlocks.CONBERRY_PRESSURE_PLATE.get(),
                 DABlocks.CONBERRY_BUTTON.get(),
-                DABlocks.CONBERRY_WALL.get(),
-                DABlocks.STRIPPED_CONBERRY_WALL.get(),
+                DABlocks.CONBERRY_WOOD_WALL.get(),
+                DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(),
                 DABlocks.CONBERRY_LOG_WALL.get(),
                 DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(),
                 DABlocks.CONBERRY_SAPLING.get(),
@@ -674,8 +673,8 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.SUNROOT_TRAPDOOR.get(),
                 DABlocks.SUNROOT_PRESSURE_PLATE.get(),
                 DABlocks.SUNROOT_BUTTON.get(),
-                DABlocks.SUNROOT_WALL.get(),
-                DABlocks.STRIPPED_SUNROOT_WALL.get(),
+                DABlocks.SUNROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(),
                 DABlocks.SUNROOT_LOG_WALL.get(),
                 DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(),
                 DABlocks.SUNROOT_SAPLING.get(),
@@ -910,5 +909,28 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.AERSMOG.get(),
                 DABlocks.RAIN_AERCLOUD.get()
         );
+
+        //Compatibility
+        this.tag(BeyondParityTags.Blocks.LOG_WALLS).add(
+                DABlocks.ROSEROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(),
+                DABlocks.YAGROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(),
+                DABlocks.CRUDEROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(),
+                DABlocks.CONBERRY_WOOD_WALL.get(),
+                DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(),
+                DABlocks.SUNROOT_WOOD_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(),
+                DABlocks.ROSEROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(),
+                DABlocks.YAGROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(),
+                DABlocks.CRUDEROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(),
+                DABlocks.CONBERRY_LOG_WALL.get(),
+                DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(),
+                DABlocks.SUNROOT_LOG_WALL.get(),
+                DABlocks.STRIPPED_SUNROOT_LOG_WALL.get());
     }
 }

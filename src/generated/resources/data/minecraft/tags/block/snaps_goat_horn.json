@@ -23,6 +23,10 @@
     "deep_aether:skyjade_ore",
     "deep_aether:raw_clorite",
     "deep_aether:aseterite",
-    "deep_aether:cobbled_aseterite"
+    "#deep_aether:roseroot_logs",
+    "#deep_aether:yagroot_logs",
+    "#deep_aether:cruderoot_logs",
+    "#deep_aether:conberry_logs",
+    "#deep_aether:sunroot_logs"
   ]
 }

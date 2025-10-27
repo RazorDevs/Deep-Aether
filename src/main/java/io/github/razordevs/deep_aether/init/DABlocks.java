@@ -68,10 +68,8 @@ public class DABlocks {
 	public static final DeferredBlock<Block> ROSEROOT_WOOD = registerBlock("roseroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> ROSEROOT_LOG = registerBlock("roseroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
 	public static final DeferredBlock<Block> ROTTEN_ROSEROOT_LOG = registerBlock("rotten_roseroot_log", () -> new EmptyLog(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> ROSEROOT_WALL = registerBlock(300, "roseroot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> STRIPPED_ROSEROOT_WOOD = registerBlock("stripped_roseroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> STRIPPED_ROSEROOT_LOG = registerBlock("stripped_roseroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> STRIPPED_ROSEROOT_WALL = registerBlock(300, "stripped_roseroot_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> ROSEROOT_PLANKS = registerBlock(300, "roseroot_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 	public static final DeferredBlock<Block> ROSEROOT_STAIRS = registerBlock("roseroot_stairs", () -> new StairBlock(DABlocks.ROSEROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<SlabBlock> ROSEROOT_SLAB = registerBlock("roseroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
@@ -100,10 +98,8 @@ public class DABlocks {
 	//YAGROOT
 	public static final DeferredBlock<Block> YAGROOT_WOOD = registerBlock("yagroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> YAGROOT_LOG = registerBlock("yagroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> YAGROOT_WALL = registerBlock(300,"yagroot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> STRIPPED_YAGROOT_WOOD = registerBlock("stripped_yagroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> STRIPPED_YAGROOT_LOG = registerBlock("stripped_yagroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> STRIPPED_YAGROOT_WALL = registerBlock(300,"stripped_yagroot_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> YAGROOT_PLANKS = registerBlock(300, "yagroot_planks", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2f, 3f).instrument(NoteBlockInstrument.BASS).ignitedByLava()));
 	public static final DeferredBlock<Block> YAGROOT_STAIRS = registerBlock("yagroot_stairs", () -> new StairBlock(DABlocks.YAGROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> YAGROOT_SLAB = registerBlock("yagroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
@@ -130,10 +126,8 @@ public class DABlocks {
 	//CRUDEROOT
 	public static final DeferredBlock<Block> CRUDEROOT_WOOD = registerBlock("cruderoot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> CRUDEROOT_LOG = registerBlock("cruderoot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> CRUDEROOT_WALL = registerBlock(300,"cruderoot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> STRIPPED_CRUDEROOT_WOOD = registerBlock("stripped_cruderoot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> STRIPPED_CRUDEROOT_LOG = registerBlock("stripped_cruderoot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> STRIPPED_CRUDEROOT_WALL = registerBlock(300,"stripped_cruderoot_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> CRUDEROOT_PLANKS = registerBlock(300, "cruderoot_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 	public static final DeferredBlock<Block> CRUDEROOT_STAIRS = registerBlock("cruderoot_stairs", () -> new StairBlock(DABlocks.CRUDEROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> CRUDEROOT_SLAB = registerBlock("cruderoot_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
@@ -155,10 +149,8 @@ public class DABlocks {
 	//CONBERRY
 	public static final DeferredBlock<Block> CONBERRY_WOOD = registerBlock("conberry_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> CONBERRY_LOG = registerBlock("conberry_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> CONBERRY_WALL = registerBlock(300,"conberry_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> STRIPPED_CONBERRY_WOOD = registerBlock("stripped_conberry_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> STRIPPED_CONBERRY_LOG = registerBlock("stripped_conberry_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> STRIPPED_CONBERRY_WALL = registerBlock(300,"stripped_conberry_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> CONBERRY_PLANKS = registerBlock( 300,"conberry_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 	public static final DeferredBlock<Block> CONBERRY_STAIRS = registerBlock("conberry_stairs", () -> new StairBlock(DABlocks.CONBERRY_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> CONBERRY_SLAB = registerBlock("conberry_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
@@ -181,10 +173,8 @@ public class DABlocks {
 	//SUNROOT
 	public static final DeferredBlock<Block> SUNROOT_WOOD = registerBlock("sunroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> SUNROOT_LOG = registerBlock("sunroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> SUNROOT_WALL = registerBlock(300,"sunroot_wall", () ->  new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> STRIPPED_SUNROOT_WOOD = registerBlock("stripped_sunroot_wood", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> STRIPPED_SUNROOT_LOG = registerBlock("stripped_sunroot_log", () -> new DALogBlock(Block.Properties.ofFullCopy(Blocks.OAK_LOG)));
-	public static final DeferredBlock<Block> STRIPPED_SUNROOT_WALL = registerBlock(300,"stripped_sunroot_wall", () -> new DAWallBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(1f, 10f).noOcclusion().isRedstoneConductor((bs, br, bp) -> false)));
 	public static final DeferredBlock<Block> SUNROOT_PLANKS = registerBlock( 300,"sunroot_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
 	public static final DeferredBlock<Block> SUNROOT_STAIRS = registerBlock("sunroot_stairs", () -> new StairBlock(DABlocks.SUNROOT_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
 	public static final DeferredBlock<Block> SUNROOT_SLAB = registerBlock("sunroot_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
@@ -423,18 +413,29 @@ public class DABlocks {
 
 	//GENESIS COMPATIBILITY
 
-	public static final DeferredBlock<WallBlock> ROSEROOT_LOG_WALL = registerAetherGenesisBlockWithLogging("roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> STRIPPED_ROSEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> STRIPPED_CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> YAGROOT_LOG_WALL = registerAetherGenesisBlock("yagroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> STRIPPED_YAGROOT_LOG_WALL = registerAetherGenesisBlock("stripped_yagroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> CONBERRY_LOG_WALL = registerAetherGenesisBlock("conberry_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> STRIPPED_CONBERRY_LOG_WALL = registerAetherGenesisBlock("stripped_conberry_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> SUNROOT_LOG_WALL = registerAetherGenesisBlock("sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
-	public static final DeferredBlock<WallBlock> STRIPPED_SUNROOT_LOG_WALL = registerAetherGenesisBlock("stripped_sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> ROSEROOT_LOG_WALL = registerAetherGenesisBlockWithLogging("roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> STRIPPED_ROSEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_roseroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> STRIPPED_CRUDEROOT_LOG_WALL = registerAetherGenesisBlock("stripped_cruderoot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> YAGROOT_LOG_WALL = registerAetherGenesisBlock("yagroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> STRIPPED_YAGROOT_LOG_WALL = registerAetherGenesisBlock("stripped_yagroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> CONBERRY_LOG_WALL = registerAetherGenesisBlock("conberry_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> STRIPPED_CONBERRY_LOG_WALL = registerAetherGenesisBlock("stripped_conberry_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> SUNROOT_LOG_WALL = registerAetherGenesisBlock("sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+	public static final DeferredBlock<WallBlock> STRIPPED_SUNROOT_LOG_WALL = registerAetherGenesisBlock("stripped_sunroot_log_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
 
-	//TREASURE REFORGING COMPATIBILITY
+    public static final DeferredBlock<Block> ROSEROOT_WOOD_WALL = registerAetherGenesisBlock( "roseroot_wall", () ->  new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_ROSEROOT_WOOD_WALL =  registerAetherGenesisBlock( "stripped_roseroot_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CRUDEROOT_WOOD_WALL =  registerAetherGenesisBlock("cruderoot_wall", () ->  new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_CRUDEROOT_WOOD_WALL =  registerAetherGenesisBlock("stripped_cruderoot_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> YAGROOT_WOOD_WALL =  registerAetherGenesisBlock("yagroot_wall", () ->  new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_YAGROOT_WOOD_WALL =  registerAetherGenesisBlock("stripped_yagroot_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> CONBERRY_WOOD_WALL =  registerAetherGenesisBlock("conberry_wall", () ->  new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_CONBERRY_WOOD_WALL =  registerAetherGenesisBlock("stripped_conberry_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> SUNROOT_WOOD_WALL =  registerAetherGenesisBlock("sunroot_wall", () ->  new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_SUNROOT_WOOD_WALL =  registerAetherGenesisBlock("stripped_sunroot_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
+
+    //TREASURE REFORGING COMPATIBILITY
 
 	public static final DeferredBlock<Block> SQUALL_BLOCK = registerCompatBlock(DeepAether.TREASURE_REFORGING, "squall_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(DABlocks.SKYJADE_BLOCK.get())));
 
@@ -639,16 +640,27 @@ public class DABlocks {
 		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_STAIRS.get(), 5, 20);
 		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_SLAB.get(), 5, 20);
 
-		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_WALL.get(), 5, 20);
-		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SUNROOT_WALL.get(), 5, 20);
+		fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_WOOD_WALL.get(), 5, 5);
+		fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(), 5, 5);
+
+        fireBlockAccessor.callSetFlammable(DABlocks.CRUDEROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.ROSEROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.YAGROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.CONBERRY_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.SUNROOT_LOG_WALL.get(), 5, 5);
+        fireBlockAccessor.callSetFlammable(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), 5, 5);
 	}
 
 

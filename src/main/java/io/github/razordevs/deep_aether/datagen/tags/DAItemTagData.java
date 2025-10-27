@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.datagen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.beyondparity.BeyondParityTags;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAItems;
@@ -76,6 +77,8 @@ public class DAItemTagData extends ItemTagsProvider {
         this.copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
         this.copy(Tags.Blocks.ORES, Tags.Items.ORES);
         this.copy(Tags.Blocks.ORE_RATES_SINGULAR, Tags.Items.ORE_RATES_SINGULAR);
+
+        this.copy(BeyondParityTags.Blocks.LOG_WALLS, BeyondParityTags.Items.LOG_WALLS);
 
         Collection<DeferredHolder<Item, ? extends Item>> items = DAItems.ITEMS.getEntries();
 

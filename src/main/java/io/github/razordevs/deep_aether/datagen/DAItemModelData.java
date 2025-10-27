@@ -43,8 +43,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.ROSEROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.ROSEROOT_BUTTON.get(), DABlocks.ROSEROOT_PLANKS.get());
         this.itemBlock(DABlocks.ROSEROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.ROSEROOT_WOOD_WALL.get(), DABlocks.ROSEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.ROSEROOT_SAPLING.get());
         this.itemBlockFlat(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.itemBlock(DABlocks.ROSEROOT_LEAVES.get());
@@ -71,8 +71,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.YAGROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.YAGROOT_BUTTON.get(), DABlocks.YAGROOT_PLANKS.get());
         this.itemBlock(DABlocks.YAGROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.YAGROOT_WALL.get(), DABlocks.YAGROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_YAGROOT_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
+        this.itemWallBlock(DABlocks.YAGROOT_WOOD_WALL.get(), DABlocks.YAGROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.itemBlockFlat(DABlocks.YAGROOT_SAPLING.get());
         this.itemBlock(DABlocks.YAGROOT_LEAVES.get());
         this.item(DAItems.YAGROOT_SIGN.get());
@@ -96,8 +96,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CRUDEROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.CRUDEROOT_BUTTON.get(), DABlocks.CRUDEROOT_PLANKS.get());
         this.itemBlock(DABlocks.CRUDEROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.CRUDEROOT_WALL.get(), DABlocks.CRUDEROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.CRUDEROOT_WOOD_WALL.get(), DABlocks.CRUDEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.CRUDEROOT_SAPLING.get());
         this.itemBlock(DABlocks.CRUDEROOT_LEAVES.get());
         this.item(DAItems.CRUDEROOT_SIGN.get());
@@ -119,8 +119,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CONBERRY_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.CONBERRY_BUTTON.get(), DABlocks.CONBERRY_PLANKS.get());
         this.itemBlock(DABlocks.CONBERRY_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.CONBERRY_WALL.get(), DABlocks.CONBERRY_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.itemWallBlock(DABlocks.CONBERRY_WOOD_WALL.get(), DABlocks.CONBERRY_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
         this.itemBlockFlat(DABlocks.CONBERRY_SAPLING.get());
         this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
         this.item(DAItems.CONBERRY_SIGN.get());
@@ -142,8 +142,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SUNROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.SUNROOT_BUTTON.get(), DABlocks.SUNROOT_PLANKS.get());
         this.itemBlock(DABlocks.SUNROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.SUNROOT_WALL.get(), DABlocks.SUNROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.itemWallBlock(DABlocks.SUNROOT_WOOD_WALL.get(), DABlocks.SUNROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
         this.itemBlockFlat(DABlocks.SUNROOT_SAPLING.get());
         this.itemBlock(DABlocks.SUNROOT_LEAVES.get());
         this.item(DAItems.SUNROOT_SIGN.get());

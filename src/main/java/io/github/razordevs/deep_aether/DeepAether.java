@@ -110,6 +110,7 @@ public class DeepAether {
 	public static final String EMISSIVITY = "aether_emissivity";
 	public static final String PROTECT_YOUR_MOA = "aether_protect_your_moa";
 	public static final String TREASURE_REFORGING = "aether_treasure_reforging";
+    public static final String BEYOND_PARITY = "aether_beyond_parity";
 
 	private static final Calendar CALENDER = Calendar.getInstance();
 	public static final boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
@@ -295,7 +296,6 @@ public class DeepAether {
 			if (ModList.get().isLoaded(PROTECT_YOUR_MOA))
 				setupCompatPack("compat_recipes/protect_your_moa_compat", "Deep Aether Protect Your Moa Compat", event);
 
-
 			if (ModList.get().isLoaded(AETHER_GENESIS))
 				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData", "Deep Aether Golden Swet Ball Aether Genesis Fix", event);
 			else if (ModList.get().isLoaded(AETHER_REDUX))
@@ -310,6 +310,11 @@ public class DeepAether {
 
 			if (ModList.get().isLoaded(ANCIENT_AETHER))
 				setupCompatPack("compat_recipes/ancient_aether_compat", "Ancient Aether Compat", event);
+
+            if (ModList.get().isLoaded(BEYOND_PARITY)) {
+                setupCompatPack("compat_recipes/beyond_parity_compat", "Beyond Parity Compat", event);
+            }
+
 
 		}
 	}
