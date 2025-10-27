@@ -74,6 +74,8 @@ public class DAItemTagData extends ItemTagsProvider {
         this.copy(BlockTags.FLOWERS, ItemTags.FLOWERS);
         this.copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
         this.copy(BlockTags.TALL_FLOWERS, ItemTags.TALL_FLOWERS);
+        this.copy(Tags.Blocks.ORES, Tags.Items.ORES);
+        this.copy(Tags.Blocks.ORE_RATES_SINGULAR, Tags.Items.ORE_RATES_SINGULAR);
 
         Collection<DeferredHolder<Item, ? extends Item>> items = DAItems.ITEMS.getEntries();
 
@@ -447,9 +449,6 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.SQUALL_PLATE.get()
         );
         tag(AetherTags.Items.ORES_IN_GROUND_HOLYSTONE).add(
-                DABlocks.SKYJADE_ORE.get().asItem()
-        );
-        tag(Tags.Items.ORES).add(
                 DABlocks.SKYJADE_ORE.get().asItem()
         );
         tag(Tags.Items.ORE_RATES_SINGULAR).add(
