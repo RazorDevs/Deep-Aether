@@ -260,6 +260,10 @@ public class DAItems {
 	);
 
 	//GENESIS
+	public static final DeferredItem<Item> MAGNETIC_COG = ITEMS.register("magnetic_cog", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> MAGNETIC_STAFF = ITEMS.register("magnetic_staff", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> SENTRY_ALARM = ITEMS.register("sentry_alarm", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> MIMIC_EYE = ITEMS.register("mimic_eye", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 
 
 	//Deep Aether 1.2/Experimental
@@ -307,6 +311,14 @@ public class DAItems {
 	private static DeferredItem<Item> registerTRItem(String name, Supplier<Item> item) {
 		if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Treasure Reforging compat items");
+			return ITEMS.register(name, item);
+		}
+		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
+	}
+
+	private static DeferredItem<Item> registerGenesisItem(String name, Supplier<Item> item) {
+		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Genesis compat items");
 			return ITEMS.register(name, item);
 		}
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));

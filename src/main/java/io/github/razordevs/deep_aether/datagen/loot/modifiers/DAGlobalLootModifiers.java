@@ -14,4 +14,5 @@ public class DAGlobalLootModifiers {
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<? extends IGlobalLootModifier>> AETHER_DUNGEON_LOOT_CODEC = LOOT_MODIFIERS.register("aether_dungeon_loot", DAAddDungeonLootModifier.CODEC);
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<? extends IGlobalLootModifier>> AETHER_FISH_LOOT_CODEC = LOOT_MODIFIERS.register("aether_fish_loot", DAFishingLootModifier.CODEC);
 
+    public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<? extends IGlobalLootModifier>> HALLOWEEN_LOOT_CODEC = LOOT_MODIFIERS.register("halloween_loot", DAHalloweenLootModifier.CODEC);
 }

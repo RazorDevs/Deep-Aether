@@ -31,6 +31,8 @@ public class DALoot {
 
     public static final ResourceKey<LootTable> ALTAR_CAMP = register("chests/dungeon/altar_camp");
 
+    public static final ResourceKey<LootTable> ALL_ENTITIES = register("entities/all");
+
     private static ResourceKey<LootTable> register(String id) {
         return register(ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, id)));
     }
