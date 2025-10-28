@@ -289,13 +289,15 @@ public class DABlocks {
 	public static final DeferredBlock<Block> SUNROOT_HANGER = registerBlock("sunroot_hanger", () -> new SunrootHangerBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CAVE_VINES)));
 	public static final DeferredBlock<Block> GLOWING_SPORES = BLOCKS.register("glowing_spores", () -> new PinkPetalsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().sound(SoundType.PINK_PETALS).pushReaction(PushReaction.DESTROY).lightLevel(s -> 7)));
 
-	public static final DeferredBlock<Block> BLUE_SQUASH = registerBlock("blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final DeferredBlock<Block> PURPLE_SQUASH = registerBlock("purple_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
 
-	public static final DeferredBlock<Block> CARVED_BLUE_SQUASH = registerBlock("carved_blue_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final DeferredBlock<Block> CARVED_GREEN_SQUASH = registerBlock("carved_green_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-	public static final DeferredBlock<Block> CARVED_PURPLE_SQUASH = registerBlock("carved_purple_squash", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final DeferredBlock<Block> CARVED_BLUE_SQUASH = registerBlock("carved_blue_squash", () -> new CarvedSquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final DeferredBlock<Block> CARVED_GREEN_SQUASH = registerBlock("carved_green_squash", () -> new CarvedSquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+	public static final DeferredBlock<Block> CARVED_PURPLE_SQUASH = registerBlock("carved_purple_squash", () -> new CarvedSquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+
+	public static final DeferredBlock<Block> BLUE_SQUASH = registerBlock("blue_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY), CARVED_BLUE_SQUASH.get()));
+	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY), CARVED_GREEN_SQUASH.get()));
+	public static final DeferredBlock<Block> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY), CARVED_PURPLE_SQUASH.get()));
+
 
 	public static final DeferredBlock<Block> GLOWING_VINE = BLOCKS.register("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.PLANT)
