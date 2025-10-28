@@ -22,6 +22,9 @@ public class DeepAetherConfig {
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
         public final ConfigValue<String> eots_flawless_boss_drop;
         public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
+        public final ConfigValue<String> slider_mimic_flawless_boss_drop;
+        public final ConfigValue<String> sentry_guardian_flawless_boss_drop;
+        public final ConfigValue<String> labyrinth_eye_flawless_boss_drop;
 
         public Common(ModConfigSpec.Builder builder) {
             builder.push("Gameplay");
@@ -57,6 +60,27 @@ public class DeepAetherConfig {
                     .comment("The item dropped when the Aerwhale King is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Aerwhale King. This Config Does nothing if Aether Lost Content isn't installed.")
                     .translation("config.deep_aether.common.flawless.aerwhale_king_flawless_boss_drop")
                     .define("Aerwhale King Flawless Boss Drop", "deep_aether:aerwhale_saddle");
+            builder.pop();
+
+            builder.push("Gameplay");
+            slider_mimic_flawless_boss_drop= builder
+                    .comment("The item dropped when the Slider Host Mimic is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Slider Host Mimic. This Config Does nothing if Aether Genesis isn't installed.")
+                    .translation("config.deep_aether.common.flawless.slider_mimic_flawless_boss_drop")
+                    .define("Slider Host Mimic Flawless Boss Drop", "deep_aether:mimic_eye");
+            builder.pop();
+
+            builder.push("Gameplay");
+            sentry_guardian_flawless_boss_drop= builder
+                    .comment("The item dropped when the Sentry Guardian is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Sentry Guardian. This Config Does nothing if Aether Genesis isn't installed.")
+                    .translation("config.deep_aether.common.flawless.sentry_guardian_flawless_boss_drop")
+                    .define("Sentry Guardian Flawless Boss Drop", "deep_aether:sentry_alarm");
+            builder.pop();
+
+            builder.push("Gameplay");
+            labyrinth_eye_flawless_boss_drop = builder
+                    .comment("The item dropped when the Labyrinth Eye is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Labyrinth Eye. This Config Does nothing if Aether Genesis isn't installed.")
+                    .translation("config.deep_aether.common.flawless.labyrinth_eye_flawless_boss_drop")
+                    .define("Labyrinth Eye Flawless Boss Drop", "deep_aether:magnetic_cog");
             builder.pop();
 
             builder.push("Biomes");
