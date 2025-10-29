@@ -3,6 +3,7 @@ package io.github.razordevs.deep_aether.init;
 import com.aetherteam.aether.data.resources.registries.AetherStructures;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.item.accessories.AccessoryItem;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
 import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
@@ -15,6 +16,7 @@ import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.registry.DAJukeboxSongs;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
+import io.github.razordevs.deep_aether.item.compat.MagneticStaffItem;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.FloatyScarf;
 import io.github.razordevs.deep_aether.item.dungeon.brass.*;
@@ -261,8 +263,8 @@ public class DAItems {
 
 	//GENESIS
 	public static final DeferredItem<Item> MAGNETIC_COG = ITEMS.register("magnetic_cog", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
-	public static final DeferredItem<Item> MAGNETIC_STAFF = ITEMS.register("magnetic_staff", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
-	public static final DeferredItem<Item> SENTRY_ALARM = ITEMS.register("sentry_alarm", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> MAGNETIC_STAFF = ITEMS.register("magnetic_staff", () -> new MagneticStaffItem((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> SENTRY_ALARM = ITEMS.register("sentry_alarm", () -> new AccessoryItem((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 	public static final DeferredItem<Item> MIMIC_EYE = ITEMS.register("mimic_eye", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 
 
