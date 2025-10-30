@@ -437,6 +437,16 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.SKYJADE_NUGGET.get()), has(DAItems.SKYJADE_NUGGET.get()))
                 .save(consumer, name("skyjade_lantern_from_skyjade_nuggets"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AMBROSIUM_TIKI_TORCH.get())
+                .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
+                .define('B', AetherBlocks.HOLYSTONE_SLAB.get())
+                .define('C', AetherItems.SKYROOT_STICK.get())
+                .pattern("A")
+                .pattern("B")
+                .pattern("C")
+                .unlockedBy(getHasName(AetherBlocks.AMBROSIUM_TORCH.get()), has(AetherBlocks.AMBROSIUM_TORCH.get()))
+                .save(consumer, name("ambrosium_tiki_torch"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_CHAIN.get())
                 .define('A', DAItems.SKYJADE_NUGGET.get())
                 .define('B', AetherItems.SKYROOT_STICK.get())
