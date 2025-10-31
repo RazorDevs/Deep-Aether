@@ -3,19 +3,19 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "aether:ambrosium_torch"
+      "item": "aether:ambrosium_shard"
     },
     "B": {
-      "item": "aether:holystone_slab"
+      "item": "aether:skyroot_stick"
     },
     "C": {
-      "item": "aether:skyroot_stick"
+      "item": "deep_aether:cloudbloom_bouquet"
     }
   },
   "pattern": [
-    "A",
-    "B",
-    "C"
+    " CA",
+    " BC",
+    "B  "
   ],
   "result": {
     "count": 1,
