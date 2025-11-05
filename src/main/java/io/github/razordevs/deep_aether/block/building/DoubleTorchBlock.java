@@ -15,6 +15,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -105,14 +106,9 @@ public class DoubleTorchBlock extends Block {
         accessor.setBlock(blockpos, state.setValue(HALF, DoubleBlockHalf.UPPER), i);
     }
 
-
     public BlockState playerWillDestroy(Level level, BlockPos blockPos, BlockState blockState, Player player) {
-        if (!level.isClientSide) {
-            if (player.isCreative()) {
-                preventDropFromBottomPart(level, blockPos, blockState, player);
-            } else {
-                dropResources(blockState, level, blockPos, null, player, player.getMainHandItem());
-            }
+        if (!level.isClientSide && player.isCreative()) {
+            preventDropFromBottomPart(level, blockPos, blockState, player);
         }
 
         return super.playerWillDestroy(level, blockPos, blockState, player);
@@ -123,16 +119,15 @@ public class DoubleTorchBlock extends Block {
     }
 
     protected static void preventDropFromBottomPart(Level level, BlockPos blockPos, BlockState value, Player player) {
-        if (value.getValue(HALF).equals(DoubleBlockHalf.UPPER)) {
-            BlockPos blockpos = blockPos.below();
-            BlockState blockstate = level.getBlockState(blockpos);
-            if (blockstate.is(value.getBlock()) && blockstate.getValue(HALF).equals(DoubleBlockHalf.LOWER)) {
-                BlockState blockstate1 = blockstate.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
-                level.setBlock(blockpos, blockstate1, 35);
-                level.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
-            }
-        }
+        if (!value.getValue(HALF).equals(DoubleBlockHalf.UPPER)) return;
 
+        BlockPos blockpos = blockPos.below();
+        BlockState blockstate = level.getBlockState(blockpos);
+        if (blockstate.is(value.getBlock()) && blockstate.getValue(HALF).equals(DoubleBlockHalf.LOWER)) {
+            BlockState blockstate1 = blockstate.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+            level.setBlock(blockpos, blockstate1, 35);
+            level.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
+        }
     }
 
     public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
