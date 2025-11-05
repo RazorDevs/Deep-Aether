@@ -1,0 +1,24 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"render_type": "cutout",
+	"textures": {
+		"0": "deep_aether:block/ambrosium_tiki_torch",
+		"particle": "deep_aether:block/ambrosium_tiki_torch"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 7],
+			"to": [9, 16, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [6, 1, 7, 9], "texture": "#0"},
+				"east": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"south": {"uv": [7, 1, 8, 9], "texture": "#0"},
+				"west": {"uv": [1, 8, 2, 16], "texture": "#0"},
+				"up": {"uv": [6, 8, 5, 7], "texture": "#0"},
+				"down": {"uv": [6, 8, 5, 9], "texture": "#0"}
+			}
+		}
+	]
+}

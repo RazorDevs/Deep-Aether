@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "deep_aether:block/ambrosium_tiki_torch_bottom"
+    },
+    "half=upper": {
+      "model": "deep_aether:block/ambrosium_tiki_torch_top"
+    }
+  }
+}

@@ -298,7 +298,6 @@ public class DABlocks {
 	public static final DeferredBlock<Block> GREEN_SQUASH = registerBlock("green_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY), CARVED_GREEN_SQUASH.get()));
 	public static final DeferredBlock<Block> PURPLE_SQUASH = registerBlock("purple_squash", () -> new SquashBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY), CARVED_PURPLE_SQUASH.get()));
 
-
 	public static final DeferredBlock<Block> GLOWING_VINE = BLOCKS.register("glowing_vine", () -> new VineBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.PLANT)
 			.replaceable()
@@ -361,6 +360,7 @@ public class DABlocks {
 	public static final DeferredBlock<Block> VIRULENT_QUICKSAND = BLOCKS.register("virulent_quicksand", () -> new VirulentQuicksandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
 	public static final DeferredBlock<Block> SKYJADE_CHAIN = registerBlock("skyjade_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
 	public static final DeferredBlock<Block> SKYJADE_LANTERN = registerBlock("skyjade_lantern", () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)));
+	public static final DeferredBlock<Block> AMBROSIUM_TIKI_TORCH = registerBlock("ambrosium_tiki_torch", () -> new DoubleTorchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TORCH).lightLevel(DoubleTorchBlock::calcLightLevel)));
 
 	//MUD
 	public static final DeferredBlock<Block> AETHER_MUD = registerBlock("aether_mud", () -> new DoubleDropMudBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)));

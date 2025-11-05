@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "aether:ambrosium_shard"
+    },
+    "B": {
+      "item": "aether:skyroot_stick"
+    },
+    "C": {
+      "item": "deep_aether:cloudbloom_bouquet"
+    }
+  },
+  "pattern": [
+    " CA",
+    " BC",
+    "B  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "deep_aether:ambrosium_tiki_torch"
+  }
+}

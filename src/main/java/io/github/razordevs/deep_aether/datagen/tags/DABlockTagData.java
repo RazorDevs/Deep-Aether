@@ -729,6 +729,7 @@ public class DABlockTagData extends BlockTagsProvider {
 
                 DABlocks.SKYJADE_CHAIN.get(),
                 DABlocks.SKYJADE_LANTERN.get(),
+                DABlocks.AMBROSIUM_TIKI_TORCH.get(),
                 DABlocks.COMBINER.get(),
 
                 DABlocks.SKYJADE_ORE.get(),
