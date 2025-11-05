@@ -21,7 +21,15 @@ import io.github.razordevs.deep_aether.recipe.GlowingSporesRecipe;
 import io.github.razordevs.deep_aether.recipe.GoldenSwetBallRecipe;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.data.recipes.SpecialRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -438,13 +446,13 @@ public class DARecipeData extends AetherRecipeProvider {
                 .save(consumer, name("skyjade_lantern_from_skyjade_nuggets"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AMBROSIUM_TIKI_TORCH.get())
-                .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
-                .define('B', AetherBlocks.HOLYSTONE_SLAB.get())
-                .define('C', AetherItems.SKYROOT_STICK.get())
-                .pattern("A")
-                .pattern("B")
-                .pattern("C")
-                .unlockedBy(getHasName(AetherBlocks.AMBROSIUM_TORCH.get()), has(AetherBlocks.AMBROSIUM_TORCH.get()))
+                .define('A', AetherItems.AMBROSIUM_SHARD.get())
+                .define('B', AetherItems.SKYROOT_STICK.get())
+                .define('C', DAItems.CLOUDBLOOM_BOUQUET.get())
+                .pattern(" CA")
+                .pattern(" BC")
+                .pattern("B  ")
+                .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
                 .save(consumer, name("ambrosium_tiki_torch"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SKYJADE_CHAIN.get())

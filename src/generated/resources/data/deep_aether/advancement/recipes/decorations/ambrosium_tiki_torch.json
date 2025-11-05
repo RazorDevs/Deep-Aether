@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ambrosium_torch": {
+    "has_ambrosium_shard": {
       "conditions": {
         "items": [
           {
-            "items": "aether:ambrosium_torch"
+            "items": "aether:ambrosium_shard"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ambrosium_torch"
+      "has_ambrosium_shard"
     ]
   ],
   "rewards": {
