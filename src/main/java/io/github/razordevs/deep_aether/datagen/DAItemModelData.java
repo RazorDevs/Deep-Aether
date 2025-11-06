@@ -382,6 +382,12 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.SQUALL_PLATE.get());
         this.itemBlock(DABlocks.SQUALL_BLOCK.get());
 
+        //Genesis compat
+        this.item(DAItems.MIMIC_EYE.get());
+        this.item(DAItems.MAGNETIC_COG.get());
+        this.item(DAItems.MAGNETIC_STAFF.get());
+        this.item(DAItems.SENTRY_ALARM.get());
+
         //Food
         this.item(DAItems.RAW_AERGLOW_FISH.get());
         this.item(DAItems.COOKED_AERGLOW_FISH.get());

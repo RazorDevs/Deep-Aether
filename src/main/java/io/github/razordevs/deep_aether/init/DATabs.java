@@ -464,6 +464,15 @@ public class DATabs {
                     DAItems.FLOATY_SCARF.get()
             }, event);
 
+            if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)) {
+                addToTab(DAItems.SLIDER_EYE.asItem(), new Item[]{
+                        DAItems.MIMIC_EYE.asItem(),
+                        DAItems.MAGNETIC_COG.asItem(),
+                        DAItems.MAGNETIC_STAFF.asItem(),
+                        DAItems.SENTRY_ALARM.asItem()
+                }, event);
+            }
+
             if (ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
                 addToTab(ProtectItems.ZANITE_MOA_ARMOR.get(), DAItems.SKYJADE_MOA_ARMOR.get(), event);
             }
