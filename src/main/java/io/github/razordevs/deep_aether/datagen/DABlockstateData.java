@@ -289,10 +289,10 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.dungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
 
         //Misc
-        this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
-        this.translucentBlock(DABlocks.AERSMOG.get());
-        this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
-        this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
+        this.aercloudAll(DABlocks.RAIN_AERCLOUD.get());
+        this.aercloudAll(DABlocks.AERSMOG.get());
+        this.aercloudAll(DABlocks.CHROMATIC_AERCLOUD.get());
+        this.aercloudAll(DABlocks.STERLING_AERCLOUD.get());
         this.combiner(DABlocks.COMBINER.get());
 
         //Moss
@@ -304,6 +304,12 @@ public class DABlockstateData extends AetherBlockStateProvider {
         //TREASURE REFORGING COMPATIBILITY
         this.block(DABlocks.SQUALL_BLOCK.get());
     }
+
+    public void aercloudAll(Block block) {
+        ResourceLocation texture = this.texture(this.name(block));
+        this.aercloud(block, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture);
+    }
+
 
     public void dungeonBlock(Block block, Block baseBlock) {
         ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock))));

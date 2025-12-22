@@ -295,10 +295,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
         this.item(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
 
-        this.itemBlock(DABlocks.RAIN_AERCLOUD.get());
-        this.itemBlock(DABlocks.AERSMOG.get());
-        this.itemBlock(DABlocks.STERLING_AERCLOUD.get());
-        this.itemBlock(DABlocks.CHROMATIC_AERCLOUD.get());
+        this.aercloudItem(DABlocks.RAIN_AERCLOUD.get());
+        this.aercloudItem(DABlocks.AERSMOG.get());
+        this.aercloudItem(DABlocks.STERLING_AERCLOUD.get());
+        this.aercloudItem(DABlocks.CHROMATIC_AERCLOUD.get());
         this.itemBlock(DABlocks.AERCLOUD_ROOT_CARPET.get());
         this.itemBlockFlat(DABlocks.PINK_AERCLOUD_MUSHROOMS.get());
         this.itemBlockFlat(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get());
@@ -461,6 +461,10 @@ public class DAItemModelData extends AetherItemModelProvider {
 //        this.item(DAItems.BRONZE_COMPASS.get());
 //        this.item(DAItems.SILVER_COMPASS.get());
 //        this.item(DAItems.GOLD_COMPASS.get());
+    }
+
+    public void aercloudItem(Block block) {
+        this.withExistingParent(this.blockName(block), this.mcLoc("block/cube_all")).texture("all", this.texture(this.blockName(block))).renderType(ResourceLocation.withDefaultNamespace("translucent"));
     }
 
     public void translucentItem(Item item) {
