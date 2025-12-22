@@ -73,6 +73,8 @@ public class DAClientModBusEvents {
         ItemBlockRenderTypes.setRenderLayer(DABlocks.SKYJADE_CHAIN.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DABlocks.SKYJADE_LANTERN.get(), RenderType.translucent());
 
+        ItemBlockRenderTypes.setRenderLayer(DABlocks.AMBROSIUM_TIKI_TORCH.get(), RenderType.cutout());
+
         LoreBookMenu.addLoreEntryOverride(registryAccess -> stack -> stack
                 .is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
 

@@ -1,0 +1,19 @@
+{
+  "type": "deep_aether:halloween_loot",
+  "chanceToSpawn": 0.5,
+  "conditions": [
+    {
+      "condition": "minecraft:killed_by_player"
+    }
+  ],
+  "items": [
+    {
+      "data": {
+        "count": 1,
+        "id": "aether:candy_cane"
+      },
+      "weight": 100
+    }
+  ],
+  "totalWeight": 100
+}

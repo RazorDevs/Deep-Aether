@@ -360,6 +360,8 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.SKYJADE_CHAIN.get());
         this.dropSelf(DABlocks.SKYJADE_LANTERN.get());
 
+        this.dropSelf(DABlocks.AMBROSIUM_TIKI_TORCH.get());
+
         this.dropOther(DABlocks.GOLDEN_DIRT_PATH.get(), AetherBlocks.AETHER_DIRT.get());
 
         this.dropOther(DABlocks.POISON_CAULDRON.get(), Blocks.CAULDRON.asItem());

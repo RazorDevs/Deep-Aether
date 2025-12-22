@@ -327,6 +327,7 @@ public class DATabs {
         }
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.getKey()) {
             addToTab(AetherBlocks.AMBROSIUM_TORCH.get().asItem(), new Block[]{
+                    DABlocks.AMBROSIUM_TIKI_TORCH.get(),
                     DABlocks.SKYJADE_LANTERN.get(),
                     DABlocks.SKYJADE_CHAIN.get()
             }, event);

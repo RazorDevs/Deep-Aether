@@ -4,6 +4,7 @@ package io.github.razordevs.deep_aether;
 import com.aetherteam.aether.block.dispenser.AetherDispenseBehaviors;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.genesis.entity.GenesisEntityTypes;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
@@ -102,7 +103,7 @@ public class DeepAether {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final String MOD_VERSION = "1.1.4";
+	public static final String MOD_VERSION = "1.1.5";
 
 	// We lost hope on LC's side. Code removed and will be reintroduced in future versions if needed.
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
@@ -234,6 +235,12 @@ public class DeepAether {
 		this.getFlawlessBossDrop(AetherEntityTypes.VALKYRIE_QUEEN.get(), DeepAetherConfig.COMMON.valkyrie_queen_flawless_boss_drop.get(), DAItems.MEDAL_OF_HONOR.get());
 		this.getFlawlessBossDrop(AetherEntityTypes.SUN_SPIRIT.get(), DeepAetherConfig.COMMON.sun_spirit_flawless_boss_drop.get(), DAItems.SUN_CORE.get());
 		this.getFlawlessBossDrop(DAEntities.EOTS_CONTROLLER.get(), DeepAetherConfig.COMMON.eots_flawless_boss_drop.get(), DAItems.FLOATY_SCARF.get());
+
+		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)){
+			this.getFlawlessBossDrop(GenesisEntityTypes.SENTRY_GUARDIAN.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.SENTRY_ALARM.get());
+			this.getFlawlessBossDrop(GenesisEntityTypes.SLIDER_HOST_MIMIC.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.MIMIC_EYE.get());
+			this.getFlawlessBossDrop(GenesisEntityTypes.LABYRINTH_EYE.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.MAGNETIC_COG.get());
+		}
 	}
 
 	private void registerFluidInteractions(){

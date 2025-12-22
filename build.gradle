@@ -102,10 +102,13 @@ dependencies {
     implementation("mezz.jei:jei-${project.mc_version}-neoforge:${project.jei_version}")
 
 
-    implementation "curse.maven:aether-protect-your-moa-1016303:6040716"
+    compileOnly "curse.maven:aether-protect-your-moa-1016303:6040716"
+    compileOnly "curse.maven:aether-emissivity-916028:6392126"
+    compileOnly "curse.maven:aether-treasure-reforging-1016302:6040710"
     implementation "com.aetherteam.beyondparity:aether_beyond_parity:${project.aether_beyond_parity_version}"
-    implementation "curse.maven:aether-emissivity-916028:6392126"
-    implementation "curse.maven:aether-treasure-reforging-1016302:6040710"
+    //implementation "com.aetherteam.genesis:aether-genesis:${project.aether_genesis_version}"
+
+    compileOnly "com.aetherteam.genesis:aether_genesis:1.21.1-0.0.1-neoforge"
 }
 
 repositories {
@@ -114,6 +117,7 @@ repositories {
     maven { url = "https://packages.aether-mod.net/Treasure-Reforging" }
     maven { url = "https://packages.aether-mod.net/Protect-Your-Moa" }
     maven { url = "https://packages.aether-mod.net/Beyond-Parity" }
+    maven { url = "https://packages.aether-mod.net/The-Aether-Genesis" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.wispforest.io" }
