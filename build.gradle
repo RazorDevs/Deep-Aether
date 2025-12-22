@@ -5,7 +5,6 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.moddev' version "${moddevgradle_version}"
-    id 'io.github.0ffz.github-packages' version '[1,2)'
 }
 
 tasks.named('wrapper', Wrapper).configure {
