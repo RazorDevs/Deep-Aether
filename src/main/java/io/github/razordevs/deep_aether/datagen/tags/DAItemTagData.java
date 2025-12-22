@@ -623,6 +623,8 @@ public class DAItemTagData extends ItemTagsProvider {
                 DAItems.MUSIC_DISC_HIMININN.get(),
                 DAItems.MUSIC_DISC_NABOORU.get()
         );
+        tag(AetherTags.Items.ACCEPTED_MUSIC_DISCS).remove(Items.MUSIC_DISC_OTHERSIDE).remove(Items.MUSIC_DISC_PIGSTEP);
+
 
         tag(DATags.Items.POISON_BUCKET).add(
                 DAItems.PLACEABLE_POISON_BUCKET.get(),
