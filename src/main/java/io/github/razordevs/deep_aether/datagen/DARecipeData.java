@@ -682,14 +682,6 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DATags.Items.POISON_BUCKET), has(DATags.Items.POISON_BUCKET))
                 .save(consumer, name("poison_dart"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Blocks.CRAFTING_TABLE, 1)
-                .group("minecraft:crafting_table")
-                .define('P', AetherTags.Items.PLANKS_CRAFTING)
-                .pattern("PP")
-                .pattern("PP")
-                .unlockedBy(getHasName(AetherBlocks.SKYROOT_PLANKS.get()), has(AetherBlocks.SKYROOT_PLANKS.get()))
-                .save(consumer, name("skyroot_crafting_table"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AERGLOW_BLOSSOM_BLOCK.get(), 1)
                 .define('A', DAItems.AERGLOW_BLOSSOM.get())
                 .pattern("AA")
