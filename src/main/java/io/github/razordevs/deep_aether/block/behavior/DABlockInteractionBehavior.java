@@ -2,12 +2,9 @@ package io.github.razordevs.deep_aether.block.behavior;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.aether.item.miscellaneous.AetherPortalItem;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
-import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.DABlocks;
-import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,10 +17,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
@@ -35,6 +32,7 @@ import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -72,11 +70,8 @@ public class DABlockInteractionBehavior {
         else if ((event.getFace() != Direction.DOWN && itemstack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER))) {
             handleWatterBottle(event, itemstack, pos, level, state, player);
         }
-        else if (itemstack.getItem() == AetherItems.SKYROOT_POISON_BUCKET.get()) {
+        else if (itemstack.is(AetherItems.SKYROOT_POISON_BUCKET.get())) {
             handleSkyrootPoisonBucket(event, itemstack, level, player);
-        }
-        else if ((itemstack.getItem() == AetherItems.SKYROOT_BUCKET.get())) {
-            handleSkyrootBucket(event, itemstack, level, player);
         }
     }
 
@@ -152,7 +147,7 @@ public class DABlockInteractionBehavior {
         if (blockRayTraceResult.getType() == HitResult.Type.MISS ||
                 blockRayTraceResult.getType() != HitResult.Type.BLOCK ||
                 blockHitState.getBlock() == Blocks.CAULDRON ||
-                (!(player.isShiftKeyDown()) && blockHitState.hasBlockEntity() && (level.getBlockEntity(blockRayTraceResult.getBlockPos()) instanceof MenuProvider))) {
+                (!(player.isShiftKeyDown()) && blockHitState.hasBlockEntity())) {
             event.setCancellationResult(InteractionResult.PASS);
         }
         else {
@@ -166,60 +161,14 @@ public class DABlockInteractionBehavior {
 
                 player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
                 if (!player.getAbilities().instabuild) {
-                    itemstack.shrink(1);
-                    ItemStack bucketStack = new ItemStack(AetherItems.SKYROOT_BUCKET.get());
-                    if (!player.addItem(bucketStack)) {
-                        Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bucketStack);
-                    }
+                    player.setItemInHand(player.getUsedItemHand(), ItemUtils.createFilledResult(itemstack, player, new ItemStack(AetherItems.SKYROOT_BUCKET.get())));
                 }
                 level.setBlockAndUpdate(relativePos, DABlocks.POISON_BLOCK.get().defaultBlockState());
                 level.playSound(null, relativePos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.gameEvent(null, GameEvent.FLUID_PLACE, relativePos);
                 event.setCancellationResult(InteractionResult.SUCCESS);
+                event.setCanceled(true);
             }
         }
     }
-
-    /**
-     * Handles the obtaining of poison and quicksand with a skyroot bucket
-     */
-    private static void handleSkyrootBucket(PlayerInteractEvent.RightClickBlock event, ItemStack itemstack, Level level, Player player) {
-        BlockHitResult blockhitresult = Item.getPlayerPOVHitResult(level, player, ClipContext.Fluid.NONE);
-        if (blockhitresult.getType() == HitResult.Type.MISS ||
-                level.getBlockState(blockhitresult.getBlockPos()).getBlock() == Blocks.AIR ||
-                level.getBlockState(blockhitresult.getBlockPos()).getBlock() == DABlocks.POISON_CAULDRON.get()) {
-            event.setCancellationResult(InteractionResult.PASS);
-        } else {
-            BlockPos blockpos = blockhitresult.getBlockPos();
-            Direction direction = blockhitresult.getDirection();
-            BlockPos relativePos = blockpos.relative(direction);
-
-            Item item = null;
-
-            if (level.getFluidState(relativePos).getFluidType() == DAFluidTypes.POISON_FLUID_TYPE.value()) {
-                item = AetherItems.SKYROOT_POISON_BUCKET.get();
-            } else if (level.getBlockState(blockpos).is(DABlocks.VIRULENT_QUICKSAND.get())){
-                item = DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get();
-                relativePos = blockpos;
-            }
-
-            System.out.println(item);
-
-            if(item != null)
-                skyrootBucketInteractionResult(event, level, relativePos, player, itemstack, item);
-        }
-    }
-
-    private static void skyrootBucketInteractionResult(PlayerInteractEvent.RightClickBlock event, Level level, BlockPos relativePos, Player player, ItemStack itemstack, Item item){
-        player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
-        if (!player.getAbilities().instabuild) {
-            itemstack.shrink(1);
-            ItemStack bucketStack = new ItemStack(item);
-            if (!player.addItem(bucketStack)) {
-                Containers.dropItemStack(player.level(), player.getX(), player.getY(), player.getZ(), bucketStack);
-            }
-        }
-        level.setBlockAndUpdate(relativePos, Blocks.AIR.defaultBlockState());
-        level.playSound(null, relativePos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-        event.setCancellationResult(InteractionResult.SUCCESS);
-    }
- }
+}

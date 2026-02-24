@@ -1,9 +1,9 @@
 {
   "values": [
     "deep_aether:trapped_nimbus_stone",
-    "deep_aether:trapped_skyroot_planks",
     "deep_aether:trapped_light_nimbus_stone",
     "deep_aether:trapped_nimbus_pillar",
-    "deep_aether:trapped_light_nimbus_pillar"
+    "deep_aether:trapped_light_nimbus_pillar",
+    "deep_aether:trapped_skyroot_planks"
   ]
 }

@@ -4,22 +4,34 @@ package io.github.razordevs.deep_aether;
 import com.aetherteam.aether.block.dispenser.AetherDispenseBehaviors;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.genesis.entity.GenesisEntityTypes;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
 import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.block.behavior.DADispenseBehaviors;
 import io.github.razordevs.deep_aether.block.behavior.DaCauldronInteraction;
-import io.github.razordevs.deep_aether.datagen.*;
+import io.github.razordevs.deep_aether.datagen.DABlockstateData;
+import io.github.razordevs.deep_aether.datagen.DADataMapData;
+import io.github.razordevs.deep_aether.datagen.DAItemModelData;
+import io.github.razordevs.deep_aether.datagen.DARecipeData;
+import io.github.razordevs.deep_aether.datagen.DARegistryDataGenerator;
 import io.github.razordevs.deep_aether.datagen.loot.DALootTableData;
 import io.github.razordevs.deep_aether.datagen.loot.modifiers.DAGlobalLootModifiers;
 import io.github.razordevs.deep_aether.datagen.loot.modifiers.DALootDataProvider;
-import io.github.razordevs.deep_aether.datagen.tags.*;
+import io.github.razordevs.deep_aether.datagen.tags.DABiomeTagData;
+import io.github.razordevs.deep_aether.datagen.tags.DABlockTagData;
+import io.github.razordevs.deep_aether.datagen.tags.DADamageTypeTags;
+import io.github.razordevs.deep_aether.datagen.tags.DAEntityTagData;
+import io.github.razordevs.deep_aether.datagen.tags.DAFluidTagData;
+import io.github.razordevs.deep_aether.datagen.tags.DAItemTagData;
+import io.github.razordevs.deep_aether.datagen.tags.DASoundTagData;
 import io.github.razordevs.deep_aether.event.DAGeneralEvents;
 import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.*;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.gear.DAArmorMaterials;
+import io.github.razordevs.deep_aether.item.misc.SkyrootPoisonBucketWrapper;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.packet.DAPlayerSyncPacket;
 import io.github.razordevs.deep_aether.recipe.DARecipeSerializers;
@@ -60,12 +72,15 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
+import net.neoforged.neoforge.fluids.capability.wrappers.FluidBucketWrapper;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -88,14 +103,18 @@ public class DeepAether {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final String MOD_VERSION = "1.1.0";
+	public static final String MOD_VERSION = "1.1.5";
+
+	// We lost hope on LC's side. Code removed and will be reintroduced in future versions if needed.
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";
+
 	public static final String AETHER_GENESIS = "aether_genesis";
 	public static final String AETHER_REDUX = "aether_redux";
 	public static final String ANCIENT_AETHER = "ancient_aether";
 	public static final String EMISSIVITY = "aether_emissivity";
 	public static final String PROTECT_YOUR_MOA = "aether_protect_your_moa";
 	public static final String TREASURE_REFORGING = "aether_treasure_reforging";
+    public static final String BEYOND_PARITY = "aether_beyond_parity";
 
 	private static final Calendar CALENDER = Calendar.getInstance();
 	public static final boolean IS_HALLOWEEN = ((CALENDER.get(Calendar.MONTH) == Calendar.OCTOBER && CALENDER.get(Calendar.DAY_OF_MONTH) > 20)
@@ -108,6 +127,7 @@ public class DeepAether {
 	public DeepAether(ModContainer mod, IEventBus bus, Dist dist) {
 		bus.addListener(this::dataSetup);
 		bus.addListener(this::commonSetup);
+        bus.addListener(this::registerCapabilities);
 		bus.addListener(this::registerPackets);
 		bus.addListener(this::addAetherAdditionalResourcesPack);
 
@@ -216,8 +236,11 @@ public class DeepAether {
 		this.getFlawlessBossDrop(AetherEntityTypes.SUN_SPIRIT.get(), DeepAetherConfig.COMMON.sun_spirit_flawless_boss_drop.get(), DAItems.SUN_CORE.get());
 		this.getFlawlessBossDrop(DAEntities.EOTS_CONTROLLER.get(), DeepAetherConfig.COMMON.eots_flawless_boss_drop.get(), DAItems.FLOATY_SCARF.get());
 
-		//if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)){}
-			//this.getFlawlessBossDrop(LCEntityTypes.AERWHALE_KING, DeepAetherConfig.COMMON.aerwhale_king_flawless_boss_drop.get(), DAItems.AERWHALE_SADDLE.get());
+		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)){
+			this.getFlawlessBossDrop(GenesisEntityTypes.SENTRY_GUARDIAN.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.SENTRY_ALARM.get());
+			this.getFlawlessBossDrop(GenesisEntityTypes.SLIDER_HOST_MIMIC.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.MIMIC_EYE.get());
+			this.getFlawlessBossDrop(GenesisEntityTypes.LABYRINTH_EYE.get(), DeepAetherConfig.COMMON.slider_flawless_boss_drop.get(), DAItems.MAGNETIC_COG.get());
+		}
 	}
 
 	private void registerFluidInteractions(){
@@ -231,6 +254,14 @@ public class DeepAether {
 				NeoForgeMod.LAVA_TYPE.value(), state -> Blocks.CRYING_OBSIDIAN.defaultBlockState()
 		));
 	}
+
+
+
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new FluidBucketWrapper(stack), DAItems.PLACEABLE_POISON_BUCKET.get());
+        event.registerItem(Capabilities.FluidHandler.ITEM, (stack, ctx) -> new SkyrootPoisonBucketWrapper(stack), AetherItems.SKYROOT_POISON_BUCKET.get());
+
+    }
 
 	private void getFlawlessBossDrop(EntityType<?> type, String string, Item fallBack) {
 		if(string.equals("null")) {
@@ -259,6 +290,8 @@ public class DeepAether {
 		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
 			setupCompatPack("overrides/deep_aether_additional_assets", "Deep Aether Additional Assets", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
 
+			setupCompatPack("client/deep_aether_tooltips", "Deep Aether Ability Tooltips", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, false);
+
 			if (ModList.get().isLoaded(EMISSIVITY))
 				setupCompatPack("overrides/deep_aether_emissivity", "Deep Aether Emissivity", event, PackType.CLIENT_RESOURCES, PackSource.BUILT_IN, true);
 
@@ -270,21 +303,24 @@ public class DeepAether {
 			if (ModList.get().isLoaded(PROTECT_YOUR_MOA))
 				setupCompatPack("compat_recipes/protect_your_moa_compat", "Deep Aether Protect Your Moa Compat", event);
 
-
 			if (ModList.get().isLoaded(AETHER_GENESIS))
 				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherGenesisFixData", "Deep Aether Golden Swet Ball Aether Genesis Fix", event);
 			else if (ModList.get().isLoaded(AETHER_REDUX))
 				setupCompatPack("overrides/golden_swet_ball/DAGoldenSwetBallAetherReduxFixData", "Deep Aether Golden Swet Ball Aether Redux Fix", event);
 
-			if (ModList.get().isLoaded(LOST_AETHER_CONTENT))
-				setupCompatPack("compat_recipes/aether_lost_content_compat", "Lost Aether Content Compat", event);
-			else setupCompatPack("compat_recipes/aether_lost_content_not_compat", "Deep Aether Aerwhale Saddle Recipe", event);
+
+			setupCompatPack("compat_recipes/aether_lost_content_not_compat", "Deep Aether Aerwhale Saddle Recipe", event);
 
 			if (ModList.get().isLoaded(AETHER_REDUX))
 				setupCompatPack("compat_recipes/aether_redux_compat", "Aether Redux Compat", event);
 
 			if (ModList.get().isLoaded(ANCIENT_AETHER))
 				setupCompatPack("compat_recipes/ancient_aether_compat", "Ancient Aether Compat", event);
+
+            if (ModList.get().isLoaded(BEYOND_PARITY)) {
+                setupCompatPack("compat_recipes/beyond_parity_compat", "Beyond Parity Compat", event);
+            }
+
 
 		}
 	}

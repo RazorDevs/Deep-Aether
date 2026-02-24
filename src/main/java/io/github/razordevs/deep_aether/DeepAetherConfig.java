@@ -12,7 +12,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_roseroot_forest_biomes;
         public final ConfigValue<Boolean> disable_yagroot_swap_biomes;
         public final ConfigValue<Boolean> disable_golden_heights_biomes;
-        public final ConfigValue<Boolean> disable_aerlavenender_field_biomes;
+        public final ConfigValue<Boolean> disable_aerlavender_field_biomes;
         public final ConfigValue<Boolean> disable_sacred_lands_biomes;
         public final ConfigValue<Boolean> disable_storm_cloud_and_skyroot_rainforest_biomes;
         public final ConfigValue<Integer> storm_cloud_biome_weight;
@@ -22,6 +22,9 @@ public class DeepAetherConfig {
         public final ConfigValue<String> sun_spirit_flawless_boss_drop;
         public final ConfigValue<String> eots_flawless_boss_drop;
         public final ConfigValue<String> aerwhale_king_flawless_boss_drop;
+        public final ConfigValue<String> slider_mimic_flawless_boss_drop;
+        public final ConfigValue<String> sentry_guardian_flawless_boss_drop;
+        public final ConfigValue<String> labyrinth_eye_flawless_boss_drop;
 
         public Common(ModConfigSpec.Builder builder) {
             builder.push("Gameplay");
@@ -59,6 +62,27 @@ public class DeepAetherConfig {
                     .define("Aerwhale King Flawless Boss Drop", "deep_aether:aerwhale_saddle");
             builder.pop();
 
+            builder.push("Gameplay");
+            slider_mimic_flawless_boss_drop= builder
+                    .comment("The item dropped when the Slider Host Mimic is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Slider Host Mimic. This Config Does nothing if Aether Genesis isn't installed.")
+                    .translation("config.deep_aether.common.flawless.slider_mimic_flawless_boss_drop")
+                    .define("Slider Host Mimic Flawless Boss Drop", "deep_aether:mimic_eye");
+            builder.pop();
+
+            builder.push("Gameplay");
+            sentry_guardian_flawless_boss_drop= builder
+                    .comment("The item dropped when the Sentry Guardian is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Sentry Guardian. This Config Does nothing if Aether Genesis isn't installed.")
+                    .translation("config.deep_aether.common.flawless.sentry_guardian_flawless_boss_drop")
+                    .define("Sentry Guardian Flawless Boss Drop", "deep_aether:sentry_alarm");
+            builder.pop();
+
+            builder.push("Gameplay");
+            labyrinth_eye_flawless_boss_drop = builder
+                    .comment("The item dropped when the Labyrinth Eye is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Labyrinth Eye. This Config Does nothing if Aether Genesis isn't installed.")
+                    .translation("config.deep_aether.common.flawless.labyrinth_eye_flawless_boss_drop")
+                    .define("Labyrinth Eye Flawless Boss Drop", "deep_aether:magnetic_cog");
+            builder.pop();
+
             builder.push("Biomes");
             deep_aether_biome_weight = builder
                     .comment("The weighting of Deep Aether regions in the aether")
@@ -89,7 +113,7 @@ public class DeepAetherConfig {
             builder.pop();
 
             builder.push("Biomes");
-            disable_aerlavenender_field_biomes = builder
+            disable_aerlavender_field_biomes = builder
                     .comment("Disables Aerlavender Fields biomes from generating. Might make some content unobtainable")
                     .translation("config.deep_aether.common.gameplay.disable_aerlavenender_field_biomes")
                     .define("Disable Aerlavender Fields Biomes", false);

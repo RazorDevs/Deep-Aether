@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/orientable",
+    "textures": {
+        "front": "deep_aether:block/carved_green_squash_side",
+        "side": "deep_aether:block/green_squash_side",
+        "top": "deep_aether:block/green_squash_top"
+    }
+}

@@ -1,3 +1,7 @@
 {
-  "parent": "deep_aether:block/sterling_aercloud"
+  "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "all": "deep_aether:block/sterling_aercloud"
+  }
 }

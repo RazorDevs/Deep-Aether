@@ -1,6 +1,6 @@
 package io.github.razordevs.deep_aether.mixin.entity;
 
-import io.github.razordevs.deep_aether.advancement.PoisonTrigger;
+import io.github.razordevs.deep_aether.advancement.DAAdvancementTriggers;
 import io.github.razordevs.deep_aether.entity.PoisonItem;
 import io.github.razordevs.deep_aether.recipe.DARecipeTypes;
 import io.github.razordevs.deep_aether.recipe.poison.PoisonRecipe;
@@ -48,7 +48,7 @@ public abstract class ItemEntityMixin extends Entity implements PoisonItem {
 
                 //Grants the "Purple Magic" advancement.
                 if (this.getOwner() instanceof ServerPlayer player) {
-                    PoisonTrigger.INSTANCE.trigger(player, this.getItem());
+                    DAAdvancementTriggers.POISON_TRIGGER.get().trigger(player, this.getItem());
                 }
 
                 this.spawnAtLocation(resultItem, 0);

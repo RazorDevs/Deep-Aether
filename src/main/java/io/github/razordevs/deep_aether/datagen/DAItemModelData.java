@@ -43,8 +43,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.ROSEROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.ROSEROOT_BUTTON.get(), DABlocks.ROSEROOT_PLANKS.get());
         this.itemBlock(DABlocks.ROSEROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.ROSEROOT_WOOD_WALL.get(), DABlocks.ROSEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.ROSEROOT_SAPLING.get());
         this.itemBlockFlat(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.itemBlock(DABlocks.ROSEROOT_LEAVES.get());
@@ -71,8 +71,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.YAGROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.YAGROOT_BUTTON.get(), DABlocks.YAGROOT_PLANKS.get());
         this.itemBlock(DABlocks.YAGROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.YAGROOT_WALL.get(), DABlocks.YAGROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_YAGROOT_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
+        this.itemWallBlock(DABlocks.YAGROOT_WOOD_WALL.get(), DABlocks.YAGROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.itemBlockFlat(DABlocks.YAGROOT_SAPLING.get());
         this.itemBlock(DABlocks.YAGROOT_LEAVES.get());
         this.item(DAItems.YAGROOT_SIGN.get());
@@ -96,8 +96,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CRUDEROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.CRUDEROOT_BUTTON.get(), DABlocks.CRUDEROOT_PLANKS.get());
         this.itemBlock(DABlocks.CRUDEROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.CRUDEROOT_WALL.get(), DABlocks.CRUDEROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_CRUDEROOT_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.CRUDEROOT_WOOD_WALL.get(), DABlocks.CRUDEROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.itemBlockFlat(DABlocks.CRUDEROOT_SAPLING.get());
         this.itemBlock(DABlocks.CRUDEROOT_LEAVES.get());
         this.item(DAItems.CRUDEROOT_SIGN.get());
@@ -119,8 +119,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CONBERRY_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.CONBERRY_BUTTON.get(), DABlocks.CONBERRY_PLANKS.get());
         this.itemBlock(DABlocks.CONBERRY_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.CONBERRY_WALL.get(), DABlocks.CONBERRY_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.itemWallBlock(DABlocks.CONBERRY_WOOD_WALL.get(), DABlocks.CONBERRY_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
         this.itemBlockFlat(DABlocks.CONBERRY_SAPLING.get());
         this.itemBlock(DABlocks.CONBERRY_LEAVES.get());
         this.item(DAItems.CONBERRY_SIGN.get());
@@ -142,8 +142,8 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.SUNROOT_TRAPDOOR.get(), "_bottom");
         this.itemButton(DABlocks.SUNROOT_BUTTON.get(), DABlocks.SUNROOT_PLANKS.get());
         this.itemBlock(DABlocks.SUNROOT_PRESSURE_PLATE.get());
-        this.itemWallBlock(DABlocks.SUNROOT_WALL.get(), DABlocks.SUNROOT_LOG.get());
-        this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.itemWallBlock(DABlocks.SUNROOT_WOOD_WALL.get(), DABlocks.SUNROOT_LOG.get());
+        this.itemWallBlock(DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
         this.itemBlockFlat(DABlocks.SUNROOT_SAPLING.get());
         this.itemBlock(DABlocks.SUNROOT_LEAVES.get());
         this.item(DAItems.SUNROOT_SIGN.get());
@@ -179,6 +179,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.POLISHED_ASETERITE.get());
         this.itemBlock(DABlocks.POLISHED_ASETERITE_STAIRS.get());
         this.itemBlock(DABlocks.POLISHED_ASETERITE_SLAB.get());
+        this.itemWallBlock(DABlocks.POLISHED_ASETERITE_WALL.get(), DABlocks.POLISHED_ASETERITE.get());
 
         this.itemBlock(DABlocks.ASETERITE_BRICKS.get());
         this.itemBlock(DABlocks.ASETERITE_BRICKS_STAIRS.get());
@@ -193,6 +194,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.CLORITE_SLAB.get());
         this.itemWallBlock(DABlocks.CLORITE_WALL.get(), DABlocks.CLORITE.get());
         this.itemWallBlock(DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
+        this.itemWallBlock(DABlocks.POLISHED_CLORITE_WALL.get(), DABlocks.POLISHED_CLORITE.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE_STAIRS.get());
         this.itemBlock(DABlocks.POLISHED_CLORITE_SLAB.get());
@@ -282,6 +284,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.itemBlock(DABlocks.GREEN_SQUASH.get());
         this.itemBlock(DABlocks.PURPLE_SQUASH.get());
 
+        this.itemBlock(DABlocks.CARVED_BLUE_SQUASH.get());
+        this.itemBlock(DABlocks.CARVED_GREEN_SQUASH.get());
+        this.itemBlock(DABlocks.CARVED_PURPLE_SQUASH.get());
+
         this.itemBlock(DABlocks.AETHER_MOSS_CARPET.get());
         this.itemBlock(DABlocks.CLOUDBLOOM_CARPET.get());
         this.itemBlock(DABlocks.AETHER_MOSS_BLOCK.get());
@@ -289,10 +295,10 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.VIRULENT_QUICKSAND_BUCKET.get());
         this.item(DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get());
 
-        this.itemBlock(DABlocks.RAIN_AERCLOUD.get());
-        this.itemBlock(DABlocks.AERSMOG.get());
-        this.itemBlock(DABlocks.STERLING_AERCLOUD.get());
-        this.itemBlock(DABlocks.CHROMATIC_AERCLOUD.get());
+        this.aercloudItem(DABlocks.RAIN_AERCLOUD.get());
+        this.aercloudItem(DABlocks.AERSMOG.get());
+        this.aercloudItem(DABlocks.STERLING_AERCLOUD.get());
+        this.aercloudItem(DABlocks.CHROMATIC_AERCLOUD.get());
         this.itemBlock(DABlocks.AERCLOUD_ROOT_CARPET.get());
         this.itemBlockFlat(DABlocks.PINK_AERCLOUD_MUSHROOMS.get());
         this.itemBlockFlat(DABlocks.BLUE_AERCLOUD_MUSHROOMS.get());
@@ -373,6 +379,7 @@ public class DAItemModelData extends AetherItemModelProvider {
 
         //Treasure Reforging compat
         this.item(DAItems.STORMFORGED_SMITHING_TEMPLATE.get());
+        this.item(DAItems.SQUALL_PLATE.get());
         this.itemBlock(DABlocks.SQUALL_BLOCK.get());
 
         //Food
@@ -442,6 +449,7 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.MUSIC_DISC_ABOVE_THE_RAIN.get());
         this.item(DAItems.AERGLOW_BLOSSOM.get());
         this.item(DAItems.PLACEABLE_POISON_BUCKET.get());
+        this.item(DAItems.REMEDY_BUCKET.get());
         this.item(DAItems.FROZEN_GOLDEN_BERRIES.get());
         this.itemBlock(DABlocks.COMBINER.get());
         this.item(DAItems.MUSIC_DISC_ATTA.get());
@@ -453,6 +461,10 @@ public class DAItemModelData extends AetherItemModelProvider {
 //        this.item(DAItems.BRONZE_COMPASS.get());
 //        this.item(DAItems.SILVER_COMPASS.get());
 //        this.item(DAItems.GOLD_COMPASS.get());
+    }
+
+    public void aercloudItem(Block block) {
+        this.withExistingParent(this.blockName(block), this.mcLoc("block/cube_all")).texture("all", this.texture(this.blockName(block))).renderType(ResourceLocation.withDefaultNamespace("translucent"));
     }
 
     public void translucentItem(Item item) {

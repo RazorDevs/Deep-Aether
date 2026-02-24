@@ -4,6 +4,8 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.protect_your_moa.item.ProtectItems;
+import com.aetherteam.treasure_reforging.block.ReforgingBlocks;
+import com.aetherteam.treasure_reforging.item.ReforgingItems;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.MoaFodder;
@@ -44,8 +46,6 @@ public class DATabs {
                     DABlocks.ROSEROOT_TRAPDOOR.get(),
                     DABlocks.ROSEROOT_PRESSURE_PLATE.get(),
                     DABlocks.ROSEROOT_BUTTON.get(),
-                    DABlocks.ROSEROOT_WALL.get(),
-                    DABlocks.STRIPPED_ROSEROOT_WALL.get(),
 
                     DABlocks.YAGROOT_LOG.get(),
                     DABlocks.YAGROOT_WOOD.get(),
@@ -60,8 +60,6 @@ public class DATabs {
                     DABlocks.YAGROOT_TRAPDOOR.get(),
                     DABlocks.YAGROOT_PRESSURE_PLATE.get(),
                     DABlocks.YAGROOT_BUTTON.get(),
-                    DABlocks.YAGROOT_WALL.get(),
-                    DABlocks.STRIPPED_YAGROOT_WALL.get(),
 
                     DABlocks.CRUDEROOT_LOG.get(),
                     DABlocks.CRUDEROOT_WOOD.get(),
@@ -75,8 +73,6 @@ public class DATabs {
                     DABlocks.CRUDEROOT_DOOR.get(),
                     DABlocks.CRUDEROOT_TRAPDOOR.get(),
                     DABlocks.CRUDEROOT_PRESSURE_PLATE.get(),
-                    DABlocks.CRUDEROOT_WALL.get(),
-                    DABlocks.STRIPPED_CRUDEROOT_WALL.get(),
                     DABlocks.CRUDEROOT_BUTTON.get(),
 
                     DABlocks.CONBERRY_LOG.get(),
@@ -91,8 +87,6 @@ public class DATabs {
                     DABlocks.CONBERRY_DOOR.get(),
                     DABlocks.CONBERRY_TRAPDOOR.get(),
                     DABlocks.CONBERRY_PRESSURE_PLATE.get(),
-                    DABlocks.CONBERRY_WALL.get(),
-                    DABlocks.STRIPPED_CONBERRY_WALL.get(),
                     DABlocks.CONBERRY_BUTTON.get(),
 
                     DABlocks.SUNROOT_LOG.get(),
@@ -107,8 +101,6 @@ public class DATabs {
                     DABlocks.SUNROOT_DOOR.get(),
                     DABlocks.SUNROOT_TRAPDOOR.get(),
                     DABlocks.SUNROOT_PRESSURE_PLATE.get(),
-                    DABlocks.SUNROOT_WALL.get(),
-                    DABlocks.STRIPPED_SUNROOT_WALL.get(),
                     DABlocks.SUNROOT_BUTTON.get(),
             }, event);
 
@@ -140,6 +132,7 @@ public class DATabs {
                     DABlocks.POLISHED_ASETERITE.get(),
                     DABlocks.POLISHED_ASETERITE_STAIRS.get(),
                     DABlocks.POLISHED_ASETERITE_SLAB.get(),
+                    DABlocks.POLISHED_ASETERITE_WALL.get(),
 
                     DABlocks.ASETERITE_BRICKS.get(),
                     DABlocks.ASETERITE_BRICKS_STAIRS.get(),
@@ -150,13 +143,17 @@ public class DATabs {
                     DABlocks.RAW_CLORITE_STAIRS.get(),
                     DABlocks.RAW_CLORITE_SLAB.get(),
                     DABlocks.RAW_CLORITE_WALL.get(),
+
                     DABlocks.CLORITE.get(),
                     DABlocks.CLORITE_STAIRS.get(),
                     DABlocks.CLORITE_SLAB.get(),
                     DABlocks.CLORITE_WALL.get(),
+
                     DABlocks.POLISHED_CLORITE.get(),
                     DABlocks.POLISHED_CLORITE_STAIRS.get(),
                     DABlocks.POLISHED_CLORITE_SLAB.get(),
+                    DABlocks.POLISHED_CLORITE_WALL.get(),
+
                     DABlocks.CLORITE_PILLAR.get(),
 
             }, event);
@@ -204,6 +201,37 @@ public class DATabs {
             addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(), DABlocks.SKYJADE_BLOCK.get().asItem(), event);
 
             addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.STRATUS_BLOCK.get().asItem(), event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingBlocks.PYRAL_BLOCK.asItem(), DABlocks.SQUALL_BLOCK.asItem(), event);
+            }
+
+            if(ModList.get().isLoaded(DeepAether.BEYOND_PARITY)) {
+                addToTab(DABlocks.ROSEROOT_LOG.asItem(), DABlocks.ROSEROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_ROSEROOT_LOG.asItem(), DABlocks.STRIPPED_ROSEROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.ROSEROOT_WOOD.asItem(), DABlocks.ROSEROOT_WOOD_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_ROSEROOT_WOOD.asItem(), DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.asItem(), event);
+
+                addToTab(DABlocks.YAGROOT_LOG.asItem(), DABlocks.YAGROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_YAGROOT_LOG.asItem(), DABlocks.STRIPPED_YAGROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.YAGROOT_WOOD.asItem(), DABlocks.YAGROOT_WOOD_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_YAGROOT_WOOD.asItem(), DABlocks.STRIPPED_YAGROOT_WOOD_WALL.asItem(), event);
+
+                addToTab(DABlocks.CRUDEROOT_LOG.asItem(), DABlocks.CRUDEROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_CRUDEROOT_LOG.asItem(), DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.CRUDEROOT_WOOD.asItem(), DABlocks.CRUDEROOT_WOOD_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_CRUDEROOT_WOOD.asItem(), DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.asItem(), event);
+
+                addToTab(DABlocks.CONBERRY_LOG.asItem(), DABlocks.CONBERRY_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_CONBERRY_LOG.asItem(), DABlocks.STRIPPED_CONBERRY_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.CONBERRY_WOOD.asItem(), DABlocks.CONBERRY_WOOD_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_CONBERRY_WOOD.asItem(), DABlocks.STRIPPED_CONBERRY_WOOD_WALL.asItem(), event);
+
+                addToTab(DABlocks.SUNROOT_LOG.asItem(), DABlocks.SUNROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_SUNROOT_LOG.asItem(), DABlocks.STRIPPED_SUNROOT_LOG_WALL.asItem(), event);
+                addToTab(DABlocks.SUNROOT_WOOD.asItem(), DABlocks.SUNROOT_WOOD_WALL.asItem(), event);
+                addToTab(DABlocks.STRIPPED_SUNROOT_WOOD.asItem(), DABlocks.STRIPPED_SUNROOT_WOOD_WALL.asItem(), event);
+            }
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
@@ -282,7 +310,13 @@ public class DATabs {
                     DABlocks.MINI_GOLDEN_GRASS.get(),
                     DABlocks.SHORT_GOLDEN_GRASS.get(),
                     DABlocks.MEDIUM_GOLDEN_GRASS.get(),
-                    DABlocks.TALL_GOLDEN_GRASS.get()
+                    DABlocks.TALL_GOLDEN_GRASS.get(),
+                    DABlocks.BLUE_SQUASH.get(),
+                    DABlocks.GREEN_SQUASH.get(),
+                    DABlocks.PURPLE_SQUASH.get(),
+                    DABlocks.CARVED_BLUE_SQUASH.get(),
+                    DABlocks.CARVED_GREEN_SQUASH.get(),
+                    DABlocks.CARVED_PURPLE_SQUASH.get()
             }, event);
 
             addToTab(AetherBlocks.GOLDEN_AERCLOUD.get().asItem(), new Block[]{
@@ -293,6 +327,7 @@ public class DATabs {
         }
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.getKey()) {
             addToTab(AetherBlocks.AMBROSIUM_TORCH.get().asItem(), new Block[]{
+                    DABlocks.AMBROSIUM_TIKI_TORCH.get(),
                     DABlocks.SKYJADE_LANTERN.get(),
                     DABlocks.SKYJADE_CHAIN.get()
             }, event);
@@ -332,10 +367,6 @@ public class DATabs {
             }, event);
 
 
-            //if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-                //addToTab(DAItems.SKYJADE_TOOLS_HOE.get(), DAItems.SKYJADE_SHIELD.get(), event);
-            //}
-
             addToTab(AetherItems.GRAVITITE_HOE.get(), new Item[]{
                     DAItems.STRATUS_SWORD.get(),
                     DAItems.STRATUS_SHOVEL.get(),
@@ -346,19 +377,18 @@ public class DATabs {
 
             addToTab(AetherItems.BRONZE_DUNGEON_KEY.get(), DAItems.BRASS_DUNGEON_KEY.get(), event);
 
-            //if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-                //addToTab(DAItems.STRATUS_HOE.get(), DAItems.STRATUS_SHIELD.get(), event);
-            //}
-
             addToTab(AetherItems.SKYROOT_POWDER_SNOW_BUCKET.get(), DAItems.SKYROOT_VIRULENT_QUICKSAND_BUCKET.get(), event);
 
             addToTab(AetherItems.SKYROOT_AXOLOTL_BUCKET.get(), DAItems.SKYROOT_AERGLOW_FISH_BUCKET.get(), event);
             addToTab(AetherItems.SKYROOT_POISON_BUCKET.get(), new Item[]{
                     DAItems.VIRULENT_QUICKSAND_BUCKET.get(),
+                    DAItems.REMEDY_BUCKET.get(),
                     DAItems.PLACEABLE_POISON_BUCKET.get(),
                     DAItems.AERGLOW_FISH_BUCKET.get()
             }, event);
+
             addToTab(AetherItems.BLACK_MOA_EGG.get(), DAItems.QUAIL_EGG.get(), event);
+
             addToTab(AetherItems.SKYROOT_CHEST_BOAT.get(), new Item[]{
                     DAItems.ROSEROOT_BOAT.get(),
                     DAItems.ROSEROOT_CHEST_BOAT.get(),
@@ -382,7 +412,12 @@ public class DATabs {
                     DAItems.MUSIC_DISC_HIMININN.get()
 
             }, event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingItems.PHOENIX_UPGRADE_SMITHING_TEMPLATE.asItem(), DAItems.STORMFORGED_SMITHING_TEMPLATE.asItem(), event);
+            }
         }
+
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey()) {
             addToTab(AetherItems.ZANITE_GLOVES.get(), new Item[]{
                     DAItems.SKYJADE_HELMET.get(),
@@ -480,7 +515,12 @@ public class DATabs {
                     DAItems.STRATUS_SMITHING_TEMPLATE.get(),
                     DAItems.STORMFORGED_SMITHING_TEMPLATE.get()
             }, event);
+
+            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
+                addToTab(ReforgingItems.PYRAL_INGOT.asItem(), DAItems.SQUALL_PLATE.asItem(), event);
+            }
         }
+
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {
             addToTab(AetherItems.AERBUNNY_SPAWN_EGG.get(), new Item[]{
                     DAItems.AETHER_FISH_SPAWN_EGG.get()

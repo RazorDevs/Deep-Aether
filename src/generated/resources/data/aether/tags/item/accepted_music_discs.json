@@ -1,0 +1,7 @@
+{
+  "remove": [
+    "minecraft:music_disc_otherside",
+    "minecraft:music_disc_pigstep"
+  ],
+  "values": []
+}

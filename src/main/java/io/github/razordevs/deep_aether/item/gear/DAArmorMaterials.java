@@ -33,13 +33,13 @@ public class DAArmorMaterials {
 
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> STORMFORGED = ARMOR_MATERIALS.register("stormforged", () -> new ArmorMaterial(
             Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
-                map.put(ArmorItem.Type.BOOTS, 3);
-                map.put(ArmorItem.Type.LEGGINGS, 6);
-                map.put(ArmorItem.Type.CHESTPLATE, 8);
+                map.put(ArmorItem.Type.BOOTS, 2);
+                map.put(ArmorItem.Type.LEGGINGS, 5);
+                map.put(ArmorItem.Type.CHESTPLATE, 7);
                 map.put(ArmorItem.Type.HELMET, 3);
-            }), 10, DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, ()->Ingredient.of(ItemStack.EMPTY),
+            }), 15, DASounds.ITEM_ARMOR_EQUIP_STORMFORGED, ()->Ingredient.of(ItemStack.EMPTY),
             List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "stormforged"))),
-            1.5F, 0.15F
+            0F, 0.15F
     ));
 
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> SKYJADE = ARMOR_MATERIALS.register("skyjade", () -> new ArmorMaterial(

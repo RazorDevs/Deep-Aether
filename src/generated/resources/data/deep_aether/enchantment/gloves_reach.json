@@ -3,20 +3,6 @@
   "description": {
     "translate": "enchantment.deep_aether.gloves_reach"
   },
-  "effects": {
-    "minecraft:attributes": [
-      {
-        "amount": {
-          "type": "minecraft:linear",
-          "base": 1.0,
-          "per_level_above_first": 1.0
-        },
-        "attribute": "minecraft:player.block_interaction_range",
-        "id": "deep_aether:gloves_reach",
-        "operation": "add_value"
-      }
-    ]
-  },
   "max_cost": {
     "base": 75,
     "per_level_above_first": 25

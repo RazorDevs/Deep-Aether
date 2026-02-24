@@ -1,5 +1,6 @@
 package io.github.razordevs.deep_aether.block.natural;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import io.github.razordevs.deep_aether.datagen.registry.DAPlacedFeatures;
 import io.github.razordevs.deep_aether.init.DABlocks;
@@ -82,7 +83,7 @@ public class GoldenGrassBlock extends AetherGrassBlock {
         } else if (ItemAbilities.HOE_TILL == itemAbility) {
             Block block = state.getBlock();
             if (block == this && context.getLevel().getBlockState(context.getClickedPos().above()).isAir()) {
-                return Blocks.FARMLAND.defaultBlockState();
+                return AetherBlocks.AETHER_FARMLAND.get().defaultBlockState();
             }
         }
         return super.getToolModifiedState(state, context, itemAbility, simulate);

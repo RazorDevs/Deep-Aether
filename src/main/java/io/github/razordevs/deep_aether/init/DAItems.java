@@ -9,6 +9,7 @@ import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.components.AetherDataComponents;
 import com.aetherteam.aether.item.components.DungeonKind;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
+import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootMobBucketItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootSolidBucketItem;
 import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import io.github.razordevs.deep_aether.DeepAether;
@@ -26,13 +27,17 @@ import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -128,8 +133,17 @@ public class DAItems {
 
 	public static final DeferredItem<Item> BIO_CRYSTAL = ITEMS.register("bio_crystal", () -> new Item(new Item.Properties()));
 
-	public static final DeferredItem<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new DASkyrootBucketItem(DAEntities.AERGLOW_FISH.get(), (new Item.Properties()).craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
-	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new DABucketItem(DAEntities.AERGLOW_FISH.get(), (new Item.Properties()).stacksTo(1)));
+	public static final DeferredItem<Item> SKYROOT_AERGLOW_FISH_BUCKET = ITEMS.register("skyroot_aerglow_fish_bucket", () ->  new SkyrootMobBucketItem(
+			DAEntities.AERGLOW_FISH.get(),
+			Fluids.WATER,
+			SoundEvents.BUCKET_EMPTY_FISH,
+			new Item.Properties().craftRemainder(AetherItems.SKYROOT_BUCKET.get()).stacksTo(1)));
+
+	public static final DeferredItem<Item> AERGLOW_FISH_BUCKET = ITEMS.register("aerglow_fish_bucket", () -> new MobBucketItem(
+			DAEntities.AERGLOW_FISH.get(),
+			Fluids.WATER,
+			SoundEvents.BUCKET_EMPTY_FISH,
+			new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY)));
 
 	// MOA FODDER
 	public static final DeferredItem<Item> MOA_FODDER = ITEMS.register("moa_fodder", () -> new FodderItem(new Item.Properties()));
@@ -200,11 +214,16 @@ public class DAItems {
 			() -> new Item( new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(DAJukeboxSongs.ABOVE_THE_RAIN)));
 
 
+	//TODO: Possible Iron bucket for remedy?
 
 	public static final DeferredItem<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
-			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID.get(), new Item.Properties().stacksTo(1)));
+			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID.get(), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
 
-	public static final DeferredItem<Item> VIRULENT_QUICKSAND_BUCKET = ITEMS.register("virulent_quicksand_bucket",
+    public static final DeferredItem<Item> REMEDY_BUCKET = ITEMS.register("remedy_bucket",
+            () -> new IronRemedyBucketItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+
+
+    public static final DeferredItem<Item> VIRULENT_QUICKSAND_BUCKET = ITEMS.register("virulent_quicksand_bucket",
 			() -> new SolidBucketItem(DABlocks.VIRULENT_QUICKSAND.get(), SoundEvents.SAND_BREAK, new Item.Properties().stacksTo(1)));
 
 	public static final DeferredItem<Item> SKYROOT_VIRULENT_QUICKSAND_BUCKET = ITEMS.register("skyroot_virulent_quicksand_bucket",
@@ -213,8 +232,8 @@ public class DAItems {
 	public static final DeferredItem<Item> AERGLOW_BLOSSOM = ITEMS.register("aerglow_blossom", () -> new Item(new Item.Properties()));
 	public static final DeferredItem<Item> GOLDEN_BERRIES = ITEMS.register("goldenleaf_berries", ()-> new ItemNameBlockItem(DABlocks.GOLDEN_VINES.get(), (new Item.Properties()).food(DAFoods.GOLDEN_BERRIES)));
 	public static final DeferredItem<Item> FROZEN_GOLDEN_BERRIES = ITEMS.register("frozen_goldenleaf_berries", ()-> new Item(new Item.Properties()));
-	public static final DeferredItem<Item> ANTIDOTE = ITEMS.register("antidote", ()-> new AntidoteItem(false, new Item.Properties().stacksTo(16).food(DAFoods.ANTIDOTE)));
-	public static final DeferredItem<Item> ENCHANTED_ANTIDOTE = ITEMS.register("enchanted_antidote",()-> new AntidoteItem(true, new Item.Properties().stacksTo(16).food(DAFoods.ENCHANTED_ANTIDOTE)));
+	public static final DeferredItem<Item> ANTIDOTE = ITEMS.register("antidote", ()-> new AntidoteItem(false, new Item.Properties().stacksTo(16).food(DAFoods.ANTIDOTE), new MobEffectInstance(AetherEffects.REMEDY, 300, 0)));
+	public static final DeferredItem<Item> ENCHANTED_ANTIDOTE = ITEMS.register("enchanted_antidote",()-> new AntidoteItem(true, new Item.Properties().stacksTo(16).food(DAFoods.ENCHANTED_ANTIDOTE), new MobEffectInstance(AetherEffects.REMEDY, 600, 0)));
 
 	public static final DeferredItem<Item> GOLDEN_GRASS_SEEDS = ITEMS.register("golden_grass_seeds", ()-> new Item(new Item.Properties()));
 	public static final DeferredItem<Item> GOLDEN_SWET_BALL = ITEMS.register("golden_swet_ball", ()-> new GoldenSwetBallItem(new Item.Properties()));
@@ -224,10 +243,13 @@ public class DAItems {
 
 	public static final DeferredItem<Item> CHAOS_EMERALD = ITEMS.register("chaos_emerald", () -> new ChaosEmerald(new Item.Properties()));
 
+	public static final DeferredItem<Item> GLOWING_SPORES = ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
+
+
 	//ADDONS
 
 	//PROTECT YOUR MOA
-	public static final DeferredItem<Item> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, DeepAether.getResource( "textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<?> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, DeepAether.getResource("textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
 
 	//TREASURE REFORGING
 	public static final DeferredItem<Item> SQUALL_PLATE = registerTRItem("squall_plate", ()-> new Item( new Item.Properties()));
@@ -237,11 +259,12 @@ public class DAItems {
 			SmithingTemplateItem.createNetheriteUpgradeIconList(),  SmithingTemplateItem.createNetheriteUpgradeMaterialList())
 	);
 
-	//LOST CONTENT
-	/*
-	public static final DeferredItem<Item> SKYJADE_SHIELD = registerLCItem("skyjade_shield", () -> new SkyjadeShieldItem(new Item.Properties().durability(672)));
-	public static final DeferredItem<Item> STRATUS_SHIELD = registerLCItem("stratus_shield", () -> new LCDAShieldItem(new Item.Properties().durability(1344)));
-	*/
+	//GENESIS
+	public static final DeferredItem<Item> MAGNETIC_COG = ITEMS.register("magnetic_cog", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> MAGNETIC_STAFF = ITEMS.register("magnetic_staff", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> SENTRY_ALARM = ITEMS.register("sentry_alarm", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+	public static final DeferredItem<Item> MIMIC_EYE = ITEMS.register("mimic_eye", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
+
 
 	//Deep Aether 1.2/Experimental
 	public static final DeferredItem<Item> SUN_CLOCK = ITEMS.register("sun_clock", ()-> new SunClock(new Item.Properties()));
@@ -276,18 +299,11 @@ public class DAItems {
 		SkyrootBucketItem.REPLACEMENTS.put(DAItems.PLACEABLE_POISON_BUCKET, AetherItems.SKYROOT_POISON_BUCKET);
 	}
 
-	private static DeferredItem<Item> registerLCItem(String name, Supplier<Item> item) {
-		if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-			DeepAether.LOGGER.info("Deep Aether: Registering Aether Lost Content compat items");
-			return ITEMS.register(name, item);
-		}
-		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
-	}
-
-	private static DeferredItem<Item> registerPYMItem(String name, Supplier<Item> item) {
+	@SuppressWarnings({"unchecked", "SameParameterValue"})
+    private static DeferredItem<?> registerPYMItem(String name, Supplier<?> item) {
 		if(ModList.get().isLoaded(DeepAether.PROTECT_YOUR_MOA)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Protect Your Moa compat items");
-			return ITEMS.register(name, item);
+			return ITEMS.register(name, (Supplier<? extends Item>) item);
 		}
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
 	}
@@ -295,6 +311,14 @@ public class DAItems {
 	private static DeferredItem<Item> registerTRItem(String name, Supplier<Item> item) {
 		if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
 			DeepAether.LOGGER.info("Deep Aether: Registering Treasure Reforging compat items");
+			return ITEMS.register(name, item);
+		}
+		return ITEMS.register(name, ()-> new Item(new Item.Properties()));
+	}
+
+	private static DeferredItem<Item> registerGenesisItem(String name, Supplier<Item> item) {
+		if(ModList.get().isLoaded(DeepAether.AETHER_GENESIS)) {
+			DeepAether.LOGGER.info("Deep Aether: Registering Aether Genesis compat items");
 			return ITEMS.register(name, item);
 		}
 		return ITEMS.register(name, ()-> new Item(new Item.Properties()));

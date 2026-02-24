@@ -6,6 +6,8 @@ import io.github.razordevs.deep_aether.init.DAFluids;
 import io.github.razordevs.deep_aether.init.DAItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
@@ -22,6 +24,8 @@ import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.fluids.FluidType;
 
+import java.util.Optional;
+
 public abstract class PoisonFluid extends FlowingFluid {
 
     @Override
@@ -33,6 +37,7 @@ public abstract class PoisonFluid extends FlowingFluid {
     protected void beforeDestroyingBlock(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
         this.fizz(pLevel, pPos);
     }
+
     @Override
     public Fluid getFlowing() {
         return DAFluids.POISON_FLOWING.get();
@@ -100,6 +105,10 @@ public abstract class PoisonFluid extends FlowingFluid {
     @Override
     public Item getBucket() {
         return DAItems.PLACEABLE_POISON_BUCKET.get();
+    }
+
+    public Optional<SoundEvent> getPickupSound() {
+        return Optional.of(SoundEvents.BUCKET_FILL);
     }
 
     @Override

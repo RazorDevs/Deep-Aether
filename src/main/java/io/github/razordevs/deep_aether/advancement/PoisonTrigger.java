@@ -12,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import java.util.Optional;
 
 public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance> {
-    public static final PoisonTrigger INSTANCE = new PoisonTrigger();
 
     @Override
     public Codec<Instance> codec() {
@@ -22,6 +21,7 @@ public class PoisonTrigger extends SimpleCriterionTrigger<PoisonTrigger.Instance
     public void trigger(ServerPlayer player, ItemStack stack) {
         this.trigger(player, (instance) -> instance.test(stack));
     }
+
     public record Instance(Optional<ContextAwarePredicate> player, Optional<ItemPredicate> item) implements SimpleInstance {
         public static final Codec<Instance> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                         EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(PoisonTrigger.Instance::player),

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enchanted_dart_shooter": {
+      "conditions": {
+        "items": [
+          {
+            "items": "aether:enchanted_dart_shooter"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:golden_dart_shooter_from_poison"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enchanted_dart_shooter"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:golden_dart_shooter_from_poison"
+    ]
+  }
+}

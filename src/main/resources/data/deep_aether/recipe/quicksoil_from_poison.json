@@ -1,9 +1,0 @@
-{
-  "type": "deep_aether:poison_recipe",
-  "ingredient": {
-    "item": "aether:quicksoil_glass"
-  },
-  "result": {
-    "id": "aether:quicksoil"
-  }
-}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enchanted_berry": {
+      "conditions": {
+        "items": [
+          {
+            "items": "aether:enchanted_berry"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:blueberry_from_poison"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enchanted_berry"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:blueberry_from_poison"
+    ]
+  }
+}

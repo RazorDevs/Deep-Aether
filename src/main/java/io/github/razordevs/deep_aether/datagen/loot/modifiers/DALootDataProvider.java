@@ -1,17 +1,27 @@
 package io.github.razordevs.deep_aether.datagen.loot.modifiers;
 
+import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.AetherLoot;
+import com.aetherteam.nitrogen.loot.modifiers.AddDungeonLootModifier;
 import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.datagen.loot.DALoot;
 import io.github.razordevs.deep_aether.init.DABlocks;
 import io.github.razordevs.deep_aether.init.DAItems;
+import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
+import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
+import net.neoforged.neoforge.common.data.internal.NeoForgeLootTableProvider;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
 import java.util.List;
@@ -92,6 +102,24 @@ public class DALootDataProvider extends GlobalLootModifierProvider {
                 ),
                 135,
                 0.75f
+        ));
+
+
+        this.add("stormforged_upgrade_treasure", new AddDungeonLootModifier(
+                        new LootItemCondition[] { LootTableIdCondition.builder(DALoot.BRASS_DUNGEON_REWARD.location()).build() },
+                        List.of(WeightedEntry.wrap(new ItemStack(DAItems.STORMFORGED_SMITHING_TEMPLATE.get()), 2)),
+                        UniformInt.of(1, 1)),
+                    new ModLoadedCondition(DeepAether.TREASURE_REFORGING)
+                );
+
+
+        this.add("halloween_loot_modifiers", new DAHalloweenLootModifier(
+                new LootItemCondition[] { LootItemKilledByPlayerCondition.killedByPlayer().build() },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(AetherItems.CANDY_CANE.get()), 100)
+                ),
+                100,
+                0.5f
         ));
     }
 }

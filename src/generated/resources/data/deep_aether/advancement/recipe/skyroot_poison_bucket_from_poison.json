@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_skyroot_remedy_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "aether:skyroot_remedy_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "deep_aether:skyroot_poison_bucket_from_poison"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_skyroot_remedy_bucket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "deep_aether:skyroot_poison_bucket_from_poison"
+    ]
+  }
+}

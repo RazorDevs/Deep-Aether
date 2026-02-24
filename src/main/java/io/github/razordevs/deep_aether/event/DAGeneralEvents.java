@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.event;
 
 import com.aetherteam.aether.entity.AetherBossMob;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.entity.monster.AechorPlant;
 import com.aetherteam.aether.event.BossFightEvent;
 import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
@@ -26,13 +27,13 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.EventPriority;
@@ -40,11 +41,21 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ItemAttributeModifierEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import net.neoforged.neoforge.event.entity.living.*;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @EventBusSubscriber(modid = DeepAether.MODID)
 public class DAGeneralEvents {
@@ -62,7 +73,7 @@ public class DAGeneralEvents {
         SlotEntryReference reference = DAEquipmentUtil.getFloatyScarf(player);
 
         if (reference != null) {
-            FloatyScarfItem.tryDiscardGentleWind(reference.stack(), player.level());
+            FloatyScarfItem.discardGentleWind(reference.stack(), player.level());
         }
     }
 
@@ -117,24 +128,6 @@ public class DAGeneralEvents {
             }
         }
     }
-/*
-    @SubscribeEvent
-    public static void onShieldBlock(ShieldBlockEvent event) {
-        var blocker = event.getEntity();
-        DamageSource source = event.getDamageSource();
-        if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-            if (blocker.getUseItem().is(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DeepAether.LOST_AETHER_CONTENT, "aether_shields")))) {
-                blocker.level().playSound(null, blocker.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, blocker.getSoundSource(), 0.4F, 0.8F + blocker.level().random.nextFloat() * 0.4F);
-
-                if (blocker.getUseItem().getItem() == DAItems.STRATUS_SHIELD.get() && source.getDirectEntity() instanceof LivingEntity attacker) {
-                    attacker.knockback(1.5F, blocker.getX() - attacker.getX(), blocker.getZ() - attacker.getZ());
-                    attacker.setPos(attacker.getX(), attacker.getY() + 1D, attacker.getZ());
-                    attacker.hasImpulse = true;
-                }
-            }
-        }
-    }
-*/
 
 
     @SubscribeEvent
@@ -237,6 +230,39 @@ public class DAGeneralEvents {
         }
     }
 
+
+    /**
+     * Mimics behavior of {@link AechorPlant#mobInteract(Player player, InteractionHand hand)} for vanilla Buckets
+     */
+    @SubscribeEvent
+    public static void mobInteract(PlayerInteractEvent.EntityInteractSpecific event) {
+        if (event.getTarget().getType() == AetherEntityTypes.AECHOR_PLANT.get()) {
+            AechorPlant aechorPlant = ((AechorPlant) event.getTarget());
+            Player player = event.getEntity();
+
+            ItemStack itemStack = player.getItemInHand(event.getHand());
+            if (itemStack.is(Items.BUCKET) && aechorPlant.getPoisonRemaining() > 0) {
+                aechorPlant.setPoisonRemaining(aechorPlant.getPoisonRemaining() - 1);
+                ItemStack itemStack1 = ItemUtils.createFilledResult(itemStack, player, DAItems.PLACEABLE_POISON_BUCKET.get().getDefaultInstance());
+                player.setItemInHand(event.getHand(), itemStack1);
+                player.swing(event.getHand());
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerUpdate(EntityTickEvent.Post event) {
+        if (event.getEntity().hasData(DAAttachments.PLAYER))
+            event.getEntity().getData(DAAttachments.PLAYER).onUpdate(((Player) event.getEntity()));
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        event.getEntity().getData(DAAttachments.PLAYER).onLogin(event.getEntity());
+    }
+
+
     private static int i = 0;
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -258,11 +284,11 @@ public class DAGeneralEvents {
             if (stack.is(DATags.Items.BRASS_DUNGEON_LOOT)) {
                 itemTooltips.add(position, DAItems.BRASS_DUNGEON_TOOLTIP);
             }
+        }
 
-            if (stack.is(DATags.Items.FLAWLESS_ITEMS)) {
-                flawlessComponent(itemTooltips, i);
-                i = i < 80 ? i + 1 : 0;
-            }
+        if (stack.is(DATags.Items.FLAWLESS_ITEMS)) {
+            flawlessComponent(itemTooltips, i);
+            i = i < 80 ? i + 1 : 0;
         }
     }
 
@@ -286,6 +312,6 @@ public class DAGeneralEvents {
     }
 
     private static void printComponent(List<Component> tagTooltips, int i){
-        tagTooltips.add(Component.translatable("gui.deep_aether.flawless_tier_" + i));
+        tagTooltips.add(1, Component.translatable("gui.deep_aether.flawless_tier_" + i));
     }
 }

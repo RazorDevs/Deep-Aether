@@ -12,6 +12,11 @@
     "deep_aether:aerglow_blossom_block",
     "deep_aether:conberry_leaves",
     "deep_aether:sunroot_leaves",
-    "deep_aether:sunroot_hanger"
+    "deep_aether:sunroot_hanger",
+    "deep_aether:chromatic_aercloud",
+    "deep_aether:sterling_aercloud",
+    "deep_aether:aersmog",
+    "deep_aether:aercloud_grass_block",
+    "deep_aether:rain_aercloud"
   ]
 }

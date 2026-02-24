@@ -34,15 +34,19 @@
         "trims/models/armor/raiser",
         "trims/models/armor/raiser_leggings",
         "trims/models/armor/host",
-        "trims/models/armor/host_leggings"
+        "trims/models/armor/host_leggings",
+        "trims/models/armor/bolt",
+        "trims/models/armor/bolt_leggings",
+        "trims/models/armor/flow",
+        "trims/models/armor/flow_leggings"
       ],
       "palette_key": "trims/color_palettes/trim_palette",
       "permutations": {
         "skyjade": "deep_aether:trims/color_palettes/skyjade",
         "skyjade_darker": "deep_aether:trims/color_palettes/skyjade_darker",
         "stratus": "deep_aether:trims/color_palettes/stratus",
-        "stratus_darker": "deep_aether:trims/color_palettes/stratus_darker"
-
+        "stratus_darker": "deep_aether:trims/color_palettes/stratus_darker",
+        "stormforged": "deep_aether:trims/color_palettes/stormforged"
       }
     }
   ]

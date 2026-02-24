@@ -196,7 +196,7 @@ public record DAChestLoot(HolderLookup.Provider registries) implements LootTable
                         .add(LootItem.lootTableItem(DABlocks.NIMBUS_STONE.get()).setWeight(1))
                         .add(LootItem.lootTableItem(DABlocks.NIMBUS_PILLAR.get()).setWeight(1))
                 )
-                .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(4.0F, 15.0F))
+                .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(3.0F, 6.0F))
                         //.add(LootItem.lootTableItem(AetherItems.LIGHTNING_KNIFE.get()).setWeight(5))
                         .add(LootItem.lootTableItem(AetherItems.GOLDEN_DART.get()).setWeight(3))
                         .add(LootItem.lootTableItem(Items.ARROW).setWeight(2))
@@ -219,6 +219,7 @@ public record DAChestLoot(HolderLookup.Provider registries) implements LootTable
                         .add(LootItem.lootTableItem(DAItems.STORMFORGED_GLOVES.get()).setWeight(1))
                 )
         );
+
         builder.accept(DALoot.BRASS_DUNGEON_GUMMIES, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(2.0F, 4.0F))
                         .add(LootItem.lootTableItem(AetherItems.BLUE_GUMMY_SWET.get()).setWeight(4))

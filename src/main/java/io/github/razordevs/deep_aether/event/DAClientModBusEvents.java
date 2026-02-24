@@ -12,6 +12,7 @@ import io.github.razordevs.deep_aether.client.particle.*;
 import io.github.razordevs.deep_aether.client.renderer.accessory.FloatyScarfRenderer;
 import io.github.razordevs.deep_aether.client.renderer.accessory.SkyjadeGlovesRenderer;
 import io.github.razordevs.deep_aether.client.renderer.accessory.WindShieldRenderer;
+import io.github.razordevs.deep_aether.entity.living.GentleWind;
 import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
 import io.github.razordevs.deep_aether.init.*;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
@@ -63,19 +64,6 @@ import javax.annotation.Nullable;
 @EventBusSubscriber(modid = DeepAether.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class DAClientModBusEvents {
 
-    /**
-     * See {@link com.legacy.lost_aether.client.LCEntityRendering}
-     */
-    //TODO: UPDATE WHEN LOST AETHER CONTENT HAS PORTED TO 1.20.4 (unlikely)
-    /*
-    @SubscribeEvent(priority = EventPriority.HIGHEST) //We want to ensure our event is loaded before LC's event.
-    public static void initPostLayers(final EntityRenderersEvent.RegisterLayerDefinitions event)
-    {
-        if(ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT))
-            event.registerLayerDefinition(AetherModelLayers.AERWHALE, AerwhaleModelOverrideOverrideLCCompat::createOverrideLayerButWithChest);
-    }
-    */
-
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
         registerAccessoriesRenderers();
@@ -84,6 +72,8 @@ public class DAClientModBusEvents {
 
         ItemBlockRenderTypes.setRenderLayer(DABlocks.SKYJADE_CHAIN.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(DABlocks.SKYJADE_LANTERN.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(DABlocks.AMBROSIUM_TIKI_TORCH.get(), RenderType.cutout());
 
         LoreBookMenu.addLoreEntryOverride(registryAccess -> stack -> stack
                 .is(DAItems.STORM_SWORD.get()) && stack.getHoverName().getString().equalsIgnoreCase("storm ruler"), "lore.item.deep_aether.storm_ruler");
@@ -94,10 +84,6 @@ public class DAClientModBusEvents {
             Sheets.addWoodType(DAWoodTypes.YAGROOT);
             Sheets.addWoodType(DAWoodTypes.CONBERRY);
             Sheets.addWoodType(DAWoodTypes.SUNROOT);
-
-            /*if (ModList.get().isLoaded(DeepAether.LOST_AETHER_CONTENT)) {
-                AddonItemModelPredicates.init();
-            }*/
 
             registerItemModelPredicates();
             Moa.registerJumpOverlayTextureOverride(ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "effect_extra_jumps"),
@@ -312,6 +298,8 @@ public class DAClientModBusEvents {
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         event.register((ItemStack pStack, int pTintIndex) -> 10021818, DABlocks.AERCLOUD_GRASS_BLOCK.get());
+        event.register((ItemStack stack, int tintindex) -> stack.has(DADataComponentTypes.FLOATY_SCARF) ?
+                GentleWind.getFromColor(stack.get(DADataComponentTypes.FLOATY_SCARF).colors(), tintindex) : -1, DAItems.FLOATY_SCARF.get());
     }
 
     /**

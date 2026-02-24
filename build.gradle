@@ -5,7 +5,6 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.neoforged.moddev' version "${moddevgradle_version}"
-    id 'io.github.0ffz.github-packages' version '[1,2)'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -33,6 +32,12 @@ neoForge {
         client {
             client()
             systemProperty 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        client2 {
+            client()
+            systemProperty 'forge.enabledGameTestNamespaces', mod_id
+            programArguments.addAll '--username', 'Dev2'
         }
 
         server {
@@ -93,16 +98,25 @@ dependencies {
 
     //Optional Dependencies
     compileOnly("mezz.jei:jei-${project.mc_version}-common-api:${project.jei_version}")
-    compileOnly("mezz.jei:jei-${project.mc_version}-neoforge:${project.jei_version}")
-    implementation "curse.maven:aether-protect-your-moa-1016303:6040716"
-    implementation "curse.maven:aether-treasure-reforging-1016302:6040710"
+    implementation("mezz.jei:jei-${project.mc_version}-neoforge:${project.jei_version}")
+
+
+    compileOnly "curse.maven:aether-protect-your-moa-1016303:6040716"
+    compileOnly "curse.maven:aether-emissivity-916028:6392126"
+    compileOnly "curse.maven:aether-treasure-reforging-1016302:6040710"
+    implementation "com.aetherteam.beyondparity:aether_beyond_parity:${project.aether_beyond_parity_version}"
+    //implementation "com.aetherteam.genesis:aether-genesis:${project.aether_genesis_version}"
+
+    compileOnly "com.aetherteam.genesis:aether_genesis:1.21.1-0.0.1-neoforge"
 }
 
 repositories {
-    maven githubPackage.invoke("The-Aether-Team/The-Aether")
-    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
-    maven githubPackage.invoke("The-Aether-Team/Cumulus")
-    maven githubPackage.invoke("The-Aether-Team/Protect-Your-Moa")
+    maven { url = "https://packages.aether-mod.net/The-Aether" }
+    maven { url = "https://packages.aether-mod.net/Emissivity" }
+    maven { url = "https://packages.aether-mod.net/Treasure-Reforging" }
+    maven { url = "https://packages.aether-mod.net/Protect-Your-Moa" }
+    maven { url = "https://packages.aether-mod.net/Beyond-Parity" }
+    maven { url = "https://packages.aether-mod.net/The-Aether-Genesis" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.wispforest.io" }
@@ -112,10 +126,6 @@ repositories {
     maven { url 'https://maven.fabricmc.net' }
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://jitpack.io" }
-    maven {
-        name "Modding Legacy Maven"
-        url "https://maven.moddinglegacy.com/maven"
-    }
     maven {
         url "https://cursemaven.com"
         content {

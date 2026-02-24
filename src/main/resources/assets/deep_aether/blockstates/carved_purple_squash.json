@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "deep_aether:block/carved_purple_squash",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "deep_aether:block/carved_purple_squash"
+    },
+    "facing=south": {
+      "model": "deep_aether:block/carved_purple_squash",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "deep_aether:block/carved_purple_squash",
+      "y": 270
+    }
+  }
+}

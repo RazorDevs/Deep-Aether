@@ -41,8 +41,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.trapdoorBlock((TrapDoorBlock) DABlocks.ROSEROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.ROSEROOT_TRAPDOOR.get())), false);
         this.buttonBlock((ButtonBlock) DABlocks.ROSEROOT_BUTTON.get(), this.texture(this.name(DABlocks.ROSEROOT_PLANKS.get())));
         this.pressurePlateBlock((PressurePlateBlock) DABlocks.ROSEROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.ROSEROOT_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.ROSEROOT_WALL.get(), DABlocks.ROSEROOT_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_ROSEROOT_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.ROSEROOT_WOOD_WALL.get(), DABlocks.ROSEROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_ROSEROOT_WOOD_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get());
         this.saplingBlock(DABlocks.ROSEROOT_SAPLING.get());
         this.saplingBlock(DABlocks.BLUE_ROSEROOT_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_ROSEROOT_SAPLING.get(), DABlocks.ROSEROOT_SAPLING.get());
@@ -69,8 +69,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.trapdoorBlock((TrapDoorBlock) DABlocks.YAGROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.YAGROOT_TRAPDOOR.get())), false);
         this.buttonBlock((ButtonBlock) DABlocks.YAGROOT_BUTTON.get(), this.texture(this.name(DABlocks.YAGROOT_PLANKS.get())));
         this.pressurePlateBlock((PressurePlateBlock) DABlocks.YAGROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.YAGROOT_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.YAGROOT_WALL.get(), DABlocks.YAGROOT_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_YAGROOT_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.YAGROOT_WOOD_WALL.get(), DABlocks.YAGROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_YAGROOT_WOOD_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get());
         this.saplingBlock(DABlocks.YAGROOT_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_YAGROOT_SAPLING.get(), DABlocks.YAGROOT_SAPLING.get());
         this.block(DABlocks.YAGROOT_LEAVES.get());
@@ -91,8 +91,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.trapdoorBlock((TrapDoorBlock) DABlocks.CRUDEROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.CRUDEROOT_TRAPDOOR.get())), false);
         this.buttonBlock((ButtonBlock) DABlocks.CRUDEROOT_BUTTON.get(), this.texture(this.name(DABlocks.CRUDEROOT_PLANKS.get())));
         this.pressurePlateBlock((PressurePlateBlock) DABlocks.CRUDEROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.CRUDEROOT_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.CRUDEROOT_WALL.get(), DABlocks.CRUDEROOT_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_CRUDEROOT_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.CRUDEROOT_WOOD_WALL.get(), DABlocks.CRUDEROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_CRUDEROOT_WOOD_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get());
         this.saplingBlock(DABlocks.CRUDEROOT_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_CRUDEROOT_SAPLING.get(), DABlocks.CRUDEROOT_SAPLING.get());
         this.block(DABlocks.CRUDEROOT_LEAVES.get());
@@ -114,8 +114,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.trapdoorBlock((TrapDoorBlock) DABlocks.CONBERRY_TRAPDOOR.get(), this.texture(this.name(DABlocks.CONBERRY_TRAPDOOR.get())), false);
         this.buttonBlock((ButtonBlock) DABlocks.CONBERRY_BUTTON.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
         this.pressurePlateBlock((PressurePlateBlock) DABlocks.CONBERRY_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.CONBERRY_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.CONBERRY_WALL.get(), DABlocks.CONBERRY_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_CONBERRY_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.CONBERRY_WOOD_WALL.get(), DABlocks.CONBERRY_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_CONBERRY_WOOD_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get());
         this.saplingBlock(DABlocks.CONBERRY_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_CONBERRY_SAPLING.get(), DABlocks.CONBERRY_SAPLING.get());
         this.block(DABlocks.CONBERRY_LEAVES.get());
@@ -137,8 +137,8 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.trapdoorBlock((TrapDoorBlock) DABlocks.SUNROOT_TRAPDOOR.get(), this.texture(this.name(DABlocks.SUNROOT_TRAPDOOR.get())), false);
         this.buttonBlock((ButtonBlock) DABlocks.SUNROOT_BUTTON.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
         this.pressurePlateBlock((PressurePlateBlock) DABlocks.SUNROOT_PRESSURE_PLATE.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
-        this.wallBlock((WallBlock) DABlocks.SUNROOT_WALL.get(), DABlocks.SUNROOT_LOG.get());
-        this.wallBlock((WallBlock) DABlocks.STRIPPED_SUNROOT_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.SUNROOT_WOOD_WALL.get(), DABlocks.SUNROOT_LOG.get());
+        this.wallBlock((WallBlock) DABlocks.STRIPPED_SUNROOT_WOOD_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get());
         this.saplingBlock(DABlocks.SUNROOT_SAPLING.get());
         this.pottedPlant(DABlocks.POTTED_SUNROOT_SAPLING.get(), DABlocks.SUNROOT_SAPLING.get());
         this.signBlock((StandingSignBlock) DABlocks.SUNROOT_SIGN.get(), (WallSignBlock) DABlocks.SUNROOT_WALL_SIGN.get(), this.texture(this.name(DABlocks.SUNROOT_PLANKS.get())));
@@ -171,6 +171,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.block(DABlocks.POLISHED_ASETERITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_ASETERITE_STAIRS.get(), DABlocks.POLISHED_ASETERITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_ASETERITE_SLAB.get(), DABlocks.POLISHED_ASETERITE.get());
+        this.wallBlock((WallBlock) DABlocks.POLISHED_ASETERITE_WALL.get(), DABlocks.POLISHED_ASETERITE.get());
         this.block(DABlocks.ASETERITE_BRICKS.get());
         this.stairs((StairBlock) DABlocks.ASETERITE_BRICKS_STAIRS.get(), DABlocks.ASETERITE_BRICKS.get());
         this.slab((SlabBlock) DABlocks.ASETERITE_BRICKS_SLAB.get(), DABlocks.ASETERITE_BRICKS.get());
@@ -184,6 +185,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.slab((SlabBlock) DABlocks.CLORITE_SLAB.get(), DABlocks.CLORITE.get());
         this.wallBlock((WallBlock) DABlocks.CLORITE_WALL.get(), DABlocks.CLORITE.get());
         this.wallBlock((WallBlock) DABlocks.RAW_CLORITE_WALL.get(), DABlocks.RAW_CLORITE.get());
+        this.wallBlock((WallBlock) DABlocks.POLISHED_CLORITE_WALL.get(), DABlocks.POLISHED_CLORITE.get());
         this.block(DABlocks.POLISHED_CLORITE.get());
         this.stairs((StairBlock) DABlocks.POLISHED_CLORITE_STAIRS.get(), DABlocks.POLISHED_CLORITE.get());
         this.slab((SlabBlock) DABlocks.POLISHED_CLORITE_SLAB.get(), DABlocks.POLISHED_CLORITE.get());
@@ -287,10 +289,10 @@ public class DABlockstateData extends AetherBlockStateProvider {
         this.dungeonBlock(DABlocks.TREASURE_DOORWAY_LIGHT_NIMBUS_PILLAR.get(), DABlocks.LIGHT_NIMBUS_PILLAR.get());
 
         //Misc
-        this.translucentBlock(DABlocks.RAIN_AERCLOUD.get());
-        this.translucentBlock(DABlocks.AERSMOG.get());
-        this.translucentBlock(DABlocks.CHROMATIC_AERCLOUD.get());
-        this.translucentBlock(DABlocks.STERLING_AERCLOUD.get());
+        this.aercloudAll(DABlocks.RAIN_AERCLOUD.get());
+        this.aercloudAll(DABlocks.AERSMOG.get());
+        this.aercloudAll(DABlocks.CHROMATIC_AERCLOUD.get());
+        this.aercloudAll(DABlocks.STERLING_AERCLOUD.get());
         this.combiner(DABlocks.COMBINER.get());
 
         //Moss
@@ -302,6 +304,12 @@ public class DABlockstateData extends AetherBlockStateProvider {
         //TREASURE REFORGING COMPATIBILITY
         this.block(DABlocks.SQUALL_BLOCK.get());
     }
+
+    public void aercloudAll(Block block) {
+        ResourceLocation texture = this.texture(this.name(block));
+        this.aercloud(block, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture, texture);
+    }
+
 
     public void dungeonBlock(Block block, Block baseBlock) {
         ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock))));
@@ -404,23 +412,23 @@ public class DABlockstateData extends AetherBlockStateProvider {
         ModelFile sideTallShort = this.makeWallSideModel(4, 16, "wooden_side_tall_short", ModelBuilder.FaceRotation.CLOCKWISE_90, 0, 4);
         ModelFile sideTallAltShort = this.makeWallSideModel(4, 16, "wooden_side_tall_alt_short", ModelBuilder.FaceRotation.COUNTERCLOCKWISE_90, 12, 16);
 
-        this.logWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.YAGROOT_LOG_WALL.get(), DABlocks.YAGROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.CONBERRY_LOG_WALL.get(), DABlocks.CONBERRY_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
-        this.logWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), "", DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.ROSEROOT_LOG_WALL.get(), DABlocks.ROSEROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.STRIPPED_ROSEROOT_LOG_WALL.get(), DABlocks.STRIPPED_ROSEROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.CRUDEROOT_LOG_WALL.get(), DABlocks.CRUDEROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.STRIPPED_CRUDEROOT_LOG_WALL.get(), DABlocks.STRIPPED_CRUDEROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.YAGROOT_LOG_WALL.get(), DABlocks.YAGROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.STRIPPED_YAGROOT_LOG_WALL.get(), DABlocks.STRIPPED_YAGROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.CONBERRY_LOG_WALL.get(), DABlocks.CONBERRY_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.STRIPPED_CONBERRY_LOG_WALL.get(), DABlocks.STRIPPED_CONBERRY_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.SUNROOT_LOG_WALL.get(), DABlocks.SUNROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+        this.logWallBlock(DABlocks.STRIPPED_SUNROOT_LOG_WALL.get(), DABlocks.STRIPPED_SUNROOT_LOG.get(), DeepAether.MODID, true, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
     }
 
-    public void logWallBlock(WallBlock block, Block baseBlock, String location, String modid, boolean postUsesTop, ModelFile postBig, ModelFile postShort, ModelFile postTall, ModelFile side, ModelFile sideAlt, ModelFile sideTall, ModelFile sideTallAlt, ModelFile sideShort, ModelFile sideAltShort, ModelFile sideTallShort, ModelFile sideTallAltShort) {
-        this.logWallBlockInternal(block, this.name(block), ResourceLocation.fromNamespaceAndPath(modid, "block/" + location + this.name(baseBlock)), postUsesTop, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
+    public void logWallBlock(WallBlock block, Block baseBlock, String modid, boolean postUsesTop, ModelFile postBig, ModelFile postShort, ModelFile postTall, ModelFile side, ModelFile sideAlt, ModelFile sideTall, ModelFile sideTallAlt, ModelFile sideShort, ModelFile sideAltShort, ModelFile sideTallShort, ModelFile sideTallAltShort) {
+        this.logWallBlockInternal(block, this.name(block), ResourceLocation.fromNamespaceAndPath(modid, "block/" + this.name(baseBlock)), ResourceLocation.fromNamespaceAndPath(modid, "block/" + this.name(baseBlock) + "_top"), postUsesTop, postBig, postShort, postTall, side, sideAlt, sideTall, sideTallAlt, sideShort, sideAltShort, sideTallShort, sideTallAltShort);
     }
 
-    private void logWallBlockInternal(WallBlock block, String baseName, ResourceLocation texture, boolean postUsesTop, ModelFile postBig, ModelFile postShort, ModelFile postTall, ModelFile side, ModelFile sideAlt, ModelFile sideTall, ModelFile sideTallAlt, ModelFile sideShort, ModelFile sideAltShort, ModelFile sideTallShort, ModelFile sideTallAltShort) {
+    private void logWallBlockInternal(WallBlock block, String baseName, ResourceLocation texture, ResourceLocation topTexture, boolean postUsesTop, ModelFile postBig, ModelFile postShort, ModelFile postTall, ModelFile side, ModelFile sideAlt, ModelFile sideTall, ModelFile sideTallAlt, ModelFile sideShort, ModelFile sideAltShort, ModelFile sideTallShort, ModelFile sideTallAltShort) {
         this.logWallBlock(
                 this.getMultipartBuilder(block),
                 models().getBuilder(baseName + "_post_short").parent(postShort).texture("particle", texture).texture("top", texture).texture("side", texture),
@@ -433,7 +441,7 @@ public class DABlockstateData extends AetherBlockStateProvider {
 
         this.logWallBlockWithPost(
                 this.getMultipartBuilder(block),
-                models().getBuilder(baseName + "_post").parent(postBig).texture("particle", texture).texture("top", postUsesTop ? (texture + "_top") : texture.toString()).texture("side", texture),
+                models().getBuilder(baseName + "_post").parent(postBig).texture("particle", texture).texture("top", postUsesTop ? topTexture.toString() : texture.toString()).texture("side", texture),
                 models().getBuilder(baseName + "_side_short").parent(sideShort).texture("particle", texture).texture("top", texture).texture("side", texture),
                 models().getBuilder(baseName + "_side_alt_short").parent(sideAltShort).texture("particle", texture).texture("top", texture).texture("side", texture),
                 models().getBuilder(baseName + "_side_tall_short").parent(sideTallShort).texture("particle", texture).texture("top", texture).texture("side", texture),

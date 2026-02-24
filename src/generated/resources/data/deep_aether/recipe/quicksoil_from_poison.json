@@ -1,0 +1,10 @@
+{
+  "type": "deep_aether:poison_recipe",
+  "ingredient": {
+    "item": "aether:quicksoil_glass"
+  },
+  "result": {
+    "count": 1,
+    "id": "aether:quicksoil"
+  }
+}

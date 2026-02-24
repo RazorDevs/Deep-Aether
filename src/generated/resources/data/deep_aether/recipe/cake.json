@@ -4,13 +4,13 @@
   "group": "minecraft:cake",
   "key": {
     "O": {
-      "item": "deep_aether:quail_egg"
+      "tag": "c:eggs"
     },
     "S": {
       "item": "minecraft:sugar"
     },
     "U": {
-      "item": "minecraft:milk_bucket"
+      "tag": "c:buckets/milk"
     },
     "Y": {
       "item": "minecraft:wheat"

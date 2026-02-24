@@ -9,7 +9,7 @@
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
-      "replace_current_music": true,
+      "replace_current_music": false,
       "sound": "deep_aether:music.deep_aether"
     },
     "sky_color": 12632319,
@@ -47,7 +47,8 @@
       "aether:tall_grass_patch",
       "aether:white_flower_patch",
       "aether:purple_flower_patch",
-      "aether:berry_bush_patch"
+      "aether:berry_bush_patch",
+      "deep_aether:patch_squash"
     ],
     [
       "aether:crystal_island",
