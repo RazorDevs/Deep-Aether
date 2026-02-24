@@ -924,5 +924,7 @@
   "item.deep_aether.skyroot_virulent_quicksand": "This block is a great trap for those who aren't careful when wandering around in the Yagroot Forest.",
   "lore.item.deep_aether.storm_ruler": "A weapon with a blade made of pure clouds. Deals extra knockback to enemies when attacked with a fully charged attack. §oOnly a storm can fell a greatwood.",
   "item.deep_aether.chaos_emerald": "Chaos Emerald",
-  "lore.item.deep_aether.chaos_emerald": "You got me. Chaos Control!"
+  "lore.item.deep_aether.chaos_emerald": "You got me. Chaos Control!",
+  "deep_aether.menu_title.deep_aether": "Deep Aether",
+  "deep_aether.menu_title.deep_aether_left": "Deep Aether (Left)"
 }

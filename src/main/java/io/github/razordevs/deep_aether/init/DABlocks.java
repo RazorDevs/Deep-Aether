@@ -12,8 +12,20 @@ import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.block.behavior.GoldenVines;
-import io.github.razordevs.deep_aether.block.building.*;
-import io.github.razordevs.deep_aether.block.misc.*;
+import io.github.razordevs.deep_aether.block.building.CarvedSquashBlock;
+import io.github.razordevs.deep_aether.block.building.DACeilingHangingSignBlock;
+import io.github.razordevs.deep_aether.block.building.DASignBlock;
+import io.github.razordevs.deep_aether.block.building.DAWallBlock;
+import io.github.razordevs.deep_aether.block.building.DAWallHangingSignBlock;
+import io.github.razordevs.deep_aether.block.building.DAWallSignBlock;
+import io.github.razordevs.deep_aether.block.building.DoorwayPillarBlock;
+import io.github.razordevs.deep_aether.block.building.DoubleTorchBlock;
+import io.github.razordevs.deep_aether.block.building.TotemBlock;
+import io.github.razordevs.deep_aether.block.misc.BurnableBlockItem;
+import io.github.razordevs.deep_aether.block.misc.ChromaticAercloudBlock;
+import io.github.razordevs.deep_aether.block.misc.DADoubleDropRotatedPillarBlock;
+import io.github.razordevs.deep_aether.block.misc.DisabledBlockItem;
+import io.github.razordevs.deep_aether.block.misc.TrappedPillarBlock;
 import io.github.razordevs.deep_aether.block.natural.*;
 import io.github.razordevs.deep_aether.block.utility.CombinerBlock;
 import io.github.razordevs.deep_aether.block.utility.PoisonCauldronBlock;
@@ -443,10 +455,6 @@ public class DABlocks {
     public static final DeferredBlock<Block> STRIPPED_SUNROOT_WOOD_WALL =  registerAetherGenesisBlock("stripped_sunroot_wall", () -> new DAWallBlock(Block.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).ignitedByLava().strength(2.0F).sound(SoundType.WOOD)));
 
     //TREASURE REFORGING COMPATIBILITY
-
-	public static final DeferredBlock<Block> SQUALL_BLOCK = registerCompatBlock(DeepAether.TREASURE_REFORGING, "squall_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(DABlocks.SKYJADE_BLOCK.get())));
-
-	//TREASURE REFORGING COMPATIBILITY
 
 	public static final DeferredBlock<Block> SQUALL_BLOCK = registerCompatBlock(DeepAether.TREASURE_REFORGING, "squall_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(DABlocks.SKYJADE_BLOCK.get())));
 
