@@ -103,7 +103,7 @@ public class DeepAether {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public static final String MODID = "deep_aether";
-	public static final String MOD_VERSION = "1.1.5";
+	public static final String MOD_VERSION = "1.2.0";
 
 	// We lost hope on LC's side. Code removed and will be reintroduced in future versions if needed.
 	public static final String LOST_AETHER_CONTENT = "lost_aether_content";

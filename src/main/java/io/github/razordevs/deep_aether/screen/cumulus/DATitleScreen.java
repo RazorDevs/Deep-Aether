@@ -4,7 +4,6 @@ import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.client.gui.screen.menu.CustomBranding;
 import com.aetherteam.aether.client.gui.screen.menu.TitleScreenBehavior;
-import com.aetherteam.aether.client.gui.screen.menu.logo.AetherLogoRenderer;
 import com.aetherteam.aether.client.gui.screen.menu.splash.AetherSplashRenderer;
 import com.aetherteam.aether.mixin.mixins.client.accessor.TitleScreenAccessor;
 import com.aetherteam.cumulus.CumulusConfig;
@@ -51,7 +50,7 @@ public class DATitleScreen extends TitleScreen implements TitleScreenBehavior, C
         this.alignedLeft = alignedLeft;
         TitleScreenAccessor accessor = ((TitleScreenAccessor) this);
         accessor.aether$setFading(true);
-        accessor.aether$setLogoRenderer(new AetherLogoRenderer(false, this.alignedLeft));
+        accessor.aether$setLogoRenderer(new DALogoRenderer(false, this.alignedLeft));
     }
 
     @Override
@@ -97,7 +96,7 @@ public class DATitleScreen extends TitleScreen implements TitleScreenBehavior, C
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
         int xOffset = CumulusConfig.CLIENT.enable_menu_api.get() && CumulusConfig.CLIENT.enable_menu_list_button.get() ? -62 : 0;
         for (GuiEventListener child : this.children()) {
-            if (child instanceof DAMenuButton aetherButton) { // Smoothly shifts the Aether-styled buttons to the right slightly when hovered over.
+            if (child instanceof DAMenuButton aetherButton) {
                 if (aetherButton.isMouseOver(mouseX, mouseY)) {
                     if (aetherButton.hoverOffset < 15) {
                         aetherButton.hoverOffset += 2;
