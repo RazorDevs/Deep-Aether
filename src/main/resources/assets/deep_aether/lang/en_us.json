@@ -39,7 +39,7 @@
   "deep_aether.structure.found": "%s has been located %s blocks away, compass is pointing towards the structure",
   "deep_aether.structure.found.tooltip": "%s has been located, compass is pointing towards the structure",
   "deep_aether.structure.locating": "Attempting to locate %s, please wait...",
-  "deep_aether.structure.unset.tooltip": "No structure has been set, shift right-click to select a structure",
+  "deep_aether.structure.unset.tooltip": "No structure located yet, shift right-click to select a structure",
   "deep_aether.structure.wrong_dimension.tooltip": "You are not in the dimension in which %s was found",
   "effect.deep_aether.moa_bonus_jumps": "Moa Bonus Jumps",
   "effect.deep_aether.moa_bonus_jumps.description": "Temporarily increases the number of jumps a Moa has.",

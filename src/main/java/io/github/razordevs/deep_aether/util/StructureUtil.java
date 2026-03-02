@@ -1,6 +1,7 @@
 package io.github.razordevs.deep_aether.util;
 
 import com.mojang.datafixers.util.Pair;
+import io.github.razordevs.deep_aether.DeepAetherConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -33,6 +34,6 @@ public class StructureUtil {
         ChunkGenerator generator = serverLevel.getChunkSource().getGenerator();
         Pair<BlockPos, Holder<Structure>> nearest = generator.findNearestMapStructure(serverLevel, structureHolderSet, pos, range, findUnexplored);
         if (nearest == null) return null;
-        return nearest.getFirst().distManhattan(pos) <= 5000 ? nearest : null;
+        return nearest.getFirst().distManhattan(pos) <= DeepAetherConfig.COMMON.dungeon_compass_range.get() ? nearest : null;
     }
 }

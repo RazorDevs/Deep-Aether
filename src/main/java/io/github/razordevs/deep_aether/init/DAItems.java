@@ -1,6 +1,5 @@
 package io.github.razordevs.deep_aether.init;
 
-import com.aetherteam.aether.data.resources.registries.AetherStructures;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.gloves.GlovesItem;
@@ -17,11 +16,33 @@ import io.github.razordevs.deep_aether.datagen.registry.DAJukeboxSongs;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.FloatyScarf;
-import io.github.razordevs.deep_aether.item.dungeon.brass.*;
+import io.github.razordevs.deep_aether.item.dungeon.brass.BladeOfLuckItem;
+import io.github.razordevs.deep_aether.item.dungeon.brass.CloudCapeItem;
+import io.github.razordevs.deep_aether.item.dungeon.brass.StormBowItem;
+import io.github.razordevs.deep_aether.item.dungeon.brass.StormSwordItem;
+import io.github.razordevs.deep_aether.item.dungeon.brass.WindShieldItem;
 import io.github.razordevs.deep_aether.item.gear.DAArmorMaterials;
-import io.github.razordevs.deep_aether.item.gear.other.*;
-import io.github.razordevs.deep_aether.item.gear.skyjade.*;
-import io.github.razordevs.deep_aether.item.gear.stratus.*;
+import io.github.razordevs.deep_aether.item.gear.other.AerwhaleSaddle;
+import io.github.razordevs.deep_aether.item.gear.other.Afterburner;
+import io.github.razordevs.deep_aether.item.gear.other.FloatyScarfItem;
+import io.github.razordevs.deep_aether.item.gear.other.MedalOfHonor;
+import io.github.razordevs.deep_aether.item.gear.other.SliderEye;
+import io.github.razordevs.deep_aether.item.gear.other.SpookyRing;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeArmorItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeGlovesItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeHelmetItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeRingItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeToolsAxeItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeToolsHoeItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeToolsPickaxeItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeToolsShovelItem;
+import io.github.razordevs.deep_aether.item.gear.skyjade.SkyjadeToolsSwordItem;
+import io.github.razordevs.deep_aether.item.gear.stratus.StratusAbility;
+import io.github.razordevs.deep_aether.item.gear.stratus.StratusAxeItem;
+import io.github.razordevs.deep_aether.item.gear.stratus.StratusHoeItem;
+import io.github.razordevs.deep_aether.item.gear.stratus.StratusPickaxeItem;
+import io.github.razordevs.deep_aether.item.gear.stratus.StratusShovelItem;
+import io.github.razordevs.deep_aether.item.gear.stratus.StratusSwordItem;
 import io.github.razordevs.deep_aether.item.misc.*;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
@@ -268,9 +289,7 @@ public class DAItems {
 
 	//Deep Aether 1.2/Experimental
 	public static final DeferredItem<Item> SUN_CLOCK = ITEMS.register("sun_clock", ()-> new SunClock(new Item.Properties()));
-	public static final DeferredItem<Item> BRONZE_COMPASS = ITEMS.register("bronze_compass", ()-> new DungeonCompass(new Item.Properties(), AetherStructures.BRONZE_DUNGEON, "Bronze Dungeon"));
-	public static final DeferredItem<Item> SILVER_COMPASS = ITEMS.register("silver_compass", ()-> new DungeonCompass(new Item.Properties(), AetherStructures.SILVER_DUNGEON, "Silver Dungeon"));
-	public static final DeferredItem<Item> GOLD_COMPASS = ITEMS.register("gold_compass", ()-> new DungeonCompass(new Item.Properties(), AetherStructures.GOLD_DUNGEON, "Gold Dungeon"));
+	public static final DeferredItem<Item> DUNGEON_COMPASS = ITEMS.register("dungeon_compass", ()-> new DungeonCompass(new Item.Properties().stacksTo(1)));
 
 
 	public static void registerAccessories() {

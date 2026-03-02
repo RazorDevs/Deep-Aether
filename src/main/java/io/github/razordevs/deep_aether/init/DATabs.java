@@ -355,9 +355,7 @@ public class DATabs {
                     DAItems.SKYJADE_TOOLS_AXE.get(),
                     DAItems.SKYJADE_TOOLS_HOE.get(),
                     DAItems.SUN_CLOCK.get(),
-                    DAItems.BRONZE_COMPASS.get(),
-                    DAItems.SILVER_COMPASS.get(),
-                    DAItems.GOLD_COMPASS.get()
+                    DAItems.DUNGEON_COMPASS.get(),
             }, event);
 
             addToTab(AetherItems.CLOUD_STAFF.get(), new Item[]{

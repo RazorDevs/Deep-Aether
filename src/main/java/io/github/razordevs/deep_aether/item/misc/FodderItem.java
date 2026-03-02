@@ -21,7 +21,6 @@ import java.util.List;
 
 public class FodderItem extends Item {
 
-
     public FodderItem(Properties properties) {
         super(properties);
     }

@@ -582,9 +582,7 @@ public class DAItemTagData extends ItemTagsProvider {
         );
 
         tag(ItemTags.COMPASSES).add(
-                DAItems.BRONZE_COMPASS.get(),
-                DAItems.SILVER_COMPASS.get(),
-                DAItems.GOLD_COMPASS.get()
+                DAItems.DUNGEON_COMPASS.get()
         );
 
         tag(AetherTags.Items.NO_SKYROOT_DOUBLE_DROPS).add(

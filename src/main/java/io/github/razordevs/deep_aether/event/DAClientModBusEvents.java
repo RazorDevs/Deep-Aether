@@ -7,16 +7,25 @@ import com.aetherteam.aether.inventory.menu.LoreBookMenu;
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.razordevs.deep_aether.DeepAether;
-import io.github.razordevs.deep_aether.DeepAetherConfig;
-import io.github.razordevs.deep_aether.client.particle.*;
+import io.github.razordevs.deep_aether.client.particle.EOTSExplosionParticle;
+import io.github.razordevs.deep_aether.client.particle.EOTSPreFightParticle;
+import io.github.razordevs.deep_aether.client.particle.LuckParticle;
+import io.github.razordevs.deep_aether.client.particle.MysticalParticle;
+import io.github.razordevs.deep_aether.client.particle.PoisonBubbles;
 import io.github.razordevs.deep_aether.client.renderer.accessory.FloatyScarfRenderer;
 import io.github.razordevs.deep_aether.client.renderer.accessory.SkyjadeGlovesRenderer;
 import io.github.razordevs.deep_aether.client.renderer.accessory.WindShieldRenderer;
 import io.github.razordevs.deep_aether.entity.living.GentleWind;
 import io.github.razordevs.deep_aether.fluids.DAFluidTypes;
-import io.github.razordevs.deep_aether.init.*;
+import io.github.razordevs.deep_aether.init.DABlocks;
+import io.github.razordevs.deep_aether.init.DAFluids;
+import io.github.razordevs.deep_aether.init.DAItems;
+import io.github.razordevs.deep_aether.init.DAMenuTypes;
+import io.github.razordevs.deep_aether.init.DAMobEffects;
+import io.github.razordevs.deep_aether.init.DAParticles;
+import io.github.razordevs.deep_aether.init.DAWoodTypes;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
-import io.github.razordevs.deep_aether.item.component.DungeonTracker;
+import io.github.razordevs.deep_aether.item.component.DungeonTrackerPos;
 import io.github.razordevs.deep_aether.item.component.MoaFodder;
 import io.github.razordevs.deep_aether.networking.attachment.DAAttachments;
 import io.github.razordevs.deep_aether.networking.attachment.DAPlayerAttachment;
@@ -25,7 +34,11 @@ import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.CherryParticle;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
@@ -143,9 +156,7 @@ public class DAClientModBusEvents {
      */
     public static void registerItemModelPredicates() {
         sunClock();
-        compassRotation(DAItems.BRONZE_COMPASS.get());
-        compassRotation(DAItems.SILVER_COMPASS.get());
-        compassRotation(DAItems.GOLD_COMPASS.get());
+        compassRotation(DAItems.DUNGEON_COMPASS.get());
         ItemProperties.register(DAItems.MOA_FODDER.asItem(), ResourceLocation.fromNamespaceAndPath(DeepAether.MODID, "color"), (stack, level, entity, state) -> {
                     MoaFodder fodder = stack.get(DADataComponentTypes.MOA_FODDER);
                     if (fodder != null) {
@@ -371,8 +382,8 @@ public class DAClientModBusEvents {
             }
 
             public GlobalPos getStructurePos(ItemStack stack) {
-                if (stack.has(DADataComponentTypes.DUNGEON_TRACKER)) {
-                    DungeonTracker tracker = stack.get(DADataComponentTypes.DUNGEON_TRACKER);
+                if (stack.has(DADataComponentTypes.DUNGEON_TRACKER_POS)) {
+                    DungeonTrackerPos tracker = stack.get(DADataComponentTypes.DUNGEON_TRACKER_POS);
                     if (tracker != null && tracker.found()) {
                         if (tracker.target().isPresent()) {
                             return tracker.target().get();

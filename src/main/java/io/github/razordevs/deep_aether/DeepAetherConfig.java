@@ -26,6 +26,8 @@ public class DeepAetherConfig {
         public final ConfigValue<String> sentry_guardian_flawless_boss_drop;
         public final ConfigValue<String> labyrinth_eye_flawless_boss_drop;
 
+        public final ConfigValue<Integer> dungeon_compass_range;
+
         public Common(ModConfigSpec.Builder builder) {
             builder.push("Gameplay");
             slider_flawless_boss_drop = builder
@@ -81,6 +83,13 @@ public class DeepAetherConfig {
                     .comment("The item dropped when the Labyrinth Eye is defeated flawlessly, set value to null (with quotation marks!) to disable flawless boss drops from the Labyrinth Eye. This Config Does nothing if Aether Genesis isn't installed.")
                     .translation("config.deep_aether.common.flawless.labyrinth_eye_flawless_boss_drop")
                     .define("Labyrinth Eye Flawless Boss Drop", "deep_aether:magnetic_cog");
+            builder.pop();
+
+            builder.push("Gameplay");
+            dungeon_compass_range = builder
+                    .comment("The range where compasses will look for their respective dungeon")
+                    .translation("config.deep_aether.common.gameplay.dungeon_compass_range")
+                    .defineInRange("Dungeon Compass Range", 5000, 1000, 12000);
             builder.pop();
 
             builder.push("Biomes");
