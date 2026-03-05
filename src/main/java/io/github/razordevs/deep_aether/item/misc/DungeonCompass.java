@@ -19,6 +19,8 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -41,16 +43,20 @@ public class DungeonCompass extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int i, boolean b) {
         super.inventoryTick(stack, level, entity, i, b);
-        if(!stack.has(DADataComponentTypes.DUNGEON_TRACKER_POS)){
-            stack.set(DADataComponentTypes.DUNGEON_TRACKER_POS, new DungeonTrackerPos(DeepAether.getResource("brass_dungeon"),Optional.empty(), false));
+        if(!stack.has(DADataComponentTypes.DUNGEON)){
+            stack.set(DADataComponentTypes.DUNGEON, DeepAether.getResource("brass_dungeon"));
         }
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand hand) {
-        ItemStack stack = playerIn.getItemInHand(hand);
-        this.locateStructure(stack, playerIn);
-        return super.use(worldIn, playerIn, hand);
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if(!level.dimension().equals(AetherDimensions.AETHER_LEVEL)){
+            player.displayClientMessage(Component.translatable("deep_aether.structure.wrong_dimension.tooltip").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC), true);
+            return InteractionResultHolder.fail(stack);
+        }
+        this.locateStructure(stack, player);
+        return super.use(level, player, hand);
     }
 
     /*
@@ -60,33 +66,39 @@ public class DungeonCompass extends Item {
         if (player.level().isClientSide) return;
 
         ServerLevel level = (ServerLevel) player.level();
+        if (!stack.has(DADataComponentTypes.DUNGEON)) {
+            stack.set(DADataComponentTypes.DUNGEON, DeepAether.getResource("brass_dungeon"));
+        }
 
-        var dungeon = stack.get(DADataComponentTypes.DUNGEON_TRACKER_POS).dungeon();
-        Component dungeonName = Component.translatable(String.format("%s.dungeon.%s", dungeon.getNamespace(), dungeon.getPath()));
+        var dungeon = stack.get(DADataComponentTypes.DUNGEON);
+        if (dungeon == null) return;
+
+        var dungeonName = StructureUtil.getDungeonAetherLocation(dungeon);
 
         player.displayClientMessage(Component.translatable("deep_aether.structure.locating", dungeonName).withStyle(ChatFormatting.YELLOW), true);
         Registry<Structure> registry = level.registryAccess().registryOrThrow(Registries.STRUCTURE);
         HolderSet<Structure> featureHolderSet = registry.getHolder(dungeon).map(HolderSet::direct).orElse(null);
         if (featureHolderSet != null) {
             Pair<BlockPos, Holder<Structure>> pair = StructureUtil.findNearestMapStructure(level,
-                    featureHolderSet, player.blockPosition(), 100, true);
-            bindPosition(stack, player, pair, dungeon, dungeonName);
+                    featureHolderSet, player.blockPosition(), 100, false);
+            bindPosition(stack, player, pair, dungeonName);
         }
     }
 
-    private void bindPosition(ItemStack stack, Player player, Pair<BlockPos, Holder<Structure>> pair, ResourceLocation dungeon, Component dungeonName) {
+    private void bindPosition(ItemStack stack, Player player, Pair<BlockPos, Holder<Structure>> pair, Component dungeonName) {
         BlockPos structurePos = pair != null ? pair.getFirst() : null;
 
         if (structurePos == null) {
-            stack.set(DADataComponentTypes.DUNGEON_TRACKER_POS, new DungeonTrackerPos(dungeon, Optional.empty(), false));
+            stack.remove(DADataComponentTypes.DUNGEON_POS);
 
             int range = DeepAetherConfig.COMMON.dungeon_compass_range.get();
             player.displayClientMessage(Component.translatable("deep_aether.structure.failed", dungeonName, range).withStyle(ChatFormatting.RED), true);
         } else {
-            stack.set(DADataComponentTypes.DUNGEON_TRACKER_POS, new DungeonTrackerPos(dungeon, Optional.of(GlobalPos.of(player.level().dimension(), pair.getFirst())), false));
+            stack.set(DADataComponentTypes.DUNGEON_POS, structurePos);
 
             int distance = player.blockPosition().distManhattan(structurePos);
             player.displayClientMessage(Component.translatable("deep_aether.structure.found", dungeonName, distance).withStyle(ChatFormatting.GREEN), true);
+            player.playNotifySound(SoundEvents.LODESTONE_COMPASS_LOCK, SoundSource.PLAYERS, 1f, 1f);
         }
 
         player.getCooldowns().addCooldown(this, 1000);
@@ -96,25 +108,21 @@ public class DungeonCompass extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
         Level level = context.level();
 
-        if (stack.has(DADataComponentTypes.DUNGEON_TRACKER_POS)) {
-            DungeonTrackerPos tracker = stack.get(DADataComponentTypes.DUNGEON_TRACKER_POS);
-            Component dungeonName = Component.translatable(String.format("%s.dungeon.%s", tracker.dungeon().getNamespace(), tracker.dungeon().getPath()));
+        if (stack.has(DADataComponentTypes.DUNGEON)) {
+            final ResourceLocation structureLocation = stack.get(DADataComponentTypes.DUNGEON);
+            Component dungeonName = StructureUtil.getDungeonAetherLocation(structureLocation);
+            tooltip.add(dungeonName.copy().withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
 
-            if (tracker != null && tracker.found()) {
-                if (level != null && tracker.target().isPresent() && level.dimension().equals(AetherDimensions.AETHER_LEVEL)) {
-                    tooltip.add(Component.translatable("deep_aether.structure.found.tooltip", dungeonName).withStyle(ChatFormatting.GREEN));
-                } else {
-                    tooltip.add(Component.translatable("deep_aether.structure.wrong_dimension.tooltip", dungeonName).withStyle(ChatFormatting.RED));
+            if(!level.dimension().equals(AetherDimensions.AETHER_LEVEL)){
+                tooltip.add(Component.translatable("deep_aether.structure.wrong_dimension.tooltip").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC));
+            }
+
+            if (stack.has(DADataComponentTypes.DUNGEON_POS)) {
+                var tracker = stack.get(DADataComponentTypes.DUNGEON_POS);
+                if (level != null && tracker != null && level.dimension().equals(AetherDimensions.AETHER_LEVEL)) {
+                    tooltip.add(Component.translatable("deep_aether.structure.found.tooltip", tracker.getX(), tracker.getZ()).withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
                 }
-            } else {
-                tooltip.add(Component.translatable("deep_aether.structure.failed.tooltip", dungeonName).withStyle(ChatFormatting.RED));
             }
         }
-    }
-
-    @Override
-    public Component getDescription() {
-        return Component.translatable("deep_aether.item.disabled_item").withStyle(Style.EMPTY.withItalic(true)
-                .withColor(TextColor.parseColor("#d1362b").result().get()));
     }
 }

@@ -457,10 +457,6 @@ public class DAItemModelData extends AetherItemModelProvider {
         this.item(DAItems.MUSIC_DISC_HIMININN.get());
 
 //        this.item(DAItems.SUN_CLOCK.get());
-
-//        this.item(DAItems.BRONZE_COMPASS.get());
-//        this.item(DAItems.SILVER_COMPASS.get());
-//        this.item(DAItems.GOLD_COMPASS.get());
     }
 
     public void aercloudItem(Block block) {

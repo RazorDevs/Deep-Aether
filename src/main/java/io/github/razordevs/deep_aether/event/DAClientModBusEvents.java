@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.event;
 
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
+import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.inventory.menu.LoreBookMenu;
 import com.mojang.blaze3d.shaders.FogShape;
@@ -337,11 +338,11 @@ public class DAClientModBusEvents {
                     }
 
                     double d0;
-                    GlobalPos globalPos = getStructurePos(stack);
-                    if (globalPos != null && clientLevel.dimension().equals(globalPos.dimension())) {
+                    BlockPos globalPos = getStructurePos(stack);
+                    if (globalPos != null && clientLevel.dimension().equals(AetherDimensions.AETHER_LEVEL)) {
                         double d1 = livingExists ? (double) entity.getYRot() : this.getFrameRotation((ItemFrame) entity);
                         d1 = Mth.positiveModulo(d1 / 360.0D, 1.0D);
-                        double d2 = this.getSpawnToAngle(entity, globalPos.pos()) / (double) ((float) Math.PI * 2F);
+                        double d2 = this.getSpawnToAngle(entity, globalPos) / (double) ((float) Math.PI * 2F);
                         d0 = 0.5D - (d1 - 0.25D - d2);
                     } else {
                         d0 = Math.random();
@@ -381,20 +382,12 @@ public class DAClientModBusEvents {
                 return Math.atan2((double) pos.getZ() - entityIn.getZ(), (double) pos.getX() - entityIn.getX());
             }
 
-            public GlobalPos getStructurePos(ItemStack stack) {
-                if (stack.has(DADataComponentTypes.DUNGEON_TRACKER_POS)) {
-                    DungeonTrackerPos tracker = stack.get(DADataComponentTypes.DUNGEON_TRACKER_POS);
-                    if (tracker != null && tracker.found()) {
-                        if (tracker.target().isPresent()) {
-                            return tracker.target().get();
-                        }
-                    }
+            public BlockPos getStructurePos(ItemStack stack) {
+                if (stack.has(DADataComponentTypes.DUNGEON_POS)) {
+                    return stack.get(DADataComponentTypes.DUNGEON_POS);
                 }
                 return null;
             }
         });
-    }
-
-    public record StructurePos(BlockPos pos, ResourceLocation dimensionLocation) {
     }
 }
