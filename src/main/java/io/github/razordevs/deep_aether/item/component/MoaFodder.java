@@ -7,6 +7,11 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.effect.MobEffectInstance;
 
 public record MoaFodder(MobEffectInstance effect) {
+
+    //TODO: unyield fodder (like totem of undying)
+    //TODO: Desaddle fodder??? (probably not)
+    //TODO: Regeneration fodder
+
     public static final Codec<MoaFodder> CODEC = RecordCodecBuilder.create(
             codec -> codec.group(
                             MobEffectInstance.CODEC.fieldOf("effect").forGetter(MoaFodder::effect)
