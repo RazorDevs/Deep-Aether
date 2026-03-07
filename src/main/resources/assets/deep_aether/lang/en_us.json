@@ -924,5 +924,27 @@
   "item.deep_aether.skyroot_virulent_quicksand": "This block is a great trap for those who aren't careful when wandering around in the Yagroot Forest.",
   "lore.item.deep_aether.storm_ruler": "A weapon with a blade made of pure clouds. Deals extra knockback to enemies when attacked with a fully charged attack. §oOnly a storm can fell a greatwood.",
   "item.deep_aether.chaos_emerald": "Chaos Emerald",
-  "lore.item.deep_aether.chaos_emerald": "You got me. Chaos Control!"
+  "lore.item.deep_aether.chaos_emerald": "You got me. Chaos Control!",
+
+
+  "config.deep_aether.common.flawless.slider_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.valkyrie_queen_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.sun_spirit_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.eots_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.aerwhale_king_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.slider_mimic_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.sentry_guardian_flawless_boss_drop": "",
+  "config.deep_aether.common.flawless.labyrinth_eye_flawless_boss_drop": "",
+  "config.deep_aether.common.eots_damage_multiplier": "",
+  "config.deep_aether.common.gameplay.deep_aether_biome_weight": "",
+  "config.deep_aether.common.gameplay.disable_roseroot_forest_biomes": "",
+  "config.deep_aether.common.gameplay.disable_yagroot_swap_biomes": "",
+  "config.deep_aether.common.gameplay.disable_golden_heights_biomes": "",
+  "config.deep_aether.common.gameplay.disable_aerlavenender_field_biomes": "",
+  "config.deep_aether.common.gameplay.disable_sacred_lands_biomes": "",
+  "config.deep_aether.common.gameplay.disable_storm_cloud_and_skyroot_rainforest_biomes": "",
+  "config.deep_aether.common.gameplay.storm_cloud_biome_weight": "",
+
+
+
 }
