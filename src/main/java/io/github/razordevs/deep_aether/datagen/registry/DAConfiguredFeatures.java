@@ -20,7 +20,11 @@ import io.github.razordevs.deep_aether.world.feature.DAFeatures;
 import io.github.razordevs.deep_aether.world.feature.features.configuration.AercloudCloudConfiguration;
 import io.github.razordevs.deep_aether.world.feature.features.configuration.DAHugeMushroomFeatureConfiguration;
 import io.github.razordevs.deep_aether.world.feature.features.configuration.FallenTreeConfiguration;
-import io.github.razordevs.deep_aether.world.feature.tree.decorators.*;
+import io.github.razordevs.deep_aether.world.feature.tree.decorators.GlowingTrunkVineDecorator;
+import io.github.razordevs.deep_aether.world.feature.tree.decorators.GlowingVineDecorator;
+import io.github.razordevs.deep_aether.world.feature.tree.decorators.SunrootHangerDecorator;
+import io.github.razordevs.deep_aether.world.feature.tree.decorators.YagrootRootPlacer;
+import io.github.razordevs.deep_aether.world.feature.tree.decorators.YagrootVineDecorator;
 import io.github.razordevs.deep_aether.world.feature.tree.foliage.RoserootFoliagePlacer;
 import io.github.razordevs.deep_aether.world.feature.tree.foliage.YagrootFoliagePlacer;
 import io.github.razordevs.deep_aether.world.feature.tree.trunk.SunrootTunkPlacer;
@@ -39,8 +43,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.util.valueproviders.ConstantFloat;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CaveVines;
+import net.minecraft.world.level.block.CaveVinesBlock;
+import net.minecraft.world.level.block.HugeMushroomBlock;
+import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -121,6 +134,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERGROWN_CLOUD_MUSHROOM_TREES = createKey("overgrown_cloud_mushroom_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TOTEM = createKey("totem");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSTONE_COLUMN = createKey("holystone_column");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SQUASH = createKey("patch_squash");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD = createKey("aercloud_cloud");
@@ -464,8 +478,11 @@ public class DAConfiguredFeatures {
         register(context, AERCLOUD_ROOTS, DAFeatures.AERCLOUD_ROOTS.get(),
                 new AercloudConfiguration(20, SimpleStateProvider.simple(AetherBlocks.COLD_AERCLOUD.get())));
 
-
         register(context, TOTEM, DAFeatures.TOTEM.get(), NoneFeatureConfiguration.INSTANCE);
+
+        register(context, HOLYSTONE_COLUMN, DAFeatures.HOLYSTONE_COLUMN.get(), new ColumnFeatureConfiguration(
+                ConstantInt.of(1), UniformInt.of(1, 4)
+        ));
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

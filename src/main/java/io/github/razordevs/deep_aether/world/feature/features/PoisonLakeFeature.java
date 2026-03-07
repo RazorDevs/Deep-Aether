@@ -22,7 +22,6 @@ public class PoisonLakeFeature extends Feature<AetherLakeConfiguration> {
         super(codec);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public boolean place(FeaturePlaceContext<AetherLakeConfiguration> context) {
         BlockPos blockPos = context.origin();

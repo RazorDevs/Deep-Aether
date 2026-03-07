@@ -1,9 +1,9 @@
 package io.github.razordevs.deep_aether.world.feature.features;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import io.github.razordevs.deep_aether.init.DABlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -19,14 +19,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureCo
 import javax.annotation.Nullable;
 import java.util.Iterator;
 
-public class CloriteColumnsFeature extends Feature<ColumnFeatureConfiguration> {
+public class HolystoneColumnsFeature extends Feature<ColumnFeatureConfiguration> {
     private static final ImmutableList<Block> CANNOT_PLACE_ON;
     //private static final int CLUSTERED_REACH = 5;
     //private static final int CLUSTERED_SIZE = 50;
     //private static final int UNCLUSTERED_REACH = 8;
     //private static final int UNCLUSTERED_SIZE = 15;
 
-    public CloriteColumnsFeature(Codec<ColumnFeatureConfiguration> pCodec) {
+    public HolystoneColumnsFeature(Codec<ColumnFeatureConfiguration> pCodec) {
         super(pCodec);
     }
 
@@ -77,11 +77,11 @@ public class CloriteColumnsFeature extends Feature<ColumnFeatureConfiguration> {
 
             for(BlockPos.MutableBlockPos blockpos$mutableblockpos = blockpos1.mutable(); j >= 0; --j) {
                 if (isAirOrCloud(pLevel, blockpos$mutableblockpos)) {
-                    this.setBlock(pLevel, blockpos$mutableblockpos, DABlocks.CLORITE.get().defaultBlockState());
+                    this.setBlock(pLevel, blockpos$mutableblockpos, AetherBlocks.HOLYSTONE.get().defaultBlockState());
                     blockpos$mutableblockpos.move(Direction.UP);
                     flag = true;
                 } else {
-                    if (!pLevel.getBlockState(blockpos$mutableblockpos).is(DABlocks.CLORITE.get())) {
+                    if (!pLevel.getBlockState(blockpos$mutableblockpos).is(AetherBlocks.HOLYSTONE.get())) {
                         break;
                     }
 

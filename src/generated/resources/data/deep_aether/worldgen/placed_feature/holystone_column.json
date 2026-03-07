@@ -1,9 +1,9 @@
 {
-  "feature": "deep_aether:totem",
+  "feature": "deep_aether:holystone_column",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 5
+      "chance": 20
     },
     {
       "type": "minecraft:in_square"

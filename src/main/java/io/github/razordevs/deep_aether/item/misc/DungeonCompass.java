@@ -5,18 +5,14 @@ import com.mojang.datafixers.util.Pair;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.DeepAetherConfig;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
-import io.github.razordevs.deep_aether.item.component.DungeonTrackerPos;
 import io.github.razordevs.deep_aether.util.StructureUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -32,7 +28,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 import java.util.List;
-import java.util.Optional;
 
 public class DungeonCompass extends Item {
 
@@ -52,7 +47,7 @@ public class DungeonCompass extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(!level.dimension().equals(AetherDimensions.AETHER_LEVEL)){
-            player.displayClientMessage(Component.translatable("deep_aether.structure.wrong_dimension.tooltip").withStyle(ChatFormatting.RED).withStyle(ChatFormatting.ITALIC), true);
+            player.displayClientMessage(Component.translatable("deep_aether.structure.wrong_dimension.tooltip").withStyle(ChatFormatting.RED), true);
             return InteractionResultHolder.fail(stack);
         }
         this.locateStructure(stack, player);

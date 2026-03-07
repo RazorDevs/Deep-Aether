@@ -18,7 +18,15 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 import java.util.List;
 
@@ -68,6 +76,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AERCLOUD_ROOTS = createKey("aercloud_roots");
 
     public static final ResourceKey<PlacedFeature> TOTEM = createKey("totem");
+    public static final ResourceKey<PlacedFeature> HOLYSTONE_COLUMN = createKey("holystone_column");
     public static final ResourceKey<PlacedFeature> LUMINESCENT_SKYROOT_FOREST_TREES = createKey("luminescent_skyroot_forest_trees");
     public static final ResourceKey<PlacedFeature> LUMINESCENT_SKYROOT_FOREST_VEGETATION = createKey("luminescent_skyroot_forest_vegetation");
 
@@ -230,7 +239,13 @@ public class DAPlacedFeatures {
                 new DungeonBlacklistFilter());
 
         register(context, TOTEM, configuredFeatures.getOrThrow(DAConfiguredFeatures.TOTEM),
-                CountPlacement.of(1),
+                RarityFilter.onAverageOnceEvery(5),
+                InSquarePlacement.spread(),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
+                BiomeFilter.biome());
+
+        register(context, HOLYSTONE_COLUMN, configuredFeatures.getOrThrow(DAConfiguredFeatures.HOLYSTONE_COLUMN),
+                RarityFilter.onAverageOnceEvery(20),
                 InSquarePlacement.spread(),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
                 BiomeFilter.biome());

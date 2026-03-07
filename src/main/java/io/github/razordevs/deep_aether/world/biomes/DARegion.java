@@ -30,7 +30,7 @@ public class DARegion extends Region {
         ResourceKey<Biome> GoldenHeights = DeepAetherConfig.COMMON.disable_golden_heights_biomes.get() ? AetherBiomes.SKYROOT_GROVE : DABiomes.GOLDEN_HEIGHTS;
         ResourceKey<Biome> GoldenGrove = DeepAetherConfig.COMMON.disable_golden_heights_biomes.get() ? AetherBiomes.SKYROOT_GROVE : DABiomes.GOLDEN_GROVE;
         ResourceKey<Biome> AerlavenderFields = DeepAetherConfig.COMMON.disable_aerlavender_field_biomes.get() ? AetherBiomes.SKYROOT_MEADOW : DABiomes.AERLAVENDER_FIELDS;
-        ResourceKey<Biome> SacredLands = DeepAetherConfig.COMMON.disable_sacred_lands_biomes.get() ? AetherBiomes.SKYROOT_WOODLAND : AetherBiomes.SKYROOT_WOODLAND;
+        ResourceKey<Biome> SacredLands = DeepAetherConfig.COMMON.disable_sacred_lands_biomes.get() ? AetherBiomes.SKYROOT_WOODLAND : DABiomes.SACRED_LANDS;
 
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
@@ -44,8 +44,8 @@ public class DARegion extends Region {
         //Woodland
         addBiome(mapper, new Climate.ParameterPoint(tempWoodland, fullRange, fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_WOODLAND);
-            addBiome(mapper, new Climate.ParameterPoint(tempWoodland, tempDefault3, fullRange, fullRange, fullRange, fullRange, 0),
-                    SacredLands);
+//        addBiome(mapper, new Climate.ParameterPoint(tempWoodland, tempDefault3, fullRange, fullRange, fullRange, fullRange, 0),
+//                    SacredLands);
 
         //Yagroot
         addBiome(mapper, new Climate.ParameterPoint(tempYagroot, Climate.Parameter.span(-1.5F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
@@ -64,7 +64,7 @@ public class DARegion extends Region {
                 AetherBiomes.SKYROOT_GROVE);
 
         // Sacred Lands
-        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.33F, 0.33F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(mapper, new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.3F, 0.6F), fullRange, fullRange, fullRange, fullRange, 0),
                 SacredLands);
 
         // Row 3
