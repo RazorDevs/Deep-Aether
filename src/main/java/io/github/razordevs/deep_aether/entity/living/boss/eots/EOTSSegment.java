@@ -1,5 +1,7 @@
 package io.github.razordevs.deep_aether.entity.living.boss.eots;
 
+import io.github.razordevs.deep_aether.DeepAether;
+import io.github.razordevs.deep_aether.DeepAetherConfig;
 import io.github.razordevs.deep_aether.client.model.EOTSSegmentModel;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
 import io.github.razordevs.deep_aether.entity.projectile.WindCrystal;
@@ -19,7 +21,15 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.FlyingMob;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.LookControl;
@@ -78,6 +88,15 @@ public class EOTSSegment extends FlyingMob implements Enemy {
         this.moveControl = new EotsSegmentMoveControl(this);
         this.lookControl = new EotsLookControl(this);
         this.noPhysics = true;
+
+        // Taken from MowzieEntity logic
+        AttributeInstance attackDamage = this.getAttribute(Attributes.ATTACK_DAMAGE);
+        if (attackDamage != null) {
+            double difference = attackDamage.getBaseValue() * DeepAetherConfig.COMMON.eots_damage_multiplier.get() - attackDamage.getBaseValue();
+            attackDamage.addTransientModifier(
+                    new AttributeModifier(DeepAether.getResource("attack_damage_multiplier"), difference, AttributeModifier.Operation.ADD_VALUE)
+            );
+        }
     }
 
     /**
@@ -130,7 +149,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     @NotNull
     public static AttributeSupplier.Builder createMobAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 10.0)
+                .add(Attributes.MAX_HEALTH, 10.011)
                 .add(Attributes.FOLLOW_RANGE, 96.0)
                 .add(Attributes.ATTACK_DAMAGE, 9.0);
     }
