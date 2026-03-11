@@ -239,15 +239,15 @@ public class DAPlacedFeatures {
                 new DungeonBlacklistFilter());
 
         register(context, TOTEM, configuredFeatures.getOrThrow(DAConfiguredFeatures.TOTEM),
-                RarityFilter.onAverageOnceEvery(5),
+                RarityFilter.onAverageOnceEvery(3),
                 InSquarePlacement.spread(),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
                 BiomeFilter.biome());
 
         register(context, HOLYSTONE_COLUMN, configuredFeatures.getOrThrow(DAConfiguredFeatures.HOLYSTONE_COLUMN),
-                RarityFilter.onAverageOnceEvery(20),
+                RarityFilter.onAverageOnceEvery(10),
                 InSquarePlacement.spread(),
-                HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE),
                 BiomeFilter.biome());
 
         register(context, PATCH_SQUASH, configuredFeatures.getOrThrow(DAConfiguredFeatures.PATCH_SQUASH),

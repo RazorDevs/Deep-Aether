@@ -481,7 +481,7 @@ public class DAConfiguredFeatures {
         register(context, TOTEM, DAFeatures.TOTEM.get(), NoneFeatureConfiguration.INSTANCE);
 
         register(context, HOLYSTONE_COLUMN, DAFeatures.HOLYSTONE_COLUMN.get(), new ColumnFeatureConfiguration(
-                ConstantInt.of(1), UniformInt.of(1, 4)
+                ConstantInt.of(2), UniformInt.of(4, 8)
         ));
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
