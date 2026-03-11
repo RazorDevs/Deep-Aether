@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "deep_aether:altar_camp",
+      "weight": 2
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 9738476839,
+    "spacing": 9,
+    // MUST ALWAYS BE SMALLER THAN spacing ABOVE
+    "separation": 4
+  }
+}
