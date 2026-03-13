@@ -120,17 +120,30 @@
     ],
     "subtitle": "subtitles.deep_aether.entity.eots.blowing"
   },
+  "entity.eots.ambient": {
+    "sounds": [
+      "deep_aether:entity/eots/ambient_1",
+      "deep_aether:entity/eots/ambient_2"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.eots.ambient"
+  },
   "entity.eots.shoot": {
     "sounds": [
-      "aether:entity/zephyr/shoot"
+      "deep_aether:entity/eots/shoot"
     ],
     "subtitle": "subtitles.deep_aether.entity.eots.shoot"
   },
   "entity.eots.hurt": {
     "sounds": [
-      "aether:entity/zephyr/shoot"
+      "deep_aether:entity/eots/hurt"
     ],
     "subtitle": "subtitles.deep_aether.entity.eots.hurt"
+  },
+  "entity.eots.death": {
+    "sounds": [
+      "deep_aether:entity/eots/death"
+    ],
+    "subtitle": "subtitles.deep_aether.entity.eots.death"
   },
   "music.boss.eots": {
     "sounds": [

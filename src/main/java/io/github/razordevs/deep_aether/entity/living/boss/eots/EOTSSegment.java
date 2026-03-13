@@ -19,7 +19,13 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.FlyingMob;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.LookControl;
@@ -245,7 +251,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return DASounds.EOTS_AMBIENT.get();
+        return this.isControllingSegment() ? DASounds.EOTS_AMBIENT.get() : SoundEvents.EMPTY;
     }
 
     @Nullable
@@ -257,7 +263,7 @@ public class EOTSSegment extends FlyingMob implements Enemy {
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return DASounds.EOTS_DEATH.get();
+        return this.isControllingSegment() ? DASounds.EOTS_DEATH.get() : SoundEvents.EMPTY;
     }
 
     @Override
