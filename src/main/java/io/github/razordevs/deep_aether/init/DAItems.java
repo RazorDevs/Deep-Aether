@@ -70,7 +70,7 @@ import java.util.function.Supplier;
 public class DAItems {
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DeepAether.MODID);
 
-	public static final Component BRASS_DUNGEON_TOOLTIP = Component.translatable(DeepAether.MODID + ".dungeon.brass_dungeon").withStyle(Style.EMPTY.withItalic(true).withColor(TextColor.parseColor("#D9AB7E").result().get()));
+	public static final Component BRASS_DUNGEON_TOOLTIP = Component.translatable(DeepAether.MODID + ".dungeon.brass_dungeon").withStyle(Style.EMPTY.withItalic(true).withColor(TextColor.parseColor("#D9AB7E").getOrThrow()));
 
 	// SIGNS
 	public static final DeferredItem<Item> ROSEROOT_SIGN = ITEMS.register("roseroot_sign", () -> new SignItem(new Item.Properties().stacksTo(16), DABlocks.ROSEROOT_SIGN.get(), DABlocks.ROSEROOT_WALL_SIGN.get()));
@@ -234,9 +234,6 @@ public class DAItems {
 	public static final DeferredItem<Item> MUSIC_DISC_ABOVE_THE_RAIN = ITEMS.register("music_disc_above_the_rain",
 			() -> new Item( new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(DAJukeboxSongs.ABOVE_THE_RAIN)));
 
-
-	//TODO: Possible Iron bucket for remedy?
-
 	public static final DeferredItem<Item> PLACEABLE_POISON_BUCKET = ITEMS.register("poison_bucket",
 			() -> new DrinkableBucketItem(DAFluids.POISON_FLUID.get(), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
 
@@ -267,7 +264,11 @@ public class DAItems {
 	public static final DeferredItem<Item> GLOWING_SPORES = ITEMS.register("glowing_spores", () -> new GlowingSporesItem(DABlocks.GLOWING_SPORES.get(), new Item.Properties()));
 
 
-	//ADDONS
+    public static final DeferredItem<Item> SUN_CLOCK = ITEMS.register("sun_clock", ()-> new SunClock(new Item.Properties()));
+    public static final DeferredItem<Item> DUNGEON_COMPASS = ITEMS.register("dungeon_compass", ()-> new DungeonCompass(new Item.Properties().stacksTo(1)));
+
+
+    //ADDONS
 
 	//PROTECT YOUR MOA
     public static final DeferredItem<?> SKYJADE_MOA_ARMOR = registerPYMItem("skyjade_moa_armor", ()-> new MoaArmorItem(7, DeepAether.getResource("textures/entity/moa/armor/moa_armor_skyjade.png"), new Item.Properties().stacksTo(1)));
@@ -285,12 +286,6 @@ public class DAItems {
 	public static final DeferredItem<Item> MAGNETIC_STAFF = ITEMS.register("magnetic_staff", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 	public static final DeferredItem<Item> SENTRY_ALARM = ITEMS.register("sentry_alarm", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 	public static final DeferredItem<Item> MIMIC_EYE = ITEMS.register("mimic_eye", () -> new Item((new Item.Properties()).rarity(AetherItems.AETHER_LOOT).fireResistant()));
-
-
-	//Deep Aether 1.2/Experimental
-	public static final DeferredItem<Item> SUN_CLOCK = ITEMS.register("sun_clock", ()-> new SunClock(new Item.Properties()));
-	public static final DeferredItem<Item> DUNGEON_COMPASS = ITEMS.register("dungeon_compass", ()-> new DungeonCompass(new Item.Properties().stacksTo(1)));
-
 
 	public static void registerAccessories() {
 		AccessoriesAPI.registerAccessory(DAItems.SKYJADE_RING.get(), (Accessory) DAItems.SKYJADE_RING.get());
