@@ -1,6 +1,5 @@
 package io.github.razordevs.deep_aether.world.biomes;
 
-import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import io.github.razordevs.aerolith.biome.BiomePlacementHelper;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -19,28 +18,18 @@ public class DARareRegion {
         Climate.Parameter tempSkyroot2 = Climate.Parameter.span(-1.0F, -0.8F);
 
         //Mushroom + Normal cloud
-        addBiome(new Climate.ParameterPoint(tempMushroomCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tempMushroomCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-0.5F, 1.5F), fullRange, 0),
                 DABiomes.LUMINESCENT_FOREST);
-        addBiome(new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, -0.5F), fullRange, 0),
                 DABiomes.CLOUD);
-        addBiome(new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(-1.0F, 0.2F), fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(-1.0F, 0.2F), fullRange, fullRange, Climate.Parameter.span(-1.5F, -0.5F), fullRange, 0),
                 DABiomes.CLOUD); //Overgrown cloud goes here
 
-        //Skyroot
-        addBiome(new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.0F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                AetherBiomes.SKYROOT_MEADOW);
-        addBiome(new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.0F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                AetherBiomes.SKYROOT_FOREST);
-
         //Normal cloud
-        addBiome(new Climate.ParameterPoint(tempCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tempCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-0.5F, 1.5F), fullRange, 0),
                 DABiomes.LUMINESCENT_FOREST);
-        addBiome(new Climate.ParameterPoint(tempCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-1.5F, 0.0F), fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tempCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-1.5F, -0.5F), fullRange, 0),
                 DABiomes.CLOUD);
-
-        //Skyroot
-        addBiome(new Climate.ParameterPoint(tempSkyroot2, fullRange, fullRange, fullRange, Climate.Parameter.span(0.0F, 1.5F), fullRange, 0),
-                AetherBiomes.SKYROOT_MEADOW);
     }
 
     private static void addBiome(Climate.ParameterPoint parameters, ResourceKey<Biome> biome) {
