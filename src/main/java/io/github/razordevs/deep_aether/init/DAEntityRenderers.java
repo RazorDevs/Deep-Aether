@@ -46,7 +46,9 @@ public class DAEntityRenderers {
 		event.registerEntityRenderer(DAEntities.WIND_CRYSTAL.get(), WindCrystalRenderer::new);
 		event.registerEntityRenderer(DAEntities.STORM_ARROW.get(), StormArrowRenderer::new);
 		event.registerEntityRenderer(DAEntities.BABY_ZEPHYR.get(), BabyZephyrRenderer::new);
-	}
+
+        event.registerEntityRenderer(DAEntities.TUMBLECLOUD.get(), TumblecloudRenderer::new);
+    }
 
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {

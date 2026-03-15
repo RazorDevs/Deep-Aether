@@ -7,7 +7,12 @@ import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.entity.DABoatEntity;
 import io.github.razordevs.deep_aether.entity.DAChestBoatEntity;
 import io.github.razordevs.deep_aether.entity.StormArrow;
-import io.github.razordevs.deep_aether.entity.living.*;
+import io.github.razordevs.deep_aether.entity.Tumblecloud;
+import io.github.razordevs.deep_aether.entity.living.AerglowFish;
+import io.github.razordevs.deep_aether.entity.living.BabyZephyr;
+import io.github.razordevs.deep_aether.entity.living.GentleWind;
+import io.github.razordevs.deep_aether.entity.living.Venomite;
+import io.github.razordevs.deep_aether.entity.living.Windfly;
 import io.github.razordevs.deep_aether.entity.living.boss.eots.EOTSController;
 import io.github.razordevs.deep_aether.entity.living.boss.eots.EOTSSegment;
 import io.github.razordevs.deep_aether.entity.living.quail.Quail;
@@ -18,7 +23,12 @@ import io.github.razordevs.deep_aether.entity.projectile.WindCrystal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -97,6 +107,13 @@ public class DAEntities {
 	public static final DeferredHolder<EntityType<?>,EntityType<GentleWind>> GENTLE_WIND = register("gentle_wind",
 			GentleWind::new, 1F, 0.3F);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<Tumblecloud>> TUMBLECLOUD = ENTITY_TYPES.register("tumblecloud",
+            () -> EntityType.Builder.<Tumblecloud>of(Tumblecloud::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10).fireImmune()
+                    .build("tumblecloud"));
+
 
 	private static <T extends Entity> DeferredHolder<EntityType<?>,EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(registryname));
@@ -117,7 +134,11 @@ public class DAEntities {
 				DAEntities::checkWindFly, RegisterSpawnPlacementsEvent.Operation.OR);
 		event.register(DAEntities.VENOMITE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,(entityType, serverLevel, spawnType, pos, random)
 				-> (serverLevel.getBlockState(pos.above()).is(Blocks.AIR)), RegisterSpawnPlacementsEvent.Operation.OR);
-	}
+
+        event.register(DAEntities.TUMBLECLOUD.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (entityType, serverLevel, spawnType, pos, random) ->
+                        (serverLevel.getBlockState(pos.above()).is(Blocks.AIR)), RegisterSpawnPlacementsEvent.Operation.OR);
+    }
 
 	public static boolean checkWindFly(EntityType<Windfly> animal, LevelAccessor level, MobSpawnType spawnReason, BlockPos pos, RandomSource random) {
 		return Mob.checkMobSpawnRules(animal, level, spawnReason, pos, random) && EntityUtil.wholeHitboxCanSeeSky(level, pos, 2);
@@ -133,5 +154,6 @@ public class DAEntities {
 		event.put(WINDFLY.get(), Windfly.createAttributes().build());
 		event.put(BABY_ZEPHYR.get(), BabyZephyr.createMobAttributes().build());
 		event.put(GENTLE_WIND.get(), GentleWind.createMobAttributes().build());
+//        event.put(TUMBLECLOUD.get(), Tumblecloud.createLivingAttributes().build());
 	}
 }
