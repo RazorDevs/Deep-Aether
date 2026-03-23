@@ -3,9 +3,9 @@
   "config": {
     "height": {
       "type": "minecraft:uniform",
-      "max_inclusive": 4,
-      "min_inclusive": 1
+      "max_inclusive": 8,
+      "min_inclusive": 4
     },
-    "reach": 1
+    "reach": 2
   }
 }

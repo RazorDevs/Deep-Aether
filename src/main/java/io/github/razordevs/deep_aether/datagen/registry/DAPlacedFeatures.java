@@ -35,6 +35,7 @@ public class DAPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> POISON_LAKE_PLACEMENT = createKey("poison_lake");
     public static final ResourceKey<PlacedFeature> AERCLOUD_LAKE_PLACEMENT = createKey("aercloud_lake");
+    public static final ResourceKey<PlacedFeature> SACRED_LAKE_PLACEMENT = createKey("sacred_lake");
 
     public static final ResourceKey<PlacedFeature> POISON_SPRING_PLACEMENT = createKey("poison_spring");
     public static final ResourceKey<PlacedFeature> AERGLOW_FOREST_TREES_PLACEMENT = createKey("aerglow_forest_trees_placement");
@@ -60,6 +61,7 @@ public class DAPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MORE_SKYJADE = createKey("more_skyjade_ore");
     public static final ResourceKey<PlacedFeature> ASETERITE = createKey("aseterite");
     public static final ResourceKey<PlacedFeature> CLORITE = createKey("clorite");
+    public static final ResourceKey<PlacedFeature> MORE_CLORITE = createKey("more_clorite");
     public static final ResourceKey<PlacedFeature> AETHER_MOSS_PATCHES = createKey("aether_moss");
     public static final ResourceKey<PlacedFeature> GOLDEN_GRASS_PATCH = createKey("golden_grass_patch");
     public static final ResourceKey<PlacedFeature> GOLDEN_VINES_PATCH = createKey("golden_vines_patch");
@@ -102,6 +104,11 @@ public class DAPlacedFeatures {
         register(context, AERCLOUD_LAKE_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.POISON_LAKE_CONFIGURATION),
                 RarityFilter.onAverageOnceEvery(10),
                 PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
+
+        register(context, SACRED_LAKE_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.SACRED_LAKE_CONFIGURATION),
+                RarityFilter.onAverageOnceEvery(5),
+                PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                BiomeFilter.biome());
 
         register(context, POISON_SPRING_PLACEMENT, configuredFeatures.getOrThrow(DAConfiguredFeatures.POISON_SPRING_CONFIGURATION),
                 CountPlacement.of(100),
@@ -202,6 +209,11 @@ public class DAPlacedFeatures {
 
         register(context, CLORITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0))));
+
+        register(context, MORE_CLORITE, configuredFeatures.getOrThrow(DAConfiguredFeatures.CLORITE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(3, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.belowTop(128))));
+
+
         register(context, SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_SKYJADE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(12, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60))));
         register(context, MORE_SKYJADE, configuredFeatures.getOrThrow(DAConfiguredFeatures.ORE_MORE_SKYJADE_CONFIGURATION),

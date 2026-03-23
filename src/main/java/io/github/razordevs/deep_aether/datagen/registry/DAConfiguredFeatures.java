@@ -90,6 +90,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> POISON_SPRING_CONFIGURATION = createKey("poison_spring");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_LAKE_CONFIGURATION = createKey("aercloud_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SACRED_LAKE_CONFIGURATION = createKey("sacred_lake");
 
     public static final ResourceKey<ConfiguredFeature<?,?>> YAGROOT_TREE_CONFIGURATION = createKey("yagroot_tree");
     public static final ResourceKey<ConfiguredFeature<?,?>> CRUDEROOT_TREE_CONFIGURATION = createKey("cruderoot_tree");
@@ -172,6 +173,9 @@ public class DAConfiguredFeatures {
 
         register(context, AERCLOUD_LAKE_CONFIGURATION, AetherFeatures.LAKE.get(), AetherConfiguredFeatureBuilders.lake(BlockStateProvider.simple(Blocks.WATER),
                 BlockStateProvider.simple(DABlocks.RAIN_AERCLOUD.get())));
+
+        register(context, SACRED_LAKE_CONFIGURATION, AetherFeatures.LAKE.get(),
+                AetherConfiguredFeatureBuilders.lake(BlockStateProvider.simple(Blocks.WATER), BlockStateProvider.simple(DAFeatureStates.AETHER_MOSS)));
 
         FeatureUtils.register(context, HUGE_LIGHTCAP_MUSHROOM, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfiguration(
                         BlockStateProvider.simple(DABlocks.LIGHTCAP_MUSHROOM_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.UP, Boolean.TRUE).setValue(HugeMushroomBlock.DOWN, Boolean.FALSE)),

@@ -4,8 +4,8 @@
   "spawners":
   {
     "type": "deep_aether:aerglow_fish",
-    "weight": 3,
-    "minCount": 1,
-    "maxCount": 3
+    "weight": 4,
+    "minCount": 2,
+    "maxCount": 5
   }
 }

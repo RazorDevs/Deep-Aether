@@ -21,7 +21,7 @@
       "aether:quicksoil_shelf"
     ],
     [
-      "aether:water_lake"
+      "deep_aether:sacred_lake"
     ],
     [],
     [],
@@ -36,15 +36,14 @@
       "aether:ambrosium_ore",
       "aether:gravitite_ore"
     ],
-    [
-      "minecraft:dripstone_cluster",
-      "minecraft:pointed_dripstone"
-    ],
+    [],
     [
       "aether:water_spring"
     ],
     [
       "deep_aether:holystone_column",
+      "deep_aether:aether_moss",
+      "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",
       "aether:white_flower_patch",
@@ -60,17 +59,9 @@
   ],
   "has_precipitation": false,
   "spawn_costs": {
-    "aether:aechor_plant": {
-      "charge": 0.4,
-      "energy_budget": 0.11
-    },
     "aether:aerwhale": {
       "charge": 0.5,
       "energy_budget": 0.11
-    },
-    "aether:blue_swet": {
-      "charge": 0.5,
-      "energy_budget": 0.1
     },
     "aether:cockatrice": {
       "charge": 0.5,
@@ -78,10 +69,6 @@
     },
     "aether:evil_whirlwind": {
       "charge": 0.4,
-      "energy_budget": 0.1
-    },
-    "aether:golden_swet": {
-      "charge": 0.5,
       "energy_budget": 0.1
     },
     "aether:whirlwind": {
@@ -120,24 +107,6 @@
     ],
     "aether:aether_surface_monster": [
       {
-        "type": "aether:aechor_plant",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 7
-      },
-      {
-        "type": "aether:blue_swet",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 6
-      },
-      {
-        "type": "aether:golden_swet",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 6
-      },
-      {
         "type": "aether:whirlwind",
         "maxCount": 1,
         "minCount": 1,
@@ -154,28 +123,22 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "aether:phyg",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 10
-      },
-      {
-        "type": "aether:flying_cow",
-        "maxCount": 5,
+        "type": "deep_aether:windfly",
+        "maxCount": 6,
         "minCount": 2,
-        "weight": 12
+        "weight": 15
       },
       {
         "type": "aether:aerbunny",
         "maxCount": 3,
         "minCount": 3,
-        "weight": 11
+        "weight": 9
       },
       {
         "type": "aether:moa",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 8
+        "weight": 4
       }
     ],
     "misc": [],
