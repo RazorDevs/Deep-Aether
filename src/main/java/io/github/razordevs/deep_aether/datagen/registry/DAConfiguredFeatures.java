@@ -136,6 +136,7 @@ public class DAConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUNROOT_AND_CONBERRY_TREES_PLACEMENT = createKey("sunroot_and_conberry_trees_placement");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TOTEM = createKey("totem");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSTONE_COLUMN = createKey("holystone_column");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSTONE_SPIKE = createKey("holystone_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SQUASH = createKey("patch_squash");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AERCLOUD_CLOUD = createKey("aercloud_cloud");
@@ -487,6 +488,8 @@ public class DAConfiguredFeatures {
         register(context, HOLYSTONE_COLUMN, DAFeatures.HOLYSTONE_COLUMN.get(), new ColumnFeatureConfiguration(
                 ConstantInt.of(2), UniformInt.of(4, 8)
         ));
+
+        register(context, HOLYSTONE_SPIKE, DAFeatures.HOLYSTONE_SPIKE.get(), FeatureConfiguration.NONE);
     }
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));

@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import io.github.razordevs.deep_aether.init.DABlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -21,10 +22,10 @@ import java.util.Iterator;
 
 public class HolystoneColumnsFeature extends Feature<ColumnFeatureConfiguration> {
     private static final ImmutableList<Block> CANNOT_PLACE_ON;
-    //private static final int CLUSTERED_REACH = 5;
-    //private static final int CLUSTERED_SIZE = 50;
-    //private static final int UNCLUSTERED_REACH = 8;
-    //private static final int UNCLUSTERED_SIZE = 15;
+    private static final int CLUSTERED_REACH = 5;
+    private static final int CLUSTERED_SIZE = 50;
+    private static final int UNCLUSTERED_REACH = 8;
+    private static final int UNCLUSTERED_SIZE = 15;
 
     public HolystoneColumnsFeature(Codec<ColumnFeatureConfiguration> pCodec) {
         super(pCodec);
@@ -41,8 +42,8 @@ public class HolystoneColumnsFeature extends Feature<ColumnFeatureConfiguration>
         } else {
             int j = columnfeatureconfiguration.height().sample(randomsource);
             boolean flag = randomsource.nextFloat() < 0.9F;
-            int k = Math.min(j, flag ? 5 : 8);
-            int l = flag ? 50 : 15;
+            int k = Math.min(j, flag ? CLUSTERED_REACH : UNCLUSTERED_REACH);
+            int l = flag ? CLUSTERED_SIZE : UNCLUSTERED_SIZE;
             boolean flag1 = false;
 
             for (BlockPos blockpos1 : BlockPos.randomBetweenClosed(randomsource, l, blockpos.getX() - k, blockpos.getY(), blockpos.getZ() - k, blockpos.getX() + k, blockpos.getY(), blockpos.getZ() + k)) {
@@ -140,6 +141,8 @@ public class HolystoneColumnsFeature extends Feature<ColumnFeatureConfiguration>
     }
 
     static {
-        CANNOT_PLACE_ON = ImmutableList.of(Blocks.WATER, Blocks.BEDROCK, Blocks.CHEST, Blocks.SPAWNER);
+        CANNOT_PLACE_ON = ImmutableList.of(Blocks.WATER, Blocks.BEDROCK, Blocks.CHEST, Blocks.SPAWNER,
+                AetherBlocks.COLD_AERCLOUD.get(), AetherBlocks.GOLDEN_AERCLOUD.get(), AetherBlocks.BLUE_AERCLOUD.get(),
+                DABlocks.STERLING_AERCLOUD.get());
     }
 }

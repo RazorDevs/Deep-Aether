@@ -4,7 +4,6 @@ import com.aetherteam.aether.client.AetherSoundEvents;
 import io.github.razordevs.deep_aether.init.DAEntities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
@@ -22,9 +21,10 @@ public class Tumblecloud extends Entity {
         super(type, level);
         this.life = 0;
         var vec3 = getDeltaMovement();
-        float rotation = this.random.nextFloat() * Mth.TWO_PI;
-        this.xPower = Mth.sin(rotation) * 0.5;
-        this.zPower = -Mth.cos(rotation) * 0.5;
+        double strength = 0.001; //+ (this.random.nextDouble() * 0.1);
+        this.xPower = strength * (this.random.nextBoolean() ? 1 : -1);
+        this.zPower = strength * (this.random.nextBoolean() ? 1 : -1);
+
         this.setDeltaMovement(this.xPower, vec3.y(), this.zPower);
     }
 
@@ -77,14 +77,15 @@ public class Tumblecloud extends Entity {
         this.move(MoverType.SELF, vec3);
 
         var currentVec = this.getDeltaMovement();
-        currentVec.add(xPower, 0, zPower);
+
+        currentVec = currentVec.add(this.xPower, 0, this.zPower);
 
         var d0 = currentVec.x();
         var d1 = currentVec.y();
         var d2 = currentVec.z();
 
         if (this.onGround()) {
-            d1 = 0.25D;
+            d1 = 0.25D; // Gives a bouncing effect
         }
 
         if (this.horizontalCollision) {

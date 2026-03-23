@@ -1,9 +1,9 @@
 {
-  "feature": "deep_aether:holystone_column",
+  "feature": "deep_aether:holystone_spike",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 12
+      "chance": 10
     },
     {
       "type": "minecraft:in_square"

@@ -79,6 +79,8 @@ public class DAPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> TOTEM = createKey("totem");
     public static final ResourceKey<PlacedFeature> HOLYSTONE_COLUMN = createKey("holystone_column");
+    public static final ResourceKey<PlacedFeature> HOLYSTONE_SPIKE = createKey("holystone_spike");
+
     public static final ResourceKey<PlacedFeature> LUMINESCENT_SKYROOT_FOREST_TREES = createKey("luminescent_skyroot_forest_trees");
     public static final ResourceKey<PlacedFeature> LUMINESCENT_SKYROOT_FOREST_VEGETATION = createKey("luminescent_skyroot_forest_vegetation");
 
@@ -257,6 +259,12 @@ public class DAPlacedFeatures {
                 BiomeFilter.biome());
 
         register(context, HOLYSTONE_COLUMN, configuredFeatures.getOrThrow(DAConfiguredFeatures.HOLYSTONE_COLUMN),
+                RarityFilter.onAverageOnceEvery(12),
+                InSquarePlacement.spread(),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE),
+                BiomeFilter.biome());
+
+        register(context, HOLYSTONE_SPIKE, configuredFeatures.getOrThrow(DAConfiguredFeatures.HOLYSTONE_SPIKE),
                 RarityFilter.onAverageOnceEvery(10),
                 InSquarePlacement.spread(),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE),
