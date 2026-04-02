@@ -1,0 +1,6 @@
+{
+  "parent": "deep_aether:block/pointed_holystone",
+  "textures": {
+    "cross": "deep_aether:block/pointed_holystone_up"
+  }
+}

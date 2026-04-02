@@ -251,7 +251,10 @@ public class DABlocks {
 
 	public static final DeferredBlock<Block> CLORITE_PILLAR = registerBlock("clorite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().strength(2.0F, 6.0F).requiresCorrectToolForDrops()));
 
-	public static final DeferredBlock<Block> HOLYSTONE_TILES = registerBlock("holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> POINTED_HOLYSTONE = registerBlock("pointed_holystone", () -> new PointedHolystoneBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POINTED_DRIPSTONE)));
+
+
+    public static final DeferredBlock<Block> HOLYSTONE_TILES = registerBlock("holystone_tiles", () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(1f, 10f).requiresCorrectToolForDrops()));
 	public static final DeferredBlock<Block> MOSSY_HOLYSTONE_BRICKS = registerBlock("mossy_holystone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(MOSSY_STONE_BRICKS)));
 	public static final DeferredBlock<Block> MOSSY_HOLYSTONE_TILES = registerBlock("mossy_holystone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(MOSSY_STONE_BRICKS)));
 

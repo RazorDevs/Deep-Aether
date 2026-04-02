@@ -2,6 +2,7 @@ package io.github.razordevs.deep_aether.entity;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
 import io.github.razordevs.deep_aether.init.DAEntities;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
@@ -21,7 +22,7 @@ public class Tumblecloud extends Entity {
         super(type, level);
         this.life = 0;
         var vec3 = getDeltaMovement();
-        double strength = 0.001; //+ (this.random.nextDouble() * 0.1);
+        double strength = 0.003; //+ (this.random.nextDouble() * 0.1);
         this.xPower = strength * (this.random.nextBoolean() ? 1 : -1);
         this.zPower = strength * (this.random.nextBoolean() ? 1 : -1);
 
@@ -86,6 +87,7 @@ public class Tumblecloud extends Entity {
 
         if (this.onGround()) {
             d1 = 0.25D; // Gives a bouncing effect
+            this.level().addParticle(ParticleTypes.SMOKE, d1, d2, 0.0D, 0.0D, 0.0D, 0D);
         }
 
         if (this.horizontalCollision) {

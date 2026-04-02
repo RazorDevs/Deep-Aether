@@ -6,7 +6,6 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -41,7 +40,7 @@ public class HolystoneSpikeFeature extends Feature<NoneFeatureConfiguration> {
                 float f = (1.0F - (float)k / (float)i) * (float)j;
                 int l = Mth.ceil(f);
 
-                for(int i1 = -l; i1 <= l; ++i1) {
+                for(int i1 = -l; i1 <= l; ++i1) { // Z
                     float f1 = (float)Mth.abs(i1) - 0.25F;
 
                     for(int j1 = -l; j1 <= l; ++j1) {
@@ -97,10 +96,5 @@ public class HolystoneSpikeFeature extends Feature<NoneFeatureConfiguration> {
 
             return true;
         }
-    }
-
-    private static boolean isAirOrCloud(LevelAccessor pLevel, BlockPos pPos) {
-        BlockState blockstate = pLevel.getBlockState(pPos);
-        return blockstate.isAir() || blockstate.is(AetherTags.Blocks.AERCLOUDS);
     }
 }

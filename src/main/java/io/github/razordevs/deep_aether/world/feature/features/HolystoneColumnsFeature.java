@@ -18,131 +18,162 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 
 import javax.annotation.Nullable;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HolystoneColumnsFeature extends Feature<ColumnFeatureConfiguration> {
-    private static final ImmutableList<Block> CANNOT_PLACE_ON;
+
+    private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(
+            Blocks.WATER, Blocks.BEDROCK, Blocks.CHEST, Blocks.SPAWNER,
+            AetherBlocks.COLD_AERCLOUD.get(), AetherBlocks.GOLDEN_AERCLOUD.get(),
+            AetherBlocks.BLUE_AERCLOUD.get(), DABlocks.STERLING_AERCLOUD.get()
+    );
+
     private static final int CLUSTERED_REACH = 5;
     private static final int CLUSTERED_SIZE = 50;
     private static final int UNCLUSTERED_REACH = 8;
     private static final int UNCLUSTERED_SIZE = 15;
 
-    public HolystoneColumnsFeature(Codec<ColumnFeatureConfiguration> pCodec) {
-        super(pCodec);
+    public HolystoneColumnsFeature(Codec<ColumnFeatureConfiguration> codec) {
+        super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<ColumnFeatureConfiguration> pContext) {
-        int i = pContext.chunkGenerator().getSeaLevel();
-        BlockPos blockpos = pContext.origin();
-        WorldGenLevel worldgenlevel = pContext.level();
-        RandomSource randomsource = pContext.random();
-        ColumnFeatureConfiguration columnfeatureconfiguration = pContext.config();
-        if (!canPlaceAt(worldgenlevel, blockpos.mutable())) {
-            return false;
-        } else {
-            int j = columnfeatureconfiguration.height().sample(randomsource);
-            boolean flag = randomsource.nextFloat() < 0.9F;
-            int k = Math.min(j, flag ? CLUSTERED_REACH : UNCLUSTERED_REACH);
-            int l = flag ? CLUSTERED_SIZE : UNCLUSTERED_SIZE;
-            boolean flag1 = false;
+    @Override
+    public boolean place(FeaturePlaceContext<ColumnFeatureConfiguration> context) {
+        BlockPos origin = context.origin();
+        WorldGenLevel level = context.level();
+        RandomSource random = context.random();
+        ColumnFeatureConfiguration config = context.config();
 
-            for (BlockPos blockpos1 : BlockPos.randomBetweenClosed(randomsource, l, blockpos.getX() - k, blockpos.getY(), blockpos.getZ() - k, blockpos.getX() + k, blockpos.getY(), blockpos.getZ() + k)) {
-                int i1 = j - blockpos1.distManhattan(blockpos);
-                if (i1 >= 0) {
-                    flag1 |= this.placeColumn(worldgenlevel, i, blockpos1, i1, columnfeatureconfiguration.reach().sample(randomsource));
-                }
+        if (!canPlaceAt(level, origin.mutable())) {
+            return false;
+        }
+
+        int height = config.height().sample(random);
+        boolean isClustered = random.nextFloat() < 0.9F;
+        int maxReach = Math.min(height, isClustered ? CLUSTERED_REACH : UNCLUSTERED_REACH);
+        int clusterSize = isClustered ? CLUSTERED_SIZE : UNCLUSTERED_SIZE;
+        boolean placedAny = false;
+
+        Map<BlockPos, Integer> highestBlocks = new HashMap<>();
+
+        Iterable<BlockPos> randomPositions = BlockPos.randomBetweenClosed(
+                random, clusterSize,
+                origin.getX() - maxReach, origin.getY(), origin.getZ() - maxReach,
+                origin.getX() + maxReach, origin.getY(), origin.getZ() + maxReach
+        );
+
+        for (BlockPos randomPos : randomPositions) {
+            int distance = height - randomPos.distManhattan(origin);
+            if (distance >= 0) {
+                placedAny |= this.placeColumn(level, randomPos, distance, config.reach().sample(random), highestBlocks);
+            }
+        }
+
+        for (Map.Entry<BlockPos, Integer> entry : highestBlocks.entrySet()) {
+            BlockPos xzPos = entry.getKey();
+            int highestY = entry.getValue();
+
+            BlockPos holystonePos = new BlockPos(xzPos.getX(), highestY + 1, xzPos.getZ());
+
+            if (isAirOrCloud(level, holystonePos) && random.nextFloat() > 0.75F) {
+                this.setBlock(level, holystonePos, DABlocks.POINTED_HOLYSTONE.get().defaultBlockState());
+            }
+        }
+
+        return placedAny;
+    }
+
+    private boolean placeColumn(LevelAccessor level, BlockPos pos, int distance, int reach, Map<BlockPos, Integer> highestBlocks) {
+        boolean placedAny = false;
+
+        Iterable<BlockPos> targetPositions = BlockPos.betweenClosed(
+                pos.getX() - reach, pos.getY(), pos.getZ() - reach,
+                pos.getX() + reach, pos.getY(), pos.getZ() + reach
+        );
+
+        for (BlockPos targetPos : targetPositions) {
+            int manhattanDist = targetPos.distManhattan(pos);
+
+            BlockPos startPos = isAirOrCloud(level, targetPos)
+                    ? findSurface(level, targetPos.mutable(), distance)
+                    : findAir(level, targetPos.mutable(), distance);
+
+            if (startPos == null) {
+                continue;
             }
 
-            return flag1;
-        }
-    }
+            int columnHeight = distance - (manhattanDist / 2);
+            BlockPos.MutableBlockPos mutablePos = startPos.mutable();
 
-    private boolean placeColumn(LevelAccessor pLevel, int pSeaLevel, BlockPos pPos, int pDistance, int pReach) {
-        boolean flag = false;
-        Iterator<BlockPos> var7 = BlockPos.betweenClosed(pPos.getX() - pReach, pPos.getY(), pPos.getZ() - pReach, pPos.getX() + pReach, pPos.getY(), pPos.getZ() + pReach).iterator();
+            for (; columnHeight >= 0; --columnHeight) {
+                if (isAirOrCloud(level, mutablePos)) {
+                    this.setBlock(level, mutablePos, AetherBlocks.HOLYSTONE.get().defaultBlockState());
 
-        while(true) {
-            int i;
-            BlockPos blockpos1;
-            do {
-                if (!var7.hasNext()) {
-                    return flag;
-                }
-
-                BlockPos blockpos = var7.next();
-                i = blockpos.distManhattan(pPos);
-                blockpos1 = isAirOrCloud(pLevel, blockpos) ? findSurface(pLevel, pSeaLevel, blockpos.mutable(), i) : findAir(pLevel, blockpos.mutable(), i);
-            } while(blockpos1 == null);
-
-            int j = pDistance - i / 2;
-
-            for(BlockPos.MutableBlockPos blockpos$mutableblockpos = blockpos1.mutable(); j >= 0; --j) {
-                if (isAirOrCloud(pLevel, blockpos$mutableblockpos)) {
-                    this.setBlock(pLevel, blockpos$mutableblockpos, AetherBlocks.HOLYSTONE.get().defaultBlockState());
-                    blockpos$mutableblockpos.move(Direction.UP);
-                    flag = true;
-                } else {
-                    if (!pLevel.getBlockState(blockpos$mutableblockpos).is(AetherBlocks.HOLYSTONE.get())) {
-                        break;
+                    // Update our map with the highest Y coordinate for this specific X,Z column
+                    BlockPos xzPos = new BlockPos(mutablePos.getX(), 0, mutablePos.getZ());
+                    int currentY = mutablePos.getY();
+                    if (!highestBlocks.containsKey(xzPos) || highestBlocks.get(xzPos) < currentY) {
+                        highestBlocks.put(xzPos, currentY);
                     }
 
-                    blockpos$mutableblockpos.move(Direction.UP);
+                    mutablePos.move(Direction.UP);
+                    placedAny = true;
+                } else {
+                    if (!level.getBlockState(mutablePos).is(AetherBlocks.HOLYSTONE.get())) {
+                        break;
+                    }
+                    mutablePos.move(Direction.UP);
                 }
             }
         }
+
+        return placedAny;
     }
 
     @Nullable
-    private static BlockPos findSurface(LevelAccessor pLevel, int pSeaLevel, BlockPos.MutableBlockPos pPos, int pDistance) {
-        while(pPos.getY() > pLevel.getMinBuildHeight() + 1 && pDistance > 0) {
-            --pDistance;
-            if (canPlaceAt(pLevel, pPos)) {
-                return pPos;
+    private static BlockPos findSurface(LevelAccessor level, BlockPos.MutableBlockPos pos, int distance) {
+        while (pos.getY() > level.getMinBuildHeight() + 1 && distance > 0) {
+            --distance;
+            if (canPlaceAt(level, pos)) {
+                return pos;
             }
-
-            pPos.move(Direction.DOWN);
+            pos.move(Direction.DOWN);
         }
-
         return null;
     }
 
-    private static boolean canPlaceAt(LevelAccessor pLevel, BlockPos.MutableBlockPos pPos) {
-        if (!isAirOrCloud(pLevel, pPos)) {
+    private static boolean canPlaceAt(LevelAccessor level, BlockPos.MutableBlockPos pos) {
+        if (!isAirOrCloud(level, pos)) {
             return false;
-        } else {
-            BlockState blockstate = pLevel.getBlockState(pPos.move(Direction.DOWN));
-            pPos.move(Direction.UP);
-            return !blockstate.isAir() && !CANNOT_PLACE_ON.contains(blockstate.getBlock());
         }
+
+        pos.move(Direction.DOWN);
+        BlockState stateBelow = level.getBlockState(pos);
+        pos.move(Direction.UP);
+
+        return !stateBelow.isAir() && !CANNOT_PLACE_ON.contains(stateBelow.getBlock());
     }
 
     @Nullable
-    private static BlockPos findAir(LevelAccessor pLevel, BlockPos.MutableBlockPos pPos, int pDistance) {
-        while(pPos.getY() < pLevel.getMaxBuildHeight() && pDistance > 0) {
-            --pDistance;
-            BlockState blockstate = pLevel.getBlockState(pPos);
-            if (CANNOT_PLACE_ON.contains(blockstate.getBlock())) {
+    private static BlockPos findAir(LevelAccessor level, BlockPos.MutableBlockPos pos, int distance) {
+        while (pos.getY() < level.getMaxBuildHeight() && distance > 0) {
+            --distance;
+            BlockState state = level.getBlockState(pos);
+
+            if (CANNOT_PLACE_ON.contains(state.getBlock())) {
                 return null;
             }
-
-            if (blockstate.isAir()) {
-                return pPos;
+            if (state.isAir()) {
+                return pos;
             }
-
-            pPos.move(Direction.UP);
+            pos.move(Direction.UP);
         }
-
         return null;
     }
 
-    private static boolean isAirOrCloud(LevelAccessor pLevel, BlockPos pPos) {
-        BlockState blockstate = pLevel.getBlockState(pPos);
-        return blockstate.isAir() || blockstate.is(AetherTags.Blocks.AERCLOUDS);
-    }
-
-    static {
-        CANNOT_PLACE_ON = ImmutableList.of(Blocks.WATER, Blocks.BEDROCK, Blocks.CHEST, Blocks.SPAWNER,
-                AetherBlocks.COLD_AERCLOUD.get(), AetherBlocks.GOLDEN_AERCLOUD.get(), AetherBlocks.BLUE_AERCLOUD.get(),
-                DABlocks.STERLING_AERCLOUD.get());
+    private static boolean isAirOrCloud(LevelAccessor level, BlockPos pos) {
+        BlockState state = level.getBlockState(pos);
+        return state.isAir() || state.is(AetherTags.Blocks.AERCLOUDS);
     }
 }

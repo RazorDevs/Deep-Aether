@@ -486,7 +486,7 @@ public class DAConfiguredFeatures {
         register(context, TOTEM, DAFeatures.TOTEM.get(), NoneFeatureConfiguration.INSTANCE);
 
         register(context, HOLYSTONE_COLUMN, DAFeatures.HOLYSTONE_COLUMN.get(), new ColumnFeatureConfiguration(
-                ConstantInt.of(2), UniformInt.of(4, 8)
+                ConstantInt.of(1), UniformInt.of(5, 10)
         ));
 
         register(context, HOLYSTONE_SPIKE, DAFeatures.HOLYSTONE_SPIKE.get(), FeatureConfiguration.NONE);

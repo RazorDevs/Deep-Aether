@@ -155,6 +155,7 @@ public class DATabs {
                     DABlocks.POLISHED_CLORITE_WALL.get(),
 
                     DABlocks.CLORITE_PILLAR.get(),
+                    DABlocks.POINTED_HOLYSTONE.get(),
 
             }, event);
 

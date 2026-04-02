@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "vertical_direction=down,waterlogged=false": {
+      "model": "deep_aether:block/pointed_holystone_down"
+    },
+    "vertical_direction=up,waterlogged=false": {
+      "model": "deep_aether:block/pointed_holystone_up"
+    },
+    "vertical_direction=down,waterlogged=true": {
+      "model": "deep_aether:block/pointed_holystone_down"
+    },
+    "vertical_direction=up,waterlogged=true": {
+      "model": "deep_aether:block/pointed_holystone_up"
+    }
+  }
+}

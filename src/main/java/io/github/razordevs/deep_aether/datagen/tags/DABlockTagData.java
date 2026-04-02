@@ -726,6 +726,7 @@ public class DABlockTagData extends BlockTagsProvider {
                 DABlocks.POLISHED_CLORITE_SLAB.get(),
                 DABlocks.POLISHED_CLORITE_WALL.get(),
                 DABlocks.CLORITE_PILLAR.get(),
+                DABlocks.POINTED_HOLYSTONE.get(),
 
                 DABlocks.SKYJADE_CHAIN.get(),
                 DABlocks.SKYJADE_LANTERN.get(),
