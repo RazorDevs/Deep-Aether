@@ -196,6 +196,7 @@ public class DABlockLoot extends AetherBlockLootSubProvider {
         this.dropSelf(DABlocks.MOA_TOTEM.get());
         this.dropSelf(DABlocks.ZEPHYR_TOTEM.get());
         this.dropSelf(DABlocks.AERWHALE_TOTEM.get());
+        this.dropNone(DABlocks.WARDING_TOTEM.get());
 
         //Aether Mud set
         this.dropSelfDouble(DABlocks.AETHER_MUD.get());

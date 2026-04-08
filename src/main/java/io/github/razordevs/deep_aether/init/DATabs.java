@@ -264,7 +264,8 @@ public class DATabs {
                     DABlocks.SUNROOT_LOG.get(),
                     DABlocks.AERWHALE_TOTEM.get(),
                     DABlocks.MOA_TOTEM.get(),
-                    DABlocks.ZEPHYR_TOTEM.get()
+                    DABlocks.ZEPHYR_TOTEM.get(),
+                    DABlocks.WARDING_TOTEM.get(),
             }, event);
 
             addToTab(AetherBlocks.DECORATED_HOLIDAY_LEAVES.get().asItem(), new Block[]{

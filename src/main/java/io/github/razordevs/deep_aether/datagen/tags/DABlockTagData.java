@@ -877,7 +877,8 @@ public class DABlockTagData extends BlockTagsProvider {
         tag(DATags.Blocks.TOTEMS).add(
                 DABlocks.MOA_TOTEM.get(),
                 DABlocks.ZEPHYR_TOTEM.get(),
-                DABlocks.AERWHALE_TOTEM.get()
+                DABlocks.AERWHALE_TOTEM.get(),
+                DABlocks.WARDING_TOTEM.get()
         );
         tag(BlockTags.DIRT).add(
                 DABlocks.AETHER_MUD.get(),

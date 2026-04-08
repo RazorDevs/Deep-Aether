@@ -29,6 +29,7 @@ import io.github.razordevs.deep_aether.block.misc.TrappedPillarBlock;
 import io.github.razordevs.deep_aether.block.natural.*;
 import io.github.razordevs.deep_aether.block.utility.CombinerBlock;
 import io.github.razordevs.deep_aether.block.utility.PoisonCauldronBlock;
+import io.github.razordevs.deep_aether.block.utility.WardingTotemBlock;
 import io.github.razordevs.deep_aether.datagen.registry.DAConfiguredFeatures;
 import io.github.razordevs.deep_aether.world.feature.tree.DATreeGrower;
 import net.minecraft.core.BlockPos;
@@ -470,9 +471,11 @@ public class DABlocks {
 	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOM_BLOCK = registerDisabledBlock("blue_aercloud_mushroom_block", () -> new HalfTransperentHugeMushroomBlock((Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WOOL).noOcclusion().dynamicShape().isRedstoneConductor(DABlocks::never).isSuffocating(DABlocks::never).isViewBlocking(DABlocks::never).forceSolidOn())));
 	public static final DeferredBlock<Block> BLUE_AERCLOUD_MUSHROOMS = registerDisabledBlock("blue_aercloud_mushrooms", () -> new AercloudMushroomBlock(DAConfiguredFeatures.HUGE_BLUE_AERCLOUD_MUSHROOM, Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).noOcclusion()));
 
-	public static final DeferredBlock<Block> MOA_TOTEM = registerDisabledBlock("moa_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
-	public static final DeferredBlock<Block> ZEPHYR_TOTEM = registerDisabledBlock("zephyr_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
-	public static final DeferredBlock<Block> AERWHALE_TOTEM = registerDisabledBlock("aerwhale_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
+	public static final DeferredBlock<Block> MOA_TOTEM = registerBlock("moa_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
+	public static final DeferredBlock<Block> ZEPHYR_TOTEM = registerBlock("zephyr_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
+	public static final DeferredBlock<Block> AERWHALE_TOTEM = registerBlock("aerwhale_totem", () -> new TotemBlock(Block.Properties.of().noOcclusion()));
+
+    public static final DeferredBlock<Block> WARDING_TOTEM = registerBlock("warding_totem", () -> new WardingTotemBlock(Block.Properties.of().noOcclusion()));
 
 	public static final DeferredBlock<Block> RAIN_AERCLOUD = registerDisabledBlock("rain_aercloud", () -> new AercloudBlock(BlockBehaviour.Properties.ofFullCopy(AetherBlocks.COLD_AERCLOUD.get()).forceSolidOn()));
 
