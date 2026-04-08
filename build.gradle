@@ -1,3 +1,11 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.guardsquare:proguard-gradle:7.9.0'
+    }
+}
 
 plugins {
     id 'java-library'
@@ -26,6 +34,7 @@ neoForge {
     runs {
         configureEach {
             systemProperty 'forge.logging.markers', 'REGISTRIES'
+            systemProperty 'owo.forceDisableDebug', 'true'
             logLevel = org.slf4j.event.Level.INFO
         }
 
@@ -72,6 +81,10 @@ sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
 
+processResources {
+    exclude '.cache/'
+}
+
 dependencies {
     //Aether Dependencies
     implementation("com.aetherteam.aether:aether:${project.aether_version}")
@@ -89,6 +102,7 @@ dependencies {
         }
     }
     implementation("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}")
+
     jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
         version {
             strictly "[${project.terrablender_version},)"
@@ -104,7 +118,7 @@ dependencies {
     compileOnly "curse.maven:aether-protect-your-moa-1016303:6040716"
     compileOnly "curse.maven:aether-emissivity-916028:6392126"
     compileOnly "curse.maven:aether-treasure-reforging-1016302:6040710"
-    implementation "com.aetherteam.beyondparity:aether_beyond_parity:${project.aether_beyond_parity_version}"
+    compileOnly "com.aetherteam.beyondparity:aether_beyond_parity:${project.aether_beyond_parity_version}"
     //implementation "com.aetherteam.genesis:aether-genesis:${project.aether_genesis_version}"
 
     compileOnly "com.aetherteam.genesis:aether_genesis:1.21.1-0.0.1-neoforge"
@@ -141,22 +155,6 @@ repositories {
     }
     mavenCentral()
 }
-
-
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
-
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
@@ -202,4 +200,71 @@ compileJava {
 
 build {
     dependsOn 'jarJar'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }/*
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/RazorDevs/Deep-Aether"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }*/
+    }
+}
+
+/*
+curseforge {
+    project {
+        apiKey = System.getenv("CURSEFORGE_TOKEN")
+        id = "${curseforge_id}"
+        releaseType = "${version_type}"
+        changelog = file("$rootDir/docs/CHANGELOG.md")
+        changelogType = "markdown"
+        addGameVersion("${minecraft_version}")
+        addGameVersion("NeoForge")
+        mainArtifact(tasks.jar) {
+            displayName = "${project.mod_name} - ${version}"
+            relations {
+                requiredDependency "owo-lib"
+                embeddedLibrary "accessories"
+                embeddedLibrary "cumulus"
+            }
+        }
+    }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "${modrinth_id}"
+    versionNumber = "${version}"
+    versionType = "${version_type}"
+    versionName = "${mod_name} - ${version}"
+    changelog = new File("$rootDir/docs/CHANGELOG.md").text
+    uploadFile = tasks.jar
+    gameVersions = ["${minecraft_version}"]
+    loaders = ["neoforge"]
+    dependencies {
+        required.project "owo-lib"
+        embedded.version "accessories", "${project.accessories_prod_version}+${project.minecraft_version}"
+        embedded.version "cumulus", "${project.cumulus_version}"
+    }
+}
+ */
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
 }

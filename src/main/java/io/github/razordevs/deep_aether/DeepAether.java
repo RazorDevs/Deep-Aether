@@ -1,6 +1,5 @@
 package io.github.razordevs.deep_aether;
 
-
 import com.aetherteam.aether.block.dispenser.AetherDispenseBehaviors;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
@@ -167,7 +166,6 @@ public class DeepAether {
 
 
 		if (dist == Dist.CLIENT) {
-			//DAMenus.MENUS.register(bus);
 			bus.addListener(DARecipeCategories::registerRecipeCategories);
 		}
 	}

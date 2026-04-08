@@ -2,7 +2,7 @@
   "item.music_disc.a_morning_wish": {
     "sounds": [
       {
-        "name": "deep_aether:emile-van-krieken-a-morning-wish",
+        "name": "deep_aether:emile-van-krieken-a-morning-wish_mono",
         "stream": true
       }
     ]
@@ -10,7 +10,7 @@
   "item.music_disc.nabooru": {
     "sounds": [
       {
-        "name": "deep_aether:emile-van-krieken-nabooru",
+        "name": "deep_aether:emile-van-krieken-nabooru_mono",
         "stream": true
       }
     ]
@@ -18,7 +18,7 @@
   "item.music_disc.cyclone": {
     "sounds": [
       {
-        "name": "deep_aether:quizzly-cyclone",
+        "name": "deep_aether:quizzly-cyclone_mono",
         "stream": true
       }
     ]
@@ -26,7 +26,7 @@
   "item.music_disc.above_the_rain": {
     "sounds": [
       {
-        "name": "deep_aether:quizzly-above-the-rain",
+        "name": "deep_aether:quizzly-above-the-rain_mono",
         "stream": true
       }
     ]
@@ -58,7 +58,7 @@
   "item.music_disc.variations": {
     "sounds": [
       {
-        "name": "deep_aether:aethyus-variations",
+        "name": "deep_aether:aethyus-variations_mono",
         "stream": true
       }
     ]
