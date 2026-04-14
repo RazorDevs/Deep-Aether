@@ -5,31 +5,49 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 
-
 public class DARareRegion {
 
     public static void addBiomes() {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
-        Climate.Parameter tempMushroomCloud = Climate.Parameter.span(0.7F, 1.0F);
-        Climate.Parameter tempSkyroot = Climate.Parameter.span(0.0F, 0.7F);
-        //Climate.Parameter tempStorm = Climate.Parameter.span(-0.5F, 0.7F);
-        Climate.Parameter tempCloud = Climate.Parameter.span(-0.8F, 0.0F);
-        Climate.Parameter tempSkyroot2 = Climate.Parameter.span(-1.0F, -0.8F);
+        Climate.Parameter tRareCold = Climate.Parameter.span(-1.5F, -0.75F);
+        Climate.Parameter tRareHot = Climate.Parameter.span(0.6F, 1.5F);
 
-        //Mushroom + Normal cloud
-        addBiome(new Climate.ParameterPoint(tempMushroomCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-0.5F, 1.5F), fullRange, 0),
-                DABiomes.LUMINESCENT_FOREST);
-        addBiome(new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, Climate.Parameter.span(-1.5F, -0.5F), fullRange, 0),
-                DABiomes.CLOUD);
-        addBiome(new Climate.ParameterPoint(tempMushroomCloud, Climate.Parameter.span(-1.0F, 0.2F), fullRange, fullRange, Climate.Parameter.span(-1.5F, -0.5F), fullRange, 0),
-                DABiomes.CLOUD); //Overgrown cloud goes here
+        Climate.Parameter hDry    = Climate.Parameter.span(-1.5F, -0.5F);
+        Climate.Parameter hMid    = Climate.Parameter.span(-0.5F, 0.5F);
+        Climate.Parameter hWet    = Climate.Parameter.span(0.5F, 1.5F);
 
-        //Normal cloud
-        addBiome(new Climate.ParameterPoint(tempCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-0.5F, 1.5F), fullRange, 0),
+        Climate.Parameter depthTop = Climate.Parameter.span(-1.5F, 0.15F);
+        Climate.Parameter depthBottom = Climate.Parameter.span(0.15F, 1.5F);
+
+
+        addBiome(new Climate.ParameterPoint(tRareHot, hDry, fullRange, fullRange, depthTop, fullRange, 0),
+                DABiomes.CLOUD); // Placeholder for Overgrown Cloud
+        addBiome(new Climate.ParameterPoint(tRareHot, hMid, fullRange, fullRange, depthTop, fullRange, 0),
+                DABiomes.CLOUD); // Normal Cloud
+        addBiome(new Climate.ParameterPoint(tRareHot, hWet, fullRange, fullRange, depthTop, fullRange, 0),
+                DABiomes.CLOUD); // Normal Cloud
+
+        addBiome(new Climate.ParameterPoint(tRareHot, hDry, fullRange, fullRange, depthBottom, fullRange, 0),
                 DABiomes.LUMINESCENT_FOREST);
-        addBiome(new Climate.ParameterPoint(tempCloud, fullRange, fullRange, fullRange, Climate.Parameter.span(-1.5F, -0.5F), fullRange, 0),
-                DABiomes.CLOUD);
+        addBiome(new Climate.ParameterPoint(tRareHot, hMid, fullRange, fullRange, depthBottom, fullRange, 0),
+                DABiomes.LUMINESCENT_FOREST);
+        addBiome(new Climate.ParameterPoint(tRareHot, hWet, fullRange, fullRange, depthBottom, fullRange, 0),
+                DABiomes.LUMINESCENT_FOREST);
+
+        addBiome(new Climate.ParameterPoint(tRareCold, hDry, fullRange, fullRange, depthTop, fullRange, 0),
+                DABiomes.CLOUD); // Placeholder for Overgrown Cloud
+        addBiome(new Climate.ParameterPoint(tRareCold, hMid, fullRange, fullRange, depthTop, fullRange, 0),
+                DABiomes.CLOUD); // Normal Cloud
+        addBiome(new Climate.ParameterPoint(tRareCold, hWet, fullRange, fullRange, depthTop, fullRange, 0),
+                DABiomes.CLOUD); // Normal Cloud
+
+        addBiome(new Climate.ParameterPoint(tRareCold, hDry, fullRange, fullRange, depthBottom, fullRange, 0),
+                DABiomes.LUMINESCENT_FOREST);
+        addBiome(new Climate.ParameterPoint(tRareCold, hMid, fullRange, fullRange, depthBottom, fullRange, 0),
+                DABiomes.LUMINESCENT_FOREST);
+        addBiome(new Climate.ParameterPoint(tRareCold, hWet, fullRange, fullRange, depthBottom, fullRange, 0),
+                DABiomes.LUMINESCENT_FOREST);
     }
 
     private static void addBiome(Climate.ParameterPoint parameters, ResourceKey<Biome> biome) {

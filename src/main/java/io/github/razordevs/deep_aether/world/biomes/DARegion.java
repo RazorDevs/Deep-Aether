@@ -7,80 +7,53 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 
-
 public class DARegion {
-    //TODO: Massive Biome rebalancing
-    //TODO: Weight parameter reintroduction?
 
-    //TODO: Investigate chunk loading times which are awful somehow
-
-    /**
-     * For reference see <a href="https://minecraft.fandom.com/wiki/Biome#Overworld_3">Biomes on Wiki</a>
-     */
     public static void addBiomes() {
-        Climate.Parameter fullRange = Climate.Parameter.span(-1.0F, 1.0F);
-        Climate.Parameter temps1 = Climate.Parameter.span(-1.0F, -0.8F);
-        Climate.Parameter temps2 = Climate.Parameter.span(-0.8F, 0.0F);
-        Climate.Parameter temps3 = Climate.Parameter.span(0.0F, 0.4F);
-        Climate.Parameter temps4 = Climate.Parameter.span(0.4F, 0.93F);
-        Climate.Parameter temps5 = Climate.Parameter.span(0.93F, 0.94F);
-        Climate.Parameter temps6 = Climate.Parameter.span(0.94F, 1.0F);
+        Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
-        Climate.Parameter tempWoodland = Climate.Parameter.span(-1.5F, -0.8F);
-        Climate.Parameter tempYagroot = Climate.Parameter.span(-0.8F, -0.4F);
-        Climate.Parameter tempAerglow = Climate.Parameter.span(-0.4F, 0.0F);
-        Climate.Parameter tempDefault3 = Climate.Parameter.span(0.0F, 0.4F);
-        Climate.Parameter tempDefault4 = Climate.Parameter.span(0.4F, 0.8F);
-        Climate.Parameter tempDefault5 = Climate.Parameter.span(0.8F, 1.5F);
+        Climate.Parameter tCold   = Climate.Parameter.span(-1.5F, -0.4F);
+        Climate.Parameter tCool   = Climate.Parameter.span(-0.4F, -0.1F);
+        Climate.Parameter tCenter = Climate.Parameter.span(-0.1F, 0.15F);
+        Climate.Parameter tWarm   = Climate.Parameter.span(0.15F, 0.5F);
+        Climate.Parameter tHot    = Climate.Parameter.span(0.5F, 1.5F);
 
-        //Parameter mapping: temperature, humidity, continentalness, erosion, depth, weirdness, offset
-
-        //Woodland
-        addBiome(new Climate.ParameterPoint(tempWoodland, fullRange, fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCold, Climate.Parameter.span(-1.5F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_WOODLAND);
-        addBiome(new Climate.ParameterPoint(tempWoodland, tempDefault3, fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.SACRED_LANDS);
-
-        //Yagroot
-        addBiome(new Climate.ParameterPoint(tempYagroot, Climate.Parameter.span(-1.5F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCold, Climate.Parameter.span(-0.2F, 0.6F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_MEADOW);
-        addBiome(new Climate.ParameterPoint(tempYagroot, Climate.Parameter.span(-0.2F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCold, Climate.Parameter.span(0.6F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.YAGROOT_SWAMP);
 
-        //Aerglow
-        addBiome(new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(-1.5F, -0.6F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCool, Climate.Parameter.span(-1.5F, -0.5F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.BLUE_AERGLOW_FOREST);
-        addBiome(new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(-0.6F, 0.1F), fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.AERGLOW_FOREST);
-        addBiome(new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(0.1F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCool, Climate.Parameter.span(-0.5F, 0.1F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.MYSTIC_AERGLOW_FOREST);
-        addBiome(new Climate.ParameterPoint(tempAerglow, Climate.Parameter.span(0.3F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCool, Climate.Parameter.span(0.1F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_GROVE);
 
-        // Sacred Lands
-        addBiome(new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.33F, 0.33F), fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.SACRED_LANDS);
-
-        // Row 3
-        addBiome(new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-1.5F, -0.4F), fullRange, fullRange, fullRange, fullRange, 0),
-                AetherBiomes.SKYROOT_GROVE);
-        addBiome(new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(-0.4F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tCenter, Climate.Parameter.span(-1.5F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_FOREST);
-        addBiome(new Climate.ParameterPoint(tempDefault3, Climate.Parameter.span(0.0F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.AERLAVENDER_FIELDS);
+        addBiome(new Climate.ParameterPoint(tCenter, Climate.Parameter.span(-0.3F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),
+                DABiomes.AERLAVENDER_FIELDS); // Central, very common, but highly fragmented
+        addBiome(new Climate.ParameterPoint(tCenter, Climate.Parameter.span(0.3F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
+                AetherBiomes.SKYROOT_FOREST);
 
-        // Row 4
-        addBiome(new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-1.5F, -0.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.AERGLOW_FOREST);
-        addBiome(new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.5F, -0.1F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tWarm, Climate.Parameter.span(-1.5F, -0.4F), fullRange, fullRange, fullRange, fullRange, 0),
                 DABiomes.GOLDEN_GROVE);
-        addBiome(new Climate.ParameterPoint(tempDefault4, Climate.Parameter.span(-0.1F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.GOLDEN_HEIGHTS);
-        // Row 5
-        addBiome(new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(-1.5F, 0.7F), fullRange, fullRange, fullRange, fullRange, 0),
-                DABiomes.BLUE_AERGLOW_FOREST);
-        addBiome(new Climate.ParameterPoint(tempDefault5, Climate.Parameter.span(0.7F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
+        addBiome(new Climate.ParameterPoint(tWarm, Climate.Parameter.span(-0.4F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
+                DABiomes.AERGLOW_FOREST);
+        addBiome(new Climate.ParameterPoint(tWarm, Climate.Parameter.span(0.0F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
+                DABiomes.AERLAVENDER_FIELDS); // Bleeds into the Center row
+        addBiome(new Climate.ParameterPoint(tWarm, Climate.Parameter.span(0.5F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
                 AetherBiomes.SKYROOT_FOREST);
+
+        addBiome(new Climate.ParameterPoint(tHot, Climate.Parameter.span(-1.5F, -0.1F), fullRange, fullRange, fullRange, fullRange, 0),
+                DABiomes.GOLDEN_HEIGHTS);
+        addBiome(new Climate.ParameterPoint(tHot, Climate.Parameter.span(-0.1F, 0.4F), fullRange, fullRange, fullRange, fullRange, 0),
+                DABiomes.GOLDEN_GROVE);
+        addBiome(new Climate.ParameterPoint(tHot, Climate.Parameter.span(0.4F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
+                AetherBiomes.SKYROOT_WOODLAND);
 
 
         if (DeepAetherConfig.COMMON.disable_yagroot_swap_biomes.get()){
@@ -95,9 +68,6 @@ public class DARegion {
             replaceBiome(DABiomes.GOLDEN_HEIGHTS, AetherBiomes.SKYROOT_GROVE);
             replaceBiome(DABiomes.GOLDEN_GROVE, AetherBiomes.SKYROOT_GROVE);
         }
-//        if (DeepAetherConfig.COMMON.disable_aerlavenender_field_biomes.get()){
-//            replaceBiome(DABiomes.AERLAVENDER_FIELDS, AetherBiomes.SKYROOT_MEADOW);
-//        }
         if (DeepAetherConfig.COMMON.disable_sacred_lands_biomes.get()){
             replaceBiome(AetherBiomes.SKYROOT_WOODLAND, AetherBiomes.SKYROOT_WOODLAND);
         }
