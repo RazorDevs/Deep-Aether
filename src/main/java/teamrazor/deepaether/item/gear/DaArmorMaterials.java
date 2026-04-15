@@ -8,8 +8,6 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.init.DASounds;
 
@@ -94,7 +92,6 @@ public enum DaArmorMaterials implements StringRepresentable, ArmorMaterial {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public String getName() {
         return this.name;
     }
