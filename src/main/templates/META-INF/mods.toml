@@ -42,3 +42,10 @@ versionRange="[1.0.1,)"
 ordering="NONE"
 side="BOTH"
 
+[[dependencies.${mod_id}]]
+modId="lost_aether_content"
+versionRange="[1.1.0,)"
+mandatory=false
+ordering="AFTER"
+side="BOTH"
+
