@@ -13,8 +13,8 @@
 - uk_ua translation
 
 ### Builderdog
-- A lot of Textures including:
-  - Improved Leaves
+- A lot of textures including:
+  - Improved leaves
   - Sunroot wood set
   - Ancient Aether compat
 
@@ -26,4 +26,7 @@
 - Restructured en_us.json
 
 ### VoidLeech 
-- Fixed poison on lava interaction for 1.20.1 
+- Fixed poison on lava interaction for 1.20.1
+ 
+### Bobbyperson
+- Fixed a crash from an unchecked cast in the onPlayerUpdate method
