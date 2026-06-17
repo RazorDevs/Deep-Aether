@@ -257,8 +257,8 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onPlayerUpdate(EntityTickEvent.Post event) {
-        if (event.getEntity().hasData(DAAttachments.PLAYER))
-            event.getEntity().getData(DAAttachments.PLAYER).onUpdate(((Player) event.getEntity()));
+        if (event.getEntity() instanceof Player player && player.hasData(DAAttachments.PLAYER))
+            player.getData(DAAttachments.PLAYER).onUpdate(player);
     }
 
     @SubscribeEvent
