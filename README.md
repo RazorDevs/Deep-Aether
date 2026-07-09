@@ -1,15 +1,21 @@
 # Deep Aether
-![](https://media.discordapp.net/attachments/1195047956429156544/1301691103292030996/jojo.png?ex=67260e8f&is=6724bd0f&hm=6c594d8c06556224dc18c179558e2676e58fe8e64e687e0f87c57299d9b2a20b&=&format=webp&quality=lossless&width=1072&height=602)
+![](https://media.forgecdn.net/attachments/1082/254/deep_aether.png)
 
-# Check out our Discord and Download pages!
-
+[![CurseForge](https://cdn.sqidgeon.uk/cozy/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
+[![Modrinth](https://cdn.sqidgeon.uk/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/deep-aether)
+![](https://cdn.sqidgeon.uk/cozy/supported/neoforge_vector.svg)
+![](https://cdn.sqidgeon.uk/cozy/unsupported/fabric_vector.svg)
+[![Discord](https://cdn.sqidgeon.uk/cozy/social/discord-plural_vector.svg)](https://discord.gg/AsDEG7smfn)
+[![Github](https://cdn.sqidgeon.uk/cozy/available/github_vector.svg)](https://github.com/RazorDevs/Deep-Aether)
+[![Issues](https://cdn.sqidgeon.uk/cozy/documentation/issues_vector.svg)](https://github.com/RazorDevs/Deep-Aether/issues)
+<!--- Old Badges
 [![Discord](https://img.shields.io/discord/118816101936267265.svg?label=Discord&logoColor=FFFFFF&logo=discord&color=7289DA&style=flat-square)](https://discord.gg/AsDEG7smfn)
 [![Modloader: Forge](https://img.shields.io/badge/Mod%20Loader-forge-CC974D?style=flat-square)](https://files.minecraftforge.net/net/minecraftforge/forge/)
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/gcHIih5B?color=00AF5C&logo=modrinth&label=Downloads)](https://modrinth.com/mod/deep-aether)
 [![Modrinth Version](https://img.shields.io/modrinth/game-versions/gcHIih5B?color=00AF5C&label=Latest&logo=modrinth&last=true)](https://modrinth.com/mod/deep-aether)
 [![CurseForge Downloads](http://cf.way2muchnoise.eu/852465.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
 [![CurseForge Version](http://cf.way2muchnoise.eu/versions/852465_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/deep-aether)
-
+-->
 # What is this about?
 
 The Deep Aether is an addon for the Aether Mod for Minecraft for 1.19.2 and beyond.
@@ -80,12 +86,10 @@ Mod Cross Compat:
 # Requirements
 
 You'll need of course:
- - Forge (1.19.2 to 1.20.1) or NeoForge (1.20.4+)
- - Aeroblender - This mod is **REQUIRED** for the biomes to work!!
- - The Aether Mod (1.19.2+)
+ - Forge (1.19.2 to 1.20.1) or NeoForge (1.21.1+)
+ - Aeroblender
+ - The Aether Mod
  
- You will also need:
- - GeckoLib
  
 # FAQ
 
@@ -116,12 +120,12 @@ __Q: Can I listen to Deep Aether's Original Soundtrack outside of the game?__
 - Special thanks to careful#4376 (on Discord) for contributing art.
 - Music rights for "Nabooru" and "A Morning Wish" goes to Emile van Krieken.
 
+# License
+
+[![License (LGPL v3.0)](https://img.shields.io/badge/License-LGPL%20v3.0-green.svg?style=flat-square)](https://github.com/The-Aether-Team/The-Aether/blob/1.20.1-develop/LICENSE.txt)
+
 # Former Members
 
 bagu_chan: https://github.com/baguchan
   - Role: Developer
   - Reason for leaving: Real life and health stuff getting in the way
-
-# License
-
-[![License (LGPL v3.0)](https://img.shields.io/badge/License-LGPL%20v3.0-green.svg?style=flat-square)](https://github.com/The-Aether-Team/The-Aether/blob/1.20.1-develop/LICENSE.txt)
