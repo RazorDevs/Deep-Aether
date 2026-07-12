@@ -1,4 +1,4 @@
-# Ascended Quark - Agent Directives
+# Deep Aether - Agent Directives
 
 NeoForge mod for Minecraft `${mc_version}` developed by RazorDevs. Automated agents must strictly adhere to these rules before contributing.
 
