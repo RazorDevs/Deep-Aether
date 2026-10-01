@@ -73,6 +73,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -96,7 +98,7 @@ public class DeepAether {
 
 	//TODO: add it_lang translation
 	//TODO: add se_lang translation
-	//TODO: clean up code
+	//TODO: clean up code (Sisyphus...)
 	//TODO: lore entries in LANG to be revised
 
 	public static final Logger LOGGER = LogUtils.getLogger();
@@ -168,6 +170,9 @@ public class DeepAether {
 		if (dist == Dist.CLIENT) {
 			//DAMenus.MENUS.register(bus);
 			bus.addListener(DARecipeCategories::registerRecipeCategories);
+
+            mod.registerExtensionPoint(IConfigScreenFactory.class,
+                    (mc, parent) -> new ConfigurationScreen(mod, parent));
 		}
 	}
 
