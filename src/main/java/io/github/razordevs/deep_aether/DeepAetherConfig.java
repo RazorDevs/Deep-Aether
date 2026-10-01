@@ -16,6 +16,7 @@ public class DeepAetherConfig {
         public final ConfigValue<Boolean> disable_sacred_lands_biomes;
         public final ConfigValue<Boolean> disable_storm_cloud_and_skyroot_rainforest_biomes;
         public final ConfigValue<Integer> storm_cloud_biome_weight;
+        public final ConfigValue<Double> eots_damage_multiplier;
 
         public final ConfigValue<String> slider_flawless_boss_drop;
         public final ConfigValue<String> valkyrie_queen_flawless_boss_drop;
@@ -86,6 +87,14 @@ public class DeepAetherConfig {
             builder.pop();
 
             builder.push("Gameplay");
+            eots_damage_multiplier = builder
+                    .comment("Damage multiplier applied to the Eye of The Storm")
+                    .translation("config.deep_aether.common.eots_damage_multiplier")
+                    .define("Eye of The Storm Multiplier", 1.0);
+            builder.pop();
+
+
+            builder.push("Gameplay");
             dungeon_compass_range = builder
                     .comment("The range where compasses will look for their respective dungeon")
                     .translation("config.deep_aether.common.gameplay.dungeon_compass_range")
@@ -94,7 +103,7 @@ public class DeepAetherConfig {
 
             builder.push("Biomes");
             deep_aether_biome_weight = builder
-                    .comment("The weighting of Deep Aether regions in the aether")
+                    .comment("The weighting of Deep Aether regions in the Aether")
                     .translation("config.deep_aether.common.gameplay.deep_aether_biome_weight")
                     .define("Deep Aether Biome Weight", 15);
             builder.pop();
@@ -144,7 +153,7 @@ public class DeepAetherConfig {
 
             builder.push("Biomes");
             storm_cloud_biome_weight = builder
-                    .comment("The weighting of Storm Cloud regions in the aether")
+                    .comment("The weighting of Storm Cloud regions in the Aether")
                     .translation("config.deep_aether.common.gameplay.storm_cloud_biome_weight")
                     .define("Storm Cloud Biome Weight", 1);
             builder.pop();

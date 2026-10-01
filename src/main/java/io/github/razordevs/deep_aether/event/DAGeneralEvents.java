@@ -33,7 +33,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.EventPriority;
@@ -253,8 +257,8 @@ public class DAGeneralEvents {
 
     @SubscribeEvent
     public static void onPlayerUpdate(EntityTickEvent.Post event) {
-        if (event.getEntity().hasData(DAAttachments.PLAYER))
-            event.getEntity().getData(DAAttachments.PLAYER).onUpdate(((Player) event.getEntity()));
+        if (event.getEntity() instanceof Player player && player.hasData(DAAttachments.PLAYER))
+            player.getData(DAAttachments.PLAYER).onUpdate(player);
     }
 
     @SubscribeEvent

@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.data.resources.registries.AetherDamageTypes;
 import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
+import io.github.razordevs.deep_aether.DeepAetherConfig;
 import io.github.razordevs.deep_aether.datagen.tags.DATags;
 import io.github.razordevs.deep_aether.entity.living.GentleWind;
 import io.github.razordevs.deep_aether.init.DAEntities;
@@ -99,7 +100,9 @@ public class WindCrystal extends AbstractCrystal {
     private float getDamage() {
         if(this.isFriendly())
             return 6.0F;
-        else return 10.0F;
+        else {
+            return (float) (10.0F + (10.0F * DeepAetherConfig.COMMON.eots_damage_multiplier.get() - 10.0F));
+        }
     }
 
     @Override

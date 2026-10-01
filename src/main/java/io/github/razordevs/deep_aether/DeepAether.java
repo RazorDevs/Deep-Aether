@@ -166,6 +166,7 @@ public class DeepAether {
 
 
 		if (dist == Dist.CLIENT) {
+			//DAMenus.MENUS.register(bus);
 			bus.addListener(DARecipeCategories::registerRecipeCategories);
 		}
 	}
